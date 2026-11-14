@@ -1,0 +1,24 @@
+# Written by code from changes.yaml (version 1); never edited.
+formula: ratio_def
+kind: definition
+statement: A ratio (including a fold change, a fraction and a normalised value) is one quantity divided by another.
+equations:
+- r = a/b
+variables:
+  r: D/D2
+  a: D
+  b: D2
+does_not_apply: a difference, a log ratio, or a mean of per-sample ratios compared with a ratio of means
+tests:
+- given:
+    a: 6.0
+    b: 2.0
+  expect:
+    r: 3.0
+- given:
+    a: 6.0
+    b: 2.0
+  does_not_apply: log2 ratio (1.585) is not the ratio
+cites:
+  text: 'ISO 80000-1:2022 Quantities and units, Part 1: General (quotients of quantities; quantities of dimension one)'
+  url: https://www.iso.org/standard/76921.html

@@ -1,0 +1,35 @@
+# Written by code from changes.yaml (version 25); never edited.
+formula: circularity_def
+kind: definition
+statement: The circularity (form factor) of a planar outline is 4π times its area divided by the square of its perimeter;
+  1 for a circle, towards 0 for an elongated outline.
+equations:
+- c = 4*pi*A/P**2
+variables:
+  c: dimensionless
+  A: area
+  P: length
+does_not_apply: the ISO 9276-6 'circularity' defined as the square root of this form factor, aspect ratio, or roundness from
+  the major axis
+tests:
+- given:
+    A: 3.141592653589793
+    P: 6.283185307179586
+  expect:
+    c: 1.0
+- given:
+    A: 1.0
+    P: 4.0
+  expect:
+    c: 0.7853981633974483
+- given:
+    A: 1.0
+    P: 4.0
+  does_not_apply: the square-root form sqrt(4πA/P^2) gives 0.886 for a square, not 0.785
+cites:
+  text: 'Rasband, ImageJ User Guide, Analyze > Set Measurements: Shape descriptors (Circularity = 4π × area / perimeter²;
+    1.0 a perfect circle, approaching 0 an increasingly elongated shape)'
+  url: https://imagej.net/ij/docs/menus/analyze.html
+  anchor:
+    quote: we assessed the "circularity index" (Circularity = 4π · Area / Perimeter2) [26]
+    where: Results 3.1

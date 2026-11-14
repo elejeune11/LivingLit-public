@@ -1,0 +1,511 @@
+figures:
+  f1h_nadh:
+    file: journal_version.pdf
+    page: 3
+    crop:
+    - 345.0
+    - 448.0
+    - 475.0
+    - 545.0
+    script: figures/f1h_nadh.py
+    unit: F1h
+    kind: vector
+    groups:
+      control_edge:
+        item: F1h_nadh
+        group: c_edge
+        unit_of_value: NADH index
+      control_interior:
+        item: F1h_nadh
+        group: c_int
+        unit_of_value: NADH index
+      infarct_edge:
+        item: F1h_nadh
+        group: i_edge
+        unit_of_value: NADH index
+      infarct_interior:
+        item: F1h_nadh
+        group: i_int
+        unit_of_value: NADH index
+    note: Fig. 1h right panel; vector bars (mean ± s.d.) with black dots, one per organoid; dark green = Edge, light green
+      = Interior; axis has no unit (ratio to dead organoids)
+  f2d_pca:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 374.0
+    - 243.0
+    - 512.0
+    - 372.0
+    script: figures/f2d_pca.py
+    unit: F2cd
+    kind: raster
+    groups:
+      ctrl_pc3:
+        item: F2cd_pca
+        group: ctrl
+        unit_of_value: PC3 coordinate
+      ctrl_pc4:
+        item: F2cd_pca
+        group: ctrl
+        unit_of_value: PC4 coordinate
+      inf_pc3:
+        item: F2cd_pca
+        group: inf
+        unit_of_value: PC3 coordinate
+      inf_pc4:
+        item: F2cd_pca
+        group: inf
+        unit_of_value: PC4 coordinate
+      m_sham_pc3:
+        item: F2cd_pca
+        group: m_sham
+        unit_of_value: PC3 coordinate
+      m_sham_pc4:
+        item: F2cd_pca
+        group: m_sham
+        unit_of_value: PC4 coordinate
+      m_mi_pc3:
+        item: F2cd_pca
+        group: m_mi
+        unit_of_value: PC3 coordinate
+      m_mi_pc4:
+        item: F2cd_pca
+        group: m_mi
+        unit_of_value: PC4 coordinate
+      h_nf_pc3:
+        item: F2cd_pca
+        group: h_nf
+        unit_of_value: PC3 coordinate
+      h_nf_pc4:
+        item: F2cd_pca
+        group: h_nf
+        unit_of_value: PC4 coordinate
+      h_icm_pc3:
+        item: F2cd_pca
+        group: h_icm
+        unit_of_value: PC3 coordinate
+      h_icm_pc4:
+        item: F2cd_pca
+        group: h_icm
+        unit_of_value: PC4 coordinate
+    note: Fig. 2d scatter of sample scores, PC3 (x) vs PC4 (y); each marker read as a _pc3 and a _pc4 point with the same
+      index. Only the human LV markers (blue) each stand alone; organoid (green) and mouse (purple) markers merge into clusters
+      and are not read. Fig. 2c (PC1/PC2 strip plot) is not read; every group there is a merged cluster.
+  f3d_peak_ocr:
+    file: journal_version.pdf
+    page: 6
+    crop:
+    - 345.0
+    - 212.0
+    - 445.0
+    - 320.0
+    script: figures/f3d_peak_ocr.py
+    unit: F3cd
+    kind: vector
+    groups:
+      control:
+        item: F3d_peak_ocr
+        group: ctrl
+        unit_of_value: percentage of non-mitochondrial respiration
+      infarct:
+        item: F3d_peak_ocr
+        group: inf
+        unit_of_value: percentage of non-mitochondrial respiration
+    note: Fig. 3d; vector bars (mean ± s.d.) with filled circles, one per organoid (dark blue = Control, orange = Infarct);
+      y axis "OCR (percentage of non-mitochondrial respiration)". Fig. 3c (OCR time course) plots group means only and is
+      not read.
+  f3f_peak_ecar:
+    file: journal_version.pdf
+    page: 6
+    crop:
+    - 345.0
+    - 360.0
+    - 445.0
+    - 470.0
+    script: figures/f3f_peak_ecar.py
+    unit: F3ef
+    kind: vector
+    groups:
+      control:
+        item: F3f_peak_ecar
+        group: ctrl
+        unit_of_value: percentage of non-mitochondrial respiration
+      infarct:
+        item: F3f_peak_ecar
+        group: inf
+        unit_of_value: percentage of non-mitochondrial respiration
+    note: Fig. 3f; vector bars with one-sided (upper) error bars and filled circles, one per organoid (dark blue = Control,
+      orange = Infarct); y axis "ECAR (percentage of non-mitochondrial respiration)". Fig. 3e (ECAR time course) plots group
+      means only and is not read.
+  f3g_lactate:
+    file: journal_version.pdf
+    page: 6
+    crop:
+    - 430.0
+    - 50.0
+    - 560.0
+    - 190.0
+    script: figures/f3g_lactate.py
+    unit: F3g
+    kind: vector
+    groups:
+      control:
+        item: F3g_lactate
+        group: ctrl
+        unit_of_value: a.u.
+      infarct:
+        item: F3g_lactate
+        group: inf
+        unit_of_value: a.u.
+    note: Fig. 3g; vector bars with error bars (the g legend does not state the error type; the points' s.d. matches the bar's
+      half-length) and filled circles, one per well (dark blue = Control, orange = Infarct); y axis "Lactate level absorbance
+      index (a.u.)", normalized to control medium.
+  f3h_tpm_ratio:
+    file: journal_version.pdf
+    page: 6
+    crop:
+    - 445.0
+    - 196.0
+    - 556.0
+    - 423.0
+    script: figures/f3h_tpm_ratio.py
+    unit: F3h
+    kind: vector
+    groups:
+      ldh_control:
+        item: F3h_ldh
+        group: ctrl
+        unit_of_value: ratio of TPM
+      ldh_infarct:
+        item: F3h_ldh
+        group: inf
+        unit_of_value: ratio of TPM
+      slc16_control:
+        item: F3h_slc16
+        group: ctrl
+        unit_of_value: ratio of TPM
+      slc16_infarct:
+        item: F3h_slc16
+        group: inf
+        unit_of_value: ratio of TPM
+    note: Fig. 3h; two stacked vector bar panels (top LDHA/LDHB, bottom SLC16A1/SLC16A3) (mean ± s.d.) with filled circles,
+      one per RNA-seq sample (dark blue = Control, orange = Infarct); y axis "Ratio of TPM".
+  f4i_modulus:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 428.0
+    - 395.0
+    - 545.0
+    - 530.0
+    script: figures/f4i_modulus.py
+    unit: F4hi
+    kind: vector
+    groups:
+      control:
+        item: F4i_modulus
+        group: ctrl
+        unit_of_value: kPa
+      infarct:
+        item: F4i_modulus
+        group: inf
+        unit_of_value: kPa
+    note: Fig. 4i; vector bars (mean ± s.d.) with filled circles, one per organoid (dark blue = Control, orange = Infarct);
+      y axis "Elastic modulus (kPa)". Fig. 4h is micrographs of aspiration only (no values).
+  f5f_calcium:
+    file: journal_version.pdf
+    page: 9
+    crop:
+    - 85.0
+    - 288.0
+    - 212.0
+    - 382.0
+    script: figures/f5f_calcium.py
+    unit: F5f
+    kind: vector
+    groups:
+      control:
+        item: F5f_int_vs_ctrl
+        group: ctrl
+        unit_of_value: ∆F/F0
+      infarct_edge:
+        item: F5f_int_vs_edge
+        group: i_edge
+        unit_of_value: ∆F/F0
+      infarct_interior:
+        item: F5f_int_vs_edge
+        group: i_int
+        unit_of_value: ∆F/F0
+      infarct_interior_vs_control:
+        item: F5f_int_vs_ctrl
+        group: i_int
+        unit_of_value: ∆F/F0
+    note: Fig. 5f; vector bars (mean ± s.d., two-sided error bars) with filled circles, one per ROI (dark blue = Control organoid,
+      dark orange = Infarct organoid-edge, orange = Infarct organoid-interior); y axis "Calcium transient amplitude (∆F/F0)".
+      The interior group is compared in two items, so its reading is returned under two labels (infarct_interior, infarct_interior_vs_control).
+  f5g_contraction:
+    file: journal_version.pdf
+    page: 9
+    crop:
+    - 75.0
+    - 418.0
+    - 172.0
+    - 505.0
+    script: figures/f5g_contraction.py
+    unit: F5g
+    kind: vector
+    groups:
+      control:
+        item: F5g_contraction
+        group: ctrl
+        unit_of_value: fractional area change
+      infarct:
+        item: F5g_contraction
+        group: inf
+        unit_of_value: fractional area change
+    note: Fig. 5g; vector bars with one-sided (upper) error bars (legend does not state the error type) and filled circles,
+      one per organoid (dark blue = Control, orange = Infarct); y axis "Contraction amplitude (fractional area change)".
+  f7b_tunel:
+    file: journal_version.pdf
+    page: 11
+    crop:
+    - 248.0
+    - 55.0
+    - 370.0
+    - 190.0
+    script: figures/f7b_tunel.py
+    unit: F7b
+    kind: vector
+    groups:
+      control:
+        item: F7b_tunel
+        group: c1
+        unit_of_value: normalized TUNEL index
+      infarct:
+        item: F7b_tunel
+        group: i1
+        unit_of_value: normalized TUNEL index
+    note: Fig. 7b; vector bars with two-sided error bars (legend says mean ± s.d.) and filled circles, one per organoid (dark
+      blue = Control, orange = Infarct) at 0, 0.1, 1.0 and 10.0 µM DOX; y axis "Normalized TUNEL index" (no unit). Only the
+      1.0 µM pair is read, the only pair an item compares.
+  s1b_tunel:
+    file: NIHMS1605561-supplement-Supplementary_Information.docx
+    page: 1
+    crop:
+    - 1050.0
+    - 0.0
+    - 1431.0
+    - 500.0
+    script: figures/s1b_tunel.py
+    unit: S1ab
+    kind: raster
+    groups:
+      hyp_exterior:
+        item: S1b_hypoxia
+        group: hyp_ext
+        unit_of_value: TUNEL index
+      hyp_interior:
+        item: S1b_hypoxia
+        group: hyp_int
+        unit_of_value: TUNEL index
+      ne_exterior:
+        item: S1b_ne
+        group: ne_ext
+        unit_of_value: TUNEL index
+      ne_interior:
+        item: S1b_ne
+        group: ne_int
+        unit_of_value: TUNEL index
+    note: Supplementary Fig. 1b, a raster TIFF (word/media/image1.tiff, 220 dpi, transparent background) embedded in the
+      supplement .docx; PyMuPDF opens the .docx but drops its images, so the script reads the TIFF from the archive and crop
+      is the panel box in that image's pixels (page is unused). Bars (mean ± s.d.) with one dot per organoid; y axis "TUNEL
+      index" (no unit). Only the NE interior dots each stand alone (7, n = 7); the other three groups' dots touch or merge,
+      so they give bars only. The upper cap of the 10% O2 exterior error bar is hidden under its dots and is not read.
+  s9_pca:
+    file: NIHMS1605561-supplement-Supplementary_Information.docx
+    page: 1
+    crop:
+    - 0.0
+    - 0.0
+    - 739.0
+    - 485.0
+    script: figures/s9_pca.py
+    unit: S9
+    kind: raster
+    groups:
+      a_ctrl_pc1:
+        item: S9_pca
+        group: a_ctrl
+        unit_of_value: PC1 coordinate
+      a_ctrl_pc2:
+        item: S9_pca
+        group: a_ctrl
+        unit_of_value: PC2 coordinate
+      a_inf_pc1:
+        item: S9_pca
+        group: a_inf
+        unit_of_value: PC1 coordinate
+      a_inf_pc2:
+        item: S9_pca
+        group: a_inf
+        unit_of_value: PC2 coordinate
+      b_ctrl_pc1:
+        item: S9_pca
+        group: b_ctrl
+        unit_of_value: PC1 coordinate
+      b_ctrl_pc2:
+        item: S9_pca
+        group: b_ctrl
+        unit_of_value: PC2 coordinate
+      b_inf_pc1:
+        item: S9_pca
+        group: b_inf
+        unit_of_value: PC1 coordinate
+      b_inf_pc2:
+        item: S9_pca
+        group: b_inf
+        unit_of_value: PC2 coordinate
+    note: Supplementary Fig. 9, a raster TIFF (word/media/image9.tif, 150 dpi) embedded in the supplement .docx; PyMuPDF
+      drops the .docx images, so the script reads the TIFF from the archive and crop is the whole image in its pixels (page
+      is unused). PCA scatter, PC1 (52.6% of total variance) on x, PC2 (10.5%) on y; bright green = Donor A, dark green =
+      Donor B, open = control, filled = infarct, n = 3 each. No error bars or means. Only Donor B's markers each stand alone
+      (3 + 3); Donor A's control rings touch in a pair and its infarct dots merge into one blob of three, so Donor A gives
+      no points. Axis ticks are tick marks with printed labels (raster, so label values are taken from the printed labels).
+  s10_pca:
+    file: NIHMS1605561-supplement-Supplementary_Information.docx
+    page: 1
+    crop:
+    - 670.0
+    - 40.0
+    - 1060.0
+    - 415.0
+    script: figures/s10_pca.py
+    unit: S10
+    kind: raster
+    groups:
+      ctrl_pc3:
+        item: S10_pca
+        group: ctrl
+        unit_of_value: PC3 coordinate
+      ctrl_pc4:
+        item: S10_pca
+        group: ctrl
+        unit_of_value: PC4 coordinate
+      inf_pc3:
+        item: S10_pca
+        group: inf
+        unit_of_value: PC3 coordinate
+      inf_pc4:
+        item: S10_pca
+        group: inf
+        unit_of_value: PC4 coordinate
+      m_sham_pc3:
+        item: S10_pca
+        group: m_sham
+        unit_of_value: PC3 coordinate
+      m_sham_pc4:
+        item: S10_pca
+        group: m_sham
+        unit_of_value: PC4 coordinate
+      m_mi_pc3:
+        item: S10_pca
+        group: m_mi
+        unit_of_value: PC3 coordinate
+      m_mi_pc4:
+        item: S10_pca
+        group: m_mi
+        unit_of_value: PC4 coordinate
+      h_nf_pc3:
+        item: S10_pca
+        group: h_nf
+        unit_of_value: PC3 coordinate
+      h_nf_pc4:
+        item: S10_pca
+        group: h_nf
+        unit_of_value: PC4 coordinate
+      h_icm_pc3:
+        item: S10_pca
+        group: h_icm
+        unit_of_value: PC3 coordinate
+      h_icm_pc4:
+        item: S10_pca
+        group: h_icm
+        unit_of_value: PC4 coordinate
+    note: Supplementary Fig. 10b, a raster TIFF (word/media/image10.tif, 150 dpi) embedded in the supplement .docx; PyMuPDF
+      drops the .docx images, so the script reads the TIFF from the archive and crop is panel b's box in that image's pixels
+      (page is unused). Scatter of sample scores, PC3 (2.6%) on x vs PC4 (1.6%) on y; each marker read as a _pc3 and a _pc4
+      point with the same index. Only the human LV markers (blue, 8 ICM filled + 8 non-failing open) each stand alone; the
+      Donor B organoid (green) and mouse (purple) markers merge into clusters and are not read. The y tick at -20 has no
+      printed label and is not used. Panel a (PC1/PC2 strip plot) is not read; every group there is a merged cluster.
+  s13b_xtt:
+    file: NIHMS1605561-supplement-Supplementary_Information.docx
+    page: 1
+    crop:
+    - 960.0
+    - 40.0
+    - 1427.0
+    - 400.0
+    script: figures/s13b_xtt.py
+    unit: S13
+    kind: raster
+    groups:
+      control_1uM:
+        item: S13b_dox1
+        group: c1
+        unit_of_value: normalized absorbance (relative to 0 µM dose)
+      infarct_1uM:
+        item: S13b_dox1
+        group: i1
+        unit_of_value: normalized absorbance (relative to 0 µM dose)
+      control_10uM:
+        item: S13b_dox10
+        group: c10
+        unit_of_value: normalized absorbance (relative to 0 µM dose)
+      infarct_10uM:
+        item: S13b_dox10
+        group: i10
+        unit_of_value: normalized absorbance (relative to 0 µM dose)
+    note: Supplementary Fig. 13b, a raster TIFF (word/media/image13.tiff, 220 dpi) embedded in the supplement .docx; PyMuPDF
+      drops the .docx images, so the script reads the TIFF from the archive and crop is panel b's box in that image's pixels
+      (page is unused). Bars (mean ± s.d.) with one dot per well (blue = control, orange = 1% O2 + 1 µM NE), n = 5 wells
+      per group; only the 1 and 10 µM bars (the item groups) are read. Infarct 1 µM and control 10 µM dots each stand alone
+      (5 + 5). Control 1 µM has two dots merged into one blob and infarct 10 µM is one clump of overlapping dots on the 0.0
+      line, so both give bars only. The upper cap of the infarct 10 µM error bar is hidden under its dots and is not read.
+no_points:
+  S12: 'Raster TIFF (supplement .docx, word/media/image12.tiff): representative 2PLSM fluorescence images of one control
+    and one infarct organoid (a, b), each with the GCaMP6 calcium traces (∆F/F0 vs time, scale bars only) of two CM ROIs;
+    no per-video or per-organoid markers and no summary values for the 5 videos per group; synchronization is shown by
+    trace alignment only. (Supplementary Fig. 12)'
+  S4: 'Raster TIFF (supplement .docx, word/media/image4.tif, 150 dpi): bars (mean ± s.d.) with dot swarms, but no group''s
+    dots all stand alone; the control dots (n = 10) merge into one clump near 0–2, and of the infarct dots (n = 10) only
+    four stand alone (colour-mask blobs of one dot''s area) while the rest merge into two clumps (blob areas about 2× and
+    4× a single dot), so no points can be counted. (Supplementary Fig. 4)'
+  S1c: 'Raster TIFF (supplement .docx, word/media/image1.tiff): bars (mean ± s.d.) with dot swarms, but no group''s dots
+    stand alone; control and infarct dots merge into horizontal rows (7 colour blobs each) and the metoprolol dots touch in
+    pairs and clusters (9 blobs for n = 15), so no points can be counted. (Supplementary Fig. 1c)'
+  S5: 'Raster TIFF (supplement .docx, word/media/image5.tif, 150 dpi): individual circles only (no bars or means), but
+    no group''s circles all stand alone; non-white blobs give CM spheroid one clump (n = 5), FB spheroid 1 alone + 1 clump
+    (n = 5), cardiac organoid 1 alone + 1 clump (n = 6), organoid+FB 1 alone + 1 clump of 3 overlapping circles (n = 4),
+    so no points can be counted. (Supplementary Fig. 5)'
+  S11d: 'Raster TIFF (supplement .docx, word/media/image11.tiff, 220 dpi): individual open circles only (no bars or
+    means), but no group''s circles all stand alone; non-white blobs give infarct 2 alone + 2 clumps of 2 overlapping
+    circles (n = 6) and control 1 alone + 1 clump of 4 overlapping circles (n = 5), so no points can be counted.
+    (Supplementary Fig. 11d)'
+  F1e: 'first look (small model): Box plots with whiskers only; no individual sample points visible. (journal_version.pdf p. 3)'
+  F4ef: 'first look (small model): Panel f shows radial-bin means with SD bars; panel e is images only. (journal_version.pdf p.
+    7)'
+  F6ab: 'first look (small model): Panels a-b are micrographs and mean±s.d. profile curves, no per-sample markers (journal_version.pdf
+    p. 10)'
+  F6d: 'first look (small model): Panel d is stacked percentage bars with no per-organoid markers. (journal_version.pdf p. 10)'
+  F6e: 'first look (small model): Panel e is a fluorescence image with calcium trace curves; no per-sample markers. (journal_version.pdf
+    p. 10)'
+  F7c: 'first look (small model): Binned mean radial profiles with s.d. shading; no per-sample markers. (journal_version.pdf p.
+    11)'
+  S1d: 'Representative z-stack confocal immunofluorescence images (αSA/vimentin and TUNEL) of control, infarct and 0.1%
+    O2 + 1 µM NE organoids; no plotted values or per-sample markers, and the 0.1% O2 outcome (loss of αSA+ banding) is
+    stated in the legend and text only. (Supplementary Information .docx, Supplementary Fig. 1d)'
+  S14a: 'Raster TIFF (supplement .docx, word/media/image14.tif): two representative bright-field micrographs (organoid
+    media vs cardiomyocyte media, 1% O2 + 1 µM NE), one per group with scale bars only; no plot, no per-image markers
+    and no quantified cell death for the 4 images per group; "almost 100% cell death" is stated in the text only.
+    (Supplementary Fig. 14a)'

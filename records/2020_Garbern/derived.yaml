@@ -1,0 +1,3112 @@
+record: 2020_Garbern
+formula_library_version: 20
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F3A_profile.baseline:
+    item: F3A_profile
+    measure: baseline oxygen consumption rate
+    formula: ocr_base = S/n
+    anchor:
+      quote: Baseline OCR values were calculated by averaging the first three OCR measurements (0-12 minutes) prior to injection of
+        compounds
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: mean_def
+      vars:
+        m: ocr_base
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum of the first three OCR measurements of a well; not printed
+      n:
+        printed: '3'
+        unit: count
+        kind: constant
+        anchor:
+          quote: Baseline OCR values were calculated by averaging the first three OCR measurements
+          where: Supplemental Methods, Seahorse
+          file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+        note: printed as the word 'three'
+    note: Per well.
+  F3A_profile.normalized_to_baseline:
+    item: F3A_profile
+    measure: oxygen consumption rate normalized to baseline
+    formula: ocr_norm = ocr/ocr_base
+    anchor:
+      quote: Data were normalized to the average baseline value for each well.
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: ocr_norm
+        a: ocr
+        b: ocr_base
+    inputs:
+      ocr:
+        not_stated: true
+        kind: per sample
+        note: OCR of a well at each measurement (already per cell number by CyQUANT); not printed
+      ocr_base:
+        derived: F3A_profile.baseline
+        kind: per sample
+    note: Per well. The earlier normalisation to absolute cell number (same well, same divisor) cancels in this ratio.
+  F3B_max.maximal_ocr:
+    item: F3B_max
+    measure: maximal oxygen consumption rate
+    formula: ocr_max = ocr_fccp - ocr_nonmito
+    anchor:
+      quote: maximal OCR values were calculated by subtracting the average non-mitochondrial OCR values (OCR following rotenone/actinomycin
+        A) from the OCR values after the injection with the uncoupler FCCP
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ocr_fccp
+        a: ocr_max
+        b: ocr_nonmito
+    inputs:
+      ocr_fccp:
+        not_stated: true
+        kind: per sample
+        note: OCR after FCCP, normalized to baseline; plotted in the Fig. 3A profile, not read
+      ocr_nonmito:
+        item: F3B_nonmito
+        kind: per sample
+    aggregation: not stated
+    note: All terms normalized to each well's baseline (a common divisor, so the order of subtraction and normalisation does not matter).
+  F3B_reserve.reserve_capacity:
+    item: F3B_reserve
+    measure: respiratory reserve capacity
+    formula: ocr_reserve = ocr_fccp - ocr_base
+    anchor:
+      quote: respiratory reserve capacity values were calculated by subtracting baseline OCR values from OCR values after addition of
+        FCCP
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ocr_fccp
+        a: ocr_reserve
+        b: ocr_base
+    inputs:
+      ocr_fccp:
+        not_stated: true
+        kind: per sample
+        note: OCR after FCCP, normalized to baseline; plotted in the Fig. 3A profile, not read
+      ocr_base:
+        not_stated: true
+        kind: constant
+        note: baseline OCR after normalisation to the well's own baseline (1, i.e. 100 %, by construction); not printed
+    aggregation: not stated
+    note: With every well normalized to its own baseline, the normalized reserve is the normalized FCCP OCR minus 1 (100 %).
+  S5C_glycolysis.glycolysis:
+    item: S5C_glycolysis
+    measure: glycolysis
+    formula: glyc = ecar_glc - ecar_nonglyc
+    anchor:
+      quote: the glycolysis ECAR was calculated by subtracting the average non-glycolytic acidification values (after 2-DG) from the
+        values after glucose administration
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ecar_glc
+        a: glyc
+        b: ecar_nonglyc
+    inputs:
+      ecar_glc:
+        not_stated: true
+        kind: per sample
+        note: ECAR after glucose; plotted in the Suppl. Fig. 5B profile, not read
+      ecar_nonglyc:
+        item: S5C_nonglyc
+        kind: per sample
+    aggregation: not stated
+  S5C_glycolytic_capacity.capacity:
+    item: S5C_glycolytic_capacity
+    measure: glycolytic capacity
+    formula: cap = ecar_oligo - ecar_nonglyc
+    anchor:
+      quote: the glycolytic capacity was calculated by subtracting the non-glycolytic acidification ECAR values from ECAR values after
+        addition of oligomycin
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ecar_oligo
+        a: cap
+        b: ecar_nonglyc
+    inputs:
+      ecar_oligo:
+        not_stated: true
+        kind: per sample
+        note: ECAR after oligomycin; plotted in the Suppl. Fig. 5B profile, not read
+      ecar_nonglyc:
+        item: S5C_nonglyc
+        kind: per sample
+    aggregation: not stated
+  S5C_glycolytic_reserve.reserve:
+    item: S5C_glycolytic_reserve
+    measure: glycolytic reserve
+    formula: res = ecar_oligo - ecar_glc
+    anchor:
+      quote: the glycolytic reserve was calculated by subtracting the ECAR values after addition of glucose from the ECAR values after
+        addition of oligomycin
+      where: Supplemental Methods, Seahorse
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ecar_oligo
+        a: res
+        b: ecar_glc
+    inputs:
+      ecar_oligo:
+        not_stated: true
+        kind: per sample
+        note: ECAR after oligomycin; plotted in the Suppl. Fig. 5B profile, not read
+      ecar_glc:
+        not_stated: true
+        kind: per sample
+        note: ECAR after glucose; plotted in the Suppl. Fig. 5B profile, not read
+    alternatives:
+    - label: from the other two stated measures
+      formula: res = cap - glyc
+      note: 'follows from the two stated subtractions (the non-glycolytic term cancels): glycolytic reserve = glycolytic capacity -
+        glycolysis'
+    aggregation: not stated
+  F2F_force.stoney_force:
+    item: F2F_force
+    measure: maximum systolic force per MTF
+    formula: not stated
+    anchor:
+      quote: The modified Stoney equation was used to calculate force for each MTF using the radius of curvature, thickness, and elastic
+        modulus.
+      where: Methods, Muscular Thin Films
+      file: journal_version.pdf
+    no_formula: modified Stoney equation stated only by citation (ref 33); its form is not printed
+    inputs:
+      R:
+        not_stated: true
+        kind: per sample
+        note: radius of curvature of each MTF (ImageJ); not printed
+      h:
+        not_stated: true
+        kind: per sample
+        note: MTF thickness (confocal); not printed
+      E:
+        not_stated: true
+        kind: not stated
+        note: elastic modulus of the gelatin film; value not printed
+      stoney:
+        by_reference:
+          citation: ref33
+          anchor:
+            quote: The modified Stoney equation was used to calculate force for each MTF using the radius of curvature, thickness, and
+              elastic modulus.33
+            where: Methods, Muscular Thin Films
+            file: journal_version.pdf
+        kind: not stated
+    note: Supplemental Methods then speak of systolic, diastolic and twitch stresses per MTF; the figure reports force.
+  F2F_force.relative_force:
+    item: F2F_force
+    measure: relative maximum systolic force
+    formula: rel = F/Fc
+    anchor:
+      quote: The relative maximum systolic force was normalized to control for each batch.
+      where: Methods, Muscular Thin Films
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: F
+        b: Fc
+    inputs:
+      F:
+        derived: F2F_force.stoney_force
+        kind: per sample
+      Fc:
+        not_stated: true
+        kind: not stated
+        note: mean maximum systolic force of the control MTFs of the same batch; not printed
+    output: F2F_force.values.force_ratio_text
+    aggregation: not stated
+    note: Per batch (3 batches, 2 lines). The printed 'nearly 2-fold' compares Torin1 with control after this normalisation.
+  F3E_JC1.red_green:
+    item: F3E_JC1
+    measure: JC-1 red:green fluorescence ratio
+    formula: rg = red/green
+    anchor: &id001
+      quote: For JC-1, the ratio of red to green MFI for vehicle versus Torin1-treated cells was quantified and normalized to control.
+      where: Methods, MitoTracker and MitoProbe JC-1 Assays
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rg
+        a: red
+        b: green
+    inputs:
+      red:
+        not_stated: true
+        kind: per sample
+        note: red (aggregate) MFI of a sample; not printed
+      green:
+        not_stated: true
+        kind: per sample
+        note: green (monomer) MFI of a sample; not printed
+  F3E_JC1.normalized_to_control:
+    item: F3E_JC1
+    measure: relative JC-1 red:green ratio
+    formula: rel = rg/rgc
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: rg
+        b: rgc
+    inputs:
+      rg:
+        derived: F3E_JC1.red_green
+        kind: per sample
+      rgc:
+        not_stated: true
+        kind: not stated
+        note: control (vehicle) red:green ratio, mean or per batch not stated; not printed
+    aggregation: not stated
+  F3D_mtDNA.mt_to_nuclear:
+    item: F3D_mtDNA
+    measure: mitochondrial to nuclear DNA ratio
+    formula: not stated
+    anchor:
+      quote: Primers for DNA to mitochondrial gene ND1 (nicotinamide adenine dinucleotide dehydrogenase 1) and nuclear gene lipoprotein
+        lipase gene (LPL) were used.
+      where: Methods, Mitochondrial DNA to Nuclear DNA Ratio
+      file: journal_version.pdf
+    no_formula: the calculation of the ratio from qPCR is not stated (primers cited to ref 10); the plotted ratio is normalized to control
+      (axis label, image only)
+    inputs:
+      ct_nd1:
+        not_stated: true
+        kind: per sample
+        note: Ct of ND1; not printed
+      ct_nuc:
+        not_stated: true
+        kind: per sample
+        note: Ct of the nuclear gene (LPL in Methods, B2M in the legend); not printed
+    alternatives:
+    - label: delta Ct
+      formula: r = 2^(ct_nuc - ct_nd1)
+      note: common practice for a mtDNA copy ratio (the form of ratio_from_log2_values); not stated
+  S1B_Ki67.positive_ctrl:
+    item: S1B_Ki67
+    group: ctrl
+    measure: percentage of Ki67+ cardiomyocytes
+    formula: pos = k/N
+    anchor: &id002
+      quote: The percentage of Ki67+ cells or pH3+ cells out of the total number of cells marked by DAPI and TNNT2 was quantified.
+      where: Supplemental Methods, Imaging quantification of proliferating cardiomyocytes
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: pos
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: Ki67+ cells among the DAPI+ TNNT2+ cells counted over 5 fields; not printed
+      N:
+        value: S1B_Ki67.values.total_ctrl_figure
+        kind: constant
+    output: S1B_Ki67.values.ki67pos_ctrl_figure
+    note: One pooled count per group; k is not printed, so this cannot be rebuilt.
+  S1B_Ki67.negative_ctrl:
+    item: S1B_Ki67
+    group: ctrl
+    measure: percentage of Ki67- cardiomyocytes
+    formula: neg = 1 - pos
+    anchor:
+      quote: Pie charts depicting the percentage of total DAPI/TNNT+ cardiomyocytes that are Ki67+ or Ki67- in control
+      where: Supplemental Figure 1 legend
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: neg
+        f: pos
+    inputs:
+      pos:
+        value: S1B_Ki67.values.ki67pos_ctrl_figure
+        kind: constant
+    output: S1B_Ki67.values.ki67neg_ctrl_figure
+    note: Ki67+ and Ki67- are the two exclusive parts of one total, drawn as one pie chart.
+  S1B_Ki67.positive_t200:
+    item: S1B_Ki67
+    group: t200
+    measure: percentage of Ki67+ cardiomyocytes
+    formula: pos = k/N
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: pos
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: Ki67+ cells among the DAPI+ TNNT2+ cells counted over 5 fields; not printed
+      N:
+        value: S1B_Ki67.values.total_t200_figure
+        kind: constant
+    output: S1B_Ki67.values.ki67pos_t200_figure
+    note: One pooled count per group; k is not printed, so this cannot be rebuilt.
+  S1B_Ki67.negative_t200:
+    item: S1B_Ki67
+    group: t200
+    measure: percentage of Ki67- cardiomyocytes
+    formula: neg = 1 - pos
+    anchor:
+      quote: Pie charts depicting the percentage of total DAPI/TNNT+ cardiomyocytes that are Ki67+ or Ki67- in control
+      where: Supplemental Figure 1 legend
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: neg
+        f: pos
+    inputs:
+      pos:
+        value: S1B_Ki67.values.ki67pos_t200_figure
+        kind: constant
+    output: S1B_Ki67.values.ki67neg_t200_figure
+    note: Ki67+ and Ki67- are the two exclusive parts of one total, drawn as one pie chart.
+  S1C_pH3.positive_ctrl:
+    item: S1C_pH3
+    group: ctrl
+    measure: percentage of pH3+ cardiomyocytes
+    formula: pos = k/N
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: pos
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: pH3+ cells among the DAPI+ TNNT2+ cells counted over 5 fields; not printed
+      N:
+        value: S1C_pH3.values.total_ctrl_figure
+        kind: constant
+    output: S1C_pH3.values.ph3pos_ctrl_figure
+    note: One pooled count per group; k is not printed, so this cannot be rebuilt.
+  S1C_pH3.negative_ctrl:
+    item: S1C_pH3
+    group: ctrl
+    measure: percentage of pH3- cardiomyocytes
+    formula: neg = 1 - pos
+    anchor:
+      quote: Pie charts depicting the percentage of total DAPI/TNNT+ cardiomyocytes that are pH3+ or pH3- in control
+      where: Supplemental Figure 1 legend
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: neg
+        f: pos
+    inputs:
+      pos:
+        value: S1C_pH3.values.ph3pos_ctrl_figure
+        kind: constant
+    output: S1C_pH3.values.ph3neg_ctrl_figure
+    note: pH3+ and pH3- are the two exclusive parts of one total, drawn as one pie chart.
+  S1C_pH3.positive_t200:
+    item: S1C_pH3
+    group: t200
+    measure: percentage of pH3+ cardiomyocytes
+    formula: pos = k/N
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: pos
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: pH3+ cells among the DAPI+ TNNT2+ cells counted over 5 fields; not printed
+      N:
+        value: S1C_pH3.values.total_t200_figure
+        kind: constant
+    output: S1C_pH3.values.ph3pos_t200_figure
+    note: One pooled count per group; k is not printed, so this cannot be rebuilt.
+  S1C_pH3.negative_t200:
+    item: S1C_pH3
+    group: t200
+    measure: percentage of pH3- cardiomyocytes
+    formula: neg = 1 - pos
+    anchor:
+      quote: Pie charts depicting the percentage of total DAPI/TNNT+ cardiomyocytes that are pH3+ or pH3- in control
+      where: Supplemental Figure 1 legend
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: neg
+        f: pos
+    inputs:
+      pos:
+        value: S1C_pH3.values.ph3pos_t200_figure
+        kind: constant
+    output: S1C_pH3.values.ph3neg_t200_figure
+    note: pH3+ and pH3- are the two exclusive parts of one total, drawn as one pie chart.
+  F1D_purity.percentage:
+    item: F1D_purity
+    measure: percentage of TNNT2+ cardiomyocytes
+    formula: p = k/N
+    anchor:
+      quote: Percentage of TNNT2+ CMs out of live cell population by flow cytometry
+      where: Figure 1 legend, D
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: live cells; not printed
+  F1F_G0.percentage:
+    item: F1F_G0
+    measure: percentage of cells in G0 (representative plot)
+    formula: p = k/N
+    anchor: &id003
+      quote: Representative flow cytometry plots of iPSC-derived CMs stained with Hoechst 33342 and Pyronin Y
+      where: Figure 1 legend, F
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: cells in the plot; not printed
+  F1F_G1.percentage:
+    item: F1F_G1
+    measure: percentage of cells in G1 (representative plot)
+    formula: p = k/N
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: cells in the plot; not printed
+  F1F_SG2M.percentage:
+    item: F1F_SG2M
+    measure: percentage of cells in SG2M (representative plot)
+    formula: p = k/N
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: cells in the plot; not printed
+  F1G_G0_t200_ctrl.percentage:
+    item: F1G_G0_t200_ctrl
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor: &id004
+      quote: Percentage of TNNT2+ cardiomyocytes in G0, G1, or S/G2/M phases after Torin1-treatment (200 nmol/L) for 1 week
+      where: Figure 1 legend, G
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1G_G0_t200_t10.percentage:
+    item: F1G_G0_t200_t10
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1G_G1_t200_ctrl.percentage:
+    item: F1G_G1_t200_ctrl
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1G_G1_t200_t10.percentage:
+    item: F1G_G1_t200_t10
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1G_SubG1.percentage:
+    item: F1G_SubG1
+    measure: percentage of TNNT2+ cells in sub-G1
+    formula: p = k/N
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1G_SG2M.percentage:
+    item: F1G_SG2M
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1H_G0.percentage:
+    item: F1H_G0
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor: &id005
+      quote: Percentage of TNNT2+ CMs in G0, G1, or S/G2/M phases in control CMs after 0.02% DMSO-treatment
+      where: Figure 1 legend, H
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1H_G1.percentage:
+    item: F1H_G1
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1H_SG2M.percentage:
+    item: F1H_SG2M
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1I_G0.percentage:
+    item: F1I_G0
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor: &id006
+      quote: Percentage of TNNT2+ CMs in G0, G1, or S/G2/M phases after Torin1-treatment (200 nmol/L)
+      where: Figure 1 legend, I
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1I_G1.percentage:
+    item: F1I_G1
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1I_SG2M.percentage:
+    item: F1I_SG2M
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G0_t200_ctrl.percentage:
+    item: F5B_G0_t200_ctrl
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G0_t200_pif.percentage:
+    item: F5B_G0_t200_pif
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G0_t200_pif_pif.percentage:
+    item: F5B_G0_t200_pif_pif
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G0_t200_pif_t200.percentage:
+    item: F5B_G0_t200_pif_t200
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G1_t200_ctrl.percentage:
+    item: F5B_G1_t200_ctrl
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G1_t200_pif.percentage:
+    item: F5B_G1_t200_pif
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G1_t200_pif_pif.percentage:
+    item: F5B_G1_t200_pif_pif
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_G1_t200_pif_t200.percentage:
+    item: F5B_G1_t200_pif_t200
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_SG2M_t200_ctrl.percentage:
+    item: F5B_SG2M_t200_ctrl
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_SG2M_t200_pif.percentage:
+    item: F5B_SG2M_t200_pif
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_SG2M_t200_pif_pif.percentage:
+    item: F5B_SG2M_t200_pif_pif
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F5B_SG2M_t200_pif_t200.percentage:
+    item: F5B_SG2M_t200_pif_t200
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        pifithrin-α
+      where: Figure 5 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_G0_nut.percentage:
+    item: F6B_G0_nut
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_G0_t200.percentage:
+    item: F6B_G0_t200
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_G0_t200_nut.percentage:
+    item: F6B_G0_t200_nut
+    measure: percentage of TNNT2+ cells in G0
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_G1_nut.percentage:
+    item: F6B_G1_nut
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_G1_t200.percentage:
+    item: F6B_G1_t200
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_G1_t200_nut.percentage:
+    item: F6B_G1_t200_nut
+    measure: percentage of TNNT2+ cells in G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_SubG1.percentage:
+    item: F6B_SubG1
+    measure: percentage of TNNT2+ cells in sub-G1
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F6B_SG2M.percentage:
+    item: F6B_SG2M
+    measure: percentage of TNNT2+ cells in S/G2/M
+    formula: p = k/N
+    anchor:
+      quote: Cell cycle analysis showing percentage of TNNT2+ BJRiPS-CMs in G0, G1, or S/G2/M phases after treatment with vehicle (DMSO),
+        nutlin-3a
+      where: Figure 6 legend, B
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: N
+    inputs:
+      k:
+        not_stated: true
+        kind: per sample
+        note: cells in the phase gate; not printed
+      N:
+        not_stated: true
+        kind: per sample
+        note: TNNT2+ cells analysed; not printed
+  F1E_TP53.relative_expression:
+    item: F1E_TP53
+    measure: TP53 mRNA expression
+    formula: not stated
+    anchor: &id007
+      quote: TATA-binding protein (TBP) was used as the housekeeping gene.
+      where: Supplemental Methods, qPCR
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_RB1.relative_expression:
+    item: F1E_RB1
+    measure: RB1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_RBL2.relative_expression:
+    item: F1E_RBL2
+    measure: RBL2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CDKN1a.relative_expression:
+    item: F1E_CDKN1a
+    measure: CDKN1a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CDKN1b.relative_expression:
+    item: F1E_CDKN1b
+    measure: CDKN1b mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CDKN2a.relative_expression:
+    item: F1E_CDKN2a
+    measure: CDKN2a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_HES1.relative_expression:
+    item: F1E_HES1
+    measure: HES1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_MKI67.relative_expression:
+    item: F1E_MKI67
+    measure: MKI67 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CCNA1.relative_expression:
+    item: F1E_CCNA1
+    measure: CCNA1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CCNB1.relative_expression:
+    item: F1E_CCNB1
+    measure: CCNB1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CCNC1.relative_expression:
+    item: F1E_CCNC1
+    measure: CCNC1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CCND1.relative_expression:
+    item: F1E_CCND1
+    measure: CCND1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_CDK3.relative_expression:
+    item: F1E_CDK3
+    measure: CDK3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F1E_E2F1.relative_expression:
+    item: F1E_E2F1
+    measure: E2F1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_TNNI3_t10.relative_expression:
+    item: F2A_TNNI3_t10
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_TNNI3_t50.relative_expression:
+    item: F2A_TNNI3_t50
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_TNNI3_t200.relative_expression:
+    item: F2A_TNNI3_t200
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_MYH6.relative_expression:
+    item: F2A_MYH6
+    measure: MYH6 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_MYH7.relative_expression:
+    item: F2A_MYH7
+    measure: MYH7 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_TNNT2.relative_expression:
+    item: F2A_TNNT2
+    measure: TNNT2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F2A_TNNI1.relative_expression:
+    item: F2A_TNNI1
+    measure: TNNI1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_PPARGC1a_t50_ctrl.relative_expression:
+    item: F3F_PPARGC1a_t50_ctrl
+    measure: PPARGC1a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_PPARGC1a_t200_ctrl.relative_expression:
+    item: F3F_PPARGC1a_t200_ctrl
+    measure: PPARGC1a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_PPARGC1a_t200_t50.relative_expression:
+    item: F3F_PPARGC1a_t200_t50
+    measure: PPARGC1a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC27A6_t50_ctrl.relative_expression:
+    item: F3F_SLC27A6_t50_ctrl
+    measure: SLC27A6 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC27A6_t200_ctrl.relative_expression:
+    item: F3F_SLC27A6_t200_ctrl
+    measure: SLC27A6 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC27A6_t200_t50.relative_expression:
+    item: F3F_SLC27A6_t200_t50
+    measure: SLC27A6 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC2A1_t50_ctrl.relative_expression:
+    item: F3F_SLC2A1_t50_ctrl
+    measure: SLC2A1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC2A1_t200_ctrl.relative_expression:
+    item: F3F_SLC2A1_t200_ctrl
+    measure: SLC2A1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_CD36.relative_expression:
+    item: F3F_CD36
+    measure: CD36 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC27A1.relative_expression:
+    item: F3F_SLC27A1
+    measure: SLC27A1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_LPIN1.relative_expression:
+    item: F3F_LPIN1
+    measure: LPIN1 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_SLC2A4.relative_expression:
+    item: F3F_SLC2A4
+    measure: SLC2A4 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_PFK.relative_expression:
+    item: F3F_PFK
+    measure: PFK mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F3F_PYGM.relative_expression:
+    item: F3F_PYGM
+    measure: PYGM mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_KCNJ2_t200_ctrl.relative_expression:
+    item: F4A_KCNJ2_t200_ctrl
+    measure: KCNJ2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_KCNJ2_t200_t10.relative_expression:
+    item: F4A_KCNJ2_t200_t10
+    measure: KCNJ2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_CACNA1c_t200_ctrl.relative_expression:
+    item: F4A_CACNA1c_t200_ctrl
+    measure: CACNA1c mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_CACNA1c_t200_t10.relative_expression:
+    item: F4A_CACNA1c_t200_t10
+    measure: CACNA1c mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_RYR2_t200_ctrl.relative_expression:
+    item: F4A_RYR2_t200_ctrl
+    measure: RYR2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_RYR2_t200_t10.relative_expression:
+    item: F4A_RYR2_t200_t10
+    measure: RYR2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_ATP2A2_t200_ctrl.relative_expression:
+    item: F4A_ATP2A2_t200_ctrl
+    measure: ATP2A2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_SCN5A_t200_ctrl.relative_expression:
+    item: F4A_SCN5A_t200_ctrl
+    measure: SCN5A mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_SCN5A_t200_t10.relative_expression:
+    item: F4A_SCN5A_t200_t10
+    measure: SCN5A mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  F4A_HCN4.relative_expression:
+    item: F4A_HCN4
+    measure: HCN4 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values and the normalisation to control
+      (axis label, image only) are not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: common practice; not stated
+  S2_TNNT2.relative_expression:
+    item: S2_TNNT2
+    measure: TNNT2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_TNNI3.relative_expression:
+    item: S2_TNNI3
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_PPARGC1a.relative_expression:
+    item: S2_PPARGC1a
+    measure: PPARGC1a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_RYR2.relative_expression:
+    item: S2_RYR2
+    measure: RYR2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_KCNJ2.relative_expression:
+    item: S2_KCNJ2
+    measure: KCNJ2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_CACNA1c.relative_expression:
+    item: S2_CACNA1c
+    measure: CACNA1c mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_TP53.relative_expression:
+    item: S2_TP53
+    measure: TP53 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_CDKN1a.relative_expression:
+    item: S2_CDKN1a
+    measure: CDKN1a mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_GATA4.relative_expression:
+    item: S2_GATA4
+    measure: GATA4 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_TNNT2_fetal.relative_expression:
+    item: S2_TNNT2_fetal
+    measure: TNNT2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_TNNT2_adult.relative_expression:
+    item: S2_TNNT2_adult
+    measure: TNNT2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_TNNI3_fetal.relative_expression:
+    item: S2_TNNI3_fetal
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_TNNI3_adult.relative_expression:
+    item: S2_TNNI3_adult
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_RYR2_adult.relative_expression:
+    item: S2_RYR2_adult
+    measure: RYR2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_KCNJ2_adult.relative_expression:
+    item: S2_KCNJ2_adult
+    measure: KCNJ2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_CACNA1c_adult.relative_expression:
+    item: S2_CACNA1c_adult
+    measure: CACNA1c mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_RYR2_fetal.relative_expression:
+    item: S2_RYR2_fetal
+    measure: RYR2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S2_KCNJ2_fetal.relative_expression:
+    item: S2_KCNJ2_fetal
+    measure: KCNJ2 mRNA expression
+    formula: not stated
+    anchor: *id007
+    no_formula: only the housekeeping gene (TBP) is stated in text; the calculation from Ct values is not stated
+    inputs:
+      ct_gene:
+        not_stated: true
+        kind: per sample
+        note: Ct of the gene; not printed
+      ct_tbp:
+        not_stated: true
+        kind: per sample
+        note: Ct of TBP; not printed
+    alternatives:
+    - label: delta Ct
+      formula: rel = 2^(-dct)
+      note: common practice; not stated
+  S6A_TFAM.relative_expression:
+    item: S6A_TFAM
+    measure: TFAM mRNA expression
+    formula: rel = x/xc
+    anchor:
+      quote: Relative mRNA expression (normalized to TBP then control)
+      where: Supplemental Figure 6, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: x
+        b: xc
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: expression of the gene relative to TBP; how it was computed from Ct values is not stated
+      xc:
+        not_stated: true
+        kind: not stated
+        note: control expression relative to TBP (mean or per batch not stated)
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: not stated; the library's ddct_relative_expression model
+    aggregation: not stated
+  S6A_DNML1.relative_expression:
+    item: S6A_DNML1
+    measure: DNML1 mRNA expression
+    formula: rel = x/xc
+    anchor:
+      quote: Relative mRNA expression (normalized to TBP then control)
+      where: Supplemental Figure 6, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: x
+        b: xc
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: expression of the gene relative to TBP; how it was computed from Ct values is not stated
+      xc:
+        not_stated: true
+        kind: not stated
+        note: control expression relative to TBP (mean or per batch not stated)
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: not stated; the library's ddct_relative_expression model
+    aggregation: not stated
+  S6A_MFN1.relative_expression:
+    item: S6A_MFN1
+    measure: MFN1 mRNA expression
+    formula: rel = x/xc
+    anchor:
+      quote: Relative mRNA expression (normalized to TBP then control)
+      where: Supplemental Figure 6, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: x
+        b: xc
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: expression of the gene relative to TBP; how it was computed from Ct values is not stated
+      xc:
+        not_stated: true
+        kind: not stated
+        note: control expression relative to TBP (mean or per batch not stated)
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: not stated; the library's ddct_relative_expression model
+    aggregation: not stated
+  S6A_MFN2.relative_expression:
+    item: S6A_MFN2
+    measure: MFN2 mRNA expression
+    formula: rel = x/xc
+    anchor:
+      quote: Relative mRNA expression (normalized to TBP then control)
+      where: Supplemental Figure 6, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: x
+        b: xc
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: expression of the gene relative to TBP; how it was computed from Ct values is not stated
+      xc:
+        not_stated: true
+        kind: not stated
+        note: control expression relative to TBP (mean or per batch not stated)
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: not stated; the library's ddct_relative_expression model
+    aggregation: not stated
+  S6A_OPA1.relative_expression:
+    item: S6A_OPA1
+    measure: OPA1 mRNA expression
+    formula: rel = x/xc
+    anchor:
+      quote: Relative mRNA expression (normalized to TBP then control)
+      where: Supplemental Figure 6, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: x
+        b: xc
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: expression of the gene relative to TBP; how it was computed from Ct values is not stated
+      xc:
+        not_stated: true
+        kind: not stated
+        note: control expression relative to TBP (mean or per batch not stated)
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: not stated; the library's ddct_relative_expression model
+    aggregation: not stated
+  S6A_PHB2.relative_expression:
+    item: S6A_PHB2
+    measure: PHB2 mRNA expression
+    formula: rel = x/xc
+    anchor:
+      quote: Relative mRNA expression (normalized to TBP then control)
+      where: Supplemental Figure 6, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: x
+        b: xc
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: expression of the gene relative to TBP; how it was computed from Ct values is not stated
+      xc:
+        not_stated: true
+        kind: not stated
+        note: control expression relative to TBP (mean or per batch not stated)
+    alternatives:
+    - label: delta-delta Ct
+      formula: rel = 2^(-ddct)
+      note: not stated; the library's ddct_relative_expression model
+    aggregation: not stated
+  S4C_t50.relative_band_intensity:
+    item: S4C_t50
+    measure: TNNI3 protein band intensity
+    formula: rel = d/dc
+    anchor:
+      quote: Relative band intensity of TNNI3 (normalized to control)
+      where: Supplemental Figure 4, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: d
+        b: dc
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: band density (ImageJ); any loading-control correction not stated; not printed
+      dc:
+        not_stated: true
+        kind: not stated
+        note: control band density (mean or per blot not stated); not printed
+    aggregation: not stated
+  S4C_t200.relative_band_intensity:
+    item: S4C_t200
+    measure: TNNI3 protein band intensity
+    formula: rel = d/dc
+    anchor:
+      quote: Relative band intensity of TNNI3 (normalized to control)
+      where: Supplemental Figure 4, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: d
+        b: dc
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: band density (ImageJ); any loading-control correction not stated; not printed
+      dc:
+        not_stated: true
+        kind: not stated
+        note: control band density (mean or per blot not stated); not printed
+    aggregation: not stated
+  S4C_t10.relative_band_intensity:
+    item: S4C_t10
+    measure: TNNI3 protein band intensity
+    formula: rel = d/dc
+    anchor:
+      quote: Relative band intensity of TNNI3 (normalized to control)
+      where: Supplemental Figure 4, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: d
+        b: dc
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: band density (ImageJ); any loading-control correction not stated; not printed
+      dc:
+        not_stated: true
+        kind: not stated
+        note: control band density (mean or per blot not stated); not printed
+    aggregation: not stated
+  S4D_t10.relative_band_intensity:
+    item: S4D_t10
+    measure: p21 protein band intensity
+    formula: rel = d/dc
+    anchor:
+      quote: Relative band intensity of p21 (normalized to control)
+      where: Supplemental Figure 4, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: d
+        b: dc
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: band density (ImageJ); any loading-control correction not stated; not printed
+      dc:
+        not_stated: true
+        kind: not stated
+        note: control band density (mean or per blot not stated); not printed
+    aggregation: not stated
+  S4D_t50.relative_band_intensity:
+    item: S4D_t50
+    measure: p21 protein band intensity
+    formula: rel = d/dc
+    anchor:
+      quote: Relative band intensity of p21 (normalized to control)
+      where: Supplemental Figure 4, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: d
+        b: dc
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: band density (ImageJ); any loading-control correction not stated; not printed
+      dc:
+        not_stated: true
+        kind: not stated
+        note: control band density (mean or per blot not stated); not printed
+    aggregation: not stated
+  S4D_t200.relative_band_intensity:
+    item: S4D_t200
+    measure: p21 protein band intensity
+    formula: rel = d/dc
+    anchor:
+      quote: Relative band intensity of p21 (normalized to control)
+      where: Supplemental Figure 4, axis label
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rel
+        a: d
+        b: dc
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: band density (ImageJ); any loading-control correction not stated; not printed
+      dc:
+        not_stated: true
+        kind: not stated
+        note: control band density (mean or per blot not stated); not printed
+    aggregation: not stated
+  F7G_IL8.normalized_expression:
+    item: F7G_IL8
+    measure: IL8 mRNA expression
+    formula: not stated
+    anchor: &id008
+      quote: Data were analyzed using nSolver 4.0 software with the Advanced Analysis Module 2.0 with normalization to internal housekeeping
+        genes
+      where: Supplemental Methods, NanoString analysis
+      file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7G_SPP1.normalized_expression:
+    item: F7G_SPP1
+    measure: SPP1 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CDKN1a_ctrlfbs.normalized_expression:
+    item: F7_CDKN1a_ctrlfbs
+    measure: CDKN1a mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CCNA2_ctrlfbs.normalized_expression:
+    item: F7_CCNA2_ctrlfbs
+    measure: CCNA2 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CCNB1_ctrlfbs.normalized_expression:
+    item: F7_CCNB1_ctrlfbs
+    measure: CCNB1 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CCND2_ctrlfbs.normalized_expression:
+    item: F7_CCND2_ctrlfbs
+    measure: CCND2 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CCNE2_ctrlfbs.normalized_expression:
+    item: F7_CCNE2_ctrlfbs
+    measure: CCNE2 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CDKN1a_tfbs.normalized_expression:
+    item: F7_CDKN1a_tfbs
+    measure: CDKN1a mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_SPP1_tfbs.normalized_expression:
+    item: F7_SPP1_tfbs
+    measure: SPP1 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  F7_CCNB1_tfbs.normalized_expression:
+    item: F7_CCNB1_tfbs
+    measure: CCNB1 mRNA expression
+    formula: not stated
+    anchor: *id008
+    no_formula: counts normalized to the panel's housekeeping genes by nSolver software; the calculation is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  S8G_cellcycle.pathway_score:
+    item: S8G_cellcycle
+    measure: cell cycle pathway score
+    formula: not stated
+    anchor: *id008
+    no_formula: pathway score computed by nSolver Advanced Analysis software; its formula is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+  S8I_metab.pathway_score:
+    item: S8I_metab
+    measure: metabolism of proteins pathway score
+    formula: not stated
+    anchor: *id008
+    no_formula: pathway score computed by nSolver Advanced Analysis software; its formula is not stated
+    inputs:
+      counts:
+        not_stated: true
+        kind: per sample
+        note: NanoString counts; not printed
+      hk:
+        not_stated: true
+        kind: per sample
+        note: housekeeping-gene counts; not printed
+assumptions: {}
+bounds:
+- item: F1F_G0
+  value: F1F_G0.values.G0_ctrl_figure
+  formula: fraction_bounds
+- item: F1F_G0
+  value: F1F_G0.values.G0_t10_figure
+  formula: fraction_bounds
+- item: F1F_G0
+  value: F1F_G0.values.G0_t200_figure
+  formula: fraction_bounds
+- item: F1F_G1
+  value: F1F_G1.values.G1_ctrl_figure
+  formula: fraction_bounds
+- item: F1F_G1
+  value: F1F_G1.values.G1_t10_figure
+  formula: fraction_bounds
+- item: F1F_G1
+  value: F1F_G1.values.G1_t200_figure
+  formula: fraction_bounds
+- item: F1F_SG2M
+  value: F1F_SG2M.values.SG2M_ctrl_figure
+  formula: fraction_bounds
+- item: F1F_SG2M
+  value: F1F_SG2M.values.SG2M_t10_figure
+  formula: fraction_bounds
+- item: F1F_SG2M
+  value: F1F_SG2M.values.SG2M_t200_figure
+  formula: fraction_bounds
+- item: F1G_G0_t200_ctrl
+  value: F1G_G0_t200_ctrl.values.G0_ctrl_text
+  formula: fraction_bounds
+- item: F1G_G0_t200_ctrl
+  value: F1G_G0_t200_ctrl.values.G0_t200_text
+  formula: fraction_bounds
+- item: F1G_G0_t200_ctrl
+  value: F1G_G0_t200_ctrl.values.G0_ctrl_abstract
+  formula: fraction_bounds
+- item: F1G_G0_t200_ctrl
+  value: F1G_G0_t200_ctrl.values.G0_t200_abstract
+  formula: fraction_bounds
+- item: F1G_G1_t200_ctrl
+  value: F1G_G1_t200_ctrl.values.G1_ctrl_text
+  formula: fraction_bounds
+- item: F1G_G1_t200_ctrl
+  value: F1G_G1_t200_ctrl.values.G1_t200_text
+  formula: fraction_bounds
+- item: S1B_Ki67
+  value: S1B_Ki67.values.ki67pos_ctrl_figure
+  formula: fraction_bounds
+- item: S1B_Ki67
+  value: S1B_Ki67.values.ki67neg_ctrl_figure
+  formula: fraction_bounds
+- item: S1B_Ki67
+  value: S1B_Ki67.values.ki67pos_t200_figure
+  formula: fraction_bounds
+- item: S1B_Ki67
+  value: S1B_Ki67.values.ki67neg_t200_figure
+  formula: fraction_bounds
+- item: S1C_pH3
+  value: S1C_pH3.values.ph3pos_ctrl_figure
+  formula: fraction_bounds
+- item: S1C_pH3
+  value: S1C_pH3.values.ph3neg_ctrl_figure
+  formula: fraction_bounds
+- item: S1C_pH3
+  value: S1C_pH3.values.ph3pos_t200_figure
+  formula: fraction_bounds
+- item: S1C_pH3
+  value: S1C_pH3.values.ph3neg_t200_figure
+  formula: fraction_bounds
+proposals: []

@@ -1,0 +1,3726 @@
+id: 2021_Zhang
+source:
+  title: Plakophilin-2 truncating variants impair cardiac contractility by disrupting sarcomere stability and organization
+  doi: 10.1126/sciadv.abh3995
+  year: '2021'
+  first_author: Kehan Zhang
+  last_author: Christopher S. Chen
+  lab: Chen lab, Boston University
+  journal: Science Advances
+  files:
+  - sciadv.abh3995.pdf
+  - sciadv.abh3995_sm.pdf
+  missing:
+  - Movies S1 to S12
+default_context:
+  number_of_lines:
+    value: '1'
+    note: each group is one line; the paper uses four lines (two donors, each a WT line and an edited line)
+  differentiation_factors:
+    value: CHIR99021 + IWP4
+    qualifiers:
+      CHIR99021: 8 to 12 µM
+      IWP4: 5 µM
+  hipsc_medium: mTeSR1
+  hipsc_coating: Matrigel
+  wnt_activation_days:
+    value: 24 hours
+    note: CHIR99021 on day 0 for 24 hours
+  wnt_inhibition_days:
+    value: 48 hours
+    note: IWP4 on day 3 for 48 hours
+  insulin_day: &id001
+    by_reference:
+      citation: ref71
+      anchor:
+        quote: iPSCs were differentiated into CMs as described previously (71)
+        where: Methods, iPSC differentiation
+  confluency: *id001
+  purification:
+    value: metabolic selection
+    qualifiers:
+      dl-lactate: 4 mM
+      duration: 4 days
+    note: in glucose free RPMI 1640
+  purity_method: not stated
+  purity: not stated
+  replating_coating:
+    value: fibronectin
+    qualifiers:
+      concentration: 10 µg/ml
+  endothelial_cell: none
+  cm_day_at_formation:
+    value: day 30
+    note: used for assays 2 weeks after passaging, around day 30 after initiation of differentiation
+  maturation_strategy: not stated
+  treatment: none
+  culture_calcium_mM: not stated
+  donor_age: not stated
+units:
+  F1:
+    where: Fig. 1A–F
+    title: CRISPR-engineered human iPSC-CMs with PKP2tvs demonstrate decreased expression of PKP2
+    context:
+      platform: monolayer
+      substrate: not stated
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: &id002
+            value: WTC
+            qualifiers:
+              identifier: AICS-0017
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: &id004
+            value: PKP2 p.D109Afs*10
+            qualifiers:
+              zygosity: heterozygous
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: &id003
+            value: PGP1
+            qualifiers:
+              source: Personal Genome Project
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: &id005
+            value: PKP2 p.D109Afs*10
+            qualifiers:
+              zygosity: homozygous
+          disease_model: arrhythmogenic cardiomyopathy
+  F2:
+    where: Fig. 2A–E
+    title: PKP2tvs result in decreased junctional localization of desmoplakin and Cx43
+    context:
+      platform: monolayer
+      substrate: not stated
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+  F3:
+    where: Fig. 3A–D
+    title: PKP2tvs lead to prolongation of action potential
+    context:
+      platform: monolayer
+      substrate:
+        value: glass
+        qualifiers:
+          coating: fibronectin
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: 37 °C
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1.0 Hz
+          voltage: 10 to 20 V
+          pulse: 10-ms duration
+      preparation: live cells
+      day_of_measurement: 7 days after transduction
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene:
+        value: Archon1 + CMV-Cre
+        qualifiers:
+          Archon1: CAG-FLEX-Archon1-KGC-EGFP-ER2 rAAV2, MOI 2000 to 3000
+          CMV-Cre: CMV-Cre AAV9, MOI 4000 to 6000
+        anchor:
+          quote: CMV-Cre AAV9 (Addgene) (MOI, 4000 to 6000) were added 24 hours after replating
+          where: Methods, Action potential measurement
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+  F4:
+    where: Fig. 4A–D
+    title: PKP2tvs cause reduction in systolic contractility in CMTs
+    context:
+      platform: &id006
+        value: cardiac microtissue
+        qualifiers:
+          pillars: two PDMS micropillars with spherical caps
+      substrate: &id007
+        value: fibrin + Matrigel
+        qualifiers:
+          fibrinogen: 4 mg/ml
+          Matrigel: 10%
+      cell_types: iPSC-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 90% iPSC-CMs and 10% human mesenchymal stem cells
+      cm_medium: high-glucose DMEM
+      supplements: &id008
+        value: fetal bovine serum + penicillin-streptomycin + nonessential amino acids + GlutaMAX + Y-27632 + aprotinin
+        note: Y-27632 removed 2 days after seeding; aprotinin lowered to 0.016 mg/ml after 7 days
+      temperature: &id009
+        value: not stated
+        note: temperature- and CO2-equilibrated environmental chamber; temperature not given
+      preparation: intact tissue
+      pacing: &id010
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+          field: 10 to 20 V/cm
+          pulse: 10-ms square pulse
+      day_of_measurement: day 10 after seeding
+      measurement_calcium_mM: not stated
+      mechanical_load:
+        value: micropillars
+        qualifiers:
+          pillar spring constant: 2.68 µN/m
+        anchor:
+          quote: the measured pillar spring constant of 2.68
+          where: Methods, Cardiac microtissues
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+  S1:
+    where: fig. S1A–D
+    title: Contraction and Relaxation Kinetics of Cardiac Micro-Tissues Electrically Paced at 1Hz
+    context:
+      platform: *id006
+      substrate: *id007
+      cell_types: iPSC-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 90% iPSC-CMs and 10% human mesenchymal stem cells
+      cm_medium: high-glucose DMEM
+      supplements: *id008
+      temperature: *id009
+      preparation: intact tissue
+      pacing: *id010
+      day_of_measurement: day 10 after seeding
+      measurement_calcium_mM: not stated
+      mechanical_load:
+        value: micropillars
+        qualifiers:
+          pillar spring constant: 2.68 µN/m
+        anchor:
+          quote: the measured pillar spring constant of 2.68
+          where: Methods, Cardiac microtissues
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+    note: P labels are inside the figure image; the legend is text
+  F5:
+    where: Fig. 5A–E
+    title: Single CMs harboring pkp2tvs exhibit increased contractility
+    context:
+      platform:
+        value: micropatterned single cell
+        qualifiers:
+          island: rectangular fibronectin island, 1:7 aspect ratio, 2000 µm²
+      substrate: &id011
+        value: polyacrylamide
+        qualifiers:
+          stiffness: 7.9- and 4-kPa
+        note: which stiffness was used for which experiment is not stated
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: *id009
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      preparation: live cells
+      day_of_measurement: 7 days after cell seeding
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+  F6:
+    where: Fig. 6A–E
+    title: PKP2tvs impair multicellular cardiac contractility
+    context:
+      platform:
+        value: micropatterned multicellular cardiac patch
+        qualifiers:
+          island: square fibronectin island, 100 µm by 100 µm
+          cells per island: around six to eight CMs
+      substrate: *id011
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: *id009
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      preparation: live cells
+      day_of_measurement: 7 days after cell seeding
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+  F7:
+    where: Fig. 7A–C
+    title: PKP2tvs alter molecular stability and turnover of junctional N-cadherin
+    context:
+      platform:
+        value: monolayer
+        suspected_error:
+          what: culture format of the FRAP experiment stated three ways
+          why: results text and Fig. 7 legend say monolayer; Methods say cultured on micropatterned substrates; movies S1–S4 say multicellular cardiac patch
+      substrate: not stated
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: *id009
+      pacing: not stated
+      preparation: live cells
+      day_of_measurement:
+        value: 7 days
+        note: cultured on micropatterned substrates for 7 days before FRAP
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+          transgene:
+            value: N-cadherin–mApple
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: WT1 cells expressing N-cadherin-mApple cultured as a multicellular cardiac patch
+              where: Movie S1 legend
+              file: sciadv.abh3995_sm.pdf
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+          transgene:
+            value: N-cadherin–mApple
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: PKP2tv+/- cells expressing N-cadherin-mApple cultured as a multicellular cardiac patch
+              where: Movie S2 legend
+              file: sciadv.abh3995_sm.pdf
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+          transgene:
+            value: N-cadherin–EGFP
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: WT2 cells expressing N-cadherin-EGFP cultured as a multicellular cardiac patch
+              where: Movie S3 legend
+              file: sciadv.abh3995_sm.pdf
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+          transgene:
+            value: N-cadherin–EGFP
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: PKP2tv-/- cells expressing N-cadherin-EGFP cultured as a multicellular cardiac patch
+              where: Movie S4 legend
+              file: sciadv.abh3995_sm.pdf
+  F8:
+    where: Fig. 8A–E
+    title: PKP2tvs destabilize N-cadherin junctions at cell-cell contact
+    context:
+      platform: monolayer
+      substrate: &id012
+        value: PDMS-coated glass
+        qualifiers:
+          coating: fibronectin (10 µg/ml)
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27 + OxyFluo
+      temperature: *id009
+      pacing: not stated
+      preparation: live cells
+      day_of_measurement: &id013
+        value: 7 days
+        note: cultured on glass substrates for 7 days before live imaging
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+          transgene:
+            value: N-cadherin–mApple
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: WT1 cells expressing N-cadherin-mApple cultured in a monolayer
+              where: Movie S5 legend
+              file: sciadv.abh3995_sm.pdf
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+          transgene:
+            value: N-cadherin–mApple
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: PKP2tv+/- cells expressing N-cadherin-mApple cultured in a monolayer
+              where: Movie S6 legend
+              file: sciadv.abh3995_sm.pdf
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+          transgene:
+            value: N-cadherin–EGFP
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: WT2 cells expressing N-cadherin-EGFP cultured in a monolayer
+              where: Movie S7 legend
+              file: sciadv.abh3995_sm.pdf
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+          transgene:
+            value: N-cadherin–EGFP
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: PKP2tv-/- expressing N-cadherin-EGFP cultured in a monolayer
+              where: Movie S8 legend
+              file: sciadv.abh3995_sm.pdf
+  F9:
+    where: Fig. 9A–E
+    title: PKP2tvs destabilize sarcomeres
+    context:
+      platform: monolayer
+      substrate: *id012
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27 + OxyFluo
+      temperature: *id009
+      pacing: not stated
+      preparation: live cells
+      day_of_measurement: *id013
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+          transgene:
+            value: N-cadherin–mApple + EGFP–α-actinin-2
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: cadherin-mApple (shown in green) and EGFP-a-Actinin-2 (shown in magenta)
+              where: Movie S9 legend
+              file: sciadv.abh3995_sm.pdf
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+          transgene:
+            value: N-cadherin–mApple + EGFP–α-actinin-2
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: PKP2tv+/- cells expressing N-cadherin-mApple (shown in green) and EGFP-a-Actinin-2
+              where: Movie S10 legend
+              file: sciadv.abh3995_sm.pdf
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+          transgene:
+            value: N-cadherin–EGFP + mApple–α-actinin-2
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: cadherin-EGFP (shown in green) and mApple-a-Actinin-2 (shown in magenta)
+              where: Movie S11 legend
+              file: sciadv.abh3995_sm.pdf
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+          transgene:
+            value: N-cadherin–EGFP + mApple–α-actinin-2
+            qualifiers:
+              vector: lentiviral
+            anchor:
+              quote: PKP2tv-/- cells expressing N-cadherin-EGFP (shown in green) and mApple-a-Actinin-2
+              where: Movie S12 legend
+              file: sciadv.abh3995_sm.pdf
+  F10:
+    where: Fig. 10A–E
+    title: PKP2tvs impair sarcomere content and organization in multicellular cardiac patches
+    context:
+      platform: micropatterned multicellular cardiac patch
+      substrate:
+        value: not stated
+        note: Methods describe micropatterned PDMS-coated glass for cardiac cell patches but do not tie it to Fig. 10
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          cell_line: *id002
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          cell_line: *id002
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+      WT2:
+        label: WT2
+        context:
+          cell_line: *id003
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          cell_line: *id003
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+  S3:
+    where: fig. S3A–E
+    title: PKP2tv Lead to Increase in Sarcomere Content in Single Cardiomyocytes
+    context:
+      platform:
+        value: micropatterned single cell
+        qualifiers:
+          island: rectangular
+      substrate: not stated
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      day_of_measurement: not stated
+      cell_line: *id002
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT1:
+        label: WT1
+        context:
+          genotype: wild type
+          disease_model: none
+      PKP2tv_het:
+        label: PKP2tv+/−
+        context:
+          genotype: *id004
+          disease_model: arrhythmogenic cardiomyopathy
+    note: P labels are inside the figure image
+  S4:
+    where: fig. S4A–B
+    title: Junctional expression of αT-catenin and αE-catenin in PKP2tv and WT cardiomyocytes
+    context:
+      platform: monolayer
+      substrate: not stated
+      cell_types: iPSC-CMs
+      stromal_cell: none
+      composition: not applicable
+      cm_medium: RPMI 1640
+      supplements: B27
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      day_of_measurement: not stated
+      cell_line: *id003
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+    groups:
+      WT2:
+        label: WT2
+        context:
+          genotype: wild type
+          disease_model: none
+      PKP2tv_hom:
+        label: PKP2tv−/−
+        context:
+          genotype: *id005
+          disease_model: arrhythmogenic cardiomyopathy
+    note: P label is inside the figure image
+evidence:
+  F1C_actinin:
+    unit: F1
+    measure: sarcomeric α-actinin-2 staining
+    method: immunofluorescence
+    finding: mutant iPSC-CMs stain positive for sarcomeric α-actinin-2
+    groups: &id014
+    - WT1
+    - PKP2tv_het
+    - WT2
+    - PKP2tv_hom
+    anchor:
+      quote: These mutant iPSCs could be differentiated into CMs that stained positive for sarcomeric α-actinin-2 (Fig. 1C)
+      where: Results, p. 2
+  F1C_pkp2:
+    unit: F1
+    measure: PKP2 staining
+    method: immunofluorescence
+    finding: PKP2 fluorescence not detectable in PKP2tv−/−
+    groups:
+    - WT2
+    - PKP2tv_hom
+    anchor:
+      quote: PKP2 fluorescence is not detectable in PKP2tv−/−
+      where: Fig. 1C legend
+  F1D_het:
+    unit: F1
+    measure: PKP2 RNA expression
+    method: reverse transcription quantitative PCR (power SYBR Green, QuantStudio3), PSMB2 housekeeping gene
+    definition: relative expression 2^−ΔΔCT; ΔCT = CT of PKP2 minus CT of PSMB2; ΔΔCT = ΔCT of a sample minus the average ΔCT of WT repeats
+    finding: PKP2 RNA reduced to 63.2% of WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 4) compared to WT1 (n = 3)
+      counts: biological replicates (independent batches of stem cell differentiation), each the mean of two samples
+      per_group:
+        PKP2tv_het: '4'
+        WT1: '3'
+    values:
+      rel:
+        printed: '63.2'
+        unit: '%'
+        kind: percent
+        between:
+        - PKP2tv_het
+        - WT1
+        spread: SEM
+        spread_source: sentence
+      rel_sem:
+        printed: '13.9'
+        unit: '%'
+        kind: sem
+        between:
+        - PKP2tv_het
+        - WT1
+        spread: SEM
+        spread_source: sentence
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.03
+    anchor:
+      quote: 63.2 ± 13.9% in PKP2tv+/− (n = 4) compared to WT1 (n = 3)
+      where: Fig. 1D legend
+    context:
+      preparation: lysate
+  F1D_hom:
+    unit: F1
+    measure: PKP2 RNA expression
+    method: reverse transcription quantitative PCR (power SYBR Green, QuantStudio3), PSMB2 housekeeping gene
+    definition: relative expression 2^−ΔΔCT; ΔCT = CT of PKP2 minus CT of PSMB2; ΔΔCT = ΔCT of a sample minus the average ΔCT of WT repeats
+    finding: PKP2 RNA reduced to 32.5% of WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 3) compared to WT2 (n = 3)
+      counts: biological replicates (independent batches of stem cell differentiation), each the mean of two samples
+      per_group:
+        PKP2tv_hom: '3'
+        WT2: '3'
+    values:
+      rel:
+        printed: '32.5'
+        unit: '%'
+        kind: percent
+        between:
+        - PKP2tv_hom
+        - WT2
+        spread: SEM
+        spread_source: sentence
+      rel_sem:
+        printed: '6.2'
+        unit: '%'
+        kind: sem
+        between:
+        - PKP2tv_hom
+        - WT2
+        spread: SEM
+        spread_source: sentence
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.04
+    anchor:
+      quote: 32.5 ± 6.2% in PKP2tv−/− (n = 3) compared to WT2 (n = 3), data presented as means ± SEM
+      where: Fig. 1D legend
+    context:
+      preparation: lysate
+  F1E_wb:
+    unit: F1
+    measure: PKP2 protein (Western blot)
+    method: Western blot, GAPDH loading control
+    finding: PKP2 protein reduced in PKP2tv+/− and almost absent in PKP2tv−/− (stated in text)
+    groups: *id014
+    anchor:
+      quote: Western blots of PKP2 protein in iPSC-CMs
+      where: Fig. 1E legend
+    context:
+      preparation: lysate
+  F1F_het:
+    unit: F1
+    measure: junctional PKP2 mean fluorescence intensity
+    method: immunofluorescence
+    finding: junctional PKP2 lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 10) versus WT1 (n = 11)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_het: '10'
+        WT1: '11'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: Mean fluorescence intensity of junctional PKP2 shows a significant reduction in PKP2tv+/− (n = 10) versus WT1 (n = 11)
+      where: Fig. 1F legend
+  F1F_hom:
+    unit: F1
+    measure: junctional PKP2 mean fluorescence intensity
+    method: immunofluorescence
+    finding: junctional PKP2 lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 5) versus WT2 (n = 5)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_hom: '5'
+        WT2: '5'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.009
+    anchor:
+      quote: and in PKP2tv−/− (n = 5) versus WT2 (n = 5). a.u., arbitrary units
+      where: Fig. 1F legend
+  F2C_het:
+    unit: F2
+    measure: junctional N-cadherin mean fluorescence intensity
+    method: immunofluorescence
+    finding: junctional N-cadherin comparable in PKP2tv+/− and WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 13) versus WT1 (n = 13)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_het: '13'
+        WT1: '13'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: Mean fluorescence intensity of junctional N-cadherin is comparable in PKP2tv+/− (n = 13) versus WT1 (n = 13)
+      where: Fig. 2C legend
+  F2C_hom:
+    unit: F2
+    measure: junctional N-cadherin mean fluorescence intensity
+    method: immunofluorescence
+    finding: junctional N-cadherin comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 5) versus WT2 (n = 5)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_hom: '5'
+        WT2: '5'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: is comparable in PKP2tv+/− (n = 13) versus WT1 (n = 13) and in PKP2tv−/− (n = 5) versus WT2 (n = 5). n.s., not significant
+      where: Fig. 2C legend
+  F2D_het:
+    unit: F2
+    measure: junctional desmoplakin mean fluorescence intensity
+    method: immunofluorescence; mean intensity within junction areas masked from N-cadherin staining
+    finding: junctional desmoplakin lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 11) versus WT1 (n = 10)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_het: '11'
+        WT1: '10'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: is significantly lower in PKP2tv+/− (n = 11) versus WT1 (n = 10)
+      where: Fig. 2D legend
+  F2D_hom:
+    unit: F2
+    measure: junctional desmoplakin mean fluorescence intensity
+    method: immunofluorescence; mean intensity within junction areas masked from N-cadherin staining
+    finding: junctional desmoplakin lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 5) versus WT2 (n = 5)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_hom: '5'
+        WT2: '5'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.04
+    anchor:
+      quote: is significantly lower in PKP2tv+/− (n = 11) versus WT1 (n = 10) and in PKP2tv−/− (n = 5) versus WT2 (n = 5)
+      where: Fig. 2D legend
+  F2E_het:
+    unit: F2
+    measure: junctional Cx43 mean fluorescence intensity
+    method: immunofluorescence; mean intensity within junction areas masked from N-cadherin staining
+    finding: junctional Cx43 lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 13) versus WT1 (n = 13)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_het: '13'
+        WT1: '13'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.04
+    anchor:
+      quote: of junctional Cx43 at cell-cell contacts (defined by junctional N-cadherin signal) is significantly lower in PKP2tv+/− (n = 13) versus WT1 (n = 13)
+      where: Fig. 2E legend
+  F2E_hom:
+    unit: F2
+    measure: junctional Cx43 mean fluorescence intensity
+    method: immunofluorescence; mean intensity within junction areas masked from N-cadherin staining
+    finding: junctional Cx43 lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 8) versus WT2 (n = 7)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_hom: '8'
+        WT2: '7'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.001
+    anchor:
+      quote: and in PKP2tv−/− (n = 8) versus WT2 (n = 7)
+      where: Fig. 2E legend
+  F3A_trace:
+    unit: F3
+    measure: action potential trace (normalized Archon1 intensity)
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    finding: mean action potential traces, means ± SD
+    groups:
+    - WT1
+    - PKP2tv_het
+    n:
+      printed: PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      counts: not stated
+      per_group:
+        PKP2tv_het: '30'
+        WT1: '30'
+    anchor:
+      quote: are aligned at peaks for (A) PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      where: Fig. 3A legend
+  F3C_trace:
+    unit: F3
+    measure: action potential trace (normalized Archon1 intensity)
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    finding: mean action potential traces, means ± SD
+    groups:
+    - WT2
+    - PKP2tv_hom
+    n:
+      printed: PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      counts: not stated
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '25'
+    anchor:
+      quote: (C) PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      where: Fig. 3C legend
+  F3B_apd30:
+    unit: F3
+    measure: APD30
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    definition: action potential duration at 30% below the peak of the action potential curve
+    finding: APD30 longer in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      counts: not stated
+      per_group:
+        PKP2tv_het: '30'
+        WT1: '30'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.0002
+    anchor:
+      quote: shows significant increase in APD of (B) PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      where: Fig. 3B legend
+  F3D_apd30:
+    unit: F3
+    measure: APD30
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    definition: action potential duration at 30% below the peak of the action potential curve
+    finding: APD30 longer in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      counts: not stated
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: (D) PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      where: Fig. 3D legend
+  F3B_apd50:
+    unit: F3
+    measure: APD50
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    definition: action potential duration at 50% below the peak of the action potential curve
+    finding: APD50 longer in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      counts: not stated
+      per_group:
+        PKP2tv_het: '30'
+        WT1: '30'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: shows significant increase in APD of (B) PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      where: Fig. 3B legend
+  F3D_apd50:
+    unit: F3
+    measure: APD50
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    definition: action potential duration at 50% below the peak of the action potential curve
+    finding: APD50 longer in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      counts: not stated
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: (D) PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      where: Fig. 3D legend
+  F3B_apd80:
+    unit: F3
+    measure: APD80
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    definition: action potential duration at 80% below the peak of the action potential curve
+    finding: APD80 longer in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      counts: not stated
+      per_group:
+        PKP2tv_het: '30'
+        WT1: '30'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: shows significant increase in APD of (B) PKP2tv+/− (n = 30) versus WT1 (n = 30)
+      where: Fig. 3B legend
+  F3D_apd80:
+    unit: F3
+    measure: APD80
+    method: Archon1 voltage imaging, one-photon widefield fluorescence, recorded at 100 Hz
+    definition: action potential duration at 80% below the peak of the action potential curve
+    finding: APD80 longer in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      counts: not stated
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: (D) PKP2tv−/− (n = 27) versus WT2 (n = 25)
+      where: Fig. 3D legend
+  F4C_het:
+    unit: F4
+    measure: peak systolic force
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    definition: &id015
+      citation: ref41
+      anchor:
+        quote: calculated using a custom MATLAB script based on the deflection of the pillars and the measured pillar spring constant of 2.68 µN/m, as described previously (41)
+        where: Methods, Cardiac microtissues
+    finding: peak systolic force lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 22) versus WT1 (n = 25)
+      counts: CMTs
+      per_group:
+        PKP2tv_het: '22'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.01
+    anchor:
+      quote: Quantification of peak systolic forces of CMTs shows a significant reduction in force generation in PKP2tv+/− (n = 22) versus WT1 (n = 25)
+      where: Fig. 4C legend
+  F4C_hom:
+    unit: F4
+    measure: peak systolic force
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    definition: *id015
+    finding: peak systolic force lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 27) versus WT2 (n = 20)
+      counts: CMTs
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: and in PKP2tv−/− (n = 27) versus WT2 (n = 20). (D) Quantification of peak systolic stresses
+      where: Fig. 4C legend
+  F4D_het:
+    unit: F4
+    measure: peak systolic stress
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    definition: *id015
+    finding: peak systolic stress comparable in PKP2tv+/− and WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 22) versus WT1 (n = 25)
+      counts: CMTs
+      per_group:
+        PKP2tv_het: '22'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: Quantification of peak systolic stresses of CMTs shows comparable stress levels in PKP2tv+/− (n = 22) versus WT1 (n = 25)
+      where: Fig. 4D legend
+  F4D_hom:
+    unit: F4
+    measure: peak systolic stress
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    definition: *id015
+    finding: peak systolic stress lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 27) versus WT2 (n = 20)
+      counts: CMTs
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: a significant reduction of systolic stress in PKP2tv−/− (n = 27) versus WT2 (n = 20)
+      where: Fig. 4D legend
+  S1A_het:
+    unit: S1
+    measure: t50_contract
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t50_contract comparable in PKP2tv+/− vs WT1 (figure label n.s.)
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 22) vs. WT1 (n = 25)
+      counts: CMTs
+      per_group:
+        PKP2tv_het: '22'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: &id016
+      quote: Quantification of (A) t50_contract, (B) t50_relax, (C) t80_contract and (D) t80_relax
+      where: fig. S1 legend
+      file: sciadv.abh3995_sm.pdf
+  S1A_hom:
+    unit: S1
+    measure: t50_contract
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t50_contract comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv-/- (n = 27) vs. WT2 (n = 20)
+      counts: CMTs
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: *id016
+  S1B_het:
+    unit: S1
+    measure: t50_relax
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t50_relax longer in PKP2tv+/− vs WT1 (figure label p=.01)
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 22) vs. WT1 (n = 25)
+      counts: CMTs
+      per_group:
+        PKP2tv_het: '22'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: p=.01
+    anchor:
+      quote: fig. S1B, label above WT1 vs PKP2tv+/-
+      where: fig. S1B
+      file: sciadv.abh3995_sm.pdf
+      kind: unit
+    note: p=.01 is printed inside the figure (not extractable); the legend calls all kinetics comparable
+  S1B_hom:
+    unit: S1
+    measure: t50_relax
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t50_relax comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv-/- (n = 27) vs. WT2 (n = 20)
+      counts: CMTs
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: *id016
+  S1C_het:
+    unit: S1
+    measure: t80_contract
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t80_contract comparable in PKP2tv+/− vs WT1 (figure label n.s.)
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 22) vs. WT1 (n = 25)
+      counts: CMTs
+      per_group:
+        PKP2tv_het: '22'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: *id016
+  S1C_hom:
+    unit: S1
+    measure: t80_contract
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t80_contract comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv-/- (n = 27) vs. WT2 (n = 20)
+      counts: CMTs
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: *id016
+  S1D_het:
+    unit: S1
+    measure: t80_relax
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t80_relax comparable in PKP2tv+/− vs WT1 (figure label n.s.)
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 22) vs. WT1 (n = 25)
+      counts: CMTs
+      per_group:
+        PKP2tv_het: '22'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: *id016
+  S1D_hom:
+    unit: S1
+    measure: t80_relax
+    method: pillar deflection tracked in time-lapse videos at 30 frames/s, 4× objective
+    software: custom MATLAB script
+    finding: t80_relax comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv-/- (n = 27) vs. WT2 (n = 20)
+      counts: CMTs
+      per_group:
+        PKP2tv_hom: '27'
+        WT2: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor: *id016
+  F5D_het:
+    unit: F5
+    measure: RMS systolic stress
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: root mean square of the magnitudes of stress vectors in a user-defined area, S_RMS = sqrt((|S1|² + … + |Sn|²)/n)
+    finding: single-cell RMS systolic stress higher in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 20) versus WT1 (n = 20)
+      counts: single CMs
+      per_group:
+        PKP2tv_het: '20'
+        WT1: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.009
+    anchor:
+      quote: shows a significantly higher stress level in PKP2tv+/− (n = 20) versus WT1 (n = 20)
+      where: Fig. 5D legend
+  F5D_hom:
+    unit: F5
+    measure: RMS systolic stress
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: root mean square of the magnitudes of stress vectors in a user-defined area, S_RMS = sqrt((|S1|² + … + |Sn|²)/n)
+    finding: single-cell RMS systolic stress higher in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 48) versus WT2 (n = 47)
+      counts: single CMs
+      per_group:
+        PKP2tv_hom: '48'
+        WT2: '47'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.001
+    anchor:
+      quote: and in PKP2tv−/− (n = 48) versus WT2 (n = 47). (E) Quantification of work
+      where: Fig. 5D legend
+  F5E_het:
+    unit: F5
+    measure: systolic work
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: force vectors multiplied by bead displacement vectors, summed over a user-defined area
+    finding: single-cell systolic work higher in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 20) versus WT1 (n = 20)
+      counts: single CMs
+      per_group:
+        PKP2tv_het: '20'
+        WT1: '20'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: shows a significantly higher work production in PKP2tv+/− (n = 20) versus WT1 (n = 20)
+      where: Fig. 5E legend
+  F5E_hom:
+    unit: F5
+    measure: systolic work
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: force vectors multiplied by bead displacement vectors, summed over a user-defined area
+    finding: single-cell systolic work higher in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 48) versus WT2 (n = 47)
+      counts: single CMs
+      per_group:
+        PKP2tv_hom: '48'
+        WT2: '47'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: work production in PKP2tv+/− (n = 20) versus WT1 (n = 20) and in PKP2tv−/− (n = 48) versus WT2 (n = 47)
+      where: Fig. 5E legend
+  F6D_het:
+    unit: F6
+    measure: RMS systolic stress
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: root mean square of the magnitudes of stress vectors in a user-defined area, S_RMS = sqrt((|S1|² + … + |Sn|²)/n)
+    finding: patch RMS systolic stress lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 17) versus WT1 (n = 21)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_het: '17'
+        WT1: '21'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.0007
+    anchor:
+      quote: shows a significantly lower stress level in PKP2tv+/− (n = 17) versus WT1 (n = 21)
+      where: Fig. 6D legend
+  F6D_hom:
+    unit: F6
+    measure: RMS systolic stress
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: root mean square of the magnitudes of stress vectors in a user-defined area, S_RMS = sqrt((|S1|² + … + |Sn|²)/n)
+    finding: patch RMS systolic stress lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 59) versus WT2 (n = 65)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_hom: '59'
+        WT2: '65'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: and in PKP2tv−/− (n = 59) versus WT2 (n = 65)
+      where: Fig. 6D legend
+  F6E_het:
+    unit: F6
+    measure: systolic work
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: force vectors multiplied by bead displacement vectors, summed over a user-defined area
+    finding: patch systolic work lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 17) versus WT1 (n = 21)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_het: '17'
+        WT1: '21'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.0004
+    anchor:
+      quote: shows a significantly lower work production in PKP2tv+/− (n = 17) versus WT1 (n = 21)
+      where: Fig. 6E legend
+  F6E_hom:
+    unit: F6
+    measure: systolic work
+    method: 'traction force microscopy: bead displacement relative to peak relaxation, 30 frames/s, peak systole averaged over three or four beats'
+    software: Fiji TFM plugins (Tseng et al.) with a custom MATLAB script
+    definition: force vectors multiplied by bead displacement vectors, summed over a user-defined area
+    finding: patch systolic work lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 51) versus WT2 (n = 64)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_hom: '51'
+        WT2: '64'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: and in PKP2tv−/− (n = 51) versus WT2 (n = 64)
+      where: Fig. 6E legend
+  F7B_het:
+    unit: F7
+    measure: junctional N-cadherin FRAP
+    method: FRAP of N-cadherin–EGFP or N-cadherin–mApple, 488-nm bleach for 1 min, imaged every 30 s for 30 min; background-subtracted, normalized to an unbleached reference, divided by pre-bleach intensity
+    finding: recovery curves, means ± SD, fitted two-phase association
+    groups:
+    - WT1
+    - PKP2tv_het
+    n:
+      printed: PKP2tv+/− (n = 12) versus WT1 (n = 12)
+      counts: not stated
+      per_group:
+        PKP2tv_het: '12'
+        WT1: '12'
+    anchor:
+      quote: Percentage junctional N-cadherin FRAP over 30 min in monolayer cultures of iPSC-CMs comparing PKP2tv+/− (n = 12) versus WT1 (n = 12)
+      where: Fig. 7B legend
+  F7B_hom:
+    unit: F7
+    measure: junctional N-cadherin FRAP
+    method: FRAP of N-cadherin–EGFP or N-cadherin–mApple, 488-nm bleach for 1 min, imaged every 30 s for 30 min; background-subtracted, normalized to an unbleached reference, divided by pre-bleach intensity
+    finding: recovery curves, means ± SD, fitted two-phase association
+    groups:
+    - WT2
+    - PKP2tv_hom
+    n:
+      printed: PKP2tv−/− (n = 25) versus WT2 (n = 19)
+      counts: not stated
+      per_group:
+        PKP2tv_hom: '25'
+        WT2: '19'
+    anchor:
+      quote: and PKP2tv−/− (n = 25) versus WT2 (n = 19). Data are shown as means (dots) ± SD (bars)
+      where: Fig. 7B legend
+  F7C_het:
+    unit: F7
+    measure: N-cadherin mobile fraction
+    method: FRAP of N-cadherin–EGFP or N-cadherin–mApple, 488-nm bleach for 1 min, imaged every 30 s for 30 min; background-subtracted, normalized to an unbleached reference, divided by pre-bleach intensity
+    definition: plateau of the FRAP recovery curve fitted with a two-phase association model
+    finding: N-cadherin mobile fraction lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 12) versus WT1 (n = 12)
+      counts: not stated
+      per_group:
+        PKP2tv_het: '12'
+        WT1: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: shows a significant reduction in monolayer cultures of PKP2tv+/− (n = 12) versus WT1 (n = 12)
+      where: Fig. 7C legend
+  F7C_hom:
+    unit: F7
+    measure: N-cadherin mobile fraction
+    method: FRAP of N-cadherin–EGFP or N-cadherin–mApple, 488-nm bleach for 1 min, imaged every 30 s for 30 min; background-subtracted, normalized to an unbleached reference, divided by pre-bleach intensity
+    definition: plateau of the FRAP recovery curve fitted with a two-phase association model
+    finding: N-cadherin mobile fraction lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 25) versus WT2 (n = 19)
+      counts: not stated
+      per_group:
+        PKP2tv_hom: '25'
+        WT2: '19'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: and in PKP2tv−/− (n = 25) versus WT2 (n = 19). Data across three independent experiments are shown as means ± SEM
+      where: Fig. 7C legend
+  F8C_het:
+    unit: F8
+    measure: net displacement of junctional N-cadherin
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over masks of cell-cell boundaries
+    software: custom Python script (OpenCV)
+    definition: final displacement of each point between the first and last frame (vector sum), averaged over the mask
+    finding: net displacement higher in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 14) versus WT1 (n = 18)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_het: '14'
+        WT1: '18'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.003
+    anchor:
+      quote: Net displacement of junctional N-cadherin in time-lapse movies measured by optical flow tracking shows a significant increase in monolayer cultures of PKP2tv+/− (n = 14) versus WT1 (n = 18)
+      where: Fig. 8C legend
+  F8C_hom:
+    unit: F8
+    measure: net displacement of junctional N-cadherin
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over masks of cell-cell boundaries
+    software: custom Python script (OpenCV)
+    definition: final displacement of each point between the first and last frame (vector sum), averaged over the mask
+    finding: net displacement higher in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 14) versus WT2 (n = 12)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_hom: '14'
+        WT2: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.0002
+    anchor:
+      quote: and in PKP2tv−/− (n = 14) versus WT2 (n = 12). (D) Mean displacement per frame
+      where: Fig. 8C legend
+  F8D_het:
+    unit: F8
+    measure: mean displacement per frame of junctional N-cadherin
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over masks of cell-cell boundaries
+    software: custom Python script (OpenCV)
+    definition: scalar average of displacements per frame, averaged over the mask
+    finding: mean displacement per frame higher in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 14) versus WT1 (n = 18)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_het: '14'
+        WT1: '18'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.007
+    anchor:
+      quote: Mean displacement per frame of junctional N-cadherin in time-lapse movies measured by optical flow tracking shows a significant increase
+      where: Fig. 8D legend
+  F8D_hom:
+    unit: F8
+    measure: mean displacement per frame of junctional N-cadherin
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over masks of cell-cell boundaries
+    software: custom Python script (OpenCV)
+    definition: scalar average of displacements per frame, averaged over the mask
+    finding: mean displacement per frame higher in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 14) versus WT2 (n = 12)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_hom: '14'
+        WT2: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.002
+    anchor:
+      quote: and in PKP2tv−/− (n = 14) versus WT2 (n = 12). (E) Ramble of junctional N-cadherin
+      where: Fig. 8D legend
+  F8E_het:
+    unit: F8
+    measure: ramble of junctional N-cadherin
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over masks of cell-cell boundaries
+    software: custom Python script (OpenCV)
+    definition: sum of the scalar displacements minus the translation displacement, per frame, averaged over the mask
+    finding: ramble not significantly different in PKP2tv+/− vs WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 14) versus WT1 (n = 18)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_het: '14'
+        WT1: '18'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: shows an increase in monolayer cultures of PKP2tv+/− (n = 14) versus WT1 (n = 18) (not significant)
+      where: Fig. 8E legend
+  F8E_hom:
+    unit: F8
+    measure: ramble of junctional N-cadherin
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over masks of cell-cell boundaries
+    software: custom Python script (OpenCV)
+    definition: sum of the scalar displacements minus the translation displacement, per frame, averaged over the mask
+    finding: ramble higher in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 14) versus WT2 (n = 12)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_hom: '14'
+        WT2: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.02
+    anchor:
+      quote: and in PKP2tv−/− (n = 14) versus WT2 (n = 12) (significant)
+      where: Fig. 8E legend
+  F9C_het:
+    unit: F9
+    measure: net displacement of sarcomeric α-actinin-2
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over polygons of α-actinin-2 signal
+    software: custom Python script (OpenCV)
+    definition: final displacement of each point between the first and last frame (vector sum), averaged over the mask
+    finding: net displacement of α-actinin-2 higher in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 13) versus WT1 (n = 18)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_het: '13'
+        WT1: '18'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.007
+    anchor:
+      quote: Net displacement of sarcomeric α-actinin-2 in time-lapse movies measured by optical flow tracking shows a significant increase in monolayer cultures of PKP2tv+/− (n = 13) versus WT1 (n = 18)
+      where: Fig. 9C legend
+  F9C_hom:
+    unit: F9
+    measure: net displacement of sarcomeric α-actinin-2
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over polygons of α-actinin-2 signal
+    software: custom Python script (OpenCV)
+    definition: final displacement of each point between the first and last frame (vector sum), averaged over the mask
+    finding: net displacement of α-actinin-2 higher in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 13) versus WT2 (n = 12)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_hom: '13'
+        WT2: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.01
+    anchor:
+      quote: PKP2tv−/− (n = 13) versus WT2 (n = 12). (D) Mean displacement per frame of junctional N-cadherin
+      where: Fig. 9C legend
+  F9D_het:
+    unit: F9
+    measure: mean displacement per frame of sarcomeric α-actinin-2
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over polygons of α-actinin-2 signal
+    software: custom Python script (OpenCV)
+    definition: scalar average of displacements per frame, averaged over the mask
+    finding: mean displacement per frame comparable in PKP2tv+/− and WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 13) versus WT1 (n = 18)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_het: '13'
+        WT1: '18'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: shows comparable mean displacement per frame in monolayer cultures of PKP2tv+/− (n = 13) versus WT1 (n = 18)
+      where: Fig. 9D legend
+    suspected_error: &id017
+      what: legend names the wrong protein
+      why: Fig. 9D and 9E legends say junctional N-cadherin, but the panels' figure title, the results text (Fig. 9D, 9E) and movies S9–S12 quantify sarcomeric α-actinin-2
+  F9D_hom:
+    unit: F9
+    measure: mean displacement per frame of sarcomeric α-actinin-2
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over polygons of α-actinin-2 signal
+    software: custom Python script (OpenCV)
+    definition: scalar average of displacements per frame, averaged over the mask
+    finding: mean displacement per frame comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 13) versus WT2 (n = 12)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_hom: '13'
+        WT2: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: mean displacement per frame in monolayer cultures of PKP2tv+/− (n = 13) versus WT1 (n = 18) and in PKP2tv−/− (n = 13) versus WT2 (n = 12)
+      where: Fig. 9D legend
+    suspected_error: *id017
+  F9E_het:
+    unit: F9
+    measure: ramble of sarcomeric α-actinin-2
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over polygons of α-actinin-2 signal
+    software: custom Python script (OpenCV)
+    definition: sum of the scalar displacements minus the translation displacement, per frame, averaged over the mask
+    finding: ramble of α-actinin-2 lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 13) versus WT1 (n = 18)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_het: '13'
+        WT1: '18'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.007
+    anchor:
+      quote: shows a significant decrease in monolayer cultures of PKP2tv+/− (n = 13) versus WT1 (n = 18)
+      where: Fig. 9E legend
+    suspected_error: *id017
+  F9E_hom:
+    unit: F9
+    measure: ramble of sarcomeric α-actinin-2
+    method: time-lapse imaging every 10 min for 8 hours; dense optical flow (Farnebäck) over polygons of α-actinin-2 signal
+    software: custom Python script (OpenCV)
+    definition: sum of the scalar displacements minus the translation displacement, per frame, averaged over the mask
+    finding: ramble of α-actinin-2 lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 13) versus WT2 (n = 12)
+      counts: time-lapse movies
+      per_group:
+        PKP2tv_hom: '13'
+        WT2: '12'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.02
+    anchor:
+      quote: versus WT1 (n = 18) and in PKP2tv−/− (n = 13) versus WT2 (n = 12). Statistics
+      where: Fig. 9E legend
+    suspected_error: *id017
+  F10B_het:
+    unit: F10
+    measure: number of sarcomeres
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: number of α-actinin-2–positive sarcomeric z-discs
+    finding: fewer sarcomeres per patch in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_het: '25'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P < 0.0001
+    anchor:
+      quote: significantly less sarcomere content in PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      where: Fig. 10B legend
+  F10B_hom:
+    unit: F10
+    measure: number of sarcomeres
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: number of α-actinin-2–positive sarcomeric z-discs
+    finding: fewer sarcomeres per patch in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 11) versus WT2 (n = 8)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_hom: '11'
+        WT2: '8'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.01
+    anchor:
+      quote: and in PKP2tv−/− (n = 11) versus WT2 (n = 8). (C) Order parameter
+      where: Fig. 10B legend
+  F10C_het:
+    unit: F10
+    measure: order parameter over distance
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: orientational order <3/2 cos²θ − 1/2> of z-discs relative to the director, over neighbourhood radius
+    finding: O.P. decays with distance; means ± SD with exponential decay fit
+    groups:
+    - WT1
+    - PKP2tv_het
+    n:
+      printed: PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_het: '25'
+        WT1: '25'
+    anchor:
+      quote: comparing cardiac patches formed with PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      where: Fig. 10C legend
+  F10C_hom:
+    unit: F10
+    measure: order parameter over distance
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: orientational order <3/2 cos²θ − 1/2> of z-discs relative to the director, over neighbourhood radius
+    finding: O.P. decays with distance; means ± SD with exponential decay fit
+    groups:
+    - WT2
+    - PKP2tv_hom
+    n:
+      printed: PKP2tv−/− (n = 1) versus WT2 (n = 8)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_hom: '1'
+        WT2: '8'
+    anchor:
+      quote: PKP2tv−/− (n = 1) versus WT2 (n = 8)
+      where: Fig. 10C legend
+    suspected_error:
+      what: n = 1 for PKP2tv−/− in Fig. 10C
+      why: Fig. 10B, D and E give n = 11 for PKP2tv−/− patches; a mean ± SD curve from n = 1 is not possible
+  F10D_het:
+    unit: F10
+    measure: order parameter at 50 µm
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: orientational order <3/2 cos²θ − 1/2> of z-discs relative to the director, over neighbourhood radius
+    finding: O.P. at 50 µm lower in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_het: '25'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.004
+    anchor:
+      quote: shows a significant decrease in sarcomere alignment in cardiac patches formed with PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      where: Fig. 10D legend
+  F10D_hom:
+    unit: F10
+    measure: order parameter at 50 µm
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: orientational order <3/2 cos²θ − 1/2> of z-discs relative to the director, over neighbourhood radius
+    finding: O.P. at 50 µm lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 11) versus WT2 (n = 8)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_hom: '11'
+        WT2: '8'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.0002
+    anchor:
+      quote: and in PKP2tv−/− (n = 11) versus WT2 (n = 8). (E) Quantification of the plateau
+      where: Fig. 10D legend
+  F10E_het:
+    unit: F10
+    measure: order parameter plateau
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: plateau of the exponential decay model (a0 + a1 e^(−x/λ)) fitted to O.P. over distance
+    finding: O.P. plateau comparable in PKP2tv+/− and WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_het: '25'
+        WT1: '25'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: shows comparable levels of sarcomere alignment in long range in cardiac patches formed with PKP2tv+/− (n = 25) versus WT1 (n = 25)
+      where: Fig. 10E legend
+  F10E_hom:
+    unit: F10
+    measure: order parameter plateau
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: plateau of the exponential decay model (a0 + a1 e^(−x/λ)) fitted to O.P. over distance
+    finding: O.P. plateau lower in PKP2tv−/− than WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv−/− (n = 11) versus WT2 (n = 8)
+      counts: cardiac patches
+      per_group:
+        PKP2tv_hom: '11'
+        WT2: '8'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: P = 0.01
+    anchor:
+      quote: significantly lower levels of sarcomere alignment in PKP2tv−/− (n = 11) versus WT2 (n = 8)
+      where: Fig. 10E legend
+  S3B:
+    unit: S3
+    measure: number of sarcomeres
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: number of α-actinin-2–positive sarcomeric z-discs
+    finding: more sarcomeres per single cell in PKP2tv+/− than WT1
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 20) vs. WT1 (n = 21)
+      counts: single CMs
+      per_group:
+        PKP2tv_het: '20'
+        WT1: '21'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: p<.0001
+    anchor:
+      quote: shows significantly higher sarcomere content in PKP2tv+/- (n = 20) vs. WT1 (n = 21)
+      where: fig. S3B legend
+      file: sciadv.abh3995_sm.pdf
+  S3C:
+    unit: S3
+    measure: order parameter over distance
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: orientational order <3/2 cos²θ − 1/2> of z-discs relative to the director, over neighbourhood radius
+    finding: O.P. over distance, means ± SD with exponential decay fit
+    groups:
+    - WT1
+    - PKP2tv_het
+    n:
+      printed: PKP2tv+/- (n = 20) vs. WT1 (n = 21)
+      counts: single CMs
+      per_group:
+        PKP2tv_het: '20'
+        WT1: '21'
+    anchor:
+      quote: for sarcomere alignment plotted over distance from any sarcomere Z-disc comparing single cardiomyocytes
+      where: fig. S3C legend
+      file: sciadv.abh3995_sm.pdf
+  S3D:
+    unit: S3
+    measure: order parameter at 50 µm
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: orientational order <3/2 cos²θ − 1/2> of z-discs relative to the director, over neighbourhood radius
+    finding: O.P. at 50 µm comparable in PKP2tv+/− and WT1 single cells
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 20) vs. WT1 (n = 21)
+      counts: single CMs
+      per_group:
+        PKP2tv_het: '20'
+        WT1: '21'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: any sarcomere Z-disc shows comparable sarcomere alignment in single cardiomyocytes harboring
+      where: fig. S3D legend
+      file: sciadv.abh3995_sm.pdf
+  S3E:
+    unit: S3
+    measure: order parameter plateau
+    method: z-discs detected (top-hat filter, adaptive threshold); local orientation from image autocorrelation
+    software: custom MATLAB script
+    definition: plateau of the exponential decay model (a0 + a1 e^(−x/λ)) fitted to O.P. over distance
+    finding: O.P. plateau comparable in PKP2tv+/− and WT1 single cells (figure label n.s.)
+    compares:
+    - PKP2tv_het
+    - WT1
+    n:
+      printed: PKP2tv+/- (n = 20) vs. WT1 (n = 21)
+      counts: single CMs
+      per_group:
+        PKP2tv_het: '20'
+        WT1: '21'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: n.s.
+    anchor:
+      quote: Quantification of plateau of O.P. decay model shows significantly comparable sarcomere alignment
+      where: fig. S3E legend
+      file: sciadv.abh3995_sm.pdf
+    suspected_error:
+      what: legend says 'significantly comparable'
+      why: contradictory wording; the figure label is n.s. and the text says alignment is maintained at a similarly high level
+  S4B:
+    unit: S4
+    measure: junctional αT-catenin mean fluorescence intensity
+    method: immunofluorescence
+    finding: junctional αT-catenin comparable in PKP2tv−/− and WT2
+    compares:
+    - PKP2tv_hom
+    - WT2
+    n:
+      printed: PKP2tv-/- (n = 5) vs. WT2 (n = 5)
+      counts: not stated (individual data points across three independent experiments)
+      per_group:
+        PKP2tv_hom: '5'
+        WT2: '5'
+    stats:
+      test: two-tailed, unpaired Student's t test assuming unequal variances
+      p: p = 0.86
+    anchor:
+      quote: Mean fluorescence intensity of junctional αT-catenin is comparable in PKP2tv-/- (n = 5) vs. WT2 (n = 5)
+      where: fig. S4 legend
+      file: sciadv.abh3995_sm.pdf
+    suspected_error:
+      what: legend labels the quantification panel (I)
+      why: the figure has panels A and B; the quantification is panel B
+  S4A_Ecat:
+    unit: S4
+    measure: junctional αE-catenin staining
+    method: immunofluorescence
+    finding: representative αT-catenin and αE-catenin images only; αE-catenin not quantified
+    groups:
+    - WT2
+    - PKP2tv_hom
+    anchor:
+      quote: Representative images of iPSC-CM monolayers fixed and stained for nuclei (blue), aT-catenin (grey, top)
+      where: fig. S4A legend
+      file: sciadv.abh3995_sm.pdf
+claims:
+  title:
+    kind: stated
+    quote: Plakophilin-2 truncating variants impair cardiac contractility by disrupting sarcomere stability and organization
+    where: Title
+    scope: PKP2tv iPSC-CMs
+    direction: down
+    strength: causal (by)
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    - F6D_het
+    - F6D_hom
+    - F6E_het
+    - F6E_hom
+    - F9C_het
+    - F9C_hom
+    - F10B_het
+    - F10B_hom
+    - F10D_het
+    - F10D_hom
+    - F10E_hom
+    opposes:
+    - F5D_het
+    - F5D_hom
+    - F5E_het
+    - F5E_hom
+    - F4D_het
+    - F10E_het
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: mechanism ('by disrupting') is inferred from co-occurrence; no intervention on sarcomeres; single cells show higher contractility
+  abs1:
+    kind: stated
+    quote: The PKP2tv iPSC–derived cardiomyocytes are shown to have aberrant action potentials
+    where: Abstract
+    scope: PKP2tv iPSC-CM monolayers paced at 1 Hz
+    direction: APD up
+    rests_on:
+    - F3B_apd30
+    - F3D_apd30
+    - F3B_apd50
+    - F3D_apd50
+    - F3B_apd80
+    - F3D_apd80
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs2:
+    kind: stated
+    quote: reduced systolic function in cardiac microtissues
+    where: Abstract
+    scope: CMTs
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    opposes:
+    - F4D_het
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: stress not significantly different for PKP2tv+/−
+  abs3:
+    kind: stated
+    quote: recapitulating both the electrical and mechanical pathologies reported in ACM
+    where: Abstract
+    rests_on:
+    - F3B_apd30
+    - F3D_apd30
+    - F3B_apd50
+    - F3D_apd50
+    - F3B_apd80
+    - F3D_apd80
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: cannot judge
+      replication: follows
+      strength: follows
+      presence: follows
+    note: comparison to ACM patients is not made in this paper
+  abs4:
+    kind: stated
+    quote: we found that PKP2tvs impair cardiac tissue contractility
+    where: Abstract
+    scope: multicellular tissues and patches
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    - F6D_het
+    - F6D_hom
+    - F6E_het
+    - F6E_hom
+    opposes:
+    - F4D_het
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs5:
+    kind: stated
+    quote: by destabilizing cell-cell junctions and in turn disrupting sarcomere stability and organization
+    where: Abstract
+    strength: causal chain
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    - F8C_het
+    - F8C_hom
+    - F8D_het
+    - F8D_hom
+    - F9C_het
+    - F9C_hom
+    - F10B_het
+    - F10B_hom
+    - F10D_het
+    - F10D_hom
+    opposes:
+    - F10E_het
+    - F9D_het
+    - F9D_hom
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: each step is shown as a difference between genotypes; the causal order is not tested
+  abs6:
+    kind: stated
+    quote: suggest fundamental pathogenic mechanisms that may be shared among different types of cardiomyopathies
+    where: Abstract
+    strength: hedged (may)
+    rests_on: []
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: cannot judge
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  r1:
+    kind: stated
+    quote: suggesting that PKP2 is not critical for the differentiation of CMs
+    where: Results, p. 2
+    rests_on:
+    - F1C_actinin
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: based on representative staining without quantification of differentiation efficiency
+  r2:
+    kind: stated
+    quote: RNA expression of PKP2 gene is reduced to 63.2 ± 13.9%
+    where: Results, p. 2
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F1D_het
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r3:
+    kind: stated
+    quote: 32.5 ± 6.2% (means ± SEM) in PKP2tv−/− compared to WT2
+    where: Results, p. 2
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F1D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r4:
+    kind: stated
+    quote: PKP2 protein expression was significantly reduced in PKP2tv+/− and was almost absent in the PKP2tv−/− iPSC-CMs
+    where: Results, p. 2
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F1E_wb
+    - F1F_het
+    - F1F_hom
+    - F1C_pkp2
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r5:
+    kind: stated
+    quote: The reduced expression and junctional localization of PKP2 had no significant impact on the formation of adherens junctions
+    where: Results, p. 2
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - F2C_het
+    - F2C_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: absence of a significant difference in junctional N-cadherin intensity is read as no impact on junction formation
+  r6:
+    kind: stated
+    quote: PKP2tv did reduce junctional localization of desmoplakin
+    where: Results, p. 2
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F2D_het
+    - F2D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r7:
+    kind: stated
+    quote: suggesting an impaired connection between the desmosome junctions and the cytoskeleton
+    where: Results, p. 2
+    strength: hedged (suggesting)
+    rests_on:
+    - F2D_het
+    - F2D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  r8:
+    kind: stated
+    quote: we observed a significant decrease in the junctional intensity of connexin-43 (Cx43)
+    where: Results, p. 2
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F2E_het
+    - F2E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r9:
+    kind: stated
+    quote: observed a significant prolongation of action potential duration (APD) in monolayer cultures of iPSC-CMs
+    where: Results, p. 3
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F3B_apd30
+    - F3D_apd30
+    - F3B_apd50
+    - F3D_apd50
+    - F3B_apd80
+    - F3D_apd80
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r10:
+    kind: stated
+    quote: We observed no difference in the duration of contraction or relaxation comparing the PKP2tv with the WT
+    where: Results, p. 3
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - S1A_het
+    - S1A_hom
+    - S1B_hom
+    - S1C_het
+    - S1C_hom
+    - S1D_het
+    - S1D_hom
+    opposes:
+    - S1B_het
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: fig. S1B prints p=.01 for t50_relax, PKP2tv+/− vs WT1
+  r11:
+    kind: stated
+    quote: suggesting that exogenous electrical field stimulation is effective for normalizing the contraction/relaxation kinetics
+    where: Results, p. 3
+    rests_on:
+    - S1A_het
+    - S1A_hom
+    - S1B_het
+    - S1B_hom
+    - S1C_het
+    - S1C_hom
+    - S1D_het
+    - S1D_hom
+    opposes:
+    - S1B_het
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: no unpaced comparison is shown, so normalization by pacing is not tested
+  r12:
+    kind: stated
+    quote: exhibited significantly lower systolic force or stress compared to CMTs made of WT1 or WT2 iPSC-CMs
+    where: Results, p. 3
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    opposes:
+    - F4D_het
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: PKP2tv+/− stress n.s.
+  r13:
+    kind: stated
+    quote: single iPSC-CMs with PKP2tvs generated higher systolic stress and work as compared to the WT single cells
+    where: Results, p. 4
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F5D_het
+    - F5D_hom
+    - F5E_het
+    - F5E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r14:
+    kind: stated
+    quote: suggesting that PKP2tvs do not cause systolic dysfunction through reducing the contractility of single CMs
+    where: Results, p. 4
+    rests_on:
+    - F5D_het
+    - F5D_hom
+    - F5E_het
+    - F5E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  r15:
+    kind: stated
+    quote: PKP2tvs impair force generation only in multicellular contexts
+    where: Results section heading, p. 3
+    strength: only
+    rests_on:
+    - F5D_het
+    - F5D_hom
+    - F5E_het
+    - F5E_hom
+    - F6D_het
+    - F6D_hom
+    - F6E_het
+    - F6E_hom
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    opposes:
+    - F4D_het
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  r16:
+    kind: stated
+    quote: We observed a significant reduction in systolic stress and work generated by the cardiac patches harboring PKP2tvs
+    where: Results, p. 4
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F6D_het
+    - F6D_hom
+    - F6E_het
+    - F6E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r17:
+    kind: stated
+    quote: suggesting the possibility that PKP2tvs impair contractility in settings that involve the presence of cell-cell adhesions
+    where: Results, p. 4
+    strength: hedged (possibility)
+    rests_on:
+    - F6D_het
+    - F6D_hom
+    - F6E_het
+    - F6E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r18:
+    kind: stated
+    quote: significantly lower mobile fraction of N-cadherin
+    where: Results, p. 5
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r19:
+    kind: stated
+    quote: the FRAP data suggested that the molecular stability of junctional N-cadherin is impaired by PKP2tv
+    where: Results, p. 5
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: a lower mobile fraction is read as impaired stability; the direction of the interpretation is not argued
+  r20:
+    kind: stated
+    quote: PKP2tvs alter junctional N-cadherin stability and dynamics
+    where: Results section heading, p. 4
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    - F8C_het
+    - F8C_hom
+    - F8D_het
+    - F8D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r21:
+    kind: stated
+    quote: significant increase in the net displacement of junctional N-cadherin after 8 hours of live imaging
+    where: Results, p. 6
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F8C_het
+    - F8C_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r22:
+    kind: stated
+    quote: a significant increase in the mean displacement per frame in monolayer cultures of PKP2tv cells compared to the WT cells
+    where: Results, p. 6
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F8D_het
+    - F8D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r23:
+    kind: stated
+    quote: ramble motion is not significantly different between the PKP2tv+/− and WT1 cells
+    where: Results, p. 6
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - F8E_het
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r24:
+    kind: stated
+    quote: PKP2tv monolayers exhibited substantially higher movement of cell-cell boundaries relative to WT monolayers
+    where: Results, p. 6
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F8C_het
+    - F8C_hom
+    - F8D_het
+    - F8D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r25:
+    kind: stated
+    quote: we found a significant increase in the net displacement of sarcomeric α-actinin-2 in PKP2tv monolayers
+    where: Results, p. 7
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F9C_het
+    - F9C_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r26:
+    kind: stated
+    quote: the mean displacement per frame is not significantly different from the WT cells
+    where: Results, p. 7
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - F9D_het
+    - F9D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r27:
+    kind: stated
+    quote: the ramble motion of α-actinin-2 is significantly lower in PKP2tv monolayers
+    where: Results, p. 7
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F9E_het
+    - F9E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r28:
+    kind: stated
+    quote: these results suggest that sarcomere stability in multicellular cardiac syncytia is impaired by PKP2tvs
+    where: Results, p. 7
+    rests_on:
+    - F9C_het
+    - F9C_hom
+    - F9E_het
+    - F9E_hom
+    opposes:
+    - F9D_het
+    - F9D_hom
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: mean displacement per frame unchanged; stability inferred from net displacement and ramble
+  r29:
+    kind: stated
+    quote: We found a significantly lower number of sarcomeres in cardiac patches harboring PKP2tvs as compared to WT controls
+    where: Results, p. 7
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F10B_het
+    - F10B_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r30:
+    kind: stated
+    quote: the total number of sarcomeres was significantly higher in single cells harboring PKP2tv+/− compared to WT1
+    where: Results, p. 7
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - S3B
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r31:
+    kind: stated
+    quote: the sarcomere alignment drops to a lower level in cardiac patches harboring PKP2tvs when evaluating the alignment at 50-µm distance
+    where: Results, p. 7
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F10D_het
+    - F10D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r32:
+    kind: stated
+    quote: or at a longer distance by model prediction (Fig. 10E)
+    where: Results, p. 7
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F10E_hom
+    opposes:
+    - F10E_het
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: PKP2tv+/− plateau comparable to WT1 (n.s.)
+  r33:
+    kind: stated
+    quote: the sarcomere alignment in micropatterned single cells is maintained at a similarly high level in PKP2tv+/− compared to WT1
+    where: Results, p. 7
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - S3D
+    - S3E
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r34:
+    kind: stated
+    quote: PKP2tvs, through their effects on destabilizing cell-cell junctions, destabilize sarcomere networks
+    where: Results, p. 7
+    strength: causal (through)
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    - F8C_het
+    - F8C_hom
+    - F9C_het
+    - F9C_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  r35:
+    kind: stated
+    quote: result in a reduced sarcomere content and alignment in multicellular cardiac syncytia
+    where: Results, p. 7
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F10B_het
+    - F10B_hom
+    - F10D_het
+    - F10D_hom
+    - F10E_hom
+    opposes:
+    - F10E_het
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  r36:
+    kind: stated
+    quote: PKP2tvs impair sarcomere stability, content, and organization
+    where: Results section heading, p. 7
+    rests_on:
+    - F9C_het
+    - F9C_hom
+    - F10B_het
+    - F10B_hom
+    - F10D_het
+    - F10D_hom
+    opposes:
+    - F10E_het
+    restates: r35
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  d1:
+    kind: stated
+    quote: we find that PKP2tvs can directly compromise multicellular cardiac contractility by destabilizing sarcomere organization
+    where: Discussion, p. 8
+    strength: directly; causal (by)
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    - F6D_het
+    - F6D_hom
+    - F10D_het
+    - F10D_hom
+    opposes: []
+    restates: title
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  d2:
+    kind: stated
+    quote: pathogenic variants in desmosomal genes such as PKP2tv also did not affect N-cadherin localization
+    where: Discussion, p. 9
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - F2C_het
+    - F2C_hom
+    opposes: []
+    restates: r5
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: only PKP2tv tested, not desmosomal genes generally
+  d3:
+    kind: stated
+    quote: impaired the dynamics of N-cadherin turnover at the intercalated disc leading to an effectively reduced pool of N-cadherin available for junction remodeling
+    where: Discussion, p. 9
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    opposes: []
+    restates: r18
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: cultured iPSC-CMs, not an intercalated disc
+  d4:
+    kind: stated
+    quote: we found that αT-catenin expression is not changed in the PKP2tv CMs
+    where: Discussion, p. 9
+    direction: none
+    asserts_direction: none
+    rests_on:
+    - S4B
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: only PKP2tv−/− vs WT2 was quantified
+  d5:
+    kind: stated
+    quote: PKP2tvs cause a reduction in contractile forces and sarcomere content only in multicellular contexts
+    where: Discussion, p. 9
+    strength: only
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    - F6D_het
+    - F6D_hom
+    - F10B_het
+    - F10B_hom
+    - F5D_het
+    - F5D_hom
+    - S3B
+    opposes:
+    - F4D_het
+    restates: r15
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  d6:
+    kind: stated
+    quote: single CMs harboring PKP2tvs exhibited increased contractile forces and sarcomere content
+    where: Discussion, p. 9
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F5D_het
+    - F5D_hom
+    - F5E_het
+    - F5E_hom
+    - S3B
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: sarcomere content in single cells was measured only for PKP2tv+/−
+  d7:
+    kind: stated
+    quote: the destabilizing effects of PKP2tv in the presence of cell-cell adhesions can dominate over these cell autonomous effects
+    where: Discussion, p. 9
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    - F6D_het
+    - F6D_hom
+    - F5D_het
+    - F5D_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  d8:
+    kind: literature
+    quote: This study is the first to demonstrate a direct impact of ACM-causing PKP2 mutations on cardiac contractility and sarcomere organization
+    where: Discussion, p. 9
+    rests_on: []
+    opposes: []
+    judgement: null
+  t1:
+    kind: stated
+    quote: CRISPR-engineered human iPSC-CMs with PKP2tvs demonstrate decreased expression of PKP2
+    where: Fig. 1 title
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F1D_het
+    - F1D_hom
+    - F1F_het
+    - F1F_hom
+    - F1E_wb
+    opposes: []
+    restates: r4
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t2:
+    kind: stated
+    quote: PKP2tvs result in decreased junctional localization of desmoplakin and Cx43
+    where: Fig. 2 title
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F2D_het
+    - F2D_hom
+    - F2E_het
+    - F2E_hom
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t3:
+    kind: stated
+    quote: PKP2tvs lead to prolongation of action potential
+    where: Fig. 3 title
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F3B_apd30
+    - F3D_apd30
+    - F3B_apd50
+    - F3D_apd50
+    - F3B_apd80
+    - F3D_apd80
+    opposes: []
+    restates: r9
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t4:
+    kind: stated
+    quote: PKP2tvs cause reduction in systolic contractility in CMTs
+    where: Fig. 4 title
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F4C_het
+    - F4C_hom
+    - F4D_het
+    - F4D_hom
+    opposes:
+    - F4D_het
+    restates: r12
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t5:
+    kind: stated
+    quote: Single CMs harboring pkp2tvs exhibit increased contractility
+    where: Fig. 5 title
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - F5D_het
+    - F5D_hom
+    - F5E_het
+    - F5E_hom
+    opposes: []
+    restates: r13
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t6:
+    kind: stated
+    quote: PKP2tvs impair multicellular cardiac contractility
+    where: Fig. 6 title
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F6D_het
+    - F6D_hom
+    - F6E_het
+    - F6E_hom
+    opposes: []
+    restates: r16
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t7:
+    kind: stated
+    quote: PKP2tvs alter molecular stability and turnover of junctional N-cadherin
+    where: Fig. 7 title
+    rests_on:
+    - F7C_het
+    - F7C_hom
+    opposes: []
+    restates: r19
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  t8:
+    kind: stated
+    quote: PKP2tvs destabilize N-cadherin junctions at cell-cell contact
+    where: Fig. 8 title
+    rests_on:
+    - F8C_het
+    - F8C_hom
+    - F8D_het
+    - F8D_hom
+    opposes:
+    - F8E_het
+    restates: r24
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t9:
+    kind: stated
+    quote: PKP2tvs destabilize sarcomeres
+    where: Fig. 9 title
+    rests_on:
+    - F9C_het
+    - F9C_hom
+    - F9E_het
+    - F9E_hom
+    opposes:
+    - F9D_het
+    - F9D_hom
+    restates: r28
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  t10:
+    kind: stated
+    quote: PKP2tvs impair sarcomere content and organization in multicellular cardiac patches
+    where: Fig. 10 title
+    direction: down
+    asserts_direction: down
+    rests_on:
+    - F10B_het
+    - F10B_hom
+    - F10D_het
+    - F10D_hom
+    - F10E_hom
+    opposes:
+    - F10E_het
+    restates: r35
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  tS3:
+    kind: stated
+    quote: PKP2tv Lead to Increase in Sarcomere Content in Single Cardiomyocytes
+    where: fig. S3 title
+    direction: up
+    asserts_direction: up
+    rests_on:
+    - S3B
+    opposes: []
+    restates: r30
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: only PKP2tv+/− tested
+  a1:
+    kind: attributed
+    quote: more than half of documented cases are associated with pathogenic variants in genes encoding desmosomal proteins
+    where: Introduction
+    rests_on: []
+    opposes: []
+    cites:
+    - ref3
+    judgement: null
+  a2:
+    kind: attributed
+    quote: Truncating variants in the PKP2 gene represent 70 to 90% of all PKP2 variants associated with ACM
+    where: Results, p. 2
+    rests_on: []
+    opposes: []
+    cites:
+    - ref30
+    judgement: null
+  a3:
+    kind: attributed
+    quote: PKP2 deficiency has been reported to strengthen cell-ECM adhesions
+    where: Discussion, p. 9
+    rests_on: []
+    opposes: []
+    cites:
+    - ref62
+    judgement: null
+  a4:
+    kind: attributed
+    quote: its junctional localization in ACM CMs is similar to WT controls (34)
+    where: Discussion, p. 9
+    rests_on: []
+    opposes: []
+    cites:
+    - ref34
+    judgement: null
+  a5:
+    kind: attributed
+    quote: some DCM-causing mutations are found to disrupt sarcomere formation, and the reduced sarcomere content in turn leads to decreased cardiac contractility (59)
+    where: Discussion, p. 9
+    rests_on: []
+    opposes: []
+    cites:
+    - ref59
+    judgement: null
+citations:
+  ref3:
+    label: (3)
+    text: 'Hoorntje et al., Arrhythmogenic cardiomyopathy: Pathology, genetics, and concepts in pathogenesis. Cardiovasc. Res. 113, 1521–1531'
+    year: '2017'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: more than half of documented cases are associated with pathogenic variants in genes encoding desmosomal proteins
+      where: Introduction
+  ref30:
+    label: (30)
+    text: Towbin et al., 2019 HRS expert consensus statement on arrhythmogenic cardiomyopathy. Heart Rhythm 16, e301–e372
+    year: '2019'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Truncating variants in the PKP2 gene represent 70 to 90% of all PKP2 variants associated with ACM (30–32)
+      where: Results, p. 2
+  ref34:
+    label: (34)
+    text: Asimaki and Saffitz, Remodeling of cell-cell junctions in arrhythmogenic cardiomyopathy. Cell Commun. Adhes. 21, 13–23
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: its junctional localization in ACM CMs is similar to WT controls (34)
+      where: Discussion, p. 9
+  ref41:
+    label: (41)
+    text: Legant et al., Microfabricated tissue gauges to measure and manipulate forces from 3D microtissues. PNAS 106, 10097–10102
+    year: '2009'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: based on the deflection of the pillars and the measured pillar spring constant of 2.68 µN/m, as described previously (41)
+      where: Methods, Cardiac microtissues
+  ref42:
+    label: (42)
+    text: Boudou et al., A microfabricated platform to measure and manipulate the mechanics of engineered cardiac microtissues. Tissue Eng. Part A 18, 910–919
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: aligned tissues bridging two micropillars within the microwells (Fig. 4A) (41, 42)
+      where: Results, p. 3
+  ref50:
+    label: (50)
+    text: Chopra et al., Cardiac myocyte remodeling mediated by N-cadherin-dependent mechanosensing. Am. J. Physiol. Heart Circ. Physiol. 300, H1252–H1266
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: PAA gels of 7.9- and 4-kPa stiffness were made by adjusting acrylamide and bisacrylamide stock solution (Bio-Rad Laboratories) concentrations (50)
+      where: Methods, Micropatterned PAA hydrogel
+  ref59:
+    label: (59)
+    text: Chopra et al., Force generation via β-cardiac myosin, titin, and α-actinin drives cardiac sarcomere assembly from cell-matrix adhesions. Dev. Cell 44, 87–96
+    year: '2018'
+    purpose:
+    - borrows_method
+    - attributes_finding
+    anchor:
+      quote: Glass substrates for imaging were prepared as described previously (59)
+      where: Methods, Glass substrates for imaging
+  ref62:
+    label: (62)
+    text: Koetsier et al., Plakophilin 2 affects cell migration by modulating focal adhesion dynamics and integrin protein expression. J. Invest. Dermatol. 134, 112–122
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: PKP2 deficiency has been reported to strengthen cell-ECM adhesions highlighting such cross-talk between the two types of adhesions (62)
+      where: Discussion, p. 9
+  ref70:
+    label: (70)
+    text: Sharma et al., CRISPR/Cas9 mediated fluorescent tagging of endogenous proteins in human pluripotent stem cells. Curr. Protoc. Hum. Genet. 96
+    year: '2018'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: using CRISPR-Cas9–mediated genome editing technology as previously described (70)
+      where: Methods, Generation of human iPSCs
+  ref71:
+    label: (71)
+    text: Lian et al., Directed cardiomyocyte differentiation from human pluripotent stem cells by modulating Wnt/β-catenin signaling under fully defined conditions. Nat. Protoc. 8, 162–175
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: iPSCs were differentiated into CMs as described previously (71)
+      where: Methods, iPSC differentiation
+  ref72:
+    label: (72)
+    text: Tseng et al., Spatial organization of the extracellular matrix regulates cell-cell junction positioning. PNAS 109, 1506–1511
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: with reference to the beads’ positions at peak relaxation, as described previously (72)
+      where: Methods, Traction force microscopy
+  ref37:
+    label: (37, 38)
+    text: Piatkevich et al. 2018 Nat. Chem. Biol. 14, 352–360; Shroff et al. 2020 iScience 23, 100974 (Archon1)
+    year: '2018'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: We expressed Archon1, a genetically encoded voltage indicator (37, 38)
+      where: Results, p. 3
+cross_references:
+- cited: 'Fig. 9D and 9E legends: junctional N-cadherin'
+  shows: sarcomeric α-actinin-2 motion (per results text and Fig. 9 title)
+  anchor:
+    quote: Ramble of junctional N-cadherin in time-lapse movies measured by optical flow tracking shows a significant decrease
+    where: Fig. 9E legend
+- cited: fig. S4 legend panel (I)
+  shows: the quantification is panel B
+  anchor:
+    quote: (I) Mean fluorescence intensity of junctional aT-catenin
+    where: fig. S4 legend
+    file: sciadv.abh3995_sm.pdf

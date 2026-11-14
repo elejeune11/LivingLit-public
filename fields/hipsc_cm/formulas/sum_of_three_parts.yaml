@@ -1,0 +1,36 @@
+# Written by code from changes.yaml (version 8); never edited.
+formula: sum_of_three_parts
+kind: derived
+statement: A whole made of three non-overlapping parts of the same kind is the sum of the three parts.
+equations:
+- t = a + b + c
+variables:
+  t: D
+  a: D
+  b: D
+  c: D
+  u: D
+uses:
+- formula: sum_of_parts
+  subs:
+    t: u
+    a: a
+    b: b
+- formula: sum_of_parts
+  subs:
+    t: t
+    a: u
+    b: c
+does_not_apply: overlapping parts, or a part counted twice
+tests:
+- given:
+    a: 228.0
+    b: 51.0
+    c: 12.0
+  expect:
+    t: 291.0
+- given:
+    a: 1.0
+    b: 2.0
+    c: 3.0
+  does_not_apply: 'b counted twice: 8, not 6'

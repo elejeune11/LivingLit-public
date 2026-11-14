@@ -1,0 +1,34 @@
+# Written by code from changes.yaml (version 16); never edited.
+formula: spring_strain_energy
+kind: model
+statement: The elastic potential (strain) energy stored in a linear spring, or a flexible post loaded at a point, is one-half
+  its stiffness times the square of its deflection.
+equations:
+- U = k*x**2/2
+variables:
+  U: energy
+  k: stiffness
+  x: length
+assumes:
+- linear spring
+- small deflection
+does_not_apply: a nonlinear or viscoelastic post, or deflections beyond the linear range, where the stored energy is not k*x^2/2;
+  and energy summed over several posts (then a sum of such terms)
+tests:
+- given:
+    k: 2.0
+    x: 3.0
+  expect:
+    U: 9.0
+- given:
+    k: 11.076
+    x: 0.1
+  expect:
+    U: 0.05538
+- given:
+    k: 2.0
+    x: 3.0
+  does_not_apply: work at constant force F = k*x over x gives k*x^2 = 18, twice the stored energy
+cites:
+  text: Halliday, Resnick and Walker, Fundamentals of Physics, 10th ed., Wiley 2014, ch. 8 (elastic potential energy)
+  quote: U(x) = ½kx² (elastic potential energy)

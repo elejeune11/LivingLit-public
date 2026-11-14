@@ -1,0 +1,249 @@
+record: 2021_deLange
+vocabulary_version: 58
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context fields
+- add_term:
+    field: purity_method
+    id: purity_method:visual_beating_inspection
+    label: visual inspection for beating cells
+    parent: null
+    definition: Judging the cardiomyocyte content of a culture by looking for beating cells under the microscope, without a marker.
+    scope: Purity judged by eye from beating; not marker counts by flow cytometry or immunostaining.
+- add_term:
+    field: replating_coating
+    id: replating_coating:synthemax
+    label: Synthemax
+    parent: null
+    definition: Corning Synthemax, a synthetic vitronectin-derived peptide surface used to coat plates for replating cells.
+    scope: The synthetic peptide coating Synthemax; not Matrigel, Geltrex, fibronectin, gelatin, laminin or vitronectin protein.
+- add_term:
+    field: substrate
+    id: substrate:synthemax_plate
+    label: Synthemax-coated culture plate
+    parent: substrate:culture_plate
+    definition: A multi-well culture plate whose surface is coated with the synthetic peptide Synthemax.
+    scope: A plate with a Synthemax coating; a plate named without its coating stays on the parent term.
+    synonyms:
+    - {text: Synthemax, anchor: "grown on Synthemax in RPMI B27 media"}
+- add_synonym: {id: CL:0002548, text: hiPSC-CFs, anchor: "DF19-9-11T hiPSC-CFs were a kind gift from Dr. Timothy Kamp"}
+- add_synonym: {id: CL:0002548, text: hiPSC-derived cardiac fibroblasts, anchor: "hiPSC-CMs and hiPSC-derived cardiac ﬁbroblasts are cocultured"}
+- add_synonym: {id: supplements:nonessential_amino_acids, text: nonessential amino acid cocktail, anchor: "1% HEPES; 1 nonessential amino acid cocktail"}
+- adopt: {field: supplements, id: CHEBI:50144, label: sodium pyruvate, lookup: "livinglit lookup chebi 'sodium pyruvate' (exact)"}
+- adopt: {field: supplements, id: CHEBI:48669, label: tranexamic acid, lookup: "livinglit lookup chebi 'tranexamic acid' (exact)"}
+- adopt: {field: treatment, id: CHEBI:60311, label: thyroid hormone, lookup: "livinglit lookup chebi 'thyroid hormone' (exact); the paper names thyroid hormone, not T3"}
+- add_synonym: {id: measurement_medium:krebs_solution, text: Krebs–Henseleit buffer, anchor: "perfused with 37 C Krebs–Henseleit buffer at a rate of"}
+- add_synonym: {id: pacing:field_stimulation, text: field-paced, anchor: "Spontaneous and ﬁeld-paced action potentials were collected"}
+- add_synonym: {id: preparation:fixed, text: immersion fixed, anchor: "Samples were immersion ﬁxed in 2.5% glutaraldehyde"}
+# ---------------------------------------------------------------- measures
+- add_synonym: {id: measure:tissue_cross_sectional_area, text: ECT cross-sectional area, anchor: "box and whisker plots of ECT cross-sectional area (CSA)"}
+- add_synonym: {id: measure:contraction_frequency, text: automaticity, anchor: "The automaticity of hiPSC-ECTs"}
+- add_term:
+    field: measure
+    id: measure:time_to_max_force_rise_rate
+    label: time to maximal rate of force rise
+    parent: measure:time_to_partial_contraction
+    dimension: time
+    definition: Time from the start of a contraction to the instant at which force rises fastest (+dF/dtmax).
+    scope: Ends at the instant of maximal rate of force rise; not at a stated fraction of peak force (the parent) and not at the peak.
+- add_term:
+    field: measure
+    id: measure:max_rise_rate_to_peak_time
+    label: time from maximal rate of force rise to peak force
+    parent: measure:contraction_deceleration_time
+    dimension: time
+    definition: Time from the instant of maximal rate of force rise (+dF/dtmax) to peak force.
+    scope: Starts at +dF/dtmax; a deceleration time starting at the end of a linear phase stays on the parent term.
+- add_term:
+    field: measure
+    id: measure:peak_to_max_decline_rate_time
+    label: time from peak force to maximal rate of force decline
+    parent: measure:relaxation_time
+    dimension: time
+    definition: Time from peak force to the instant at which force falls fastest (-dF/dtmax).
+    scope: Ends at the instant of maximal rate of force decline, not at a stated fraction of relaxation (relaxation time at a level), not a fitted constant and not a normalised relaxation time.
+- add_term:
+    field: measure
+    id: measure:force_rate_ratio
+    label: ratio of maximal force decline rate to maximal force rise rate
+    parent: null
+    dimension: dimensionless
+    definition: The maximal rate of force decline (-dF/dtmax) divided by the maximal rate of force rise (+dF/dtmax) of one contraction.
+    scope: A ratio of the two maximal rates; not either rate alone (maximal rate of force rise or decline) and not a time.
+- add_term:
+    field: measure
+    id: measure:action_potential_origin
+    label: action potential origin
+    parent: null
+    dimension: categorical
+    definition: Where in a tissue the action potentials start, judged from optical or electrical maps of activation.
+    scope: The site where excitation starts; not conduction velocity, not activation time and not the shape of the action potential.
+- add_term:
+    field: measure
+    id: measure:t_tubule_spacing
+    label: T-tubule striation spacing
+    parent: measure:t_tubules
+    dimension: length
+    qualifiers: {marker: {dimension: text}}
+    definition: Distance between neighbouring striations of a T-tubule marker stain along the cell (qualifier marker).
+    scope: A spacing in length units from the periodic stain; not a density per volume (T-tubule density) and not presence or organisation judged by eye (the parent).
+- set_scope: {id: measure:t_tubule_density, scope: "A quantitative density of T-tubules per volume; not the spacing between striations (T-tubule striation spacing); the parent covers presence or organisation judged from images."}
+# ---------------------------------------------------------------- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:time_to_max_force_rise_rate
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:max_rise_rate_to_peak_time
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:peak_to_max_decline_rate_time
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:force_rate_ratio
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:action_potential_origin
+    value: {must_match: [platform@1, preparation, pacing, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:t_tubule_spacing
+    value: {must_match: [platform@1, preparation, measure.marker, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.marker], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: wnt_inhibition_days
+  stated: Forty-eight hours
+  flag: {kind: not a context, note: "Not a vocabulary question: this is a quantity (48 h of IWP-4, day 3 to day 5), but code's number-word parser does not read 'Forty-eight', so it cannot be held as a quantity. Please write it as '48 h' with the same anchor."}
+- field: day_of_measurement
+  stated: Late
+  flag: {kind: placeholder, note: "'Late' is the paper's group label, not a day; the paper defines late as 42–57 days (or 6–8 wk) in ECT culture. Please write the stated range for Fig. 2M."}
+- field: platform
+  stated: engineered cardiac tissue
+  terms: [platform:tissuetrain]
+  note: "The paper's ECTs are cast in a FlexCell Tissue Train plate and held by its nylon tabs (Methods, hiPSC-ECT Generation). 'engineered cardiac tissue' is a generic name, so it is not added as a synonym."
+- field: platform
+  stated: 2D hiPSC-CM
+  terms: [platform:culture_2d]
+  split: [{words: hiPSC-CM, field: cell_types}]
+- field: platform
+  stated: Various 3D hiPSC-CM models
+  flag: {kind: several conditions, note: "Table 1 summarises several 3D models from several cited papers in one row; there is no one platform."}
+- field: platform
+  stated: CMTs
+  terms: [platform:engineered_3d]
+  note: "The paper does not say what format the cited TDI-treated CMTs had; mapped to the broader 3D engineered tissue."
+- field: maturation_strategy
+  stated: Rapidly paced
+  terms: [maturation_strategy:electrical_stimulation]
+  note: "The paper does not state the regime (fixed or ramped frequency) of the cited rapidly paced EHT; mapped to the broader electrical stimulation."
+- field: treatment
+  stated: TDI
+  terms: [CHEBI:60311, CHEBI:41879, CHEBI:80343]
+  note: "Table 1 footnote: 'TDI, thyroid hormone; dexamethasone, and insulin-like growth factor-1 supplement'."
+- field: cm_medium
+  stated: fibrin ECT media
+  terms: [cm_medium:dmem]
+  qualifiers: {glucose: high, formulation: "fibrin ECT media: 60.3% high-glucose DMEM with 20% F12 nutrient supplement"}
+- field: cm_medium
+  stated: RPMI B27
+  terms: [cm_medium:rpmi_1640]
+  split: [{words: B27, field: supplements}]
+- field: measurement_medium
+  stated: fibrin ECT media
+  terms: [measurement_medium:culture_medium]
+  qualifiers: {medium: fibrin ECT media}
+- field: preparation
+  stated: hiPSC-ECT construct
+  terms: [preparation:intact_tissue]
+- field: preparation
+  stated: immersion fixed
+  terms: [preparation:fixed]
+  qualifiers: {fixative: "2.5% glutaraldehyde, 2.0% paraformaldehyde"}
+# ---------------------------------------------------------------- measures
+- {field: measure, stated: twitch force versus normalized construct length, terms: [measure:frank_starling_response]}
+- {field: measure, stated: passive tension versus normalized construct length, terms: [measure:passive_force]}
+- {field: measure, stated: slack length, terms: [measure:tissue_length], qualifiers: {phase: slack}}
+- {field: measure, stated: normalized twitch force versus frequency, terms: [measure:twitch_force], qualifiers: {expressed_as: normalised, normalised_to: "maximum twitch force over the frequencies tested (TF/TFmax)"}}
+- {field: measure, stated: normalized CT100 versus frequency, terms: [measure:contraction_time_to_peak], qualifiers: {expressed_as: normalised, normalised_to: "maximum CT100 over the frequencies tested (CT100/CT100max)"}}
+- {field: measure, stated: normalized RT50 versus frequency, terms: [measure:relaxation_time], qualifiers: {level: RT50, expressed_as: normalised, normalised_to: "maximum RT50 over the frequencies tested (RT50/RT50max)"}}
+- {field: measure, stated: normalized Ca2+-transient amplitude versus frequency, terms: [measure:calcium_transient_amplitude], qualifiers: {expressed_as: normalised, normalised_to: "maximum amplitude over the frequencies tested (ΔR/ΔRmax)"}}
+- {field: measure, stated: normalized Ca2+T100 versus frequency, terms: [measure:calcium_transient_rise_time], qualifiers: {level: Ca2+T100, expressed_as: normalised, normalised_to: "maximum Ca2+T100 over the frequencies tested"}}
+- {field: measure, stated: normalized Ca2+DT50 versus frequency, terms: [measure:calcium_transient_decay_time], qualifiers: {level: Ca2+DT50, expressed_as: normalised, normalised_to: "maximum Ca2+DT50 over the frequencies tested"}}
+- field: measure
+  stated: concurrent Ca2+-transient and twitch force time course
+  flag: {kind: several measures, note: "Fig. 2L overlays two averaged traces, the calcium transient and twitch force; please record one item per measure (or the timing between them, if that is the result)."}
+- {field: measure, stated: APD40-30/80-70 ratio, terms: [measure:ap_repolarisation_phase_ratio]}
+- {field: measure, stated: Bin1 striation spacing, terms: [measure:t_tubule_spacing], qualifiers: {marker: Bin1}}
+- {field: measure, stated: t-tubules by electron microscopy, terms: [measure:t_tubules]}
+- {field: measure, stated: cross-sectional area, terms: [measure:tissue_cross_sectional_area]}
+- {field: measure, stated: maximum twitch force, terms: [measure:twitch_stress], note: "Printed in mN/mm2 (force per cross-sectional area), so twitch stress."}
+- {field: measure, stated: twitch force, terms: [measure:twitch_stress], note: "Code matches 'twitch force' to twitch force, but every Table 1 value is printed in mN/mm2, force per cross-sectional area."}
+- {field: measure, stated: CT100, terms: [measure:contraction_time_to_peak], note: "CT100: time to peak developed force."}
+- {field: measure, stated: CT50, terms: [measure:time_to_partial_contraction], qualifiers: {level: CT50}}
+- {field: measure, stated: CT50-100, terms: [measure:contraction_time_to_peak], qualifiers: {level: CT50-100}, note: "Time from 50% to peak force: time to peak measured from the 50% level."}
+- {field: measure, stated: RT90, terms: [measure:relaxation_time], qualifiers: {level: RT90}}
+- {field: measure, stated: RT50, terms: [measure:relaxation_time], qualifiers: {level: RT50}}
+- {field: measure, stated: RT50-90, terms: [measure:relaxation_time], qualifiers: {level: RT50-90}}
+- {field: measure, stated: normalized +dF/dtmax, terms: [measure:max_force_rise_rate], qualifiers: {expressed_as: normalised, normalised_to: maximum twitch force}}
+- {field: measure, stated: normalized -dF/dtmax, terms: [measure:max_force_decay_rate], qualifiers: {expressed_as: normalised, normalised_to: maximum twitch force}}
+- {field: measure, stated: dF/dt ratio (-dF/dt / +dF/dt), terms: [measure:force_rate_ratio]}
+- {field: measure, stated: time to +dF/dtmax, terms: [measure:time_to_max_force_rise_rate]}
+- {field: measure, stated: time from +dF/dtmax to Fmax, terms: [measure:max_rise_rate_to_peak_time]}
+- {field: measure, stated: time from Fmax to -dF/dtmax, terms: [measure:peak_to_max_decline_rate_time]}
+- {field: measure, stated: "resting Ca2+ concentration [Ca2+]min (minimal F340/F380)", terms: [measure:resting_calcium_signal], qualifiers: {indicator: "Fura-2 (minimal F340/F380 ratio)"}}
+- {field: measure, stated: Ca2+T100, terms: [measure:calcium_transient_rise_time], qualifiers: {level: Ca2+T100}, note: "Time from the pacing stimulus to peak cytosolic Ca2+."}
+- {field: measure, stated: Ca2+DT75, terms: [measure:calcium_transient_decay_time], qualifiers: {level: Ca2+DT75}}
+- {field: measure, stated: Ca2+DT50, terms: [measure:calcium_transient_decay_time], qualifiers: {level: Ca2+DT50}}
+- {field: measure, stated: Ca2+DT50-75, terms: [measure:calcium_transient_decay_time], qualifiers: {level: Ca2+DT50-75}}
+- {field: measure, stated: Ca2+TR Duration75, terms: [measure:calcium_transient_duration], qualifiers: {level: Ca2+TR Duration75}}
+- field: measure
+  stated: absolute maximum velocities of contraction and relaxation (+dF/dtmax, -dF/dtmax)
+  flag: {kind: several measures, note: "Supplemental Fig. S2A shows +dF/dt and -dF/dt together; record maximal rate of force rise and maximal rate of force decline as two items."}
+- {field: measure, stated: "maximum twitch force, % isoproterenol response", terms: [measure:inotropic_response], qualifiers: {agonist: isoproterenol, expressed_as: "% change", normalised_to: baseline before 1 µM isoproterenol}}
+- {field: measure, stated: "CT100, % isoproterenol response", terms: [measure:contraction_time_to_peak], qualifiers: {expressed_as: "% change", normalised_to: baseline before 1 µM isoproterenol}}
+- {field: measure, stated: "CT50, % isoproterenol response", terms: [measure:time_to_partial_contraction], qualifiers: {level: CT50, expressed_as: "% change", normalised_to: baseline before 1 µM isoproterenol}}
+- {field: measure, stated: "CT50-100, % isoproterenol response", terms: [measure:contraction_time_to_peak], qualifiers: {level: CT50-100, expressed_as: "% change", normalised_to: baseline before 1 µM isoproterenol}}
+- {field: measure, stated: "RT50, % isoproterenol response", terms: [measure:relaxation_time], qualifiers: {level: RT50, expressed_as: "% change", normalised_to: baseline before 1 µM isoproterenol}}
+- {field: measure, stated: "RT50-90, % isoproterenol response", terms: [measure:relaxation_time], qualifiers: {level: RT50-90, expressed_as: "% change", normalised_to: baseline before 1 µM isoproterenol}}
+# gene expression: ST2 normalises to GAPDH, S6 to RNA input; wordings used in both carry no normalised_to
+- {field: measure, stated: MYL2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MYL2}}
+- {field: measure, stated: MYL7 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MYL7}}
+- {field: measure, stated: MYH6 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MYH6, normalised_to: GAPDH}}
+- {field: measure, stated: MYH7 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MYH7, normalised_to: GAPDH}}
+- {field: measure, stated: TNNI1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: TNNI1}}
+- {field: measure, stated: TNNI3 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: TNNI3}}
+- {field: measure, stated: ACTA1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: ACTA1, normalised_to: GAPDH}}
+- {field: measure, stated: ACTC1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: ACTC1, normalised_to: GAPDH}}
+- {field: measure, stated: MYBPC3 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MYBPC3, normalised_to: GAPDH}}
+- {field: measure, stated: CACNA1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: CACNA1, normalised_to: GAPDH}, note: "Gene as printed in Table S2; the Methods assay list names CACNA1C."}
+- {field: measure, stated: RYR2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: RYR2}}
+- {field: measure, stated: ATP2A2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: ATP2A2}}
+- {field: measure, stated: PLN mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: PLN}}
+- {field: measure, stated: SLC8A1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: SLC8A1}}
+- {field: measure, stated: CMYA5 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: CMYA5, normalised_to: GAPDH}}
+- {field: measure, stated: KCND3 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: KCND3, normalised_to: GAPDH}}
+- {field: measure, stated: KCNJ2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: KCNJ2, normalised_to: GAPDH}}
+- {field: measure, stated: FHL2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: FHL2, normalised_to: GAPDH}}
+- {field: measure, stated: ZBTB16 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: ZBTB16, normalised_to: GAPDH}}
+- {field: measure, stated: XIRP2 (s) mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: XIRP2, isoform: s, normalised_to: GAPDH}}
+- {field: measure, stated: XIRP2 (l) mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: XIRP2, isoform: l, normalised_to: GAPDH}}
+- {field: measure, stated: NPPA mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: NPPA, normalised_to: GAPDH}}
+- {field: measure, stated: NPPB mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: NPPB, normalised_to: GAPDH}}
+- {field: measure, stated: GJA mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: GJA, normalised_to: GAPDH}, note: "Gene as printed in Table S2; the Methods assay list names GJA1."}
+- {field: measure, stated: ADRB1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: ADRB1, normalised_to: GAPDH}}
+- {field: measure, stated: ADRB2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: ADRB2, normalised_to: GAPDH}}
+- {field: measure, stated: BIN1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: BIN1, normalised_to: GAPDH}}
+- {field: measure, stated: CACNA1C mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: CACNA1C, normalised_to: RNA input}}
+- {field: measure, stated: CASQ2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: CASQ2, normalised_to: RNA input}}
+- {field: measure, stated: MYL2/MYL7 mRNA expression, terms: [measure:gene_expression_ratio], qualifiers: {gene: MYL2/MYL7}}
+- {field: measure, stated: TNNI3/TNNI1 mRNA expression, terms: [measure:gene_expression_ratio], qualifiers: {gene: TNNI3/TNNI1}}
+- {field: measure, stated: ADRB1/ADRB2 mRNA ratio, terms: [measure:gene_expression_ratio], qualifiers: {gene: ADRB1/ADRB2}}
+- {field: measure, stated: TNNI3/TNNI1 mRNA ratio, terms: [measure:gene_expression_ratio], qualifiers: {gene: TNNI3/TNNI1}}
+- {field: measure, stated: ADRB1 as % of ADRB1 + ADRB2, terms: [measure:transcript_isoform_fraction], qualifiers: {isoform: ADRB1, total: ADRB1 + ADRB2}, note: "ADRB1 and ADRB2 are receptor subtypes rather than isoforms of one gene; mapped with the three isoform shares the paper reports beside it."}
+- {field: measure, stated: MYH7 as % of MYH7 + MYH6, terms: [measure:transcript_isoform_fraction], qualifiers: {isoform: MYH7, total: MYH7 + MYH6}}
+- {field: measure, stated: ACTC1 as % of ACTC1 + ACTA1, terms: [measure:transcript_isoform_fraction], qualifiers: {isoform: ACTC1, total: ACTC1 + ACTA1}}
+- {field: measure, stated: TNNI3 as % of TNNI3 + TNNI1, terms: [measure:transcript_isoform_fraction], qualifiers: {isoform: TNNI3, total: TNNI3 + TNNI1}}

@@ -1,0 +1,32 @@
+# Written by code from changes.yaml (version 33); never edited.
+formula: ellipse_area_half_width
+kind: derived
+statement: The cross-sectional area of a specimen whose section is taken as an ellipse of full width w and height half the
+  width (h = w/2) is A = pi*w**2/8.
+equations:
+- A = pi*w**2/8
+variables:
+  A: area
+  w: length
+  h: length
+assumes:
+- h = w/2
+uses:
+- formula: elliptical_cross_section_area
+  subs:
+    A: A
+    a: w
+    b: h
+does_not_apply: a measured thickness other than half the width, a rectangular or irregular section, or w given as a semi-axis
+tests:
+- given:
+    w: 2.0
+  expect:
+    A: 1.5707963
+- given:
+    w: 1.0
+  expect:
+    A: 0.39269908
+- given:
+    w: 2.0
+  does_not_apply: an ellipse 2 wide and 1.5 thick has area 2.356, not pi/2

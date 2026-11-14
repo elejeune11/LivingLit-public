@@ -1,0 +1,1951 @@
+figures:
+  F1c_purity:
+    file: nihms862055.pdf
+    page: 18
+    crop: [340, 135, 459, 215]
+    script: figures/F1c_purity.py
+    unit: F1c
+    kind: raster
+    groups:
+      before:
+        item: F1c_purity
+        group: before
+        unit_of_value: '%'
+      after:
+        item: F1c_purity
+        group: after
+        unit_of_value: '%'
+    note: Raster panel (author manuscript). Markers overlap in both columns, so the eight pairs are resolved from
+      the eight before-after connecting lines (constrained Hough search from each before-marker blob); the lowest,
+      isolated after marker checks that line ends land on marker centres. Y axis 'Actinin+ cells (%)'.
+  F1e_ratio:
+    file: nihms862055.pdf
+    page: 18
+    crop: [213, 308, 322, 412]
+    script: figures/F1e_ratio.py
+    unit: F1e
+    kind: raster
+    groups:
+      r90_cmpct:
+        item: F1e_cmpct
+        group: r90
+        unit_of_value: '%'
+      r70_cmpct:
+        item: F1e_cmpct
+        group: r70
+        unit_of_value: '%'
+      r50_cmpct:
+        item: F1e_cmpct
+        group: r50
+        unit_of_value: '%'
+      r90_force:
+        item: F1e_force
+        group: r90
+        unit_of_value: nN
+      r70_force:
+        item: F1e_force
+        group: r70
+        unit_of_value: nN
+      r50_force:
+        item: F1e_force
+        group: r50
+        unit_of_value: nN
+    note: Raster scatter (author manuscript, ~300 dpi). Each EHM marker gives x 'Cardiomyocyte percentage' (*_cmpct)
+      and y 'Force per CM (nN)' (*_force); the two lists share index order. Colours from the legend - blue 90%
+      CM/10% HFF, black 70/30, red 50/50. Open markers with x and y error bars are group means; 'error' is the
+      upper (y) and right (x) bar end. Two red markers (near 4.5 and 4.8 nN) overlap, so red is bar only.
+  F1f_foc:
+    file: nihms862055.pdf
+    page: 18
+    crop: [336, 306, 459, 412]
+    script: figures/F1f_foc.py
+    unit: F1f
+    kind: raster
+    groups:
+      start_0.2:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_0.4:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_0.8:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_1.2:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_1.6:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_2:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_2.4:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_2.8:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_3.2:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      start_4:
+        item: F1f_foc
+        group: start
+        unit_of_value: mN
+      sf_0.2:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_0.4:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_0.8:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_1.2:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_1.6:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_2:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_2.4:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_2.8:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_3.2:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+      sf_4:
+        item: F1f_foc
+        group: sf
+        unit_of_value: mN
+    note: Raster panel (author manuscript, ~300 dpi). FOC (mN) against calcium (mM); each marker is a group mean
+      (filled Starting, open Serum-free) with a vertical error bar, so each label <group>_<calcium> is bar only, x = calcium
+      read from the axis to 0.1 mM (steps not printed). Error ends missing where both caps merge with the marker
+      (start 0.2-1.2 mM, sf 0.2-0.4 mM); where the top cap merges, the bottom cap is mirrored. Fitted curves not read.
+  S1ab:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 40
+    crop: [10, 45, 590, 222]
+    script: figures/S1ab.py
+    unit: S1ab
+    kind: vector
+    groups:
+      a_undef:
+        item: S1a_force_cm
+        group: undef
+        unit_of_value: nN
+      a_def:
+        item: S1a_force_cm
+        group: def
+        unit_of_value: nN
+      b_undef:
+        item: S1b_actinin
+        group: undef
+        unit_of_value: MFI
+      b_def:
+        item: S1b_actinin
+        group: def
+        unit_of_value: MFI
+    note: Vector panels a (Force per CM (nN)) and b (Actinin MFI), one crop. One filled marker per EHM (squares; b's
+      defined group triangles, read at the bounding-box centre, which puts their mean on the drawn mean line), a long horizontal mean line and two whisker caps per group;
+      'error' is the upper cap. The legend does not say whether the bars are SD or SEM. Actinin MFI has no printed unit.
+  S1c:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 40
+    crop: [10, 225, 590, 470]
+    script: figures/S1c.py
+    unit: S1c
+    kind: vector
+    groups:
+      S1c_foc_def_iso/def_iso:
+        item: S1c_foc_def_iso
+        group: def_iso
+        unit_of_value: mN
+      S1c_foc_def_iso/def_base:
+        item: S1c_foc_def_iso
+        group: def_base
+        unit_of_value: mN
+      S1c_foc_def_carb/def_carb:
+        item: S1c_foc_def_carb
+        group: def_carb
+        unit_of_value: mN
+      S1c_foc_def_carb/def_iso:
+        item: S1c_foc_def_carb
+        group: def_iso
+        unit_of_value: mN
+      S1c_foc_undef_iso/undef_iso:
+        item: S1c_foc_undef_iso
+        group: undef_iso
+        unit_of_value: mN
+      S1c_foc_undef_iso/undef_base:
+        item: S1c_foc_undef_iso
+        group: undef_base
+        unit_of_value: mN
+      S1c_foc_undef_carb/undef_carb:
+        item: S1c_foc_undef_carb
+        group: undef_carb
+        unit_of_value: mN
+      S1c_foc_undef_carb/undef_iso:
+        item: S1c_foc_undef_carb
+        group: undef_iso
+        unit_of_value: mN
+      S1c_t50_def_iso/def_iso:
+        item: S1c_t50_def_iso
+        group: def_iso
+        unit_of_value: ms
+      S1c_t50_def_iso/def_base:
+        item: S1c_t50_def_iso
+        group: def_base
+        unit_of_value: ms
+      S1c_t50_def_carb/def_carb:
+        item: S1c_t50_def_carb
+        group: def_carb
+        unit_of_value: ms
+      S1c_t50_def_carb/def_iso:
+        item: S1c_t50_def_carb
+        group: def_iso
+        unit_of_value: ms
+      S1c_t50_undef_iso/undef_iso:
+        item: S1c_t50_undef_iso
+        group: undef_iso
+        unit_of_value: ms
+      S1c_t50_undef_iso/undef_base:
+        item: S1c_t50_undef_iso
+        group: undef_base
+        unit_of_value: ms
+      S1c_t50_undef_carb/undef_carb:
+        item: S1c_t50_undef_carb
+        group: undef_carb
+        unit_of_value: ms
+      S1c_t50_undef_carb/undef_iso:
+        item: S1c_t50_undef_carb
+        group: undef_iso
+        unit_of_value: ms
+      S1c_t50_protocol/def_base:
+        item: S1c_t50_protocol
+        group: def_base
+        unit_of_value: ms
+      S1c_t50_protocol/def_iso:
+        item: S1c_t50_protocol
+        group: def_iso
+        unit_of_value: ms
+      S1c_t50_protocol/def_carb:
+        item: S1c_t50_protocol
+        group: def_carb
+        unit_of_value: ms
+      S1c_t50_protocol/undef_base:
+        item: S1c_t50_protocol
+        group: undef_base
+        unit_of_value: ms
+      S1c_t50_protocol/undef_iso:
+        item: S1c_t50_protocol
+        group: undef_iso
+        unit_of_value: ms
+      S1c_t50_protocol/undef_carb:
+        item: S1c_t50_protocol
+        group: undef_carb
+        unit_of_value: ms
+    note: Vector panels FOC (mN, left) and time to 50% relaxation (T2-50, ms, right). Each marker is a group mean
+      (circles Undef. EHM, squares Def. EHM) with a vertical error bar; no single EHM is drawn, so every label is bar only
+      (countable false). 'error' is the upper cap. One curve point is shared by several items, so each label
+      is <item>/<group> and repeats that point's bar. The legend does not say whether the bars are SD or SEM.
+  S1e:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 40
+    crop: [278, 482, 580, 672]
+    script: figures/S1e.py
+    unit: S1e
+    kind: vector
+    groups:
+      S1e_dp_undef_input/undef:
+        item: S1e_dp_undef_input
+        group: undef
+        unit_of_value: '%'
+      S1e_dp_undef_input/input:
+        item: S1e_dp_undef_input
+        group: input
+        unit_of_value: '%'
+      S1e_dp_def_input/def:
+        item: S1e_dp_def_input
+        group: def
+        unit_of_value: '%'
+      S1e_dp_def_input/input:
+        item: S1e_dp_def_input
+        group: input
+        unit_of_value: '%'
+      S1e_dp_def_undef/def:
+        item: S1e_dp_def_undef
+        group: def
+        unit_of_value: '%'
+      S1e_dp_def_undef/undef:
+        item: S1e_dp_def_undef
+        group: undef
+        unit_of_value: '%'
+      S1e_mlc2a/input:
+        item: S1e_mlc2a
+        group: input
+        unit_of_value: '%'
+      S1e_mlc2a/undef:
+        item: S1e_mlc2a
+        group: undef
+        unit_of_value: '%'
+      S1e_mlc2a/def:
+        item: S1e_mlc2a
+        group: def
+        unit_of_value: '%'
+      S1e_mlc2v/input:
+        item: S1e_mlc2v
+        group: input
+        unit_of_value: '%'
+      S1e_mlc2v/undef:
+        item: S1e_mlc2v
+        group: undef
+        unit_of_value: '%'
+      S1e_mlc2v/def:
+        item: S1e_mlc2v
+        group: def
+        unit_of_value: '%'
+    note: Vector stacked bars, one per group (Input cells, Undef. EHM, Def. EHM); segments MLC2V (magenta, base),
+      MLC2A+V double positive (grey), MLC2A (green, top), colours matched to the legend. Each segment is a group mean
+      (its height in % of CM; overlapping segment edges split at their midpoint, half the gap added to the interval)
+      with one upward error bar; 'error' is the segment mean plus the bar length. No cell pool is drawn, so every
+      label is bar only (countable false). Labels are <item>/<group> and repeat a bar used by several items. The
+      legend does not say whether the bars are SD or SEM.
+  S2a:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 42
+    crop: [36, 85, 590, 312]
+    script: figures/S2a.py
+    unit: S2a
+    kind: vector
+    groups:
+      S2a_NANOG/def:
+        item: S2a_NANOG
+        group: def
+        unit_of_value: relative expression
+      S2a_NANOG/undef:
+        item: S2a_NANOG
+        group: undef
+        unit_of_value: relative expression
+      S2a_POU5F1/def:
+        item: S2a_POU5F1
+        group: def
+        unit_of_value: relative expression
+      S2a_POU5F1/undef:
+        item: S2a_POU5F1
+        group: undef
+        unit_of_value: relative expression
+      S2a_ZFP42/def:
+        item: S2a_ZFP42
+        group: def
+        unit_of_value: relative expression
+      S2a_ZFP42/undef:
+        item: S2a_ZFP42
+        group: undef
+        unit_of_value: relative expression
+      S2a_FGF4/def:
+        item: S2a_FGF4
+        group: def
+        unit_of_value: relative expression
+      S2a_FGF4/undef:
+        item: S2a_FGF4
+        group: undef
+        unit_of_value: relative expression
+      S2a_TERT/psc:
+        item: S2a_TERT
+        group: psc
+        unit_of_value: relative expression
+      S2a_TERT/undef:
+        item: S2a_TERT
+        group: undef
+        unit_of_value: relative expression
+      S2a_TERT/def:
+        item: S2a_TERT
+        group: def
+        unit_of_value: relative expression
+    note: Vector bar chart with a split y axis (0-0.4 and 0.8-1.2, each segment calibrated from its own stubs).
+      Bars are group means in four slots per gene in legend order (PSC black, fibroblasts, Undefined EHM, Defined EHM);
+      the fibroblast slot holds no drawing in any gene, so S2a_TERT/hff is not read. Error bars are drawn upward only;
+      'error' is the cap. Bars under ~0.3 pt (Defined EHM, POU5F1 and ZFP42) have no drawn error bar. No sample is
+      drawn (countable false). The Undefined EHM bar grey (0.50) differs from its legend swatch (0.38); slots follow
+      the legend order. The legend does not say whether the bars are SD or SEM.
+  S2cd:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 42
+    crop: [85, 548, 445, 708]
+    script: figures/S2cd.py
+    unit: S2cd
+    kind: vector
+    groups:
+      S2c_def_input/def:
+        item: S2c_def_input
+        group: def
+        unit_of_value: '%'
+      S2c_def_input/input:
+        item: S2c_def_input
+        group: input
+        unit_of_value: '%'
+      S2c_def_undef/def:
+        item: S2c_def_undef
+        group: def
+        unit_of_value: '%'
+      S2c_def_undef/undef:
+        item: S2c_def_undef
+        group: undef
+        unit_of_value: '%'
+      S2d_def_input/def:
+        item: S2d_def_input
+        group: def
+        unit_of_value: '%'
+      S2d_def_input/input:
+        item: S2d_def_input
+        group: input
+        unit_of_value: '%'
+      S2d_def_undef/def:
+        item: S2d_def_undef
+        group: def
+        unit_of_value: '%'
+      S2d_def_undef/undef:
+        item: S2d_def_undef
+        group: undef
+        unit_of_value: '%'
+    note: Vector bar charts, c 'Ki67+ cells (%)' of Cardiomyocytes and d of Non-myocytes, each calibrated from its own
+      axis stubs. One open bar per group (Input cells, Undef. EHM, Def. EHM) with an upward error bar; 'error' is the
+      cap. No sample is drawn, so every label is bar only (countable false). Labels are <item>/<group> and repeat a bar
+      used by both items of its panel. The legend does not say whether the bars are SD or SEM.
+  S3a:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 44
+    crop: [10, 30, 185, 222]
+    script: figures/S3a.py
+    unit: S3a
+    kind: vector
+    groups:
+      rat:
+        item: S3a_foc
+        group: rat
+        unit_of_value: fold
+      bovine:
+        item: S3a_foc
+        group: bovine
+        unit_of_value: fold
+    note: Vector bar chart 'Normalized FOC (fold)'. One open bar per group (Rat col. +Matrigel, Bovine col. +Matrigel),
+      a group mean, with an upward error bar; 'error' is the cap. No single EHM is drawn, so both are bar only
+      (countable false). The rat bar sits at 1.0, so FOC is presumably normalized to the rat collagen mean (not
+      stated). The legend does not say whether the bars are SD or SEM.
+  S3b:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 44
+    crop: [190, 30, 365, 222]
+    script: figures/S3b.py
+    unit: S3b
+    kind: vector
+    groups:
+      start:
+        item: S3b_foc
+        group: start
+        unit_of_value: fold
+      matrix:
+        item: S3b_foc
+        group: matrix
+        unit_of_value: fold
+    note: Vector bar chart 'Normalized FOC (fold)'. One open bar per group (Starting Protocol, Defined-Matrix Protocol),
+      a group mean, with an upward error bar; 'error' is the cap. No single EHM is drawn, so both are bar only
+      (countable false). The Starting bar sits at 1.0, so FOC is presumably normalized to the Starting Protocol mean
+      (not stated). The x label reads 'Defined-Matrix Protocol' where the legend says 'Matrix Protocol'. The legend
+      does not say whether the bars are SD or SEM.
+  S3c:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 44
+    crop: [368, 30, 595, 236]
+    script: figures/S3c.py
+    unit: S3c
+    kind: vector
+    groups:
+      S3c_fn/fn:
+        item: S3c_fn
+        group: fn
+        unit_of_value: fold
+      S3c_fn/coll:
+        item: S3c_fn
+        group: coll
+        unit_of_value: fold
+      S3c_lam/lam:
+        item: S3c_lam
+        group: lam
+        unit_of_value: fold
+      S3c_lam/coll:
+        item: S3c_lam
+        group: coll
+        unit_of_value: fold
+    note: Vector bar chart 'Normalized FOC (fold)'. One open bar per group, a group mean, with an upward error bar;
+      'error' is the cap. No single EHM is drawn, so every label is bar only (countable false). 'Bovine collagen'
+      heads a rule over all three bars; '+ Fibronectin' and '+ Laminin' sit under the middle and right bars, so the
+      unlabelled left bar is taken as bovine collagen only. It sits at 1.0, so FOC is presumably normalized to the
+      collagen-only mean (not stated). Labels are <item>/<group>; the collagen bar is repeated for both items. The
+      legend does not say whether the bars are SD or SEM.
+  S3e:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 44
+    crop: [5, 655, 262, 841]
+    script: figures/S3e.py
+    unit: S3e
+    kind: vector
+    groups:
+      S3e_nogf_matrix/nogf: {item: S3e_nogf_matrix, group: nogf, unit_of_value: fold}
+      S3e_nogf_matrix/matrix_ref: {item: S3e_nogf_matrix, group: matrix_ref, unit_of_value: fold}
+      S3e_igf_matrix/igf: {item: S3e_igf_matrix, group: igf, unit_of_value: fold}
+      S3e_igf_matrix/matrix_ref: {item: S3e_igf_matrix, group: matrix_ref, unit_of_value: fold}
+      S3e_vegf_matrix/vegf: {item: S3e_vegf_matrix, group: vegf, unit_of_value: fold}
+      S3e_vegf_matrix/matrix_ref: {item: S3e_vegf_matrix, group: matrix_ref, unit_of_value: fold}
+      S3e_tgfb1_matrix/tgfb1: {item: S3e_tgfb1_matrix, group: tgfb1, unit_of_value: fold}
+      S3e_tgfb1_matrix/matrix_ref: {item: S3e_tgfb1_matrix, group: matrix_ref, unit_of_value: fold}
+      S3e_tgfb1_d03_matrix/tgfb1_d03: {item: S3e_tgfb1_d03_matrix, group: tgfb1_d03, unit_of_value: fold}
+      S3e_tgfb1_d03_matrix/matrix_ref: {item: S3e_tgfb1_d03_matrix, group: matrix_ref, unit_of_value: fold}
+      S3e_all_nogf/all: {item: S3e_all_nogf, group: all, unit_of_value: fold}
+      S3e_all_nogf/nogf: {item: S3e_all_nogf, group: nogf, unit_of_value: fold}
+    note: Vector bar chart 'Normalized FOC (fold)'. One open bar per group, a group mean, with an upward error bar;
+      'error' is the cap. No single EHM is drawn, so every label is bar only (countable false). matrix_ref is the
+      'Matrix Protocol EHM' reference drawn as a black dashed line (its mean, at 1.0) between two grey dashed lines;
+      its 'error' is the upper grey line (the band is checked to be symmetric). The legend says neither whether the
+      bars are SD or SEM nor what the grey band is. FGF d0-10 is drawn but no item uses it. The two TGFβ1 bars are told
+      apart by the 'd0-10' rule and the 'd0-3' word. Labels are <item>/<group>; shared groups are repeated.
+  S3f:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 44
+    crop: [260, 655, 430, 841]
+    script: figures/S3f.py
+    unit: S3f
+    kind: vector
+    groups:
+      S3f_b27_2_matrix/b27_2: {item: S3f_b27_2_matrix, group: b27_2, unit_of_value: fold}
+      S3f_b27_2_matrix/matrix_ref: {item: S3f_b27_2_matrix, group: matrix_ref, unit_of_value: fold}
+      S3f_b27_4_matrix/b27_4: {item: S3f_b27_4_matrix, group: b27_4, unit_of_value: fold}
+      S3f_b27_4_matrix/matrix_ref: {item: S3f_b27_4_matrix, group: matrix_ref, unit_of_value: fold}
+      S3f_ins_b27_2/b27_ins: {item: S3f_ins_b27_2, group: b27_ins, unit_of_value: fold}
+      S3f_ins_b27_2/b27_2: {item: S3f_ins_b27_2, group: b27_2, unit_of_value: fold}
+      S3f_ins_b27_4/b27_ins: {item: S3f_ins_b27_4, group: b27_ins, unit_of_value: fold}
+      S3f_ins_b27_4/b27_4: {item: S3f_ins_b27_4, group: b27_4, unit_of_value: fold}
+    note: Vector bar chart 'Normalized FOC (fold)'. One open bar per group, a group mean, with an upward error bar;
+      'error' is the cap. No single EHM is drawn, so every label is bar only (countable false). matrix_ref is the
+      'Matrix Protocol EHM' reference drawn as a dark dashed line (its mean, near 1.0) between two grey dashed lines;
+      its 'error' is the upper grey line (the band is checked to be symmetric); the legend says the dashed lines are
+      mean (black) and SEM (grey), but not whether the bars are SD or SEM. Bars are named from the words under them ('2%'/'4%', 'B27',
+      '-AO'/'-insulin'). 4% B27 -AO is drawn but no item uses it. Labels are <item>/<group>; shared groups are
+      repeated.
+  S3g:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 44
+    crop: [425, 645, 595, 841]
+    script: figures/S3g.py
+    unit: S3g
+    kind: vector
+    groups:
+      S3g_rpmi_matrix/rpmi: {item: S3g_rpmi_matrix, group: rpmi, unit_of_value: fold}
+      S3g_rpmi_matrix/matrix_ref: {item: S3g_rpmi_matrix, group: matrix_ref, unit_of_value: fold}
+    note: Vector bar chart 'Normalized FOC (fold)'. One open bar per basal medium (IMDM, αMEM, RPMI, RPMI+calcium), a
+      group mean, with an upward error bar; 'error' is the cap. No single EHM is drawn, so both labels are bar only
+      (countable false). matrix_ref is the 'Matrix Protocol EHM' reference drawn as a dark dashed line (its mean, near
+      1.0) between two grey dashed lines; its 'error' is the upper grey line (the band is checked to be symmetric). The
+      legend does not say whether the bars are SD or SEM. Bars are named from the words under them and checked against
+      the bracketed calcium inside each; IMDM, αMEM and RPMI+calcium are read but no item uses their FOC.
+  S4:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 46
+    crop: [30, 60, 570, 570]
+    script: figures/S4.py
+    unit: S4
+    kind: vector
+    groups:
+      S4_hes2_sf_hes2_start/hes2_sf_0.2: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_0.4: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_0.8: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_1.2: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_1.6: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_2: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_2.4: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_2.8: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_3.2: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_sf_4: {item: S4_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_0.2: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_0.4: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_0.8: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_1.2: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_1.6: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_2: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_2.4: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_2.8: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_3.2: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_hes2_sf_hes2_start/hes2_start_4: {item: S4_hes2_sf_hes2_start, group: hes2_start, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_0.2: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_0.4: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_0.8: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_1.2: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_1.6: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_2: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_2.4: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_2.8: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_3.2: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_sf_4: {item: S4_h7_sf_h7_matrix, group: h7_sf, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_0.2: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_0.4: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_0.8: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_1.2: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_1.6: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_2: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_2.4: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_2.8: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_3.2: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_h7_sf_h7_matrix/h7_matrix_4: {item: S4_h7_sf_h7_matrix, group: h7_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_0.2: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_0.4: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_0.8: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_1.2: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_1.6: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_2: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_2.4: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_2.8: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_3.2: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_sf_4: {item: S4_g1_sf_g1_start, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_0.2: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_0.4: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_0.8: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_1.2: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_1.6: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_2: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_2.4: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_2.8: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_3.2: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_start/g1_start_4: {item: S4_g1_sf_g1_start, group: g1_start, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_0.2: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_0.4: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_0.8: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_1.2: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_1.6: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_2: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_2.4: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_2.8: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_3.2: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_sf_4: {item: S4_g1_sf_g1_matrix, group: g1_sf, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_0.2: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_0.4: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_0.8: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_1.2: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_1.6: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_2: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_2.4: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_2.8: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_3.2: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_g1_sf_g1_matrix/g1_matrix_4: {item: S4_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_0.2: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_0.4: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_0.8: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_1.2: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_1.6: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_2: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_2.4: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_2.8: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_3.2: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_sf_4: {item: S4_icell_sf_icell_matrix, group: icell_sf, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_0.2: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_0.4: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_0.8: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_1.2: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_1.6: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_2: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_2.4: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_2.8: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_3.2: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+      S4_icell_sf_icell_matrix/icell_matrix_4: {item: S4_icell_sf_icell_matrix, group: icell_matrix, unit_of_value: mN}
+    note: >-
+      Vector panel b 'FOC (mN)' against 'Calcium (mmol/L)' at W4, with the panel-a table (cell line x protocol,
+      with marker and n). Each marker is a group mean at one calcium concentration (0.2, 0.4, 0.8, 1.2 ... 3.2, 4.0
+      mmol/L, not printed: read from the calibrated x and rounded to 0.1) with a symmetric vertical error bar;
+      'error' is the upper bar end. No single EHM is drawn, so every label is bar only (countable false), one per
+      group and calcium (<item>/<group>_<calcium>, x = calcium). Marker classes are mapped to groups from the table
+      itself (row word, column header). Bars hidden inside their marker are not drawn and give no error end - all of
+      icell_matrix, and hes2_start and icell_sf at 0.2. The legend does not say SD or SEM. The drawing also holds
+      leftovers of a HES2 Matrix series (n.d. in the table) - one half-filled square at 0.2 and error-bar lines at 0.4-4.0
+      with no marker; they are not read.
+  F2c_foc_csa:
+    file: nihms862055.pdf
+    page: 20
+    crop: [160, 186, 520, 300]
+    script: figures/F2c_foc_csa.py
+    unit: F2c
+    kind: raster
+    groups:
+      hes2_w2_0.4:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w2_0.8:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_0.8:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_0.8:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_1.2:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_1.2:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_1.2:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_1.6:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_1.6:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_1.6:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_2:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_2:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_2:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_2.4:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_2.4:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_2.4:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_2.8:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_2.8:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_2.8:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_3.2:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_3.2:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_3.2:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      hes2_w2_4:
+        item: F2c_hes2_time
+        group: hes2_w2
+        unit_of_value: mN/mm2
+      hes2_w4_4:
+        item: F2c_hes2_time
+        group: hes2_w4
+        unit_of_value: mN/mm2
+      hes2_w6_4:
+        item: F2c_hes2_time
+        group: hes2_w6
+        unit_of_value: mN/mm2
+      g1_w8_0.2:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_0.4:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_0.4:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_0.4:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_0.8:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_0.8:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_0.8:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_1.2:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_1.2:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_1.2:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_1.6:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_1.6:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_1.6:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_2:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_2:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_2:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_2.4:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_2.4:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_2.4:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_2.8:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_2.8:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_2.8:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_3.2:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_3.2:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_3.2:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+      g1_w2_4:
+        item: F2c_g1_time
+        group: g1_w2
+        unit_of_value: mN/mm2
+      g1_w4_4:
+        item: F2c_g1_time
+        group: g1_w4
+        unit_of_value: mN/mm2
+      g1_w8_4:
+        item: F2c_g1_time
+        group: g1_w8
+        unit_of_value: mN/mm2
+    note: Raster panel (author manuscript, 300 dpi, rendered at 600). Two plots, HES2 (left) and hiPS-G1 (right);
+      y 'FOC/CSA (mN/mm2)', x 'Calcium (mM)'. Every marker is a group mean (SEM bar) under <group>_<calcium>; no single
+      EHM is drawn, so bars only (countable false). Series are assigned bottom to top within each calcium column (the
+      curves never cross); triangle against circle/square shape is checked by area. Mean = midpoint of the two SEM caps
+      where both are clean, else the marker centre (triangles offset by the cap-calibrated median). Unread (markers
+      merged at low calcium) - HES2 all three at 0.2 mM, HES2 Week 4 and Week 6 at 0.4 mM, hiPS-G1 Week 2 and Week 4
+      at 0.2 mM.
+  S6:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 49
+    crop: [15, 45, 590, 650]
+    script: figures/S6.py
+    unit: S6
+    kind: vector
+    groups:
+      S6a_hes2/hes2_w2: {item: S6a_hes2, group: hes2_w2, unit_of_value: x10^5}
+      S6a_hes2/hes2_w4: {item: S6a_hes2, group: hes2_w4, unit_of_value: x10^5}
+      S6a_hes2/hes2_w6: {item: S6a_hes2, group: hes2_w6, unit_of_value: x10^5}
+      S6b_hes2_w4_hes2_w2/hes2_w4: {item: S6b_hes2_w4_hes2_w2, group: hes2_w4, unit_of_value: mm²}
+      S6b_hes2_w4_hes2_w2/hes2_w2: {item: S6b_hes2_w4_hes2_w2, group: hes2_w2, unit_of_value: mm²}
+      S6b_hes2_w6_hes2_w4/hes2_w6: {item: S6b_hes2_w6_hes2_w4, group: hes2_w6, unit_of_value: mm²}
+      S6b_hes2_w6_hes2_w4/hes2_w4: {item: S6b_hes2_w6_hes2_w4, group: hes2_w4, unit_of_value: mm²}
+      S6b_hes2_w6_hes2_w2/hes2_w6: {item: S6b_hes2_w6_hes2_w2, group: hes2_w6, unit_of_value: mm²}
+      S6b_hes2_w6_hes2_w2/hes2_w2: {item: S6b_hes2_w6_hes2_w2, group: hes2_w2, unit_of_value: mm²}
+      S6c_hes2/hes2_w2_0.2: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_0.4: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_0.8: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_1.2: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_1.6: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_2: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_2.4: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_2.8: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_3.2: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w2_4: {item: S6c_hes2, group: hes2_w2, unit_of_value: mN}
+      S6c_hes2/hes2_w4_0.2: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_0.4: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_0.8: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_1.2: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_1.6: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_2: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_2.4: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_2.8: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_3.2: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w4_4: {item: S6c_hes2, group: hes2_w4, unit_of_value: mN}
+      S6c_hes2/hes2_w6_0.2: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_0.4: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_0.8: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_1.2: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_1.6: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_2: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_2.4: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_2.8: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_3.2: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6c_hes2/hes2_w6_4: {item: S6c_hes2, group: hes2_w6, unit_of_value: mN}
+      S6a_g1/g1_w2: {item: S6a_g1, group: g1_w2, unit_of_value: x10^5}
+      S6a_g1/g1_w4: {item: S6a_g1, group: g1_w4, unit_of_value: x10^5}
+      S6a_g1/g1_w8: {item: S6a_g1, group: g1_w8, unit_of_value: x10^5}
+      S6b_g1_w4_g1_w2/g1_w4: {item: S6b_g1_w4_g1_w2, group: g1_w4, unit_of_value: mm²}
+      S6b_g1_w4_g1_w2/g1_w2: {item: S6b_g1_w4_g1_w2, group: g1_w2, unit_of_value: mm²}
+      S6b_g1_w8_g1_w2/g1_w8: {item: S6b_g1_w8_g1_w2, group: g1_w8, unit_of_value: mm²}
+      S6b_g1_w8_g1_w2/g1_w2: {item: S6b_g1_w8_g1_w2, group: g1_w2, unit_of_value: mm²}
+      S6c_g1/g1_w2_0.2: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_0.4: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_0.8: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_1.2: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_1.6: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_2: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_2.4: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_2.8: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_3.2: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w2_4: {item: S6c_g1, group: g1_w2, unit_of_value: mN}
+      S6c_g1/g1_w4_0.2: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_0.4: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_0.8: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_1.2: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_1.6: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_2: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_2.4: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_2.8: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_3.2: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w4_4: {item: S6c_g1, group: g1_w4, unit_of_value: mN}
+      S6c_g1/g1_w8_0.2: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_0.4: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_0.8: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_1.2: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_1.6: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_2: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_2.4: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_2.8: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_3.2: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+      S6c_g1/g1_w8_4: {item: S6c_g1, group: g1_w8, unit_of_value: mN}
+    note: Vector page. (a) CM number (x10^5) and (b) CSA (mm²) bars per week, mean = bar top, error = top of the
+      T-shaped error path (no single EHM drawn; no n). Each group's bar is repeated under every item that lists it.
+      (c) FOC (mN) vs calcium (mM) curves, one filled marker shape per week (legend); mean = marker centre, error =
+      top of the upper bar half meeting it; x = calibrated calcium rounded to 0.1 mM. No error end where the bar is
+      hidden in the marker - HES2 Week 2 at 0.2 and 0.4 mM, HES2 Week 6 at 0.2 mM, hiPS-G1 Week 2 at 0.2 and 0.4 mM,
+      hiPS-G1 Week 4 at 0.2 mM. Y axis unit (a) printed 'CM number (x10⁵)'.
+  F2d_ffr:
+    file: nihms862055.pdf
+    page: 20
+    crop: [155, 330, 275, 440]
+    script: figures/F2d_ffr.py
+    unit: F2d
+    kind: raster
+    groups:
+      F2d_sf2_sf1/sf1: {item: F2d_sf2_sf1, group: sf1, unit_of_value: '% of FOC at 1 Hz'}
+      F2d_sf2_sf1/sf2: {item: F2d_sf2_sf1, group: sf2, unit_of_value: '% of FOC at 1 Hz'}
+      F2d_sf3_sf1/sf1: {item: F2d_sf3_sf1, group: sf1, unit_of_value: '% of FOC at 1 Hz'}
+      F2d_sf3_sf1/sf3: {item: F2d_sf3_sf1, group: sf3, unit_of_value: '% of FOC at 1 Hz'}
+      F2d_sf3_sp3/sf3: {item: F2d_sf3_sp3, group: sf3, unit_of_value: '% of FOC at 1 Hz'}
+      F2d_sf3_sp3/sp3: {item: F2d_sf3_sp3, group: sp3, unit_of_value: '% of FOC at 1 Hz'}
+    note: Raster line plot (author manuscript, 300 dpi). Black circles Serum-free protocol (n=21), red squares Starting
+      protocol (n=8); group means with SEM bars, no single EHM drawn (bar only, no n). Mean = midpoint of the two caps
+      (checked against the marker centre), error = top cap; x = frequency (Hz). Only sf1, sf2, sf3 and sp3 are read
+      (sp1 and sp2 are in no item). Each group's bar is repeated under every item that lists it.
+  F3d_hist:
+    file: nihms862055.pdf
+    page: 22
+    crop: [345, 222, 459, 330]
+    script: figures/F3d_hist.py
+    unit: F3ce
+    kind: raster
+    groups:
+      ehm6: {item: F3d_hist, group: ehm6, unit_of_value: genes}
+      d60: {item: F3d_hist, group: d60, unit_of_value: genes}
+    note: Raster frequency polygons (author manuscript, ~300 dpi); y 'Number of cardiomyocyte specific genes' calibrated
+      from the 0-80 tick stubs. Red = 6 week EHM, blue = 2D D60 (legend boxes); 2D D22 (grey) is in no item and not
+      read. The x axis 'Expression level (RPKM)' has no numeric scale, only the dashed 'Fetal heart' line, so each
+      point's x is its offset from that line in page points (negative = Embryonic-Fetal side), sampled every 1 pt;
+      x is a page position, not an expression level. Points are curve samples, not replicates. D60's outline is
+      read only where it can be told from 2D D22's - not right of about +5 pt, where the two black outlines inside
+      the red fill cross - so D60 has no Fetal-Adult tail. Fig. 3e (Venn, gene lists) has no axis and is not read.
+  S7:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 51
+    crop: [25, 40, 570, 640]
+    script: figures/S7.py
+    unit: S7
+    kind: vector
+    groups:
+      S7_MYH7/d22:
+        item: S7_MYH7
+        group: d22
+        unit_of_value: RPKM
+      S7_MYH7/d60:
+        item: S7_MYH7
+        group: d60
+        unit_of_value: RPKM
+      S7_MYH7/ehm_serum_w2:
+        item: S7_MYH7
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_MYH7/ehm_sf_w2:
+        item: S7_MYH7
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_MYH7/ehm_sf_w6:
+        item: S7_MYH7
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_MYH7/fetal:
+        item: S7_MYH7
+        group: fetal
+        unit_of_value: RPKM
+      S7_MYH7/adult:
+        item: S7_MYH7
+        group: adult
+        unit_of_value: RPKM
+      S7_MYL2/d22:
+        item: S7_MYL2
+        group: d22
+        unit_of_value: RPKM
+      S7_MYL2/d60:
+        item: S7_MYL2
+        group: d60
+        unit_of_value: RPKM
+      S7_MYL2/ehm_serum_w2:
+        item: S7_MYL2
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_MYL2/ehm_sf_w2:
+        item: S7_MYL2
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_MYL2/ehm_sf_w6:
+        item: S7_MYL2
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_MYL2/fetal:
+        item: S7_MYL2
+        group: fetal
+        unit_of_value: RPKM
+      S7_MYL2/adult:
+        item: S7_MYL2
+        group: adult
+        unit_of_value: RPKM
+      S7_TTN/d22:
+        item: S7_TTN
+        group: d22
+        unit_of_value: RPKM
+      S7_TTN/d60:
+        item: S7_TTN
+        group: d60
+        unit_of_value: RPKM
+      S7_TTN/ehm_serum_w2:
+        item: S7_TTN
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_TTN/ehm_sf_w2:
+        item: S7_TTN
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_TTN/ehm_sf_w6:
+        item: S7_TTN
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_TTN/fetal:
+        item: S7_TTN
+        group: fetal
+        unit_of_value: RPKM
+      S7_TTN/adult:
+        item: S7_TTN
+        group: adult
+        unit_of_value: RPKM
+      S7_CKM/d22:
+        item: S7_CKM
+        group: d22
+        unit_of_value: RPKM
+      S7_CKM/d60:
+        item: S7_CKM
+        group: d60
+        unit_of_value: RPKM
+      S7_CKM/ehm_serum_w2:
+        item: S7_CKM
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_CKM/ehm_sf_w2:
+        item: S7_CKM
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_CKM/ehm_sf_w6:
+        item: S7_CKM
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_CKM/fetal:
+        item: S7_CKM
+        group: fetal
+        unit_of_value: RPKM
+      S7_CKM/adult:
+        item: S7_CKM
+        group: adult
+        unit_of_value: RPKM
+      S7_TNNI3/d22:
+        item: S7_TNNI3
+        group: d22
+        unit_of_value: RPKM
+      S7_TNNI3/d60:
+        item: S7_TNNI3
+        group: d60
+        unit_of_value: RPKM
+      S7_TNNI3/ehm_serum_w2:
+        item: S7_TNNI3
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_TNNI3/ehm_sf_w2:
+        item: S7_TNNI3
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_TNNI3/ehm_sf_w6:
+        item: S7_TNNI3
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_TNNI3/fetal:
+        item: S7_TNNI3
+        group: fetal
+        unit_of_value: RPKM
+      S7_TNNI3/adult:
+        item: S7_TNNI3
+        group: adult
+        unit_of_value: RPKM
+      S7_TNNT1/d22:
+        item: S7_TNNT1
+        group: d22
+        unit_of_value: RPKM
+      S7_TNNT1/d60:
+        item: S7_TNNT1
+        group: d60
+        unit_of_value: RPKM
+      S7_TNNT1/ehm_serum_w2:
+        item: S7_TNNT1
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_TNNT1/ehm_sf_w2:
+        item: S7_TNNT1
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_TNNT1/ehm_sf_w6:
+        item: S7_TNNT1
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_TNNT1/fetal:
+        item: S7_TNNT1
+        group: fetal
+        unit_of_value: RPKM
+      S7_TNNT1/adult:
+        item: S7_TNNT1
+        group: adult
+        unit_of_value: RPKM
+      S7_ACTN2/d22:
+        item: S7_ACTN2
+        group: d22
+        unit_of_value: RPKM
+      S7_ACTN2/d60:
+        item: S7_ACTN2
+        group: d60
+        unit_of_value: RPKM
+      S7_ACTN2/ehm_serum_w2:
+        item: S7_ACTN2
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_ACTN2/ehm_sf_w2:
+        item: S7_ACTN2
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_ACTN2/ehm_sf_w6:
+        item: S7_ACTN2
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_ACTN2/fetal:
+        item: S7_ACTN2
+        group: fetal
+        unit_of_value: RPKM
+      S7_ACTN2/adult:
+        item: S7_ACTN2
+        group: adult
+        unit_of_value: RPKM
+      S7_MYOM2/d22:
+        item: S7_MYOM2
+        group: d22
+        unit_of_value: RPKM
+      S7_MYOM2/d60:
+        item: S7_MYOM2
+        group: d60
+        unit_of_value: RPKM
+      S7_MYOM2/ehm_serum_w2:
+        item: S7_MYOM2
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_MYOM2/ehm_sf_w2:
+        item: S7_MYOM2
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_MYOM2/ehm_sf_w6:
+        item: S7_MYOM2
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_MYOM2/fetal:
+        item: S7_MYOM2
+        group: fetal
+        unit_of_value: RPKM
+      S7_MYOM2/adult:
+        item: S7_MYOM2
+        group: adult
+        unit_of_value: RPKM
+      S7_SCN5A/d22:
+        item: S7_SCN5A
+        group: d22
+        unit_of_value: RPKM
+      S7_SCN5A/d60:
+        item: S7_SCN5A
+        group: d60
+        unit_of_value: RPKM
+      S7_SCN5A/ehm_serum_w2:
+        item: S7_SCN5A
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_SCN5A/ehm_sf_w2:
+        item: S7_SCN5A
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_SCN5A/ehm_sf_w6:
+        item: S7_SCN5A
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_SCN5A/fetal:
+        item: S7_SCN5A
+        group: fetal
+        unit_of_value: RPKM
+      S7_SCN5A/adult:
+        item: S7_SCN5A
+        group: adult
+        unit_of_value: RPKM
+      S7_SCN2B/d22:
+        item: S7_SCN2B
+        group: d22
+        unit_of_value: RPKM
+      S7_SCN2B/d60:
+        item: S7_SCN2B
+        group: d60
+        unit_of_value: RPKM
+      S7_SCN2B/ehm_serum_w2:
+        item: S7_SCN2B
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_SCN2B/ehm_sf_w2:
+        item: S7_SCN2B
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_SCN2B/ehm_sf_w6:
+        item: S7_SCN2B
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_SCN2B/fetal:
+        item: S7_SCN2B
+        group: fetal
+        unit_of_value: RPKM
+      S7_SCN2B/adult:
+        item: S7_SCN2B
+        group: adult
+        unit_of_value: RPKM
+      S7_KCNQ1/d22:
+        item: S7_KCNQ1
+        group: d22
+        unit_of_value: RPKM
+      S7_KCNQ1/d60:
+        item: S7_KCNQ1
+        group: d60
+        unit_of_value: RPKM
+      S7_KCNQ1/ehm_serum_w2:
+        item: S7_KCNQ1
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_KCNQ1/ehm_sf_w2:
+        item: S7_KCNQ1
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_KCNQ1/ehm_sf_w6:
+        item: S7_KCNQ1
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_KCNQ1/fetal:
+        item: S7_KCNQ1
+        group: fetal
+        unit_of_value: RPKM
+      S7_KCNQ1/adult:
+        item: S7_KCNQ1
+        group: adult
+        unit_of_value: RPKM
+      S7_KCNJ4/d22:
+        item: S7_KCNJ4
+        group: d22
+        unit_of_value: RPKM
+      S7_KCNJ4/d60:
+        item: S7_KCNJ4
+        group: d60
+        unit_of_value: RPKM
+      S7_KCNJ4/ehm_serum_w2:
+        item: S7_KCNJ4
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_KCNJ4/ehm_sf_w2:
+        item: S7_KCNJ4
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_KCNJ4/ehm_sf_w6:
+        item: S7_KCNJ4
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_KCNJ4/fetal:
+        item: S7_KCNJ4
+        group: fetal
+        unit_of_value: RPKM
+      S7_KCNJ4/adult:
+        item: S7_KCNJ4
+        group: adult
+        unit_of_value: RPKM
+      S7_KCNJ12/d22:
+        item: S7_KCNJ12
+        group: d22
+        unit_of_value: RPKM
+      S7_KCNJ12/d60:
+        item: S7_KCNJ12
+        group: d60
+        unit_of_value: RPKM
+      S7_KCNJ12/ehm_serum_w2:
+        item: S7_KCNJ12
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_KCNJ12/ehm_sf_w2:
+        item: S7_KCNJ12
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_KCNJ12/ehm_sf_w6:
+        item: S7_KCNJ12
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_KCNJ12/fetal:
+        item: S7_KCNJ12
+        group: fetal
+        unit_of_value: RPKM
+      S7_KCNJ12/adult:
+        item: S7_KCNJ12
+        group: adult
+        unit_of_value: RPKM
+      S7_RYR2/d22:
+        item: S7_RYR2
+        group: d22
+        unit_of_value: RPKM
+      S7_RYR2/d60:
+        item: S7_RYR2
+        group: d60
+        unit_of_value: RPKM
+      S7_RYR2/ehm_serum_w2:
+        item: S7_RYR2
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_RYR2/ehm_sf_w2:
+        item: S7_RYR2
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_RYR2/ehm_sf_w6:
+        item: S7_RYR2
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_RYR2/fetal:
+        item: S7_RYR2
+        group: fetal
+        unit_of_value: RPKM
+      S7_RYR2/adult:
+        item: S7_RYR2
+        group: adult
+        unit_of_value: RPKM
+      S7_CASQ2/d22:
+        item: S7_CASQ2
+        group: d22
+        unit_of_value: RPKM
+      S7_CASQ2/d60:
+        item: S7_CASQ2
+        group: d60
+        unit_of_value: RPKM
+      S7_CASQ2/ehm_serum_w2:
+        item: S7_CASQ2
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_CASQ2/ehm_sf_w2:
+        item: S7_CASQ2
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_CASQ2/ehm_sf_w6:
+        item: S7_CASQ2
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_CASQ2/fetal:
+        item: S7_CASQ2
+        group: fetal
+        unit_of_value: RPKM
+      S7_CASQ2/adult:
+        item: S7_CASQ2
+        group: adult
+        unit_of_value: RPKM
+      S7_ATP2A2/d22:
+        item: S7_ATP2A2
+        group: d22
+        unit_of_value: RPKM
+      S7_ATP2A2/d60:
+        item: S7_ATP2A2
+        group: d60
+        unit_of_value: RPKM
+      S7_ATP2A2/ehm_serum_w2:
+        item: S7_ATP2A2
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_ATP2A2/ehm_sf_w2:
+        item: S7_ATP2A2
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_ATP2A2/ehm_sf_w6:
+        item: S7_ATP2A2
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_ATP2A2/fetal:
+        item: S7_ATP2A2
+        group: fetal
+        unit_of_value: RPKM
+      S7_ATP2A2/adult:
+        item: S7_ATP2A2
+        group: adult
+        unit_of_value: RPKM
+      S7_PLN/d22:
+        item: S7_PLN
+        group: d22
+        unit_of_value: RPKM
+      S7_PLN/d60:
+        item: S7_PLN
+        group: d60
+        unit_of_value: RPKM
+      S7_PLN/ehm_serum_w2:
+        item: S7_PLN
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_PLN/ehm_sf_w2:
+        item: S7_PLN
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_PLN/ehm_sf_w6:
+        item: S7_PLN
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_PLN/fetal:
+        item: S7_PLN
+        group: fetal
+        unit_of_value: RPKM
+      S7_PLN/adult:
+        item: S7_PLN
+        group: adult
+        unit_of_value: RPKM
+      S7_TRDN/d22:
+        item: S7_TRDN
+        group: d22
+        unit_of_value: RPKM
+      S7_TRDN/d60:
+        item: S7_TRDN
+        group: d60
+        unit_of_value: RPKM
+      S7_TRDN/ehm_serum_w2:
+        item: S7_TRDN
+        group: ehm_serum_w2
+        unit_of_value: RPKM
+      S7_TRDN/ehm_sf_w2:
+        item: S7_TRDN
+        group: ehm_sf_w2
+        unit_of_value: RPKM
+      S7_TRDN/ehm_sf_w6:
+        item: S7_TRDN
+        group: ehm_sf_w6
+        unit_of_value: RPKM
+      S7_TRDN/fetal:
+        item: S7_TRDN
+        group: fetal
+        unit_of_value: RPKM
+      S7_TRDN/adult:
+        item: S7_TRDN
+        group: adult
+        unit_of_value: RPKM
+    note: Vector bar chart, log y axis 'RPKM'. Each bar a group mean (n=3-4/group, printed) with an upper error bar;
+      no samples drawn, so bars only. Bars under 10^0 hang from the baseline with the error drawn below, so they
+      give a mean only. Slot order within each gene follows the legend; TNNT1 EHM serum-free W6 is filled grey
+      (0.628) not white, and SCN2B EHM serum W2 is an unfilled outline; both are taken by position.
+  S8a:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 53
+    crop: [15, 10, 590, 390]
+    script: figures/S8a.py
+    unit: S8a
+    kind: vector
+    groups:
+      S8a_ADRA1A/d22: {item: S8a_ADRA1A, group: d22, unit_of_value: RPKM}
+      S8a_ADRA1A/d60: {item: S8a_ADRA1A, group: d60, unit_of_value: RPKM}
+      S8a_ADRA1A/ehm_serum_w2: {item: S8a_ADRA1A, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRA1A/ehm_sf_w2: {item: S8a_ADRA1A, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRA1A/ehm_sf_w6: {item: S8a_ADRA1A, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRA1A/fetal: {item: S8a_ADRA1A, group: fetal, unit_of_value: RPKM}
+      S8a_ADRA1A/adult: {item: S8a_ADRA1A, group: adult, unit_of_value: RPKM}
+      S8a_ADRA1B/d22: {item: S8a_ADRA1B, group: d22, unit_of_value: RPKM}
+      S8a_ADRA1B/d60: {item: S8a_ADRA1B, group: d60, unit_of_value: RPKM}
+      S8a_ADRA1B/ehm_serum_w2: {item: S8a_ADRA1B, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRA1B/ehm_sf_w2: {item: S8a_ADRA1B, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRA1B/ehm_sf_w6: {item: S8a_ADRA1B, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRA1B/fetal: {item: S8a_ADRA1B, group: fetal, unit_of_value: RPKM}
+      S8a_ADRA1B/adult: {item: S8a_ADRA1B, group: adult, unit_of_value: RPKM}
+      S8a_ADRA1D/d22: {item: S8a_ADRA1D, group: d22, unit_of_value: RPKM}
+      S8a_ADRA1D/d60: {item: S8a_ADRA1D, group: d60, unit_of_value: RPKM}
+      S8a_ADRA1D/ehm_serum_w2: {item: S8a_ADRA1D, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRA1D/ehm_sf_w2: {item: S8a_ADRA1D, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRA1D/ehm_sf_w6: {item: S8a_ADRA1D, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRA1D/fetal: {item: S8a_ADRA1D, group: fetal, unit_of_value: RPKM}
+      S8a_ADRA1D/adult: {item: S8a_ADRA1D, group: adult, unit_of_value: RPKM}
+      S8a_ADRA2A/d22: {item: S8a_ADRA2A, group: d22, unit_of_value: RPKM}
+      S8a_ADRA2A/d60: {item: S8a_ADRA2A, group: d60, unit_of_value: RPKM}
+      S8a_ADRA2A/ehm_serum_w2: {item: S8a_ADRA2A, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRA2A/ehm_sf_w2: {item: S8a_ADRA2A, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRA2A/ehm_sf_w6: {item: S8a_ADRA2A, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRA2A/fetal: {item: S8a_ADRA2A, group: fetal, unit_of_value: RPKM}
+      S8a_ADRA2A/adult: {item: S8a_ADRA2A, group: adult, unit_of_value: RPKM}
+      S8a_ADRA2B/d22: {item: S8a_ADRA2B, group: d22, unit_of_value: RPKM}
+      S8a_ADRA2B/d60: {item: S8a_ADRA2B, group: d60, unit_of_value: RPKM}
+      S8a_ADRA2B/ehm_serum_w2: {item: S8a_ADRA2B, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRA2B/ehm_sf_w2: {item: S8a_ADRA2B, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRA2B/ehm_sf_w6: {item: S8a_ADRA2B, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRA2B/fetal: {item: S8a_ADRA2B, group: fetal, unit_of_value: RPKM}
+      S8a_ADRA2B/adult: {item: S8a_ADRA2B, group: adult, unit_of_value: RPKM}
+      S8a_ADRA2C/d22: {item: S8a_ADRA2C, group: d22, unit_of_value: RPKM}
+      S8a_ADRA2C/d60: {item: S8a_ADRA2C, group: d60, unit_of_value: RPKM}
+      S8a_ADRA2C/ehm_serum_w2: {item: S8a_ADRA2C, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRA2C/ehm_sf_w2: {item: S8a_ADRA2C, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRA2C/ehm_sf_w6: {item: S8a_ADRA2C, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRA2C/fetal: {item: S8a_ADRA2C, group: fetal, unit_of_value: RPKM}
+      S8a_ADRA2C/adult: {item: S8a_ADRA2C, group: adult, unit_of_value: RPKM}
+      S8a_ADRB1/d22: {item: S8a_ADRB1, group: d22, unit_of_value: RPKM}
+      S8a_ADRB1/d60: {item: S8a_ADRB1, group: d60, unit_of_value: RPKM}
+      S8a_ADRB1/ehm_serum_w2: {item: S8a_ADRB1, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRB1/ehm_sf_w2: {item: S8a_ADRB1, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRB1/ehm_sf_w6: {item: S8a_ADRB1, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRB1/fetal: {item: S8a_ADRB1, group: fetal, unit_of_value: RPKM}
+      S8a_ADRB1/adult: {item: S8a_ADRB1, group: adult, unit_of_value: RPKM}
+      S8a_ADRB2/d22: {item: S8a_ADRB2, group: d22, unit_of_value: RPKM}
+      S8a_ADRB2/d60: {item: S8a_ADRB2, group: d60, unit_of_value: RPKM}
+      S8a_ADRB2/ehm_serum_w2: {item: S8a_ADRB2, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRB2/ehm_sf_w2: {item: S8a_ADRB2, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRB2/ehm_sf_w6: {item: S8a_ADRB2, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRB2/fetal: {item: S8a_ADRB2, group: fetal, unit_of_value: RPKM}
+      S8a_ADRB2/adult: {item: S8a_ADRB2, group: adult, unit_of_value: RPKM}
+      S8a_ADRB3/d22: {item: S8a_ADRB3, group: d22, unit_of_value: RPKM}
+      S8a_ADRB3/d60: {item: S8a_ADRB3, group: d60, unit_of_value: RPKM}
+      S8a_ADRB3/ehm_serum_w2: {item: S8a_ADRB3, group: ehm_serum_w2, unit_of_value: RPKM}
+      S8a_ADRB3/ehm_sf_w2: {item: S8a_ADRB3, group: ehm_sf_w2, unit_of_value: RPKM}
+      S8a_ADRB3/ehm_sf_w6: {item: S8a_ADRB3, group: ehm_sf_w6, unit_of_value: RPKM}
+      S8a_ADRB3/fetal: {item: S8a_ADRB3, group: fetal, unit_of_value: RPKM}
+      S8a_ADRB3/adult: {item: S8a_ADRB3, group: adult, unit_of_value: RPKM}
+    note: Vector bar chart, log y axis 'RPKM' (10^-2 to 10^2) calibrated from the five stubs and their '10' labels
+      with exponents. Seven bars per gene in legend order, fills checked against the legend swatches; each bar a
+      group mean (n=3-4/group, printed) with an upper error bar, no samples drawn, so bars only. ADRB3 adult heart has
+      no bar drawn (mean below the 10^-2 axis floor), only an error path standing on the floor, so it gives the
+      upper error end only.
+  F4:
+    file: nihms862055.pdf
+    page: 23
+    crop: [211.8, 62.0, 460.2, 407.6]
+    script: figures/F4.py
+    unit: F4
+    kind: raster
+    groups:
+      a_ctr_1.2:
+        item: F4a_foc
+        group: ctr
+        unit_of_value: 'mN/mm²'
+      a_ne0001_1.2:
+        item: F4a_foc
+        group: ne0001
+        unit_of_value: 'mN/mm²'
+      a_ne001_1.2:
+        item: F4a_foc
+        group: ne001
+        unit_of_value: 'mN/mm²'
+      a_ne01_1.2:
+        item: F4a_foc
+        group: ne01
+        unit_of_value: 'mN/mm²'
+      a_ctr_2:
+        item: F4a_foc
+        group: ctr
+        unit_of_value: 'mN/mm²'
+      a_ne0001_2:
+        item: F4a_foc
+        group: ne0001
+        unit_of_value: 'mN/mm²'
+      a_ne001_2:
+        item: F4a_foc
+        group: ne001
+        unit_of_value: 'mN/mm²'
+      a_ne01_2:
+        item: F4a_foc
+        group: ne01
+        unit_of_value: 'mN/mm²'
+      a_ctr_2.4:
+        item: F4a_foc
+        group: ctr
+        unit_of_value: 'mN/mm²'
+      a_ne0001_2.4:
+        item: F4a_foc
+        group: ne0001
+        unit_of_value: 'mN/mm²'
+      a_ne001_2.4:
+        item: F4a_foc
+        group: ne001
+        unit_of_value: 'mN/mm²'
+      a_ne01_2.4:
+        item: F4a_foc
+        group: ne01
+        unit_of_value: 'mN/mm²'
+      a_ctr_2.8:
+        item: F4a_foc
+        group: ctr
+        unit_of_value: 'mN/mm²'
+      a_ne0001_2.8:
+        item: F4a_foc
+        group: ne0001
+        unit_of_value: 'mN/mm²'
+      a_ne001_2.8:
+        item: F4a_foc
+        group: ne001
+        unit_of_value: 'mN/mm²'
+      a_ne01_2.8:
+        item: F4a_foc
+        group: ne01
+        unit_of_value: 'mN/mm²'
+      b_ctr:
+        item: F4b_ne1
+        group: ctr
+        unit_of_value: '% change'
+      b_ne0001:
+        item: F4b_ne1
+        group: ne0001
+        unit_of_value: '% change'
+      b_ne001:
+        item: F4b_ne1
+        group: ne001
+        unit_of_value: '% change'
+      b_ne01:
+        item: F4b_ne1
+        group: ne01
+        unit_of_value: '% change'
+      b_ne1:
+        item: F4b_ne1
+        group: ne1
+        unit_of_value: '% change'
+      b_et1:
+        item: F4b_ne1
+        group: et1
+        unit_of_value: '% change'
+      d_ctr:
+        item: F4d_ne01
+        group: ctr
+        unit_of_value: 'fold'
+      d_ne0001:
+        item: F4d_ne01
+        group: ne0001
+        unit_of_value: 'fold'
+      d_ne001:
+        item: F4d_ne01
+        group: ne001
+        unit_of_value: 'fold'
+      d_ne01:
+        item: F4d_ne01
+        group: ne01
+        unit_of_value: 'fold'
+      d_ne1:
+        item: F4d_ne1
+        group: ne1
+        unit_of_value: 'fold'
+      d_et1:
+        item: F4d_et1
+        group: et1
+        unit_of_value: 'fold'
+      d_ctr for F4d_ne1:
+        item: F4d_ne1
+        group: ctr
+        unit_of_value: 'fold'
+      d_ctr for F4d_et1:
+        item: F4d_et1
+        group: ctr
+        unit_of_value: 'fold'
+      e_cm_ctr:
+        item: F4e_cm_ne1
+        group: ctr
+        unit_of_value: 'x10^5'
+      e_cm_ne0001:
+        item: F4e_cm_ne1
+        group: ne0001
+        unit_of_value: 'x10^5'
+      e_cm_ne001:
+        item: F4e_cm_ne1
+        group: ne001
+        unit_of_value: 'x10^5'
+      e_cm_ne01:
+        item: F4e_cm_ne1
+        group: ne01
+        unit_of_value: 'x10^5'
+      e_cm_ne1:
+        item: F4e_cm_ne1
+        group: ne1
+        unit_of_value: 'x10^5'
+      e_cm_et1:
+        item: F4e_cm_et1
+        group: et1
+        unit_of_value: 'x10^5'
+      e_cm_ctr for F4e_cm_et1:
+        item: F4e_cm_et1
+        group: ctr
+        unit_of_value: 'x10^5'
+      e_fib_ctr:
+        item: F4e_fib
+        group: ctr
+        unit_of_value: 'x10^5'
+      e_fib_ne0001:
+        item: F4e_fib
+        group: ne0001
+        unit_of_value: 'x10^5'
+      e_fib_ne001:
+        item: F4e_fib
+        group: ne001
+        unit_of_value: 'x10^5'
+      e_fib_ne01:
+        item: F4e_fib
+        group: ne01
+        unit_of_value: 'x10^5'
+      e_fib_ne1:
+        item: F4e_fib
+        group: ne1
+        unit_of_value: 'x10^5'
+      e_fib_et1:
+        item: F4e_fib
+        group: et1
+        unit_of_value: 'x10^5'
+      f_ctr:
+        item: F4f_ne1
+        group: ctr
+        unit_of_value: 'ng/ml/CM'
+      f_ne0001:
+        item: F4f_ne1
+        group: ne0001
+        unit_of_value: 'ng/ml/CM'
+      f_ne001:
+        item: F4f_ne1
+        group: ne001
+        unit_of_value: 'ng/ml/CM'
+      f_ne01:
+        item: F4f_ne1
+        group: ne01
+        unit_of_value: 'ng/ml/CM'
+      f_ne1:
+        item: F4f_ne1
+        group: ne1
+        unit_of_value: 'ng/ml/CM'
+    note: "Raster figure (author manuscript, ~300 dpi), one script for panels a, b, d, e, f. Bars (b, d, e, f) are bar only (mean = outline centre, error = cap of the upward SEM bar); no single EHM is drawn. e: e_cm_* is the red RFP+ CM bar; e_fib_* is the green GFP+ Fib segment stacked on it, read as its height (stack top minus CM top) with error end = height + (stack cap - stack top). a: marker centres only (bar means, x = calcium in mM) at the four calcium values where Control, NE 0.001, NE 0.01 and NE 0.1 markers stand apart (1.2, 2.0, 2.4, 2.8 mM); NE 1 diamonds lie under the grey ET-1 stars at every calcium and give no reading; error bars interleave and are not read. Labels '<x> for <item>' repeat a control bar for a second comparison item. Panels b/d/e groups not compared in any item are linked to the panel's item for completeness."
+  F4g:
+    file: nihms862055.pdf
+    page: 23
+    crop: [346.0, 326.0, 460.2, 407.6]
+    script: figures/F4g.py
+    unit: F4g
+    kind: raster
+    groups:
+      foc_ne:
+        item: F4g_foc_ne
+        group: ne
+        unit_of_value: 'fold of control'
+      foc_ctr:
+        item: F4g_foc_ne
+        group: ctr
+        unit_of_value: 'fold of control'
+      iso_ne:
+        item: F4g_iso_ne
+        group: ne
+        unit_of_value: 'fold of control'
+      iso_ctr for F4g_iso_ne:
+        item: F4g_iso_ne
+        group: ctr
+        unit_of_value: 'fold of control'
+      iso_ne_phen:
+        item: F4g_iso_ne_phen
+        group: ne_phen
+        unit_of_value: 'fold of control'
+      iso_ctr for F4g_iso_ne_phen:
+        item: F4g_iso_ne_phen
+        group: ctr
+        unit_of_value: 'fold of control'
+      viab_ne:
+        item: F4g_viab_ne
+        group: ne
+        unit_of_value: 'fold of control'
+      viab_ctr:
+        item: F4g_viab_ne
+        group: ctr
+        unit_of_value: 'fold of control'
+      size_ne:
+        item: F4g_size_ne
+        group: ne
+        unit_of_value: 'fold of control'
+      size_ctr for F4g_size_ne:
+        item: F4g_size_ne
+        group: ctr
+        unit_of_value: 'fold of control'
+      size_ne_met:
+        item: F4g_size_ne_met
+        group: ne_met
+        unit_of_value: 'fold of control'
+      size_ctr for F4g_size_ne_met:
+        item: F4g_size_ne_met
+        group: ctr
+        unit_of_value: 'fold of control'
+    note: "Raster (author manuscript Fig. 4, ~300 dpi), panel g only; y axis printed 'Fold of ctontrol' [sic]. Bar only (mean = bar top, error = upper end of the upward error bar); no single EHM is drawn, so no points and no n. Control is the dashed line at 1.0 with no error bar: its mean is the line read from the figure, repeated as '<x>_ctr for <item>' for each item. Only bars compared in an item are read (NE in all four clusters, NE+Phen for ISO, NE+Met for CM size)."
+  S8bc:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 53
+    crop: [15, 388, 590, 590]
+    script: figures/S8bc.py
+    unit: S8bc
+    kind: vector
+    groups:
+      S8bc_g1_sf_g1_start/g1_sf: {item: S8bc_g1_sf_g1_start, group: g1_sf, unit_of_value: '% change'}
+      S8bc_g1_sf_g1_start/g1_start: {item: S8bc_g1_sf_g1_start, group: g1_start, unit_of_value: '% change'}
+      S8bc_g1_sf_g1_matrix/g1_sf: {item: S8bc_g1_sf_g1_matrix, group: g1_sf, unit_of_value: '% change'}
+      S8bc_g1_sf_g1_matrix/g1_matrix: {item: S8bc_g1_sf_g1_matrix, group: g1_matrix, unit_of_value: '% change'}
+      S8bc_hes2_sf_hes2_start/hes2_sf: {item: S8bc_hes2_sf_hes2_start, group: hes2_sf, unit_of_value: '% change'}
+      S8bc_hes2_sf_hes2_start/hes2_start: {item: S8bc_hes2_sf_hes2_start, group: hes2_start, unit_of_value: '% change'}
+      S8bc_hes2_sf_hes2_matrix/hes2_sf: {item: S8bc_hes2_sf_hes2_matrix, group: hes2_sf, unit_of_value: '% change'}
+      S8bc_hes2_sf_hes2_matrix/hes2_matrix: {item: S8bc_hes2_sf_hes2_matrix, group: hes2_matrix, unit_of_value: '% change'}
+    note: "Two vector bar panels, y axis 'FOC (% change)' 0-100: (b) hiPS-G1, (c) HES2. Bars are means with an upper error bar only; no single EHM is drawn, so bar only, no points and no n. The serum-free bar of each line is repeated under both of that line's items."
+  S8e:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 53
+    crop: [300, 600, 590, 842]
+    script: figures/S8e.py
+    unit: S8e
+    kind: vector
+    groups:
+      S8e_adrb1/iso: {item: S8e_adrb1, group: iso, unit_of_value: '%'}
+      S8e_adrb1/iso_cgp: {item: S8e_adrb1, group: iso_cgp, unit_of_value: '%'}
+      S8e_cgp_ici/iso_cgp: {item: S8e_cgp_ici, group: iso_cgp, unit_of_value: '%'}
+      S8e_cgp_ici/iso_ici: {item: S8e_cgp_ici, group: iso_ici, unit_of_value: '%'}
+    note: "Vector bar panel, y axis 'Normalized FOC (%)' -25 to 125. Bars are means with one error bar each (spread not named in the legend); no single EHM is drawn, so bar only, no points and no n. Treatment read from the +/- rows under each bar. The iso_cgp bar is repeated under both items. The 'both blockers' bar (iso_both, n=5) is in no item and is not returned."
+  S10a:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 57
+    crop: [100, 75, 288, 280]
+    script: figures/S10a.py
+    unit: S10a
+    kind: vector
+    groups:
+      S10a_sf3/sf_unt_3: {item: S10a_sf3, group: sf_unt_3, unit_of_value: '% of FOC at 1 Hz'}
+      S10a_sf3/sf_ne_3: {item: S10a_sf3, group: sf_ne_3, unit_of_value: '% of FOC at 1 Hz'}
+    note: "Vector line plot, left (Serum-free protocol) half of panel a only. Black circles Untreated, red squares 1 umol/L NE (legend). Markers are group means with error bars (SD or SEM not stated); no single EHM is drawn, so bar only, countable false. Only the 3 Hz means the item compares are read; 'error' is the upper cap. Marker centres are checked against the polyline vertices and the lower caps against the upper ones."
+  S10b:
+    file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    page: 57
+    crop: [95, 300, 410, 525]
+    script: figures/S10b.py
+    unit: S10b
+    kind: vector
+    groups:
+      S10b_foc/sp: {item: S10b_foc, group: sp, unit_of_value: '% change compared to untreated'}
+      S10b_foc/sf: {item: S10b_foc, group: sf, unit_of_value: '% change compared to untreated'}
+      S10b_iso/sp: {item: S10b_iso, group: sp, unit_of_value: '% change compared to untreated'}
+      S10b_iso/sf: {item: S10b_iso, group: sf, unit_of_value: '% change compared to untreated'}
+      S10b_cmsize/sp: {item: S10b_cmsize, group: sp, unit_of_value: '% change compared to untreated'}
+      S10b_cmsize/sf: {item: S10b_cmsize, group: sf, unit_of_value: '% change compared to untreated'}
+    note: "Vector bar chart, panel b only (legend outside the crop). Black bars Starting Protocol (n=8), grey bars Serum-free Protocol (n=11). Bars are group means with one-sided error bars drawn away from zero (SD or SEM not stated); no single EHM is drawn, so bar only, countable false. 'error' is the cap, the far end of the error bar: below the mean for the negative FOC and ISO bars, above it for CM size."

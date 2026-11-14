@@ -1,0 +1,283 @@
+record: 2016_Herron
+vocabulary_version: 61
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---- synonyms for existing terms
+- add_synonym:
+    id: pacing:electrical_pacing
+    text: electric pacing
+    anchor: we characterized AP propagation velocity and duration over electric pacing frequencies ranging from 0.7 to 2.5 Hz
+- add_synonym:
+    id: measurement_medium:extracellular_solution
+    text: external solution
+    anchor: Monolayers were perfused with a warm (37±1.5°C) external solution
+- add_synonym:
+    id: measurement_medium:hbss
+    text: HBSS
+    anchor: optical mapping was done at 37°C in HBSS
+- add_synonym:
+    id: preparation:lysate
+    text: Laemmli sample buffer
+    anchor: cells were collected in Laemmli sample buffer
+- add_synonym:
+    id: substrate:culture_plate
+    text: plastic
+    anchor: here we used plastic as the rigid comparator for PDMS
+- add_synonym:
+    id: purification:immunomagnetic_selection
+    text: MACS
+    anchor: purified using magnetic activated cell sorting (MACS)
+- add_synonym:
+    id: purity_method:immunostaining
+    text: immunofluorescent staining
+    anchor: confirmed by immunofluorescent staining (supplemental figure 6B)
+# ---- new own terms
+- add_term:
+    field: replating_coating
+    id: replating_coating:collagen_type_not_stated
+    label: collagen, type not stated
+    parent: null
+    definition: A collagen coating whose collagen type the source does not state.
+    scope: A collagen protein coating of unstated type; not Matrigel, Geltrex or gelatin (denatured collagen), and not fibronectin, laminin, vitronectin, Synthemax or agarose.
+    synonyms:
+    - text: collagen
+      anchor: collagen (20 µg/mL; Sigma-Aldrich - C0543) and laminin (4 µg/mL;
+- add_term:
+    field: substrate
+    id: substrate:trichloro_silanized_glass
+    label: trichloro-silanized glass
+    parent: substrate:glass
+    definition: Glass whose surface has been treated with a trichlorosilane to change its surface chemistry.
+    scope: Glass silanized with a trichlorosilane; not methylated glass and not PDMS-coated glass or bulk PDMS.
+    synonyms: []
+- add_term:
+    field: substrate
+    id: substrate:methylated_glass
+    label: methylated glass
+    parent: substrate:glass
+    definition: Glass whose surface has been given methyl groups to make its surface chemistry resemble PDMS.
+    scope: Glass with a methylated surface; not trichloro-silanized glass and not PDMS-coated glass or bulk PDMS.
+    synonyms: []
+- add_term:
+    field: measure
+    id: measure:takeoff_potential
+    label: takeoff potential
+    parent: measure:action_potential
+    dimension: voltage
+    definition: The membrane potential at which the action potential upstroke takes off from diastolic depolarisation.
+    scope: Voltage at the start of the upstroke; not the maximum diastolic potential, the peak potential, the amplitude, the upstroke velocity, a duration, rise or repolarisation time, a duration ratio or the firing frequency, and not a stimulus threshold (excitation threshold).
+    synonyms:
+    - text: take-off potential
+      anchor: action potential (AP) amplitude, take-off potential, action potential duration (APD) at 30, 50, 70,
+- add_term:
+    field: measure
+    id: measure:monolayer_confluence
+    label: monolayer confluence
+    parent: null
+    dimension: dimensionless
+    definition: Fraction of a culture surface covered by cells, from a confluence mask of phase-contrast images.
+    scope: Share of a culture surface covered by a cell monolayer; not the area fraction of a tissue section (tissue area fraction), not the culture surface area, not cell area and not cell viability.
+    synonyms:
+    - text: monolayer confluence
+      anchor: 100 μmol/L FAK inhibitor-14 reduced monolayer confluence
+# ---- adopted ids and own terms in adopted fields
+- adopt:
+    field: cell_line
+    id: CVCL_E087
+    label: UM22-2
+    lookup: cellosaurus "UM 22-2" and "UM22-2" both gave CVCL_E087 UM22-2 (exact); the paper's line is a hESC line from the University of Michigan (NIH registration 0209)
+    synonyms:
+    - text: UM 22-2
+      anchor: 'were derived using the UM 22-2 (NIH registration #0209)'
+- adopt_own:
+    field: cell_line
+    id: cell_line:bj_ipsc7
+    label: BJ-iPSC7
+    scope: The BJ-iPSC7 line of the Herron 2016 study; not hiPS-BJ, BJ1D or other BJ-derived lines, and not any other named or unnamed line.
+    definition: An hiPSC line made from BJ fibroblasts by mRNA reprogramming in the Herron 2016 study's laboratory.
+    lookup: cellosaurus "BJ-iPSC7", "BJ-iPS" and "BJ" gave no BJ-iPSC7 (only BJ iPSC clones 1-3, UBi005-A, KKUi001-A and BJ RiPS-A, other lines)
+    synonyms: []
+- adopt_own:
+    field: treatment
+    id: treatment:anti_integrin_b1_neutralising_antibody
+    label: anti-human integrin β1 neutralising antibody (MAB1951Z)
+    scope: A receptor-blocking antibody against integrin β1; not an activating integrin antibody (MAB1969), not a small-molecule kinase inhibitor (FAK inhibitor-14), and not a growth factor, siRNA, miRNA mimic, vehicle or physical treatment.
+    definition: A monoclonal antibody against human integrin β1 that blocks the receptor (Millipore MAB1951Z), added to the culture medium.
+    lookup: chebi "integrin", "antibody" and "monoclonal antibody" gave only unrelated antibodies and integrin-named compounds; ChEBI has no anti-integrin β1 antibody
+    synonyms:
+    - text: anti-human integrin β1
+      anchor: with B27 (Life Technologies) and anti-human integrin β1 (1:100; Millipore, MAB1951Z) after
+- adopt_own:
+    field: treatment
+    id: treatment:fak_inhibitor_14
+    label: FAK inhibitor-14
+    scope: A small-molecule inhibitor of focal adhesion kinase; not an antibody against integrins (MAB1969, anti-integrin β1), and not a growth factor, siRNA, miRNA mimic, vehicle or physical treatment.
+    definition: A small-molecule inhibitor of focal adhesion kinase (Sigma SML0837), added to the culture medium.
+    lookup: chebi "FAK inhibitor 14", "Y15", "benzenetetramine", "benzene-1,2,4,5-tetramine", "tetraaminobenzene" and "focal adhesion kinase inhibitor" gave no match
+    synonyms: []
+- adopt_own:
+    field: treatment
+    id: treatment:mab1969
+    label: MAB1969
+    scope: An activating antibody to α5β1 integrin; not a blocking anti-integrin β1 antibody, not a small-molecule FAK inhibitor, and not a growth factor, siRNA, miRNA mimic, vehicle or physical treatment.
+    definition: An activating monoclonal antibody that stabilises the dimerisation of α5β1 integrins and promotes FAK activation.
+    lookup: chebi "antibody", "monoclonal antibody" and "integrin" gave only unrelated antibodies and integrin-named compounds; ChEBI has no α5β1 integrin activating antibody
+    synonyms: []
+# ---- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:takeoff_potential
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:monolayer_confluence
+    value:
+      must_match: [platform@1, substrate, day_of_measurement, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---- context
+- field: preparation
+  stated: monolayers
+  terms: [preparation:live_cells]
+  note: Live monolayers optically mapped in culture; no synonym added because "monolayers" names the platform, not the preparation.
+# ---- measures
+- field: measure
+  stated: action potential duration at 80% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD80}
+- field: measure
+  stated: spontaneous activation rate
+  terms: [measure:calcium_transient_frequency]
+  note: Read from optical mapping of calcium transients (rhod-2 or fluo-4) in spontaneously active monolayers; no synonym added, since another paper's activation rate may be read from voltage or motion.
+- field: measure
+  stated: maximum upstroke velocity (dV/dtmax)
+  terms: [measure:upstroke_velocity]
+- field: measure
+  stated: takeoff (threshold) potential
+  terms: [measure:takeoff_potential]
+- field: measure
+  stated: sodium current density
+  terms: [measure:current_density]
+  qualifiers: {current: INa}
+- field: measure
+  stated: INa steady-state inactivation V1/2
+  terms: [measure:steady_state_inactivation]
+  qualifiers: {current: INa, parameter: V1/2}
+- field: measure
+  stated: SCN5A expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SCN5A, normalised_to: GAPDH, expressed_as: normalised}
+- field: measure
+  stated: inward rectifier potassium current density (IK1)
+  terms: [measure:current_density]
+  qualifiers: {current: IK1}
+- field: measure
+  stated: Kir2.1 protein expression
+  terms: [measure:protein_level]
+  qualifiers: {protein: Kir2.1, normalised_to: GAPDH}
+- field: measure
+  stated: calcium transient duration 80 (CaTD80)
+  terms: [measure:calcium_transient_duration]
+  qualifiers: {level: CaTD80}
+- field: measure
+  stated: E4031-induced reduction of spontaneous beating frequency
+  terms: [measure:contraction_frequency]
+  note: An interaction item (substrate × E4031) on beat rate read from calcium transients; the E4031 effect is the contrast, computed from the groups, not part of the measure.
+- field: measure
+  stated: E4031-induced increase of CaTD80
+  terms: [measure:calcium_transient_duration]
+  qualifiers: {level: CaTD80}
+  note: An interaction item (substrate × E4031); the E4031 effect is the contrast, computed from the groups.
+- field: measure
+  stated: connexin43 at cell–cell borders (immunostaining)
+  terms: [measure:protein_staining]
+  qualifiers: {protein: connexin43, region: cell–cell borders}
+- field: measure
+  stated: connexin43 protein expression (Cx43/myosin)
+  terms: [measure:protein_level]
+  qualifiers: {protein: connexin43, normalised_to: myosin, expressed_as: normalised}
+- field: measure
+  stated: percentage of binucleated cardiomyocytes
+  terms: [measure:binucleated_cell_fraction]
+- field: measure
+  stated: percentage of Ki67-positive binucleated cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67, population: binucleated cardiomyocytes}
+- field: measure
+  stated: Ki67-positive cardiomyocytes per 60× field
+  terms: [measure:marker_positive_cells_per_field]
+  qualifiers: {marker: Ki67, region: 60× field}
+- field: measure
+  stated: cardiac troponin I protein expression (cTnI/GAPDH)
+  terms: [measure:protein_level]
+  qualifiers: {protein: cTnI, normalised_to: GAPDH}
+- field: measure
+  stated: cardiac troponin I protein expression
+  terms: [measure:protein_level]
+  qualifiers: {protein: cTnI, normalised_to: GAPDH}
+  note: GAPDH loading control from the item's method.
+- field: measure
+  stated: cardiac troponin I expression (cTnI/GAPDH)
+  terms: [measure:protein_level]
+  qualifiers: {protein: cTnI, normalised_to: GAPDH}
+- field: measure
+  stated: ITGA5 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITGA5, normalised_to: GAPDH, expressed_as: normalised}
+- field: measure
+  stated: ITGB1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITGB1, normalised_to: GAPDH, expressed_as: normalised}
+- field: measure
+  stated: ITGA6 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITGA6, normalised_to: GAPDH, expressed_as: normalised}
+- field: measure
+  stated: PTK2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PTK2, normalised_to: GAPDH, expressed_as: normalised}
+- field: measure
+  stated: β1 integrin immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: β1 integrin}
+- field: measure
+  stated: FAK activation (phosphoFAK/GAPDH)
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-FAK (Tyr397), normalised_to: GAPDH}
+- field: measure
+  stated: total FAK expression (FAK/GAPDH relative to control)
+  terms: [measure:protein_level]
+  qualifiers: {protein: FAK, normalised_to: "GAPDH, relative to control", expressed_as: fold}
+- field: measure
+  stated: FAK activation (pFAK/GAPDH relative to control)
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-FAK (Tyr397), normalised_to: "GAPDH, relative to control", expressed_as: fold}
+- field: measure
+  stated: Nav1.5 protein expression (NAV1.5/GAPDH relative to control)
+  terms: [measure:protein_level]
+  qualifiers: {protein: Nav1.5, normalised_to: "GAPDH, relative to control", expressed_as: fold}
+- field: measure
+  stated: cell size
+  terms: [measure:cell_size]
+  qualifiers: {proxy: judged from immunostaining images}
+  note: No numbers; the legend says only that cells on PDMS were larger, so not mapped to cell area.
+- field: measure
+  stated: sarcomeric cTnI incorporation
+  terms: [measure:sarcomere_organisation]
+  qualifiers: {aspect: cTnI incorporation into sarcomeres}
+- field: measure
+  stated: cell viability (α-actinin immunostaining)
+  terms: [measure:cell_viability]
+  note: Assay (α-actinin immunostaining) is method, not measure.
+- field: measure
+  stated: β-MyHC protein expression
+  terms: [measure:protein_level]
+  qualifiers: {protein: β-MyHC, normalised_to: GAPDH}

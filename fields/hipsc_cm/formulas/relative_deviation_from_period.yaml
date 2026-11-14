@@ -1,0 +1,38 @@
+# Written by code from changes.yaml (version 29); never edited.
+formula: relative_deviation_from_period
+kind: derived
+statement: The relative deviation of a measured interval from the period of a stated frequency is the interval times the frequency,
+  minus one.
+equations:
+- d = x*f - 1
+variables:
+  d: dimensionless
+  x: time
+  f: frequency
+  T: time
+uses:
+- formula: relative_change
+  subs:
+    d: d
+    x: x
+    x0: T
+- formula: frequency_def
+  subs:
+    f: f
+    T: T
+does_not_apply: a deviation stated in absolute value, or relative to the measured interval rather than the period
+tests:
+- given:
+    x: 0.55
+    f: 2.0
+  expect:
+    d: 0.1
+- given:
+    x: 0.4
+    f: 5.0
+  expect:
+    d: 1.0
+- given:
+    x: 0.45
+    f: 2.0
+  does_not_apply: 'absolute deviation: 0.1, not the signed -0.1'

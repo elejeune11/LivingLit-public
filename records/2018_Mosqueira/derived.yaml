@@ -1,0 +1,3713 @@
+record: 2018_Mosqueira
+formula_library_version: 25
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F2bc_a_mw.volume:
+    item: F2bc_a_mw
+    formula: V = pi*d**3/6
+    anchor: &id001
+      quote: estimation of cardiomyocyte volume was performed using the calibration curve and formula of volume of a perfect
+        sphere
+      where: Supplementary Methods, Volumetry
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_a_mm.volume:
+    item: F2bc_a_mm
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_a_mm6.volume:
+    item: F2bc_a_mm6
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_a_kk.volume:
+    item: F2bc_a_kk
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_r_mw.volume:
+    item: F2bc_r_mw
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_r_mm.volume:
+    item: F2bc_r_mm
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_h_mw.volume:
+    item: F2bc_h_mw
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_h_mm.volume:
+    item: F2bc_h_mm
+    formula: V = pi*d**3/6
+    anchor: *id001
+    library:
+      formula: sphere_volume_diameter
+      vars:
+        V: V
+        d: d
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: per-cell diameter from forward scatter via the bead calibration curve (Fig. 2A); the curve's form and coefficients
+          are not printed
+    note: the printed formula is V = π/6 × diameter³ (an equation object in the Supplementary Methods); each sample is summarised
+      by its median per-cell volume (25 000 cells per sample); no volume is printed
+  F2bc_increase.pct_change:
+    item: F2bc_increase
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: Relative to WT/WT, median volume of edited lines increased (12–51%), showing βMHC-R453C mutations cause hypertrophy
+        in hPSC-CMs
+      where: Results, Molecular assessment of β-MHC mutant hPSC-CMs
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: median cardiomyocyte volume of an edited line
+      x0:
+        not_stated: true
+        kind: per sample
+        note: median cardiomyocyte volume of its WT/WT isogenic control
+    note: 12–51 % is a range over the eight edited lines and neither end names its line, so no output is named; medians are
+      not printed
+  F3b_a_mw_veh.percentage:
+    item: F3b_a_mw_veh
+    formula: r = a/b
+    anchor: &id002
+      quote: Percentage of human pluripotent stem cell-cardiomyocytes with negative, medium, or high brain natriuretic peptide
+        expression were binned using predetermined thresholds
+      where: Fig. 3 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm_veh.percentage:
+    item: F3b_a_mm_veh
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm_vs_mw.percentage:
+    item: F3b_a_mm_vs_mw
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mw_bos_neg.percentage:
+    item: F3b_a_mw_bos_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mw_bos_med.percentage:
+    item: F3b_a_mw_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mw_bos_high.percentage:
+    item: F3b_a_mw_bos_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm_bos_neg.percentage:
+    item: F3b_a_mm_bos_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm_bos_med.percentage:
+    item: F3b_a_mm_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm_bos_high.percentage:
+    item: F3b_a_mm_bos_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm6_bos_med.percentage:
+    item: F3b_a_mm6_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm6_bos_high.percentage:
+    item: F3b_a_mm6_bos_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_ww_et1.percentage:
+    item: F3b_a_ww_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mw_et1.percentage:
+    item: F3b_a_mw_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm_et1.percentage:
+    item: F3b_a_mm_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_mm6_et1.percentage:
+    item: F3b_a_mm6_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_a_kk_et1.percentage:
+    item: F3b_a_kk_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mw_veh_neg.percentage:
+    item: F3b_r_mw_veh_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mw_veh_med.percentage:
+    item: F3b_r_mw_veh_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_veh_neg.percentage:
+    item: F3b_r_mm_veh_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_veh_med.percentage:
+    item: F3b_r_mm_veh_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_veh_high.percentage:
+    item: F3b_r_mm_veh_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_vs_mw_neg.percentage:
+    item: F3b_r_mm_vs_mw_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_vs_mw_med.percentage:
+    item: F3b_r_mm_vs_mw_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_ww_bos_neg.percentage:
+    item: F3b_r_ww_bos_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_ww_bos_med.percentage:
+    item: F3b_r_ww_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_ww_bos_high.percentage:
+    item: F3b_r_ww_bos_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mw_bos_neg.percentage:
+    item: F3b_r_mw_bos_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mw_bos_med.percentage:
+    item: F3b_r_mw_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mw_bos_high.percentage:
+    item: F3b_r_mw_bos_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_bos.percentage:
+    item: F3b_r_mm_bos
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_ww_et1.percentage:
+    item: F3b_r_ww_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mw_et1.percentage:
+    item: F3b_r_mw_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_r_mm_et1.percentage:
+    item: F3b_r_mm_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mw_veh_neg.percentage:
+    item: F3b_h_mw_veh_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mw_veh_med.percentage:
+    item: F3b_h_mw_veh_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mw_veh_high.percentage:
+    item: F3b_h_mw_veh_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mm_veh_neg.percentage:
+    item: F3b_h_mm_veh_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mm_veh_med.percentage:
+    item: F3b_h_mm_veh_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mm_veh_high.percentage:
+    item: F3b_h_mm_veh_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mm_vs_mw_neg.percentage:
+    item: F3b_h_mm_vs_mw_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mm_vs_mw_high.percentage:
+    item: F3b_h_mm_vs_mw_high
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_ww_bos_neg.percentage:
+    item: F3b_h_ww_bos_neg
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_ww_bos_med.percentage:
+    item: F3b_h_ww_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mw_bos_med.percentage:
+    item: F3b_h_mw_bos_med
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_ww_et1.percentage:
+    item: F3b_h_ww_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mw_et1.percentage:
+    item: F3b_h_mw_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3b_h_mm_et1.percentage:
+    item: F3b_h_mm_et1
+    formula: r = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes in the BNP bin(s)
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes imaged (>60 000 cells per sample)
+  F3d_a_mw_mono.percentage:
+    item: F3d_a_mw_mono
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_a_mw_bi.percentage:
+    item: F3d_a_mw_bi
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_a_mw_multi.percentage:
+    item: F3d_a_mw_multi
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_a_mm6_bi.percentage:
+    item: F3d_a_mm6_bi
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_r_mw.percentage:
+    item: F3d_r_mw
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_h_mw_mono.percentage:
+    item: F3d_h_mw_mono
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_h_mw_bi.percentage:
+    item: F3d_h_mw_bi
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_h_mw_multi.percentage:
+    item: F3d_h_mw_multi
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3d_h_mm.percentage:
+    item: F3d_h_mm
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes with the given number of nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes analysed (40 000 cells per line)
+    note: the percentage is the panel's axis (raster); the text names no formula
+  F3f_mw.percentage:
+    item: F3f_mw
+    formula: r = a/b
+    anchor: &id003
+      quote: the percentage of cardiomyocytes showing organised vs disarrayed sarcomeres was calculated
+      where: Supplementary Methods, sarcomeric disarray
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified as disarrayed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified (>40 000 cells per line)
+  F3f_mm.percentage:
+    item: F3f_mm
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified as disarrayed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified (>40 000 cells per line)
+  F3f_mm6.percentage:
+    item: F3f_mm6
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified as disarrayed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified (>40 000 cells per line)
+  F3f_kk.percentage:
+    item: F3f_kk
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified as disarrayed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified (>40 000 cells per line)
+  F3f_values.percentage_ww:
+    item: F3f_values
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified as disarrayed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified (>40 000 cells per line)
+    group: a_ww
+    output: F3f_values.values.ww
+  F3f_values.percentage_kk:
+    item: F3f_values
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified as disarrayed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes classified (>40 000 cells per line)
+    group: a_kk
+    output: F3f_values.values.kk
+  F3f_values.fold_kk:
+    item: F3f_values
+    formula: r = a/b
+    anchor:
+      quote: While disarrayed sarcomeres were detected in 14.0 ± 2.6% of WT/WT hPSC-CMs, significant increases were observed
+        in all mutant lines, with a four-fold increase (to 56.4 ± 4.3%) in MYH7-KO
+      where: Results, Molecular assessment of β-MHC mutant hPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: F3f_values.values.kk
+        part: mean
+        kind: constant
+      b:
+        value: F3f_values.values.ww
+        part: mean
+        kind: constant
+    output: F3f_values.values.kk_fold
+    alternatives:
+    - label: '''four-fold increase'' read as a relative change'
+      formula: r = (a - b)/b
+    note: the ratio of the two printed group means (different samples, so of means)
+  F1e_purity.percentage:
+    item: F1e_purity
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: α-actinin-positive cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells imaged
+    output: F1e_purity.values.purity_legend
+  S3a_mlc2v.percentage:
+    item: S3a_mlc2v
+    formula: r = a/b
+    anchor:
+      quote: By immunostaining, 91.3 ± 6.4% of cardiomyocytes were MLC2v
+      where: Results, CRISPR/Cas9 engineering and characterization of MYH7 variants
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: MLC2v-positive cardiomyocytes
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocytes counted
+    output: S3a_mlc2v.values.mlc2v_text
+  S3cd_ventricular.percentage:
+    item: S3cd_ventricular
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cells classified ventricular-like by the APD metrics
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells or monolayers analysed
+    note: 60–90 % is a range over methods; no output named
+  S1de_freq.percentage:
+    item: S1de_freq
+    formula: r = a/b
+    anchor:
+      quote: Mono- and bi-allelic targeting frequency across the 11 lines was 16.3–25.5% and 2.6–7.1%, respectively
+      where: Results, CRISPR/Cas9 engineering and characterization of MYH7 variants
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: colonies genotyped as mono- (or bi-) allelically targeted
+      b:
+        not_stated: true
+        kind: per sample
+        note: colonies picked and genotyped
+    note: ranges over the 11 lines; colony counts are not printed; no output named
+  F3b_fold_het.fold:
+    item: F3b_fold_het
+    formula: r = a/b
+    anchor:
+      quote: Relative to WT/WT, WT/MUT, and MUT/MUT were 1.5 to 3.3 and 1.9- to 4-fold higher, respectively, with consistency
+        across the three hPSC lines
+      where: Results, Molecular assessment of β-MHC mutant hPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: percentage of edited-line cardiomyocytes with medium or high BNP (sum of the two bins)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same percentage in the WT/WT isogenic control
+    alternatives:
+    - &id004
+      label: '''n-fold higher'' read as a relative change'
+      formula: r = (a - b)/b
+    note: the fold is a range over the three hPSC lines and neither end names its line; no output named
+  F3b_fold_hom.fold:
+    item: F3b_fold_hom
+    formula: r = a/b
+    anchor:
+      quote: Relative to WT/WT, WT/MUT, and MUT/MUT were 1.5 to 3.3 and 1.9- to 4-fold higher, respectively, with consistency
+        across the three hPSC lines
+      where: Results, Molecular assessment of β-MHC mutant hPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: percentage of edited-line cardiomyocytes with medium or high BNP (sum of the two bins)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same percentage in the WT/WT isogenic control
+    alternatives:
+    - *id004
+    note: the fold is a range over the three hPSC lines and neither end names its line; no output named
+  F3d_hets.difference:
+    item: F3d_hets
+    formula: d = x - x0
+    anchor:
+      quote: across all isogenic sets, WT/MUT showed a significant increase in bi- and multi-nucleation (1.9–3.6% and 1.1–1.9%)
+        relative to WT/WT
+      where: Results, Molecular assessment of β-MHC mutant hPSC-CMs
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: percentage of bi- (or multi-) nucleated WT/MUT cardiomyocytes
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same percentage in WT/WT
+    alternatives:
+    - label: the printed values are the WT/MUT percentages themselves, not increases
+      formula: d = x
+    - label: the printed values are relative changes
+      formula: d = (x - x0)/x0
+    note: '''increase ... (1.9–3.6% and 1.1–1.9%) relative to WT/WT'' does not say whether the numbers are percentage-point
+      increases, relative changes or the WT/MUT levels; ranges over three lines, no output named'
+  F1f_ratio.ratio_a_mw:
+    item: F1f_ratio
+    formula: r = a/b
+    anchor: &id005
+      quote: 'In heterozygotes, the ratio of MUT: WT alleles ranged from 25% to 35% (HUES7, REBL-PAT) to 60% (AT1), confirming
+        unequal expression but also variation between lines'
+      where: Results, Molecular assessment of β-MHC mutant hPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: densitometry of the mutant (XhoI-cut) band
+      b:
+        not_stated: true
+        kind: per sample
+        note: densitometry of the wild-type band
+    group: a_mw
+    output: F1f_ratio.values.ratio_at1_text
+    alternatives:
+    - label: mutant share of all MYH7 transcripts
+      formula: r = a/(a + b)
+      note: 'library part_of_whole; ''ratio of MUT: WT'' read as a fraction of the total'
+  F1f_ratio.ratio_r_mw:
+    item: F1f_ratio
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: densitometry of the mutant (XhoI-cut) band
+      b:
+        not_stated: true
+        kind: per sample
+        note: densitometry of the wild-type band
+    group: r_mw
+    output: F1f_ratio.values.ratio_rpat_discussion
+    alternatives:
+    - label: mutant share of all MYH7 transcripts
+      formula: r = a/(a + b)
+      note: 'library part_of_whole; ''ratio of MUT: WT'' read as a fraction of the total'
+  F1f_ratio.ratio_h_mw:
+    item: F1f_ratio
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: densitometry of the mutant (XhoI-cut) band
+      b:
+        not_stated: true
+        kind: per sample
+        note: densitometry of the wild-type band
+    group: h_mw
+    output: F1f_ratio.values.ratio_hues7_discussion
+    alternatives:
+    - label: mutant share of all MYH7 transcripts
+      formula: r = a/(a + b)
+      note: 'library part_of_whole; ''ratio of MUT: WT'' read as a fraction of the total'
+  F4bd_basal_mw.per_cell:
+    item: F4bd_basal_mw
+    formula: r = a/b
+    anchor: &id006
+      quote: The OCR values were further normalized to the number of cells present in each well
+      where: Supplementary Methods, Seahorse analysis of mitochondrial respiration
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_basal_mm.per_cell:
+    item: F4bd_basal_mm
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_basal_mm6.per_cell:
+    item: F4bd_basal_mm6
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_basal_kk.per_cell:
+    item: F4bd_basal_kk
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_max_mw.per_cell:
+    item: F4bd_max_mw
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_max_mm.per_cell:
+    item: F4bd_max_mm
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_max_mm6.per_cell:
+    item: F4bd_max_mm6
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_max_kk.per_cell:
+    item: F4bd_max_kk
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_atp_mw.per_cell:
+    item: F4bd_atp_mw
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_atp_mm.per_cell:
+    item: F4bd_atp_mm
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_atp_mm6.per_cell:
+    item: F4bd_atp_mm6
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_atp_kk.per_cell:
+    item: F4bd_atp_kk
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_max_mm6_vs_mw.per_cell:
+    item: F4bd_max_mm6_vs_mw
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  S6c_mw.per_cell:
+    item: S6c_mw
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  S6c_mm.per_cell:
+    item: S6c_mm
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  S6ad_basal_atp.per_cell:
+    item: S6ad_basal_atp
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the respiration parameter's OCR per well (basal, maximal or ATP-linked); how it is computed from the oligomycin/FCCP/rotenone
+          trace is not stated beyond the Mito Stress Kit
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells per well, counted by Hoechst imaging
+  F4bd_folds.basal_fold:
+    item: F4bd_folds
+    formula: r = a/b
+    anchor: &id007
+      quote: This was most striking in AT1-hiPSC-CMs, where basal respiration, maximal respiration and ATP production increased
+        by 3-, 2.75-, and 3-fold, respectively
+      where: Results, Mitochondrial respiration rates are perturbed
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the edited line's parameter (line not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the WT/WT parameter
+    output: F4bd_folds.values.basal_fold
+    alternatives:
+    - *id004
+    note: the sentence does not name the edited genotype; bar means are not printed
+  F4bd_folds.max_fold:
+    item: F4bd_folds
+    formula: r = a/b
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the edited line's parameter (line not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the WT/WT parameter
+    output: F4bd_folds.values.max_fold
+    alternatives:
+    - *id004
+    note: the sentence does not name the edited genotype; bar means are not printed
+  F4bd_folds.atp_fold:
+    item: F4bd_folds
+    formula: r = a/b
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the edited line's parameter (line not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the WT/WT parameter
+    output: F4bd_folds.values.atp_fold
+    alternatives:
+    - *id004
+    note: the sentence does not name the edited genotype; bar means are not printed
+  F4e_nd1_kk.ddct:
+    item: F4e_nd1_kk
+    formula: r = 2^(-ddct)
+    anchor: &id008
+      quote: The average of WT isogenic cardiomyocytes lines was used for calculating relative quantification, using the ΔΔCT
+        method
+      where: Supplementary Methods, Real-time qPCR
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of mt-ND1 against ACTB, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F4e_nd2_kk.ddct:
+    item: F4e_nd2_kk
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of mt-ND2 against ACTB, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  S6e_nd2_mm.ddct:
+    item: S6e_nd2_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of mt-ND2 against ACTB, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F4gik_mito.relative:
+    item: F4gik_mito
+    formula: r = a/b
+    anchor: &id009
+      quote: Mean signal fluorescence intensities were used to compare mitochondrial content and ROS production in hPSC-CMs
+        relative to wild-type (WT) isogenic controls
+      where: Supplementary Methods, Quantification of mitochondrial content and ROS
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the WT isogenic control
+    note: the Methods say mean intensity; the record's method (from the figure) says median
+  F4gik_rox.relative:
+    item: F4gik_rox
+    formula: r = a/b
+    anchor: *id009
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the WT isogenic control
+    note: the Methods say mean intensity; the record's method (from the figure) says median
+  F4gik_sox.relative:
+    item: F4gik_sox
+    formula: r = a/b
+    anchor: *id009
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the WT isogenic control
+    note: the Methods say mean intensity; the record's method (from the figure) says median
+  S6gik_rox_mm.relative:
+    item: S6gik_rox_mm
+    formula: r = a/b
+    anchor: *id009
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the WT isogenic control
+    note: the Methods say mean intensity; the record's method (from the figure) says median
+  S6gik_nodiff.relative:
+    item: S6gik_nodiff
+    formula: r = a/b
+    anchor: *id009
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: fluorescence intensity of the WT isogenic control
+    note: the Methods say mean intensity; the record's method (from the figure) says median
+  F5df_rate_mm.pct_change:
+    item: F5df_rate_mm
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: there was an upward trend in beat rate (50% in MUT/MUT)
+      where: Results, Calcium handling
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: beat rate of MUT/MUT
+      x0:
+        not_stated: true
+        kind: per sample
+        note: beat rate of WT/WT
+    output: F5df_rate_mm.values.rate_mm_text
+  F5df_dad_mm.fold:
+    item: F5df_dad_mm
+    formula: r = a/b
+    anchor:
+      quote: events interspersing the main peaks (>9-fold increase in MUT/MUT)
+      where: Results, Calcium handling
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: frequency of DAD-like events in MUT/MUT
+      b:
+        not_stated: true
+        kind: per sample
+        note: frequency in WT/WT
+    output: F5df_dad_mm.values.dad_mm_text
+    alternatives:
+    - *id004
+  F5df_amp_mw.fold:
+    item: F5df_amp_mw
+    formula: r = a/b
+    anchor:
+      quote: signal amplitude/higher systolic calcium peak
+      where: Results, Calcium handling
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: R-GECO1 signal amplitude of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: amplitude of WT/WT
+    output: F5df_amp_mw.values.amp_mw_text
+  F5df_amp_mm.fold:
+    item: F5df_amp_mm
+    formula: r = a/b
+    anchor:
+      quote: signal amplitude/higher systolic calcium peak
+      where: Results, Calcium handling
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: R-GECO1 signal amplitude of the edited line
+      b:
+        not_stated: true
+        kind: per sample
+        note: amplitude of WT/WT
+    output: F5df_amp_mm.values.amp_mm_text
+  F5gh_mw_150.pct_baseline:
+    item: F5gh_mw_150
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mw_180.pct_baseline:
+    item: F5gh_mw_180
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mw_210.pct_baseline:
+    item: F5gh_mw_210
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mw_240.pct_baseline:
+    item: F5gh_mw_240
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mw_270.pct_baseline:
+    item: F5gh_mw_270
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mw_300.pct_baseline:
+    item: F5gh_mw_300
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mm_240.pct_baseline:
+    item: F5gh_mm_240
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mm_270.pct_baseline:
+    item: F5gh_mm_270
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5gh_mm_300.pct_baseline:
+    item: F5gh_mm_300
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5ij_amp_mw.pct_baseline:
+    item: F5ij_amp_mw
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F5ij_amp_mm.pct_baseline:
+    item: F5ij_amp_mm
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the measure after the drug (per cell preparation)
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same preparation's pre-drug baseline
+    note: '''% of baseline'' is the panel''s axis title (raster); the text names no formula'
+  F6eg_force_mw.force:
+    item: F6eg_force_mw
+    formula: not stated
+    anchor: &id010
+      quote: determined contractile force based on the known mechanical properties of the silicone posts
+      where: Supplementary Methods, hEHT contractile force
+      file: ehy249_Supplementary_Information.docx
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: &id011
+        not_stated: true
+        kind: per sample
+        note: post deflection tracked by video per contraction; not printed
+      k: &id012
+        by_reference:
+          citation: r15
+          anchor:
+            quote: Contractile force was analysed as previously described
+            where: Supplementary Methods, Analysis of contractile force
+            file: ehy249_Supplementary_Information.docx
+        kind: constant
+        note: the posts' mechanical properties (stiffness, or modulus and geometry) are not printed; force analysis is 'as
+          previously described' (Mannhardt et al. 2016)
+    alternatives: &id013
+    - label: Hooke spring with the post's stiffness (as in the cited EHT method)
+      formula: F = k*x
+      note: 'library hooke_spring (model: linear spring, small deflection); not printed by the paper'
+  F6eg_force_mm.force:
+    item: F6eg_force_mm
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6eg_force_mm6.force:
+    item: F6eg_force_mm6
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6eg_force_kk.force:
+    item: F6eg_force_kk
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6eg_force_mm_vs_mw.force:
+    item: F6eg_force_mm_vs_mw
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6lm_mw_unpaced_2hz.force:
+    item: F6lm_mw_unpaced_2hz
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6lm_mw_1_2hz.force:
+    item: F6lm_mw_1_2hz
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6lm_mw_15_2hz.force:
+    item: F6lm_mw_15_2hz
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6lm_mm6_unpaced_2hz.force:
+    item: F6lm_mm6_unpaced_2hz
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6lm_mm6_1_2hz.force:
+    item: F6lm_mm6_1_2hz
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6lm_decline.force:
+    item: F6lm_decline
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  S8df_force_mw.force:
+    item: S8df_force_mw
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  S8df_force_mm.force:
+    item: S8df_force_mm
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  S8df_force_mm_mw.force:
+    item: S8df_force_mm_mw
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  S8df_force_values.force:
+    item: S8df_force_values
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+    note: 0.04–0.06 mN is a range over the three REBL-PAT genotypes; no output named
+  S8k_nodecline.force:
+    item: S8k_nodecline
+    formula: not stated
+    anchor: *id010
+    no_formula: force computed by the CMTV software from post deflection; the paper names the inputs (deflection, the posts'
+      known mechanical properties) and cites the method, but prints no relation, so no library formula is applied
+    inputs:
+      x: *id011
+      k: *id012
+    alternatives: *id013
+  F6eg_kk_force.fold_lower:
+    item: F6eg_kk_force
+    formula: r = a/b
+    anchor:
+      quote: Contraction in MYH7-KO was so compromised (ten-fold lower force than WT/WT), measurements were almost impossible
+      where: Results, 3D engineering unveils hypocontractility
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: contraction force of WT/WT
+      b:
+        not_stated: true
+        kind: per sample
+        note: contraction force of MYH7-KO
+    output: F6eg_kk_force.values.fold_lower
+    alternatives:
+    - label: KO relative to WT
+      formula: r = b/a
+      note: '''ten-fold lower'' as a ratio of 0.1'
+  F6ik_force_mm.pct_change:
+    item: F6ik_force_mm
+    formula: d = (x - x0)/x0
+    anchor: &id014
+      quote: relative quantification was performed upon OM treatment by plotting changes from baseline untreated conditions
+      where: Supplementary Methods, hEHT contractile force
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  F6ik_t1_mw.pct_change:
+    item: F6ik_t1_mw
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  F6ik_t1_mm_vs_mw.pct_change:
+    item: F6ik_t1_mm_vs_mw
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  S8hj_force_mm.pct_change:
+    item: S8hj_force_mm
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  S8hj_t1_mw.pct_change:
+    item: S8hj_t1_mw
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  S8hj_t1_mm.pct_change:
+    item: S8hj_t1_mm
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  S8hj_t2_mw.pct_change:
+    item: S8hj_t2_mw
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  S8hj_t2_mm.pct_change:
+    item: S8hj_t2_mm
+    formula: d = (x - x0)/x0
+    anchor: *id014
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the tissue's value on omecamtiv mecarbil
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's untreated baseline
+    alternatives:
+    - label: absolute change from baseline
+      formula: d = x - x0
+      note: library difference_from_reference; 'changes from baseline' does not say relative
+    note: each tissue is its own baseline; the record's measure says % change (from the axis)
+  F7d_fetal.fold:
+    item: F7d_fetal
+    formula: r = a/b
+    anchor: &id015
+      quote: The mRNA levels were normalized to five housekeeping genes (ABCF1, CLTC, GAPDH, PGK1, and TUBB) and expressed
+        as fold change in mutant lines over isogenic control hPSC-CMs
+      where: Supplementary Methods, NanoString arrays
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the gene's count in the mutant line, normalised to five housekeeping genes
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same in the isogenic control
+    note: how counts were normalised to the five housekeeping genes (e.g. their geometric mean) is not stated
+  F7d_hyper.fold:
+    item: F7d_hyper
+    formula: r = a/b
+    anchor: *id015
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the gene's count in the mutant line, normalised to five housekeeping genes
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same in the isogenic control
+    note: how counts were normalised to the five housekeeping genes (e.g. their geometric mean) is not stated
+  F7d_apop.fold:
+    item: F7d_apop
+    formula: r = a/b
+    anchor: *id015
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the gene's count in the mutant line, normalised to five housekeeping genes
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same in the isogenic control
+    note: how counts were normalised to the five housekeeping genes (e.g. their geometric mean) is not stated
+  F7d_fib.fold:
+    item: F7d_fib
+    formula: r = a/b
+    anchor: *id015
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the gene's count in the mutant line, normalised to five housekeeping genes
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same in the isogenic control
+    note: how counts were normalised to the five housekeeping genes (e.g. their geometric mean) is not stated
+  F7e_calcium.fold:
+    item: F7e_calcium
+    formula: r = a/b
+    anchor: *id015
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: the gene's count in the mutant line, normalised to five housekeeping genes
+      b:
+        not_stated: true
+        kind: per sample
+        note: the same in the isogenic control
+    note: how counts were normalised to the five housekeeping genes (e.g. their geometric mean) is not stated
+  F7fg_a_mw.myh7:
+    item: F7fg_a_mw
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_a_mw.myh6:
+    item: F7fg_a_mw
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH6 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_a_mw.ratio:
+    item: F7fg_a_mw
+    formula: r = a/b
+    anchor: &id016
+      quote: q-PCR analysis of MYH7/MYH6 expression ratios in gene-edited lines in 2D cultures normalized to wild-type
+      where: Fig. 7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F7fg_a_mw.myh7
+        kind: per sample
+      b:
+        derived: F7fg_a_mw.myh6
+        kind: per sample
+    alternatives:
+    - label: MYH6 as the ΔΔCt reference gene directly
+      note: identical to the ratio of the two TNNT2-normalised quantities under the ΔΔCt model
+    note: the order (per-sample ratio then mean, or ratio of mean relative quantities) is not stated
+  F7fg_a_mm.myh7:
+    item: F7fg_a_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_a_mm.myh6:
+    item: F7fg_a_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH6 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_a_mm.ratio:
+    item: F7fg_a_mm
+    formula: r = a/b
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F7fg_a_mm.myh7
+        kind: per sample
+      b:
+        derived: F7fg_a_mm.myh6
+        kind: per sample
+    alternatives:
+    - label: MYH6 as the ΔΔCt reference gene directly
+      note: identical to the ratio of the two TNNT2-normalised quantities under the ΔΔCt model
+    note: the order (per-sample ratio then mean, or ratio of mean relative quantities) is not stated
+  F7fg_a_mm6.myh7:
+    item: F7fg_a_mm6
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_a_mm6.myh6:
+    item: F7fg_a_mm6
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH6 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_a_mm6.ratio:
+    item: F7fg_a_mm6
+    formula: r = a/b
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F7fg_a_mm6.myh7
+        kind: per sample
+      b:
+        derived: F7fg_a_mm6.myh6
+        kind: per sample
+    alternatives:
+    - label: MYH6 as the ΔΔCt reference gene directly
+      note: identical to the ratio of the two TNNT2-normalised quantities under the ΔΔCt model
+    note: the order (per-sample ratio then mean, or ratio of mean relative quantities) is not stated
+  F7fg_r_mw.myh7:
+    item: F7fg_r_mw
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_r_mw.myh6:
+    item: F7fg_r_mw
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH6 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_r_mw.ratio:
+    item: F7fg_r_mw
+    formula: r = a/b
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F7fg_r_mw.myh7
+        kind: per sample
+      b:
+        derived: F7fg_r_mw.myh6
+        kind: per sample
+    alternatives:
+    - label: MYH6 as the ΔΔCt reference gene directly
+      note: identical to the ratio of the two TNNT2-normalised quantities under the ΔΔCt model
+    note: the order (per-sample ratio then mean, or ratio of mean relative quantities) is not stated
+  F7fg_r_mm.myh7:
+    item: F7fg_r_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_r_mm.myh6:
+    item: F7fg_r_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH6 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_r_mm.ratio:
+    item: F7fg_r_mm
+    formula: r = a/b
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F7fg_r_mm.myh7
+        kind: per sample
+      b:
+        derived: F7fg_r_mm.myh6
+        kind: per sample
+    alternatives:
+    - label: MYH6 as the ΔΔCt reference gene directly
+      note: identical to the ratio of the two TNNT2-normalised quantities under the ΔΔCt model
+    note: the order (per-sample ratio then mean, or ratio of mean relative quantities) is not stated
+  F7fg_h_mm.myh7:
+    item: F7fg_h_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_h_mm.myh6:
+    item: F7fg_h_mm
+    formula: r = 2^(-ddct)
+    anchor: *id008
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH6 against TNNT2, calibrated to the mean of the WT isogenic lines; Ct values not printed
+  F7fg_h_mm.ratio:
+    item: F7fg_h_mm
+    formula: r = a/b
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F7fg_h_mm.myh7
+        kind: per sample
+      b:
+        derived: F7fg_h_mm.myh6
+        kind: per sample
+    alternatives:
+    - label: MYH6 as the ΔΔCt reference gene directly
+      note: identical to the ratio of the two TNNT2-normalised quantities under the ΔΔCt model
+    note: the order (per-sample ratio then mean, or ratio of mean relative quantities) is not stated
+  F7fg_folds.fold:
+    item: F7fg_folds
+    formula: r = a/b
+    anchor:
+      quote: showing 5- to 15-fold increases in the MYH7:MYH6 ratio in the diseased lines across all three isogenic groups
+      where: Results, Focused transcriptomics reveals core pathways triggered by HCM
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: MYH7:MYH6 ratio of a diseased line
+      b:
+        not_stated: true
+        kind: per sample
+        note: the WT mean ratio
+    note: 5–15 fold is a range over seven edited lines; no output named
+  F7ac_lncrna.fold:
+    item: F7ac_lncrna
+    formula: not stated
+    anchor:
+      quote: but also previously unidentified lncRNAs as top hits (2- to 8-fold change)
+      where: Results, RNA-seq highlights lncRNAs as potential therapeutic candidates for HCM
+    no_formula: fold changes estimated by DESeq2 (negative binomial model, cell line and culture format as factors); stated
+      only by software and citation
+    inputs:
+      fc:
+        by_reference:
+          citation: r18
+          anchor:
+            quote: Developed models of count-based differential expression analysis of RNA sequencing data were based on the
+              R package DeSeq2, as previously described
+            where: Supplementary Methods, RNA sequencing
+            file: ehy249_Supplementary_Information.docx
+        kind: not stated
+  S3cd_apd90.ratio:
+    item: S3cd_apd90
+    formula: r = a/b
+    anchor: &id017
+      quote: 'Two metrics of cardiac subtype were applied: C) APD90/APD50 and D) (APD80-APD70)/APD40-APD30)'
+      where: Supplementary Figure 3 legend
+      file: ehy249_Supplementary_Information.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: APD90 of a cell or monolayer
+      b:
+        not_stated: true
+        kind: per sample
+        note: APD50 of the same
+  S3cd_apd80.ratio:
+    item: S3cd_apd80
+    formula: r = (a80 - a70)/(a40 - a30)
+    anchor: *id017
+    library:
+      formula: ratio_of_differences
+      vars:
+        r: r
+        x1: a80
+        x2: a70
+        y1: a40
+        y2: a30
+    inputs:
+      a80:
+        not_stated: true
+        kind: per sample
+        note: APD80 of a cell or monolayer
+      a70:
+        not_stated: true
+        kind: per sample
+        note: APD70 of a cell or monolayer
+      a40:
+        not_stated: true
+        kind: per sample
+        note: APD40 of a cell or monolayer
+      a30:
+        not_stated: true
+        kind: per sample
+        note: APD30 of a cell or monolayer
+    note: the paper prints '(APD80-APD70)/APD40-APD30)' with an unmatched parenthesis; written with the denominator bracketed,
+      as the record's measure reads it
+assumptions:
+  F2bc_a_mw.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_a_mm.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_a_mm6.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_a_kk.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_r_mw.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_r_mm.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_h_mw.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F2bc_h_mm.volume:
+    model: sphere_volume
+    assumptions:
+      spherical shape:
+        reported: not stated
+        note: the paper assumes 'a perfect sphere' for dissociated cells in suspension; no shape measure is reported
+  F4e_nd1_kk.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4e_nd2_kk.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S6e_nd2_mm.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_a_mw.myh7:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_a_mw.myh6:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_a_mm.myh7:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_a_mm.myh6:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_a_mm6.myh7:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_a_mm6.myh6:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_r_mw.myh7:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_r_mw.myh6:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_r_mm.myh7:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_r_mm.myh6:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_h_mm.myh7:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F7fg_h_mm.myh6:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- item: F1e_purity
+  value: F1e_purity.values.purity_legend
+  formula: fraction_bounds
+- item: F1e_cutoff
+  value: F1e_cutoff.values.purity_text
+  formula: fraction_bounds
+- item: F3f_values
+  value: F3f_values.values.ww
+  formula: fraction_bounds
+- item: F3f_values
+  value: F3f_values.values.kk
+  formula: fraction_bounds
+- item: S3a_mlc2v
+  value: S3a_mlc2v.values.mlc2v_text
+  formula: fraction_bounds
+- item: S3a_mlc2v
+  value: S3a_mlc2v.values.mlc2v_panel
+  formula: fraction_bounds
+- item: S3a_mlc2v
+  value: S3a_mlc2v.values.mlc2a_panel
+  formula: fraction_bounds
+- item: S3cd_ventricular
+  value: S3cd_ventricular.values.vent_lo
+  formula: fraction_bounds
+- item: S3cd_ventricular
+  value: S3cd_ventricular.values.vent_hi
+  formula: fraction_bounds
+- item: S1de_freq
+  value: S1de_freq.values.mono_lo
+  formula: fraction_bounds
+- item: S1de_freq
+  value: S1de_freq.values.mono_hi
+  formula: fraction_bounds
+- item: S1de_freq
+  value: S1de_freq.values.bi_lo
+  formula: fraction_bounds
+- item: S1de_freq
+  value: S1de_freq.values.bi_hi
+  formula: fraction_bounds
+proposals:
+- formula: sphere_volume
+  kind: model
+  statement: The volume of a body treated as a sphere of radius r is 4/3 pi r^3 (e.g. a cell volume from one measured size).
+  equations:
+  - V = 4*pi*r**3/3
+  variables:
+    V: volume
+    r: length
+  assumes:
+  - spherical shape
+  does_not_apply: elongated, flattened or irregular bodies (rod-shaped adult cardiomyocytes, spread cells), whose volume is
+    not set by one radius
+  tests:
+  - given:
+      r: 1.0
+    expect:
+      V: 4.1887902
+  - given:
+      r: 3.0
+    expect:
+      V: 113.097336
+  - given:
+      r: 1.0
+    does_not_apply: a prolate ellipsoid with semi-axes 1, 1 and 2 has volume 8.38, not 4.19
+  cites:
+    text: 'Zwillinger D (ed.). CRC Standard Mathematical Tables and Formulae, 33rd ed., CRC Press 2018, section 4.6 (solids:
+      sphere of radius r)'
+    quote: V = 4/3 πr^3
+- formula: sphere_volume_diameter
+  kind: derived
+  statement: The volume of a body treated as a sphere, from its diameter, is pi d^3 / 6.
+  equations:
+  - V = pi*d**3/6
+  variables:
+    V: volume
+    d: length
+    r: length
+  assumes:
+  - d = 2*r
+  uses:
+  - formula: sphere_volume
+    subs:
+      V: V
+      r: r
+  does_not_apply: a diameter taken as the radius (volume 8x too large), or a non-spherical body
+  tests:
+  - given:
+      d: 2.0
+    expect:
+      V: 4.1887902
+  - given:
+      d: 10.0
+    expect:
+      V: 523.598776
+  - given:
+      d: 2.0
+    does_not_apply: 'diameter used as the radius: 4/3 pi 2^3 = 33.5, not 4.19'
+- formula: ratio_of_differences
+  kind: derived
+  statement: A ratio of two differences, (x1 - x2)/(y1 - y2), e.g. an action potential shape metric (APD80-APD70)/(APD40-APD30).
+  equations:
+  - r = (x1 - x2)/(y1 - y2)
+  variables:
+    r: D/D2
+    x1: D
+    x2: D
+    y1: D2
+    y2: D2
+    p: D
+    q: D2
+  assumes:
+  - p = x1 - x2
+  - q = y1 - y2
+  uses:
+  - formula: ratio_def
+    subs:
+      r: r
+      a: p
+      b: q
+  does_not_apply: a difference of ratios, or x1 - x2/(y1 - y2) without the numerator bracketed
+  tests:
+  - given:
+      x1: 5.0
+      x2: 3.0
+      y1: 4.0
+      y2: 3.0
+    expect:
+      r: 2.0
+  - given:
+      x1: 300.0
+      x2: 280.0
+      y1: 150.0
+      y2: 140.0
+    expect:
+      r: 2.0
+  - given:
+      x1: 5.0
+      x2: 3.0
+      y1: 4.0
+      y2: 3.0
+    does_not_apply: ratio of the first terms, 5/4 = 1.25, is not the ratio of the differences (2)
+- formula: difference_from_reference
+  kind: derived
+  statement: The change of a value from a reference, d = x - x0 (an absolute or percentage-point change), is the sum of parts
+    x = x0 + d solved for d.
+  equations:
+  - d = x - x0
+  variables:
+    d: D
+    x: D
+    x0: D
+  uses:
+  - formula: sum_of_parts
+    subs:
+      t: x
+      a: x0
+      b: d
+  does_not_apply: a change expressed relative to the reference ((x - x0)/x0) or as a ratio (x/x0)
+  tests:
+  - given:
+      x: 3.0
+      x0: 2.0
+    expect:
+      d: 1.0
+  - given:
+      x: 5.5
+      x0: 3.6
+    expect:
+      d: 1.9
+  - given:
+      x: 3.0
+      x0: 2.0
+    does_not_apply: 'relative change: (3 - 2)/2 = 0.5, not 1'

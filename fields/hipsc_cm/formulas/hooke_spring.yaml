@@ -1,0 +1,28 @@
+# Written by code from changes.yaml (version 2); never edited.
+formula: hooke_spring
+kind: model
+statement: The force of a linear elastic spring (or a flexible post loaded at a point) is its stiffness times its deflection.
+equations:
+- F = k*x
+variables:
+  F: force
+  k: stiffness
+  x: length
+assumes:
+- linear spring
+- small deflection
+does_not_apply: large deflections or a nonlinear (e.g. viscoelastic or strain-stiffening) post, where force is not proportional
+  to deflection
+tests:
+- given:
+    k: 2.0
+    x: 3.0
+  expect:
+    F: 6.0
+- given:
+    k: 2.0
+    x: 3.0
+  does_not_apply: 'post deflected beyond its linear range: measured F differs from k*x'
+cites:
+  text: Halliday, Resnick and Walker, Fundamentals of Physics, 10th ed., Wiley 2014, ch. 7 (spring force, Hooke's law)
+  quote: Fx = -kx (Hooke's law)

@@ -1,0 +1,26 @@
+# Written by code from changes.yaml (version 22); never edited.
+formula: circular_second_moment_diameter
+kind: derived
+statement: The second moment of area of a solid circular cross-section of diameter d about a diameter is πd^4/64.
+equations:
+- I = pi*d**4/64
+variables:
+  I: second_moment
+  d: length
+  R: length
+assumes:
+- d = 2*R
+uses:
+- formula: circular_second_moment
+  subs:
+    I: I
+    R: R
+does_not_apply: a hollow tube, or the polar moment of the same section (πd^4/32)
+tests:
+- given:
+    d: 2.0
+  expect:
+    I: 0.7853981633974483
+- given:
+    d: 2.0
+  does_not_apply: the polar moment πd^4/32 = 1.5708 is not the bending second moment

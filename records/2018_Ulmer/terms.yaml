@@ -1,0 +1,1299 @@
+# Vocabulary job for 2018_Ulmer (03-vocabulary). Written by the vocabulary agent; checked and applied by code.
+record: 2018_Ulmer
+vocabulary_version: 14
+agent:
+  model: llm
+  instructions: terms_v3
+edits:
+- add_synonym:
+    id: platform:engineered_3d
+    text: EHT
+    anchor: We recently established the hiPSC-CM engineered heart tissue (EHT) model
+- add_term:
+    field: platform
+    id: platform:cell_free_control
+    label: cell-free control
+    definition: A well or vessel handled like the cultures but containing no cells, used as a background blank.
+    scope: A blank without cells; not a 2D culture, an engineered tissue or native tissue, which all contain cells.
+- add_term:
+    field: substrate
+    id: substrate:culture_plate
+    label: culture plate
+    definition: A multi-well tissue-culture plate whose surface the cells grow on.
+    scope: The plastic surface of a multi-well plate (well format as a qualifier); not glass, PDMS, polyacrylamide, a hydrogel or decellularized
+      myocardium.
+    qualifiers:
+      format:
+        dimension: text
+      brand:
+        dimension: text
+- adopt:
+    field: cell_line
+    id: CVCL_VF08
+    label: TUMi001-A
+    lookup: 'livinglit lookup cellosaurus C25: exact synonym of TUMi001-A (Technische Universitaet Muenchen); the paper says C25 came from the
+      Moretti group, Muenchen (GM00646, the other exact hit, is a fibroblast line).'
+    synonyms:
+    - text: C25
+      anchor: The C25 control hiPSC line 1 was provided by the group of Alessandra Moretti
+- adopt_own:
+    field: cell_line
+    id: cell_line:erc018_ipsc
+    label: ERC018 hiPSC line (clone not stated)
+    definition: The UKE stem cell facility control hiPSC line ERC018, with no clone named.
+    scope: ERC018 when the source names no clone; a named clone (UKEi003-A, -B or -C) takes its Cellosaurus id.
+    lookup: 'livinglit lookup cellosaurus ERC018 / ERC18 / UKEi: three clones UKEi003-A, UKEi003-B, UKEi003-C (ERC018sv1583, sv1590, sv1634);
+      the paper names no clone.'
+    synonyms:
+    - text: ERC018
+      anchor: ERC018, stem cell facility of the UKE, Hamburg
+    - text: ERC18
+      anchor: for providing the ERC18 control hiPSC line 2
+- adopt:
+    field: treatment
+    id: CHEBI:35366
+    label: fatty acid
+    lookup: 'livinglit lookup chebi "fatty acid": exact CHEBI:35366; the paper used a linoleic acid/oleic acid fatty acid mix, so the class is
+      kept.'
+- adopt:
+    field: treatment
+    id: CHEBI:24996
+    label: lactate
+    lookup: 'livinglit lookup chebi lactate: exact CHEBI:24996 (the paper used sodium lactate solution; the stated value is lactate).'
+- adopt_own:
+    field: treatment
+    id: treatment:bts
+    label: N-benzyl-p-toluene sulfonamide
+    definition: N-benzyl-p-toluene sulfonamide (BTS), a small-molecule myosin II inhibitor.
+    scope: The myosin II inhibitor BTS; not blebbistatin (CHEBI:75379) or diacetylmonoxime.
+    lookup: 'livinglit lookup chebi BTS, N-benzyl-p-toluenesulfonamide, N-benzyl-p-toluene sulfonamide, N-benzyl-4-methylbenzenesulfonamide, benzyl
+      toluenesulfonamide: no ChEBI entry.'
+    synonyms:
+    - text: BTS
+      anchor: blebbistatin and N-benzyl-p-toluene sulfonamide [BTS]
+- adopt_own:
+    field: treatment
+    id: treatment:no_energy_substrate
+    label: no energy substrate
+    definition: Medium from which every energy substrate (glucose, lactate, fatty acid) is left out.
+    scope: Withdrawal of all energy substrates; a single substrate given alone takes that substrate's id.
+    lookup: 'livinglit lookup chebi "energy substrate", "no energy substrate": a state, not a compound; no ChEBI entry.'
+- add_synonym:
+    id: measure:contraction_frequency
+    text: spontaneous beating frequency
+    anchor: spontaneous beating frequency (beats per minute) over time
+- add_synonym:
+    id: measure:contraction_frequency
+    text: beating rate
+    anchor: Beating rate for hiPSC-CMs of both control cell lines in 2D
+- add_synonym:
+    id: measure:mitochondrial_dna_content
+    text: mtDNA content
+    anchor: we measured the mitochondrial mass and mtDNA content
+- add_qualifier:
+    id: measure:mitochondrial_dna_content
+    name: gene
+    dimension: text
+- add_qualifier:
+    id: measure:ultrastructure
+    name: feature
+    dimension: text
+- add_qualifier:
+    id: measure:enrichment_p_value
+    name: annotation
+    dimension: text
+- add_term:
+    field: measure
+    id: measure:protein_class_abundance
+    label: abundance of a protein class
+    dimension: dimensionless
+    definition: Abundance of the proteins of a stated class (qualifier protein_class) in a proteome, summarised as stated (qualifier summary).
+    scope: A whole class of proteins (mitochondrial, nuclear, ribosomal); not one named protein (protein level) and not a count over the whole
+      proteome.
+    qualifiers:
+      protein_class:
+        dimension: text
+      summary:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:identified_protein_count
+    label: number of proteins identified
+    dimension: dimensionless
+    definition: Count of proteins identified in a proteomic analysis.
+    scope: All proteins detected; not the count of proteins that differ between conditions.
+- add_term:
+    field: measure
+    id: measure:annotation_share
+    label: share of an annotation category
+    dimension: dimensionless
+    definition: Per cent of the annotations of a stated protein or gene set (qualifier gene_set) that fall in a stated pathway or protein class
+      (qualifier category).
+    scope: The share of a set falling in one category; not an enrichment p-value and not a count of genes in a GO term.
+    qualifiers:
+      category:
+        dimension: text
+      gene_set:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:regulator_effects_network
+    label: regulator effects network
+    dimension: categorical
+    definition: A network of upstream regulators and downstream functions inferred from a set of differing proteins or genes.
+    scope: An inferred regulatory network; not an enrichment p-value and not expression clusters.
+- add_term:
+    field: measure
+    id: measure:mitochondrial_mass
+    label: mitochondrial mass
+    dimension: dimensionless
+    definition: Amount of mitochondria per cell measured by the fluorescence of a mitochondrial dye.
+    scope: Dye-based mitochondrial content; not mitochondrial DNA content and not mitochondrial area fraction from images.
+    synonyms:
+    - text: mitochondrial mass
+      anchor: Mitochondrial mass was analyzed by flow cytometry of live cells
+- add_term:
+    field: measure
+    id: measure:glucose_consumption
+    label: glucose consumption
+    dimension: concentration
+    definition: Fall in the glucose concentration of the medium over a stated interval (qualifier interval).
+    scope: Glucose taken up from the medium; not lactate released into it and not the oxidation of labelled glucose.
+    qualifiers:
+      interval:
+        dimension: text
+    synonyms:
+    - text: glucose consumption
+      anchor: Glucose consumption (B) and lactate production (C) in 2D and 3D hiPSC-CMs
+- add_term:
+    field: measure
+    id: measure:lactate_production
+    label: lactate production
+    dimension: concentration
+    definition: Rise in the lactate concentration of the medium over a stated interval (qualifier interval).
+    scope: Lactate released into the medium; not glucose consumption and not extracellular acidification rate.
+    qualifiers:
+      interval:
+        dimension: text
+    synonyms:
+    - text: lactate production
+      anchor: Glucose consumption (B) and lactate production (C) in 2D and 3D hiPSC-CMs
+- add_term:
+    field: measure
+    id: measure:substrate_oxidation
+    label: labelled substrate oxidation
+    dimension: amount
+    definition: Amount of labelled CO2 produced from a stated radiolabelled substrate (qualifier substrate) over an incubation.
+    scope: CO2 from one labelled substrate; not oxygen consumption rate and not fatty acid oxidation read from respiration.
+    qualifiers:
+      substrate:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:atp_production
+    label: ATP production
+    dimension: amount
+    definition: Amount of ATP produced by a stated pathway (qualifier pathway), calculated from substrate use.
+    scope: An amount of ATP; not the share of ATP production and not oxygen consumption.
+    qualifiers:
+      pathway:
+        dimension: text
+      interval:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:atp_production_share
+    label: share of ATP production
+    dimension: dimensionless
+    definition: Per cent of total ATP production attributed to a stated pathway or substrate (qualifier pathway).
+    scope: A share of ATP production; not an amount of ATP.
+    qualifiers:
+      pathway:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:between_measure_correlation
+    label: correlation between two measures
+    dimension: dimensionless
+    definition: Correlation across samples between two stated measures (qualifier measures).
+    scope: Two different measures over the same samples; not two staining intensities and not whole expression profiles.
+    qualifiers:
+      measures:
+        dimension: text
+- standing_key:
+    measure: measure:protein_class_abundance
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.protein_class
+      - measure.summary
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.protein_class
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:identified_protein_count
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - method
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:annotation_share
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      - measure.category
+      - measure.gene_set
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.category
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:regulator_effects_network
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:mitochondrial_mass
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:glucose_consumption
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.interval
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:lactate_production
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.interval
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:substrate_oxidation
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.substrate
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.substrate
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:atp_production
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.pathway
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.pathway
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:atp_production_share
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.pathway
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.pathway
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:between_measure_correlation
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.measures
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.measures
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:ultrastructure
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.feature
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.feature
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:enrichment_p_value
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      - measure.annotation
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.annotation
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:protein_class_abundance
+    value:
+      must_match: [platform@1, preparation, measure.protein_class, measure.summary, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein_class]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:annotation_share
+    value:
+      must_match: [platform@1, preparation, contrast, measure.category, measure.gene_set, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.category]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:regulator_effects_network
+    value:
+      must_match: [platform@1, preparation, contrast, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:mitochondrial_mass
+    value:
+      must_match: [platform@1, preparation, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:glucose_consumption
+    value:
+      must_match: [platform@1, preparation, measure.interval, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:lactate_production
+    value:
+      must_match: [platform@1, preparation, measure.interval, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:substrate_oxidation
+    value:
+      must_match: [platform@1, preparation, measure.substrate, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.substrate]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:atp_production
+    value:
+      must_match: [platform@1, preparation, measure.pathway, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.pathway]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:atp_production_share
+    value:
+      must_match: [platform@1, preparation, measure.pathway, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.pathway]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:between_measure_correlation
+    value:
+      must_match: [platform@1, preparation, measure.measures, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.measures]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+- field: cm_medium
+  stated: DMEM + horse serum
+  terms:
+  - cm_medium:dmem
+  split:
+  - words: horse serum
+    field: supplements
+  note: Horse serum is an addition to the base medium, not a base medium.
+- field: platform
+  stated: EHT
+  terms:
+  - platform:tissue_between_pillars
+  qualifiers:
+    posts: elastic PDMS posts
+  note: '''EHT'' itself is generic (synonym of 3D engineered tissue); this paper''s EHT is a fibrin gel between two elastic PDMS posts (''were
+    embedded in a fibrin gel between elastic PDMS posts'').'
+- field: platform
+  stated: native tissue
+  terms:
+  - platform:adult_heart_tissue
+  note: 'Both groups so labelled are adult human hearts: ''non-failing adult human hearts (NFH)'' (Fig. 3) and ''Adult human heart'' (Fig. 4F).'
+- field: platform
+  stated: no cells
+  terms:
+  - platform:cell_free_control
+  note: Background wells without cells in the 14C-CO2 assay (Fig. 6D–F).
+- field: substrate
+  stated: 24-well Nunc plate
+  terms:
+  - substrate:culture_plate
+  qualifiers:
+    format: 24-well
+    brand: Nunc
+- field: substrate
+  stated: 6-well plate
+  terms:
+  - substrate:culture_plate
+  qualifiers:
+    format: 6-well
+- field: disease_model
+  stated: 1× non-failing, 2× terminal heart failure
+  flag:
+    kind: several conditions
+    note: One pooled group of one non-failing heart and two failing hearts (dilative cardiomyopathy or ischemic heart disease); not one disease
+      state.
+- field: preparation
+  stated: live culture
+  terms:
+  - preparation:live_cells
+  note: Measurements on living cultures (beating, medium metabolites, OCR, 14C-CO2).
+- field: treatment
+  stated: blebbistatin + none
+  flag:
+    kind: several conditions
+    note: Pools control EHTs (no treatment) and blebbistatin-treated EHTs in one correlation (Fig. S7A–B).
+- field: measure
+  stated: cTNT1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: cTNT1
+    expressed_as: fold
+  note: Method printed as 'qPCR, fold change normalized'; no reference gene named for Fig. 1E.
+- field: measure
+  stated: MYL3 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL3
+    expressed_as: fold
+  note: Method printed as 'qPCR, fold change normalized'; no reference gene named for Fig. 1E.
+- field: measure
+  stated: MYL4 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL4
+    expressed_as: fold
+  note: Method printed as 'qPCR, fold change normalized'; no reference gene named for Fig. 1E.
+- field: measure
+  stated: vimentin mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: vimentin
+    expressed_as: fold
+  note: Method printed as 'qPCR, fold change normalized'; no reference gene named for Fig. 1E.
+- field: measure
+  stated: POSTN mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: POSTN
+    expressed_as: fold
+  note: Method printed as 'qPCR, fold change normalized'; no reference gene named for Fig. 1E.
+- field: measure
+  stated: CD31 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CD31
+    expressed_as: fold
+  note: Method printed as 'qPCR, fold change normalized'; no reference gene named for Fig. 1E.
+- field: measure
+  stated: PPARGC1A mRNA level
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PPARGC1A
+    expressed_as: normalised
+    normalised_to: GUSB
+- field: measure
+  stated: ESRRA mRNA level
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ESRRA
+    expressed_as: normalised
+    normalised_to: GUSB
+- field: measure
+  stated: mitochondrial morphology (TEM)
+  terms:
+  - measure:ultrastructure
+  qualifiers:
+    feature: mitochondria
+- field: measure
+  stated: glycogen deposits (TEM)
+  terms:
+  - measure:ultrastructure
+  qualifiers:
+    feature: glycogen deposits
+- field: measure
+  stated: proteins identified
+  terms:
+  - measure:identified_protein_count
+- field: measure
+  stated: differentially abundant proteins
+  terms:
+  - measure:differentially_expressed_protein_count
+- field: measure
+  stated: mitochondrial protein abundance
+  terms:
+  - measure:protein_class_abundance
+  qualifiers:
+    protein_class: mitochondrial proteins
+    summary: differentially abundant proteins in the class (count)
+- field: measure
+  stated: nuclear protein abundance
+  terms:
+  - measure:protein_class_abundance
+  qualifiers:
+    protein_class: nuclear proteins
+    summary: class proteins lower in 3D (percent)
+- field: measure
+  stated: ribosomal protein abundance
+  terms:
+  - measure:protein_class_abundance
+  qualifiers:
+    protein_class: ribosomal proteins
+  note: Stated as a direction only; no summary value printed.
+- field: measure
+  stated: average intensity of mitochondrial proteins
+  terms:
+  - measure:protein_class_abundance
+  qualifiers:
+    protein_class: mitochondrial proteins
+    summary: mean normalized spectral count
+- field: measure
+  stated: cardiac protein abundance (troponin C, titin, MYH6, MYH7, MYL2)
+  flag:
+    kind: several measures
+    note: One value names five named proteins; each is a separate measure (one protein, annotation or pathway each).
+- field: measure
+  stated: extracellular matrix protein abundance (LAMB1, LAMC1, FBN2)
+  flag:
+    kind: several measures
+    note: One value names three named proteins; each is a separate measure (one protein, annotation or pathway each).
+- field: measure
+  stated: abundance of top mitochondrial proteins (ATPG, SCOT1, ALDH, THIM, IDH3G, NDUB9, ODPA)
+  flag:
+    kind: several measures
+    note: One value names seven named proteins; each is a separate measure (one protein, annotation or pathway each).
+- field: measure
+  stated: ATP synthase subunit fold change
+  flag:
+    kind: several measures
+    note: One value names a fold range (about 2 to 4.5) spanning 9 of 11 ATP synthase subunits and two groups; each is a separate measure (one
+      protein, annotation or pathway each).
+- field: measure
+  stated: enrichment of mitochondrial electron transport, TCA cycle and fatty acid oxidation (clusters)
+  flag:
+    kind: several measures
+    note: One value names enrichment of three annotations; each is a separate measure (one protein, annotation or pathway each).
+- field: measure
+  stated: share of Panther pathways (ATP synthesis; TCA cycle)
+  flag:
+    kind: several measures
+    note: One value names two pathways, each printed as 10.8%; each is a separate measure (one protein, annotation or pathway each).
+- field: measure
+  stated: troponin I abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: troponin I
+  note: Label-free LC-MS/MS normalized spectral counts.
+- field: measure
+  stated: TFAM protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TFAM
+  note: Label-free LC-MS/MS normalized spectral counts.
+- field: measure
+  stated: R2 between replicate samples
+  terms:
+  - measure:expression_profile_correlation
+  qualifiers:
+    profile: log10 normalized spectral counts
+- field: measure
+  stated: ACOT1 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ACOT1
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ACOT13 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ACOT13
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: SCP2 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: SCP2
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ACAA2 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ACAA2
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ACOT2 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ACOT2
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ECI1 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ECI1
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ECHS1 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ECHS1
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: OXCT1 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: OXCT1
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: HADHA normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: HADHA
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: HADHB normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: HADHB
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ACADVL normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ACADVL
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase F(0) complex subunit B1 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase F(0) complex subunit B1
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit alpha normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit alpha
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit beta normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit beta
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit d normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit d
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit delta normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit delta
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit e normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit e
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit epsilon normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit epsilon
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit g normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit g
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit gamma normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit gamma
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase subunit O normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase subunit O
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: ATP synthase-coupling factor 6 normalized spectral count
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP synthase-coupling factor 6
+  note: 'expressed_as left out: the measure is printed as normalized spectral count, the method as fold change of normalized spectral count; the
+    two do not say which the plotted value is.'
+- field: measure
+  stated: 'GO term enrichment: Cellular respiration'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cellular respiration
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Energy derivation by oxidation of organic compounds'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Energy derivation by oxidation of organic compounds
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Generation of precursor metabolites and energy'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Generation of precursor metabolites and energy
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Oxidation-reduction process'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Oxidation-reduction process
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Respiratory electron transport chain'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Respiratory electron transport chain
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Electron transport chain'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Electron transport chain
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Small molecule metabolic process'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Small molecule metabolic process
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Single-organism metabolic process'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Single-organism metabolic process
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Tricarboxylic acid cycle'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Tricarboxylic acid cycle
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Aerobic respiration'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Aerobic respiration
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Oxidative phosphorylation'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Oxidative phosphorylation
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Mitochondrial ATP synthesis coupled proton transport'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Mitochondrial ATP synthesis coupled proton transport
+    gene_set: proteins more abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Cytoskeleton organization'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cytoskeleton organization
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Protein complex subunit organization'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Protein complex subunit organization
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Macromolecular complex subunit organization'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Macromolecular complex subunit organization
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Actin filament-based process'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Actin filament-based process
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Translation'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Translation
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Macromolecular complex disassembly'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Macromolecular complex disassembly
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Cellular component biogenesis'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cellular component biogenesis
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Cellular protein complex disassembly'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cellular protein complex disassembly
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Cellular component assembly'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cellular component assembly
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Cellular component organization'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cellular component organization
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Cellular component organization or biogenesis'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Cellular component organization or biogenesis
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: 'GO term enrichment: Protein complex disassembly'
+  terms:
+  - measure:enrichment_p_value
+  qualifiers:
+    annotation: Protein complex disassembly
+    gene_set: proteins less abundant in EHT
+- field: measure
+  stated: share of Panther protein classes (oxidoreductases)
+  terms:
+  - measure:annotation_share
+  qualifiers:
+    category: oxidoreductases
+    gene_set: proteins more abundant in 3D
+- field: measure
+  stated: IPA regulator effects network
+  terms:
+  - measure:regulator_effects_network
+- field: measure
+  stated: mitochondrial proteome clustering
+  terms:
+  - measure:expression_clusters
+  note: Clustering of mitochondrial proteins rather than genes; same analysis kind.
+- field: measure
+  stated: THIM (ACAA2) protein abundance (western blot)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: THIM (ACAA2)
+    normalised_to: Ponceau
+    expressed_as: fold
+  note: 'Method printed as ''western blot, normalized to Ponceau; fold change (AU)'': loading normalised to Ponceau, shown as fold.'
+- field: measure
+  stated: ATP5H protein abundance (western blot)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP5H
+    normalised_to: Ponceau
+    expressed_as: fold
+  note: 'Method printed as ''western blot, normalized to Ponceau; fold change (AU)'': loading normalised to Ponceau, shown as fold.'
+- field: measure
+  stated: mitochondrial mass (MitoTracker Green FM mean fluorescent intensity)
+  terms:
+  - measure:mitochondrial_mass
+- field: measure
+  stated: mtDNA content (Mt-ND1/2 normalized to actin)
+  terms:
+  - measure:mitochondrial_dna_content
+  qualifiers:
+    gene: Mt-ND1/2
+    normalised_to: actin
+    expressed_as: normalised
+- field: measure
+  stated: Mt-ND2 DNA content normalized to actin
+  terms:
+  - measure:mitochondrial_dna_content
+  qualifiers:
+    gene: Mt-ND2
+    normalised_to: actin
+    expressed_as: normalised
+- field: measure
+  stated: normalized force
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: normalised
+  note: The reference of the normalisation is not printed.
+- field: measure
+  stated: normalized force during hypoxia
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: normalised
+  split:
+  - words: during hypoxia
+    field: treatment
+  note: Hypoxia is an exposure, not part of the measure; the reference of the normalisation is not printed.
+- field: measure
+  stated: oxygen consumption rate (Seahorse XF Cell Mito Stress Test)
+  terms:
+  - measure:oxygen_consumption_rate
+  note: The assay is method, not measure.
+- field: measure
+  stated: glucose consumption (Δ cGluc in 4 h)
+  terms:
+  - measure:glucose_consumption
+  qualifiers:
+    interval: 4 h
+- field: measure
+  stated: lactate production (cLac increase in 4 h)
+  terms:
+  - measure:lactate_production
+  qualifiers:
+    interval: 4 h
+- field: measure
+  stated: 14C-CO2 from 14C-oleic acid (metabolic flux)
+  terms:
+  - measure:substrate_oxidation
+  qualifiers:
+    substrate: oleic acid
+- field: measure
+  stated: 14C-CO2 from 14C-lactate (metabolic flux)
+  terms:
+  - measure:substrate_oxidation
+  qualifiers:
+    substrate: lactate
+- field: measure
+  stated: 14C-CO2 from 14C-glucose (metabolic flux)
+  terms:
+  - measure:substrate_oxidation
+  qualifiers:
+    substrate: glucose
+- field: measure
+  stated: ATP produced by mitochondrial respiration per 4-hr incubation
+  terms:
+  - measure:atp_production
+  qualifiers:
+    pathway: mitochondrial respiration
+    interval: 4 hr
+- field: measure
+  stated: ATP production by anaerobic glycolysis
+  terms:
+  - measure:atp_production
+  qualifiers:
+    pathway: anaerobic glycolysis
+- field: measure
+  stated: relative contribution of glycolysis to ATP production
+  terms:
+  - measure:atp_production_share
+  qualifiers:
+    pathway: glycolysis
+- field: measure
+  stated: relative contribution of oxidation to ATP production
+  terms:
+  - measure:atp_production_share
+  qualifiers:
+    pathway: oxidation
+- field: measure
+  stated: relative contribution of fatty acid oxidation to ATP production
+  terms:
+  - measure:atp_production_share
+  qualifiers:
+    pathway: fatty acid oxidation
+- field: measure
+  stated: relative contribution of glucose oxidation to ATP production
+  terms:
+  - measure:atp_production_share
+  qualifiers:
+    pathway: glucose oxidation
+- field: measure
+  stated: relative contribution of lactate oxidation to ATP production
+  terms:
+  - measure:atp_production_share
+  qualifiers:
+    pathway: lactate oxidation
+- field: measure
+  stated: peak force
+  terms:
+  - measure:twitch_force
+  qualifiers: &id001
+    expressed_as: fold
+    normalised_to: control EHT (mean)
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold.'
+- field: measure
+  stated: fractional shortening
+  terms:
+  - measure:contractile_shortening
+  qualifiers: *id001
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold.'
+- field: measure
+  stated: resting length
+  terms:
+  - measure:tissue_length
+  qualifiers:
+    expressed_as: fold
+    normalised_to: control EHT (mean)
+    phase: resting
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold.'
+- field: measure
+  stated: contraction time T1 [80%]
+  terms:
+  - measure:contraction_time_to_peak
+  qualifiers:
+    expressed_as: fold
+    normalised_to: control EHT (mean)
+    level: 80%
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold. Level as printed in
+    T1 [80%].'
+- field: measure
+  stated: contraction time T1 [50%]
+  terms:
+  - measure:contraction_time_to_peak
+  qualifiers:
+    expressed_as: fold
+    normalised_to: control EHT (mean)
+    level: 50%
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold. Level as printed in
+    T1 [50%].'
+- field: measure
+  stated: relaxation time T2 [80%]
+  terms:
+  - measure:relaxation_time
+  qualifiers:
+    expressed_as: fold
+    normalised_to: control EHT (mean)
+    level: 80%
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold. Level as printed in
+    T2 [80%].'
+- field: measure
+  stated: relaxation time T2 [50%]
+  terms:
+  - measure:relaxation_time
+  qualifiers:
+    expressed_as: fold
+    normalised_to: control EHT (mean)
+    level: 50%
+  note: 'Method printed as ''fold change normalized to control (mean)'': a ratio to the control group, printed as a fold. Level as printed in
+    T2 [50%].'
+- field: measure
+  stated: correlation of mtDNA content with force
+  terms:
+  - measure:between_measure_correlation
+  qualifiers:
+    measures: mtDNA content; force
+- field: measure
+  stated: correlation of mtDNA content with spontaneous beating frequency
+  terms:
+  - measure:between_measure_correlation
+  qualifiers:
+    measures: mtDNA content; spontaneous beating frequency

@@ -1,0 +1,1538 @@
+record: 2017_Shadrin
+formula_library_version: 10
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F3b_cells.fewer_cells:
+    item: F3b_cells
+    formula: s = (c1 - c05)/c1
+    anchor:
+      quote: These tissues contained 23% fewer cells per field of view
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: c05
+        x0: c1
+    inputs:
+      c05:
+        value: F3b_cells.values.cells_mm05
+        part: mean
+        kind: per sample
+      c1:
+        value: F3b_cells.values.cells_mm1
+        part: mean
+        kind: per sample
+    output: F3b_cells.values.cells_difference
+    note: 'Two unpaired groups: the printed 23 % can only be a difference of group means.'
+  F3d_thickness.thinner:
+    item: F3d_thickness
+    formula: s = (t1 - t05)/t1
+    anchor:
+      quote: were on average 29% thinner
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: t05
+        x0: t1
+    inputs:
+      t05:
+        value: F3d_thickness.values.thick_mm05
+        part: mean
+        kind: per sample
+      t1:
+        value: F3d_thickness.values.thick_mm1
+        part: mean
+        kind: per sample
+    output: F3d_thickness.values.thick_difference
+  F3e_cellnumber.relative_cells:
+    item: F3e_cellnumber
+    formula: r = (t05*c05)/(t1*c1)
+    anchor:
+      quote: The relative cell counts estimated from cardiopatch thickness multiplied by cells per field of view
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_of_products
+      vars:
+        r: r
+        a1: t05
+        a2: c05
+        b1: t1
+        b2: c1
+    inputs:
+      t05:
+        value: F3d_thickness.values.thick_mm05
+        part: mean
+        kind: per sample
+      c05:
+        value: F3b_cells.values.cells_mm05
+        part: mean
+        kind: per sample
+      t1:
+        value: F3d_thickness.values.thick_mm1
+        part: mean
+        kind: per sample
+      c1:
+        value: F3b_cells.values.cells_mm1
+        part: mean
+        kind: per sample
+    output: F3e_cellnumber.values.relative_cells
+    aggregation: not stated
+    note: Fig. 3e has n = 13/16 patches while thickness (n = 22/25) and cell counts come from their own patch sets; whether
+      the product was formed per patch or from group means is not stated. Per-patch values are not printed or read, so only
+      the of-means alternative can run.
+  F3e_volume.relative_volume:
+    item: F3e_volume
+    formula: v = t05/t1
+    anchor:
+      quote: the relative cell numbers and volumes of 0.5 vs. 1MM tissues (54% of cells in 71% volume)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: t05
+        b: t1
+    inputs:
+      t05:
+        value: F3d_thickness.values.thick_mm05
+        part: mean
+        kind: per sample
+      t1:
+        value: F3d_thickness.values.thick_mm1
+        part: mean
+        kind: per sample
+    output: F3e_volume.values.relative_volume
+    alternatives:
+    - label: volume = patch area x thickness, areas equal
+      note: The paper does not state how volume was obtained; a thickness ratio equals the volume ratio only if both patch
+        sizes have the same area (both cast in 7 x 7 mm molds).
+  F3e_cellsize.size_ratio:
+    item: F3e_cellsize
+    formula: q = v/n
+    anchor:
+      quote: suggested that the cell size in 0.5MM cardiopatches was increased by ~30%
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: v
+        b: n
+    inputs:
+      v:
+        value: F3e_volume.values.relative_volume
+        kind: constant
+      n:
+        value: F3e_cellnumber.values.relative_cells
+        kind: constant
+    note: 'Volume per cell, 0.5MM relative to 1MM: relative volume over relative cell number (no printed output; feeds F3e_cellsize.increase).'
+  F3e_cellsize.increase:
+    item: F3e_cellsize
+    formula: dq = q - 1
+    anchor:
+      quote: suggested that the cell size in 0.5MM cardiopatches was increased by ~30%
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: relative_change_from_ratio
+      vars:
+        d: dq
+        r: q
+    inputs:
+      q:
+        derived: F3e_cellsize.size_ratio
+        kind: constant
+    output: F3e_cellsize.values.cellsize_increase
+  F3g_force.ratio:
+    item: F3g_force
+    formula: r = F05/F1
+    anchor:
+      quote: 0.5MM cardiopatches produced 88% of the active force of 1MM patches
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F05
+        b: F1
+    inputs:
+      F05:
+        value: F3g_force.values.force_mm05
+        part: mean
+        kind: per sample
+      F1:
+        value: F3g_force.values.force_mm1
+        part: mean
+        kind: per sample
+    output: F3g_force.values.force_ratio
+  F3g_percell.per_input_cm_mm05:
+    item: F3g_percell
+    group: mm05
+    formula: f = F/N
+    anchor:
+      quote: contractile force production per input CM
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: F3g_force.values.force_mm05
+        part: mean
+        kind: per sample
+      N:
+        printed: 0.5 × 106
+        unit: cells
+        kind: constant
+        anchor:
+          quote: was mixed with 1 × 106 (1 MM) or 0.5 × 106 (0.5 MM)
+          where: Methods, Cardiopatch fabrication and culture
+    output: F3g_percell.values.percell_mm05
+    output_unit: nN
+    alternatives:
+    - label: input CMs = seeded cells x cTnT+ fraction
+      formula: f = F/(N*p)
+      note: The definition is by citation (ref 24). If 'input CM' counts only the cTnT+ share of the seeded cells (86.3 %,
+        F1a_purity), the rebuilt values rise by 1/0.863.
+    note: 'N is the number of cells seeded per patch (Methods); the paper calls the 0.5MM group ''0.5 million myocytes''.
+      Per-patch forces over one constant N: of-means and mean-of-per-sample agree.'
+  F3g_percell.per_input_cm_mm1:
+    item: F3g_percell
+    group: mm1
+    formula: f = F/N
+    anchor:
+      quote: contractile force production per input CM
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: F3g_force.values.force_mm1
+        part: mean
+        kind: per sample
+      N:
+        printed: 1 × 106
+        unit: cells
+        kind: constant
+        anchor:
+          quote: was mixed with 1 × 106 (1 MM) or 0.5 × 106 (0.5 MM)
+          where: Methods, Cardiopatch fabrication and culture
+    output: F3g_percell.values.percell_mm1
+    output_unit: nN
+    alternatives:
+    - label: input CMs = seeded cells x cTnT+ fraction
+      formula: f = F/(N*p)
+      note: The definition is by citation (ref 24). If 'input CM' counts only the cTnT+ share of the seeded cells (86.3 %,
+        F1a_purity), the rebuilt values rise by 1/0.863.
+    note: 'N is the number of cells seeded per patch (Methods); the paper calls the 0.5MM group ''0.5 million myocytes''.
+      Per-patch forces over one constant N: of-means and mean-of-per-sample agree.'
+  F2b_specific_w1.specific_w1:
+    item: F2b_specific_w1
+    group: w1
+    measure: specific force
+    formula: sigma = F/A
+    anchor: &id001
+      quote: divided by the cross-sectional area of the patch (same as the one used for calculation of specific forces)
+      where: Methods, Assessment of biomechanical properties
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F2b_force_w1.values.force_w1
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: F2b_specific_w1.values.specific_w1
+    aggregation: not stated
+  F2b_specific_w3.specific_w3:
+    item: F2b_specific_w3
+    group: w3
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F2b_force_w3.values.force_w3
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: F2b_specific_w3.values.specific_w3
+    aggregation: not stated
+  TXT1_force.specific_opt:
+    item: TXT1_force
+    group: opt
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: TXT1_force.values.force
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: TXT1_force.values.specific
+    aggregation: not stated
+  F3g_specific.specific_mm05:
+    item: F3g_specific
+    group: mm05
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F3g_force.values.force_mm05
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: F3g_specific.values.spec_mm05
+    aggregation: not stated
+  F3g_specific.specific_mm1:
+    item: F3g_specific
+    group: mm1
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F3g_force.values.force_mm1
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: F3g_specific.values.spec_mm1
+    aggregation: not stated
+  TXT2_specific.specific_ctrl:
+    item: TXT2_specific
+    group: ctrl
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: TXT2_force.values.force_ctrl
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: TXT2_specific.values.spec_ctrl
+    aggregation: not stated
+  TXT2_specific.specific_mega:
+    item: TXT2_specific
+    group: mega
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: TXT2_force.values.force_mega
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: TXT2_specific.values.spec_mega
+    aggregation: not stated
+  TXT2_specific.specific_giga:
+    item: TXT2_specific
+    group: giga
+    measure: specific force
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        value: TXT2_force.values.force_giga
+        part: mean
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: The cross-sectional area is not printed, nor how it was measured.
+    output: TXT2_specific.values.spec_giga
+    aggregation: not stated
+  F2c_stiffness.stiffness_w3:
+    item: F2c_stiffness
+    group: w3
+    formula: E = s/A
+    anchor:
+      quote: Stiffness was measured as the slope of the passive tension curve at the highest three strain levels (112–120%)
+        divided by the cross-sectional area of the patch
+      where: Methods, Assessment of biomechanical properties
+    no_formula: 'A tangent stiffness: the slope of passive tension against strain (a fit over three strain levels) divided
+      by the area. No library entry covers a slope; stress_def is force over area, and a slope is not a force.'
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: slope of passive tension vs strain, not printed
+      A:
+        not_stated: true
+        kind: per sample
+    output: F2c_stiffness.values.stiffness_w3
+  S10b_force.fold:
+    item: S10b_force
+    formula: r = Fdyn/Fstat
+    anchor:
+      quote: exhibited 4.9-fold reduced contractile forces (1.03 vs. 5.1 mN
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fdyn
+        b: Fstat
+    inputs:
+      Fdyn:
+        value: S10b_force.values.force_dyn
+        kind: per sample
+      Fstat:
+        value: S10b_force.values.force_stat
+        kind: per sample
+    output: S10b_force.values.force_fold
+  S10d_cv.fold:
+    item: S10d_cv
+    formula: r = vdyn/vstat
+    anchor:
+      quote: ~3-fold lower CVs (8.7 vs. 27.2 cm/s
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: vdyn
+        b: vstat
+    inputs:
+      vdyn:
+        value: S10d_cv.values.cv_dyn
+        kind: per sample
+      vstat:
+        value: S10d_cv.values.cv_stat
+        kind: per sample
+    output: S10d_cv.values.cv_fold
+  S5b_f15.pct_of_1hz:
+    item: S5b_f15
+    group: f15
+    formula: r = Fx/F1
+    anchor:
+      quote: of 1 Hz force maintained at 1.5 and 2 Hz stimulation
+      where: Results, Functional maturation of cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fx
+        b: F1
+    inputs:
+      Fx:
+        reading: S5b/f15.f15
+        kind: per sample
+      F1:
+        reading: S5b/f15.f1
+        kind: per sample
+    output: S5b_f15.values.force_f15
+    note: Each patch's force at 1.5 Hz over its own 1 Hz force (the SEM is non-zero, so the normalisation is per patch). The
+      readings are of the plotted normalised means, so the 1 Hz reference is 1 for every patch and the ratio of the two readings
+      equals the mean of the per-sample ratios; no aggregation alternative is needed.
+  S5b_f2.pct_of_1hz:
+    item: S5b_f2
+    group: f2
+    formula: r = Fx/F1
+    anchor:
+      quote: of 1 Hz force maintained at 1.5 and 2 Hz stimulation
+      where: Results, Functional maturation of cardiopatches
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fx
+        b: F1
+    inputs:
+      Fx:
+        reading: S5b/f2.f2
+        kind: per sample
+      F1:
+        reading: S5b/f2.f1
+        kind: per sample
+    output: S5b_f2.values.force_f2
+    note: Each patch's force at 2 Hz over its own 1 Hz force (the SEM is non-zero, so the normalisation is per patch). The
+      readings are of the plotted normalised means, so the 1 Hz reference is 1 for every patch and the ratio of the two readings
+      equals the mean of the per-sample ratios; no aggregation alternative is needed.
+  F6c_d14_vs_d7.fold:
+    item: F6c_d14_vs_d7
+    formula: r = B14/B7
+    anchor:
+      quote: a 1.6-fold increase in blood vessel density
+      where: Results, Cardiopatch vascularization and function in window chambers
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: B14
+        b: B7
+    inputs:
+      B14:
+        reading: F6c/d14_vs_d7.patch_d14
+        kind: per sample
+      B7:
+        reading: F6c/d14_vs_d7.patch_d7
+        kind: per sample
+    output: F6c_d14_vs_d7.values.bvd_fold
+    aggregation: not stated
+    note: Repeated measures in the same mice; whether the fold is of means or a mean of per-mouse folds is not stated.
+  F6c_d14_vs_d7.bvd:
+    item: F6c_d14_vs_d7
+    formula: B = Av/Ap
+    anchor:
+      quote: blood vessel density (BVD, total area of blood vessels per patch area
+      where: Methods, Intravital imaging of vasculature and Ca2+ transients
+    library:
+      formula: ratio_def
+      vars:
+        r: B
+        a: Av
+        b: Ap
+    inputs:
+      Av:
+        not_stated: true
+        kind: per sample
+      Ap:
+        not_stated: true
+        kind: per sample
+    note: Definition of the plotted BVD (A.U.); no part is printed.
+  S18_no_arrhythmia.no_arrhythmia_total:
+    item: S18_no_arrhythmia
+    formula: k = kp + kc
+    anchor: &id002
+      quote: In 75% of attempts, burst pacing at 2–20 Hz
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+    library:
+      formula: sum_of_parts
+      vars:
+        t: k
+        a: kp
+        b: kc
+    inputs:
+      kp:
+        value: S18_no_arrhythmia.values.patch_no_arr
+        kind: constant
+      kc:
+        value: S18_no_arrhythmia.values.ctrl_no_arr
+        kind: constant
+  S18_no_arrhythmia.attempts_total:
+    item: S18_no_arrhythmia
+    formula: m = mp + mc
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: m
+        a: mp
+        b: mc
+    inputs:
+      mp:
+        value: S18_no_arrhythmia.values.patch_attempts
+        kind: constant
+      mc:
+        value: S18_no_arrhythmia.values.ctrl_attempts
+        kind: constant
+  S18_no_arrhythmia.share:
+    item: S18_no_arrhythmia
+    formula: f = k/m
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: k
+        b: m
+    inputs:
+      k:
+        derived: S18_no_arrhythmia.no_arrhythmia_total
+        kind: constant
+      m:
+        derived: S18_no_arrhythmia.attempts_total
+        kind: constant
+    output: S18_no_arrhythmia.values.share
+    alternatives:
+    - label: per group, each about 75 %
+      note: '''in both'' may mean each group separately: 40/54 = 74.1 % and 36/48 = 75.0 %.'
+  F4a_TNNI3.ddct:
+    item: F4a_TNNI3
+    formula: r = 2**(-ddct)
+    anchor: &id003
+      quote: Relative expression of target genes was quantified by the ΔΔCt method using GAPDH as the housekeeping gene
+      where: Methods, qRT-PCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_MYL2.ddct:
+    item: F4a_MYL2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_MYOM2.ddct:
+    item: F4a_MYOM2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_CASQ2.ddct:
+    item: F4a_CASQ2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_MYOM3.ddct:
+    item: F4a_MYOM3
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_CKMT2.ddct:
+    item: F4a_CKMT2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_S100A1.ddct:
+    item: F4a_S100A1
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_COX6A2.ddct:
+    item: F4a_COX6A2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_CKM.ddct:
+    item: F4a_CKM
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_PLN.ddct:
+    item: F4a_PLN
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_fold_range.ddct:
+    item: F4a_fold_range
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4b_MYOM3.ddct:
+    item: F4b_MYOM3
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4b_CASQ2.ddct:
+    item: F4b_CASQ2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4b_S100A1.ddct:
+    item: F4b_S100A1
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4b_COX6A2.ddct:
+    item: F4b_COX6A2
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  S11_patch_vs_d0.ddct:
+    item: S11_patch_vs_d0
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  S11_patch_vs_mono.ddct:
+    item: S11_patch_vs_mono
+    formula: r = 2**(-ddct)
+    anchor: *id003
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values are not reported
+    note: Relative expression per sample; F4a is normalised to adult left ventricle, F4b to 1MM, S11 to d0 or to age-matched
+      monolayers.
+  F4a_MYL2.fold_w3_d0:
+    item: F4a_MYL2
+    formula: r = e3/e0
+    anchor: &id004
+      quote: including a 108-fold and 163-fold increase in MYL2 and CASQ2 expression
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: e3
+        b: e0
+    inputs:
+      e3:
+        reading: F4a/MYL2.w3
+        kind: per sample
+      e0:
+        reading: F4a/MYL2.d0
+        kind: per sample
+    output: F4a_MYL2.values.myl2_fold
+    note: 'From the Fig. 4a bars (relative to adult LV, log axis): week 3 over d0.'
+  F4a_MYL2.fold_w3_d0_s11:
+    item: F4a_MYL2
+    formula: r = e3/e0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: e3
+        b: e0
+    inputs:
+      e3:
+        reading: S11/MYL2.patch_vs_d0.patch
+        kind: per sample
+      e0:
+        reading: S11/MYL2.patch_vs_d0.d0
+        kind: per sample
+    output: F4a_MYL2.values.myl2_fold
+    note: The same fold from the Suppl. Fig. 11A bars (relative to d0), which the anchor also cites.
+  F4a_CASQ2.fold_w3_d0:
+    item: F4a_CASQ2
+    formula: r = e3/e0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: e3
+        b: e0
+    inputs:
+      e3:
+        reading: F4a/CASQ2.w3
+        kind: per sample
+      e0:
+        reading: F4a/CASQ2.d0
+        kind: per sample
+    output: F4a_CASQ2.values.casq2_fold
+    note: 'From the Fig. 4a bars (relative to adult LV, log axis): week 3 over d0.'
+  F4a_CASQ2.fold_w3_d0_s11:
+    item: F4a_CASQ2
+    formula: r = e3/e0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: e3
+        b: e0
+    inputs:
+      e3:
+        reading: S11/CASQ2.patch_vs_d0.patch
+        kind: per sample
+      e0:
+        reading: S11/CASQ2.patch_vs_d0.d0
+        kind: per sample
+    output: F4a_CASQ2.values.casq2_fold
+    note: The same fold from the Suppl. Fig. 11A bars (relative to d0), which the anchor also cites.
+  F4a_fold_range.median:
+    item: F4a_fold_range
+    formula: not stated
+    anchor:
+      quote: gene expression at 3 weeks of culture was 3- to 163-fold higher (median 23-fold) compared to d0
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    no_formula: Minimum, maximum and median over ten genes; the library has no median or extreme-value reduction.
+    output: F4a_fold_range.values.fold_median
+    note: 'Suppl. Fig. 11A readings (S11/<gene>.patch_vs_d0.patch) give the ten folds: min 2.9, max 162.9, median 22.7.'
+  S11_patch_vs_mono.myom2_fold:
+    item: S11_patch_vs_mono
+    formula: r = ep/em
+    anchor:
+      quote: with 10-fold higher MYOM2 expression
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ep
+        b: em
+    inputs:
+      ep:
+        reading: S11/MYOM2.patch_vs_mono.patch
+        kind: per sample
+      em:
+        reading: S11/MYOM2.patch_vs_mono.mono
+        kind: per sample
+    output: S11_patch_vs_mono.values.myom2_fold
+  S11_patch_vs_mono.avg_fold:
+    item: S11_patch_vs_mono
+    formula: not stated
+    anchor:
+      quote: increase in the expression of 9 out of 10 maturation genes
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    no_formula: An average over nine of ten genes' folds (which nine, and arithmetic or geometric mean, not stated); mean_def
+      needs the sum as an input and no entry selects a subset.
+    output: S11_patch_vs_mono.values.avg_fold
+    note: From the S11 B readings, the arithmetic mean of the nine genes other than MYOM2 is about 3.1.
+  F4e_SAA.fold:
+    item: F4e_SAA
+    formula: r = p05/p1
+    anchor:
+      quote: 1.7, 1.4, and 1.3-fold higher expression of SAA, βMHC, and Cx43 proteins
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p05
+        b: p1
+    inputs:
+      p05:
+        reading: F4ce/SAA.mm05
+        kind: per sample
+      p1:
+        reading: F4ce/SAA.mm1
+        kind: per sample
+    output: F4e_SAA.values.fold
+    note: Bands are normalised to LamB1 and shown relative to 1MM, so the 1MM bar reads ~1.
+  F4e_bMHC.fold:
+    item: F4e_bMHC
+    formula: r = p05/p1
+    anchor:
+      quote: 1.7, 1.4, and 1.3-fold higher expression of SAA, βMHC, and Cx43 proteins
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p05
+        b: p1
+    inputs:
+      p05:
+        reading: F4ce/bMHC.mm05
+        kind: per sample
+      p1:
+        reading: F4ce/bMHC.mm1
+        kind: per sample
+    output: F4e_bMHC.values.fold
+    note: Bands are normalised to LamB1 and shown relative to 1MM, so the 1MM bar reads ~1.
+  F4e_Cx43.fold:
+    item: F4e_Cx43
+    formula: r = p05/p1
+    anchor:
+      quote: 1.7, 1.4, and 1.3-fold higher expression of SAA, βMHC, and Cx43 proteins
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p05
+        b: p1
+    inputs:
+      p05:
+        reading: F4ce/Cx43.mm05
+        kind: per sample
+      p1:
+        reading: F4ce/Cx43.mm1
+        kind: per sample
+    output: F4e_Cx43.values.fold
+    note: Bands are normalised to LamB1 and shown relative to 1MM, so the 1MM bar reads ~1.
+  F4c_proteindna.pct_higher:
+    item: F4c_proteindna
+    formula: dx = (x05 - x1)/x1
+    anchor:
+      quote: were 13 and 33% higher in 0.5MM than 1MM cardiopatches
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: relative_change
+      vars:
+        d: dx
+        x: x05
+        x0: x1
+    inputs:
+      x05:
+        reading: F4ce/proteindna.mm05
+        kind: per sample
+      x1:
+        reading: F4ce/proteindna.mm1
+        kind: per sample
+    output: F4c_proteindna.values.proteindna
+  F4e_gapdh.pct_higher:
+    item: F4e_gapdh
+    formula: dx = (x05 - x1)/x1
+    anchor:
+      quote: were 13 and 33% higher in 0.5MM than 1MM cardiopatches
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    library:
+      formula: relative_change
+      vars:
+        d: dx
+        x: x05
+        x0: x1
+    inputs:
+      x05:
+        reading: F4ce/gapdh.mm05
+        kind: per sample
+      x1:
+        reading: F4ce/gapdh.mm1
+        kind: per sample
+    output: F4e_gapdh.values.gapdh
+  F6h_dff.dff:
+    item: F6h_dff
+    formula: dff = (Fp - Fb)/Fb
+    anchor:
+      quote: averaging relative fluorescence intensity (dF/F = [Fpeak− Fbase]/
+      where: Methods, Intravital imaging of vasculature and Ca2+ transients
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: Fp
+        x0: Fb
+    inputs:
+      Fp:
+        not_stated: true
+        kind: per sample
+      Fb:
+        not_stated: true
+        kind: per sample
+    note: Averaged over three regions per patch; Fig. 6h then shows dF/F normalised to d7 (not printed).
+  F2f_force.normalised:
+    item: F2f_force
+    formula: r = x/x0
+    anchor:
+      quote: normalized to those made of hiPSC-CMs
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: the hiPSC-CM cardiopatches reference (force); whether a group mean or a matched patch is not stated
+    note: The printed ±20 % bounds r - 1 across the three hESC lines.
+  F2f_specific.normalised:
+    item: F2f_specific
+    formula: r = x/x0
+    anchor:
+      quote: normalized to those made of hiPSC-CMs
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: the hiPSC-CM cardiopatches reference (specific force); whether a group mean or a matched patch is not stated
+    note: The printed ±20 % bounds r - 1 across the three hESC lines.
+  F2f_cv.normalised:
+    item: F2f_cv
+    formula: r = x/x0
+    anchor:
+      quote: normalized to those made of hiPSC-CMs
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: the hiPSC-CM cardiopatches reference (CV); whether a group mean or a matched patch is not stated
+    note: The printed ±20 % bounds r - 1 across the three hESC lines.
+  F5h_giga_vs_ctrl.normalised:
+    item: F5h_giga_vs_ctrl
+    formula: r = x/x0
+    anchor:
+      quote: shown relative to Ctrl cardiopatch
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: the Ctrl cardiopatches reference (force); whether a group mean or a matched patch is not stated
+    note: Fig. 5h, i are from patches 'derived from the same input cells', a set other than the TXT2 means (4.6/9.4/17.5 mN,
+      'for this set of experiments'), so TXT2 values are not used as inputs.
+  F5h_giga_vs_mega.normalised:
+    item: F5h_giga_vs_mega
+    formula: r = x/x0
+    anchor:
+      quote: shown relative to Ctrl cardiopatch
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: the Ctrl cardiopatches reference (force); whether a group mean or a matched patch is not stated
+    note: Fig. 5h, i are from patches 'derived from the same input cells', a set other than the TXT2 means (4.6/9.4/17.5 mN,
+      'for this set of experiments'), so TXT2 values are not used as inputs.
+  F5i_specific.normalised:
+    item: F5i_specific
+    formula: r = x/x0
+    anchor:
+      quote: shown relative to Ctrl cardiopatch
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: the Ctrl cardiopatches reference (specific force); whether a group mean or a matched patch is not stated
+    note: Fig. 5h, i are from patches 'derived from the same input cells', a set other than the TXT2 means (4.6/9.4/17.5 mN,
+      'for this set of experiments'), so TXT2 values are not used as inputs.
+  F2e_cv_w3.cv:
+    item: F2e_cv_w3
+    measure: conduction velocity
+    formula: not stated
+    anchor: &id005
+      quote: were derived from acquired signals using our custom MATLAB software
+      where: Methods, Assessment of electrical propagation
+    no_formula: Conduction velocity computed by the lab's custom MATLAB software, stated only by citation (ref 66); no distance
+      or activation times are printed.
+    inputs:
+      v:
+        by_reference:
+          citation: ref66
+          anchor: *id005
+        kind: per sample
+  TXT1_cv.cv:
+    item: TXT1_cv
+    measure: conduction velocity
+    formula: not stated
+    anchor: *id005
+    no_formula: Conduction velocity computed by the lab's custom MATLAB software, stated only by citation (ref 66); no distance
+      or activation times are printed.
+    inputs:
+      v:
+        by_reference:
+          citation: ref66
+          anchor: *id005
+        kind: per sample
+  F3h_cv.cv:
+    item: F3h_cv
+    measure: conduction velocity
+    formula: not stated
+    anchor: *id005
+    no_formula: Conduction velocity computed by the lab's custom MATLAB software, stated only by citation (ref 66); no distance
+      or activation times are printed.
+    inputs:
+      v:
+        by_reference:
+          citation: ref66
+          anchor: *id005
+        kind: per sample
+  F5e_cv.cv:
+    item: F5e_cv
+    measure: conduction velocity
+    formula: not stated
+    anchor: *id005
+    no_formula: Conduction velocity computed by the lab's custom MATLAB software, stated only by citation (ref 66); no distance
+      or activation times are printed.
+    inputs:
+      v:
+        by_reference:
+          citation: ref66
+          anchor: *id005
+        kind: per sample
+  F7e_cv.cv:
+    item: F7e_cv
+    measure: conduction velocity
+    formula: not stated
+    anchor: not stated
+    no_formula: How CV was computed from the in vivo / ex vivo optical maps is not stated.
+  F7f_cv.cv:
+    item: F7f_cv
+    measure: conduction velocity
+    formula: not stated
+    anchor: not stated
+    no_formula: How CV was computed from the in vivo / ex vivo optical maps is not stated.
+assumptions:
+  F4a_TNNI3.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_MYL2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_MYOM2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_CASQ2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_MYOM3.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_CKMT2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_S100A1.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_COX6A2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_CKM.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_PLN.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4a_fold_range.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4b_MYOM3.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4b_CASQ2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4b_S100A1.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4b_COX6A2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S11_patch_vs_d0.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S11_patch_vs_mono.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported:
+          primer efficiency: verified to have >85% primer efficiency
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- item: F1a_purity
+  value: F1a_purity.values.purity_text
+  formula: fraction_bounds
+- item: F1a_purity
+  value: F1a_purity.values.range_low
+  formula: fraction_bounds
+- item: F1a_purity
+  value: F1a_purity.values.range_high
+  formula: fraction_bounds
+- item: F1g_w1
+  value: F1g_w1.values.ki67_w1
+  formula: fraction_bounds
+- item: F1g_w3
+  value: F1g_w3.values.ki67_w3
+  formula: fraction_bounds
+- item: F1i_mlc2v_w3
+  value: F1i_mlc2v_w3.values.mlc2v_w3
+  formula: fraction_bounds
+- item: S18_no_arrhythmia
+  value: S18_no_arrhythmia.values.share
+  formula: fraction_bounds
+proposals:
+- formula: ratio_of_products
+  kind: derived
+  statement: The ratio of two products is the product of the ratios of their factors, (a1*a2)/(b1*b2) = (a1/b1)*(a2/b2); e.g.
+    a cell number estimated as thickness times cells per field.
+  equations:
+  - r = (a1*a2)/(b1*b2)
+  variables:
+    r: dimensionless
+    a1: D
+    b1: D
+    a2: D2
+    b2: D2
+    p: D*D2
+    q: D*D2
+  assumes:
+  - p = a1*a2
+  - q = b1*b2
+  uses:
+  - formula: ratio_def
+    subs:
+      r: r
+      a: p
+      b: q
+  does_not_apply: a ratio of sums, or a mean of per-sample products compared with a product of group means
+  tests:
+  - given:
+      a1: 2.0
+      a2: 3.0
+      b1: 1.0
+      b2: 2.0
+    expect:
+      r: 3.0
+  - given:
+      a1: 2.0
+      a2: 3.0
+      b1: 1.0
+      b2: 2.0
+    does_not_apply: ratio of sums (2 + 3)/(1 + 2) = 1.67, not 3

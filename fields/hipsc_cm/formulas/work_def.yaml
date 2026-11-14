@@ -1,0 +1,25 @@
+# Written by code from changes.yaml (version 4); never edited.
+formula: work_def
+kind: definition
+statement: The work done by a constant force along a straight displacement in its direction is the force times the displacement.
+equations:
+- W = F*d
+variables:
+  W: energy
+  F: force
+  d: length
+does_not_apply: a force not along the displacement (W = F d cos θ) or a force that varies along the path (W is the integral
+  of F)
+tests:
+- given:
+    F: 2.0
+    d: 3.0
+  expect:
+    W: 6.0
+- given:
+    F: 2.0
+    d: 3.0
+  does_not_apply: 'force at 60° to the displacement: W = 3, not 6'
+cites:
+  text: 'ISO 80000-4:2019 Quantities and units, Part 4: Mechanics (work)'
+  url: https://www.iso.org/standard/64975.html

@@ -1,0 +1,34 @@
+# Written by code from changes.yaml (version 10); never edited.
+formula: relative_change_from_ratio
+kind: derived
+statement: The relative change of a value from a reference is the ratio of the value to the reference minus one.
+equations:
+- d = r - 1
+variables:
+  d: dimensionless
+  r: dimensionless
+  x: D
+  x0: D
+uses:
+- formula: relative_change
+  subs:
+    d: d
+    x: x
+    x0: x0
+- formula: ratio_def
+  subs:
+    r: r
+    a: x
+    b: x0
+does_not_apply: a ratio of means compared with a mean of per-sample changes when the reference varies, or a change on a log
+  scale
+tests:
+- given:
+    x: 6.0
+    x0: 5.0
+  expect:
+    r: 1.2
+    d: 0.2
+- given:
+    r: 1.2
+  does_not_apply: a log2 ratio of 1.2 is a change of 2**1.2 - 1 = 1.30, not 0.2

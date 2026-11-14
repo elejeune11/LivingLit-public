@@ -1,0 +1,262 @@
+record: 2018_Leonard
+vocabulary_version: 68
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---- context synonyms (code matches these next time)
+- add_synonym: {id: CHEBI:91091, text: Chiron 99021, anchor: "small molecule Wnt modulators Chiron 99021 and Xav939"}
+- add_synonym: {id: CL:0000499, field: cell_types, text: stromal cells, anchor: "supporting HS27a human bone marrow stromal cells"}
+- add_synonym: {id: measurement_medium:tyrode_solution, text: Tyrode buffer, anchor: "immediately transferred into a bath of Tyrode buffer"}
+- add_synonym: {id: preparation:intact_tissue, text: in situ, anchor: "In situ force measurements were taken for EHT contractions"}
+- add_synonym: {id: preparation:intact_tissue, text: whole EHTs, anchor: "which allowed visualization of whole EHTs"}
+- add_synonym: {id: preparation:lysate, text: lysed, anchor: "Cells were then lysed by adding"}
+- add_synonym: {id: measure:contractile_velocity, text: shortening velocity, anchor: "For twitch force, twitch stress, shortening velocity, power, and work the plotted data"}
+# ---- adopted ids
+- adopt:
+    field: stromal_cell
+    id: CL:0010001
+    label: stromal cell of bone marrow
+    lookup: "livinglit lookup cl 'bone marrow stromal cell' -> CL:0010001 (exact); HS27a itself is Cellosaurus CVCL_3719 but stromal_cell adopts CL"
+    synonyms:
+    - {text: human bone marrow stromal cells, anchor: "supporting HS27a human bone marrow stromal cells"}
+# ---- own terms
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:trypsin
+    label: trypsin
+    parent: null
+    definition: Trypsin used to dissociate cells, with no EDTA or other additive stated.
+    scope: Trypsin with no EDTA named; trypsin-EDTA when EDTA is named, and not enzyme blends such as Accumax.
+    xref: [CHEBI:9765]
+- add_qualifier: {id: measure:twitch_force, name: contraction_mode, dimension: text}
+- add_qualifier: {id: measure:twitch_force, name: length, dimension: text}
+- add_qualifier: {id: measure:relaxation_time, name: contraction_mode, dimension: text}
+- add_qualifier: {id: measure:contraction_time_to_peak, name: contraction_mode, dimension: text}
+- add_term:
+    field: measure
+    id: measure:twitch_force_strain_slope
+    label: slope of twitch force against strain
+    parent: measure:frank_starling_response
+    dimension: force
+    definition: Slope of isometric twitch force against the tissue's strain over a stated strain range, the active force gained per unit stretch.
+    scope: The length dependence of twitch force in force units; not the same slope of twitch stress (slope of twitch stress against strain), and not the strain at which force peaks.
+- add_term:
+    field: measure
+    id: measure:strain_at_peak_force
+    label: strain at peak twitch force
+    parent: measure:frank_starling_response
+    dimension: dimensionless
+    definition: Strain of a tissue at which isometric twitch force reaches its maximum (Lmax) in a length-tension protocol.
+    scope: Where on the length axis force peaks; not a slope of force or stress against strain.
+- add_term:
+    field: measure
+    id: measure:z_disk_width
+    label: Z-disk width
+    parent: null
+    dimension: length
+    definition: Lateral width of Z-disks (the length of thresholded α-actinin objects across the myofibril) in stained cells.
+    scope: Width of the Z-disk across the myofibril; not sarcomere length along it, and not counts of sarcomeres or bands.
+- add_term:
+    field: measure
+    id: measure:cell_cross_sectional_area
+    label: cross-sectional cell area
+    parent: measure:cell_area
+    dimension: area
+    definition: Area of single cells traced on transverse sections of a tissue.
+    scope: Cell size on a cross-section of the tissue; the parent is the projected (longitudinal) area of one cell.
+- add_term:
+    field: measure
+    id: measure:force_resolution
+    label: force resolution
+    parent: null
+    dimension: force
+    definition: Smallest force a measurement method can resolve, for example force per pixel of tracked post deflection.
+    scope: A property of the measuring method; not a force the tissue develops (twitch force) and not the stiffness of the loading post.
+# ---- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:twitch_force_strain_slope
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:strain_at_peak_force
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:z_disk_width
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_cross_sectional_area
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:force_resolution
+    value: {must_match: [platform, method], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform], may_vary: []}
+mappings:
+# ---- context
+- field: supplements
+  stated: B-27 plus insulin + penicillin/streptomycin + aminocaproic acid
+  terms: [supplements:b27, CHEBI:17334, CHEBI:17076, CHEBI:16586]
+  qualifiers: {insulin: with insulin}
+  note: "'B-27 plus insulin' is B27 with insulin (the qualifier); penicillin/streptomycin split on '/'"
+- field: mechanical_load
+  stated: afterload
+  terms: [mechanical_load:auxotonic]
+  note: "Every 'afterload' group contracts against a flexible PDMS post of stated stiffness (K1-K4, a group qualifier), i.e. an elastic load; 'afterload' is not made a synonym because a rigid load is also an afterload"
+- field: preparation
+  stated: removed from the posts
+  terms: [preparation:intact_tissue]
+  note: intact EHTs taken off the culture posts and mounted on a force transducer
+- field: day_of_measurement
+  stated: first week
+  flag: {kind: not a context, note: "a window of culture days, not a printed day; ask the reader to write it as a range (e.g. 'day 0–7') or leave it in the finding"}
+- field: day_of_measurement
+  stated: beyond three weeks
+  flag: {kind: not a context, note: "an open-ended span ('beyond three weeks'), not a day; ask the reader for a printed day or range"}
+# ---- measures
+- field: measure
+  stated: twitch force
+  terms: [measure:twitch_force]
+  qualifiers: {contraction_mode: auxotonic}
+  note: in situ on the culture posts (Fig. 2, Fig. S2A)
+- field: measure
+  stated: maximum isometric twitch force at Lmax
+  terms: [measure:twitch_force]
+  qualifiers: {contraction_mode: isometric, length: Lmax}
+- field: measure
+  stated: flexible post stiffness
+  terms: [measure:post_spring_constant]
+- field: measure
+  stated: resting length
+  terms: [measure:tissue_length]
+  qualifiers: {phase: rest}
+- field: measure
+  stated: twitch work
+  terms: [measure:contractile_work]
+  note: work done by the tissue on the flexible post per twitch
+- field: measure
+  stated: time to 50% decay
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 50% decay, contraction_mode: auxotonic}
+- field: measure
+  stated: isometric time to 50% decay
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 50% decay, contraction_mode: isometric}
+- field: measure
+  stated: isometric time to peak
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {contraction_mode: isometric}
+- field: measure
+  stated: cross-sectional area
+  terms: [measure:tissue_cross_sectional_area]
+  note: "EHT cross-section; not made a synonym because a cell's cross-sectional area is the same words"
+- field: measure
+  stated: strain at Lmax
+  terms: [measure:strain_at_peak_force]
+- field: measure
+  stated: force resolution of post tracking
+  terms: [measure:force_resolution]
+- field: measure
+  stated: cardiac troponin T positive cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cardiac troponin T}
+- field: measure
+  stated: slope of the Frank-Starling curve
+  terms: [measure:twitch_force_strain_slope]
+  note: plotted in μN/strain, slope from 0 % to 50 % strain
+- field: measure
+  stated: maximum contraction velocity at Lmax
+  terms: [measure:max_force_rise_rate]
+  note: "plotted in mN/sec and described as 'the rate of force development during an isometric twitch'"
+- field: measure
+  stated: maximum isometric twitch force against auxotonic twitch force
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: maximum isometric twitch force; auxotonic twitch force}
+- field: measure
+  stated: average cell area
+  terms: [measure:cell_area]
+  note: α-actinin positive area per nucleus
+- field: measure
+  stated: cell alignment
+  terms: [measure:tissue_anisotropy]
+  note: qualitative, from α-actinin and phalloidin staining; not a synonym because quantified alignment is the same words
+- field: measure
+  stated: sarcomere ultrastructure
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: sarcomeres}
+- field: measure
+  stated: calcium transient time to peak
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: time to peak}
+- field: measure
+  stated: calcium transient time to 50% decay
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 50% decay}
+- field: measure
+  stated: ratio of βMHC to αMHC protein
+  terms: [measure:protein_level]
+  qualifiers: {protein: βMHC, normalised_to: αMHC protein, expressed_as: fold}
+  note: densitometry ratio βMHC/αMHC, then relative to EHTs at Day 1
+- field: measure
+  stated: αMHC protein relative to lamin A/C
+  terms: [measure:protein_level]
+  qualifiers: {protein: αMHC, normalised_to: lamin A/C, expressed_as: fold}
+  note: relative to EHTs at Day 1
+- field: measure
+  stated: βMHC protein relative to lamin A/C
+  terms: [measure:protein_level]
+  qualifiers: {protein: βMHC, normalised_to: lamin A/C, expressed_as: fold}
+  note: relative to EHTs at Day 1
+- field: measure
+  stated: tissue stiffness
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: EHT}
+  note: slope of passive force against strain (0–40 %) divided by cross-sectional area, in kPa
+- field: measure
+  stated: bulk stiffness
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: fibrin gel without cells}
+- field: measure
+  stated: compaction and spontaneous contraction
+  flag: {kind: several measures, note: "compaction (tissue size) and the presence of spontaneous contraction are two measures in one item"}
+# gene expression: ΔΔCt fold change, HPRT housekeeping, relative to EHTs at Day 1 (Fig. 6A, 7A, S8)
+- {field: measure, stated: MYH6 expression, terms: [measure:gene_expression], qualifiers: {gene: MYH6, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: MYH7 expression, terms: [measure:gene_expression], qualifiers: {gene: MYH7, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: MYL2 expression, terms: [measure:gene_expression], qualifiers: {gene: MYL2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: ACTC1 expression, terms: [measure:gene_expression], qualifiers: {gene: ACTC1, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: TNNI3 expression, terms: [measure:gene_expression], qualifiers: {gene: TNNI3, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: ITGB1BP2 expression, terms: [measure:gene_expression], qualifiers: {gene: ITGB1BP2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: CASQ2 expression, terms: [measure:gene_expression], qualifiers: {gene: CASQ2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: CACNA1C expression, terms: [measure:gene_expression], qualifiers: {gene: CACNA1C, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: SCN5A expression, terms: [measure:gene_expression], qualifiers: {gene: SCN5A, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: RYR2 expression, terms: [measure:gene_expression], qualifiers: {gene: RYR2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: KCNJ2 expression, terms: [measure:gene_expression], qualifiers: {gene: KCNJ2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: HCN4 expression, terms: [measure:gene_expression], qualifiers: {gene: HCN4, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: NPPB expression, terms: [measure:gene_expression], qualifiers: {gene: NPPB, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: ADRA1B expression, terms: [measure:gene_expression], qualifiers: {gene: ADRA1B, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: ATP2A2 expression, terms: [measure:gene_expression], qualifiers: {gene: ATP2A2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: GLUT4 expression, terms: [measure:gene_expression], qualifiers: {gene: GLUT4, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: CPT1B expression, terms: [measure:gene_expression], qualifiers: {gene: CPT1B, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: TFAM expression, terms: [measure:gene_expression], qualifiers: {gene: TFAM, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: CKMT2 expression, terms: [measure:gene_expression], qualifiers: {gene: CKMT2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: TGFB2 expression, terms: [measure:gene_expression], qualifiers: {gene: TGFB2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: COL5A2 expression, terms: [measure:gene_expression], qualifiers: {gene: COL5A2, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: FN1 expression, terms: [measure:gene_expression], qualifiers: {gene: FN1, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: POSTN expression, terms: [measure:gene_expression], qualifiers: {gene: POSTN, expressed_as: fold, normalised_to: EHTs at Day 1}}
+- {field: measure, stated: CTGF expression, terms: [measure:gene_expression], qualifiers: {gene: CTGF, expressed_as: fold, normalised_to: EHTs at Day 1}}
+# NPPA and ACTA1 are printed both as fold (Fig. 7A) and as % change (Section 3.7): the values carry their own expressed_as
+- {field: measure, stated: NPPA expression, terms: [measure:gene_expression], qualifiers: {gene: NPPA}, note: "fold in Fig. 7A, % change in the text; values carry their own expressed_as"}
+- {field: measure, stated: ACTA1 expression, terms: [measure:gene_expression], qualifiers: {gene: ACTA1}, note: "fold in Fig. 7A, % change in the text; values carry their own expressed_as"}
+# Fig. 6B: Ct relative to HPRT only (fetal ventricle cDNA alongside)
+- {field: measure, stated: MYH6 expression relative to HPRT, terms: [measure:gene_expression], qualifiers: {gene: MYH6, expressed_as: normalised, normalised_to: HPRT}}
+- {field: measure, stated: MYH7 expression relative to HPRT, terms: [measure:gene_expression], qualifiers: {gene: MYH7, expressed_as: normalised, normalised_to: HPRT}}
+# Fig. 7B–C heat maps: z-scores of the ΔΔCt values across groups
+- {field: measure, stated: GLUT4 expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: GLUT4, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: CPT1B expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: CPT1B, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: TFAM expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: TFAM, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: CKMT2 expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: CKMT2, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: TGFB2 expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: TGFB2, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: CTGF expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: CTGF, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: COL5A2 expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: COL5A2, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: FN1 expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: FN1, expressed_as: normalised, normalised_to: z-score across groups}}
+- {field: measure, stated: POSTN expression (z-score), terms: [measure:gene_expression], qualifiers: {gene: POSTN, expressed_as: normalised, normalised_to: z-score across groups}}

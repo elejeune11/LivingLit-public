@@ -1,0 +1,382 @@
+record: 2016_Masumoto
+formula_library_version: 11
+agent:
+  model: llm
+  instructions: formulas_v3
+
+derived:
+  # ---------------------------------------------------------------- stress chain (Methods, Contractile Force Measurements)
+  TXT2_stress_ect.csa:
+    item: TXT2_stress_ect
+    group: ect
+    measure: cross-sectional area
+    formula: "A = pi*d**2/4"
+    anchor:
+      quote: the cross-sectional area (CSA, mm2) was calculated by assuming circular geometry
+      where: Methods p. 8
+    library: {formula: circular_cross_section_area, vars: {A: A, d: d}}
+    inputs:
+      d: {not_stated: true, kind: per sample, note: 'external diameter recorded with a microscope camera at each stretch increment; no diameter is printed'}
+    note: No CSA is printed; this step feeds the stress and passive-stress derivations.
+  TXT2_stress_ect.stress_mean:
+    item: TXT2_stress_ect
+    group: ect
+    measure: active stress
+    formula: "sigma = F/A"
+    anchor:
+      quote: Stress values (active and passive stress; mN/mm2) were calculated by force values divided by the CSA of each specimen
+      where: Methods p. 8
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: 'active force per ECT; Supplementary Fig. 5a gives per-composition means in mN (readings s5a_active_force), but group ect pools all three compositions'}
+      A: {derived: TXT2_stress_ect.csa, kind: per sample}
+    output: TXT2_stress_ect.values.stress_mean
+    aggregation: mean of per-sample
+    note: '"divided by the CSA of each specimen" states per-specimen stress; the printed 0.62 is their average. Pacing (2 Hz) and length (Lmax) at which the stress is taken are inferred from the force methods, not stated beside the value.'
+  TXT2_stress_ect.stress_max:
+    item: TXT2_stress_ect
+    group: ect
+    measure: active stress
+    formula: "sigma = F/A"
+    anchor:
+      quote: Stress values (active and passive stress; mN/mm2) were calculated by force values divided by the CSA of each specimen
+      where: Methods p. 8
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: 'active force of the specimen with the highest stress; not printed'}
+      A: {derived: TXT2_stress_ect.csa, kind: per sample}
+    output: TXT2_stress_ect.values.stress_max
+    note: One specimen's value (the highest); no aggregation.
+
+  # ---------------------------------------------------------------- Young's modulus (Fig. 1d)
+  F1d_ym_cem_text.passive_stress:
+    item: F1d_ym_cem_text
+    group: cem
+    measure: passive stress
+    formula: "sigma = F/A"
+    anchor:
+      quote: Stress values (active and passive stress; mN/mm2) were calculated by force values divided by the CSA of each specimen
+      where: Methods p. 8
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: 'passive force at each length step; not printed (representative curves only, Supplementary Fig. 7a)'}
+      A: {derived: TXT2_stress_ect.csa, kind: per sample, note: 'diameter recorded at each stretch increment, so A is per sample and per length step'}
+  F1d_ym_cem_text.ym:
+    item: F1d_ym_cem_text
+    group: cem
+    measure: Young's modulus
+    formula: "sigma = E*eps"
+    anchor:
+      quote: Young's moduli were calculated from plots of strain and passive stress.
+      where: Methods p. 8
+    library: {formula: linear_elastic_stress_strain, vars: {sigma: sigma, E: E, eps: eps}}
+    inputs:
+      sigma: {derived: F1d_ym_cem_text.passive_stress, kind: per sample}
+      eps: {not_stated: true, kind: per sample, note: 'strain from slack length, lengths "up to 25%"; how strain was defined (engineering, from slack length) is not stated'}
+    output: F1d_ym_cem_text.values.ym_cem
+    aggregation: mean of per-sample
+    alternatives:
+    - {label: slope of a least-squares line with free intercept, note: E is the slope of the stress-strain plot; whether the fit was forced through zero is not stated}
+    note: '"The highest Young''s modulus ... reached over 17 kPa (average of 8.8kPa)" implies one E per ECT, averaged.'
+  F1d_ym_cem_vs_ce.ym:
+    item: F1d_ym_cem_vs_ce
+    measure: Young's modulus
+    formula: "sigma = E*eps"
+    anchor:
+      quote: Young's moduli were calculated from plots of strain and passive stress.
+      where: Methods p. 8
+    library: {formula: linear_elastic_stress_strain, vars: {sigma: sigma, E: E, eps: eps}}
+    inputs:
+      sigma: {derived: F1d_ym_cem_text.passive_stress, kind: per sample}
+      eps: {not_stated: true, kind: per sample}
+    aggregation: mean of per-sample
+  F1d_ym_cm_vs_ce.ym:
+    item: F1d_ym_cm_vs_ce
+    measure: Young's modulus
+    formula: "sigma = E*eps"
+    anchor:
+      quote: Young's moduli were calculated from plots of strain and passive stress.
+      where: Methods p. 8
+    library: {formula: linear_elastic_stress_strain, vars: {sigma: sigma, E: E, eps: eps}}
+    inputs:
+      sigma: {derived: F1d_ym_cem_text.passive_stress, kind: per sample}
+      eps: {not_stated: true, kind: per sample}
+    aggregation: mean of per-sample
+
+  # ---------------------------------------------------------------- force-frequency (Fig. 1c): % of baseline 2 Hz force
+  F1c_force_frequency.fold35_cem:
+    item: F1c_force_frequency
+    group: cem
+    measure: active force (% of 2 Hz)
+    formula: "r = F35/F2"
+    anchor:
+      quote: active force in CM+EC or CM+MC at 3.5 Hz decreased to approximately 40% of baseline 2 Hz-force
+      where: Results p. 3
+    library: {formula: ratio_def, vars: {r: r, a: F35, b: F2}}
+    inputs:
+      F35: {not_stated: true, kind: per sample, note: 'active force at 3.5 Hz'}
+      F2: {not_stated: true, kind: per sample, note: 'baseline active force at 2 Hz'}
+    output: F1c_force_frequency.values.force35_cem
+    aggregation: not stated
+    note: Fig. 1c reads 0.748 (fold) at 3.5 Hz for CM+EC+MC (readings f1c_force_frequency/cem).
+  F1c_force_frequency.fold35_ce_cm:
+    item: F1c_force_frequency
+    measure: active force (% of 2 Hz)
+    formula: "r = F35/F2"
+    anchor:
+      quote: active force in CM+EC or CM+MC at 3.5 Hz decreased to approximately 40% of baseline 2 Hz-force
+      where: Results p. 3
+    library: {formula: ratio_def, vars: {r: r, a: F35, b: F2}}
+    inputs:
+      F35: {not_stated: true, kind: per sample}
+      F2: {not_stated: true, kind: per sample}
+    output: F1c_force_frequency.values.force35_ce_cm
+    aggregation: not stated
+    note: One printed value over two groups (CM+EC and CM+MC); no single group. Fig. 1c reads 0.406 (ce) and 0.384 (cm).
+  F1c_force35_cem_vs_ce.fold35:
+    item: F1c_force35_cem_vs_ce
+    measure: active force (fold of 2 Hz)
+    formula: "r = F35/F2"
+    anchor:
+      quote: Transition of active force according to the increase of pacing frequency (from 2Hz to 3.5Hz)
+      where: Fig. 1 legend (c)
+    library: {formula: ratio_def, vars: {r: r, a: F35, b: F2}}
+    inputs:
+      F35: {not_stated: true, kind: per sample}
+      F2: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  F1c_force35_cem_vs_cm.fold35:
+    item: F1c_force35_cem_vs_cm
+    measure: active force (fold of 2 Hz)
+    formula: "r = F35/F2"
+    anchor:
+      quote: Transition of active force according to the increase of pacing frequency (from 2Hz to 3.5Hz)
+      where: Fig. 1 legend (c)
+    library: {formula: ratio_def, vars: {r: r, a: F35, b: F2}}
+    inputs:
+      F35: {not_stated: true, kind: per sample}
+      F2: {not_stated: true, kind: per sample}
+    aggregation: not stated
+
+  # ---------------------------------------------------------------- echocardiography (Fig. 3d)
+  F3_co_course.co:
+    item: F3_co_course
+    measure: cardiac output
+    formula: not stated
+    anchor: not stated
+    no_formula: Cardiac output (mL/min) is reported from B-mode echocardiography without a stated formula (stroke volume x heart rate is usual); no product entry in the library and no heart rate printed.
+  F3_ef_course.ef:
+    item: F3_ef_course
+    measure: ejection fraction
+    formula: "EF = (EDV - ESV)/EDV"
+    anchor:
+      quote: Ejection fraction was calculated by single plane area-length method in long axis.
+      where: Supplementary Methods
+      file: srep29933-s1.pdf
+    library: {formula: relative_decrease, vars: {s: EF, x0: EDV, x: ESV}}
+    inputs:
+      EDV: {not_stated: true, kind: per sample, note: 'end-diastolic volume by the single-plane area-length method (named only; volume formula not printed, not in the library)'}
+      ESV: {not_stated: true, kind: per sample, note: 'end-systolic volume by the same method'}
+    note: '"Ejection fraction" is a named operation; the area-length volume step is named only and goes on the completeness list.'
+  F3_ef_course.fold:
+    item: F3_ef_course
+    measure: ejection fraction (fold of PreTx)
+    formula: "r = EF/EF0"
+    anchor:
+      quote: ejection fraction (fold increase to PreTx)
+      where: Fig. 3 legend (d)
+    library: {formula: ratio_def, vars: {r: r, a: EF, b: EF0}}
+    inputs:
+      EF: {derived: F3_ef_course.ef, kind: per sample}
+      EF0: {not_stated: true, kind: per sample, note: 'the same rat''s EF before treatment (6 days after MI)'}
+    aggregation: not stated
+    note: PreTx reads 1.0 with no error bar in both groups (normalised to own control).
+  F3_ef_tx_vs_sham_4w.fold:
+    item: F3_ef_tx_vs_sham_4w
+    measure: ejection fraction (fold of PreTx)
+    formula: "r = EF/EF0"
+    anchor:
+      quote: ejection fraction (fold increase to PreTx)
+      where: Fig. 3 legend (d)
+    library: {formula: ratio_def, vars: {r: r, a: EF, b: EF0}}
+    inputs:
+      EF: {derived: F3_ef_course.ef, kind: per sample, note: 'at 4 weeks'}
+      EF0: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  F3_sv_course.fold:
+    item: F3_sv_course
+    measure: stroke volume (fold of PreTx)
+    formula: "r = SV/SV0"
+    anchor:
+      quote: stroke volume (fold increase to PreTx)
+      where: Fig. 3 legend (d)
+    library: {formula: ratio_def, vars: {r: r, a: SV, b: SV0}}
+    inputs:
+      SV: {not_stated: true, kind: per sample}
+      SV0: {not_stated: true, kind: per sample, note: 'the same rat''s stroke volume before treatment'}
+    aggregation: not stated
+  F3_sv_tx_vs_sham_4w.fold:
+    item: F3_sv_tx_vs_sham_4w
+    measure: stroke volume (fold of PreTx)
+    formula: "r = SV/SV0"
+    anchor:
+      quote: stroke volume (fold increase to PreTx)
+      where: Fig. 3 legend (d)
+    library: {formula: ratio_def, vars: {r: r, a: SV, b: SV0}}
+    inputs:
+      SV: {not_stated: true, kind: per sample, note: 'at 4 weeks'}
+      SV0: {not_stated: true, kind: per sample}
+    aggregation: not stated
+
+  # ---------------------------------------------------------------- engraftment (Supplementary Fig. 10)
+  S10_engrafted_area.ratio:
+    item: S10_engrafted_area
+    group: tx
+    measure: engrafted area / infarcted area
+    formula: "R = Ag/As"
+    anchor:
+      quote: to calculate the ratio of hiPSC-ECT engraftment area to scar area
+      where: Supplementary Methods
+      file: srep29933-s1.pdf
+    library: {formula: ratio_def, vars: {r: R, a: Ag, b: As}}
+    inputs:
+      Ag: {not_stated: true, kind: per sample, note: 'engrafted (HNA+) area, five sections per rat'}
+      As: {not_stated: true, kind: per sample, note: 'scar area from adjacent trichrome sections'}
+    output: S10_engrafted_area.values.area_mean
+    aggregation: not stated
+    alternatives:
+    - {label: ratio of areas summed over the five sections}
+    - {label: mean of the five per-section ratios}
+    note: The printed range (24.6 to 67.4 %) implies one ratio per rat, so the mean is probably of per-rat ratios; how the five sections were combined is not stated.
+
+  # ---------------------------------------------------------------- Ca2+ and caffeine (Supplementary Fig. 8)
+  S8a_force_calcium.ratio:
+    item: S8a_force_calcium
+    measure: active force (increase ratio)
+    formula: "r = F/F0"
+    anchor:
+      quote: Increase ratio of active force according to gradually increasing external Ca2+ concentration
+      where: Supplementary Fig. 8 legend (a)
+      file: srep29933-s1.pdf
+    library: {formula: ratio_def, vars: {r: r, a: F, b: F0}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: 'active force at each Ca2+ concentration'}
+      F0: {not_stated: true, kind: not stated, note: 'the reference force (lowest Ca2+, or maximum) is not stated'}
+    aggregation: not stated
+    alternatives:
+    - {label: normalised to the force at 0 mM Ca2+}
+    - {label: normalised to the maximal force}
+  S8a_ec50_text.ec50:
+    item: S8a_ec50_text
+    measure: Ca2+ EC50
+    formula: not stated
+    anchor:
+      quote: EC50 (half maximal effective concentration) was calculated using spline curve calculated from active force on each Ca2+ concentration points as previously reported
+      where: Supplementary Methods
+      file: srep29933-s1.pdf
+    no_formula: Stated only by citation (a spline through the force-Ca2+ points, as previously reported); no curve-fit entry in the library.
+    inputs:
+      r: {derived: S8a_force_calcium.ratio, kind: per sample}
+    output: S8a_ec50_text.values.ec50_all
+  S8b_caffeine_omnibus.fold:
+    item: S8b_caffeine_omnibus
+    measure: active force increase on caffeine
+    formula: "r = Fc/F0"
+    anchor:
+      quote: Fold increase of active force corresponding to 5mM caffeine administration
+      where: Supplementary Fig. 8 legend (b)
+      file: srep29933-s1.pdf
+    library: {formula: ratio_def, vars: {r: r, a: Fc, b: F0}}
+    inputs:
+      Fc: {not_stated: true, kind: per sample, note: 'active force after 5 mM caffeine, at Lmax without pacing'}
+      F0: {not_stated: true, kind: per sample, note: 'active force before caffeine'}
+    aggregation: not stated
+    alternatives:
+    - {label: relative change (Fc - F0)/F0 in %, formula: relative_change, note: 'the axis is "fold increase" in %, with means of 7 to 33 %; a fold ratio that low would be a decrease'}
+
+  # ---------------------------------------------------------------- alignment (Fig. 2a, Supplementary Fig. 9)
+  F2a_kappa_cem_vs_ce.kappa:
+    item: F2a_kappa_cem_vs_ce
+    measure: concentration parameter (κ)
+    formula: not stated
+    anchor:
+      quote: we computed the maximum likelihood estimate of the concentration parameter
+      where: Supplementary Methods
+      file: srep29933-s1.pdf
+    no_formula: 'Supplementary equation (1) (a ratio of modified Bessel functions set equal to the mean resultant length, citing Fisher 1995) cannot be written with the allowed names, and no circular-statistics entry is in the library.'
+    inputs:
+      theta: {not_stated: true, kind: per sample, note: 'local fibre orientations, about 284 per image, from image gradients'}
+  S9_csd_cem_vs_ce.csd:
+    item: S9_csd_cem_vs_ce
+    measure: circular standard deviation
+    formula: not stated
+    anchor:
+      quote: Larger circular standard deviation reflects a more random orientation of CM.
+      where: Supplementary Methods
+      file: srep29933-s1.pdf
+    no_formula: Supplementary equation (2) is a function of the complex mean resultant of the orientations (-2 ln of its length); the extracted text loses the root sign, and no circular-statistics entry is in the library.
+    inputs:
+      theta: {not_stated: true, kind: per sample, note: 'local fibre orientations from image gradients'}
+
+assumptions:
+  TXT2_stress_ect.csa:
+    model: circular_cross_section_area
+    assumptions:
+      circular cross-section:
+        reported: {construct: to form a cylindrical construct}
+      uniform diameter along the length:
+        reported: not stated
+  F1d_ym_cem_text.ym:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported:
+          r2_mean_cem: S7_passive_r2.values.r2_mean_cem
+          statement: the passive stress-length relationship was consistent with Hooke's law for all ECT compositions
+      small strain:
+        reported: {strain_range: We measured and plotted passive stresses at increasing lengths (up to 25%) from slack length}
+
+bounds:
+- {item: F1a_cmratio_cem_vs_ce, value: F1a_cmratio_cem_vs_ce.values.cmratio_ce, formula: fraction_bounds}
+- {item: F1a_cmratio_cem_vs_ce, value: F1a_cmratio_cem_vs_ce.values.cmratio_cem, formula: fraction_bounds}
+- {item: F1a_cmratio_cm_vs_ce, value: F1a_cmratio_cm_vs_ce.values.cmratio_cm, formula: fraction_bounds}
+- {item: TXT1_tra160, value: TXT1_tra160.values.tra_ce, formula: fraction_bounds}
+- {item: TXT1_tra160, value: TXT1_tra160.values.tra_cm, formula: fraction_bounds}
+- {item: TXT1_tra160, value: TXT1_tra160.values.tra_cem, formula: fraction_bounds}
+- {item: S1_ctnt, value: S1_ctnt.values.ctnt_ce_p, formula: fraction_bounds}
+- {item: S1_vecad, value: S1_vecad.values.vecad_ce_p, formula: fraction_bounds}
+- {item: S1_pdgfrb, value: S1_pdgfrb.values.pdgfrb_ce_p, formula: fraction_bounds}
+- {item: S1_pdgfrb, value: S1_pdgfrb.values.pdgfrb_mc_p, formula: fraction_bounds}
+- {item: S2_rep_ec, value: S2_rep_ec.values.ec_dkk1, formula: fraction_bounds}
+- {item: S2_rep_ec, value: S2_rep_ec.values.ec_ctrl, formula: fraction_bounds}
+- {item: S2_rep_ec, value: S2_rep_ec.values.ec_w50, formula: fraction_bounds}
+- {item: S2_rep_ec, value: S2_rep_ec.values.ec_w100, formula: fraction_bounds}
+- {item: S2_rep_mc, value: S2_rep_mc.values.mc_dkk1, formula: fraction_bounds}
+- {item: S2_rep_mc, value: S2_rep_mc.values.mc_ctrl, formula: fraction_bounds}
+- {item: S2_rep_mc, value: S2_rep_mc.values.mc_w50, formula: fraction_bounds}
+- {item: S2_rep_mc, value: S2_rep_mc.values.mc_w100, formula: fraction_bounds}
+
+proposals:
+- formula: linear_elastic_stress_strain
+  kind: model
+  statement: In uniaxial loading of a linear elastic material, normal stress is Young's modulus times normal strain (Hooke's
+    law, sigma = E*eps); E is the slope of the stress-strain line.
+  equations:
+  - sigma = E*eps
+  variables:
+    sigma: stress
+    E: modulus
+    eps: dimensionless
+  assumes:
+  - linear elastic material
+  - small strain
+  does_not_apply: a nonlinear (strain-stiffening or viscoelastic) stress-strain response or large strains, where stress is
+    not proportional to strain; a secant or tangent modulus from a curved plot is not this E
+  tests:
+  - given: {E: 10.0, eps: 0.1}
+    expect: {sigma: 1.0}
+  - given: {E: 10.0, eps: 0.1}
+    does_not_apply: 'strain-stiffening tissue: measured stress at 10 % strain exceeds E*eps from the initial slope'
+  cites:
+    text: Gere JM, Goodno BJ. Mechanics of Materials, 8th ed., Cengage 2013, section 1.5 (Linear elasticity, Hooke's law)
+    quote: "σ = Eε"

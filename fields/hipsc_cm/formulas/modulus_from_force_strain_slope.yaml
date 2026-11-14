@@ -1,0 +1,38 @@
+# Written by code from changes.yaml (version 13); never edited.
+formula: modulus_from_force_strain_slope
+kind: derived
+statement: For a linear elastic specimen of constant cross-sectional area A whose force rises linearly with strain (F = s*eps),
+  Young's modulus is the force-strain slope divided by the area, E = s/A.
+equations:
+- E = s/A
+variables:
+  E: modulus
+  s: force
+  A: area
+  F: force
+  sigma: stress
+  eps: dimensionless
+assumes:
+- F = s*eps
+uses:
+- formula: stress_def
+  subs:
+    sigma: sigma
+    F: F
+    A: A
+- formula: linear_elastic_stress_strain
+  subs:
+    sigma: sigma
+    E: E
+    eps: eps
+does_not_apply: a curved force-strain response (strain stiffening), or an area that changes with strain
+tests:
+- given:
+    s: 6.0
+    A: 2.0
+  expect:
+    E: 3.0
+- given:
+    s: 6.0
+    A: 2.0
+  does_not_apply: 'strain-stiffening tissue: the secant slope over 0-40 % strain is not the initial modulus'

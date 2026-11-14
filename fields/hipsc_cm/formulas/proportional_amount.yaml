@@ -1,0 +1,52 @@
+# Written by code from changes.yaml (version 8); never edited.
+formula: proportional_amount
+kind: derived
+statement: A quantity in a fixed proportion a:b to another quantity Q is Q times a/b (amount metabolised from the fraction
+  of label recovered; product from a stoichiometric yield; a unit conversion by a factor).
+equations:
+- q = Q*a/b
+variables:
+  q: D
+  Q: D
+  a: D2
+  b: D2
+  y: dimensionless
+assumes:
+- the proportion a to b holds for every part of Q
+uses:
+- formula: ratio_def
+  subs:
+    r: y
+    a: q
+    b: Q
+- formula: ratio_def
+  subs:
+    r: y
+    a: a
+    b: b
+does_not_apply: a proportion that changes across Q (label not equilibrated with the unlabelled pool; incomplete conversion),
+  or an offset added to the product
+tests:
+- given:
+    Q: 2.0
+    a: 33.0
+    b: 1.0
+  expect:
+    q: 66.0
+- given:
+    Q: 280.0
+    a: 2.0
+    b: 2.0
+  expect:
+    q: 280.0
+- given:
+    Q: 10.0
+    a: 1.0
+    b: 4.0
+  expect:
+    q: 2.5
+- given:
+    Q: 2.0
+    a: 33.0
+    b: 1.0
+  does_not_apply: 'incomplete conversion: half the substrate converted gives 33, not 66'

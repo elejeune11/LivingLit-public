@@ -1,0 +1,33 @@
+# Written by code from changes.yaml (version 24); never edited.
+formula: fold_change_from_log2_fold_change
+kind: derived
+statement: A fold change given as its binary logarithm (a log2 fold change) is two to the power of that logarithm.
+equations:
+- r = 2**l
+variables:
+  r: dimensionless
+  l: dimensionless
+  la: dimensionless
+  lb: dimensionless
+assumes:
+- l = la - lb
+uses:
+- formula: ratio_from_log2_values
+  subs:
+    r: r
+    la: la
+    lb: lb
+does_not_apply: a log fold change on a natural-log or log10 scale, or a shrunken/moderated estimate compared with a ratio
+  of raw means
+tests:
+- given:
+    l: 2.0
+  expect:
+    r: 4.0
+- given:
+    l: -1.0
+  expect:
+    r: 0.5
+- given:
+    l: 4.0
+  does_not_apply: 'a log2 fold change of 4 read as a fold change: 16, not 4'

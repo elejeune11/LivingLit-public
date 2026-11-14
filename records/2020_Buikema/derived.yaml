@@ -1,0 +1,2389 @@
+record: 2020_Buikema
+formula_library_version: 27
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1B_sparse.fold_overall:
+    item: F1B_sparse
+    group: sparse
+    formula: R = r1*r2*r3
+    anchor:
+      quote: the total cell number increased by 8-, 8-, and 4-fold at each passage, resulting overall in a 241-fold increase
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+      file: journal_version.pdf
+    library:
+      formula: product_of_three_ratios
+      vars:
+        R: R
+        r1: r1
+        r2: r2
+        r3: r3
+    inputs:
+      r1:
+        value: F1B_sparse.values.fold_first
+        kind: constant
+      r2:
+        value: F1B_sparse.values.fold_second
+        kind: constant
+      r3:
+        value: F1B_sparse.values.fold_third
+        kind: constant
+    output: F1B_sparse.values.fold_overall
+    note: the overall fold over three passages is the product of the per-passage folds ('resulting overall in')
+  F1B_dense.fold_10:
+    item: F1B_dense
+    formula: r = a/b
+    anchor:
+      quote: at the end of three passages or 3 weeks, the number increase was 10-fold
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number after three passages or 3 weeks; not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: cell number at day 12 ('fold increase over day 12', Fig. 1B legend); not printed
+    output: F1B_dense.values.fold_10
+  F5B_pnu_chir.drop:
+    item: F5B_pnu_chir
+    formula: s = (x0 - x)/x0
+    anchor:
+      quote: the CHIR-mediated hiPSC-CM proliferation decreased only by 50%
+      where: Results, Mechanistic Analysis
+      file: journal_version.pdf
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: f5b/F5B_pnu_chir/chir_pnu
+        kind: per sample
+      x0:
+        reading: f5b/F5B_pnu_chir/chir
+        kind: per sample
+    output: F5B_pnu_chir.values.drop
+    note: decrease of the inhibitor group's mean relative to CHIR alone, from the plotted TnT+ cell numbers
+  F5H_mk.drop:
+    item: F5H_mk
+    formula: s = (x0 - x)/x0
+    anchor:
+      quote: hiPSC-CM proliferation decreased by 50% compared with CHIR treatment alone
+      where: Results, Mechanistic Analysis
+      file: journal_version.pdf
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: f5h/F5H_mk/chir_mk
+        kind: per sample
+      x0:
+        reading: f5h/F5H_mk/chir
+        kind: per sample
+    output: F5H_mk.values.drop
+    note: decrease of the inhibitor group's mean relative to CHIR alone, from the plotted TnT+ cell numbers
+  S5B.fold:
+    item: S5B
+    formula: r = a/b
+    anchor:
+      quote: CHIR-treated embryos contained a 1.8-fold increase in mitotic CMs compared with the embryos treated with DMSO control
+      where: Results, in vivo CHIR
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: s5/S5B/chir
+        kind: per sample
+      b:
+        reading: s5/S5B/ctr
+        kind: per sample
+    output: S5B.values.fold
+    aggregation: of means
+    note: fold of group means (unpaired embryos); the plotted values are already relative to CTR
+  F3E_force.force:
+    item: F3E_force
+    formula: F = d/L*A*E
+    anchor:
+      quote: maximum contractile force was calculated using Young's modulus equation
+      where: Methods, Single cell patterning and contractility
+      file: journal_version.pdf
+    library:
+      formula: force_from_strain_modulus_area
+      vars:
+        F: F
+        d: d
+        L: L
+        A: A
+        E: E
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: maximum contractile deformation distance from motion vector analysis; not printed
+      L:
+        printed: '112'
+        unit: um
+        kind: constant
+        anchor:
+          quote: initial cell length determined by patterning
+          where: Methods, Single cell patterning and contractility (equation)
+          file: journal_version.pdf
+      A:
+        printed: '1800'
+        unit: um^2
+        kind: constant
+        anchor:
+          quote: Since cells are patterned into known surface area
+          where: Methods, Single cell patterning and contractility
+          file: journal_version.pdf
+      E:
+        printed: '10'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: attached to hydrogel substrate of known stiffness (10 kPa)
+          where: Methods, Single cell patterning and contractility
+          file: journal_version.pdf
+    aggregation: mean of per-sample
+    note: E is the hydrogel substrate's modulus and A the patterned planform area (not a cross-section carrying the force), as the methods
+      state; no force value is printed, so nothing is rebuilt
+  F3H_amp.dff0:
+    item: F3H_amp
+    formula: d = (F - F0)/F0
+    anchor:
+      quote: Transient amplitude was expressed as DF/F0
+      where: Methods, Electrophysiological studies
+      file: journal_version.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence
+    aggregation: not stated
+    note: Fig. 3F legend says the traces are 'expressed relative to baseline (F/F0)'; the methods give DF/F0 for the amplitude
+  F4B.ratio:
+    item: F4B
+    formula: r = a/b
+    anchor:
+      quote: Quantification of nuclear to cytoplasmic YAP ratios
+      where: Fig. 4B legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: nuclear YAP pixel intensity
+      b:
+        not_stated: true
+        kind: per sample
+        note: cytoplasmic YAP pixel intensity
+    aggregation: not stated
+  F4G.ratio:
+    item: F4G
+    formula: r = a/b
+    anchor:
+      quote: the quantification of nuclear/cytoplasmic ratios
+      where: Fig. 4F and 4G legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: nuclear YAP pixel intensity
+      b:
+        not_stated: true
+        kind: per sample
+        note: cytoplasmic YAP pixel intensity
+    aggregation: not stated
+  F4I_dense.ratio:
+    item: F4I_dense
+    formula: r = a/b
+    anchor:
+      quote: the quantification of nuclear/cytoplasmic ratios of YAP in hiPSC-CMs
+      where: Fig. 4H and 4I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: nuclear YAP pixel intensity
+      b:
+        not_stated: true
+        kind: per sample
+        note: cytoplasmic YAP pixel intensity
+    aggregation: not stated
+  F4I_vp10.ratio:
+    item: F4I_vp10
+    formula: r = a/b
+    anchor:
+      quote: the quantification of nuclear/cytoplasmic ratios of YAP in hiPSC-CMs
+      where: Fig. 4H and 4I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: nuclear YAP pixel intensity
+      b:
+        not_stated: true
+        kind: per sample
+        note: cytoplasmic YAP pixel intensity
+    aggregation: not stated
+  F1D_sparse_nopsg.percent:
+    item: F1D_sparse_nopsg
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+    note: percentage named only on the figure axis (an image), not in the text
+  F1D_dense_nopsg.percent:
+    item: F1D_dense_nopsg
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+    note: percentage named only on the figure axis (an image), not in the text
+  F1D_sparse_dense.percent:
+    item: F1D_sparse_dense
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+    note: percentage named only on the figure axis (an image), not in the text
+  F1F_sparse_nopsg.percent:
+    item: F1F_sparse_nopsg
+    formula: r = a/b
+    anchor:
+      quote: the fraction of mitotic CMs was at 1% without passaging
+      where: Results
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F1F_dense_nopsg.percent:
+    item: F1F_dense_nopsg
+    formula: r = a/b
+    anchor:
+      quote: the fraction of mitotic CMs was at 1% without passaging
+      where: Results
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F1F_sparse_dense.percent:
+    item: F1F_sparse_dense
+    formula: r = a/b
+    anchor:
+      quote: the fraction of mitotic CMs was at 1% without passaging
+      where: Results
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F1I_omnibus.percent:
+    item: F1I_omnibus
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the percentages of Ki67+/TnT+ cells in (H)
+      where: Fig. 1I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F1L.percent:
+    item: F1L
+    formula: r = a/b
+    anchor:
+      quote: quantification of the percentage (K and L) proliferative cardiomyocytes (Ki67+/TnT+)
+      where: Fig. 1K-1N legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F1N.percent:
+    item: F1N
+    formula: r = a/b
+    anchor:
+      quote: or (M and N) mitotic cardiomyocytes (pHH3+/TnT+)
+      where: Fig. 1K-1N legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F4E.percent:
+    item: F4E
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the percentage Ki67+/TnT+ cells in (D)
+      where: Fig. 4E legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F4K_vp10.percent:
+    item: F4K_vp10
+    formula: r = a/b
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+    note: percentage named only on the figure axis (an image), not in the text
+  F2J.percent:
+    item: F2J
+    formula: r = a/b
+    anchor:
+      quote: Average percentages of TnT+ cells from flow cytometric analysis in (I)
+      where: Fig. 2J legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ events
+      b:
+        not_stated: true
+        kind: per sample
+        note: all gated events
+    aggregation: not stated
+  S1B.percent:
+    item: S1B
+    formula: r = a/b
+    anchor:
+      quote: '% Isl1+ cells'
+      where: Fig. S1B axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Isl1+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells counted
+    aggregation: not stated
+  S1C.percent:
+    item: S1C
+    formula: r = a/b
+    anchor:
+      quote: '% Caspase 3+ cells'
+      where: Fig. S1C axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Caspase 3+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells counted
+    aggregation: not stated
+  S1E.percent:
+    item: S1E
+    formula: r = a/b
+    anchor:
+      quote: Percent Ki67+ Cells
+      where: Fig. S1E axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  S1G.percent:
+    item: S1G
+    formula: r = a/b
+    anchor:
+      quote: '% Annilin-eGFP+ nuclei'
+      where: Fig. S1G axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: anillin-eGFP+ nuclei
+      b:
+        not_stated: true
+        kind: per sample
+        note: nuclei
+    aggregation: not stated
+  S1H.percent:
+    item: S1H
+    formula: r = a/b
+    anchor:
+      quote: Quantification of (H) bi-nucleation and (I)
+      where: Fig. S1H and S1I legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: binucleated cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: total cells
+    aggregation: not stated
+    note: the legend continues '(I) Ki67 expression ... as a percentage of total cells'
+  S1I.percent:
+    item: S1I
+    formula: r = a/b
+    anchor:
+      quote: Ki67 expression (i.e. cell cycle index) as a percentage of total cells
+      where: Fig. S1H and S1I legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: total cells
+    aggregation: not stated
+  S5C.percent:
+    item: S5C
+    formula: r = a/b
+    anchor:
+      quote: Percentages of mitotic cells in the heart of
+      where: Fig. S5C legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: cells counted
+    aggregation: not stated
+  S3E_wnt3a.percent:
+    item: S3E_wnt3a
+    formula: r = a/b
+    anchor:
+      quote: Plots displaying the percentages of Ki67+ /TnT+ cells
+      where: Fig. S3E legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  S3G_wnt3a.percent:
+    item: S3G_wnt3a
+    formula: r = a/b
+    anchor:
+      quote: Plots displaying the percentages of pHH3+/TnT+ cells
+      where: Fig. S3G legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  S3E_dkkrspo.percent:
+    item: S3E_dkkrspo
+    formula: r = a/b
+    anchor:
+      quote: Plots displaying the percentages of Ki67+ /TnT+ cells
+      where: Fig. S3E legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  S3G_dkkrspo.percent:
+    item: S3G_dkkrspo
+    formula: r = a/b
+    anchor:
+      quote: Plots displaying the percentages of pHH3+/TnT+ cells
+      where: Fig. S3G legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  S3E_chir.percent:
+    item: S3E_chir
+    formula: r = a/b
+    anchor:
+      quote: Plots displaying the percentages of Ki67+ /TnT+ cells
+      where: Fig. S3E legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ki67+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  S3G_chir.percent:
+    item: S3G_chir
+    formula: r = a/b
+    anchor:
+      quote: Plots displaying the percentages of pHH3+/TnT+ cells
+      where: Fig. S3G legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+ TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells
+    aggregation: not stated
+  F5N_chir.percent:
+    item: F5N_chir
+    formula: not stated
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N and 5P legend
+      file: journal_version.pdf
+    no_formula: the legend says 'number of' marker+/TnT+ cells while the measure is a percent; the denominator (TnT+ cells or all cells)
+      is not stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: marker+ TnT+ cells
+      b:
+        not_stated: true
+        kind: not stated
+        note: denominator not stated
+  F5N_mk.percent:
+    item: F5N_mk
+    formula: not stated
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N and 5P legend
+      file: journal_version.pdf
+    no_formula: the legend says 'number of' marker+/TnT+ cells while the measure is a percent; the denominator (TnT+ cells or all cells)
+      is not stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: marker+ TnT+ cells
+      b:
+        not_stated: true
+        kind: not stated
+        note: denominator not stated
+  F5N_pnu.percent:
+    item: F5N_pnu
+    formula: not stated
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N and 5P legend
+      file: journal_version.pdf
+    no_formula: the legend says 'number of' marker+/TnT+ cells while the measure is a percent; the denominator (TnT+ cells or all cells)
+      is not stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: marker+ TnT+ cells
+      b:
+        not_stated: true
+        kind: not stated
+        note: denominator not stated
+  F5N_mk_chir.percent:
+    item: F5N_mk_chir
+    formula: not stated
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N and 5P legend
+      file: journal_version.pdf
+    no_formula: the legend says 'number of' marker+/TnT+ cells while the measure is a percent; the denominator (TnT+ cells or all cells)
+      is not stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: marker+ TnT+ cells
+      b:
+        not_stated: true
+        kind: not stated
+        note: denominator not stated
+  F5N_pnu_chir.percent:
+    item: F5N_pnu_chir
+    formula: not stated
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N and 5P legend
+      file: journal_version.pdf
+    no_formula: the legend says 'number of' marker+/TnT+ cells while the measure is a percent; the denominator (TnT+ cells or all cells)
+      is not stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: marker+ TnT+ cells
+      b:
+        not_stated: true
+        kind: not stated
+        note: denominator not stated
+  F5P.percent:
+    item: F5P
+    formula: not stated
+    anchor:
+      quote: Quantification of the number of pHH3+/TnT+ cells per treatment group
+      where: Fig. 5N and 5P legend
+      file: journal_version.pdf
+    no_formula: the legend says 'number of' marker+/TnT+ cells while the measure is a percent; the denominator (TnT+ cells or all cells)
+      is not stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: marker+ TnT+ cells
+      b:
+        not_stated: true
+        kind: not stated
+        note: denominator not stated
+  F2H.fold:
+    item: F2H
+    formula: r = a/b
+    anchor:
+      quote: Fold increase in TnT+ cells at each passage in CHIR-treated over DMSO-treated cells
+      where: Fig. 2H legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells with CHIR
+      b:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cells with DMSO at the same passage
+    aggregation: not stated
+  F2GH_text.fold:
+    item: F2GH_text
+    formula: r = a/b
+    anchor:
+      quote: 100- to 250-fold increase in total CM number compared with CTR hiPSC-CMs at similar time points
+      where: Results
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: CM number with CHIR
+      b:
+        not_stated: true
+        kind: per sample
+        note: CM number with DMSO at a similar time point
+    aggregation: not stated
+    note: a range over lines and time points (100 to 250); no single printed value to rebuild
+  S1D.fold:
+    item: S1D
+    formula: r = a/b
+    anchor:
+      quote: Graph displaying the fold increase in cell numbers of freshly differentiated or
+      where: Fig. S1D legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number at each passage
+      b:
+        not_stated: true
+        kind: per sample
+        note: cell number at the start
+    aggregation: not stated
+  S4A.fold:
+    item: S4A
+    formula: r = a/b
+    anchor:
+      quote: Fold Increase Kinase Expression
+      where: Fig. S4A axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: phospho-kinase signal at T10 or T100
+      b:
+        not_stated: true
+        kind: per sample
+        note: signal at T0
+    aggregation: not stated
+    note: the reference (T0) is inferred from the groups, not stated
+  F3N.fold:
+    item: F3N
+    formula: r = a/b
+    anchor:
+      quote: Average expression of the selected mature cardiac genes normalized to CTR
+      where: Fig. 3N legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: average expression in the group
+      b:
+        not_stated: true
+        kind: per sample
+        note: average expression in CTR
+    aggregation: not stated
+  S5G.fold:
+    item: S5G
+    formula: r = a/b
+    anchor:
+      quote: Relative pHH3+/TnT+ Cells
+      where: Fig. S5G axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: pHH3+/TnT+ cells
+      b:
+        not_stated: true
+        kind: per sample
+        note: reference not stated
+    aggregation: not stated
+  S5E.fold:
+    item: S5E
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the relative pixels/area indicating cell size
+      where: Fig. S5E legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell area in pixels
+      b:
+        not_stated: true
+        kind: per sample
+        note: reference area not stated
+    aggregation: not stated
+  F5B_chir.fold:
+    item: F5B_chir
+    formula: r = a/b
+    anchor:
+      quote: Fold increase in TnT+ cell number after DMSO (CTR) or CHIR (2.0 mM) treatment
+      where: Fig. 5B legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number (start or CTR): not stated'
+    aggregation: not stated
+  F5B_pnu_ctr.fold:
+    item: F5B_pnu_ctr
+    formula: r = a/b
+    anchor:
+      quote: Fold increase in TnT+ cell number after DMSO (CTR) or CHIR (2.0 mM) treatment
+      where: Fig. 5B legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number (start or CTR): not stated'
+    aggregation: not stated
+  F5B_pnu_chir.fold:
+    item: F5B_pnu_chir
+    formula: r = a/b
+    anchor:
+      quote: Fold increase in TnT+ cell number after DMSO (CTR) or CHIR (2.0 mM) treatment
+      where: Fig. 5B legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number (start or CTR): not stated'
+    aggregation: not stated
+  S3C_wnt3a.fold:
+    item: S3C_wnt3a
+    formula: r = a/b
+    anchor:
+      quote: Fold increase TnT+ cells
+      where: Fig. S3C axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number: not stated'
+    aggregation: not stated
+  S3C_dkkrspo.fold:
+    item: S3C_dkkrspo
+    formula: r = a/b
+    anchor:
+      quote: Fold increase TnT+ cells
+      where: Fig. S3C axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number: not stated'
+    aggregation: not stated
+  S3C_chir.fold:
+    item: S3C_chir
+    formula: r = a/b
+    anchor:
+      quote: Fold increase TnT+ cells
+      where: Fig. S3C axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number: not stated'
+    aggregation: not stated
+  S3C_rspo.fold:
+    item: S3C_rspo
+    formula: r = a/b
+    anchor:
+      quote: Fold increase TnT+ cells
+      where: Fig. S3C axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TnT+ cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference TnT+ cell number: not stated'
+    aggregation: not stated
+  F5H_chir.fold:
+    item: F5H_chir
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference cell number: not stated'
+    aggregation: not stated
+    note: the legend says 'number'; the measure (axis) is a fold increase, its reference not stated
+  F5H_mk.fold:
+    item: F5H_mk
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference cell number: not stated'
+    aggregation: not stated
+    note: the legend says 'number'; the measure (axis) is a fold increase, its reference not stated
+  F5H_mk_ctr.fold:
+    item: F5H_mk_ctr
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference cell number: not stated'
+    aggregation: not stated
+    note: the legend says 'number'; the measure (axis) is a fold increase, its reference not stated
+  F5I_chir.fold:
+    item: F5I_chir
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference cell number: not stated'
+    aggregation: not stated
+    note: the legend says 'number'; the measure (axis) is a fold increase, its reference not stated
+  F5I_mk.fold:
+    item: F5I_mk
+    formula: r = a/b
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cell number after treatment
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'reference cell number: not stated'
+    aggregation: not stated
+    note: the legend says 'number'; the measure (axis) is a fold increase, its reference not stated
+  F5A.normalized:
+    item: F5A
+    formula: not stated
+    anchor: not stated
+    no_formula: the luciferase signal is 'normalized' on the axis but what it is normalised to (mutant reporter, CTR, protein) is not
+      stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: firefly luciferase signal
+      b:
+        not_stated: true
+        kind: not stated
+        note: normaliser not stated
+  F5J_chir.normalized:
+    item: F5J_chir
+    formula: not stated
+    anchor: not stated
+    no_formula: the luciferase signal is 'normalized' on the axis but what it is normalised to (mutant reporter, CTR, protein) is not
+      stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: firefly luciferase signal
+      b:
+        not_stated: true
+        kind: not stated
+        note: normaliser not stated
+  F5J_mk.normalized:
+    item: F5J_mk
+    formula: not stated
+    anchor: not stated
+    no_formula: the luciferase signal is 'normalized' on the axis but what it is normalised to (mutant reporter, CTR, protein) is not
+      stated
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: firefly luciferase signal
+      b:
+        not_stated: true
+        kind: not stated
+        note: normaliser not stated
+  F3E_contrvel.by_reference:
+    item: F3E_contrvel
+    formula: not stated
+    anchor:
+      quote: motion velocity analysis calculates contraction/relaxation velocity and deformation distance
+      where: Methods, Single cell patterning and contractility
+      file: journal_version.pdf
+    no_formula: contraction velocity is computed by a cited method with no formula stated in this paper
+    inputs:
+      m:
+        by_reference:
+          citation: hayakawa2014
+          anchor:
+            quote: motion velocity analysis calculates contraction/relaxation velocity and deformation distance
+            where: Methods, Single cell patterning and contractility
+            file: journal_version.pdf
+        kind: not stated
+  F3E_relaxvel.by_reference:
+    item: F3E_relaxvel
+    formula: not stated
+    anchor:
+      quote: motion velocity analysis calculates contraction/relaxation velocity and deformation distance
+      where: Methods, Single cell patterning and contractility
+      file: journal_version.pdf
+    no_formula: relaxation velocity is computed by a cited method with no formula stated in this paper
+    inputs:
+      m:
+        by_reference:
+          citation: hayakawa2014
+          anchor:
+            quote: motion velocity analysis calculates contraction/relaxation velocity and deformation distance
+            where: Methods, Single cell patterning and contractility
+            file: journal_version.pdf
+        kind: not stated
+  F6F_force.by_reference:
+    item: F6F_force
+    formula: not stated
+    anchor:
+      quote: Contractility measurements were performed in culture medium as described previously
+      where: Methods, Cardiac tissue generation
+      file: journal_version.pdf
+    no_formula: EHT contraction force is computed by a cited method with no formula stated in this paper
+    inputs:
+      m:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Contractility measurements were performed in culture medium as described previously
+            where: Methods, Cardiac tissue generation
+            file: journal_version.pdf
+        kind: not stated
+  F6G_force.by_reference:
+    item: F6G_force
+    formula: not stated
+    anchor:
+      quote: Contractility measurements were performed in culture medium as described previously
+      where: Methods, Cardiac tissue generation
+      file: journal_version.pdf
+    no_formula: EHT contraction force is computed by a cited method with no formula stated in this paper
+    inputs:
+      m:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Contractility measurements were performed in culture medium as described previously
+            where: Methods, Cardiac tissue generation
+            file: journal_version.pdf
+        kind: not stated
+  F6G_vel.by_reference:
+    item: F6G_vel
+    formula: not stated
+    anchor:
+      quote: Contractility measurements were performed in culture medium as described previously
+      where: Methods, Cardiac tissue generation
+      file: journal_version.pdf
+    no_formula: EHT contraction velocity is computed by a cited method with no formula stated in this paper
+    inputs:
+      m:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Contractility measurements were performed in culture medium as described previously
+            where: Methods, Cardiac tissue generation
+            file: journal_version.pdf
+        kind: not stated
+  F3I_MYL2.expression:
+    item: F3I_MYL2
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F3I_MYH7.expression:
+    item: F3I_MYH7
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F3I_MYOM2.expression:
+    item: F3I_MYOM2
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F3J_GJA1.expression:
+    item: F3J_GJA1
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F3J_RYR2.expression:
+    item: F3J_RYR2
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F3K_COX6A2.expression:
+    item: F3K_COX6A2
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F3K_CKMT.expression:
+    item: F3K_CKMT
+    formula: r = a/b
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic genes (K)
+      where: Fig. 3I-3K legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5C_AXIN2.expression:
+    item: F5C_AXIN2
+    formula: r = a/b
+    anchor:
+      quote: Normalized gene expression of Wnt target genes and maturation markers
+      where: Fig. 5C legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5C_LEF1.expression:
+    item: F5C_LEF1
+    formula: r = a/b
+    anchor:
+      quote: Normalized gene expression of Wnt target genes and maturation markers
+      where: Fig. 5C legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5C_CCND2.expression:
+    item: F5C_CCND2
+    formula: r = a/b
+    anchor:
+      quote: Normalized gene expression of Wnt target genes and maturation markers
+      where: Fig. 5C legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5C_MYL2.expression:
+    item: F5C_MYL2
+    formula: r = a/b
+    anchor:
+      quote: Normalized gene expression of Wnt target genes and maturation markers
+      where: Fig. 5C legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5C_MYH7.expression:
+    item: F5C_MYH7
+    formula: r = a/b
+    anchor:
+      quote: Normalized gene expression of Wnt target genes and maturation markers
+      where: Fig. 5C legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5C_MYOM1.expression:
+    item: F5C_MYOM1
+    formula: r = a/b
+    anchor:
+      quote: Normalized gene expression of Wnt target genes and maturation markers
+      where: Fig. 5C legend
+      file: journal_version.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  S1A.expression:
+    item: S1A
+    formula: r = a/b
+    anchor:
+      quote: Normalized Gene Expression
+      where: Fig. S1A axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the group (quantification from Ct not stated)
+      b:
+        not_stated: true
+        kind: per sample
+        note: expression in the reference group or time point (not stated)
+    aggregation: not stated
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+    note: reference gene and calibrator not stated
+  F5K_AXIN2.expression:
+    item: F5K_AXIN2
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_AXIN2_mk.expression:
+    item: F5K_AXIN2_mk
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_LEF1.expression:
+    item: F5K_LEF1
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_LEF1_mk.expression:
+    item: F5K_LEF1_mk
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_CCND2.expression:
+    item: F5K_CCND2
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_CCND2_mk.expression:
+    item: F5K_CCND2_mk
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_MYL2.expression:
+    item: F5K_MYL2
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_MYL2_mk.expression:
+    item: F5K_MYL2_mk
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_MYH7.expression:
+    item: F5K_MYH7
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_MYH7_mk.expression:
+    item: F5K_MYH7_mk
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_MYOM1.expression:
+    item: F5K_MYOM1
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F5K_MYOM1_mk.expression:
+    item: F5K_MYOM1_mk
+    formula: not stated
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated compounds
+      where: Fig. 5K legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F6B_TNNI3.expression:
+    item: F6B_TNNI3
+    formula: not stated
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression
+      where: Fig. 6A and 6B legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F6B_MYL2.expression:
+    item: F6B_MYL2
+    formula: not stated
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression
+      where: Fig. 6A and 6B legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F6B_RYR2.expression:
+    item: F6B_RYR2
+    formula: not stated
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression
+      where: Fig. 6A and 6B legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F6B_TNNT2.expression:
+    item: F6B_TNNT2
+    formula: not stated
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression
+      where: Fig. 6A and 6B legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F6B_GJA1.expression:
+    item: F6B_GJA1
+    formula: not stated
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression
+      where: Fig. 6A and 6B legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+  F6B_TNNI1.expression:
+    item: F6B_TNNI1
+    formula: not stated
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression
+      where: Fig. 6A and 6B legend
+      file: journal_version.pdf
+    no_formula: relative qPCR expression with no stated quantification method, reference gene or calibrator
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct values, not printed
+    alternatives:
+    - label: 2^-ddCt (comparative Ct)
+      formula: r = 2^(-ddct)
+      note: the quantification method is not stated
+assumptions:
+  F3E_force.force:
+    model: force_from_strain_modulus_area
+    assumptions:
+      linear elastic material:
+        reported: not stated
+      small strain:
+        reported: not stated
+bounds:
+- item: F1F_text
+  value: F1F_text.values.pct_nopsg
+  formula: fraction_bounds
+- item: F1F_text
+  value: F1F_text.values.pct_dense
+  formula: fraction_bounds
+- item: F1F_text
+  value: F1F_text.values.pct_sparse
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.p0
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.chir_p1
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.chir_p2
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.chir_p3
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.chir_p4
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.ctr_p1
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.ctr_p2
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.ctr_p3
+  formula: fraction_bounds
+- item: F2I_flow
+  value: F2I_flow.values.ctr_p4
+  formula: fraction_bounds
+- item: F5B_pnu_chir
+  value: F5B_pnu_chir.values.drop
+  formula: fraction_bounds
+- item: F5H_mk
+  value: F5H_mk.values.drop
+  formula: fraction_bounds
+proposals:
+- formula: product_of_three_ratios
+  kind: derived
+  statement: A fold over three successive stages is the product of the per-stage folds, N3/N0 = (N1/N0)*(N2/N1)*(N3/N2); e.g. overall
+    expansion over three passages.
+  equations:
+  - R = r1*r2*r3
+  variables:
+    R: dimensionless
+    r1: dimensionless
+    r2: dimensionless
+    r3: dimensionless
+    N0: D
+    N1: D
+    N2: D
+    N3: D
+  uses:
+  - formula: ratio_def
+    subs:
+      r: r1
+      a: N1
+      b: N0
+  - formula: ratio_def
+    subs:
+      r: r2
+      a: N2
+      b: N1
+  - formula: ratio_def
+    subs:
+      r: r3
+      a: N3
+      b: N2
+  - formula: ratio_def
+    subs:
+      r: R
+      a: N3
+      b: N0
+  does_not_apply: a sum of per-stage folds, or folds each taken over the same start (cumulative folds)
+  tests:
+  - given:
+      r1: 8.0
+      r2: 8.0
+      r3: 4.0
+    expect:
+      R: 256.0
+  - given:
+      r1: 8.0
+      r2: 8.0
+      r3: 4.0
+    does_not_apply: 'sum of the folds: 20, not 256'
+- formula: force_from_strain_modulus_area
+  kind: derived
+  statement: For a linear elastic specimen of Young's modulus E and area A, elongated by d over length L (strain d/L), the normal force
+    is F = E*A*d/L.
+  equations:
+  - F = E*A*d/L
+  variables:
+    F: force
+    E: modulus
+    A: area
+    d: length
+    L: length
+    sigma: stress
+    eps: dimensionless
+  assumes:
+  - eps = d/L
+  uses:
+  - formula: stress_def
+    subs:
+      sigma: sigma
+      F: F
+      A: A
+  - formula: linear_elastic_stress_strain
+    subs:
+      sigma: sigma
+      E: E
+      eps: eps
+  does_not_apply: a nonlinear material or large strains; an area other than the one carrying the force; a modulus of a body other than
+    the one strained
+  tests:
+  - given:
+      E: 10.0
+      A: 2.0
+      d: 1.0
+      L: 4.0
+    expect:
+      F: 5.0
+  - given:
+      E: 10.0
+      A: 2.0
+      d: 1.0
+      L: 4.0
+    does_not_apply: 'strain taken as d/(L + d) (true length): 4.0, not 5.0'

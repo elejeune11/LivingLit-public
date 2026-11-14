@@ -1,0 +1,319 @@
+figures:
+  f1a_proportions:
+    file: srep29933.pdf
+    page: 2
+    crop: [155, 118, 415, 165]
+    script: figures/f1a_proportions.py
+    unit: F1a
+    kind: raster
+    groups:
+      ce_CM: {item: F1a_proportions, group: ce, unit_of_value: '%'}
+      ce_EC: {item: F1a_proportions, group: ce, unit_of_value: '%'}
+      cm_CM: {item: F1a_proportions, group: cm, unit_of_value: '%'}
+      cm_MC: {item: F1a_proportions, group: cm, unit_of_value: '%'}
+      cem_CM: {item: F1a_proportions, group: cem, unit_of_value: '%'}
+      cem_EC: {item: F1a_proportions, group: cem, unit_of_value: '%'}
+      cem_MC: {item: F1a_proportions, group: cem, unit_of_value: '%'}
+    note: >-
+      Fig. 1a lower row, three bar charts (CM+EC, CM+MC, CM+EC+MC), each with its own 0-80 % axis; label = ECT type _ cell
+      type whose proportion the bar shows. Bars only (mean and upper end of the error bar, SD per Methods); no points drawn.
+      CM+EC MC bar is too short to separate its fill from its error cap and is not read; CM+MC has no EC bar drawn.
+  f1b_function:
+    file: srep29933.pdf
+    page: 2
+    crop: [155, 185, 415, 312]
+    script: figures/f1b_function.py
+    unit: F1b
+    kind: raster
+    groups:
+      mcr_ce: {item: F1b_mcr_cem_vs_ce, group: ce, unit_of_value: Hz}
+      mcr_cm: {item: F1b_mcr_cem_vs_cm, group: cm, unit_of_value: Hz}
+      mcr_cem: {item: F1b_mcr_cem_vs_ce, group: cem, unit_of_value: Hz}
+      mcr_cem_vs_cm: {item: F1b_mcr_cem_vs_cm, group: cem, unit_of_value: Hz}
+      rt_ce: {item: F1b_rt_cem_vs_ce, group: ce, unit_of_value: msec}
+      rt_cm: {item: F1b_rt_cem_vs_cm, group: cm, unit_of_value: msec}
+      rt_cem: {item: F1b_rt_cem_vs_ce, group: cem, unit_of_value: msec}
+      rt_cem_vs_cm: {item: F1b_rt_cem_vs_cm, group: cem, unit_of_value: msec}
+      et_ce: {item: F1b_et_cem_vs_ce, group: ce, unit_of_value: V/cm}
+      et_cm: {item: F1b_et_cem_vs_cm, group: cm, unit_of_value: V/cm}
+      et_cem: {item: F1b_et_cem_vs_ce, group: cem, unit_of_value: V/cm}
+      et_cem_vs_cm: {item: F1b_et_cem_vs_cm, group: cem, unit_of_value: V/cm}
+    note: >-
+      Fig. 1b, three bar charts (maximum capture rate, relaxation time, excitation threshold), each with its own axis;
+      label = measure _ ECT type. Bars only (mean and upper end of the error bar, SD per Methods); no points drawn.
+      <measure>_cem_vs_cm is the same CM+EC+MC bar as <measure>_cem, linked to the item against CM+MC.
+  f1c_force_frequency:
+    file: srep29933.pdf
+    page: 2
+    crop: [415, 46, 552, 165]
+    script: figures/f1c_force_frequency.py
+    unit: F1c
+    kind: raster
+    groups:
+      ce: {item: F1c_force35_cem_vs_ce, group: ce, unit_of_value: fold increase}
+      cm: {item: F1c_force35_cem_vs_cm, group: cm, unit_of_value: fold increase}
+      cem: {item: F1c_force35_cem_vs_ce, group: cem, unit_of_value: fold increase}
+      cem_vs_cm: {item: F1c_force35_cem_vs_cm, group: cem, unit_of_value: fold increase}
+    note: >-
+      Fig. 1c, line chart of active force (fold increase over 2 Hz) at 2-3.5 Hz; only the 3.5 Hz means are read (x =
+      3.5 Hz), label = ECT type. Lines join group means; no markers or points drawn. CM+EC+MC has an upward error bar
+      (upper end read). CM+EC and CM+MC share one downward stem with two caps that cannot be assigned to a group, so
+      their error is not read. cem_vs_cm is the same CM+EC+MC mean as cem, linked to the item against CM+MC.
+  f1d_youngs_modulus:
+    file: srep29933.pdf
+    page: 2
+    crop: [415, 195, 552, 312]
+    script: figures/f1d_youngs_modulus.py
+    unit: F1d
+    kind: raster
+    groups:
+      ce: {item: F1d_ym_cm_vs_ce, group: ce, unit_of_value: kPa}
+      cm: {item: F1d_ym_cm_vs_ce, group: cm, unit_of_value: kPa}
+      cem: {item: F1d_ym_cem_vs_ce, group: cem, unit_of_value: kPa}
+      ce_vs_cem: {item: F1d_ym_cem_vs_ce, group: ce, unit_of_value: kPa}
+    note: >-
+      Fig. 1d, one bar chart of Young's modulus (0-15 kPa, four ticks); label = ECT type. Bars only (mean and upper end
+      of the error bar, SD per Methods); no points drawn. ce_vs_cem is the same CM+EC bar as ce, linked to the item
+      CM+EC+MC vs CM+EC.
+  f2a_kappa:
+    file: srep29933.pdf
+    page: 4
+    crop: [232, 60, 310, 212]
+    script: figures/f2a_kappa.py
+    unit: F2a
+    kind: raster
+    groups:
+      twod: {item: F2a_kappa_cem_vs_twod, group: twod, unit_of_value: κ}
+      twod_vs_cm: {item: F2a_kappa_cm_vs_twod, group: twod, unit_of_value: κ}
+      ce: {item: F2a_kappa_cem_vs_ce, group: ce, unit_of_value: κ}
+      ce_vs_cm: {item: F2a_kappa_cm_vs_ce, group: ce, unit_of_value: κ}
+      cm: {item: F2a_kappa_cm_vs_twod, group: cm, unit_of_value: κ}
+      cm_vs_ce: {item: F2a_kappa_cm_vs_ce, group: cm, unit_of_value: κ}
+      cem: {item: F2a_kappa_cem_vs_twod, group: cem, unit_of_value: κ}
+      cem_vs_ce: {item: F2a_kappa_cem_vs_ce, group: cem, unit_of_value: κ}
+    note: >-
+      Fig. 2a right, one bar chart of the concentration parameter (κ, 0-8, nine ticks; dimensionless, printed axis
+      title "Concentration parameter (κ)"); label = group. Bars only (mean and upper end of the error bar, SD per
+      Methods); no points drawn, so the legend's n = 3 (2D) and 5 (each 3D) cannot be counted. Each bar serves two
+      items, so each is returned under a second label (<group>_vs_<other>) linked to its other item.
+  s9b_circular_sd:
+    file: srep29933-s1.pdf
+    page: 16
+    crop: [108, 465, 245, 632]
+    script: figures/s9b_circular_sd.py
+    unit: S9
+    kind: raster
+    groups:
+      twod: {item: S9_csd_ce_vs_twod, group: twod, unit_of_value: Deg}
+      twod_vs_cm: {item: S9_csd_cm_vs_twod, group: twod, unit_of_value: Deg}
+      twod_vs_cem: {item: S9_csd_cem_vs_twod, group: twod, unit_of_value: Deg}
+      ce: {item: S9_csd_ce_vs_twod, group: ce, unit_of_value: Deg}
+      ce_vs_cm: {item: S9_csd_cm_vs_ce, group: ce, unit_of_value: Deg}
+      ce_vs_cem: {item: S9_csd_cem_vs_ce, group: ce, unit_of_value: Deg}
+      cm: {item: S9_csd_cm_vs_twod, group: cm, unit_of_value: Deg}
+      cm_vs_ce: {item: S9_csd_cm_vs_ce, group: cm, unit_of_value: Deg}
+      cem: {item: S9_csd_cem_vs_twod, group: cem, unit_of_value: Deg}
+      cem_vs_ce: {item: S9_csd_cem_vs_ce, group: cem, unit_of_value: Deg}
+    note: >-
+      Supplementary Fig. 9b, one bar chart of circular standard deviation (0-70, eight ticks; printed unit "(Deg)");
+      label = group. Bars only (mean and upper end of the error bar, SD per Methods); no points drawn, so the legend's
+      n = 3 (2D) and 5 (each 3D) cannot be counted. Bars serve several items, so each is returned again under
+      <group>_vs_<other> labels linked to its other items. Panel a (angle histograms) is per-image illustration and
+      not read.
+  f2d_enrichment:
+    file: srep29933.pdf
+    page: 4
+    crop: [300, 228, 555, 362]
+    script: figures/f2d_enrichment.py
+    unit: F2d
+    kind: raster
+    groups:
+      muscle_structure: {item: F2d_muscle_structure, group: cem, unit_of_value: -log(pValue)}
+      cv_system: {item: F2d_cv_system, group: cem, unit_of_value: -log(pValue)}
+      cardiac_muscle_tissue: {item: F2d_cardiac_muscle_tissue, group: cem, unit_of_value: -log(pValue)}
+      heart_dev: {item: F2d_heart_dev, group: cem, unit_of_value: -log(pValue)}
+      myofibril: {item: F2d_myofibril, group: cem, unit_of_value: -log(pValue)}
+      cardiac_muscle_cell: {item: F2d_cardiac_muscle_cell, group: cem, unit_of_value: -log(pValue)}
+      blood_vessel: {item: F2d_blood_vessel, group: cem, unit_of_value: -log(pValue)}
+      cardiac_cell: {item: F2d_cardiac_cell, group: cem, unit_of_value: -log(pValue)}
+      muscle_contract: {item: F2d_muscle_contract, group: cem, unit_of_value: -log(pValue)}
+      cytoskeleton: {item: F2d_cytoskeleton, group: cem, unit_of_value: -log(pValue)}
+      fgf_erbb: {item: F2d_fgf_erbb, group: cem, unit_of_value: -log(pValue)}
+      wnt_notch: {item: F2d_wnt_notch, group: cem, unit_of_value: -log(pValue)}
+      bmp_tgfb: {item: F2d_bmp_tgfb, group: cem, unit_of_value: -log(pValue)}
+    note: >-
+      Fig. 2d, two horizontal bar charts of enrichment, axis on top titled "-log(pValue)": left GO processes (ticks
+      0-20 by 5), right pathway maps / process networks (ticks 0-6 by 1); label = item without the F2d_ prefix, bars
+      top to bottom in record order (labels beside the bars checked). One value per bar, the -log p of the comparison
+      CM+EC+MC versus CM+EC, stored as the bar's "mean" (no reading kind for p); it belongs to the comparison, not to
+      one group, and is linked to group cem because a link needs one. Bars only; no error bars, nothing countable.
+      Ticks are unevenly spaced in the raster (misfit 0.3 and 0.13 axis units), carried in the intervals.
+  f3d_echo:
+    file: srep29933.pdf
+    page: 5
+    crop: [300, 55, 555, 284]
+    script: figures/f3d_echo.py
+    unit: F3
+    kind: raster
+    groups:
+      co_tx_pre: {item: F3_co_course, group: tx, unit_of_value: mL/min}
+      co_tx_2w: {item: F3_co_course, group: tx, unit_of_value: mL/min}
+      co_tx_4w: {item: F3_co_course, group: tx, unit_of_value: mL/min}
+      co_sham_pre: {item: F3_co_course, group: sham, unit_of_value: mL/min}
+      co_sham_2w: {item: F3_co_course, group: sham, unit_of_value: mL/min}
+      co_sham_4w: {item: F3_co_course, group: sham, unit_of_value: mL/min}
+      co_tx: {item: F3_co_tx_vs_sham_4w, group: tx, unit_of_value: mL/min}
+      co_sham: {item: F3_co_tx_vs_sham_4w, group: sham, unit_of_value: mL/min}
+      sv_tx_pre: {item: F3_sv_course, group: tx, unit_of_value: fold increase to PreTx}
+      sv_tx_2w: {item: F3_sv_course, group: tx, unit_of_value: fold increase to PreTx}
+      sv_tx_4w: {item: F3_sv_course, group: tx, unit_of_value: fold increase to PreTx}
+      sv_sham_pre: {item: F3_sv_course, group: sham, unit_of_value: fold increase to PreTx}
+      sv_sham_2w: {item: F3_sv_course, group: sham, unit_of_value: fold increase to PreTx}
+      sv_sham_4w: {item: F3_sv_course, group: sham, unit_of_value: fold increase to PreTx}
+      sv_tx: {item: F3_sv_tx_vs_sham_4w, group: tx, unit_of_value: fold increase to PreTx}
+      sv_sham: {item: F3_sv_tx_vs_sham_4w, group: sham, unit_of_value: fold increase to PreTx}
+      lvad_tx_pre: {item: F3_lvad_course, group: tx, unit_of_value: mm2}
+      lvad_tx_2w: {item: F3_lvad_course, group: tx, unit_of_value: mm2}
+      lvad_tx_4w: {item: F3_lvad_course, group: tx, unit_of_value: mm2}
+      lvad_sham_pre: {item: F3_lvad_course, group: sham, unit_of_value: mm2}
+      lvad_sham_2w: {item: F3_lvad_course, group: sham, unit_of_value: mm2}
+      lvad_sham_4w: {item: F3_lvad_course, group: sham, unit_of_value: mm2}
+      lvad_tx: {item: F3_lvad_tx_vs_sham_4w, group: tx, unit_of_value: mm2}
+      lvad_sham: {item: F3_lvad_tx_vs_sham_4w, group: sham, unit_of_value: mm2}
+      ef_tx_pre: {item: F3_ef_course, group: tx, unit_of_value: fold increase to PreTx}
+      ef_tx_2w: {item: F3_ef_course, group: tx, unit_of_value: fold increase to PreTx}
+      ef_tx_4w: {item: F3_ef_course, group: tx, unit_of_value: fold increase to PreTx}
+      ef_sham_pre: {item: F3_ef_course, group: sham, unit_of_value: fold increase to PreTx}
+      ef_sham_2w: {item: F3_ef_course, group: sham, unit_of_value: fold increase to PreTx}
+      ef_sham_4w: {item: F3_ef_course, group: sham, unit_of_value: fold increase to PreTx}
+      ef_tx: {item: F3_ef_tx_vs_sham_4w, group: tx, unit_of_value: fold increase to PreTx}
+      ef_sham: {item: F3_ef_tx_vs_sham_4w, group: sham, unit_of_value: fold increase to PreTx}
+    note: >-
+      Fig. 3d, four line charts (cardiac output mL/min; stroke volume and ejection fraction as fold increase to PreTx;
+      LVAd mm2 as printed "(mm²)"), one per quadrant of the crop. Lines join group means (blue Sham, red Tx); no
+      markers or points, so the legend's n = 6 (Tx) and 5 (sham) cannot be counted. Label <measure>_<group>_<time>
+      carries x = day of the echo after implantation as printed in Fig. 3a (PreTx -1, Tx2w 14, Tx4w 28) and links to
+      the time-course item; <measure>_<group> is the Tx4w reading again without x, linked to the 4-week comparison.
+      Error: upper end of the Tx bars (they point up) in cardiac output, stroke volume and ejection fraction. Sham bars
+      point down (lower end only), not a reading kind, so not read; LVAd caps cannot be assigned to a group, not read.
+      Stroke volume and ejection fraction at PreTx are 1 by construction and are read as plotted.
+  s1_protocol_populations:
+    file: srep29933-s1.pdf
+    page: 8
+    crop: [428, 80, 578, 452]
+    script: figures/s1_protocol_populations.py
+    unit: S1
+    kind: raster
+    groups:
+      cmmc_CM: {item: S1_ctnt, group: cmmc_p, unit_of_value: '%'}
+      cmmc_MC: {item: S1_pdgfrb, group: cmmc_p, unit_of_value: '%'}
+      mc_CM: {item: S1_ctnt, group: mc_p, unit_of_value: '%'}
+    note: >-
+      Supplementary Fig. 1 right, three stacked bar charts (CM+EC, CM+MC, MC protocol), each with its own % axis; label
+      = protocol _ cell type whose proportion the bar shows (CM cTnT+, MC PDGFRb+). Bars only (mean and upper end of the
+      error bar, SD per Methods); no points drawn, so the legend's n = 5 (CM+MC) and 42 (MC) cannot be counted. Not
+      read: CM+MC EC (no bar drawn), MC-protocol EC (only an error cap on the axis line, no fill), and the bars whose
+      values are printed in the text (CM+EC all three, MC-protocol MC). The MC-protocol CM bar is one or two fill rows
+      tall in the ~200 dpi source image, so its mean rests on a sub-pixel edge.
+  s2b_wnt3a_induction:
+    file: srep29933-s1.pdf
+    page: 9
+    crop: [60, 268, 412, 428]
+    script: figures/s2b_wnt3a_induction.py
+    unit: S2
+    kind: raster
+    groups:
+      cm_w100: {item: S2_cm_w100_vs_dkk1, group: w100, unit_of_value: '%'}
+      cm_dkk1: {item: S2_cm_w100_vs_dkk1, group: dkk1, unit_of_value: '%'}
+      cm_w50: {item: S2_cm_w50_vs_dkk1, group: w50, unit_of_value: '%'}
+      cm_dkk1_vs_w50: {item: S2_cm_w50_vs_dkk1, group: dkk1, unit_of_value: '%'}
+      cm_w100_vs_ctrl: {item: S2_cm_w100_vs_ctrl, group: w100, unit_of_value: '%'}
+      cm_ctrl: {item: S2_cm_w100_vs_ctrl, group: ctrl, unit_of_value: '%'}
+      ec_w100: {item: S2_ec_w100_vs_dkk1, group: w100, unit_of_value: '%'}
+      ec_dkk1: {item: S2_ec_w100_vs_dkk1, group: dkk1, unit_of_value: '%'}
+      ec_w50: {item: S2_ec_w50_vs_dkk1, group: w50, unit_of_value: '%'}
+      ec_dkk1_vs_w50: {item: S2_ec_w50_vs_dkk1, group: dkk1, unit_of_value: '%'}
+      ec_w100_vs_ctrl: {item: S2_ec_w100_vs_ctrl, group: w100, unit_of_value: '%'}
+      ec_ctrl: {item: S2_ec_w100_vs_ctrl, group: ctrl, unit_of_value: '%'}
+      mc_w100: {item: S2_mc_w100_vs_dkk1, group: w100, unit_of_value: '%'}
+      mc_dkk1: {item: S2_mc_w100_vs_dkk1, group: dkk1, unit_of_value: '%'}
+      mc_w50: {item: S2_mc_w50_vs_dkk1, group: w50, unit_of_value: '%'}
+      mc_dkk1_vs_w50: {item: S2_mc_w50_vs_dkk1, group: dkk1, unit_of_value: '%'}
+      mc_w100_vs_ctrl: {item: S2_mc_w100_vs_ctrl, group: w100, unit_of_value: '%'}
+      mc_ctrl: {item: S2_mc_w100_vs_ctrl, group: ctrl, unit_of_value: '%'}
+      mc_w50_vs_ctrl: {item: S2_mc_w50_vs_ctrl, group: w50, unit_of_value: '%'}
+      mc_ctrl_vs_w50: {item: S2_mc_w50_vs_ctrl, group: ctrl, unit_of_value: '%'}
+    note: >-
+      Supplementary Fig. 2b, three bar charts side by side (CM 0-70 by 10, EC 0-30 by 5, MC 0-100 by 20, each axis
+      printed "(%)"), four bars each (Dkk1 100ng/mL, Control, Wnt3a 50ng/mL, Wnt3a 100ng/mL). Bars only (mean and upper
+      end of the error bar); no points drawn, so the legend's n = 3-4 cannot be counted. Each bar serves several items,
+      so it is returned again under <cell>_<group>_vs_<other> labels linked to its other items. The two MC Wnt3a bars
+      are about 1 % tall: their fill top is read in the bar columns either side of the narrower error cap. Panel a
+      (representative dot plots) carries printed gate percentages, recorded by the record reader, and is not read.
+  s4b_ect_area:
+    file: srep29933-s1.pdf
+    page: 11
+    crop: [90, 425, 490, 668]
+    script: figures/s4b_ect_area.py
+    unit: S4
+    kind: raster
+    groups:
+      ce: {item: S4_area_cem_vs_ce_d14, group: ce, unit_of_value: mm2}
+      cem: {item: S4_area_cem_vs_ce_d14, group: cem, unit_of_value: mm2}
+    note: >-
+      Supplementary Fig. 4b, line chart of ECT area (0-120 by 20, printed "(mm²)") at Day 0, 2, 4, 6, 14; only the Day
+      14 means are read (x = 14, Day 14 as printed), label = ECT type. Lines join group means (blue CM+EC, red
+      CM+EC+MC); no markers or points, and no n is printed, so nothing is countable. One stem at Day 14 carries a cap
+      above both lines and one below both; as at Days 2-6 the upper series is drawn upward, so the upper cap is read as
+      the upper end of the CM+EC bar (a judgement). The lower cap (CM+EC+MC, lower end only) is not a reading kind and
+      is not read. The time-course item S4_area_course is not read (not listed by figures-needed).
+  s5a_active_force:
+    file: srep29933-s1.pdf
+    page: 12
+    crop: [75, 65, 265, 262]
+    script: figures/s5a_active_force.py
+    unit: S5
+    kind: raster
+    groups:
+      ce: {item: S5_force_omnibus, group: ce, unit_of_value: mN}
+      cm: {item: S5_force_omnibus, group: cm, unit_of_value: mN}
+      cem: {item: S5_force_omnibus, group: cem, unit_of_value: mN}
+    note: >-
+      Supplementary Fig. 5a, one bar chart of active force at Lmax, 2Hz/5V (0-0.8 by 0.2, printed "(mN)"); label = ECT
+      type (bars printed "C+E", "C+M", "C+E+M"). Bars only (mean and upper end of the error bar, SD per Methods); no
+      points drawn in panel a. Panel b (scatter of the same force against CM ratio, coloured by ECT type) is not read:
+      several markers touch or overlap (two CM+EC near 0.71, two CM+EC+MC near 0.48, CM+EC and CM+EC+MC near 0.41) and
+      only six separate CM+MC markers are visible against the n = 7 of the Fig. 1 legend, so not every marker stands
+      alone.
+  s8a_ec50:
+    file: srep29933-s1.pdf
+    page: 15
+    crop: [330, 60, 570, 272]
+    script: figures/s8a_ec50.py
+    unit: S8a
+    kind: raster
+    groups:
+      ce: {item: S8a_ec50_omnibus, group: ce, unit_of_value: mM}
+      cm: {item: S8a_ec50_omnibus, group: cm, unit_of_value: mM}
+      cem: {item: S8a_ec50_omnibus, group: cem, unit_of_value: mM}
+    note: >-
+      Supplementary Fig. 8a right, one bar chart of Ca2+ EC50 (0-1.5 by 0.5, printed "(mM)", y label "EC50"); label =
+      ECT type (blue CM+EC, green CM+MC, red CM+EC+MC). Bars only (mean and upper end of the error bar, SD per
+      Methods); no points drawn, no n printed. The left panel (force-Ca2+ curves, item S8a_force_calcium) is not read
+      (not listed by figures-needed).
+  s8b_caffeine:
+    file: srep29933-s1.pdf
+    page: 15
+    crop: [330, 285, 570, 520]
+    script: figures/s8b_caffeine.py
+    unit: S8b
+    kind: raster
+    groups:
+      ce: {item: S8b_caffeine_omnibus, group: ce, unit_of_value: '%'}
+      cm: {item: S8b_caffeine_omnibus, group: cm, unit_of_value: '%'}
+      cem: {item: S8b_caffeine_omnibus, group: cem, unit_of_value: '%'}
+    note: >-
+      Supplementary Fig. 8b right, one bar chart of active force increase on 5 mM caffeine (0-60 by 10, printed "(%)",
+      y label "Active force (fold increase corresponding to caffeine)"); label = ECT type (blue CM+EC, green CM+MC, red
+      CM+EC+MC). Bars only (mean and upper end of the error bar, SD per Methods); no points drawn, no n printed. The
+      left panel (representative total-force trace) is illustration and not read.

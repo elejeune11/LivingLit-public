@@ -1,0 +1,5605 @@
+id: 2018_Ulmer
+source:
+  title: Contractile Work Contributes to Maturation of Energy Metabolism in hiPSC-Derived Cardiomyocytes
+  doi: 10.1016/j.stemcr.2018.01.039
+  year: '2018'
+  first_author: Bärbel M. Ulmer
+  last_author: Arne Hansen
+  lab: Hansen and Eschenhagen lab, University Medical Center Hamburg Eppendorf
+  journal: Stem Cell Reports
+  files:
+  - main.pdf
+  - mmc1.pdf
+  - mmc2.xlsx
+  - mmc3.xlsx
+  - mmc4.xlsx
+  - mmc5.xlsx
+  - mmc8.pdf
+  missing: []
+  version_note: mmc8.pdf is main.pdf followed by mmc1.pdf (identical text); mmc2–mmc5 are Tables S1–S4.
+default_context:
+  hipsc_medium: not stated
+  hipsc_coating: not stated
+  differentiation_factors:
+    by_reference:
+      citation: Breckwoldt2017
+      anchor: &id001
+        quote: Cardiac differentiation was performed with an EB-based protocol as recently described (Breckwoldt et al., 2017)
+        where: Experimental Procedures
+        file: main.pdf
+  wnt_activation_days:
+    by_reference:
+      citation: Breckwoldt2017
+      anchor: *id001
+  wnt_inhibition_days:
+    by_reference:
+      citation: Breckwoldt2017
+      anchor: *id001
+  insulin_day:
+    by_reference:
+      citation: Breckwoldt2017
+      anchor: *id001
+  confluency: not stated
+  purification: not stated
+  purity_method: flow cytometry
+  purity:
+    value: 55%–98%
+    qualifiers:
+      marker: cardiac troponin T
+    anchor:
+      quote: Differentiation runs with 55%–98% of cardiac troponin T-positive cells, as analyzed by flow cytometry
+      where: Experimental Procedures
+      file: main.pdf
+  cm_medium:
+    value: DMEM + horse serum
+    qualifiers:
+      horse_serum: 10%
+    note: complete medium, changed 3x per week; cultured in 7% CO2 and 40% O2
+  supplements: insulin + aprotinin + penicillin/streptomycin
+  cell_types: hiPSC-CMs
+  stromal_cell: not stated
+  endothelial_cell: not stated
+  composition: not stated
+  cm_day_at_formation:
+    value: day 17
+    anchor:
+      quote: subjected to collagenase digestion on day 17 after initiation of the differentiation
+      where: Experimental Procedures
+      file: main.pdf
+  maturation_strategy: not stated
+  genotype: not stated
+  disease_model: none
+  temperature: not stated
+  culture_calcium_mM: not stated
+  measurement_calcium_mM: not stated
+  transgene: not stated
+  donor_age: not stated
+units:
+  F1D:
+    where: Fig. 1D
+    title: Force development of 3D hiPSC-CMs
+    context:
+      platform:
+        value: EHT
+        qualifiers:
+          cells: 0.8 × 10^6 cells/EHT
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load:
+        value: auxotonic
+        qualifiers:
+          posts: elastic PDMS posts
+      number_of_lines: '1'
+      treatment: none
+      pacing: none
+      preparation: intact tissue
+      day_of_measurement: days 1–70
+    groups:
+      l1b1:
+        label: 'Control line 1 #1'
+        context:
+          cell_line: C25
+      l1b2:
+        label: 'Control line 1 #2'
+        context:
+          cell_line: C25
+      l2b1:
+        label: 'Control line 2 #1'
+        context:
+          cell_line: ERC018
+      l2b2:
+        label: 'Control line 2 #2'
+        context:
+          cell_line: ERC018
+      l2b3:
+        label: 'Control line 2 #3'
+        context:
+          cell_line: ERC018
+    note: Each group is one differentiation batch of a line; x is the day after casting.
+  S1B:
+    where: Fig. S1B
+    title: Spontaneous beating frequency of EHTs/3D
+    context:
+      platform:
+        value: EHT
+        qualifiers:
+          cells: 0.8 × 10^6 cells/EHT
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load:
+        value: auxotonic
+        qualifiers:
+          posts: elastic PDMS posts
+      number_of_lines: '1'
+      treatment: none
+      pacing: none
+      preparation: intact tissue
+      day_of_measurement: days 1–70
+    groups:
+      l1:
+        label: Control cell line 1
+        context:
+          cell_line: C25
+      l2:
+        label: Control cell line 2
+        context:
+          cell_line: ERC018
+  F1E:
+    where: Fig. 1E
+    title: qPCR results of 2D and 3D hiPSC-CMs for cardiomyocyte, fibroblast and endothelial markers
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: days 21–45
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F1FG:
+    where: Fig. 1F–1G; Fig. S1C–S1F
+    title: Transmission electron microscopy pictures in 2D compared with 3D hiPSC-CMs
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: fixed
+      day_of_measurement: not stated
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F2AC:
+    where: Fig. 2A–2C; Tables S1, S2
+    title: Quantitative Analysis of Proteomic Profiles of Human iPSC-Derived 2D or EHT Samples
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: &id002
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 2 × 10^6 cells/6-well
+          substrate: 6-well plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: EHT
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  S2B:
+    where: Fig. S2B
+    title: Scatter plots of log10 normalized spectral counts to characterize potential variance between samples per group
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: EHT3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F2D:
+    where: Fig. 2D
+    title: Examples of mitochondrial protein spectral count analysis involved in fatty acid oxidation (FAO) and respiration
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: EHT
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  ST3:
+    where: Table S3 (mmc4.xlsx)
+    title: Top biological processes associated with proteins which were significantly different between 2D and 3D (EHT)
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: EHT
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  S2EF:
+    where: Fig. S2E–S2F
+    title: Panther analysis for involved pathways of proteins with higher abundance in 3D and involved protein classes
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: EHT
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F4A:
+    where: Fig. 4A; Fig. S2D
+    title: Analysis of Regulator Effects by IPA of proteins significantly different between 2D and 3D
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F3:
+    where: Fig. 3A–3D; Fig. S3
+    title: Comparison of the Mitochondrial Proteome between 2D, 3D, and Non-failing Human Hearts
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+      nfh:
+        label: NFH
+        kind: native tissue
+        context:
+          platform:
+            value: native tissue
+            note: non-failing left ventricular myocardium from 3 female donor hearts
+          preparation: lysate
+          disease_model: none
+        anchor:
+          quote: Non-failing left ventricular myocardium utilized in Fig. 3 was obtained from 3 female donor hearts
+          where: Supplemental Experimental Procedures, Human heart samples
+          file: mmc1.pdf
+    note: EHT is labelled 3D in B and EHT in C and D.
+  F4BC:
+    where: Fig. 4B–4C
+    title: qRT-PCR for PPARGC1/PGC-1a and ESSRA
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: days 21–45
+      preparation: lysate
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F4D:
+    where: Fig. 4D; Table S4 (mmc5.xlsx)
+    title: Average intensity between samples of mitochondrial proteins detected by quantitative proteomics
+    context:
+      cell_line:
+        value: C25 + ERC018
+        suspected_error:
+          what: Fig. S1A lists Figure 4 B-F for both control lines
+          why: Fig. 4D re-uses the proteome of Figs. 2 and 3, which Fig. S1A lists for control line 1 only, from one differentiation.
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      g2D:
+        label: 2D
+        context: *id002
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+      nfh:
+        label: Adult human heart
+        kind: native tissue
+        context:
+          platform:
+            value: native tissue
+            note: non-failing left ventricular myocardium from 3 female donor hearts
+          preparation: lysate
+          disease_model: none
+        anchor:
+          quote: Non-failing left ventricular myocardium utilized in Fig. 3 was obtained from 3 female donor hearts
+          where: Supplemental Experimental Procedures, Human heart samples
+          file: mmc1.pdf
+  F4E:
+    where: Fig. 4E; Fig. S4A
+    title: Quantification of flow cytometry with MitoTracker Green FM of 2D versus 3D CMs
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: days 21–45
+      preparation: dissociated cells
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+  F4F:
+    where: Fig. 4F; Fig. S4C
+    title: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2)
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+    groups:
+      before:
+        label: hiPS-CM before culture
+        context:
+          substrate: not applicable
+          replating_coating: not applicable
+          mechanical_load: not applicable
+          platform:
+            value: not applicable
+            note: hiPSC-CMs before 2D or 3D culture
+          day_of_measurement: 0 days
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+          day_of_measurement: days 21–45
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+          day_of_measurement: days 21–45
+      heart:
+        label: Adult human heart
+        context:
+          platform:
+            value: native tissue
+            note: 1× non-failing, 2× terminal heart failure
+          preparation: lysate
+          disease_model:
+            value: 1× non-failing, 2× terminal heart failure
+            note: one non-failing heart and two failing hearts (dilative cardiomyopathy or ischemic heart disease)
+        kind: native tissue
+        anchor:
+          quote: The heart samples in Fig. 4 were composed of one non-failing heart sample and two failing heart samples
+          where: Supplemental Experimental Procedures, Human heart samples
+          file: mmc1.pdf
+  S4B:
+    where: Fig. S4B
+    title: mtDNA content after 70 days of culture time
+    context:
+      treatment: none
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 70
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+          cell_line: C25 + ERC018
+          number_of_lines: '2'
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+          cell_line: C25 + ERC018
+          number_of_lines: '2'
+      l1_2D:
+        label: Ctr line 1, 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+          cell_line: C25
+          number_of_lines: '1'
+      l1_3D:
+        label: Ctr line 1, 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+          cell_line: C25
+          number_of_lines: '1'
+      l2_2D:
+        label: Ctr line 2, 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+          cell_line: ERC018
+          number_of_lines: '1'
+      l2_3D:
+        label: Ctr line 2, 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+          cell_line: ERC018
+          number_of_lines: '1'
+    note: Left panel pools both lines; right panel shows each line and Mt-ND1 and Mt-ND2 separately.
+  F5A:
+    where: Fig. 5A; Fig. S5A
+    title: Beating rate for hiPSC-CMs of both control cell lines in 2D
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform:
+        value: 2D monolayer
+        qualifiers:
+          cell_density: 0.8 × 10^6 cells/2 cm2
+      substrate: 24-well Nunc plate
+      replating_coating:
+        value: gelatin
+        qualifiers:
+          concentration: 0.1%
+      mechanical_load: not stated
+      pacing: none
+      preparation: live culture
+      day_of_measurement: days 21–45
+    groups:
+      glc_base:
+        label: Glucose baseline
+        context:
+          treatment:
+            value: glucose
+            qualifiers:
+              timepoint: baseline, complete medium
+      glc_next:
+        label: Glucose next day
+        context:
+          treatment:
+            value: glucose
+            qualifiers:
+              timepoint: next day, 20 hr
+              concentration: 5 mM
+      fa_base:
+        label: Fatty acid baseline
+        context:
+          treatment:
+            value: fatty acid
+            qualifiers:
+              timepoint: baseline, complete medium
+      fa_next:
+        label: Fatty acid next day
+        context:
+          treatment:
+            value: fatty acid
+            qualifiers:
+              timepoint: next day, 20 hr
+              concentration: 1 mM
+      lac_base:
+        label: Lactate baseline
+        context:
+          treatment:
+            value: lactate
+            qualifiers:
+              timepoint: baseline, complete medium
+      lac_next:
+        label: Lactate next day
+        context:
+          treatment:
+            value: lactate
+            qualifiers:
+              timepoint: next day, 20 hr
+              concentration: 1 mM
+      none_base:
+        label: No energy baseline
+        context:
+          treatment:
+            value: no energy substrate
+            qualifiers:
+              timepoint: baseline, complete medium
+      none_next:
+        label: No energy next day
+        context:
+          treatment:
+            value: no energy substrate
+            qualifiers:
+              timepoint: next day, 20 hr
+    note: Baseline groups are the same wells before the single-substrate medium; the substrate and time sit in treatment.
+  F5B:
+    where: Fig. 5B; Fig. S5B
+    title: Beating rate and contractile force for hiPSC-CMs of both control cell lines in 3D
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform:
+        value: EHT
+        qualifiers:
+          cells: 0.8 × 10^6 cells/EHT
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load:
+        value: auxotonic
+        qualifiers:
+          posts: elastic PDMS posts
+      pacing: none
+      preparation: intact tissue
+      day_of_measurement: days 21–45
+    groups:
+      glc_base:
+        label: Glucose baseline
+        context:
+          treatment:
+            value: glucose
+            qualifiers:
+              timepoint: baseline, complete medium
+      glc_next:
+        label: Glucose next day
+        context:
+          treatment:
+            value: glucose
+            qualifiers:
+              timepoint: next day, 20 hr
+              concentration: 5 mM
+      fa_base:
+        label: Fatty acid baseline
+        context:
+          treatment:
+            value: fatty acid
+            qualifiers:
+              timepoint: baseline, complete medium
+      fa_next:
+        label: Fatty acid next day
+        context:
+          treatment:
+            value: fatty acid
+            qualifiers:
+              timepoint: next day, 20 hr
+              concentration: 1 mM
+      lac_base:
+        label: Lactate baseline
+        context:
+          treatment:
+            value: lactate
+            qualifiers:
+              timepoint: baseline, complete medium
+      lac_next:
+        label: Lactate next day
+        context:
+          treatment:
+            value: lactate
+            qualifiers:
+              timepoint: next day, 20 hr
+              concentration: 1 mM
+      none_base:
+        label: No energy baseline
+        context:
+          treatment:
+            value: no energy substrate
+            qualifiers:
+              timepoint: baseline, complete medium
+      none_next:
+        label: No energy next day
+        context:
+          treatment:
+            value: no energy substrate
+            qualifiers:
+              timepoint: next day, 20 hr
+  F5CE:
+    where: Fig. 5C–5E; Fig. S5D
+    title: Normalized force development of 3D hiPSC-CMs during 100 min of hypoxia treatment and reoxygenation
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform:
+        value: EHT
+        qualifiers:
+          cells: 0.8 × 10^6 cells/EHT
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load:
+        value: auxotonic
+        qualifiers:
+          posts: elastic PDMS posts
+      pacing: none
+      preparation: intact tissue
+      day_of_measurement: days 21–45
+    groups:
+      glc:
+        label: Glucose
+        context:
+          treatment:
+            value: glucose
+            qualifiers:
+              concentration: 5 mM
+              hypoxia: 100 min
+      fa:
+        label: Fatty acid
+        context:
+          treatment:
+            value: fatty acid
+            qualifiers:
+              concentration: 1 mM
+              hypoxia: 100 min
+      lac:
+        label: Lactate
+        context:
+          treatment:
+            value: lactate
+            qualifiers:
+              concentration: 1 mM
+              hypoxia: 100 min
+    note: x is time from start of hypoxia (min); force normalized to baseline.
+  S5C:
+    where: Fig. S5C
+    title: Measurements of respiration rates (oxygen consumption rate) per 20 000 2D plated cardiomyocytes
+    context:
+      cell_line: not stated
+      number_of_lines: not stated
+      platform:
+        value: 2D monolayer
+        qualifiers:
+          cell_density: 0.8 × 10^6 cells/2 cm2
+      substrate: 24-well Nunc plate
+      replating_coating:
+        value: gelatin
+        qualifiers:
+          concentration: 0.1%
+      mechanical_load: not stated
+      treatment: none
+      pacing: not applicable
+      preparation: live culture
+      day_of_measurement: not stated
+    groups:
+      g2D:
+        label: 2D
+        context: {}
+  F6BC:
+    where: Fig. 6B–6C; Fig. S6A–S6B
+    title: Glucose consumption and lactate production in 2D and 3D hiPSC-CMs
+    context:
+      cell_line: C25
+      number_of_lines: '1'
+      treatment: none
+      pacing: not applicable
+      preparation: live culture
+      day_of_measurement: days 21–45
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+    note: 'Legend: 4 hr incubation in complete medium; Supplemental Procedures: serum-free full medium with 1 mM fatty acid, 1 mM lactate, 5 mM
+      glucose.'
+  F6DF:
+    where: Fig. 6D–6F; Fig. S6C–S6E
+    title: Analysis of metabolic flux for radioactive 14C-labeled oleic acid, lactate, or glucose after 4 hr of incubation
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      preparation: live culture
+      day_of_measurement: days 21–45
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+      nocells:
+        label: No cells
+        context:
+          platform: no cells
+          substrate: not applicable
+          replating_coating: not applicable
+          mechanical_load: not applicable
+  F6G:
+    where: Fig. 6G
+    title: Calculated relative amount of ATP produced by oxidative metabolism and glycolysis
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      treatment: none
+      pacing: not applicable
+      preparation: live culture
+      day_of_measurement: days 21–45
+    groups:
+      g2D:
+        label: 2D
+        context:
+          platform:
+            value: 2D monolayer
+            qualifiers:
+              cell_density: 0.8 × 10^6 cells/2 cm2
+          substrate: 24-well Nunc plate
+          replating_coating:
+            value: gelatin
+            qualifiers:
+              concentration: 0.1%
+          mechanical_load: not stated
+      g3D:
+        label: 3D
+        context:
+          platform:
+            value: EHT
+            qualifiers:
+              cells: 0.8 × 10^6 cells/EHT
+          substrate: fibrin
+          replating_coating: not applicable
+          mechanical_load:
+            value: auxotonic
+            qualifiers:
+              posts: elastic PDMS posts
+    note: Derived by the authors from Figs. 6C–6F under the assumption of fully efficient ATP production.
+  F7B:
+    where: Fig. 7A–7B; Fig. S7
+    title: Comparison of contractility parameter of EHTs incubated ± blebbistatin (300 nM) on day 21
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform: &id003
+        value: EHT
+        qualifiers:
+          cells: 0.8 × 10^6 cells/EHT
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load: &id004
+        value: auxotonic
+        qualifiers:
+          posts: elastic PDMS posts
+      day_of_measurement: day 21
+      pacing: none
+      preparation: intact tissue
+    groups:
+      ctrl:
+        label: Control EHT
+        context:
+          treatment: none
+      bleb:
+        label: Blebbistatin treated EHT
+        context:
+          treatment: &id005
+            value: blebbistatin
+            qualifiers:
+              concentration: 300 nM
+              duration: 7 days, day 14 to day 21
+  F7CD:
+    where: Fig. 7C–7D
+    title: Mitochondrial DNA content and mitochondrial mass after blebbistatin treatment
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform: *id003
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load: *id004
+      day_of_measurement: day 21
+      pacing: not applicable
+      preparation: lysate
+    groups:
+      ctrl:
+        label: Control EHT
+        context:
+          treatment: none
+      bleb:
+        label: Blebbistatin treated EHT
+        context:
+          treatment: *id005
+    note: 7C is DNA from EHT lysate; 7D is MitoTracker FACS of dissociated cells (item context).
+  F7E:
+    where: Fig. 7E
+    title: PCR amplification of genomic DNA for Mt-ND1/2, normalized to the nuclear encoded gene actin of 3D ± BTS
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform: *id003
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load: *id004
+      day_of_measurement: day 21
+      pacing: not applicable
+      preparation: lysate
+    groups:
+      ctrl:
+        label: Control EHT
+        context:
+          treatment: none
+      bts:
+        label: BTS treated EHT
+        context:
+          treatment: &id006
+            value: BTS
+            qualifiers:
+              concentration: 20 µM
+              duration: 7 days, day 14 to day 21
+  S7AB:
+    where: Fig. S7A–S7B
+    title: Correlation of mitochondrial DNA content with force and frequency of experiments shown in Figure 7
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform: *id003
+      substrate: fibrin
+      replating_coating: not applicable
+      mechanical_load: *id004
+      day_of_measurement: day 21
+      treatment: blebbistatin + none
+      pacing: none
+      preparation: intact tissue
+    groups:
+      ehts:
+        label: 3D culture
+        context: {}
+    note: Pools the control and blebbistatin EHTs of Fig. 7; each EHT gives force or rate and mtDNA.
+  S7CD:
+    where: Fig. S7C–S7D
+    title: Mitochondrial DNA content of 2D ± Blebbistatin and ± BTS
+    context:
+      cell_line: C25 + ERC018
+      number_of_lines: '2'
+      platform:
+        value: 2D monolayer
+        qualifiers:
+          cell_density: 0.8 × 10^6 cells/2 cm2
+      substrate: 24-well Nunc plate
+      replating_coating:
+        value: gelatin
+        qualifiers:
+          concentration: 0.1%
+      mechanical_load: not stated
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: day 21
+    groups:
+      ctrl:
+        label: 2D
+        context:
+          treatment: none
+      bleb:
+        label: 2D + Blebb
+        context:
+          treatment: *id005
+      bts:
+        label: 2D + BTS
+        context:
+          treatment: *id006
+evidence:
+  f1d_force:
+    unit: F1D
+    measure: contraction force
+    finding: Force of EHTs rises over time; the box marks days of functional analyses.
+    anchor:
+      quote: (D) Force development of 3D hiPSC-CMs. Black frame indicates time window for functional analyses.
+      where: Fig. 1 legend
+      file: main.pdf
+    method: video-optical recording
+    software: not stated
+    definition:
+      citation: Hansen2010
+      anchor:
+        quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+        where: Experimental Procedures
+        file: main.pdf
+    groups:
+    - l1b1
+    - l1b2
+    - l2b1
+    - l2b2
+    - l2b3
+    n:
+      printed: 'Control line 1 (#1, n=13; #2, n=6 ) Control line 2 (#1, n=14; #2, n=10; #3, n=3)'
+      counts: EHTs per batch
+      per_group:
+        l1b1: '13'
+        l1b2: '6'
+        l2b1: '14'
+        l2b2: '10'
+        l2b3: '3'
+    note: Group n are printed inside the figure (image text).
+  s1b_rate:
+    unit: S1B
+    measure: spontaneous beating frequency
+    finding: Beating rate of EHTs over days after casting, per line.
+    anchor:
+      quote: Baseline measurements in complete culture medium, spontaneous beating frequency (beats per minute) over time.
+      where: Fig. S1 legend
+      file: mmc1.pdf
+    method: video-optical recording
+    groups:
+    - l1
+    - l2
+    n: not stated
+    note: Each dot represents one EHT; n per group not printed.
+  f1e_ctnt1:
+    unit: F1E
+    measure: cTNT1 mRNA expression
+    finding: cTNT1 not significantly different between 2D and 3D.
+    anchor: &id007
+      quote: were not significantly different between 2D and 3D format (p > 0.05)
+      where: Results
+      file: main.pdf
+    method: qPCR, fold change normalized
+    software: GraphPad Prism
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10/4) 3D (n=10/4)
+      counts: biological replicates/independent experiments
+      per_group:
+        g2D: 10/4
+        g3D: 10/4
+    stats:
+      test: Student’s t test (two-tailed, homodynamic variance)
+      p: p > 0.05
+    note: The figure legend names no test; the test is the general one of Statistical Analysis. n printed in the figure.
+  f1e_myl3:
+    unit: F1E
+    measure: MYL3 mRNA expression
+    finding: MYL3 not significantly different between 2D and 3D.
+    anchor: *id007
+    method: qPCR, fold change normalized
+    software: GraphPad Prism
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10/4) 3D (n=10/4)
+      counts: biological replicates/independent experiments
+      per_group:
+        g2D: 10/4
+        g3D: 10/4
+    stats:
+      test: Student’s t test (two-tailed, homodynamic variance)
+      p: p > 0.05
+    note: The figure legend names no test; the test is the general one of Statistical Analysis. n printed in the figure.
+  f1e_myl4:
+    unit: F1E
+    measure: MYL4 mRNA expression
+    finding: MYL4 not significantly different between 2D and 3D.
+    anchor: *id007
+    method: qPCR, fold change normalized
+    software: GraphPad Prism
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10/4) 3D (n=10/4)
+      counts: biological replicates/independent experiments
+      per_group:
+        g2D: 10/4
+        g3D: 10/4
+    stats:
+      test: Student’s t test (two-tailed, homodynamic variance)
+      p: p > 0.05
+    note: The figure legend names no test; the test is the general one of Statistical Analysis. n printed in the figure.
+  f1e_vim:
+    unit: F1E
+    measure: vimentin mRNA expression
+    finding: vimentin not significantly different between 2D and 3D.
+    anchor: *id007
+    method: qPCR, fold change normalized
+    software: GraphPad Prism
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10/4) 3D (n=10/4)
+      counts: biological replicates/independent experiments
+      per_group:
+        g2D: 10/4
+        g3D: 10/4
+    stats:
+      test: Student’s t test (two-tailed, homodynamic variance)
+      p: p > 0.05
+    note: The figure legend names no test; the test is the general one of Statistical Analysis. n printed in the figure.
+  f1e_postn:
+    unit: F1E
+    measure: POSTN mRNA expression
+    finding: POSTN not significantly different between 2D and 3D.
+    anchor: *id007
+    method: qPCR, fold change normalized
+    software: GraphPad Prism
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10/4) 3D (n=10/4)
+      counts: biological replicates/independent experiments
+      per_group:
+        g2D: 10/4
+        g3D: 10/4
+    stats:
+      test: Student’s t test (two-tailed, homodynamic variance)
+      p: p > 0.05
+    note: The figure legend names no test; the test is the general one of Statistical Analysis. n printed in the figure.
+  f1e_cd31:
+    unit: F1E
+    measure: CD31 mRNA expression
+    finding: CD31 not significantly different between 2D and 3D.
+    anchor: *id007
+    method: qPCR, fold change normalized
+    software: GraphPad Prism
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10/4) 3D (n=10/4)
+      counts: biological replicates/independent experiments
+      per_group:
+        g2D: 10/4
+        g3D: 10/4
+    stats:
+      test: Student’s t test (two-tailed, homodynamic variance)
+      p: p > 0.05
+    note: The figure legend names no test; the test is the general one of Statistical Analysis. n printed in the figure.
+  f1fg_mito:
+    unit: F1FG
+    measure: mitochondrial morphology (TEM)
+    finding: 3D hiPSC-CMs contain more mitochondria with crisp membranes and cristae.
+    anchor:
+      quote: 3D hiPSC-CMs contained more mitochondria with crisp membrane structures and cristae formation
+      where: Results
+      file: main.pdf
+    method: transmission electron microscopy (Zeiss LEO 912AB)
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: samples prepared from one experiment
+      counts: experiments
+    stated_direction:
+      direction: up
+      anchor:
+        quote: 3D hiPSC-CMs contained more mitochondria with crisp membrane structures and cristae formation
+        where: Results
+        file: main.pdf
+    note: Qualitative; representative images, no quantification.
+  f1fg_glycogen:
+    unit: F1FG
+    measure: glycogen deposits (TEM)
+    finding: More glycogen deposits visible in 2D than 3D.
+    anchor:
+      quote: more glycogen deposits (black granules, open arrowhead, Figures 1F0, 1G0 , and S1C–S1F) were visible in 2D hiPSC-CMs
+      where: Results
+      file: main.pdf
+    method: transmission electron microscopy
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: samples prepared from one experiment
+      counts: experiments
+    stated_direction:
+      direction: down
+      anchor:
+        quote: more glycogen deposits (black granules, open arrowhead
+        where: Results
+        file: main.pdf
+    note: Qualitative; direction is 3D relative to 2D.
+  prot_identified:
+    unit: F2AC
+    measure: proteins identified
+    finding: 1,222 proteins identified; 697 in at least two of three samples; 614 in all samples compared.
+    anchor:
+      quote: spectrometer identified 1,222 proteins, 697 of which were present in at least two of three samples in 2D and 3D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    groups:
+    - g2D
+    - g3D
+    n: &id008
+      printed: n = 3 per group
+      counts: biological replicates from one differentiation
+      per_group:
+        g2D: '3'
+        g3D: '3'
+    values:
+      identified:
+        printed: 1,222
+        unit: proteins
+        kind: count
+      two_of_three:
+        printed: '697'
+        unit: proteins
+        kind: count
+      compared:
+        printed: '614'
+        unit: proteins
+        kind: count
+  prot_diff:
+    unit: F2AC
+    measure: differentially abundant proteins
+    finding: '256 of 614 proteins (41%) differ: 133 more and 123 less abundant in 3D.'
+    anchor:
+      quote: Among these 614 proteins, 256 (41%) significantly differed in abundance between the groups
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    values:
+      differed:
+        printed: '256'
+        unit: proteins
+        kind: count
+      differed_pct:
+        printed: 41%
+        unit: '%'
+        kind: percent
+      more_3d:
+        printed: '133'
+        unit: proteins
+        kind: count
+      less_3d:
+        printed: '123'
+        unit: proteins
+        kind: count
+    stats:
+      test: t test
+      p: p < 0.05
+  prot_mito:
+    unit: F2AC
+    measure: mitochondrial protein abundance
+    finding: 93 of 256 altered proteins are mitochondrial, all more abundant in 3D.
+    anchor:
+      quote: 93 of 256 proteins with altered abundance were mitochondrial proteins, all of which were more abundant in 3D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    values:
+      mito_altered:
+        printed: '93'
+        unit: proteins
+        kind: count
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: up
+      anchor:
+        quote: all of which were more abundant in 3D
+        where: Results
+        file: main.pdf
+  prot_nuclear:
+    unit: F2AC
+    measure: nuclear protein abundance
+    finding: 75% of nuclear proteins lower in 3D.
+    anchor:
+      quote: For nuclear proteins, 75% showed lower abundance in 3D than in 2D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    values:
+      nuclear_lower:
+        printed: 75%
+        unit: '%'
+        kind: percent
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: down
+      anchor:
+        quote: For nuclear proteins, 75% showed lower abundance in 3D than in 2D
+        where: Results
+        file: main.pdf
+  prot_ribosomal:
+    unit: F2AC
+    measure: ribosomal protein abundance
+    finding: Most significantly different ribosomal proteins lower in 3D.
+    anchor:
+      quote: of the ribosomal proteins with significant differences showed also lower abundance in 3D than in 2D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: down
+      anchor:
+        quote: of the ribosomal proteins with significant differences showed also lower abundance in 3D than in 2D
+        where: Results
+        file: main.pdf
+  prot_cardiac_up:
+    unit: F2AC
+    measure: cardiac protein abundance (troponin C, titin, MYH6, MYH7, MYL2)
+    finding: These cardiac proteins are more abundant in 3D.
+    anchor:
+      quote: myosin heavy chain 6 and 7, and myosin light chain 2, which were all more abundant in 3D than in 2D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: up
+      anchor:
+        quote: which were all more abundant in 3D than in 2D
+        where: Results
+        file: main.pdf
+    note: Several proteins in one item, as the text words it (Fig. 2C volcano plot).
+  prot_tni:
+    unit: F2AC
+    measure: troponin I abundance
+    finding: Troponin I less abundant in 3D.
+    anchor:
+      quote: Cardiac proteins such as troponin I were less abundant in 3D in comparison with 2D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: down
+      anchor:
+        quote: Cardiac proteins such as troponin I were less abundant in 3D in comparison with 2D
+        where: Results
+        file: main.pdf
+  prot_ecm:
+    unit: F2AC
+    measure: extracellular matrix protein abundance (LAMB1, LAMC1, FBN2)
+    finding: LAMB1, LAMC1 and FBN2 abundant in 3D but not 2D.
+    anchor:
+      quote: laminin subunits b1 (LAMB1) and g1 (LAMC1) as well as fibrillin-2 (FBN2) were abundant in 3D, but not 2D
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: up
+      anchor:
+        quote: were abundant in 3D, but not 2D
+        where: Results
+        file: main.pdf
+  prot_top_mito:
+    unit: F2AC
+    measure: abundance of top mitochondrial proteins (ATPG, SCOT1, ALDH, THIM, IDH3G, NDUB9, ODPA)
+    finding: Mitochondrial proteins make up the rest of the ten proteins most abundant in 3D versus 2D.
+    anchor:
+      quote: Mitochondrial proteins made up the rest of the ten proteins that were most abundant in 3D versus 2D format
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: t test
+      p: p < 0.05
+    stated_direction:
+      direction: up
+      anchor:
+        quote: the rest of the ten proteins that were most abundant in 3D versus 2D format
+        where: Results
+        file: main.pdf
+    suspected_error:
+      what: '''dynamin-like 120-kDa protein (ODPA)'''
+      why: In Table S1 (mmc2.xlsx) dynamin-like 120 kDa protein is OPA1_HUMAN (row 10); ODPA_HUMAN is pyruvate dehydrogenase E1 subunit alpha
+        (row 11), the eleventh protein.
+  prot_tfam:
+    unit: F2AC
+    measure: TFAM protein abundance
+    finding: TFAM 2.9-fold higher in 3D than 2D (2.3 versus 6.6).
+    anchor:
+      quote: TFAM protein abundance was 2.9-fold higher in 3D than in 2D (2.3 in 2D versus 6.6 in 3D; Table S2)
+      where: Discussion
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    values:
+      tfam_2d:
+        printed: '2.3'
+        unit: normalized spectral counts
+        kind: mean
+        group: g2D
+      tfam_3d:
+        printed: '6.6'
+        unit: normalized spectral counts
+        kind: mean
+        group: g3D
+      tfam_ratio:
+        printed: '2.9'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+    note: Text cites Table S2; TFAM is in mmc2.xlsx (the 133 proteins more abundant in 3D, cited as Table S1 elsewhere).
+  s2b_r2_2d:
+    unit: S2B
+    measure: R2 between replicate samples
+    finding: R2 between 2D replicates 0.91–0.94.
+    anchor:
+      quote: Scatterplots of log10 normalized spectral counts showed low variance as characterized by high values of R2
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    groups:
+    - g2D
+    values:
+      r2_a:
+        printed: '0.9304'
+        unit: R2
+        kind: value
+        group: g2D
+      r2_b:
+        printed: '0.9404'
+        unit: R2
+        kind: value
+        group: g2D
+      r2_c:
+        printed: '0.9139'
+        unit: R2
+        kind: value
+        group: g2D
+    note: R2 values printed in the panels (figure text).
+  s2b_r2_3d:
+    unit: S2B
+    measure: R2 between replicate samples
+    finding: R2 between EHT replicates 0.91–0.93.
+    anchor:
+      quote: Scatter plots of log10 normalized spectral counts to characterize potential variance between samples per group
+      where: Fig. S2 legend
+      file: mmc1.pdf
+    method: label-free LC-MS/MS, normalized spectral counts
+    groups:
+    - g3D
+    values:
+      r2_a:
+        printed: '0.9126'
+        unit: R2
+        kind: value
+        group: g3D
+      r2_b:
+        printed: '0.9189'
+        unit: R2
+        kind: value
+        group: g3D
+      r2_c:
+        printed: '0.9264'
+        unit: R2
+        kind: value
+        group: g3D
+    note: R2 values printed in the panels (figure text).
+  f2d_acot1:
+    unit: F2D
+    measure: ACOT1 normalized spectral count
+    finding: ACOT1 higher in EHT than 2D (**).
+    anchor: &id009
+      quote: '*p < 0.05, **p < 0.01 and ***p < 0.001, EHT versus 2D (two-way ANOVA plus Bonferroni post test)'
+      where: Fig. 2 legend
+      file: main.pdf
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f2d_acot13:
+    unit: F2D
+    measure: ACOT13 normalized spectral count
+    finding: ACOT13 higher in EHT than 2D (***).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f2d_scp2:
+    unit: F2D
+    measure: SCP2 normalized spectral count
+    finding: SCP2 higher in EHT than 2D (*).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f2d_acaa2:
+    unit: F2D
+    measure: ACAA2 normalized spectral count
+    finding: ACAA2 higher in EHT than 2D (***).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f2d_acot2:
+    unit: F2D
+    measure: ACOT2 normalized spectral count
+    finding: ACOT2 higher in EHT than 2D (***).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f2d_eci1:
+    unit: F2D
+    measure: ECI1 normalized spectral count
+    finding: ECI1 higher in EHT than 2D (***).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f2d_echs1:
+    unit: F2D
+    measure: ECHS1 normalized spectral count
+    finding: ECHS1 higher in EHT than 2D (***).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f2d_oxct1:
+    unit: F2D
+    measure: OXCT1 normalized spectral count
+    finding: OXCT1 higher in EHT than 2D (***).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f2d_hadha:
+    unit: F2D
+    measure: HADHA normalized spectral count
+    finding: HADHA higher in EHT than 2D (**).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f2d_hadhb:
+    unit: F2D
+    measure: HADHB normalized spectral count
+    finding: HADHB higher in EHT than 2D (*).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f2d_acadvl:
+    unit: F2D
+    measure: ACADVL normalized spectral count
+    finding: ACADVL higher in EHT than 2D (**).
+    anchor: *id009
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id008
+    stats:
+      test: two-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  st3_cellular_respiration:
+    unit: ST3
+    measure: 'GO term enrichment: Cellular respiration'
+    finding: '''Cellular respiration'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A5
+      where: Table S3, row 5
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '5.29E-64'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_energy_derivation_by_oxidation_of_organi:
+    unit: ST3
+    measure: 'GO term enrichment: Energy derivation by oxidation of organic compounds'
+    finding: '''Energy derivation by oxidation of organic compounds'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A6
+      where: Table S3, row 6
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.15E-54'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_generation_of_precursor_metabolites_and_:
+    unit: ST3
+    measure: 'GO term enrichment: Generation of precursor metabolites and energy'
+    finding: '''Generation of precursor metabolites and energy'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A7
+      where: Table S3, row 7
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '5.42E-54'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_oxidation_reduction_process:
+    unit: ST3
+    measure: 'GO term enrichment: Oxidation-reduction process'
+    finding: '''Oxidation-reduction process'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A8
+      where: Table S3, row 8
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '3.07E-51'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_respiratory_electron_transport_chain:
+    unit: ST3
+    measure: 'GO term enrichment: Respiratory electron transport chain'
+    finding: '''Respiratory electron transport chain'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A9
+      where: Table S3, row 9
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '3.37E-46'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_electron_transport_chain:
+    unit: ST3
+    measure: 'GO term enrichment: Electron transport chain'
+    finding: '''Electron transport chain'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A10
+      where: Table S3, row 10
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '2.05E-40'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_small_molecule_metabolic_process:
+    unit: ST3
+    measure: 'GO term enrichment: Small molecule metabolic process'
+    finding: '''Small molecule metabolic process'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A11
+      where: Table S3, row 11
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '2.06E-34'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_single_organism_metabolic_process:
+    unit: ST3
+    measure: 'GO term enrichment: Single-organism metabolic process'
+    finding: '''Single-organism metabolic process'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A12
+      where: Table S3, row 12
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '7.96E-29'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_tricarboxylic_acid_cycle:
+    unit: ST3
+    measure: 'GO term enrichment: Tricarboxylic acid cycle'
+    finding: '''Tricarboxylic acid cycle'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A13
+      where: Table S3, row 13
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '4.68E-24'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_aerobic_respiration:
+    unit: ST3
+    measure: 'GO term enrichment: Aerobic respiration'
+    finding: '''Aerobic respiration'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A14
+      where: Table S3, row 14
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '5.75E-24'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_oxidative_phosphorylation:
+    unit: ST3
+    measure: 'GO term enrichment: Oxidative phosphorylation'
+    finding: '''Oxidative phosphorylation'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A15
+      where: Table S3, row 15
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.02E-19'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_mitochondrial_atp_synthesis_coupled_prot:
+    unit: ST3
+    measure: 'GO term enrichment: Mitochondrial ATP synthesis coupled proton transport'
+    finding: '''Mitochondrial ATP synthesis coupled proton transport'' enriched among proteins more abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A16
+      where: Table S3, row 16
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.96E-18'
+    note: Listed under 'Up in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_cytoskeleton_organization:
+    unit: ST3
+    measure: 'GO term enrichment: Cytoskeleton organization'
+    finding: '''Cytoskeleton organization'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A18
+      where: Table S3, row 18
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.59E-15'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_protein_complex_subunit_organization:
+    unit: ST3
+    measure: 'GO term enrichment: Protein complex subunit organization'
+    finding: '''Protein complex subunit organization'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A19
+      where: Table S3, row 19
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.96E-14'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_macromolecular_complex_subunit_organizat:
+    unit: ST3
+    measure: 'GO term enrichment: Macromolecular complex subunit organization'
+    finding: '''Macromolecular complex subunit organization'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A20
+      where: Table S3, row 20
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '3.84E-12'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_actin_filament_based_process:
+    unit: ST3
+    measure: 'GO term enrichment: Actin filament-based process'
+    finding: '''Actin filament-based process'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A21
+      where: Table S3, row 21
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.34E-10'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_translation:
+    unit: ST3
+    measure: 'GO term enrichment: Translation'
+    finding: '''Translation'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A22
+      where: Table S3, row 22
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '2.39E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_macromolecular_complex_disassembly:
+    unit: ST3
+    measure: 'GO term enrichment: Macromolecular complex disassembly'
+    finding: '''Macromolecular complex disassembly'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A23
+      where: Table S3, row 23
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '4.80E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_cellular_component_biogenesis:
+    unit: ST3
+    measure: 'GO term enrichment: Cellular component biogenesis'
+    finding: '''Cellular component biogenesis'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A24
+      where: Table S3, row 24
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '6.58E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_cellular_protein_complex_disassembly:
+    unit: ST3
+    measure: 'GO term enrichment: Cellular protein complex disassembly'
+    finding: '''Cellular protein complex disassembly'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A25
+      where: Table S3, row 25
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '8.50E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_cellular_component_assembly:
+    unit: ST3
+    measure: 'GO term enrichment: Cellular component assembly'
+    finding: '''Cellular component assembly'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A26
+      where: Table S3, row 26
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '8.94E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_cellular_component_organization:
+    unit: ST3
+    measure: 'GO term enrichment: Cellular component organization'
+    finding: '''Cellular component organization'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A27
+      where: Table S3, row 27
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '8.99E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_cellular_component_organization_or_bioge:
+    unit: ST3
+    measure: 'GO term enrichment: Cellular component organization or biogenesis'
+    finding: '''Cellular component organization or biogenesis'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A28
+      where: Table S3, row 28
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '9.37E-09'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  st3_protein_complex_disassembly:
+    unit: ST3
+    measure: 'GO term enrichment: Protein complex disassembly'
+    finding: '''Protein complex disassembly'' enriched among proteins less abundant in EHT (GGA).'
+    anchor:
+      quote: mmc4.xlsx!Tabelle1!A29
+      where: Table S3, row 29
+      file: mmc4.xlsx
+      kind: dataset cell
+    method: gene ontology analysis of significantly different proteins
+    software: Genomatrix Genome Analyzer (GGA)
+    groups:
+    - g3D
+    - g2D
+    stats:
+      test: GGA enrichment of targets per annotated category
+      p: '1.20E-08'
+    note: Listed under 'Down in EHT'. Molecules observed and total are in the same row (columns D, E).
+  s2e_atp_tca:
+    unit: S2EF
+    measure: share of Panther pathways (ATP synthesis; TCA cycle)
+    finding: ATP synthesis and TCA cycle 10.8% each of pathways of proteins higher in 3D.
+    anchor:
+      quote: were involved in ATP synthesis and the tricarboxylic acid (TCA) cycle (10.8% each of total pathways
+      where: Results
+      file: main.pdf
+    method: Panther pathway analysis of proteins more abundant in 3D
+    software: PANTHER
+    groups:
+    - g3D
+    - g2D
+    values:
+      atp_tca_share:
+        printed: 10.8%
+        unit: '% of total pathways'
+        kind: percent
+  s2f_oxidoreductases:
+    unit: S2EF
+    measure: share of Panther protein classes (oxidoreductases)
+    finding: Oxidoreductases 21.7% of protein classes of proteins higher in 3D.
+    anchor:
+      quote: abundant in 3D hiPSC-CMs was annotated to oxidoreductases (21.7% of total protein classes
+      where: Results
+      file: main.pdf
+    method: Panther protein class analysis of proteins more abundant in 3D
+    software: PANTHER
+    groups:
+    - g3D
+    - g2D
+    values:
+      oxidoreductase_share:
+        printed: 21.7%
+        unit: '% of total protein classes'
+        kind: percent
+  f4a_ipa:
+    unit: F4A
+    measure: IPA regulator effects network
+    finding: Highest-consistency effector network is the PGC-1a/ESRRA cascade.
+    anchor:
+      quote: highest consistency score for effector network involved in the biosynthesis of purine ribonucleotides and nucleoside triphosphates
+      where: Fig. 4 legend
+      file: main.pdf
+    method: Ingenuity Pathway Analysis regulator effects
+    software: Ingenuity Pathway Analysis (IPA)
+    groups:
+    - g3D
+    - g2D
+    note: Network analysis; no values.
+  f3a_cluster:
+    unit: F3
+    measure: mitochondrial proteome clustering
+    finding: 3D samples cluster near heart samples.
+    anchor:
+      quote: Biological replicates of all three groups clustered closely together, and 3D samples clustered nearby the heart samples
+      where: Results
+      file: main.pdf
+    method: clustering of mitochondrial proteins (Scaffold)
+    software: Scaffold
+    groups:
+    - g2D
+    - g3D
+    - nfh
+    n: &id010
+      printed: Samples (n = 3 per group) prepared from one experiment
+      counts: samples
+      per_group:
+        g2D: '3'
+        g3D: '3'
+        nfh: '3'
+  s3b_go_clusters:
+    unit: F3
+    measure: enrichment of mitochondrial electron transport, TCA cycle and fatty acid oxidation (clusters)
+    finding: These processes particularly lower in 2D than in 3D.
+    anchor:
+      quote: Processes such as mitochondrial electron transport and TCA cycle as well as fatty acid oxidation were particularly lower in 2D than
+        in 3D
+      where: Results
+      file: main.pdf
+    method: gene ontology and KEGG enrichment of clusters
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stated_direction:
+      direction: up
+      anchor:
+        quote: were particularly lower in 2D than in 3D
+        where: Results
+        file: main.pdf
+  f3b_b1_3d:
+    unit: F3
+    measure: ATP synthase F(0) complex subunit B1 normalized spectral count
+    finding: ATP synthase F(0) complex subunit B1 higher in 3D than 2D (**).
+    anchor: &id011
+      quote: '*p < 0.05, **p < 0.01, ***p < 0.001, and ****p < 0.001 versus 2D (one-way ANOVA plus Bonferroni post test)'
+      where: Fig. 3 legend
+      file: main.pdf
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3b_alpha_3d:
+    unit: F3
+    measure: ATP synthase subunit alpha normalized spectral count
+    finding: ATP synthase subunit alpha higher in 3D than 2D (**).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3b_alpha_nfh:
+    unit: F3
+    measure: ATP synthase subunit alpha normalized spectral count
+    finding: ATP synthase subunit alpha higher in NFH than 2D (****).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '****p < 0.001'
+    suspected_error: &id012
+      what: '''****p < 0.001'' has the same threshold as ''***p < 0.001'''
+      why: Four asterisks usually mark p < 0.0001; the legend prints 0.001 for both three and four asterisks.
+  f3b_beta_3d:
+    unit: F3
+    measure: ATP synthase subunit beta normalized spectral count
+    finding: ATP synthase subunit beta higher in 3D than 2D (**).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3b_beta_nfh:
+    unit: F3
+    measure: ATP synthase subunit beta normalized spectral count
+    finding: ATP synthase subunit beta higher in NFH than 2D (*).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f3b_d_3d:
+    unit: F3
+    measure: ATP synthase subunit d normalized spectral count
+    finding: ATP synthase subunit d higher in 3D than 2D (***).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f3b_d_nfh:
+    unit: F3
+    measure: ATP synthase subunit d normalized spectral count
+    finding: ATP synthase subunit d higher in NFH than 2D (*).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f3b_delta_3d:
+    unit: F3
+    measure: ATP synthase subunit delta normalized spectral count
+    finding: ATP synthase subunit delta higher in 3D than 2D (**).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3b_delta_nfh:
+    unit: F3
+    measure: ATP synthase subunit delta normalized spectral count
+    finding: ATP synthase subunit delta higher in NFH than 2D (****).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '****p < 0.001'
+    suspected_error: *id012
+  f3b_e:
+    unit: F3
+    measure: ATP synthase subunit e normalized spectral count
+    finding: ATP synthase subunit e shown without a significance mark.
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    groups:
+    - g2D
+    - g3D
+    - nfh
+    n: *id010
+    note: No asterisk printed for this subunit.
+  f3b_epsilon_3d:
+    unit: F3
+    measure: ATP synthase subunit epsilon normalized spectral count
+    finding: ATP synthase subunit epsilon higher in 3D than 2D (***).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f3b_g_3d:
+    unit: F3
+    measure: ATP synthase subunit g normalized spectral count
+    finding: ATP synthase subunit g higher in 3D than 2D (**).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3b_g_nfh:
+    unit: F3
+    measure: ATP synthase subunit g normalized spectral count
+    finding: ATP synthase subunit g higher in NFH than 2D (****).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '****p < 0.001'
+    suspected_error: *id012
+  f3b_gamma_3d:
+    unit: F3
+    measure: ATP synthase subunit gamma normalized spectral count
+    finding: ATP synthase subunit gamma higher in 3D than 2D (****).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '****p < 0.001'
+    suspected_error: *id012
+  f3b_gamma_nfh:
+    unit: F3
+    measure: ATP synthase subunit gamma normalized spectral count
+    finding: ATP synthase subunit gamma higher in NFH than 2D (****).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '****p < 0.001'
+    suspected_error: *id012
+  f3b_o:
+    unit: F3
+    measure: ATP synthase subunit O normalized spectral count
+    finding: ATP synthase subunit O shown without a significance mark.
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    groups:
+    - g2D
+    - g3D
+    - nfh
+    n: *id010
+    note: No asterisk printed for this subunit.
+  f3b_cf6_3d:
+    unit: F3
+    measure: ATP synthase-coupling factor 6 normalized spectral count
+    finding: ATP synthase-coupling factor 6 higher in 3D than 2D (****).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '****p < 0.001'
+    suspected_error: *id012
+  f3b_cf6_nfh:
+    unit: F3
+    measure: ATP synthase-coupling factor 6 normalized spectral count
+    finding: ATP synthase-coupling factor 6 higher in NFH than 2D (**).
+    anchor: *id011
+    method: label-free LC-MS/MS; fold change of normalized spectral count
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3b_summary:
+    unit: F3
+    measure: ATP synthase subunit fold change
+    finding: 9 of 11 subunits about 2- to 4.5-fold higher in 3D and heart than 2D.
+    anchor:
+      quote: found that 9 out of 11 subunits showed an 2- to 4.5-fold increase in 3D and heart samples in comparison with 2D (p < 0.05)
+      where: Results
+      file: main.pdf
+    method: label-free LC-MS/MS
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    groups:
+    - g2D
+    - g3D
+    - nfh
+    n: *id010
+    values:
+      subunits_up:
+        printed: '9'
+        unit: subunits
+        kind: count
+      subunits_total:
+        printed: '11'
+        unit: subunits
+        kind: count
+      fold_low:
+        printed: ~2
+        unit: fold
+        kind: ratio
+        over:
+        - g3D
+        - nfh
+      fold_high:
+        printed: '4.5'
+        unit: fold
+        kind: ratio
+        over:
+        - g3D
+        - nfh
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: p < 0.05
+    note: Fold changes are relative to 2D; the range spans subunits and both groups. '~' printed before 2 (extracted as a stray character).
+  f3d_thim_3d:
+    unit: F3
+    measure: THIM (ACAA2) protein abundance (western blot)
+    finding: THIM (ACAA2) higher in EHT than 2D (**).
+    anchor: &id013
+      quote: (D) Quantification of western blot analysis in (C)
+      where: Fig. 3 legend
+      file: main.pdf
+    method: western blot, normalized to Ponceau; fold change (AU)
+    software: ImageJ
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f3d_thim_nfh:
+    unit: F3
+    measure: THIM (ACAA2) protein abundance (western blot)
+    finding: THIM (ACAA2) higher in NFH than 2D (***).
+    anchor: *id013
+    method: western blot, normalized to Ponceau; fold change (AU)
+    software: ImageJ
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f3d_atp5h_3d:
+    unit: F3
+    measure: ATP5H protein abundance (western blot)
+    finding: ATP5H higher in EHT than 2D (*).
+    anchor: *id013
+    method: western blot, normalized to Ponceau; fold change (AU)
+    software: ImageJ
+    compares:
+    - g3D
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f3d_atp5h_nfh:
+    unit: F3
+    measure: ATP5H protein abundance (western blot)
+    finding: ATP5H higher in NFH than 2D (*).
+    anchor: *id013
+    method: western blot, normalized to Ponceau; fold change (AU)
+    software: ImageJ
+    compares:
+    - nfh
+    - g2D
+    n: *id010
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f4b_ppargc1a:
+    unit: F4BC
+    measure: PPARGC1A mRNA level
+    finding: PPARGC1A higher in 3D (*).
+    anchor: &id014
+      quote: '*p < 0.05 and **p < 0.01 versus 2D (two-tailed unpaired t test, B, C, and E; error bars show means ± SEM)'
+      where: Fig. 4 legend
+      file: main.pdf
+    method: qRT-PCR normalized to GUSB
+    definition: Normalized to GusB
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=16) 3D (n=18)
+      counts: biological replicates, ≥3 independent experiments
+      per_group:
+        g2D: '16'
+        g3D: '18'
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    note: n printed in the figure.
+  f4c_esrra:
+    unit: F4BC
+    measure: ESRRA mRNA level
+    finding: ESRRA higher in 3D (*).
+    anchor: *id014
+    method: qRT-PCR normalized to GUSB
+    definition: Normalized to GusB
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=11) 3D (n=14)
+      counts: biological replicates, ≥3 independent experiments
+      per_group:
+        g2D: '11'
+        g3D: '14'
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    note: Spelled ESSRA in the figure and legend, ESRRA in the text. n printed in the figure.
+  f4d_3d:
+    unit: F4D
+    measure: average intensity of mitochondrial proteins
+    finding: Mitochondrial protein intensity 2.2-fold higher in 3D than 2D (*).
+    anchor: &id015
+      quote: '*p < 0.05 and **p < 0.01 versus 2D (one-way ANOVA plus Bonferroni post test, D and F; error bars show means ±SEM; ns, not significant)'
+      where: Fig. 4 legend
+      file: main.pdf
+    method: normalized spectral counts; protein identified in at least 2 out of 9 samples
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - g3D
+    - g2D
+    n: &id016
+      printed: 2D (n=3) 3D (n=3) Adult human heart (n=3)
+      counts: samples
+      per_group:
+        g2D: '3'
+        g3D: '3'
+        nfh: '3'
+    values:
+      mean_2d_text:
+        printed: '3.3'
+        unit: normalized spectral counts
+        kind: mean
+        group: g2D
+      mean_3d_text:
+        printed: '7.4'
+        unit: normalized spectral counts
+        kind: mean
+        group: g3D
+      ratio_text:
+        printed: '2.2'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f4d_nfh:
+    unit: F4D
+    measure: average intensity of mitochondrial proteins
+    finding: Mitochondrial protein intensity 2.9-fold higher in NFH than 2D (**).
+    anchor: *id015
+    method: normalized spectral counts; protein identified in at least 2 out of 9 samples
+    software: Proteome Discoverer 1.4.1.14, Mascot, Scaffold 4.3.4
+    compares:
+    - nfh
+    - g2D
+    n: *id016
+    values:
+      mean_2d_text:
+        printed: '3.3'
+        unit: normalized spectral counts
+        kind: mean
+        group: g2D
+      mean_nfh_text:
+        printed: '9.6'
+        unit: normalized spectral counts
+        kind: mean
+        group: nfh
+      ratio_text:
+        printed: '2.9'
+        unit: fold
+        kind: ratio
+        between:
+        - nfh
+        - g2D
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f4e_mitomass:
+    unit: F4E
+    measure: mitochondrial mass (MitoTracker Green FM mean fluorescent intensity)
+    finding: Mitochondrial mass 1.5-fold higher in 3D (**).
+    anchor: *id014
+    method: flow cytometry of live cells stained with 0.5 µM MitoTracker Green FM
+    software: not stated
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=10) 3D (n=9)
+      counts: biological replicates
+      per_group:
+        g2D: '10'
+        g3D: '9'
+    values:
+      ratio_text:
+        printed: '1.5'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+    stats:
+      test: two-tailed unpaired t test
+      p: '**p < 0.01'
+    note: n printed in the figure; the cytometer is a BD FACSCanto II.
+  f4f_before:
+    unit: F4F
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: Before-culture cells not significantly different from 2D (ns).
+    anchor: *id015
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - before
+    - g2D
+    n: &id017
+      printed: hiPS-CM before culture (n=3) 2D (n=11) 3D (n=10) Adult human heart (n=3)
+      counts: biological replicates (mean of 3 technical replicates)
+      per_group:
+        before: '3'
+        g2D: '11'
+        g3D: '10'
+        heart: '3'
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: ns
+  f4f_3d:
+    unit: F4F
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: mtDNA 3-fold higher in 3D than 2D (*).
+    anchor: *id015
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - g3D
+    - g2D
+    n: *id017
+    values:
+      mean_2d_discussion:
+        printed: '343'
+        unit: Mt-DNA/g-ßactin
+        kind: mean
+        group: g2D
+      mean_3d_discussion:
+        printed: 1,024
+        unit: Mt-DNA/g-ßactin
+        kind: mean
+        group: g3D
+      ratio_text:
+        printed: '3'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+      ratio_discussion:
+        printed: '2.9'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+        suspected_error:
+          what: '''2.9-fold Mt-ND1/2'''
+          why: 1,024 / 343 = 2.99, printed 3-fold in Results.
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '*p < 0.05'
+  f4f_heart:
+    unit: F4F
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: mtDNA higher in adult heart than 2D (**).
+    anchor: *id015
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - heart
+    - g2D
+    n: *id017
+    values:
+      mean_2d_discussion:
+        printed: '343'
+        unit: Mt-DNA/g-ßactin
+        kind: mean
+        group: g2D
+      mean_heart_discussion:
+        printed: 1,501
+        unit: Mt-DNA/g-ßactin
+        kind: mean
+        group: heart
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f4f_3d_heart:
+    unit: F4F
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: mtDNA in 3D 1.5-fold lower than in heart; no test printed.
+    anchor:
+      quote: DNA levels were 3-fold higher in 3D than in 2D, but still 1.5-fold lower than in NFH
+      where: Results
+      file: main.pdf
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    groups:
+    - g3D
+    - heart
+    n: *id017
+    values:
+      ratio_text:
+        printed: '1.5'
+        unit: fold
+        kind: ratio
+        between:
+        - heart
+        - g3D
+    suspected_error:
+      what: The text calls the Fig. 4F heart group NFH
+      why: The legend and Supplemental Procedures say the Fig. 4F heart samples are 1 non-failing and 2 terminal heart failure hearts.
+    note: No test between 3D and heart is printed; the ANOVA prints pairs versus 2D only.
+  s4b_pooled:
+    unit: S4B
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: mtDNA higher in 3D than 2D after 70 days (*).
+    anchor:
+      quote: 'unpaired t-test between 2D and 3D, (B, right) two-way ANOVA with Bonferroni post test. *: p≤0.05'
+      where: Fig. S4 legend
+      file: mmc1.pdf
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - g3D
+    - g2D
+    n:
+      printed: 2D (n=5, 2 ind. exp.) 3D (n=5, 2 ind. exp.)
+      counts: biological replicates from 2 independent experiments
+      per_group:
+        g2D: '5'
+        g3D: '5'
+    stats:
+      test: two-tailed, unpaired t-test
+      p: '*: p≤0.05'
+    note: n printed in the figure.
+  s4b_line2_nd2:
+    unit: S4B
+    measure: Mt-ND2 DNA content normalized to actin
+    finding: Line 2 Mt-ND2 higher in 3D than 2D (*).
+    anchor:
+      quote: '(B, right) two-way ANOVA with Bonferroni post test. *: p≤0.05'
+      where: Fig. S4 legend
+      file: mmc1.pdf
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - l2_3D
+    - l2_2D
+    n: not stated
+    stats:
+      test: two-way ANOVA with Bonferroni post test
+      p: '*: p≤0.05'
+    note: The only asterisk in the right panel sits over control line 2, 3D, ND2; no other pair is marked.
+  f5a_rate_glc:
+    unit: F5A
+    measure: beating rate
+    finding: '2D beating rate with glucose: no significant change overnight.'
+    anchor: &id018
+      quote: Figures 5A and 5B demonstrate no significant differences at baseline and after overnight culture
+      where: Results
+      file: main.pdf
+    method: contractions per minute counted microscopically (2 foci per well)
+    compares:
+    - glc_next
+    - glc_base
+    n:
+      printed: Glucose (n=14)
+      counts: wells (biological replicates) from three independent experiments
+      per_group:
+        glc_next: '14'
+        glc_base: '14'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5a_rate_fa:
+    unit: F5A
+    measure: beating rate
+    finding: '2D beating rate with fatty acid: no significant change overnight.'
+    anchor: *id018
+    method: contractions per minute counted microscopically (2 foci per well)
+    compares:
+    - fa_next
+    - fa_base
+    n:
+      printed: Fatty acid (n=13)
+      counts: wells (biological replicates) from three independent experiments
+      per_group:
+        fa_next: '13'
+        fa_base: '13'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5a_rate_lac:
+    unit: F5A
+    measure: beating rate
+    finding: '2D beating rate with lactate: no significant change overnight.'
+    anchor: *id018
+    method: contractions per minute counted microscopically (2 foci per well)
+    compares:
+    - lac_next
+    - lac_base
+    n:
+      printed: Lactate (n=16)
+      counts: wells (biological replicates) from three independent experiments
+      per_group:
+        lac_next: '16'
+        lac_base: '16'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5a_rate_none:
+    unit: F5A
+    measure: beating rate
+    finding: '2D beating rate with no energy substrate: stopped beating.'
+    anchor: &id019
+      quote: 2D and 3D hiPSC-CMs incubated in medium without any energy source stopped beating completely
+      where: Results
+      file: main.pdf
+    method: contractions per minute counted microscopically (2 foci per well)
+    compares:
+    - none_next
+    - none_base
+    n:
+      printed: No energy (n=2)
+      counts: wells (biological replicates) from three independent experiments
+      per_group:
+        none_next: '2'
+        none_base: '2'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor: *id019
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5b_rate_glc:
+    unit: F5B
+    measure: beating rate
+    finding: '3D beating rate with glucose: no significant change overnight.'
+    anchor: *id018
+    method: video-optical recording
+    compares:
+    - glc_next
+    - glc_base
+    n:
+      printed: Glucose (n=12)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        glc_next: '12'
+        glc_base: '12'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5b_rate_fa:
+    unit: F5B
+    measure: beating rate
+    finding: '3D beating rate with fatty acid: no significant change overnight.'
+    anchor: *id018
+    method: video-optical recording
+    compares:
+    - fa_next
+    - fa_base
+    n:
+      printed: Fatty acid (n=12)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        fa_next: '12'
+        fa_base: '12'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5b_rate_lac:
+    unit: F5B
+    measure: beating rate
+    finding: '3D beating rate with lactate: no significant change overnight.'
+    anchor: *id018
+    method: video-optical recording
+    compares:
+    - lac_next
+    - lac_base
+    n:
+      printed: Lactate (n=8)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        lac_next: '8'
+        lac_base: '8'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5b_rate_none:
+    unit: F5B
+    measure: beating rate
+    finding: '3D beating rate with no energy substrate: stopped beating.'
+    anchor: *id019
+    method: video-optical recording
+    compares:
+    - none_next
+    - none_base
+    n:
+      printed: No energy (n=2)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        none_next: '2'
+        none_base: '2'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor: *id019
+    note: No test is named for Fig. 5; n printed in the figure.
+  f5b_force_glc:
+    unit: F5B
+    measure: contractile force
+    finding: '3D contractile force with glucose: no significant change overnight.'
+    anchor: *id018
+    method: video-optical recording
+    compares:
+    - glc_next
+    - glc_base
+    n:
+      printed: Glucose (n=12)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        glc_next: '12'
+        glc_base: '12'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+    definition:
+      citation: Hansen2010
+      anchor:
+        quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+        where: Experimental Procedures
+        file: main.pdf
+  f5b_force_fa:
+    unit: F5B
+    measure: contractile force
+    finding: '3D contractile force with fatty acid: no significant change overnight.'
+    anchor: *id018
+    method: video-optical recording
+    compares:
+    - fa_next
+    - fa_base
+    n:
+      printed: Fatty acid (n=12)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        fa_next: '12'
+        fa_base: '12'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+    definition:
+      citation: Hansen2010
+      anchor:
+        quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+        where: Experimental Procedures
+        file: main.pdf
+  f5b_force_lac:
+    unit: F5B
+    measure: contractile force
+    finding: '3D contractile force with lactate: no significant change overnight.'
+    anchor: *id018
+    method: video-optical recording
+    compares:
+    - lac_next
+    - lac_base
+    n:
+      printed: Lactate (n=8)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        lac_next: '8'
+        lac_base: '8'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id018
+    note: No test is named for Fig. 5; n printed in the figure.
+    definition:
+      citation: Hansen2010
+      anchor:
+        quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+        where: Experimental Procedures
+        file: main.pdf
+  f5b_force_none:
+    unit: F5B
+    measure: contractile force
+    finding: '3D contractile force with no energy substrate: stopped beating.'
+    anchor: *id019
+    method: video-optical recording
+    compares:
+    - none_next
+    - none_base
+    n:
+      printed: No energy (n=2)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        none_next: '2'
+        none_base: '2'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor: *id019
+    note: No test is named for Fig. 5; n printed in the figure.
+    definition:
+      citation: Hansen2010
+      anchor:
+        quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+        where: Experimental Procedures
+        file: main.pdf
+  f5c_curve:
+    unit: F5CE
+    measure: normalized force
+    finding: Force over hypoxia and reoxygenation per substrate.
+    anchor:
+      quote: Normalized force development (C) and original recordings (D and E) of 3D hiPSC-CMs during 100 min of hypoxia treatment
+      where: Fig. 5 legend
+      file: main.pdf
+    method: video-optical recording
+    groups:
+    - glc
+    - fa
+    - lac
+    n: &id020
+      printed: Glucose (n=10) Fatty acid (n=12) Lactate (n=9)
+      counts: EHTs (biological replicates) from three independent experiments
+      per_group:
+        glc: '10'
+        fa: '12'
+        lac: '9'
+  f5c_fa_vs_glc:
+    unit: F5CE
+    measure: normalized force during hypoxia
+    finding: Force dropped to zero with fatty acid but not glucose.
+    anchor:
+      quote: Different energy substrates indeed have significant impact on hypoxia sensitivity
+      where: Results
+      file: main.pdf
+    method: video-optical recording
+    compares:
+    - fa
+    - glc
+    n: *id020
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor: &id021
+        quote: While force development remained unaltered under glucose conditions, it dropped to zero under lactate and fatty acid conditions
+        where: Results
+        file: main.pdf
+    note: Significance stated without a named test or P.
+  f5c_lac_vs_glc:
+    unit: F5CE
+    measure: normalized force during hypoxia
+    finding: Force dropped to zero with lactate but not glucose.
+    anchor:
+      quote: Different energy substrates indeed have significant impact on hypoxia sensitivity
+      where: Results
+      file: main.pdf
+    method: video-optical recording
+    compares:
+    - lac
+    - glc
+    n: *id020
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor: *id021
+    note: Significance stated without a named test or P.
+  s5c_ocr:
+    unit: S5C
+    measure: oxygen consumption rate (Seahorse XF Cell Mito Stress Test)
+    finding: OCR responses to oligomycin, FCCP and rotenone qualitatively like earlier reports.
+    anchor:
+      quote: Measurements of respiration rates (ocr, oxygen consumption rate) per 20 000 2D plated cardiomyocytes per well
+      where: Fig. S5 legend
+      file: mmc1.pdf
+    method: Seahorse XF24 Cell Mito Stress Test; oligomycin 1 µM, FCCP 0.5 µM, rotenone 2 µM
+    software: not stated
+    groups:
+    - g2D
+    n:
+      printed: samples generated from 1 experiments
+      counts: experiments
+    note: The Seahorse assay could not be adapted to 3D.
+  f6b_glucose:
+    unit: F6BC
+    measure: glucose consumption (Δ cGluc in 4 h)
+    finding: Glucose consumption lower in 3D (*).
+    anchor: &id022
+      quote: '*p < 0.05 versus 2D (two-tailed unpaired t test, B and C; error bars show means ± SEM)'
+      where: Fig. 6 legend
+      file: main.pdf
+    method: blood gas analyzer ABL90 (Radiometer); initial minus final cGluc over 4 hr
+    compares:
+    - g3D
+    - g2D
+    n: &id023
+      printed: 2D n=10 3D n=12
+      counts: biological replicates from three independent experiments
+      per_group:
+        g2D: '10'
+        g3D: '12'
+    values:
+      fold_low:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - g2D
+        - g3D
+      fold_high:
+        printed: '3'
+        unit: fold
+        kind: ratio
+        between:
+        - g2D
+        - g3D
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    note: '''2- to 3-fold higher in 2D'' is printed once for glucose consumption and lactate production together; written in both items.'
+  f6c_lactate:
+    unit: F6BC
+    measure: lactate production (cLac increase in 4 h)
+    finding: Lactate production lower in 3D (*).
+    anchor: *id022
+    method: blood gas analyzer ABL90 (Radiometer); final minus initial cLac over 4 hr
+    compares:
+    - g3D
+    - g2D
+    n: *id023
+    values:
+      fold_low:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - g2D
+        - g3D
+      fold_high:
+        printed: '3'
+        unit: fold
+        kind: ratio
+        between:
+        - g2D
+        - g3D
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    suspected_error:
+      what: 'Supplement: ''Lactate production was calculated by subtracting cLac after incubation from initial cLac'''
+      why: That gives consumption, not production; the glucose formula is worded the other way round. Also the bars (about 0.42 versus 0.09 mmol/l,
+        to be read) suggest more than 3-fold.
+  f6_fa_3d:
+    unit: F6DF
+    measure: 14C-CO2 from 14C-oleic acid (metabolic flux)
+    finding: 3D produced more 14C-CO2 from 14C-oleic acid than 2D (***).
+    anchor: &id024
+      quote: '**p < 0.01 and ***p < 0.001 versus 2D (one-way ANOVA plus Bonferroni post test, D–F; error bars show means ± SEM)'
+      where: Fig. 6 legend
+      file: main.pdf
+    method: 14CO2 trapped on NaOH filter paper, liquid scintillation counting (TriCarb 2900TR); CPM converted to pmol
+    compares:
+    - g3D
+    - g2D
+    n: &id025
+      printed: 2D n=15 3D n=15 No cells n=5
+      counts: biological replicates (mean of 2 technical replicates) from three independent experiments
+      per_group:
+        g2D: '15'
+        g3D: '15'
+        nocells: '5'
+    values:
+      pct_text:
+        printed: +214%
+        unit: '%'
+        kind: percent
+        between:
+        - g3D
+        - g2D
+        suspected_error: &id026
+          what: The '+' percentages
+          why: The bars (to be read) put 3D at about 2.2–3.8 times 2D; the printed numbers match 3D as a percent of 2D rather than an increase.
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f6_fa_nocells:
+    unit: F6DF
+    measure: 14C-CO2 from 14C-oleic acid (metabolic flux)
+    finding: No-cell control lower than 2D (***).
+    anchor: *id024
+    method: 14CO2 trapped on NaOH filter paper, liquid scintillation counting (TriCarb 2900TR); CPM converted to pmol
+    compares:
+    - nocells
+    - g2D
+    n: *id025
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f6_lac_3d:
+    unit: F6DF
+    measure: 14C-CO2 from 14C-lactate (metabolic flux)
+    finding: 3D produced more 14C-CO2 from 14C-lactate than 2D (**).
+    anchor: *id024
+    method: 14CO2 trapped on NaOH filter paper, liquid scintillation counting (TriCarb 2900TR); CPM converted to pmol
+    compares:
+    - g3D
+    - g2D
+    n: &id027
+      printed: 2D n=13 3D n=13 No cells n=8
+      counts: biological replicates (mean of 2 technical replicates) from three independent experiments
+      per_group:
+        g2D: '13'
+        g3D: '13'
+        nocells: '8'
+    values:
+      pct_text:
+        printed: +388%
+        unit: '%'
+        kind: percent
+        between:
+        - g3D
+        - g2D
+        suspected_error: *id026
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f6_lac_nocells:
+    unit: F6DF
+    measure: 14C-CO2 from 14C-lactate (metabolic flux)
+    finding: No-cell control lower than 2D (***).
+    anchor: *id024
+    method: 14CO2 trapped on NaOH filter paper, liquid scintillation counting (TriCarb 2900TR); CPM converted to pmol
+    compares:
+    - nocells
+    - g2D
+    n: *id027
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f6_glc_3d:
+    unit: F6DF
+    measure: 14C-CO2 from 14C-glucose (metabolic flux)
+    finding: 3D produced more 14C-CO2 from 14C-glucose than 2D (**).
+    anchor: *id024
+    method: 14CO2 trapped on NaOH filter paper, liquid scintillation counting (TriCarb 2900TR); CPM converted to pmol
+    compares:
+    - g3D
+    - g2D
+    n: &id028
+      printed: 2D n=15 3D n=15 No cells n=5
+      counts: biological replicates (mean of 2 technical replicates) from three independent experiments
+      per_group:
+        g2D: '15'
+        g3D: '15'
+        nocells: '5'
+    values:
+      pct_text:
+        printed: +230%
+        unit: '%'
+        kind: percent
+        between:
+        - g3D
+        - g2D
+        suspected_error: *id026
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '**p < 0.01'
+  f6_glc_nocells:
+    unit: F6DF
+    measure: 14C-CO2 from 14C-glucose (metabolic flux)
+    finding: No-cell control lower than 2D (***).
+    anchor: *id024
+    method: 14CO2 trapped on NaOH filter paper, liquid scintillation counting (TriCarb 2900TR); CPM converted to pmol
+    compares:
+    - nocells
+    - g2D
+    n: *id028
+    stats:
+      test: one-way ANOVA plus Bonferroni post test
+      p: '***p < 0.001'
+  f6g_atp_ox:
+    unit: F6G
+    measure: ATP produced by mitochondrial respiration per 4-hr incubation
+    finding: ATP from oxidation 2.3-fold higher in 3D (671 versus 291 nmol).
+    anchor:
+      quote: the total amount of ATP produced by mitochondrial respiration was 2.3-fold higher in 3D than in 2D hiPSC-CMs (671 nmol versus 291
+        nmol per 4-hr incubation
+      where: Results
+      file: main.pdf
+    method: 'calculated from 14CO2 production: metabolized substrate times 33 ATP per glucose, 15 per lactate, 127.1 per oleic acid'
+    groups:
+    - g3D
+    - g2D
+    values:
+      atp_3d_text:
+        printed: '671'
+        unit: nmol
+        kind: value
+        group: g3D
+      atp_2d_text:
+        printed: '291'
+        unit: nmol
+        kind: value
+        group: g2D
+      ratio_text:
+        printed: '2.3'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+      ratio_discussion:
+        printed: '2.3'
+        unit: fold
+        kind: ratio
+        between:
+        - g3D
+        - g2D
+  f6g_glycolysis_share:
+    unit: F6G
+    measure: relative contribution of glycolysis to ATP production
+    finding: Glycolysis 49% of ATP in 2D, 14% in 3D.
+    anchor:
+      quote: The relative contribution to ATP production in 2D and 3D was 49% and 14%, respectively for glycolysis
+      where: Results
+      file: main.pdf
+    method: ATP from glycolysis estimated from lactate production, ignoring about 1% lactate oxidation
+    groups:
+    - g2D
+    - g3D
+    values:
+      glyc_2d_text:
+        printed: 49%
+        unit: '% of ATP production'
+        kind: percent
+        group: g2D
+      glyc_3d_text:
+        printed: 14%
+        unit: '% of ATP production'
+        kind: percent
+        group: g3D
+      glyc_2d_discussion:
+        printed: 51%
+        unit: '% of ATP production'
+        kind: percent
+        group: g2D
+      glyc_3d_discussion:
+        printed: 14%
+        unit: '% of ATP production'
+        kind: percent
+        group: g3D
+    suspected_error:
+      what: Discussion 'glycolysis/oxidation ratio of 51%:49% for 2D'
+      why: Results and Fig. 6G give glycolysis 49% in 2D (oxidation 40% + 9% + 2% = 51%); 280/(280+291) = 49%; the Discussion's order seems swapped.
+  f6g_oxidation_share:
+    unit: F6G
+    measure: relative contribution of oxidation to ATP production
+    finding: Oxidation 49% (Discussion) of ATP in 2D, 86% in 3D.
+    anchor:
+      quote: glycolysis/oxidation ratio of 51%:49% for 2D versus 14%:86% for 3D
+      where: Discussion
+      file: main.pdf
+    method: ATP from oxidation over total
+    groups:
+    - g2D
+    - g3D
+    values:
+      ox_2d_discussion:
+        printed: 49%
+        unit: '% of ATP production'
+        kind: percent
+        group: g2D
+      ox_3d_discussion:
+        printed: 86%
+        unit: '% of ATP production'
+        kind: percent
+        group: g3D
+  f6g_fa_share:
+    unit: F6G
+    measure: relative contribution of fatty acid oxidation to ATP production
+    finding: fatty acid oxidation 40% in 2D, 65% in 3D.
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively (Figure 6G)
+      where: Results
+      file: main.pdf
+    method: 'calculated from 14CO2 production: metabolized substrate times 33 ATP per glucose, 15 per lactate, 127.1 per oleic acid'
+    groups:
+    - g2D
+    - g3D
+    values:
+      fa_2d_text:
+        printed: 40%
+        unit: '% of ATP production'
+        kind: percent
+        group: g2D
+      fa_3d_text:
+        printed: 65%
+        unit: '% of ATP production'
+        kind: percent
+        group: g3D
+  f6g_glc_share:
+    unit: F6G
+    measure: relative contribution of glucose oxidation to ATP production
+    finding: glucose oxidation 9% in 2D, 14% in 3D.
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively (Figure 6G)
+      where: Results
+      file: main.pdf
+    method: 'calculated from 14CO2 production: metabolized substrate times 33 ATP per glucose, 15 per lactate, 127.1 per oleic acid'
+    groups:
+    - g2D
+    - g3D
+    values:
+      glc_2d_text:
+        printed: 9%
+        unit: '% of ATP production'
+        kind: percent
+        group: g2D
+      glc_3d_text:
+        printed: 14%
+        unit: '% of ATP production'
+        kind: percent
+        group: g3D
+  f6g_lac_share:
+    unit: F6G
+    measure: relative contribution of lactate oxidation to ATP production
+    finding: lactate oxidation 2% in 2D, 6% in 3D.
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively (Figure 6G)
+      where: Results
+      file: main.pdf
+    method: 'calculated from 14CO2 production: metabolized substrate times 33 ATP per glucose, 15 per lactate, 127.1 per oleic acid'
+    groups:
+    - g2D
+    - g3D
+    values:
+      lac_2d_text:
+        printed: 2%
+        unit: '% of ATP production'
+        kind: percent
+        group: g2D
+      lac_3d_text:
+        printed: 6%
+        unit: '% of ATP production'
+        kind: percent
+        group: g3D
+  f6g_atp_glycolysis:
+    unit: F6G
+    measure: ATP production by anaerobic glycolysis
+    finding: Glycolytic ATP estimated 280 nM in 2D, 113 nM in 3D.
+    anchor:
+      quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+      where: Discussion
+      file: main.pdf
+    method: 2 ATP per 2 lactate from lactate production (Fig. 6C), ignoring about 1% lactate oxidation
+    groups:
+    - g2D
+    - g3D
+    values:
+      atp_2d_discussion:
+        printed: '280'
+        unit: nM
+        kind: value
+        group: g2D
+      atp_3d_discussion:
+        printed: '113'
+        unit: nM
+        kind: value
+        group: g3D
+    suspected_error:
+      what: Unit 'nM' for ATP from glycolysis and for the increase in lactate
+      why: Fig. 6C plots cLac increase in mmol/l (below 1) and oxidative ATP is given in nmol per 4-hr incubation; 280/113 nM fits neither as
+        printed.
+  f7b_force:
+    unit: F7B
+    measure: peak force
+    finding: peak force lower with blebbistatin (*p < 0.05).
+    anchor: &id029
+      quote: '*p < 0.05 versus 2D (two-tailed unpaired t test); error bars show means ± SEM'
+      where: Fig. 7 legend
+      file: main.pdf
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: &id030
+      printed: Control EHT (n=11) Blebbistatin treated EHT (n=8)
+      counts: biological replicates from three independent experiments
+      per_group:
+        ctrl: '11'
+        bleb: '8'
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+    suspected_error: &id031
+      what: Legend '*p < 0.05 versus 2D'
+      why: All Fig. 7 comparisons are inhibitor-treated EHTs versus control EHTs; no 2D group is shown.
+    definition:
+      citation: Hansen2010
+      anchor:
+        quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+        where: Experimental Procedures
+        file: main.pdf
+  f7b_fs:
+    unit: F7B
+    measure: fractional shortening
+    finding: fractional shortening lower with blebbistatin (*p < 0.05).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+    suspected_error: *id031
+  f7b_rate:
+    unit: F7B
+    measure: beating rate
+    finding: beating rate not changed by blebbistatin (ns).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: ns
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+  f7b_length:
+    unit: F7B
+    measure: resting length
+    finding: resting length not changed by blebbistatin (ns).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: ns
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+  f7b_t1_80:
+    unit: F7B
+    measure: contraction time T1 [80%]
+    finding: contraction time T1 [80%] not changed by blebbistatin (ns).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: ns
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+  f7b_t1_50:
+    unit: F7B
+    measure: contraction time T1 [50%]
+    finding: contraction time T1 [50%] not changed by blebbistatin (ns).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: ns
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+  f7b_t2_80:
+    unit: F7B
+    measure: relaxation time T2 [80%]
+    finding: relaxation time T2 [80%] not changed by blebbistatin (ns).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: ns
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+  f7b_t2_50:
+    unit: F7B
+    measure: relaxation time T2 [50%]
+    finding: relaxation time T2 [50%] not changed by blebbistatin (ns).
+    anchor: *id029
+    method: video-optical recording; fold change normalized to control (mean)
+    compares:
+    - bleb
+    - ctrl
+    n: *id030
+    stats:
+      test: two-tailed unpaired t test
+      p: ns
+    note: n and ns printed in the figure. T1 and T2 named as printed.
+  f7c_mtdna:
+    unit: F7CD
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: mtDNA lower with blebbistatin (*).
+    anchor: *id029
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - bleb
+    - ctrl
+    n:
+      printed: Control EHT (n=16) Blebbistatin treated EHT (n=14)
+      counts: biological replicates from three independent experiments
+      per_group:
+        ctrl: '16'
+        bleb: '14'
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    suspected_error: *id031
+  f7d_mitomass:
+    unit: F7CD
+    measure: mitochondrial mass (MitoTracker Green FM mean fluorescent intensity)
+    finding: Mitochondrial mass lower with blebbistatin (*).
+    anchor: *id029
+    method: MitoTracker Green FM FACS of dissociated 3D hiPSC-CMs
+    compares:
+    - bleb
+    - ctrl
+    context:
+      preparation: dissociated cells
+    n:
+      printed: Control EHT (n=7) Blebbistatin treated EHT (n=7)
+      counts: biological replicates from three independent experiments
+      per_group:
+        ctrl: '7'
+        bleb: '7'
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    suspected_error: *id031
+  f7e_mtdna:
+    unit: F7E
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: mtDNA lower with BTS (*).
+    anchor: *id029
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - bts
+    - ctrl
+    n:
+      printed: Control EHT (n=11) BTS treated EHT (n=10)
+      counts: biological replicates from three independent experiments
+      per_group:
+        ctrl: '11'
+        bts: '10'
+    stats:
+      test: two-tailed unpaired t test
+      p: '*p < 0.05'
+    suspected_error: *id031
+  s7a_force_mtdna:
+    unit: S7AB
+    measure: correlation of mtDNA content with force
+    finding: Force rises with mtDNA content; no statistic printed.
+    anchor:
+      quote: Correlation of mitochondrial DNA content with force (A), and frequency (B) of experiments shown in Figure 7
+      where: Fig. S7 legend
+      file: mmc1.pdf
+    method: mtDNA by qPCR; force by video-optical recording
+    groups:
+    - ehts
+    n: not stated
+  s7b_rate_mtdna:
+    unit: S7AB
+    measure: correlation of mtDNA content with spontaneous beating frequency
+    finding: Beating frequency falls with mtDNA content; no statistic printed.
+    anchor:
+      quote: Correlation of mitochondrial DNA content with force (A), and frequency (B) of experiments shown in Figure 7
+      where: Fig. S7 legend
+      file: mmc1.pdf
+    method: mtDNA by qPCR; frequency by video-optical recording
+    groups:
+    - ehts
+    n: not stated
+  s7c_bleb:
+    unit: S7CD
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: blebbistatin does not change mtDNA in 2D.
+    anchor: &id032
+      quote: in 2D hiPSC-CMs both blebbistatin and BTS do not change mtDNA content (Figures S7C and S7D)
+      where: Results
+      file: main.pdf
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - bleb
+    - ctrl
+    n: &id033
+      printed: 2D (n=9) 2D + Blebb (n=8) 2D + BTS (n=4)
+      counts: biological replicates (mean of three technical replicates) from three independent experiments
+      per_group:
+        ctrl: '9'
+        bleb: '8'
+        bts: '4'
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id032
+    note: No test or significance mark printed; n printed in the figure.
+  s7c_bts:
+    unit: S7CD
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    finding: BTS does not change mtDNA in 2D.
+    anchor: *id032
+    method: qPCR of genomic DNA for Mt-ND1/2 normalized to the nuclear gene ACTB
+    definition: Mt-DNA/g-ßactin
+    compares:
+    - bts
+    - ctrl
+    n: *id033
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id032
+    note: No test or significance mark printed; n printed in the figure.
+claims:
+  abs_mass:
+    kind: stated
+    quote: 3D hiPSC-CMs showed increased mitochondrial mass, DNA content, and protein abundance (proteome)
+    where: Summary
+    rests_on:
+    - f4e_mitomass
+    asserts_direction: up
+    scope: 3D versus 2D hiPSC-CMs
+    direction: higher in 3D
+    strength: showed
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs_dna:
+    kind: stated
+    quote: 3D hiPSC-CMs showed increased mitochondrial mass, DNA content, and protein abundance (proteome)
+    where: Summary
+    rests_on:
+    - f4f_3d
+    - s4b_pooled
+    asserts_direction: up
+    scope: 3D versus 2D hiPSC-CMs
+    direction: higher in 3D
+    strength: showed
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs_protein:
+    kind: stated
+    quote: 3D hiPSC-CMs showed increased mitochondrial mass, DNA content, and protein abundance (proteome)
+    where: Summary
+    rests_on:
+    - f4d_3d
+    - prot_mito
+    asserts_direction: up
+    scope: 3D versus 2D hiPSC-CMs
+    direction: higher in 3D
+    strength: showed
+    note: Proteome from one differentiation (n = 3 per group).
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  abs_substrates:
+    kind: stated
+    quote: hiPSC-CMs exhibited the principal ability to use glucose, lactate, and fatty acids as energy substrates irrespective of culture format
+    where: Summary
+    rests_on:
+    - f5a_rate_glc
+    - f5a_rate_fa
+    - f5a_rate_lac
+    - f5b_rate_glc
+    - f5b_rate_fa
+    - f5b_rate_lac
+    - f5b_force_glc
+    - f5b_force_fa
+    - f5b_force_lac
+    - f5a_rate_none
+    - f5b_rate_none
+    asserts_direction: none
+    scope: 2D and 3D hiPSC-CMs
+    strength: principal ability
+    note: Absence of change overnight; no test named for Fig. 5.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs_oxidation:
+    kind: stated
+    quote: hiPSC-CMs in 3D performed more oxidation of glucose, lactate, and fatty acid
+    where: Summary
+    rests_on:
+    - f6_glc_3d
+    - f6_lac_3d
+    - f6_fa_3d
+    asserts_direction: up
+    scope: 3D versus 2D
+    direction: higher in 3D
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs_glycolysis:
+    kind: stated
+    quote: and less anaerobic glycolysis
+    where: Summary
+    rests_on:
+    - f6b_glucose
+    - f6c_lactate
+    asserts_direction: down
+    scope: 3D versus 2D
+    direction: lower in 3D
+    note: Fig. 6B-C from control line 1 only (Fig. S1A).
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  abs_contraction:
+    kind: stated
+    quote: The increase in mitochondrial mass and DNA in 3D was diminished by pharmacological reduction of contractile force
+    where: Summary
+    rests_on:
+    - f7c_mtdna
+    - f7d_mitomass
+    - f7e_mtdna
+    asserts_direction: down
+    scope: 3D EHTs with myosin II inhibitors
+    direction: lower with inhibitor
+    note: Inhibitor tested in 3D only against 3D controls; the '3D increase' over 2D was not measured with inhibitor.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  abs_conclusion:
+    kind: stated
+    quote: contractile work contributes to metabolic maturation of hiPSC-CMs
+    where: Summary
+    rests_on:
+    - f7c_mtdna
+    - f7d_mitomass
+    - f7e_mtdna
+    asserts_direction: down
+    scope: hiPSC-CMs
+    strength: contributes
+    note: Inhibitors changed mtDNA and mass; metabolic measures (oxidation, glycolysis) were not measured after inhibition.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+  res_structure_title:
+    kind: stated
+    quote: Culture of hiPSC-CMs as 3D Engineered Heart Tissue Improves Mitochondrial Structure
+    where: Results, section title
+    rests_on:
+    - f1fg_mito
+    asserts_direction: up
+    strength: improves
+    note: Qualitative TEM from one experiment, control line 1.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_tem_mito:
+    kind: stated
+    quote: 3D hiPSC-CMs contained more mitochondria with crisp membrane structures and cristae formation
+    where: Results
+    rests_on:
+    - f1fg_mito
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_tem_glycogen:
+    kind: stated
+    quote: more glycogen deposits
+    where: Results
+    rests_on:
+    - f1fg_glycogen
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_composition:
+    kind: stated
+    quote: Similar cellular composition of 2D and 3D format by the time of functional analysis was determined by qPCR
+    where: Results
+    rests_on:
+    - f1e_ctnt1
+    - f1e_myl3
+    - f1e_myl4
+    - f1e_vim
+    - f1e_postn
+    - f1e_cd31
+    asserts_direction: none
+    strength: similar
+    note: Non-significant mRNA differences taken as similar composition.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  res_prot_title:
+    kind: stated
+    quote: Quantitative Proteomics Revealed Greater Abundance of Mitochondrial Proteins in 3D and Nuclear and Ribosomal Proteins in 2D hiPSC-CMs
+    where: Results, section title
+    rests_on:
+    - prot_mito
+    - prot_nuclear
+    - prot_ribosomal
+    note: Direction mixed (mitochondrial up, nuclear and ribosomal down in 3D).
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_prot_diff:
+    kind: stated
+    quote: Among these 614 proteins, 256 (41%) significantly differed in abundance between the groups
+    where: Results
+    rests_on:
+    - prot_diff
+    note: Per-protein t tests at p < 0.05 without a stated multiple-comparison correction.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_cardiac_prot:
+    kind: stated
+    quote: which were all more abundant in 3D than in 2D
+    where: Results
+    rests_on:
+    - prot_cardiac_up
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_fao_title:
+    kind: stated
+    quote: Cardiomyocytes in 3D Cultures Exhibit Increases in Proteins Involved in ATP Synthesis and Fatty Acid Oxidation
+    where: Results, section title
+    rests_on:
+    - f2d_acot1
+    - f2d_acot13
+    - f2d_scp2
+    - f2d_acaa2
+    - f2d_acot2
+    - f2d_eci1
+    - f2d_echs1
+    - f2d_oxct1
+    - f2d_hadha
+    - f2d_hadhb
+    - f2d_acadvl
+    - s2e_atp_tca
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_similar_title:
+    kind: stated
+    quote: The Mitochondrial Proteomes in 3D hiPSC-CMs and Adult Human Heart Are Similar
+    where: Results, section title
+    rests_on:
+    - f3a_cluster
+    strength: are similar
+    note: Clustering only; 3D clustered 'nearby' heart, and mtDNA stays lower than heart.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  res_more_similar:
+    kind: stated
+    quote: The mitochondrial proteomes of 3D and NFH samples were more similar to each other than 2D to 3D or 2D to NFH
+    where: Results
+    rests_on:
+    - f3a_cluster
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_atp_synthase:
+    kind: stated
+    quote: 9 out of 11 subunits showed an
+    where: Results
+    rests_on:
+    - f3b_summary
+    - f3b_b1_3d
+    - f3b_alpha_3d
+    - f3b_alpha_nfh
+    - f3b_beta_3d
+    - f3b_beta_nfh
+    - f3b_d_3d
+    - f3b_d_nfh
+    - f3b_delta_3d
+    - f3b_delta_nfh
+    - f3b_epsilon_3d
+    - f3b_g_3d
+    - f3b_g_nfh
+    - f3b_gamma_3d
+    - f3b_gamma_nfh
+    - f3b_cf6_3d
+    - f3b_cf6_nfh
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_western:
+    kind: stated
+    quote: which verified significantly higher abundance in 3D and NFH samples in comparison with 2D
+    where: Results
+    rests_on:
+    - f3d_thim_3d
+    - f3d_thim_nfh
+    - f3d_atp5h_3d
+    - f3d_atp5h_nfh
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_pgc_title:
+    kind: stated
+    quote: Increase in Mitochondrial Proteins Includes the PGC-1α (PPARGC1A) Transcriptional Regulatory Cascade
+    where: Results, section title
+    rests_on:
+    - f4a_ipa
+    - f4b_ppargc1a
+    - f4c_esrra
+    asserts_direction: up
+    note: 'Title: increase in mitochondrial proteins includes the PGC-1a (PPARGC1A) cascade.'
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_mass_title:
+    kind: stated
+    quote: and Is Accompanied by Higher Mitochondrial Mass and mtDNA Content in 3D
+    where: Results, section title
+    rests_on:
+    - f4e_mitomass
+    - f4f_3d
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_pgc_expr:
+    kind: stated
+    quote: both showed higher expression in 3D versus 2D hiPSC-CMs
+    where: Results
+    rests_on:
+    - f4b_ppargc1a
+    - f4c_esrra
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_mito_prot_fold:
+    kind: stated
+    quote: we found a 2.2-fold higher amount of mitochondrial proteins in 3D than in 2D
+    where: Results
+    rests_on:
+    - f4d_3d
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_mass_fold:
+    kind: stated
+    quote: This was 1.5-fold higher in 3D than in 2D
+    where: Results
+    rests_on:
+    - f4e_mitomass
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_mtdna_fold:
+    kind: stated
+    quote: DNA levels were 3-fold higher in 3D than in 2D
+    where: Results
+    rests_on:
+    - f4f_3d
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_mtdna_vs_heart:
+    kind: stated
+    quote: but still 1.5-fold lower than in NFH
+    where: Results
+    rests_on:
+    - f4f_3d_heart
+    note: No 3D versus heart test printed; the heart group is 1 non-failing and 2 failing hearts, not NFH.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_70days:
+    kind: stated
+    quote: we also analyzed ND1/2 after 70 days and confirmed the difference in ND1/2 DNA level
+    where: Results
+    rests_on:
+    - s4b_pooled
+    - s4b_line2_nd2
+    asserts_direction: up
+    note: Two independent experiments.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_density:
+    kind: stated
+    quote: suggest that mitochondrial density is 3-fold higher in 3D than in 2D
+    where: Results
+    rests_on:
+    - f4f_3d
+    - f4e_mitomass
+    - f4d_3d
+    asserts_direction: up
+    note: mtDNA copy number is read as density; mass was 1.5-fold and protein 2.2-fold.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_substrates_title:
+    kind: stated
+    quote: 2D and 3D hiPSC-CMs Are Able to Use Fatty Acid, Glucose, and Lactate as Sources of Energy
+    where: Results, section title
+    rests_on:
+    - f5a_rate_glc
+    - f5a_rate_fa
+    - f5a_rate_lac
+    - f5b_rate_glc
+    - f5b_rate_fa
+    - f5b_rate_lac
+    - f5b_force_glc
+    - f5b_force_fa
+    - f5b_force_lac
+    asserts_direction: none
+    restates: abs_substrates
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_no_energy:
+    kind: stated
+    quote: 2D and 3D hiPSC-CMs incubated in medium without any energy source stopped beating completely
+    where: Results
+    rests_on:
+    - f5a_rate_none
+    - f5b_rate_none
+    - f5b_force_none
+    asserts_direction: down
+    note: n = 2 per format.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_seahorse:
+    kind: literature
+    quote: were qualitatively similar to previously reported findings in hiPSC-CMs
+    where: Results
+    rests_on:
+    - s5c_ocr
+    cites:
+    - Birket2015
+    - Kuppusamy2015
+    judgement: null
+  res_hypoxia:
+    kind: stated
+    quote: Different energy substrates indeed have significant impact on hypoxia sensitivity
+    where: Results
+    rests_on:
+    - f5c_fa_vs_glc
+    - f5c_lac_vs_glc
+    asserts_direction: down
+    note: Significance stated without a test or P.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_glycolysis_title:
+    kind: stated
+    quote: Anaerobic Glycolysis Decreases in Favor of More Oxidative Metabolism in 3D hiPSC-CMs
+    where: Results, section title
+    rests_on:
+    - f6b_glucose
+    - f6c_lactate
+    - f6_glc_3d
+    - f6_lac_3d
+    - f6_fa_3d
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_glc_lac_fold:
+    kind: stated
+    quote: glucose consumption and lactate production were 2- to 3-fold higher in 2D hiPSC-CMs than in 3D
+    where: Results
+    rests_on:
+    - f6b_glucose
+    - f6c_lactate
+    asserts_direction: down
+    note: Direction is 3D relative to 2D (items compare 3D with 2D). Control line 1 only.
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  res_co2:
+    kind: stated
+    quote: 3D hiPSC-CMs produced several-fold more
+    where: Results
+    rests_on:
+    - f6_glc_3d
+    - f6_lac_3d
+    - f6_fa_3d
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_atp_fold:
+    kind: stated
+    quote: ATP produced by mitochondrial respiration was 2.3-fold higher in 3D than in 2D hiPSC-CMs
+    where: Results
+    rests_on:
+    - f6g_atp_ox
+    note: A calculation under full-efficiency assumption; no test.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_preference:
+    kind: stated
+    quote: suggesting a higher metabolic preference for oxidation than glycolysis compared with 2D hiPSC-CMs
+    where: Results
+    rests_on:
+    - f6g_glycolysis_share
+    - f6g_atp_ox
+    - f6_glc_3d
+    - f6b_glucose
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_contraction_title:
+    kind: stated
+    quote: Pharmacological Reduction of Contraction Decreases mtDNA Content in 3D
+    where: Results, section title
+    rests_on:
+    - f7c_mtdna
+    - f7e_mtdna
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_bleb_force:
+    kind: stated
+    quote: Blebbistatin led to a reduction in force while other parameters of contraction remained unchanged
+    where: Results
+    rests_on:
+    - f7b_force
+    - f7b_rate
+    - f7b_length
+    - f7b_t1_80
+    - f7b_t1_50
+    - f7b_t2_80
+    - f7b_t2_50
+    opposes:
+    - f7b_fs
+    note: Fractional shortening was also significantly reduced (Fig. 7B).
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+  res_bleb_mtdna:
+    kind: stated
+    quote: qPCR analysis revealed significantly lower copy numbers for mtDNA (Figure 7C) and lower mitochondrial mass
+    where: Results
+    rests_on:
+    - f7c_mtdna
+    - f7d_mitomass
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_bts:
+    kind: stated
+    quote: BTS also led to lower mtDNA copy numbers
+    where: Results
+    rests_on:
+    - f7e_mtdna
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_2d_inhibitors:
+    kind: stated
+    quote: in 2D hiPSC-CMs both blebbistatin and BTS do not change mtDNA content
+    where: Results
+    rests_on:
+    - s7c_bleb
+    - s7c_bts
+    asserts_direction: none
+    note: No test printed; BTS n = 4.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  res_work_biogenesis:
+    kind: stated
+    quote: suggesting that contractile work contributes to mitochondrial biogenesis in this model
+    where: Results
+    rests_on:
+    - f7c_mtdna
+    - f7d_mitomass
+    - f7e_mtdna
+    - s7c_bleb
+    - s7c_bts
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_summary_more:
+    kind: stated
+    quote: found evidence for more mitochondria (TEM), mass (mitotracker), DNA
+    where: Discussion
+    rests_on:
+    - f1fg_mito
+    - f4e_mitomass
+    - f4f_3d
+    - f4d_3d
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  dis_substrates:
+    kind: stated
+    quote: hiPSC-CMs had the ability to use glucose, lactate, and fatty acids as energy substrates irrespective of culture format
+    where: Discussion
+    rests_on:
+    - f5a_rate_glc
+    - f5a_rate_fa
+    - f5a_rate_lac
+    - f5b_rate_glc
+    - f5b_rate_fa
+    - f5b_rate_lac
+    - f5b_force_glc
+    - f5b_force_fa
+    - f5b_force_lac
+    asserts_direction: none
+    restates: abs_substrates
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_oxidation:
+    kind: stated
+    quote: hiPSC-CMs in 3D performed more oxidative metabolism of glucose, lactate, and fatty acid and less glycolysis
+    where: Discussion
+    rests_on:
+    - f6_glc_3d
+    - f6_lac_3d
+    - f6_fa_3d
+    - f6b_glucose
+    - f6c_lactate
+    restates: abs_oxidation
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_atp:
+    kind: stated
+    quote: generated 2.3-fold more ATP by oxidation than 2D hiPSC-CMs
+    where: Discussion
+    rests_on:
+    - f6g_atp_ox
+    restates: res_atp_fold
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_contraction_trigger:
+    kind: stated
+    quote: points to the contribution of contractile work as one trigger of mitochondrial development
+    where: Discussion
+    rests_on:
+    - f7c_mtdna
+    - f7d_mitomass
+    - f7e_mtdna
+    strength: one trigger
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_proteomics:
+    kind: stated
+    quote: contain more mitochondrial proteins and fatty acid-metabolizing enzymes than 2D hiPSC-CMs
+    where: Discussion
+    rests_on:
+    - prot_mito
+    - f2d_acot1
+    - f2d_acot13
+    - f2d_scp2
+    - f2d_acaa2
+    - f2d_acot2
+    - f2d_eci1
+    - f2d_echs1
+    - f2d_oxct1
+    - f2d_hadha
+    - f2d_hadhb
+    - f2d_acadvl
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  dis_ribosomal:
+    kind: stated
+    quote: ribosomal and nuclear proteins were more abundant in 2D format
+    where: Discussion
+    rests_on:
+    - prot_ribosomal
+    - prot_nuclear
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  dis_same_pattern:
+    kind: literature
+    quote: The very same pattern was revealed in this study (Figure 2A)
+    where: Discussion
+    rests_on:
+    - prot_mito
+    - prot_nuclear
+    - prot_ribosomal
+    cites:
+    - Pohjoismaki2013
+    judgement: null
+  dis_similar_heart:
+    kind: stated
+    quote: 3D hiPSC-CMs showed higher similarities to human ventricular heart tissue than to 2D hiPSC-CMs for proteins of the mitochondrial compartment
+    where: Discussion
+    rests_on:
+    - f3a_cluster
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_glycogen:
+    kind: stated
+    quote: we saw fewer glycogen stores in 3D hiPSC-CMs than in 2D
+    where: Discussion
+    rests_on:
+    - f1fg_glycogen
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  dis_incomplete:
+    kind: stated
+    quote: the lower level of mtDNA compared with human heart (Figure 4F)
+    where: Discussion
+    rests_on:
+    - f4f_3d_heart
+    note: No 3D versus heart test; heart group includes two failing hearts.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_tfam:
+    kind: stated
+    quote: TFAM protein abundance was 2.9-fold higher in 3D than in 2D
+    where: Discussion
+    rests_on:
+    - prot_tfam
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  dis_hypoxia:
+    kind: stated
+    quote: The exclusively oxidative metabolism of lactate and fatty acid was demonstrated by the increased hypoxia sensitivity
+    where: Discussion
+    rests_on:
+    - f5c_fa_vs_glc
+    - f5c_lac_vs_glc
+    strength: demonstrated
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  dis_anaerobic:
+    kind: stated
+    quote: hiPSC-CMs can meet their energy demand with anaerobic glycolysis
+    where: Discussion
+    rests_on:
+    - f5c_curve
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_ox_increase:
+    kind: stated
+    quote: resulting in a 2.3-fold increase in ATP production by oxidation (Figure 6G) without a change in the relative composition of oxidized
+      energy substrates
+    where: Discussion
+    rests_on:
+    - f6g_atp_ox
+    - f6g_fa_share
+    - f6g_glc_share
+    - f6g_lac_share
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_less_glycolysis:
+    kind: stated
+    quote: glucose consumption suggests less anaerobic glycolysis in 3D (Figure 6B)
+    where: Discussion
+    rests_on:
+    - f6b_glucose
+    - f6c_lactate
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  dis_ratio:
+    kind: stated
+    quote: glycolysis/oxidation ratio of 51%:49% for 2D versus 14%:86% for 3D
+    where: Discussion
+    rests_on:
+    - f6g_glycolysis_share
+    - f6g_oxidation_share
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_mediator:
+    kind: stated
+    quote: points to contractile work as one mediator of mitochondrial development (Figure 7)
+    where: Discussion
+    rests_on:
+    - f7c_mtdna
+    - f7d_mitomass
+    - f7e_mtdna
+    strength: one mediator
+    restates: dis_contraction_trigger
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_no_corr:
+    kind: stated
+    quote: there was no positive correlation of spontaneous frequency with mtDNA content
+    where: Discussion
+    rests_on:
+    - s7b_rate_mtdna
+    note: Cites Figs. S7C-S7D; the correlation is in Fig. S7B, without a statistic.
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_pgc:
+    kind: stated
+    quote: On the molecular level this process is accompanied with higher expression of PGC-1
+    where: Discussion
+    rests_on:
+    - f4b_ppargc1a
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  dis_conclusion:
+    kind: stated
+    quote: a 3D culture format (herein EHT) of hiPSC-CMs induces maturation of energy metabolism toward a more adult-like state
+    where: Discussion
+    rests_on:
+    - f4e_mitomass
+    - f4f_3d
+    - f4d_3d
+    - f6_glc_3d
+    - f6_lac_3d
+    - f6_fa_3d
+    - f6b_glucose
+    - f6c_lactate
+    strength: induces
+    note: '''provides several lines of evidence that a 3D culture format ... induces maturation of energy metabolism toward a more adult-like
+      state''.'
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  lit_proteome_fetal:
+    kind: literature
+    quote: very similar to the proteome difference between fetal and adult non-failing human heart
+    where: Results
+    rests_on:
+    - prot_mito
+    cites:
+    - Pohjoismaki2010
+    judgement: null
+  lit_postnatal_fit:
+    kind: literature
+    quote: These numbers overall fit very well with postnatal changes described in other mammals
+    where: Discussion
+    rests_on:
+    - f6g_atp_ox
+    cites:
+    - Lopaschuk1991
+    judgement: null
+  lit_correia:
+    kind: literature
+    quote: The relative contribution in 2D matches well with recently reported values for hiPSC-CMs
+    where: Discussion
+    rests_on:
+    - f6g_glycolysis_share
+    cites:
+    - Correia2017
+    judgement: null
+  att_fa_adult:
+    kind: attributed
+    quote: In non-failing adult hearts, fatty acid is the most important source of ATP production
+    where: Introduction
+    rests_on: []
+    cites:
+    - LopaschukJaswal2010
+    judgement: null
+  att_tfam:
+    kind: attributed
+    quote: a 5-fold increase in TFAM was observed during human heart developmental hypertrophy
+    where: Discussion
+    rests_on: []
+    cites:
+    - Pohjoismaki2010
+    judgement: null
+  att_glycogen:
+    kind: attributed
+    quote: decrease in glycogen stores from 30% of cell volume in fetal cardiomyocytes to 2% in adult cardiomyocytes
+    where: Discussion
+    rests_on: []
+    cites:
+    - Rajabi2007
+    judgement: null
+  att_bhute:
+    kind: attributed
+    quote: failed to demonstrate an increase in mtDNA in hiPSC-CMs after 3 months of culture in 2D
+    where: Discussion
+    rests_on: []
+    cites:
+    - Bhute2017
+    judgement: null
+  att_rabbit:
+    kind: attributed
+    quote: lactate, and palmitate oxidation were shown to contribute to ATP generation by 44%, 18%, 25%, and 13%
+    where: Discussion
+    rests_on: []
+    cites:
+    - Lopaschuk1991
+    judgement: null
+  att_transcripts:
+    kind: attributed
+    quote: a recent comparison between 2D and 3D hiPSC-CMs on the transcript level did not reveal these differences
+    where: Discussion
+    rests_on: []
+    cites:
+    - Mannhardt2016b
+    judgement: null
+  att_poon:
+    kind: attributed
+    quote: demonstrated that metabolic changes were accompanied by higher protein abundance
+    where: Discussion
+    rests_on: []
+    cites:
+    - Poon2015
+    judgement: null
+citations:
+  Breckwoldt2017:
+    label: Breckwoldt et al., 2017
+    text: Breckwoldt et al. (2017). Differentiation of cardiomyocytes and generation of human engineered heart tissue. Nat. Protoc. 12, 1177-1197.
+    year: '2017'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Cardiac differentiation was performed with an EB-based protocol as recently described (Breckwoldt et al., 2017)
+      where: Experimental Procedures
+      file: main.pdf
+  Mannhardt2016:
+    label: Mannhardt et al., 2016
+    text: 'Mannhardt et al. (2016). Human engineered heart tissue: analysis of contractile force. Stem Cell Reports 7, 29-42.'
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: EHT were embedded in a fibrin gel between elastic PDMS posts (Mannhardt et al., 2016)
+      where: Experimental Procedures
+      file: main.pdf
+  Hansen2010:
+    label: Hansen et al., 2010
+    text: Hansen et al. (2010). Development of a drug screening platform based on engineered heart tissue. Circ. Res. 107, 35-44.
+    year: '2010'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Video-optical analysis of contractile force was performed as recently described (Hansen et al., 2010;
+      where: Experimental Procedures
+      file: main.pdf
+  Mannhardt2017:
+    label: Mannhardt et al., 2017
+    text: Mannhardt et al. (2017). Automated contraction analysis of human engineered heart tissue for cardiac drug safety screening. J. Vis.
+      Exp.
+    year: '2017'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: subjected to collagenase digestion on day 17 after initiation of the differentiation (Breckwoldt et al., 2017; Mannhardt et al.,
+        2017)
+      where: Experimental Procedures
+      file: main.pdf
+    doi: 10.3791/55461
+  Moretti2010:
+    label: Moretti et al., 2010
+    text: Moretti et al. (2010). Patient-specific induced pluripotent stem-cell models for long-QT syndrome. N. Engl. J. Med. 363, 1397-1409.
+    year: '2010'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: control line, which was reprogrammed by lentivirus (Moretti et al., 2010)
+      where: Experimental Procedures
+      file: main.pdf
+  Burkart2016:
+    label: Burkart et al., 2016
+    text: Burkart et al. (2016). Insulin resistance in human iPS cells reduces mitochondrial size and function. Sci. Rep. 6, 22788.
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+      where: Supplemental Experimental Procedures, qPCR
+      file: mmc1.pdf
+  Steenbergen2003:
+    label: Steenbergen et al., 2003
+    text: Steenbergen et al. (2003). Alterations in apoptotic signaling in human idiopathic cardiomyopathic hearts in failure. Am. J. Physiol.
+      Heart Circ. Physiol. 284.
+    year: '2003'
+    purpose:
+    - borrows_data
+    anchor:
+      quote: Full details of the samples are previously described (Steenbergen et al., 2003)
+      where: Supplemental Experimental Procedures, Human heart samples
+      file: mmc1.pdf
+  LopaschukJaswal2010:
+    label: Lopaschuk and Jaswal, 2010
+    text: Lopaschuk and Jaswal (2010). Energy metabolic phenotype of the cardiomyocyte during development, differentiation, and postnatal maturation.
+      J. Cardiovasc. Pharmacol. 56, 130-140.
+    year: '2010'
+    purpose:
+    - borrows_value
+    - attributes_finding
+    anchor:
+      quote: 33 per glucose molecule, and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010)
+      where: Supplemental Experimental Procedures, Metabolic flux
+      file: mmc1.pdf
+  Heinrich2014:
+    label: Peter C. Heinrich, Matthias Müller, 2014
+    text: Heinrich, Müller (2014). Löffler/Petrides Biochemie und Pathobiochemie. Springer.
+    year: '2014'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: 127,1 per oleic acid molecule
+      where: Supplemental Experimental Procedures, Metabolic flux
+      file: mmc1.pdf
+  Lopaschuk1991:
+    label: Lopaschuk et al., 1991
+    text: Lopaschuk, Spafford and Marsh (1991). Glycolysis is predominant source of myocardial ATP production immediately after birth. Am. J.
+      Physiol. 261, H1698-H1705.
+    year: '1991'
+    purpose:
+    - attributes_finding
+    - contrasts
+    anchor:
+      quote: glycolysis, glucose, lactate, and palmitate oxidation were shown to contribute to ATP generation by 44%, 18%, 25%, and 13%, respectively
+        (Lopaschuk et al., 1991)
+      where: Discussion
+      file: main.pdf
+  Correia2017:
+    label: Correia et al., 2017
+    text: Correia et al. (2017). Distinct carbon sources affect structural and functional maturation of cardiomyocytes derived from human pluripotent
+      stem cells. Sci. Rep. 7, 1-17.
+    year: '2017'
+    purpose:
+    - contrasts
+    anchor:
+      quote: The relative contribution in 2D matches well with recently reported values for hiPSC-CMs (Correia et al., 2017)
+      where: Discussion
+      file: main.pdf
+  Pohjoismaki2010:
+    label: Pohjoismäki et al., 2010
+    text: Pohjoismäki et al. (2010). Developmental and pathological changes in the human cardiac muscle mitochondrial DNA organization, replication
+      and copy number. PLoS One 5, e10426.
+    year: '2010'
+    purpose:
+    - attributes_finding
+    - contrasts
+    anchor:
+      quote: a 5-fold increase in TFAM was observed during human heart developmental hypertrophy (Pohjoismäki et al., 2010)
+      where: Discussion
+      file: main.pdf
+  Pohjoismaki2013:
+    label: Pohjoismäki et al., 2013
+    text: Pohjoismäki et al. (2013). Postnatal cardiomyocyte growth and mitochondrial reorganization cause multiple changes in the proteome of
+      human cardiomyocytes. Mol. Biosyst. 9, 1210-1219.
+    year: '2013'
+    purpose:
+    - attributes_finding
+    - contrasts
+    anchor:
+      quote: They discovered higher abundance of mitochondrial proteins and lower abundance of ribosomal and nuclear proteins as key changes (Pohjoismäki
+        et al., 2013)
+      where: Discussion
+      file: main.pdf
+  Rajabi2007:
+    label: Rajabi et al., 2007
+    text: 'Rajabi et al. (2007). Return to the fetal gene program protects the stressed heart: a strong hypothesis. Heart Fail. Rev. 12, 331-343.'
+    year: '2007'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: decrease in glycogen stores from 30% of cell volume in fetal cardiomyocytes to 2% in adult cardiomyocytes (Rajabi et al., 2007)
+      where: Discussion
+      file: main.pdf
+  Bhute2017:
+    label: Bhute et al., 2017
+    text: Bhute et al. (2017). Metabolomics identifies metabolic markers of maturation in human pluripotent stem cell-derived cardiomyocytes.
+      Theranostics 7, 2078-2091.
+    year: '2017'
+    purpose:
+    - attributes_finding
+    - contrasts
+    anchor:
+      quote: failed to demonstrate an increase in mtDNA in hiPSC-CMs after 3 months of culture in 2D (Bhute et al., 2017)
+      where: Discussion
+      file: main.pdf
+  Birket2015:
+    label: Birket et al., 2015
+    text: Birket et al. (2015). Contractile defect caused by mutation in MYBPC3 revealed under conditions optimized for human PSC-cardiomyocyte
+      function. Cell Rep. 13, 733-745.
+    year: '2015'
+    purpose:
+    - contrasts
+    anchor:
+      quote: qualitatively similar to previously reported findings in hiPSC-CMs (Figure S5C) (Birket et al., 2015; Kuppusamy et al., 2015)
+      where: Results
+      file: main.pdf
+  Kuppusamy2015:
+    label: Kuppusamy et al., 2015
+    text: Kuppusamy et al. (2015). Let-7 family of microRNA is required for maturation and adult-like metabolism in stem cell-derived cardiomyocytes.
+      PNAS 112, 2785-2794.
+    year: '2015'
+    purpose:
+    - contrasts
+    anchor:
+      quote: qualitatively similar to previously reported findings in hiPSC-CMs (Figure S5C) (Birket et al., 2015; Kuppusamy et al., 2015)
+      where: Results
+      file: main.pdf
+  Hall2016:
+    label: Hall and Hausenloy, 2016
+    text: Hall and Hausenloy (2016). Mitochondrial respiratory inhibition by 2,3-butanedione monoxime (BDM). Physiol. Rep. 4, e12606.
+    year: '2016'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: since it does not have off-target effects on mitochondrial metabolism in contrast to 2,3-butanedione monoxime (Hall and Hausenloy,
+        2016)
+      where: Results
+      file: main.pdf
+  Cheung2002:
+    label: Cheung et al., 2002
+    text: Cheung et al. (2002). A small-molecule inhibitor of skeletal muscle myosin II. Nat. Cell Biol. 4, 83-88.
+    year: '2002'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: These concentrations align well with literature data (Cheung et al., 2002; Straight et al., 2003)
+      where: Supplemental Experimental Procedures, Media composition
+      file: mmc1.pdf
+  Straight2003:
+    label: Straight et al., 2003
+    text: Straight et al. (2003). Dissecting temporal and spatial control of cytokinesis with a myosin II inhibitor. Science 299, 1743-1747.
+    year: '2003'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: These concentrations align well with literature data (Cheung et al., 2002; Straight et al., 2003)
+      where: Supplemental Experimental Procedures, Media composition
+      file: mmc1.pdf
+  Mannhardt2016b:
+    label: Mannhardt et al., 2016 (transcripts)
+    text: 'Mannhardt et al. (2016). Human engineered heart tissue: analysis of contractile force. Stem Cell Reports 7, 29-42.'
+    year: '2016'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: a recent comparison between 2D and 3D hiPSC-CMs on the transcript level did not reveal these differences (Mannhardt et al., 2016)
+      where: Discussion
+      file: main.pdf
+  Poon2015:
+    label: Poon et al., 2015
+    text: Poon et al. (2015). Proteomic analysis of human pluripotent stem cell-derived, fetal, and adult ventricular cardiomyocytes. Circ. Cardiovasc.
+      Genet. 8, 427-436.
+    year: '2015'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: demonstrated that metabolic changes were accompanied by higher protein abundance but no changes in gene expression of candidate metabolic
+        genes were seen
+      where: Discussion
+      file: main.pdf
+cross_references:
+- cited: Figure 6B
+  shows: glucose consumption; lactate production is Figure 6C
+  anchor:
+    quote: We used the lactate production values (Figure 6B) to estimate ATP production by glycolysis
+    where: Discussion
+    file: main.pdf
+- cited: Figures S7C and S7D
+  shows: mtDNA of 2D ± blebbistatin/BTS; the frequency correlation is Figure S7B
+  anchor:
+    quote: there was no positive correlation of spontaneous frequency with mtDNA content (Figures S7C and S7D)
+    where: Discussion
+    file: main.pdf
+- cited: Figures S7A–S7D
+  shows: mtDNA correlations and 2D mtDNA, not contraction parameters
+  anchor:
+    quote: other parameters of contraction remained unchanged (Figures 7A, 7B, and S7A–S7D)
+    where: Results
+    file: main.pdf
+- cited: Table S2
+  shows: proteins less abundant in 3D; TFAM is in the table of proteins more abundant in 3D (mmc2.xlsx, cited as Table S1)
+  anchor:
+    quote: (2.3 in 2D versus 6.6 in 3D; Table S2)
+    where: Discussion
+    file: main.pdf
+- cited: Figure 1C
+  shows: a bright-field image; the force time course of the same EHTs is Figure 1D
+  anchor:
+    quote: Same EHTs shown in Figure 1C
+    where: Fig. S1 legend
+    file: mmc1.pdf

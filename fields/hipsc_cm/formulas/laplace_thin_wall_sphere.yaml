@@ -1,0 +1,35 @@
+# Written by code from changes.yaml (version 17); never edited.
+formula: laplace_thin_wall_sphere
+kind: model
+statement: In a thin-walled sphere under uniform internal pressure, the wall (hoop) stress is the pressure times the radius
+  divided by twice the wall thickness (law of Laplace).
+equations:
+- sigma = P*r/(2*h)
+variables:
+  sigma: stress
+  P: pressure
+  r: length
+  h: length
+assumes:
+- thin wall (thickness much smaller than radius)
+- spherical chamber
+- uniform wall thickness
+does_not_apply: a thick wall (h/r above about 0.1), where stress varies through the wall, or a cylindrical chamber (hoop stress
+  P*r/h)
+tests:
+- given:
+    P: 16.0
+    r: 3.0
+    h: 1.0
+  expect:
+    sigma: 24.0
+- given:
+    P: 16.0
+    r: 3.0
+    h: 1.0
+  does_not_apply: 'cylindrical vessel: hoop stress P*r/h = 48, not 24'
+cites:
+  text: 'Young WC, Budynas RG. Roark''s Formulas for Stress and Strain, 7th ed., McGraw-Hill 2002, ch. 13 (thin-walled pressure
+    vessels: sphere under uniform internal pressure)'
+  quote: 'thin-walled sphere: sigma1 = sigma2 = qR/(2t)'
+  url: https://en.wikipedia.org/wiki/Cylinder_stress

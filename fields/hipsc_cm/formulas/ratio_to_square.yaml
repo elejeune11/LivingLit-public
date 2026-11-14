@@ -1,0 +1,31 @@
+# Written by code from changes.yaml (version 21); never edited.
+formula: ratio_to_square
+kind: derived
+statement: A quantity divided by the square of another, a/h^2 (e.g. body mass index), is a ratio whose denominator is a square.
+equations:
+- r = a/h**2
+variables:
+  r: D/D2**2
+  a: D
+  h: D2
+  b: D2**2
+assumes:
+- b = h**2
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: a
+    b: b
+does_not_apply: a ratio to the first power of h, or a mean of per-sample ratios compared with the mean of a over the squared
+  mean of h
+tests:
+- given:
+    a: 81.0
+    h: 1.8
+  expect:
+    r: 25.0
+- given:
+    a: 81.0
+    h: 1.8
+  does_not_apply: a/h gives 45

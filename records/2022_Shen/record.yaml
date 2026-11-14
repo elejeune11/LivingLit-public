@@ -1,0 +1,5038 @@
+id: 2022_Shen
+source:
+  title: Physiological calcium combined with electrical pacing accelerates maturation of human engineered heart tissue
+  doi: 10.1016/j.stemcr.2022.07.006
+  year: '2022'
+  first_author: Shi Shen
+  last_author: Stuart G. Campbell
+  lab: Campbell lab, Department of Biomedical Engineering, Yale University
+  journal: Stem Cell Reports
+  files:
+  - main.pdf
+  - mmc1.pdf
+  - mmc2.pdf
+  missing: []
+  version_note: mmc2.pdf is main.pdf followed by mmc1.pdf (the article with its supplemental information)
+default_context:
+  hipsc_medium:
+    by_reference:
+      citation: lian2013
+      anchor:
+        quote: hiPSC-CMs differentiation followed commonly used protocol (Lian et al., 2013)
+        where: Experimental procedures, Cardiomyocyte differentiation
+  hipsc_coating:
+    by_reference:
+      citation: lian2013
+      anchor:
+        quote: hiPSC-CMs differentiation followed commonly used protocol (Lian et al., 2013)
+        where: Experimental procedures, Cardiomyocyte differentiation
+  confluency:
+    by_reference:
+      citation: lian2013
+      anchor:
+        quote: hiPSC-CMs differentiation followed commonly used protocol (Lian et al., 2013)
+        where: Experimental procedures, Cardiomyocyte differentiation
+  insulin_day:
+    by_reference:
+      citation: lian2013
+      anchor:
+        quote: hiPSC-CMs differentiation followed commonly used protocol (Lian et al., 2013)
+        where: Experimental procedures, Cardiomyocyte differentiation
+  wnt_inhibition_days: 48 h
+  purity_method: not stated
+  purity: not stated
+  supplements:
+    value: B27
+    qualifiers:
+      insulin: with insulin
+  replating_coating: not applicable
+  substrate:
+    value: decellularized porcine myocardium
+    qualifiers:
+      slice thickness: 150 µm
+      scaffold size: 2.5 × 6 mm
+    anchor:
+      quote: Decellularized porcine scaffolds to make EHTs were prepared as previously reported (Schwan et al., 2016)
+      where: Experimental procedures, EHT production
+  cell_types: hiPSC-CMs + cardiac fibroblasts
+  stromal_cell:
+    value: adult human cardiac fibroblasts
+    qualifiers:
+      source: PromoCell 306-05A
+  endothelial_cell: none
+  composition: 90% hiPSC-CMs + 10% adult human cardiac fibroblasts
+  genotype: not applicable
+  disease_model: none
+  temperature: not stated
+  transgene: none
+units:
+  F1:
+    where: Fig. 1A–I
+    title: Physiological level Ca2+ alone increases contractile force but does not improve overall functional maturation profile
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      maturation_strategy: none
+      preparation: intact tissue
+      treatment: none
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      day_of_measurement:
+        value: day 24
+        qualifiers:
+          reference: in culture
+        anchor:
+          quote: After 24 days in culture, EHTs were mounted in a mechanical testing apparatus
+          where: Results, p. 2038
+        suspected_error:
+          what: day of testing
+          why: Fig. 1A schematic marks TESTING at day 25 post-seeding, the text says after 24 days in culture
+      measurement_calcium_mM:
+        value: 1.8 mM
+        qualifiers:
+          solution: Tyrode's solution
+        anchor:
+          quote: were both characterized in the same Tyrode’s solution (1.8 mM Ca2+)
+          where: Discussion, p. 2045
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_NP:
+        label: HC-NP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+      LC_NP:
+        label: LC-NP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+  F2:
+    where: Fig. 2A–Q
+    title: Physiological level Ca2+ and pacing result in functional improvement
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      maturation_strategy:
+        value: ramp pacing
+        qualifiers:
+          frequency: 2–4 Hz
+          duration: 2 weeks
+          field: 2.5 V/cm
+      preparation: intact tissue
+      treatment: none
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      day_of_measurement:
+        value: day 25
+        qualifiers:
+          reference: post-seeding
+      measurement_calcium_mM:
+        value: 1.8 mM
+        qualifiers:
+          solution: Tyrode's solution
+        anchor:
+          quote: were both characterized in the same Tyrode’s solution (1.8 mM Ca2+)
+          where: Discussion, p. 2045
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+  F3:
+    where: Fig. 3A–I
+    title: Physiological level Ca2+ and pacing result in improved β-adrenergic response to ISO
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      maturation_strategy:
+        value: ramp pacing
+        qualifiers:
+          frequency: 2–4 Hz
+          duration: 2 weeks
+          field: 2.5 V/cm
+      preparation: intact tissue
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      day_of_measurement:
+        value: day 25
+        qualifiers:
+          reference: post-seeding
+      measurement_calcium_mM:
+        value: 1.8 mM
+        qualifiers:
+          solution: Tyrode's solution
+        anchor:
+          quote: were both characterized in the same Tyrode’s solution (1.8 mM Ca2+)
+          where: Discussion, p. 2045
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+  F4ac:
+    where: Fig. 4A–C
+    title: Physiological level Ca2+ and pacing result in more mature protein and RNA expression (western blots)
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      maturation_strategy:
+        value: ramp pacing
+        qualifiers:
+          frequency: 2–4 Hz
+          duration: 2 weeks
+          field: 2.5 V/cm
+      preparation: lysate
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+  F4d:
+    where: Fig. 4D
+    title: RNA expression comparisons for Ca2+-handling proteins, sarcomere proteins, fatty acid metabolism, ion channels,
+      and maturation markers
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      preparation: lysate
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_NP:
+        label: HC-NP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy: none
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+      LC_NP:
+        label: LC-NP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy: none
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+  F4eh:
+    where: Fig. 4E–H
+    title: 'Volcano plots: HC-RP versus LC-NP, HC-RP versus LC-RP, HC-RP versus HC-NP, HC-NP versus LC-NP'
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      preparation: lysate
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_NP:
+        label: HC-NP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy: none
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+      LC_NP:
+        label: LC-NP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy: none
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+  F5:
+    where: Fig. 5A–V
+    title: Functional improvements from high calcium and ramp pacing were observed in a second iPSC line
+    context:
+      cell_line:
+        value: second healthy control line
+        qualifiers:
+          source: peripheral blood monocytes of a healthy adult male
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 17.5 µM, day 0
+          expansion: 2.4 µM CHIR99021 on day 1, 3 and 5 after expansion
+      wnt_activation_days: not stated
+      purification: lactate
+      cm_day_at_formation:
+        value: day 10
+        qualifiers:
+          reference: after expansion
+      platform: engineered heart tissue
+      preparation: intact tissue
+      treatment: none
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      day_of_measurement:
+        value: day 25
+        qualifiers:
+          reference: post-seeding
+      measurement_calcium_mM:
+        value: 1.8 mM
+        qualifiers:
+          solution: Tyrode's solution
+        anchor:
+          quote: were both characterized in the same Tyrode’s solution (1.8 mM Ca2+)
+          where: Discussion, p. 2045
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age:
+        value: adult
+        qualifiers:
+          donor: healthy adult male
+        anchor:
+          quote: line was generated from monocytes in a peripheral blood sample of a healthy adult male
+          where: Experimental procedures, Cardiomyocyte differentiation
+    groups:
+      HC_NP:
+        label: HC-NP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy: none
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+      LC_NP:
+        label: LC-NP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy: none
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+  S1:
+    where: Figure S1A–F (mmc1.pdf)
+    title: RNA-seq data indicate differential gene and pathway expressions with High Ca2+ and ramp pacing
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      preparation: lysate
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_NP:
+        label: HC-NP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy: none
+      HC_RP:
+        label: HC-RP
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+      LC_NP:
+        label: LC-NP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy: none
+      LC_RP:
+        label: LC-RP
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+  S2:
+    where: Figure S2A–C (mmc1.pdf)
+    title: RNA-seq data benchmarking against human samples and other maturation studies
+    context:
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      treatment: none
+      pacing: not applicable
+      day_of_measurement: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+      platform: engineered heart tissue
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      preparation: lysate
+    groups:
+      SIM_FETAL:
+        label: Fetal
+        kind: other study
+        citation: sim2021
+        context:
+          platform: human ventricular samples
+          donor_age: fetal
+        anchor:
+          quote: Sim et al. (adult, young and fetal ventricular samples from 21 human donors)
+          where: Discussion, p. 2044
+      SIM_YOUNG:
+        label: Young
+        kind: other study
+        citation: sim2021
+        context:
+          platform: human ventricular samples
+          donor_age: young
+        anchor:
+          quote: Sim et al. (adult, young and fetal ventricular samples from 21 human donors)
+          where: Discussion, p. 2044
+      SIM_ADULT:
+        label: Adult
+        kind: other study
+        citation: sim2021
+        context:
+          platform: human ventricular samples
+          donor_age: adult
+        anchor:
+          quote: Sim et al. (adult, young and fetal ventricular samples from 21 human donors)
+          where: Discussion, p. 2044
+      MILLS_MM:
+        label: Maturation Media
+        kind: other study
+        citation: mills2017
+        context:
+          platform: engineered three-dimensional tissues
+          maturation_strategy: maturation media
+        anchor:
+          quote: (engineered three-dimensional [3D] tissues with maturation media)
+          where: Discussion, p. 2044
+      MILLS_CTRL:
+        label: Control
+        kind: other study
+        citation: mills2017
+        context:
+          platform: engineered three-dimensional tissues
+        anchor:
+          quote: (engineered three-dimensional [3D] tissues with maturation media)
+          where: Discussion, p. 2044
+      ZHAO_RP:
+        label: Rapid Pacing
+        kind: other study
+        citation: zhao2019
+        context:
+          platform: engineered tissues
+          maturation_strategy: rapid pacing
+        anchor:
+          quote: tissues with rapid pacing) (Zhao et al., 2019)
+          where: Discussion, p. 2044
+      ZHAO_CTRL:
+        label: Control
+        kind: other study
+        citation: zhao2019
+        context:
+          platform: engineered tissues
+        anchor:
+          quote: tissues with rapid pacing) (Zhao et al., 2019)
+          where: Discussion, p. 2044
+      HC_RP:
+        label: HC-RP
+        context:
+          maturation_strategy:
+            value: ramp pacing
+            qualifiers:
+              frequency: 2–4 Hz
+              duration: 2 weeks
+              field: 2.5 V/cm
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+      LC_NP:
+        label: LC-NP
+        context:
+          maturation_strategy: none
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+  ST1:
+    where: Supplemental Table 1 (mmc1.pdf)
+    title: Formulation comparison between DMEM and RPMI (ATCC modification) basal media
+    context:
+      cell_line: not applicable
+      number_of_lines: not applicable
+      differentiation_factors: not applicable
+      wnt_activation_days: not applicable
+      purification: not applicable
+      cm_day_at_formation: not applicable
+      platform: not applicable
+      maturation_strategy: not applicable
+      preparation: not applicable
+      treatment: not applicable
+      pacing: not applicable
+      day_of_measurement: not applicable
+      measurement_calcium_mM: not applicable
+      mechanical_load: not applicable
+      donor_age: not applicable
+    groups:
+      DMEM:
+        label: DMEM
+        context:
+          cm_medium: high-glucose DMEM
+          culture_calcium_mM: 1.8 mM
+      RPMI:
+        label: RPMI, ATCC modification
+        context:
+          cm_medium: high-glucose RPMI
+          culture_calcium_mM: 0.42 mM
+  TXT1:
+    where: Discussion, p. 2044
+    title: Isometric twitch kinetics reported here
+    context:
+      cell_line:
+        value: PGP1
+        qualifiers:
+          identifier: GM23338, Coriell Institute
+      number_of_lines: '1'
+      differentiation_factors:
+        value: CHIR99021 + IWP4
+        qualifiers:
+          CHIR99021: 15 µM, day 0, 24 h
+          IWP4: 5 µM, day 3, 48 h
+      wnt_activation_days: 24 h
+      purification:
+        value: lactate
+        qualifiers:
+          concentration: 4 mM
+          timing: day 12, 4 days
+      cm_day_at_formation: day 18
+      platform: engineered heart tissue
+      cm_medium: high-glucose DMEM
+      culture_calcium_mM: 1.8 mM
+      maturation_strategy:
+        value: ramp pacing
+        qualifiers:
+          frequency: 2–4 Hz
+          duration: 2 weeks
+          field: 2.5 V/cm
+      preparation: intact tissue
+      treatment: none
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1 Hz
+      day_of_measurement:
+        value: day 25
+        qualifiers:
+          reference: post-seeding
+      measurement_calcium_mM:
+        value: 1.8 mM
+        qualifiers:
+          solution: Tyrode's solution
+        anchor:
+          quote: were both characterized in the same Tyrode’s solution (1.8 mM Ca2+)
+          where: Discussion, p. 2045
+      mechanical_load:
+        value: isometric
+        anchor:
+          quote: EHT grown under isometric conditions
+          where: Introduction, p. 2037
+      donor_age: not stated
+    groups:
+      HC_RP:
+        label: HC-RP
+        context: {}
+evidence:
+  F1_ffr_raw:
+    unit: F1
+    measure: systolic peak force
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution; pacing frequency
+      staircase from 1 to 3 Hz in 0.25-Hz increments
+    software: MATLAB scripts
+    finding: Higher systolic peak forces for HC-NP across 1–3 Hz; FFR negative in both groups.
+    compares:
+    - HC_NP
+    - LC_NP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: (B and C), (E and F) both n = 6
+      counts: tissues (EHTs)
+      per_group:
+        HC_NP: '6'
+        LC_NP: '6'
+    stats:
+      test: two-way ANOVA with repeated measures
+      p: p < 0.0001
+      p_values:
+      - p: p = n.s.
+        anchor:
+          quote: two-way ANOVA p = n.s. (B and C)
+          where: Fig. 1 legend
+      - p: p < 0.0001
+        anchor:
+          quote: Fig. 1B label 'Calcium p < 0.0001'
+          where: Fig. 1B
+          kind: unit
+    anchor:
+      quote: The raw FFR showed higher systolic peak forces for HC-NP group across 1–3 Hz (Ca2+ p < 0.0001)
+      where: Results, p. 2038
+    note: The text and the Fig. 1B label give p < 0.0001 for Ca2+; the legend gives two-way ANOVA p = n.s. for B and C.
+  F1_ffr_norm:
+    unit: F1
+    measure: normalized peak force
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution; systolic peak
+      force normalized, 1–3 Hz
+    software: MATLAB scripts
+    finding: Marginal improvement in HC-NP; both highly negative.
+    compares:
+    - HC_NP
+    - LC_NP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: (B and C), (E and F) both n = 6
+      counts: tissues (EHTs)
+      per_group:
+        HC_NP: '6'
+        LC_NP: '6'
+    stats:
+      test: two-way ANOVA with repeated measures
+      p: p = n.s.
+    anchor:
+      quote: two-way ANOVA p = n.s. (B and C)
+      where: Fig. 1 legend
+  F1_ttp:
+    unit: F1
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: No significant difference in TTP at 1 Hz.
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: (B and C), (E and F) both n = 6
+      counts: tissues (EHTs)
+      per_group:
+        HC_NP: '6'
+        LC_NP: '6'
+    stats:
+      test: unpaired two tailed t-test
+      p: p = n.s.
+    anchor:
+      quote: t-tests p = n.s. (E, F, H, and I)
+      where: Fig. 1 legend
+  F1_rt50:
+    unit: F1
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: No significant difference in RT50 at 1 Hz.
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: (B and C), (E and F) both n = 6
+      counts: tissues (EHTs)
+      per_group:
+        HC_NP: '6'
+        LC_NP: '6'
+    stats:
+      test: unpaired two tailed t-test
+      p: p = n.s.
+    anchor:
+      quote: t-tests p = n.s. (E, F, H, and I)
+      where: Fig. 1 legend
+  F1_prp:
+    unit: F1
+    measure: post-rest potentiation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution; pacing at 3
+      Hz, 15 s pause, restart at 1 Hz
+    software: MATLAB scripts
+    definition: The ratio between the first twitch and the subsequent twitches at 1 Hz
+    finding: No improvement in post-rest potentiation for HC-NP.
+    compares:
+    - HC_NP
+    - LC_NP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: (H and I) HC-NP n = 6, LC-NP n = 4
+      counts: tissues (EHTs)
+      per_group:
+        HC_NP: '6'
+        LC_NP: '4'
+    stats:
+      test: unpaired two tailed t-test
+      p: p = n.s.
+    anchor:
+      quote: t-tests p = n.s. (E, F, H, and I)
+      where: Fig. 1 legend
+  F1_def:
+    unit: F1
+    measure: diastolic excess fraction
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: the relationship between the diastolic force at 3 Hz and at rest
+    finding: No improvement in diastolic excess fraction for HC-NP.
+    compares:
+    - HC_NP
+    - LC_NP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: (H and I) HC-NP n = 6, LC-NP n = 4
+      counts: tissues (EHTs)
+      per_group:
+        HC_NP: '6'
+        LC_NP: '4'
+    stats:
+      test: unpaired two tailed t-test
+      p: p = n.s.
+    anchor:
+      quote: t-tests p = n.s. (E, F, H, and I)
+      where: Fig. 1 legend
+  F2_ffr_repr:
+    unit: F2
+    measure: force-frequency relationship
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Representative HC-RP twitches positive FFR up to 2 Hz; LC-RP purely negative FFR.
+    groups:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: Representative
+      counts: one representative tissue per group
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: high-Ca2+ ramp-paced group (HC-RP) tissues had positive FFR behavior up to 2 Hz
+      where: Results, p. 2038
+  F2_ffr_raw:
+    unit: F2
+    measure: systolic peak force
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Similar force at 1 Hz; diverged as frequency increased to 3 Hz.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: C-J n = 6 for both groups from a single differentiation batch
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: two way ANOVA with repeated measures
+      p: not stated
+    anchor:
+      quote: Both groups maintained a similar twitch force magnitude at 1 Hz pacing rate, but diverged significantly in terms
+        of both raw and normalized force
+      where: Results, p. 2038
+    suspected_error:
+      what: force unit
+      why: Fig. 2D, K and L axes read 'Systolic peak force (nN)' while Fig. 2H and Figs. 1 and 5 use µN for forces of similar
+        magnitude
+  F2_ffr_norm:
+    unit: F2
+    measure: normalized peak force
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP normalized force rises up to 2 Hz; LC-RP falls.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: C-J n = 6 for both groups from a single differentiation batch
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: two way ANOVA with repeated measures
+      p: p < 0.0001
+    anchor:
+      quote: (E) Normalized FFR (p < 0.0001).
+      where: Fig. 2 legend
+  F2_ttp_ffr:
+    unit: F2
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster TTP across 1–3 Hz.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: C-J n = 6 for both groups from a single differentiation batch
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: two way ANOVA with repeated measures
+      p: p = 0.0003
+    anchor:
+      quote: (F) Time to peak (TTP) at 1–3 Hz (p = 0.0003).
+      where: Fig. 2 legend
+  F2_rt50_ffr:
+    unit: F2
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster RT50 up to 2 Hz.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: C-J n = 6 for both groups from a single differentiation batch
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: two way ANOVA with repeated measures
+      p: p < 0.0001
+    anchor:
+      quote: (G) Time to 50% relaxation (RT50) at 1–3 Hz (p < 0.0001).
+      where: Fig. 2 legend
+  F2_ttp1:
+    unit: F2
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster TTP at 1 Hz.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: C-J n = 6 for both groups from a single differentiation batch
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: unpaired two-tailed t test
+      p: p = 0.0009
+    anchor:
+      quote: (I) Time to peak (TTP) at 1 Hz (p = 0.0009).
+      where: Fig. 2 legend
+  F2_rt50_1:
+    unit: F2
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster RT50 at 1 Hz.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: C-J n = 6 for both groups from a single differentiation batch
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: unpaired two-tailed t test
+      p: p = 0.0028
+    anchor:
+      quote: (J) Time to 50% relaxation (RT50) at 1 Hz (p = 0.0028).
+      where: Fig. 2 legend
+  F2_prp:
+    unit: F2
+    measure: post-rest potentiation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: The ratio between the first twitch and the subsequent twitches at 1 Hz
+    finding: HC-RP higher post-rest potentiation.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: M-N HC-RP n = 8, LC-RP n = 11 from two batches
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_RP: '8'
+        LC_RP: '11'
+    stats:
+      test: unpaired two-tailed t test
+      p: p = 0.0049
+    anchor:
+      quote: (M) Post-rest potentiation (p = 0.0049).
+      where: Fig. 2 legend
+  F2_def:
+    unit: F2
+    measure: diastolic excess fraction
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: the ratio between 3 Hz and 1Hz diastolic baselines
+    finding: HC-RP smaller diastolic excess fraction.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: M-N HC-RP n = 8, LC-RP n = 11 from two batches
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_RP: '8'
+        LC_RP: '11'
+    stats:
+      test: unpaired two-tailed t test
+      p: p = 0.0325
+    anchor:
+      quote: (N) Diastolic excess fraction (p = 0.0325).
+      where: Fig. 2 legend
+  F2_ca_amp:
+    unit: F2
+    measure: Ca2+ transient signal intensity
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    finding: HC-RP lower Fura-2 signal intensity change than LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: O-P n = 6 for both groups from two batches
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_RP: '6'
+        LC_RP: '6'
+    stats:
+      test: unpaired two-tailed t test
+      p: p = 0.0248
+    anchor:
+      quote: (P) Fura-2 Ca2+ transient signal intensity at 1 Hz (p = 0.0248).
+      where: Fig. 2 legend
+  F2_t80:
+    unit: F2
+    measure: Ca2+ transient decay time constant t80
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: HC-RP faster t80.
+    compares:
+    - HC_RP
+    - LC_RP
+    n: not stated
+    stats:
+      test: unpaired two-tailed t test
+      p: p < 0.0001
+    anchor:
+      quote: Ca2+ transient decay time constant from peak to 80% relaxation
+      where: Fig. 2 legend
+    suspected_error:
+      what: n for Fig. 2Q
+      why: the legend gives n for O-P only; in panel Q the HC-RP bar shows no points and no visible error bar
+  F3_force:
+    unit: F3
+    measure: systolic force increase with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Systolic peak force increase larger for HC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: both n = 7
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '7'
+        LC_RP: '7'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p = 0.0012
+    anchor:
+      quote: (C) Systolic force increases in percentage (both n = 7, p = 0.0012).
+      where: Fig. 3 legend
+  F3_ttp:
+    unit: F3
+    measure: time to peak change with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP significantly decreased TTP with ISO.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: both n = 7
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '7'
+        LC_RP: '7'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p = 0.0033
+    anchor:
+      quote: (D) TTP changes in percentage (both n = 7, p = 0.0033).
+      where: Fig. 3 legend
+  F3_rt50:
+    unit: F3
+    measure: time to 50% relaxation change with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Both groups similar RT50 shortening.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: both n = 7
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '7'
+        LC_RP: '7'
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: (E) RT50 change in percentage (both n = 7).
+      where: Fig. 3 legend
+    stated_direction:
+      direction: none
+      anchor:
+        quote: Both groups exhibited a similar shortening of RT50
+        where: Results, p. 2040
+  F3_ca_amp:
+    unit: F3
+    measure: Ca2+ transient intensity increase with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    finding: HC-RP higher Ca2+ transient intensity increase.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: HC-RP n = 5, LC-RP n = 7
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '5'
+        LC_RP: '7'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p = 0.0223
+    anchor:
+      quote: (H) Ca2+ transient intensity increases (HC-RP n = 5, LC-RP n = 7, p = 0.0223).
+      where: Fig. 3 legend
+  F3_t80:
+    unit: F3
+    measure: Ca2+ transient decay time constant t80 change with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: HC-RP faster t80 with ISO.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: HC-RP n = 5, LC-RP n = 7
+      counts: tissues (EHTs)
+      per_group:
+        HC_RP: '5'
+        LC_RP: '7'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p = 0.0035
+    anchor:
+      quote: HC-RP n = 5, LC-RP n = 7, p = 0.0035
+      where: Fig. 3 legend
+  F4_tpm1:
+    unit: F4ac
+    measure: TPM1 content
+    method: western blot, normalized against total protein (Revert Total Protein Stain), Li-Cor Odyssey
+    software: Image Studio Lite (Li-Cor)
+    finding: TPM1 similar between HC-RP and LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For western data, n = 4 for both groups
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '4'
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: Sarcomere content measured with tropomyosin 1 (TPM1) remained similar between HC-RP and LC-RP
+      where: Results, p. 2040
+    stated_direction:
+      direction: none
+      anchor:
+        quote: Sarcomere content measured with tropomyosin 1 (TPM1) remained similar between HC-RP and LC-RP
+        where: Results, p. 2040
+  F4_serca:
+    unit: F4ac
+    measure: SERCA content
+    method: western blot, normalized against total protein (Revert Total Protein Stain), Li-Cor Odyssey
+    software: Image Studio Lite (Li-Cor)
+    finding: SERCA higher in LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For western data, n = 4 for both groups
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '4'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p = 0.0003
+    anchor:
+      quote: (A) TPM1 and SERCA content (p = 0.0003).
+      where: Fig. 4 legend
+  F4_pln:
+    unit: F4ac
+    measure: PLN content
+    method: western blot, normalized against total protein (Revert Total Protein Stain), Li-Cor Odyssey
+    software: Image Studio Lite (Li-Cor)
+    finding: PLN higher in HC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For western data, n = 4 for both groups
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '4'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p = 0.0477
+    anchor:
+      quote: (B) PLN (p = 0.0477) and p-PLN.
+      where: Fig. 4 legend
+  F4_ppln:
+    unit: F4ac
+    measure: p-PLN content
+    method: western blot, normalized against total protein (Revert Total Protein Stain), Li-Cor Odyssey
+    software: Image Studio Lite (Li-Cor)
+    finding: p-PLN marginally higher in LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For western data, n = 4 for both groups
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '4'
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: marginally higher p-PLN in LC-RP
+      where: Results, p. 2040
+    stated_direction:
+      direction: down
+      anchor:
+        quote: marginally higher p-PLN in LC-RP
+        where: Results, p. 2040
+  F4_ctni:
+    unit: F4ac
+    measure: cTnI content
+    method: western blot, normalized against total protein (Revert Total Protein Stain), Li-Cor Odyssey
+    software: Image Studio Lite (Li-Cor)
+    finding: cTnI highly elevated in HC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For western data, n = 4 for both groups
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '4'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p < 0.0001
+    anchor:
+      quote: (C) cTnI (p < 0.0001) and p-cTnI (p < 0.0001).
+      where: Fig. 4 legend
+  F4_pctni:
+    unit: F4ac
+    measure: p-cTnI content
+    method: western blot, normalized against total protein (Revert Total Protein Stain), Li-Cor Odyssey
+    software: Image Studio Lite (Li-Cor)
+    finding: p-cTnI highly elevated in HC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For western data, n = 4 for both groups
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '4'
+    stats:
+      test: unpaired two-tailed t-test
+      p: p < 0.0001
+    anchor:
+      quote: (C) cTnI (p < 0.0001) and p-cTnI (p < 0.0001).
+      where: Fig. 4 legend
+  F4_heatmap:
+    unit: F4d
+    measure: RNA expression of genes of interest
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: Heat map of log2 fold-change for Ca2+-handling, sarcomere, fatty acid metabolism, ion channel and maturation
+      genes across four groups.
+    groups:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: (D) RNA expression comparisons for Ca2+-handling proteins, sarcomere proteins, fatty acid metabolism, ion channels,
+        and maturation markers.
+      where: Fig. 4 legend
+  F4E_S100A4:
+    unit: F4eh
+    measure: S100A4 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: S100A4 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_CACNA2D1:
+    unit: F4eh
+    measure: CACNA2D1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CACNA2D1 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_TNNI3:
+    unit: F4eh
+    measure: TNNI3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: TNNI3 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_MYL2:
+    unit: F4eh
+    measure: MYL2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: MYL2 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_SLC8A1:
+    unit: F4eh
+    measure: SLC8A1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: SLC8A1 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_SCN5A:
+    unit: F4eh
+    measure: SCN5A expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: SCN5A up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_ATP1A3:
+    unit: F4eh
+    measure: ATP1A3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: ATP1A3 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_KCND3:
+    unit: F4eh
+    measure: KCND3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: KCND3 up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_PPARGC1A:
+    unit: F4eh
+    measure: PPARGC1A expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: PPARGC1A up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_PPARA:
+    unit: F4eh
+    measure: PPARA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: PPARA up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_NPPA:
+    unit: F4eh
+    measure: NPPA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPA up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4E_NPPB:
+    unit: F4eh
+    measure: NPPB expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPB up in HC-RP versus LC-NP (Fig. 4E).
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: A comparison of HC-RP relative to LC-NP EHTs (the most extreme difference in culture conditions)
+        where: Results, p. 2043
+  F4F_CASQ2:
+    unit: F4eh
+    measure: CASQ2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CASQ2 up in HC-RP versus LC-RP (Fig. 4F).
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+        where: Results, p. 2043
+  F4F_AKAP6:
+    unit: F4eh
+    measure: AKAP6 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: AKAP6 up in HC-RP versus LC-RP (Fig. 4F).
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+        where: Results, p. 2043
+  F4F_KCND3:
+    unit: F4eh
+    measure: KCND3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: KCND3 up in HC-RP versus LC-RP (Fig. 4F).
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+        where: Results, p. 2043
+  F4F_MYL2:
+    unit: F4eh
+    measure: MYL2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: MYL2 up in HC-RP versus LC-RP (Fig. 4F).
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+        where: Results, p. 2043
+  F4F_NPPA:
+    unit: F4eh
+    measure: NPPA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPA up in HC-RP versus LC-RP (Fig. 4F).
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+        where: Results, p. 2043
+  F4F_NPPB:
+    unit: F4eh
+    measure: NPPB expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPB up in HC-RP versus LC-RP (Fig. 4F).
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-RP versus LC-RP (Ca2+ effect in the presence of pacing, Figure 4F) showed expression changes
+        where: Results, p. 2043
+  F4G_ATP2A2:
+    unit: F4eh
+    measure: ATP2A2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: ATP2A2 up in HC-RP versus HC-NP (Fig. 4G).
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        HC_NP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+        where: Results, p. 2043
+  F4G_CACNA2D1:
+    unit: F4eh
+    measure: CACNA2D1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CACNA2D1 up in HC-RP versus HC-NP (Fig. 4G).
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        HC_NP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+        where: Results, p. 2043
+  F4G_CASQ1:
+    unit: F4eh
+    measure: CASQ1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CASQ1 down in HC-RP versus HC-NP (Fig. 4G).
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        HC_NP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+      where: Results, p. 2043
+    stated_direction:
+      direction: down
+      anchor:
+        quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+        where: Results, p. 2043
+  F4G_SLC8A1:
+    unit: F4eh
+    measure: SLC8A1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: SLC8A1 up in HC-RP versus HC-NP (Fig. 4G).
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        HC_NP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+        where: Results, p. 2043
+  F4G_PPARA:
+    unit: F4eh
+    measure: PPARA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: PPARA up in HC-RP versus HC-NP (Fig. 4G).
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        HC_NP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+        where: Results, p. 2043
+  F4G_NPPB:
+    unit: F4eh
+    measure: NPPB expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPB up in HC-RP versus HC-NP (Fig. 4G).
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        HC_NP: '3'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Comparing HC-RP relative to HC-NP (Pacing effect under high Ca2+, Figure 4G)
+        where: Results, p. 2043
+  F4H_CASQ1:
+    unit: F4eh
+    measure: CASQ1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CASQ1 up in HC-NP versus LC-NP (Fig. 4H).
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-NP versus LC-NP (Ca2+ effect alone
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-NP versus LC-NP (Ca2+ effect alone
+        where: Results, p. 2043
+  F4H_MYL2:
+    unit: F4eh
+    measure: MYL2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: MYL2 up in HC-NP versus LC-NP (Fig. 4H).
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-NP versus LC-NP (Ca2+ effect alone
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-NP versus LC-NP (Ca2+ effect alone
+        where: Results, p. 2043
+  F4H_TNNI3:
+    unit: F4eh
+    measure: TNNI3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: TNNI3 up in HC-NP versus LC-NP (Fig. 4H).
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-NP versus LC-NP (Ca2+ effect alone
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-NP versus LC-NP (Ca2+ effect alone
+        where: Results, p. 2043
+  F4H_PPARGC1A:
+    unit: F4eh
+    measure: PPARGC1A expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: PPARGC1A up in HC-NP versus LC-NP (Fig. 4H).
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-NP versus LC-NP (Ca2+ effect alone
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-NP versus LC-NP (Ca2+ effect alone
+        where: Results, p. 2043
+  F4H_NPPA:
+    unit: F4eh
+    measure: NPPA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPA up in HC-NP versus LC-NP (Fig. 4H).
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-NP versus LC-NP (Ca2+ effect alone
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-NP versus LC-NP (Ca2+ effect alone
+        where: Results, p. 2043
+  F4H_NPPB:
+    unit: F4eh
+    measure: NPPB expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPB up in HC-NP versus LC-NP (Fig. 4H).
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: HC-NP versus LC-NP (Ca2+ effect alone
+      where: Results, p. 2043
+    stated_direction:
+      direction: up
+      anchor:
+        quote: HC-NP versus LC-NP (Ca2+ effect alone
+        where: Results, p. 2043
+  S1_deg_ca:
+    unit: S1
+    measure: number of differentially expressed genes
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: Ca2+ concentration accounted for 341 differentially expressed genes (182 down, 159 up).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    values:
+      total:
+        printed: '341'
+        unit: genes
+        kind: count
+        spread: none
+      down:
+        printed: '182'
+        unit: genes
+        kind: count
+        spread: none
+      up:
+        printed: '159'
+        unit: genes
+        kind: count
+        spread: none
+      tested:
+        printed: 13,624
+        unit: genes
+        kind: count
+        spread: none
+    stats:
+      test: DESeq2 differential analysis, |log(fold change)| > log(2)
+      p: p < 0.05
+    anchor:
+      quote: Ca2+ concentration in the culture medium (irrespective of pacing) accounted for 341 differentially expressed
+        genes
+      where: Results, p. 2043
+  S1_deg_pace:
+    unit: S1
+    measure: number of differentially expressed genes
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: Ramp pacing associated with 653 gene expression differences (335 down, 318 up).
+    compares:
+      condition:
+      - HC_RP
+      - LC_RP
+      reference:
+      - HC_NP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    values:
+      total:
+        printed: '653'
+        unit: genes
+        kind: count
+        spread: none
+      down:
+        printed: '335'
+        unit: genes
+        kind: count
+        spread: none
+      up:
+        printed: '318'
+        unit: genes
+        kind: count
+        spread: none
+      tested:
+        printed: 13,624
+        unit: genes
+        kind: count
+        spread: none
+    stats:
+      test: DESeq2 differential analysis, |log(fold change)| > log(2)
+      p: p < 0.05
+    anchor:
+      quote: the effect of ramp pacing (irrespective of culture medium) was associated with 653 gene expression differences
+      where: Results, p. 2043
+  S1C_MYL2:
+    unit: S1
+    measure: MYL2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: MYL2 upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1C_TNNI3:
+    unit: S1
+    measure: TNNI3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: TNNI3 upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1C_CASQ2:
+    unit: S1
+    measure: CASQ2 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CASQ2 upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1C_CASQ1:
+    unit: S1
+    measure: CASQ1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CASQ1 upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1C_PPARGC1A:
+    unit: S1
+    measure: PPARGC1A expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: PPARGC1A upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1C_NPPA:
+    unit: S1
+    measure: NPPA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPA upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1C_NPPB:
+    unit: S1
+    measure: NPPB expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: NPPB upregulated with high versus low Ca2+ (Figure S1C).
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Interestingly, high Ca2+ alone (Figure S1C) can induce expressions in sarcomere
+        where: Discussion, p. 2045
+  S1D_CACNA2D1:
+    unit: S1
+    measure: CACNA2D1 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: CACNA2D1 upregulated with ramp pacing versus no pacing (Figure S1D).
+    compares:
+      condition:
+      - HC_RP
+      - LC_RP
+      reference:
+      - HC_NP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Ramp pacing itself (Figure S1D) also upregulates Ca2+ handling
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Ramp pacing itself (Figure S1D) also upregulates Ca2+ handling
+        where: Discussion, p. 2045
+  S1D_ATP1A3:
+    unit: S1
+    measure: ATP1A3 expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: ATP1A3 upregulated with ramp pacing versus no pacing (Figure S1D).
+    compares:
+      condition:
+      - HC_RP
+      - LC_RP
+      reference:
+      - HC_NP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Ramp pacing itself (Figure S1D) also upregulates Ca2+ handling
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Ramp pacing itself (Figure S1D) also upregulates Ca2+ handling
+        where: Discussion, p. 2045
+  S1D_PPARA:
+    unit: S1
+    measure: PPARA expression
+    method: RNA-seq (Illumina HiSeq 2500), STAR 2.7.8a alignment to hg38, DESeq2 differential analysis
+    software: PartekFlow; STAR 2.7.8a; DESeq2
+    finding: PPARA upregulated with ramp pacing versus no pacing (Figure S1D).
+    compares:
+      condition:
+      - HC_RP
+      - LC_RP
+      reference:
+      - HC_NP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: DESeq2 differential analysis
+      p: p < 0.05
+    anchor:
+      quote: Ramp pacing itself (Figure S1D) also upregulates Ca2+ handling
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Ramp pacing itself (Figure S1D) also upregulates Ca2+ handling
+        where: Discussion, p. 2045
+  S1E_akt:
+    unit: S1
+    measure: Akt expression
+    method: KEGG PI3K-Akt pathway enrichment analysis on RNA-seq data
+    software: Partek Flow
+    finding: Akt upregulated in HC-RP versus LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_RP: '4'
+        LC_RP: '3'
+    stats:
+      test: pathway enrichment (enrichment score > 5)
+      p: p < 0.05
+    anchor:
+      quote: Akt is upregulated in HC-RP versus LC-RP (Figure S1E), but not for HC-NP versus LC-NP
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Akt is upregulated in HC-RP versus LC-RP (Figure S1E), but not for HC-NP versus LC-NP
+        where: Discussion, p. 2045
+  S1F_akt:
+    unit: S1
+    measure: Akt expression
+    method: KEGG PI3K-Akt pathway enrichment analysis on RNA-seq data
+    software: Partek Flow
+    finding: Akt not upregulated in HC-NP versus LC-NP.
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: For RNA-seq, HC-RP n = 4, LC-RP n = 3, HC-NP n = 3, and LC-NP n = 4
+      counts: tissues (EHTs) from one differentiation batch
+      per_group:
+        HC_NP: '3'
+        LC_NP: '4'
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: Akt is upregulated in HC-RP versus LC-RP (Figure S1E), but not for HC-NP versus LC-NP
+      where: Discussion, p. 2045
+    stated_direction:
+      direction: none
+      anchor:
+        quote: Akt is upregulated in HC-RP versus LC-RP (Figure S1E), but not for HC-NP versus LC-NP
+        where: Discussion, p. 2045
+  S2_pca:
+    unit: S2
+    measure: variance explained by principal components
+    method: principal component analysis on a common set of genes present in all four datasets
+    software: not stated
+    finding: PC1 61%, PC2 12%, PC3 6% of variation; engineered-tissue samples cluster together.
+    groups:
+    - SIM_FETAL
+    - SIM_YOUNG
+    - SIM_ADULT
+    - MILLS_MM
+    - MILLS_CTRL
+    - ZHAO_RP
+    - ZHAO_CTRL
+    - HC_RP
+    - LC_NP
+    n: not stated
+    values:
+      pc1:
+        printed: 61%
+        unit: '% variation'
+        kind: percent
+        spread: none
+      pc2:
+        printed: 12%
+        unit: '% variation'
+        kind: percent
+        spread: none
+      pc3:
+        printed: 6%
+        unit: '% variation'
+        kind: percent
+        spread: none
+      pc1_pc2:
+        printed: 76%
+        unit: '% variation'
+        kind: percent
+        spread: none
+        suspected_error:
+          what: PC1-PC2 total
+          why: axis labels give PC1 61% and PC2 12%, which sum to 73%, not 76% (PC1-PC3 67% = 61% + 6% is consistent)
+      pc1_pc3:
+        printed: 67%
+        unit: '% variation'
+        kind: percent
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: 'PC1-PC2: 76% Variation'
+      where: Figure S2A
+      file: mmc1.pdf
+      kind: figure text
+  S2_fc:
+    unit: S2
+    measure: log2 fold change of 50 cardiac genes
+    method: relative fold change of most mature versus least mature group per study (Adult vs Fetal; HC-RP vs LC-NP; Maturation
+      Media vs Control; Rapid Pacing vs Control)
+    software: not stated
+    finding: EHT datasets show fold changes agreeing with maturing human ventricular samples in many genes, with exceptions.
+    groups:
+    - SIM_FETAL
+    - SIM_YOUNG
+    - SIM_ADULT
+    - MILLS_MM
+    - MILLS_CTRL
+    - ZHAO_RP
+    - ZHAO_CTRL
+    - HC_RP
+    - LC_NP
+    n: not stated
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: we picked 50 relevant cardiac genes and plotted the relative fold change of the treatment/most mature group with
+        respect to the control/least mature group
+      where: Discussion, p. 2045
+  ST1_aa:
+    unit: ST1
+    measure: amino acids concentration
+    finding: amino acids concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '10.68022906'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '6.567658994'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      dmem_text:
+        printed: '10.7'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi_text:
+        printed: '6.6'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: '10.68022906'
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+  ST1_vit:
+    unit: ST1
+    measure: vitamin concentration
+    finding: vitamin concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '0.151165093'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '0.24'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      dmem_text:
+        printed: '0.15'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi_text:
+        printed: '0.24'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: '0.151165093'
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+  ST1_na:
+    unit: ST1
+    measure: Na+ concentration
+    finding: Na+ concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '155.2982431'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '127.939216'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      dmem_text:
+        printed: '155.3'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi_text:
+        printed: '128.0'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: '155.2982431'
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+  ST1_k:
+    unit: ST1
+    measure: K+ concentration
+    finding: K+ concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '5.3333335'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '5.3333335'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      both_text:
+        printed: '5.33'
+        unit: mM
+        kind: value
+        spread: none
+        over:
+        - DMEM
+        - RPMI
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: '5.3333335'
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+  ST1_mg:
+    unit: ST1
+    measure: Mg2+ concentration
+    finding: Mg2+ concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '0.8139166'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '0.407'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      dmem_text:
+        printed: '0.81'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi_text:
+        printed: '0.41'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: '0.8139166'
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+  ST1_ca:
+    unit: ST1
+    measure: Ca2+ concentration
+    finding: Ca2+ concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '1.8018018'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '0.42372882'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      dmem_text:
+        printed: '1.8'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi_text:
+        printed: '0.42'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: '1.8018018'
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+  ST1_glc:
+    unit: ST1
+    measure: glucose concentration
+    finding: glucose concentration in DMEM and RPMI (ATCC modification).
+    groups:
+    - DMEM
+    - RPMI
+    n: not stated
+    values:
+      dmem:
+        printed: '25'
+        unit: mM
+        kind: value
+        group: DMEM
+        spread: none
+      rpmi:
+        printed: '25'
+        unit: mM
+        kind: value
+        group: RPMI
+        spread: none
+      both_text:
+        printed: '1.80'
+        unit: mM
+        kind: value
+        spread: none
+        over:
+        - DMEM
+        - RPMI
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: glucose
+      where: Supplemental Table 1
+      file: mmc1.pdf
+      kind: table cell
+    suspected_error:
+      what: glucose concentration in the Discussion
+      why: the Discussion gives the same K+ and glucose as 5.33 and 1.80 mM; Table S1 gives glucose 25 mM in both media (1.80
+        mM matches Ca2+ in DMEM)
+  TXT1_ttp:
+    unit: TXT1
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: TTP approximately 290 ms.
+    groups:
+    - HC_RP
+    n: not stated
+    values:
+      ttp:
+        printed: approximately 290
+        unit: ms
+        kind: value
+        group: HC_RP
+        spread: not stated
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: isometric twitch kinetics reported here (TTP of approximately 290 ms, RT50 at 120 ms)
+      where: Discussion, p. 2044
+  TXT1_rt50:
+    unit: TXT1
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 120 ms.
+    groups:
+    - HC_RP
+    n: not stated
+    values:
+      rt50:
+        printed: '120'
+        unit: ms
+        kind: value
+        group: HC_RP
+        spread: not stated
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: isometric twitch kinetics reported here (TTP of approximately 290 ms, RT50 at 120 ms)
+      where: Discussion, p. 2044
+  F5_beat_omni:
+    unit: F5
+    measure: spontaneous beating rate
+    method: spontaneous beating after ramp completion
+    software: MATLAB scripts
+    finding: Spontaneous beating rate differs across groups after ramp completion.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      pacing: none
+      measurement_calcium_mM: not stated
+    n: not stated
+    stats:
+      test: two-way ANOVA
+      p: p < 0.0001
+    anchor:
+      quote: spontaneous beating rate after ramp completion (two-way ANOVA p < 0.0001)
+      where: Fig. 5 legend
+  F5_beat_HC_RP_HC_NP:
+    unit: F5
+    measure: spontaneous beating rate
+    method: spontaneous beating after ramp completion
+    software: MATLAB scripts
+    finding: Figure star ** between HC-RP and HC-NP in Fig. 5A.
+    compares:
+    - HC_RP
+    - HC_NP
+    context:
+      pacing: none
+      measurement_calcium_mM: not stated
+    n: not stated
+    stats:
+      test: two-way ANOVA
+      p: '**p < 0.01'
+    anchor:
+      quote: Fig. 5A bar plot, '**' bracket between HC-RP and HC-NP
+      where: Fig. 5A
+      kind: unit
+  F5_beat_HC_NP_LC_NP:
+    unit: F5
+    measure: spontaneous beating rate
+    method: spontaneous beating after ramp completion
+    software: MATLAB scripts
+    finding: Figure star ** between HC-NP and LC-NP in Fig. 5A.
+    compares:
+    - HC_NP
+    - LC_NP
+    context:
+      pacing: none
+      measurement_calcium_mM: not stated
+    n: not stated
+    stats:
+      test: two-way ANOVA
+      p: '**p < 0.01'
+    anchor:
+      quote: Fig. 5A bar plot, '**' bracket between HC-NP and LC-NP
+      where: Fig. 5A
+      kind: unit
+  F5_beat_LC_RP_LC_NP:
+    unit: F5
+    measure: spontaneous beating rate
+    method: spontaneous beating after ramp completion
+    software: MATLAB scripts
+    finding: Figure star * between LC-RP and LC-NP in Fig. 5A.
+    compares:
+    - LC_RP
+    - LC_NP
+    context:
+      pacing: none
+      measurement_calcium_mM: not stated
+    n: not stated
+    stats:
+      test: two-way ANOVA
+      p: significant, threshold not stated
+    anchor:
+      quote: Fig. 5A bar plot, '*' bracket between LC-RP and LC-NP
+      where: Fig. 5A
+      kind: unit
+  F5_beat_HC_RP_LC_RP:
+    unit: F5
+    measure: spontaneous beating rate
+    method: spontaneous beating after ramp completion
+    software: MATLAB scripts
+    finding: Figure star * between HC-RP and LC-RP in Fig. 5A.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing: none
+      measurement_calcium_mM: not stated
+    n: not stated
+    stats:
+      test: two-way ANOVA
+      p: significant, threshold not stated
+    anchor:
+      quote: Fig. 5A bar plot, '*' bracket between HC-RP and LC-RP
+      where: Fig. 5A
+      kind: unit
+  F5_ffr_raw:
+    unit: F5
+    measure: systolic peak force
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Raw FFR differs across groups; only HC-RP positive FFR.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: Three-way ANOVA with repeated measures
+      p: p < 0.0001
+    anchor:
+      quote: (B) Raw and normalized FFR (p < 0.0001).
+      where: Fig. 5 legend
+  F5_ffr_norm:
+    unit: F5
+    measure: normalized peak force
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Only HC-RP showed positive FFR behavior.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: Three-way ANOVA with repeated measures
+      p: p < 0.0001
+    anchor:
+      quote: (B) Raw and normalized FFR (p < 0.0001).
+      where: Fig. 5 legend
+  F5_ttp_ffr:
+    unit: F5
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP fastest TTP across 1–3 Hz.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: Three-way ANOVA with repeated measures
+      p: p < 0.0001
+    anchor:
+      quote: Fig. 5C label '3-way ANOVA p < 0.0001'
+      where: Fig. 5C
+      kind: unit
+  F5_rt50_ffr:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP fastest RT50 across 1–3 Hz.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          frequency: 1–3 Hz in 0.25-Hz increments
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: Three-way ANOVA with repeated measures
+      p: p < 0.0001
+    anchor:
+      quote: Fig. 5D label '3-way ANOVA p < 0.0001'
+      where: Fig. 5D
+      kind: unit
+  F5_ttp1_omni:
+    unit: F5
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: TTP at 1 Hz differs across groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA
+      p: p = 0.0002
+    anchor:
+      quote: (F) TTP at 1 Hz (two-way ANOVA p = 0.0002, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_ttp1_HC_RP_HC_NP:
+    unit: F5
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster TTP at 1 Hz than HC-NP.
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        HC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: (F) TTP at 1 Hz (two-way ANOVA p = 0.0002, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_ttp1_HC_RP_LC_NP:
+    unit: F5
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster TTP at 1 Hz than LC-NP.
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        LC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: (F) TTP at 1 Hz (two-way ANOVA p = 0.0002, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_ttp1_HC_RP_LC_RP:
+    unit: F5
+    measure: time to peak
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP faster TTP at 1 Hz than LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: (F) TTP at 1 Hz (two-way ANOVA p = 0.0002, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_rt50_1_omni:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 at 1 Hz differs across groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA
+      p: p < 0.0001
+    anchor:
+      quote: (G) RT50 at 1 Hz (two-way ANOVA p < 0.0001, HC-NP vs. LC-NP p = 0.0003
+      where: Fig. 5 legend
+  F5_rt50_1_HC_NP_LC_NP:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 at 1 Hz differs between HC-NP and LC-NP.
+    compares:
+    - HC_NP
+    - LC_NP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        LC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0003
+    anchor:
+      quote: HC-NP vs. LC-NP p = 0.0003
+      where: Fig. 5 legend
+  F5_rt50_1_HC_NP_LC_RP:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 at 1 Hz differs between HC-NP and LC-RP.
+    compares:
+    - HC_NP
+    - LC_RP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: HC-NP vs. LC-RP p < 0.0001
+      where: Fig. 5 legend
+  F5_rt50_1_HC_RP_HC_NP:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 at 1 Hz differs between HC-RP and HC-NP.
+    compares:
+    - HC_RP
+    - HC_NP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        HC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: HC-NP vs. HC-RP p < 0.0001
+      where: Fig. 5 legend
+  F5_rt50_1_HC_RP_LC_NP:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 at 1 Hz differs between HC-RP and LC-NP.
+    compares:
+    - HC_RP
+    - LC_NP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        LC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: HC-RP vs. LC-NP p < 0.0001
+      where: Fig. 5 legend
+  F5_rt50_1_HC_RP_LC_RP:
+    unit: F5
+    measure: time to 50% relaxation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: RT50 at 1 Hz differs between HC-RP and LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0018
+    anchor:
+      quote: HC-RP vs. LC-RP p = 0.0018
+      where: Fig. 5 legend
+  F5_prp_pace:
+    unit: F5
+    measure: post-rest potentiation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: The ratio between the first twitch and the subsequent twitches at 1 Hz
+    finding: Pacing main effect on post-rest potentiation.
+    compares:
+      condition:
+      - HC_RP
+      - LC_RP
+      reference:
+      - HC_NP
+      - LC_NP
+    test_of: main effect
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.004
+    anchor:
+      quote: Fig. 5J label 'Pacing p = 0.004'
+      where: Fig. 5J
+      kind: unit
+  F5_prp_ca:
+    unit: F5
+    measure: post-rest potentiation
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: The ratio between the first twitch and the subsequent twitches at 1 Hz
+    finding: Calcium main effect on post-rest potentiation.
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0018
+    anchor:
+      quote: Fig. 5J label 'Calcium p = 0.0018'
+      where: Fig. 5J
+      kind: unit
+  F5_def_omni:
+    unit: F5
+    measure: diastolic excess fraction
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: the relationship between the diastolic force at 3 Hz and at rest
+    finding: Diastolic excess fraction differs across groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_NP: '14'
+        HC_RP: '13'
+        LC_NP: '14'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA
+      p: p < 0.0019
+    anchor:
+      quote: (K) Diastolic excess fraction (two-way ANOVA p < 0.0019
+      where: Fig. 5 legend
+  F5_def_HC_RP_HC_NP:
+    unit: F5
+    measure: diastolic excess fraction
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: the relationship between the diastolic force at 3 Hz and at rest
+    finding: HC-RP lower diastolic excess fraction than HC-NP.
+    compares:
+    - HC_RP
+    - HC_NP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        HC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0001
+    anchor:
+      quote: HC-RP vs. HC-NP p = 0.0001
+      where: Fig. 5 legend
+  F5_def_HC_RP_LC_NP:
+    unit: F5
+    measure: diastolic excess fraction
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: the relationship between the diastolic force at 3 Hz and at rest
+    finding: HC-RP lower diastolic excess fraction than LC-NP.
+    compares:
+    - HC_RP
+    - LC_NP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        LC_NP: '14'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0009
+    anchor:
+      quote: HC-RP vs. LC-NP p = 0.0009
+      where: Fig. 5 legend
+  F5_def_HC_RP_LC_RP:
+    unit: F5
+    measure: diastolic excess fraction
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    definition: the relationship between the diastolic force at 3 Hz and at rest
+    finding: HC-RP lower diastolic excess fraction than LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      pacing:
+        value: electrical pacing
+        qualifiers:
+          protocol: 3 Hz, 15 s pause, then 1 Hz
+    n:
+      printed: HC-NP n = 14, HC-RP n = 13, LC-NP n = 14, and LC-RP n = 12
+      counts: tissues (EHTs) from three differentiation batches
+      per_group:
+        HC_RP: '13'
+        LC_RP: '12'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0003
+    anchor:
+      quote: HC-RP vs. LC-RP p = 0.0003
+      where: Fig. 5 legend
+  F5_ca_amp:
+    unit: F5
+    measure: Ca2+ transient signal intensity
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    finding: Higher signal intensity for both low-Ca2+ groups; Ca2+ the only significant factor.
+    compares:
+      condition:
+      - HC_RP
+      - HC_NP
+      reference:
+      - LC_RP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_NP: '8'
+        HC_RP: '9'
+        LC_NP: '7'
+        LC_RP: '8'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+      p_values:
+      - p: p < 0.0001
+        anchor:
+          quote: Fig. 5L label 'Calcium p < 0.0001'
+          where: Fig. 5L
+          kind: unit
+    anchor:
+      quote: confirming Ca2+ as the only significant factor affecting Ca2+ transient amplitude (p < 0.0001)
+      where: Discussion, p. 2045
+  F5_t80_pace:
+    unit: F5
+    measure: Ca2+ transient decay time constant t80
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: Similar improvement in t80 for both ramp-paced groups.
+    compares:
+      condition:
+      - HC_RP
+      - LC_RP
+      reference:
+      - HC_NP
+      - LC_NP
+    test_of: main effect
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_NP: '8'
+        HC_RP: '9'
+        LC_NP: '7'
+        LC_RP: '8'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0002
+    anchor:
+      quote: Fig. 5M label 'Pacing p = 0.0002'
+      where: Fig. 5M
+      kind: unit
+  F5_iso_force_omni:
+    unit: F5
+    measure: systolic force increase with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Force change to ISO differs across groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: ISO data were from three batches (n = 13, 10, 11, and 9, respectively)
+      counts: tissues (EHTs) from three batches
+      per_group:
+        HC_NP: '13'
+        HC_RP: '10'
+        LC_NP: '11'
+        LC_RP: '9'
+    stats:
+      test: two-way ANOVA
+      p: p = 0.004
+    anchor:
+      quote: (P) Summary force changes to 1 mM ISO (two-way ANOVA p = 0.004, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_iso_force_HC_RP_HC_NP:
+    unit: F5
+    measure: systolic force increase with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP larger force increase to ISO than HC-NP.
+    compares:
+    - HC_RP
+    - HC_NP
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: ISO data were from three batches (n = 13, 10, 11, and 9, respectively)
+      counts: tissues (EHTs) from three batches
+      per_group:
+        HC_RP: '10'
+        HC_NP: '13'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: (P) Summary force changes to 1 mM ISO (two-way ANOVA p = 0.004, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_iso_force_HC_RP_LC_NP:
+    unit: F5
+    measure: systolic force increase with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP larger force increase to ISO than LC-NP.
+    compares:
+    - HC_RP
+    - LC_NP
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: ISO data were from three batches (n = 13, 10, 11, and 9, respectively)
+      counts: tissues (EHTs) from three batches
+      per_group:
+        HC_RP: '10'
+        LC_NP: '11'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: (P) Summary force changes to 1 mM ISO (two-way ANOVA p = 0.004, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_iso_force_HC_RP_LC_RP:
+    unit: F5
+    measure: systolic force increase with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: HC-RP larger force increase to ISO than LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: ISO data were from three batches (n = 13, 10, 11, and 9, respectively)
+      counts: tissues (EHTs) from three batches
+      per_group:
+        HC_RP: '10'
+        LC_RP: '9'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p < 0.0001
+    anchor:
+      quote: (P) Summary force changes to 1 mM ISO (two-way ANOVA p = 0.004, HC-RP vs. all others p < 0.0001).
+      where: Fig. 5 legend
+  F5_iso_ttp:
+    unit: F5
+    measure: time to peak change with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Insignificant TTP changes in all groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: ISO data were from three batches (n = 13, 10, 11, and 9, respectively)
+      counts: tissues (EHTs) from three batches
+      per_group:
+        HC_NP: '13'
+        HC_RP: '10'
+        LC_NP: '11'
+        LC_RP: '9'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: not stated
+    anchor:
+      quote: All groups had insignificant TTP and RT50 changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: none
+      anchor:
+        quote: All groups had insignificant TTP and RT50 changes
+        where: Results, p. 2043
+  F5_iso_rt50:
+    unit: F5
+    measure: time to 50% relaxation change with isoproterenol
+    method: isometric force with a force transducer and linear actuator at 10% stretch, in Tyrode's solution
+    software: MATLAB scripts
+    finding: Insignificant RT50 changes in all groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: ISO data were from three batches (n = 13, 10, 11, and 9, respectively)
+      counts: tissues (EHTs) from three batches
+      per_group:
+        HC_NP: '13'
+        HC_RP: '10'
+        LC_NP: '11'
+        LC_RP: '9'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: not stated
+    anchor:
+      quote: All groups had insignificant TTP and RT50 changes
+      where: Results, p. 2043
+    stated_direction:
+      direction: none
+      anchor:
+        quote: All groups had insignificant TTP and RT50 changes
+        where: Results, p. 2043
+  F5_iso_ca_amp:
+    unit: F5
+    measure: Ca2+ transient intensity increase with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    finding: Similar Ca2+ transient intensity increase in all groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_NP: '8'
+        HC_RP: '9'
+        LC_NP: '7'
+        LC_RP: '8'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: not stated
+    anchor:
+      quote: all groups showed similar Ca2+ transient intensity increase
+      where: Results, p. 2043
+    stated_direction:
+      direction: none
+      anchor:
+        quote: all groups showed similar Ca2+ transient intensity increase
+        where: Results, p. 2043
+  F5_iso_t80_omni:
+    unit: F5
+    measure: Ca2+ transient decay time constant t80 change with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: t80 change to ISO differs across groups.
+    compares:
+    - HC_NP
+    - HC_RP
+    - LC_NP
+    - LC_RP
+    test_of: omnibus
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_NP: '8'
+        HC_RP: '9'
+        LC_NP: '7'
+        LC_RP: '8'
+    stats:
+      test: two-way ANOVA
+      p: p = 0.0058
+    anchor:
+      quote: (V) t80 changes to ISO (two-way ANOVA p = 0.0058
+      where: Fig. 5 legend
+  F5_iso_t80_HC_RP_HC_NP:
+    unit: F5
+    measure: Ca2+ transient decay time constant t80 change with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: HC-RP faster t80 with ISO than HC-NP.
+    compares:
+    - HC_RP
+    - HC_NP
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_RP: '9'
+        HC_NP: '8'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0003
+    anchor:
+      quote: HC-RP vs. HC-NP p = 0.0003
+      where: Fig. 5 legend
+  F5_iso_t80_HC_RP_LC_NP:
+    unit: F5
+    measure: Ca2+ transient decay time constant t80 change with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: HC-RP faster t80 with ISO than LC-NP.
+    compares:
+    - HC_RP
+    - LC_NP
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_RP: '9'
+        LC_NP: '7'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0053
+    anchor:
+      quote: HC-RP vs. LC-NP p = 0.0053
+      where: Fig. 5 legend
+  F5_iso_t80_HC_RP_LC_RP:
+    unit: F5
+    measure: Ca2+ transient decay time constant t80 change with isoproterenol
+    method: Fura-2 AM Ca2+ transients, F340/F380, in Tyrode's solution at 10% stretch
+    software: MATLAB scripts
+    definition: decay time constant from peak to 80% relaxation
+    finding: HC-RP faster t80 with ISO than LC-RP.
+    compares:
+    - HC_RP
+    - LC_RP
+    context:
+      treatment:
+        value: isoproterenol
+        qualifiers:
+          concentration: 1 µM
+          perfusion: 0.4 mL/min
+    n:
+      printed: FURA data (M, N, and T–W) were from two batches (n = 8, 9, 7, and 8, respectively)
+      counts: tissues (EHTs) from two batches
+      per_group:
+        HC_RP: '9'
+        LC_RP: '8'
+    stats:
+      test: two-way ANOVA with planned comparisons
+      p: p = 0.0025
+    anchor:
+      quote: HC-RP vs. LC-RP p = 0.0025
+      where: Fig. 5 legend
+claims:
+  C1:
+    kind: stated
+    quote: maturation of hiPSC-CMs can be accelerated by simultaneous application of physiological Ca2+ and frequency-ramped
+      electrical pacing in culture
+    where: Summary
+    scope: hiPSC-CM EHTs
+    direction: up
+    strength: accelerated
+    rests_on:
+    - F2_ffr_norm
+    - F2_ttp1
+    - F2_rt50_1
+    - F5_ffr_norm
+    - F5_ttp1_HC_RP_LC_NP
+    - F5_rt50_1_HC_RP_LC_NP
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: no time course is shown, so 'accelerated' compares with nothing measured
+  C2:
+    kind: stated
+    quote: This combination produces positive force-frequency behavior
+    where: Summary
+    scope: HC-RP EHTs
+    direction: up
+    asserts_direction: up
+    strength: produces
+    rests_on:
+    - F2_ffr_norm
+    - F5_ffr_norm
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C3:
+    kind: stated
+    quote: physiological twitch kinetics
+    where: Summary
+    scope: HC-RP EHTs
+    direction: faster
+    asserts_direction: down
+    strength: produces
+    rests_on:
+    - F2_ttp1
+    - F2_rt50_1
+    - F5_ttp1_HC_RP_LC_NP
+    - TXT1_ttp
+    - TXT1_rt50
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C4:
+    kind: stated
+    quote: robust b-adrenergic response
+    where: Summary
+    scope: HC-RP EHTs
+    direction: up
+    asserts_direction: up
+    strength: robust
+    rests_on:
+    - F3_force
+    - F5_iso_force_HC_RP_LC_NP
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C5:
+    kind: stated
+    quote: improved Ca2+ handling
+    where: Summary
+    scope: HC-RP EHTs
+    direction: improved
+    strength: produces
+    rests_on:
+    - F2_t80
+    - F2_prp
+    - F3_t80
+    opposes:
+    - F5_t80_pace
+    - F5_ca_amp
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+    note: in the second line t80 improves with pacing irrespective of Ca2+, and Ca2+ transient amplitude is higher in low-Ca2+
+      groups
+  C6:
+    kind: stated
+    quote: cardiac troponin I expression within 25 days
+    where: Summary
+    scope: HC-RP EHTs, first line
+    direction: up
+    asserts_direction: up
+    strength: produces
+    rests_on:
+    - F4_ctni
+    - F4E_TNNI3
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: western and RNA-seq data from one differentiation batch
+  C7:
+    kind: stated
+    quote: Physiological level Ca2+ alone increases contractile force
+    where: Fig. 1 title
+    scope: non-paced EHTs, first line
+    direction: up
+    asserts_direction: up
+    strength: increases
+    rests_on:
+    - F1_ffr_raw
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: legend reports two-way ANOVA p = n.s. for Fig. 1B while text and figure label give p < 0.0001
+  C8:
+    kind: stated
+    quote: but does not improve overall functional maturation profile
+    where: Fig. 1 title
+    scope: non-paced EHTs, first line
+    direction: none
+    asserts_direction: none
+    strength: does not improve
+    rests_on:
+    - F1_ffr_norm
+    - F1_ttp
+    - F1_rt50
+    - F1_prp
+    - F1_def
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C9:
+    kind: stated
+    quote: Physiological level Ca2+ and pacing result in functional improvement
+    where: Fig. 2 title
+    scope: ramp-paced EHTs, first line
+    direction: up
+    strength: result in
+    rests_on:
+    - F2_ffr_norm
+    - F2_ttp_ffr
+    - F2_rt50_ffr
+    - F2_ttp1
+    - F2_rt50_1
+    - F2_prp
+    - F2_def
+    - F2_t80
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: Fig. 2 compares HC-RP with LC-RP (both paced), so it tests Ca2+ under pacing, not Ca2+ and pacing
+  C10:
+    kind: stated
+    quote: Physiological level Ca2+ and pacing result in improved b-adrenergic response to ISO
+    where: Fig. 3 title
+    scope: ramp-paced EHTs, first line
+    direction: up
+    strength: result in
+    rests_on:
+    - F3_force
+    - F3_ttp
+    - F3_ca_amp
+    - F3_t80
+    opposes:
+    - F3_rt50
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C11:
+    kind: stated
+    quote: Physiological level Ca2+ and pacing result in more mature protein and RNA expression
+    where: Fig. 4 title
+    scope: EHTs, first line
+    direction: up
+    asserts_direction: up
+    strength: result in
+    rests_on:
+    - F4_ctni
+    - F4_pctni
+    - F4_pln
+    - F4E_TNNI3
+    - F4E_NPPA
+    - F4E_MYL2
+    opposes:
+    - F4_serca
+    judgement:
+      direction: overstated
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C12:
+    kind: stated
+    quote: Functional improvements from high calcium and ramp pacing were observed in a second iPSC line
+    where: Fig. 5 title
+    scope: second hiPSC line
+    direction: up
+    strength: observed
+    rests_on:
+    - F5_ttp1_HC_RP_HC_NP
+    - F5_ttp1_HC_RP_LC_NP
+    - F5_ttp1_HC_RP_LC_RP
+    - F5_def_HC_RP_HC_NP
+    - F5_iso_force_HC_RP_LC_NP
+    - F5_ffr_norm
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C13:
+    kind: stated
+    quote: Altogether, the HC-RP group displayed a more potent b-adrenergic response
+    where: Results, p. 2040
+    scope: HC-RP vs LC-RP, first line
+    direction: up
+    strength: more potent
+    rests_on:
+    - F3_force
+    - F3_ttp
+    - F3_ca_amp
+    - F3_t80
+    opposes:
+    - F3_rt50
+    restates: C4
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C14:
+    kind: stated
+    quote: Only the HC-RP group showed positive FFR behavior, similar to that observed previously
+    where: Results, p. 2043
+    scope: second line
+    direction: up
+    asserts_direction: up
+    strength: only
+    rests_on:
+    - F5_ffr_norm
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: only an omnibus three-way ANOVA is printed; no pairwise test
+  C15:
+    kind: stated
+    quote: HC-RP was the only group with consistent post-rest potentiation
+    where: Results, p. 2043
+    scope: second line
+    direction: up
+    asserts_direction: up
+    strength: only
+    rests_on:
+    - F5_prp_pace
+    - F5_prp_ca
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C16:
+    kind: stated
+    quote: physiological Ca2+ led to functional characteristics that are realistically comparable with those of adult human
+      ventricular myocardium
+    where: Discussion, p. 2044
+    scope: HC-RP EHTs
+    direction: similar
+    strength: realistically comparable
+    rests_on:
+    - TXT1_ttp
+    - TXT1_rt50
+    - F2_ffr_norm
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+    note: no adult myocardium is measured in this study; the comparison rests on cited values
+  C17:
+    kind: literature
+    quote: this is the first study that systematically examines the role of Ca2+ in cardiomyocyte maturation
+    where: Discussion, p. 2044
+    scope: not stated
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    opposes: []
+    judgement: null
+  C18:
+    kind: stated
+    quote: The combination of high Ca2+ and pacing conditions seems to be a more reliable way of promoting positive FFR, independent
+      of the specific cell line
+    where: Discussion, p. 2044
+    scope: two cell lines
+    direction: up
+    asserts_direction: up
+    strength: seems; independent of the specific cell line
+    rests_on:
+    - F2_ffr_norm
+    - F5_ffr_norm
+    - F1_ffr_norm
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+  C19:
+    kind: stated
+    quote: suggesting synergy between physiological Ca2+ and ramp pacing in driving toward a more mature phenotype
+    where: Discussion, p. 2045
+    scope: RNA-seq, first line
+    direction: up
+    asserts_direction: up
+    strength: suggesting
+    rests_on:
+    - F4E_S100A4
+    - F4E_TNNI3
+    - F4E_SCN5A
+    - F4E_KCND3
+    - F4E_SLC8A1
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: no interaction test is printed for any gene
+  C20:
+    kind: stated
+    quote: the upregulation of TNNI3 seen in RNA-seq and western blot data confirm that our study provides a fast and effective
+      method to increase cTnI expression
+    where: Discussion, p. 2045
+    scope: HC-RP EHTs
+    direction: up
+    asserts_direction: up
+    strength: confirm
+    rests_on:
+    - F4_ctni
+    - F4E_TNNI3
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  C21:
+    kind: stated
+    quote: confirming Ca2+ as the only significant factor affecting Ca2+ transient amplitude (p < 0.0001)
+    where: Discussion, p. 2045
+    scope: second line
+    direction: low Ca2+ higher
+    asserts_direction: down
+    strength: only significant factor
+    rests_on:
+    - F5_ca_amp
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C22:
+    kind: stated
+    quote: This showed that the raw twitch force development by Ca2+ is cell line specific
+    where: Discussion, p. 2046
+    scope: two cell lines
+    direction: not stated
+    strength: showed
+    rests_on:
+    - F1_ffr_raw
+    - F2_ffr_raw
+    - F5_ffr_raw
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: the first line's HC-RP vs LC-RP comparison is set against the second line's HC-NP vs LC-NP
+  C23:
+    kind: stated
+    quote: physiological Ca2+ and pacing made HC-RP group more efficient in handling Ca2+ and created significantly more headroom
+      in PLN phosphorylation
+    where: Discussion, p. 2045
+    scope: HC-RP vs LC-RP, first line
+    direction: up
+    strength: significantly
+    rests_on:
+    - F4_pln
+    - F4_ppln
+    - F4_serca
+    opposes: []
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: '''headroom'' is not measured and p-PLN shows no printed test'
+  C24:
+    kind: stated
+    quote: suggesting that the specific combination of high Ca2+ and ramp pacing promotes physiological growth in this instance
+    where: Discussion, p. 2045
+    scope: RNA-seq, first line
+    direction: up
+    strength: suggesting
+    rests_on:
+    - S1E_akt
+    - S1F_akt
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C25:
+    kind: attributed
+    quote: Healthy human myocardium typically exhibits a positive FFR up to 2–2.5 Hz
+    where: Discussion, p. 2044
+    scope: not stated
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    opposes: []
+    cites:
+    - chung2018a
+    - mulieri1992
+    judgement: null
+  C26:
+    kind: attributed
+    quote: with human TTP at approximately 200 ms and RT50 at approximately 120 ms
+    where: Discussion, p. 2044
+    scope: not stated
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    opposes: []
+    cites:
+    - chung2018b
+    judgement: null
+  C27:
+    kind: stated
+    quote: samples from studies using engineered tissues clustered together and had less variability in terms of gene expression
+      compared to donor samples
+    where: Discussion, p. 2045
+    scope: benchmark datasets
+    direction: less variability
+    strength: observed
+    rests_on:
+    - S2_pca
+    opposes: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C28:
+    kind: stated
+    quote: Physiological Ca2+ alone also failed to significantly improve twitch kinetics
+    where: Results, p. 2038
+    scope: non-paced EHTs, first line
+    direction: none
+    asserts_direction: none
+    strength: failed
+    rests_on:
+    - F1_ttp
+    - F1_rt50
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C29:
+    kind: stated
+    quote: HC-RP tissue demonstrated significantly higher post-rest potentiation
+    where: Results, p. 2040
+    scope: HC-RP vs LC-RP, first line
+    direction: up
+    asserts_direction: up
+    strength: significantly
+    rests_on:
+    - F2_prp
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C30:
+    kind: stated
+    quote: showed a highly significant improvement in Ca2+ reuptake rate for HC-RP tissues
+    where: Results, p. 2040
+    scope: HC-RP vs LC-RP, first line
+    direction: faster
+    asserts_direction: down
+    strength: highly significant
+    rests_on:
+    - F2_t80
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C31:
+    kind: stated
+    quote: smaller diastolic excess fraction (Figures 2M and 2N)
+    where: Results, p. 2040
+    scope: HC-RP vs LC-RP, first line
+    direction: down
+    asserts_direction: down
+    strength: significantly
+    rests_on:
+    - F2_def
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+citations:
+  lian2013:
+    label: Lian et al., 2013
+    text: Lian X. et al. Directed cardiomyocyte differentiation from human pluripotent stem cells by modulating Wnt/β-catenin
+      signaling. Nat. Protoc. 8, 162–175.
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: hiPSC-CMs differentiation followed commonly used protocol (Lian et al., 2013)
+      where: Experimental procedures, Cardiomyocyte differentiation
+  schwan2016:
+    label: Schwan et al., 2016
+    text: Schwan J. et al. Anisotropic engineered heart tissue made from laser-cut decellularized myocardium. Sci. Rep. 6,
+      32068.
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Decellularized porcine scaffolds to make EHTs were prepared as previously reported (Schwan et al., 2016)
+      where: Experimental procedures, EHT production
+  maas2021:
+    label: Maas et al., 2021
+    text: Maas R.G.C. et al. Massive expansion and cryopreservation of functional human iPSC-derived cardiomyocytes. STAR
+      Protoc. 2, 100334.
+    year: '2021'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: after which the cells were expanded (Maas et al., 2021)
+      where: Experimental procedures, Cardiomyocyte differentiation
+  pieske1996:
+    label: Pieske et al., 1996
+    text: Pieske B. et al. Diminished post-rest potentiation of contractile force in human dilated cardiomyopathy. J. Clin.
+      Invest. 98, 764–776.
+    year: '1996'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: is an indirect measure of sarcoplasmic reticulum Ca2+-handling capacity (Pieske et al., 1996)
+      where: Results, p. 2038
+  varian2009:
+    label: Varian et al., 2009
+    text: Varian K.D. et al. Impairment of diastolic function by lack of frequency-dependent myofilament desensitization in
+      rabbit right ventricular hypertrophy. Circ. Heart Fail. 2, 472–481.
+    year: '2009'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: correlated with tissues’ ability to inhibit contraction at low Ca2+ levels (Varian et al., 2009)
+      where: Results, p. 2038
+  sim2021:
+    label: Sim et al., 2021
+    text: Sim C.B. et al. Sex-specific control of human heart maturation by the progesterone receptor. Circulation 143, 1614–1628.
+      GEO GSE156702.
+    year: '2021'
+    purpose:
+    - borrows_data
+    anchor:
+      quote: Sim et al. (adult, young and fetal ventricular samples from 21 human donors) (Sim et al., 2021)
+      where: Discussion, p. 2045
+  mills2017:
+    label: Mills et al., 2017
+    text: Mills R.J. et al. Functional screening in human cardiac organoids reveals a metabolic mechanism for cardiomyocyte
+      cell cycle arrest. PNAS 114, E8372–E8381. GEO GSE93841.
+    year: '2017'
+    purpose:
+    - borrows_data
+    anchor:
+      quote: We compared our data against RNA-seq data from Mills et al.
+      where: Discussion, p. 2045
+  zhao2019:
+    label: Zhao et al., 2019
+    text: Zhao Y. et al. A platform for generation of chamber specific cardiac tissues and disease modelling. Cell 176, 913–927.
+      GEO GSE114976.
+    year: '2019'
+    purpose:
+    - borrows_data
+    - contrasts
+    anchor:
+      quote: Zhao et al. (engineered tissues with rapid pacing) (Zhao et al., 2019)
+      where: Discussion, p. 2045
+  chung2018a:
+    label: Chung et al., 2018a
+    text: Chung J.-H. et al. Etiology-dependent impairment of relaxation kinetics in right ventricular end-stage failing human
+      myocardium. J. Mol. Cell. Cardiol. 121, 81–93.
+    year: '2018'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Healthy human myocardium typically exhibits a positive FFR up to 2–2.5 Hz (Chung et al., 2018a; Mulieri et al.,
+        1992)
+      where: Discussion, p. 2044
+  mulieri1992:
+    label: Mulieri et al., 1992
+    text: Mulieri L.A. et al. Altered myocardial force-frequency relation in human heart failure. Circulation 85, 1743–1750.
+    year: '1992'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Healthy human myocardium typically exhibits a positive FFR up to 2–2.5 Hz (Chung et al., 2018a; Mulieri et al.,
+        1992)
+      where: Discussion, p. 2044
+  chung2018b:
+    label: Chung et al., 2018b
+    text: Chung J.H. et al. Force-frequency relationship and early relaxation kinetics are preserved upon sarcoplasmic blockade
+      in human myocardium. Physiol. Rep. 6, e13898.
+    year: '2018'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: with human TTP at approximately 200 ms and RT50 at approximately 120 ms (Chung et al., 2018b
+      where: Discussion, p. 2044
+  ronaldson2018:
+    label: Ronaldson-Bouchard et al., 2018
+    text: Ronaldson-Bouchard K. et al. Advanced maturation of human cardiac tissue grown from pluripotent stem cells. Nature
+      556, 239–243.
+    year: '2018'
+    purpose:
+    - contrasts
+    - borrows_method
+    anchor:
+      quote: previous studies that combined supraphysiological (up to 6 Hz) ramp pacing and lower Ca2+ level possess unusually
+        robust positive FFR
+      where: Discussion, p. 2044
+  tiburcy2017:
+    label: Tiburcy et al., 2017
+    text: Tiburcy M. et al. Defined engineered human myocardium with advanced maturation for applications in heart failure
+      modeling and repair. Circulation 135, 1832–1847.
+    year: '2017'
+    purpose:
+    - contrasts
+    anchor:
+      quote: one study has reported achievement of a positive FFR in EHTs without requiring electrical pacing in culture (Tiburcy
+        et al., 2017)
+      where: Discussion, p. 2044
+  bedada2014:
+    label: Bedada et al., 2014
+    text: Bedada F.B. et al. Acquisition of a quantitative, stoichiometrically conserved ratiometric marker of maturation
+      status in stem cell-derived cardiac myocytes. Stem Cell Rep. 3, 594–605.
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: previous reports show less than 2% TnI is cTnI after 9.5 months of hiPSCCM culture (Bedada et al., 2014)
+      where: Discussion, p. 2045
+cross_references:
+- cited: Fig. 1G
+  shows: Fig. 1G is a representative HC-NP post-rest potentiation trace; RT50 across 1–3 Hz for HC-RP vs LC-RP is Fig. 2G
+  anchor:
+    quote: time to 50% relaxation (RT50) (Figure 1G) up to 2 Hz
+    where: Results, p. 2038
+- cited: Fig. 2P
+  shows: Fig. 2P is Ca2+ transient signal intensity; the t80 reuptake data are in Fig. 2Q
+  anchor:
+    quote: showed a highly significant improvement in Ca2+ reuptake rate for HC-RP tissues (Figure 2P)
+    where: Results, p. 2040
+- cited: Fig. 4E
+  shows: Fig. 4E is an RNA-seq volcano plot; twitch kinetics at 1 Hz in the second line are Fig. 5E–G
+  anchor:
+    quote: HC-RP significantly affected twitch kinetics at the baseline frequency of 1 Hz (Figure 4E)
+    where: Results, p. 2043
+- cited: Figs. 1P and 4L
+  shows: Figs. 1 and 4 have no panels P and L of Ca2+ transients; the low-Ca2+ transient data are Fig. 2P and Fig. 5L
+  anchor:
+    quote: exhibited greater intracellular Ca2+ transients when tested (Figures 1P and 4L)
+    where: Discussion, p. 2045
+- cited: Fig. S2C
+  shows: Fig. S2C is the cross-study benchmarking heat map; the high vs low Ca2+ gene comparison is Fig. S1C
+  anchor:
+    quote: elevated expression of CASQ1 and CASQ2 in high Ca2+ groups (Figure S2C)
+    where: Discussion, p. 2045
+- cited: Figs. 5S–SU
+  shows: panel range misprinted; Ca2+ transient ISO data are Fig. 5S–U
+  anchor:
+    quote: showed similar Ca2+ transient intensity increase (Figures 5S–SU)
+    where: Results, p. 2043
+- cited: Fig. 5 M, N, and T–W
+  shows: Fig. 5 FURA panels are L, M and S–V; N is a force trace and there is no panel W
+  anchor:
+    quote: FURA data (M, N, and T–W) were from two batches
+    where: Fig. 5 legend
+- cited: Fig. 4B
+  shows: Fig. 4B shows p-PLN marginally higher in LC-RP, not increased PLN phosphorylation in HC-RP
+  anchor:
+    quote: SERCA activity is alternatively modulated through increased PLN phosphorylation (Figure 4B)
+    where: Discussion, p. 2045

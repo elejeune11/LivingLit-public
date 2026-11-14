@@ -1,0 +1,2208 @@
+record: 2020_Richards
+formula_library_version: 17
+derived:
+  F1h_nadh.nadh_value:
+    item: F1h_nadh
+    measure: NADH index
+    formula: v = g - bg
+    anchor:
+      quote: background mean grey values were first subtracted from the mean grey value of the sample area NADH autofluorescence
+      where: Methods, Fluorescence imaging and analysis
+    library:
+      formula: sum_of_parts
+      vars:
+        t: g
+        a: v
+        b: bg
+    inputs:
+      g:
+        not_stated: true
+        kind: per sample
+        note: sample mean grey value, not printed
+      bg:
+        not_stated: true
+        kind: per sample
+        note: background mean grey value, not printed
+    note: background-subtracted NADH value of each sample; written as g = v + bg in the library entry
+  F1h_nadh.nadh_index:
+    item: F1h_nadh
+    measure: NADH index
+    formula: N = v/vd
+    anchor:
+      quote: The NADH index was then calculated as the NADH value of each sample divided by the average of the NADH values
+        of the dead organoid samples
+      where: Methods, Fluorescence imaging and analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: N
+        a: v
+        b: vd
+    inputs:
+      v:
+        derived: F1h_nadh.nadh_value
+        kind: per sample
+      vd:
+        not_stated: true
+        kind: constant
+        note: mean NADH value of the dead (frozen + thawed) organoids; not printed and not plotted
+    note: 'no printed output: the index is shown only in Fig. 1h (read in readings f1h_nadh)'
+  F2a_de.n_de_from_venn:
+    item: F2a_de
+    measure: number of differentially expressed genes
+    formula: n = u + s
+    anchor:
+      quote: Venn diagram comparison of differentially expressed genes from organoid RNA-seq and the public human ICM RNA-seq
+        data
+      where: Supplementary Fig. 2a legend
+      file: NIHMS1605561-supplement-Supplementary_Information.docx
+    library:
+      formula: sum_of_parts
+      vars:
+        t: n
+        a: u
+        b: s
+    inputs:
+      u:
+        value: S2a_venn.values.unique_org
+        kind: constant
+      s:
+        value: S2a_venn.values.shared
+        kind: constant
+    output: F2a_de.values.n_de
+    note: the organoid circle of the Venn diagram (unique + shared) is the organoid DE gene set; the Methods say non-overlapping
+      genes from platform differences were excluded for the Venn comparisons, so the circle may be smaller than the full DE
+      count
+    alternatives:
+    - label: platform-filtered circle
+      note: if genes absent from the human ICM RNA-seq data were excluded, u + s is less than 5,675 by construction
+  F3c_fccp_fold.fold_ctrl:
+    item: F3c_fccp_fold
+    group: ctrl
+    measure: oxygen consumption rate response to FCCP
+    formula: r = o/o0
+    anchor:
+      quote: an approximately twofold increase in the oxygen consumption rate (OCR) of control organoids after treatment with
+      where: Results, Pathological metabolic shifts
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: o
+        b: o0
+    inputs:
+      o:
+        not_stated: true
+        kind: not stated
+        note: 'OCR of control organoids after FCCP: Fig. 3c time course, not read'
+      o0:
+        not_stated: true
+        kind: not stated
+        note: 'OCR of control organoids before FCCP (basal): Fig. 3c time course, not read'
+    output: F3c_fccp_fold.values.fold_ctrl
+    alternatives:
+    - label: baseline = non-mitochondrial OCR
+      note: Fig. 3d plots peak OCR as a percentage of non-mitochondrial respiration (control ~198 %, read); the text does
+        not say which baseline 'twofold' refers to
+  F3d_peak_ocr.pct_nonmito:
+    item: F3d_peak_ocr
+    measure: peak OCR after FCCP
+    formula: p = x/xnm
+    anchor:
+      quote: percentage of non-mitochondrial respiration
+      where: Fig. 3d axis label
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: x
+        b: xnm
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak OCR after FCCP of each organoid, not printed
+      xnm:
+        not_stated: true
+        kind: per sample
+        note: non-mitochondrial respiration (after rotenone/antimycin A) of each organoid, not printed
+    output_unit: '%'
+    note: named operation on the axis; whether each organoid's own non-mitochondrial value or a group mean is the denominator
+      is not stated; values only in the figure (readings)
+  F3f_peak_ecar.pct_nonmito:
+    item: F3f_peak_ecar
+    measure: peak ECAR after oligomycin
+    formula: p = x/xnm
+    anchor:
+      quote: percentage of non-mitochondrial respiration
+      where: Fig. 3f axis label
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: x
+        b: xnm
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak ECAR after oligomycin of each organoid, not printed
+      xnm:
+        not_stated: true
+        kind: per sample
+        note: non-mitochondrial respiration (after rotenone/antimycin A) of each organoid, not printed
+    output_unit: '%'
+    note: named operation on the axis; whether each organoid's own non-mitochondrial value or a group mean is the denominator
+      is not stated; values only in the figure (readings)
+  F3e_ecar_pct.ecar_increase:
+    item: F3e_ecar_pct
+    measure: extracellular acidification rate after oligomycin
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: Treatment with oligomycin led to a ~30% increase in the extracellular acidification rate (ECAR) of
+      where: Results, Pathological metabolic shifts
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: f3f_peak_ecar/infarct
+        kind: per sample
+        note: Fig. 3f peak ECAR after oligomycin, infarct (percentage of non-mitochondrial respiration)
+      x0:
+        reading: f3f_peak_ecar/control
+        kind: per sample
+        note: Fig. 3f peak ECAR after oligomycin, control
+    output: F3e_ecar_pct.values.ecar_increase
+    note: the text cites Fig. 3e,f; Fig. 3f is the only panel read. Its values are normalised to non-mitochondrial respiration,
+      so their ratio equals the raw ECAR ratio only if the two groups' non-mitochondrial values are equal
+    alternatives:
+    - label: raw ECAR from the Fig. 3e time course
+      note: not read; the increase may refer to absolute ECAR rather than the normalised peak
+  F3g_lactate.normalized:
+    item: F3g_lactate
+    measure: normalized l-lactate level
+    formula: y = c/c0
+    anchor:
+      quote: Normalized l-lactate levels (on the basis of absorbance readings) relative to control medium
+      where: Fig. 3g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: c
+        b: c0
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+        note: absorbance-based lactate level of each well, not printed
+      c0:
+        not_stated: true
+        kind: not stated
+        note: control medium level; whether it is the mean of the control organoids' medium or a cell-free control medium
+          is not stated
+  F3h_ldh.tpm_ratio:
+    item: F3h_ldh
+    measure: LDHA/LDHB ratio of transcripts per million
+    formula: r = ta/tb
+    anchor:
+      quote: Differences in lactate-related gene expression (ratio of transcripts per million (TPM))
+      where: Fig. 3h legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ta
+        b: tb
+    inputs:
+      ta:
+        not_stated: true
+        kind: per sample
+        note: LDHA TPM of each sample, not printed
+      tb:
+        not_stated: true
+        kind: per sample
+        note: LDHB TPM of each sample, not printed
+    aggregation: not stated
+    note: per-sample ratio or ratio of group means is not stated; no printed output (readings only)
+  F3h_slc16.tpm_ratio:
+    item: F3h_slc16
+    measure: SLC16A1/SLC16A3 ratio of transcripts per million
+    formula: r = ta/tb
+    anchor:
+      quote: Differences in lactate-related gene expression (ratio of transcripts per million (TPM))
+      where: Fig. 3h legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ta
+        b: tb
+    inputs:
+      ta:
+        not_stated: true
+        kind: per sample
+        note: SLC16A1 TPM of each sample, not printed
+      tb:
+        not_stated: true
+        kind: per sample
+        note: SLC16A3 TPM of each sample, not printed
+    aggregation: not stated
+    note: per-sample ratio or ratio of group means is not stated; no printed output (readings only)
+  F4i_modulus.modulus:
+    item: F4i_modulus
+    measure: elastic modulus
+    formula: E = 3*a*dp*Phi/(2*pi*L)
+    anchor: &id001
+      quote: the change in length (L) from pre-deformation to equilibrium deformation was used to calculate the elastic modulus
+        according the previously established relationship
+      where: Methods, Mechanical testing using micropipette aspiration
+    library:
+      formula: micropipette_aspiration_half_space
+      vars:
+        E: E
+        a: a
+        dp: dp
+        Phi: Phi
+        L: L
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: inner micropipette radius; only the inner diameter is printed, as a range (approximately 70-80 µm)
+      dp:
+        printed: '3.9'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: a fixed pressure of 40 cmH2O (~3.9 kPa)
+          where: Methods, Mechanical testing using micropipette aspiration
+        note: printed as ~3.9 kPa (40 cmH2O)
+      Phi:
+        by_reference:
+          citation: r104
+          anchor:
+            quote: are dependent on the geometry of the micropipette tip
+            where: Methods, Mechanical testing using micropipette aspiration
+        kind: constant
+      L:
+        not_stated: true
+        kind: per sample
+        note: aspirated length at equilibrium deformation of each organoid, not printed
+    note: 'no printed output: moduli are shown only in figures'
+  S5_fb_cm.modulus:
+    item: S5_fb_cm
+    measure: elastic modulus
+    formula: E = 3*a*dp*Phi/(2*pi*L)
+    anchor: *id001
+    library:
+      formula: micropipette_aspiration_half_space
+      vars:
+        E: E
+        a: a
+        dp: dp
+        Phi: Phi
+        L: L
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: inner micropipette radius; only the inner diameter is printed, as a range (approximately 70-80 µm)
+      dp:
+        printed: '3.9'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: a fixed pressure of 40 cmH2O (~3.9 kPa)
+          where: Methods, Mechanical testing using micropipette aspiration
+        note: printed as ~3.9 kPa (40 cmH2O)
+      Phi:
+        by_reference:
+          citation: r104
+          anchor:
+            quote: are dependent on the geometry of the micropipette tip
+            where: Methods, Mechanical testing using micropipette aspiration
+        kind: constant
+      L:
+        not_stated: true
+        kind: per sample
+        note: aspirated length at equilibrium deformation of each organoid, not printed
+    note: 'no printed output: moduli are shown only in figures'
+  S5_org_cm.modulus:
+    item: S5_org_cm
+    measure: elastic modulus
+    formula: E = 3*a*dp*Phi/(2*pi*L)
+    anchor: *id001
+    library:
+      formula: micropipette_aspiration_half_space
+      vars:
+        E: E
+        a: a
+        dp: dp
+        Phi: Phi
+        L: L
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: inner micropipette radius; only the inner diameter is printed, as a range (approximately 70-80 µm)
+      dp:
+        printed: '3.9'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: a fixed pressure of 40 cmH2O (~3.9 kPa)
+          where: Methods, Mechanical testing using micropipette aspiration
+        note: printed as ~3.9 kPa (40 cmH2O)
+      Phi:
+        by_reference:
+          citation: r104
+          anchor:
+            quote: are dependent on the geometry of the micropipette tip
+            where: Methods, Mechanical testing using micropipette aspiration
+        kind: constant
+      L:
+        not_stated: true
+        kind: per sample
+        note: aspirated length at equilibrium deformation of each organoid, not printed
+    note: 'no printed output: moduli are shown only in figures'
+  S5_orgfb_org.modulus:
+    item: S5_orgfb_org
+    measure: elastic modulus
+    formula: E = 3*a*dp*Phi/(2*pi*L)
+    anchor: *id001
+    library:
+      formula: micropipette_aspiration_half_space
+      vars:
+        E: E
+        a: a
+        dp: dp
+        Phi: Phi
+        L: L
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: inner micropipette radius; only the inner diameter is printed, as a range (approximately 70-80 µm)
+      dp:
+        printed: '3.9'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: a fixed pressure of 40 cmH2O (~3.9 kPa)
+          where: Methods, Mechanical testing using micropipette aspiration
+        note: printed as ~3.9 kPa (40 cmH2O)
+      Phi:
+        by_reference:
+          citation: r104
+          anchor:
+            quote: are dependent on the geometry of the micropipette tip
+            where: Methods, Mechanical testing using micropipette aspiration
+        kind: constant
+      L:
+        not_stated: true
+        kind: per sample
+        note: aspirated length at equilibrium deformation of each organoid, not printed
+    note: 'no printed output: moduli are shown only in figures'
+  S5_orgfb_cm.modulus:
+    item: S5_orgfb_cm
+    measure: elastic modulus
+    formula: E = 3*a*dp*Phi/(2*pi*L)
+    anchor: *id001
+    library:
+      formula: micropipette_aspiration_half_space
+      vars:
+        E: E
+        a: a
+        dp: dp
+        Phi: Phi
+        L: L
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: inner micropipette radius; only the inner diameter is printed, as a range (approximately 70-80 µm)
+      dp:
+        printed: '3.9'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: a fixed pressure of 40 cmH2O (~3.9 kPa)
+          where: Methods, Mechanical testing using micropipette aspiration
+        note: printed as ~3.9 kPa (40 cmH2O)
+      Phi:
+        by_reference:
+          citation: r104
+          anchor:
+            quote: are dependent on the geometry of the micropipette tip
+            where: Methods, Mechanical testing using micropipette aspiration
+        kind: constant
+      L:
+        not_stated: true
+        kind: per sample
+        note: aspirated length at equilibrium deformation of each organoid, not printed
+    note: 'no printed output: moduli are shown only in figures'
+  S11d_modulus.modulus:
+    item: S11d_modulus
+    measure: elastic modulus
+    formula: E = 3*a*dp*Phi/(2*pi*L)
+    anchor: *id001
+    library:
+      formula: micropipette_aspiration_half_space
+      vars:
+        E: E
+        a: a
+        dp: dp
+        Phi: Phi
+        L: L
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: inner micropipette radius; only the inner diameter is printed, as a range (approximately 70-80 µm)
+      dp:
+        printed: '3.9'
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: a fixed pressure of 40 cmH2O (~3.9 kPa)
+          where: Methods, Mechanical testing using micropipette aspiration
+        note: printed as ~3.9 kPa (40 cmH2O)
+      Phi:
+        by_reference:
+          citation: r104
+          anchor:
+            quote: are dependent on the geometry of the micropipette tip
+            where: Methods, Mechanical testing using micropipette aspiration
+        kind: constant
+      L:
+        not_stated: true
+        kind: per sample
+        note: aspirated length at equilibrium deformation of each organoid, not printed
+    note: 'no printed output: moduli are shown only in figures'
+  F6c_modulus.change:
+    item: F6c_modulus
+    measure: change in elastic modulus relative to control
+    formula: d = (E - E0)/E0
+    anchor:
+      quote: Change in elastic modulus relative to the control at D10
+      where: Fig. 6c legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: E
+        x0: E0
+    inputs:
+      E:
+        derived: F4i_modulus.modulus
+        kind: per sample
+        note: modulus of each infarct or infarct + JQ1 organoid, by the same aspiration relationship
+      E0:
+        not_stated: true
+        kind: not stated
+        note: control modulus (group mean or per organoid not stated)
+    alternatives:
+    - label: ratio to control
+      formula: d = E/E0
+      note: '''change ... relative to the control'' may be a ratio rather than a relative difference'
+  F5f_int_vs_edge.dff0:
+    item: F5f_int_vs_edge
+    measure: calcium transient amplitude (∆F/F0)
+    formula: d = (F - F0)/F0
+    anchor: &id002
+      quote: Calcium transient amplitude (∆F/F0) was calculated as the difference between peak and baseline calcium fluorescence
+        (∆F) divided by the baseline fluorescence level (F0)
+      where: Methods, Development of the customized 2PLSM
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence of each ROI, not printed
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence of each ROI, not printed
+  F5f_int_vs_ctrl.dff0:
+    item: F5f_int_vs_ctrl
+    measure: calcium transient amplitude (∆F/F0)
+    formula: d = (F - F0)/F0
+    anchor: *id002
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence of each ROI, not printed
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence of each ROI, not printed
+  S8_amplitude.dff0:
+    item: S8_amplitude
+    measure: calcium transient amplitude (∆F/F0)
+    formula: d = (F - F0)/F0
+    anchor: *id002
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence of each ROI, not printed
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence of each ROI, not printed
+  F5g_contraction.amplitude:
+    item: F5g_contraction
+    measure: contraction amplitude (fractional area change)
+    formula: c = (Ar - Ac)/Ar
+    anchor:
+      quote: Contraction amplitudes were calculated as the percentage change in fractional area change amplitude between contraction
+        and relaxation
+      where: Methods, Contraction analysis of beating spheroids
+    library:
+      formula: relative_decrease
+      vars:
+        s: c
+        x: Ac
+        x0: Ar
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: projected area at contraction of each organoid, not printed
+      Ar:
+        not_stated: true
+        kind: per sample
+        note: projected area at relaxation of each organoid, not printed
+    alternatives:
+    - label: percentage
+      formula: c = 100*(Ar - Ac)/Ar
+      note: the Methods say 'percentage change', but Fig. 5g plots fractions (about 0.008)
+  S1c_inf_ctrl.beat_rate:
+    item: S1c_inf_ctrl
+    measure: beat rate
+    formula: f = nb/t
+    anchor:
+      quote: The beat rate was calculated as the number of beats per second
+      where: Methods, Contraction analysis of beating spheroids
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nb
+        b: t
+    inputs:
+      nb:
+        not_stated: true
+        kind: per sample
+        note: number of beats in each recording, not printed
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration, not stated
+  S1c_meto_inf.beat_rate:
+    item: S1c_meto_inf
+    measure: beat rate
+    formula: f = nb/t
+    anchor:
+      quote: The beat rate was calculated as the number of beats per second
+      where: Methods, Contraction analysis of beating spheroids
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nb
+        b: t
+    inputs:
+      nb:
+        not_stated: true
+        kind: per sample
+        note: number of beats in each recording, not printed
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration, not stated
+  S1c_meto_ctrl.beat_rate:
+    item: S1c_meto_ctrl
+    measure: beat rate
+    formula: f = nb/t
+    anchor:
+      quote: The beat rate was calculated as the number of beats per second
+      where: Methods, Contraction analysis of beating spheroids
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nb
+        b: t
+    inputs:
+      nb:
+        not_stated: true
+        kind: per sample
+        note: number of beats in each recording, not printed
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration, not stated
+  F7a_ic50.normalized_amplitude:
+    item: F7a_ic50
+    measure: normalized contraction amplitude (fractional area change)
+    formula: y = c/c0
+    anchor:
+      quote: Normalized contraction amplitude (relative to the vehicle control of each group)
+      where: Fig. 7a legend
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: c
+        b: c0
+    inputs:
+      c:
+        derived: F5g_contraction.amplitude
+        kind: per sample
+        note: contraction amplitude of each DOX-treated organoid
+      c0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control amplitude of each group; mean or per organoid not stated
+  F7a_ic50.ic50_control:
+    item: F7a_ic50
+    measure: half-maximum inhibitory concentration
+    formula: not stated
+    anchor: not stated
+    no_formula: the dose-response model fitted for the IC50 (e.g. four-parameter logistic) and its software are not stated;
+      curve fits are not in the library
+    inputs:
+      y:
+        derived: F7a_ic50.normalized_amplitude
+        kind: per sample
+    output: F7a_ic50.values.ic50_control
+  F7a_ic50.ic50_infarct:
+    item: F7a_ic50
+    measure: half-maximum inhibitory concentration
+    formula: not stated
+    anchor: not stated
+    no_formula: the dose-response model fitted for the IC50 (e.g. four-parameter logistic) and its software are not stated;
+      curve fits are not in the library
+    inputs:
+      y:
+        derived: F7a_ic50.normalized_amplitude
+        kind: per sample
+    output: F7a_ic50.values.ic50_infarct
+  F7b_tunel.normalized:
+    item: F7b_tunel
+    measure: normalized TUNEL index
+    formula: y = x/x0
+    anchor:
+      quote: The normalized viability index (relative to the vehicle control of each group) on the basis of apoptotic staining
+        (TUNEL)
+      where: Fig. 7b legend
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: TUNEL-based index of each organoid, not printed; how the index is computed is not stated
+      x0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r2.normalized_area:
+    item: F7e_r2
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: &id003
+      quote: DOX-induced changes in the vimentin-covered area (relative to the vehicle control
+      where: Fig. 7e legend
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r3.normalized_area:
+    item: F7e_r3
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r4.normalized_area:
+    item: F7e_r4
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r5.normalized_area:
+    item: F7e_r5
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r6.normalized_area:
+    item: F7e_r6
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r7.normalized_area:
+    item: F7e_r7
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r8.normalized_area:
+    item: F7e_r8
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r9.normalized_area:
+    item: F7e_r9
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r10.normalized_area:
+    item: F7e_r10
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r11.normalized_area:
+    item: F7e_r11
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r12.normalized_area:
+    item: F7e_r12
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r13.normalized_area:
+    item: F7e_r13
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r14.normalized_area:
+    item: F7e_r14
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r15.normalized_area:
+    item: F7e_r15
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r16.normalized_area:
+    item: F7e_r16
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r17.normalized_area:
+    item: F7e_r17
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r18.normalized_area:
+    item: F7e_r18
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r19.normalized_area:
+    item: F7e_r19
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r20.normalized_area:
+    item: F7e_r20
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r21.normalized_area:
+    item: F7e_r21
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r22.normalized_area:
+    item: F7e_r22
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r23.normalized_area:
+    item: F7e_r23
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r24.normalized_area:
+    item: F7e_r24
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r25.normalized_area:
+    item: F7e_r25
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r26.normalized_area:
+    item: F7e_r26
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r27.normalized_area:
+    item: F7e_r27
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r28.normalized_area:
+    item: F7e_r28
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  F7e_r29.normalized_area:
+    item: F7e_r29
+    measure: normalized vimentin-covered area
+    formula: y = s/s0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: s
+        b: s0
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: vimentin-covered area of each organoid section, not printed
+      s0:
+        not_stated: true
+        kind: not stated
+        note: vehicle (0 µM) control of each group; mean or per organoid not stated
+  S13b_dox1.normalized:
+    item: S13b_dox1
+    measure: normalized absorbance (XTT cell viability)
+    formula: y = x/x0
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: XTT absorbance of each well, not printed
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 0 µM DOX absorbance of the same condition
+    note: normalisation 'relative to 0 µM dose' is printed only in the figure axis (image), so no searchable anchor
+  S13b_dox10.normalized:
+    item: S13b_dox10
+    measure: normalized absorbance (XTT cell viability)
+    formula: y = x/x0
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: XTT absorbance of each well, not printed
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 0 µM DOX absorbance of the same condition
+    note: normalisation 'relative to 0 µM dose' is printed only in the figure axis (image), so no searchable anchor
+  S4_asma.fibrillar_fraction:
+    item: S4_asma
+    measure: normalized fibrillar αSMA+ covered area
+    formula: f = Af/Aa
+    anchor:
+      quote: calculated by dividing the area covered by positively-stained fibrillar structures (as opposed to blotchy or
+        diffuse staining) by the total area that was positively stained for αSMA
+      where: Methods, Fluorescence imaging and analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: Af
+        b: Aa
+    inputs:
+      Af:
+        not_stated: true
+        kind: per sample
+        note: fibrillar αSMA+ area, not printed
+      Aa:
+        not_stated: true
+        kind: per sample
+        note: total αSMA+ area, not printed
+  S4_asma.per_section_area:
+    item: S4_asma
+    measure: normalized fibrillar αSMA+ covered area
+    formula: q = f/Ao
+    anchor:
+      quote: and then dividing by the total organoid cross-sectional area
+      where: Methods, Fluorescence imaging and analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: f
+        b: Ao
+    inputs:
+      f:
+        derived: S4_asma.fibrillar_fraction
+        kind: per sample
+      Ao:
+        not_stated: true
+        kind: per sample
+        note: organoid cross-sectional area of each section, not printed
+    note: dividing a fraction by an area gives a quantity per area; the final normalisation to the control makes it dimensionless
+  S4_asma.normalized:
+    item: S4_asma
+    measure: normalized fibrillar αSMA+ covered area
+    formula: y = q/q0
+    anchor:
+      quote: These results were then normalized to the average of the control organoid results
+      where: Methods, Fluorescence imaging and analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: q
+        b: q0
+    inputs:
+      q:
+        derived: S4_asma.per_section_area
+        kind: per sample
+      q0:
+        not_stated: true
+        kind: constant
+        note: mean of the control organoids' values, not printed
+  F6d_sync.proportion:
+    item: F6d_sync
+    measure: percentage of organoids with synchronized beating
+    formula: f = ns/(ns + nu)
+    anchor:
+      quote: The proportion of organoids (control, infarct and infarct with anti-fibrotic treatment (JQ1, 10 nM)) that exhibited
+        synchronized or unsynchronized
+      where: Fig. 6d legend
+    library:
+      formula: part_of_whole
+      vars:
+        f: f
+        a: ns
+        b: nu
+    inputs:
+      ns:
+        not_stated: true
+        kind: constant
+        note: number of synchronized organoids per group, not printed
+      nu:
+        not_stated: true
+        kind: constant
+        note: number of unsynchronized organoids per group, not printed
+  F1f_hypoxia.normalized_intensity:
+    item: F1f_hypoxia
+    measure: hypoxia stain radial density
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F4f_vimentin.normalized_intensity:
+    item: F4f_vimentin
+    measure: vimentin radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F6b_inf_vs_ctrl.normalized_intensity:
+    item: F6b_inf_vs_ctrl
+    measure: vimentin radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F6b_jq1_vs_inf.normalized_intensity:
+    item: F6b_jq1_vs_inf
+    measure: vimentin radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F7c_ctrl_01.normalized_intensity:
+    item: F7c_ctrl_01
+    measure: αSA radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F7c_ctrl_1.normalized_intensity:
+    item: F7c_ctrl_1
+    measure: αSA radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F7c_inf_01.normalized_intensity:
+    item: F7c_inf_01
+    measure: αSA radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  F7c_inf_1.normalized_intensity:
+    item: F7c_inf_1
+    measure: αSA radial density (integrated intensity)
+    formula: not stated
+    anchor: not stated
+    no_formula: normalization of the integrated intensity (to what) is not stated; only the radius is stated as normalised
+      to 1
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: integrated intensity at each radial position, not printed
+  S1b_hypoxia.tunel_index:
+    item: S1b_hypoxia
+    measure: TUNEL index
+    formula: not stated
+    anchor: not stated
+    no_formula: how the TUNEL index is computed (TUNEL+ nuclei over all nuclei, or stained area) is not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: TUNEL staining per region, not printed
+  S1b_ne.tunel_index:
+    item: S1b_ne
+    measure: TUNEL index
+    formula: not stated
+    anchor: not stated
+    no_formula: how the TUNEL index is computed (TUNEL+ nuclei over all nuclei, or stained area) is not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: TUNEL staining per region, not printed
+  ST3_LDHA.organoid_lfc:
+    item: ST3_LDHA
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: &id004
+      quote: with log-fold change (LFC) relative to study control/sham
+      where: Supplementary Tables 3, 4 and 6 descriptions
+      file: NIHMS1605561-supplement-Supplementary_Information.docx
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST3_LDHA.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST3_LDHA.mouse_lfc:
+    item: ST3_LDHA
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST3_LDHA.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST3_LDHB.organoid_lfc:
+    item: ST3_LDHB
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST3_LDHB.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST3_LDHB.mouse_lfc:
+    item: ST3_LDHB
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST3_LDHB.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_ITGB3.organoid_lfc:
+    item: ST4_ITGB3
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST4_ITGB3.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_ITGB3.mouse_lfc:
+    item: ST4_ITGB3
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST4_ITGB3.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_COL1A1.organoid_lfc:
+    item: ST4_COL1A1
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST4_COL1A1.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_COL1A1.mouse_lfc:
+    item: ST4_COL1A1
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST4_COL1A1.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_TGFB1.organoid_lfc:
+    item: ST4_TGFB1
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST4_TGFB1.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_TGFB1.mouse_lfc:
+    item: ST4_TGFB1
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST4_TGFB1.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_MMP2.organoid_lfc:
+    item: ST4_MMP2
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST4_MMP2.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST4_MMP2.mouse_lfc:
+    item: ST4_MMP2
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST4_MMP2.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_ATP2A2.organoid_lfc:
+    item: ST6_ATP2A2
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST6_ATP2A2.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_ATP2A2.mouse_lfc:
+    item: ST6_ATP2A2
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST6_ATP2A2.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_CACNA1C.organoid_lfc:
+    item: ST6_CACNA1C
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST6_CACNA1C.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_CACNA1C.mouse_lfc:
+    item: ST6_CACNA1C
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST6_CACNA1C.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_RYR2.organoid_lfc:
+    item: ST6_RYR2
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST6_RYR2.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_RYR2.mouse_lfc:
+    item: ST6_RYR2
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST6_RYR2.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_SLC8A1.organoid_lfc:
+    item: ST6_SLC8A1
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the organoid value is estimated by DESeq2 (ref. 89) from counts not
+      printed, and the log base is not stated in the table
+    inputs:
+      x:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+      x0:
+        by_reference:
+          citation: r89
+          anchor:
+            quote: DESeq2 (ref. 89) to perform DE analysis
+            where: Methods, RNA-seq
+        kind: per sample
+    output: ST6_SLC8A1.values.organoid_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+  ST6_SLC8A1.mouse_lfc:
+    item: ST6_SLC8A1
+    measure: log-fold change
+    formula: l = log(x/x0)/log(2)
+    anchor: *id004
+    no_formula: no library entry for a log2 fold change; the mouse value comes from GEO2R (limma) on microarray data (GSE775)
+      not printed, and the log base is not stated in the table
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: mouse MI expression, not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: mouse sham expression, not printed
+    output: ST6_SLC8A1.values.mouse_lfc
+    alternatives:
+    - label: natural log
+      formula: l = log(x/x0)
+assumptions:
+  F4i_modulus.modulus:
+    model: micropipette_aspiration_half_space
+    assumptions:
+      homogeneous isotropic linear elastic material:
+        reported:
+          quote: Under the homogeneous half-space model assumptions
+        note: assumed, not tested; organoids have a necrotic core and a fibrotic edge in the infarct group
+      incompressible material:
+        reported: not stated
+      half-space (sample much larger than the pipette radius):
+        reported:
+          pipette: The micropipettes were pulled to a final inner diameter of approximately 70–80 µm
+          organoid: microtissues (~150 µm radius on D0)
+        note: organoid radius about 150 µm against a pipette radius of about 35-40 µm (ratio about 4)
+      small aspirated length (L small relative to a):
+        reported: not stated
+      equilibrium (elastic) deformation:
+        reported:
+          quote: pictures were recorded until equilibrium deformation was reached (~5 min)
+  S5_fb_cm.modulus:
+    model: micropipette_aspiration_half_space
+    assumptions:
+      homogeneous isotropic linear elastic material:
+        reported:
+          quote: Under the homogeneous half-space model assumptions
+        note: assumed, not tested; organoids have a necrotic core and a fibrotic edge in the infarct group
+      incompressible material:
+        reported: not stated
+      half-space (sample much larger than the pipette radius):
+        reported:
+          pipette: The micropipettes were pulled to a final inner diameter of approximately 70–80 µm
+          organoid: microtissues (~150 µm radius on D0)
+        note: organoid radius about 150 µm against a pipette radius of about 35-40 µm (ratio about 4)
+      small aspirated length (L small relative to a):
+        reported: not stated
+      equilibrium (elastic) deformation:
+        reported:
+          quote: pictures were recorded until equilibrium deformation was reached (~5 min)
+  S5_org_cm.modulus:
+    model: micropipette_aspiration_half_space
+    assumptions:
+      homogeneous isotropic linear elastic material:
+        reported:
+          quote: Under the homogeneous half-space model assumptions
+        note: assumed, not tested; organoids have a necrotic core and a fibrotic edge in the infarct group
+      incompressible material:
+        reported: not stated
+      half-space (sample much larger than the pipette radius):
+        reported:
+          pipette: The micropipettes were pulled to a final inner diameter of approximately 70–80 µm
+          organoid: microtissues (~150 µm radius on D0)
+        note: organoid radius about 150 µm against a pipette radius of about 35-40 µm (ratio about 4)
+      small aspirated length (L small relative to a):
+        reported: not stated
+      equilibrium (elastic) deformation:
+        reported:
+          quote: pictures were recorded until equilibrium deformation was reached (~5 min)
+  S5_orgfb_org.modulus:
+    model: micropipette_aspiration_half_space
+    assumptions:
+      homogeneous isotropic linear elastic material:
+        reported:
+          quote: Under the homogeneous half-space model assumptions
+        note: assumed, not tested; organoids have a necrotic core and a fibrotic edge in the infarct group
+      incompressible material:
+        reported: not stated
+      half-space (sample much larger than the pipette radius):
+        reported:
+          pipette: The micropipettes were pulled to a final inner diameter of approximately 70–80 µm
+          organoid: microtissues (~150 µm radius on D0)
+        note: organoid radius about 150 µm against a pipette radius of about 35-40 µm (ratio about 4)
+      small aspirated length (L small relative to a):
+        reported: not stated
+      equilibrium (elastic) deformation:
+        reported:
+          quote: pictures were recorded until equilibrium deformation was reached (~5 min)
+  S5_orgfb_cm.modulus:
+    model: micropipette_aspiration_half_space
+    assumptions:
+      homogeneous isotropic linear elastic material:
+        reported:
+          quote: Under the homogeneous half-space model assumptions
+        note: assumed, not tested; organoids have a necrotic core and a fibrotic edge in the infarct group
+      incompressible material:
+        reported: not stated
+      half-space (sample much larger than the pipette radius):
+        reported:
+          pipette: The micropipettes were pulled to a final inner diameter of approximately 70–80 µm
+          organoid: microtissues (~150 µm radius on D0)
+        note: organoid radius about 150 µm against a pipette radius of about 35-40 µm (ratio about 4)
+      small aspirated length (L small relative to a):
+        reported: not stated
+      equilibrium (elastic) deformation:
+        reported:
+          quote: pictures were recorded until equilibrium deformation was reached (~5 min)
+  S11d_modulus.modulus:
+    model: micropipette_aspiration_half_space
+    assumptions:
+      homogeneous isotropic linear elastic material:
+        reported:
+          quote: Under the homogeneous half-space model assumptions
+        note: assumed, not tested; organoids have a necrotic core and a fibrotic edge in the infarct group
+      incompressible material:
+        reported: not stated
+      half-space (sample much larger than the pipette radius):
+        reported:
+          pipette: The micropipettes were pulled to a final inner diameter of approximately 70–80 µm
+          organoid: microtissues (~150 µm radius on D0)
+        note: organoid radius about 150 µm against a pipette radius of about 35-40 µm (ratio about 4)
+      small aspirated length (L small relative to a):
+        reported: not stated
+      equilibrium (elastic) deformation:
+        reported:
+          quote: pictures were recorded until equilibrium deformation was reached (~5 min)
+bounds:
+- item: F2cd_pca
+  value: F2cd_pca.values.pc1
+  formula: fraction_bounds
+- item: F2cd_pca
+  value: F2cd_pca.values.pc2
+  formula: fraction_bounds
+- item: F2cd_pca
+  value: F2cd_pca.values.pc3
+  formula: fraction_bounds
+- item: F2cd_pca
+  value: F2cd_pca.values.pc4
+  formula: fraction_bounds
+- item: S9_pca
+  value: S9_pca.values.pc1
+  formula: fraction_bounds
+- item: S9_pca
+  value: S9_pca.values.pc2
+  formula: fraction_bounds
+- item: S10_pca
+  value: S10_pca.values.pc1
+  formula: fraction_bounds
+- item: S10_pca
+  value: S10_pca.values.pc2
+  formula: fraction_bounds
+- item: S10_pca
+  value: S10_pca.values.pc3
+  formula: fraction_bounds
+- item: S10_pca
+  value: S10_pca.values.pc4
+  formula: fraction_bounds
+proposals:
+- formula: micropipette_aspiration_half_space
+  kind: model
+  statement: Aspirating a homogeneous, incompressible, linear elastic half-space into a micropipette of inner radius a under
+    a pressure difference dp draws in a length L, giving E = 3*a*dp*Phi/(2*pi*L), with Phi a wall function of the pipette
+    geometry (about 2.0-2.1).
+  equations:
+  - E = 3*a*dp*Phi/(2*pi*L)
+  variables:
+    E: modulus
+    a: length
+    dp: pressure
+    Phi: dimensionless
+    L: length
+  assumes:
+  - homogeneous isotropic linear elastic material
+  - incompressible material
+  - half-space (sample much larger than the pipette radius)
+  - small aspirated length (L small relative to a)
+  - equilibrium (elastic) deformation
+  does_not_apply: a sample comparable in size to the pipette or a thin layer (not a half-space), a large aspirated length,
+    or a viscoelastic creep reading taken before equilibrium
+  tests:
+  - given:
+      a: 1.0
+      dp: 1.0
+      Phi: 2.1
+      L: 1.0
+    expect:
+      E: 1.0026761414789407
+  - given:
+      a: 3.75e-05
+      dp: 3900.0
+      Phi: 2.1
+      L: 5.0e-05
+    expect:
+      E: 2932.82771382
+  - given:
+      a: 3.75e-05
+      dp: 3900.0
+      Phi: 2.1
+      L: 0.0002
+    does_not_apply: 'aspirated length several times the pipette radius: outside the small-deformation half-space solution'
+  cites:
+    text: Theret, D. P., Levesque, M. J., Sato, M., Nerem, R. M. & Wheeler, L. T. The application of a homogeneous half-space
+      model in the analysis of endothelial cell micropipette measurements. J. Biomech. Eng. 110, 190-199 (1988)
+    anchor:
+      quote: Under the homogeneous half-space model assumptions
+      where: Methods, Mechanical testing using micropipette aspiration

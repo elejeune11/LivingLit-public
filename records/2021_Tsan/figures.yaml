@@ -1,0 +1,19 @@
+figures:
+  s5b_frequency:
+    file: 41467_2021_26496_MOESM1_ESM.pdf
+    page: 9
+    crop: [262, 98, 410, 216]
+    script: figures/s5b_frequency.py
+    unit: S5
+    kind: raster
+    groups:
+      WTC: {item: S5_freq, group: wtc, unit_of_value: Hz}
+      MR18: {item: S5_freq, group: mr18, unit_of_value: Hz}
+      MR30: {item: S5_freq, group: mr30, unit_of_value: Hz}
+      MR48: {item: S5_freq, group: mr48, unit_of_value: Hz}
+    note: >-
+      Raster image embedded at 300 dpi; tick labels are pixels, so tick marks are found in the image and matched to the
+      printed labels 0.0-1.5. Markers overlap each other and the bars, so no points and no n. The legend does not name
+      the line or the error bar; the bars are symmetric about the line (WTC, MR18, MR30), as for mean ± SD, so they are
+      stored as mean and upper error end. In Supplemental Fig. 5a (no error bars) the line matches each line's median in
+      the source data, not its mean.

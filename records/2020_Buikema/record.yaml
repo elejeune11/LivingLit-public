@@ -1,0 +1,5444 @@
+id: 2020_Buikema
+field_set: 3
+source:
+  title: Wnt Activation and Reduced Cell-Cell Contact Synergistically Induce Massive Expansion of Functional
+    Human iPSC-Derived Cardiomyocytes
+  doi: 10.1016/j.stem.2020.06.001
+  year: '2020'
+  first_author: Jan W. Buikema
+  last_author: Sean M. Wu
+  lab: Sean Wu lab, Cardiovascular Institute, Stanford University School of Medicine
+  journal: Cell Stem Cell
+  files:
+  - journal_version.pdf
+  - mmc1.pdf
+  missing:
+  - Video S1
+  - Video S2
+  - Video S3
+  - Video S4
+  - Video S5
+  - Video S6
+  not_used:
+  - file: mmc8.pdf
+    why: 'Document S2: the article and the supplemental information in one PDF; its text duplicates journal_version.pdf
+      and mmc1.pdf'
+default_context:
+  differentiation_factors: CHIR99021 + Wnt-C59
+  hipsc_medium: DMEM/F12 + essential eight (E8)
+  hipsc_coating:
+    value: Matrigel
+    qualifiers:
+      dilution: 1:400
+  wnt_activation_days: day 0-2
+  wnt_inhibition_days: day 3-5
+  insulin_day: day 7
+  confluency: not stated
+  purification: not stated
+  purity_method: not stated
+  purity: not stated
+  cm_medium: RPMI 1640 + B27
+  supplements: Knock Out Replacement Serum + Thiozovivin
+  dissociation_reagent: TrypLE Select Enzyme
+  cell_types: hiPSC-CMs
+  stromal_cell: not stated
+  endothelial_cell: not stated
+  composition: not stated
+  maturation_strategy: not stated
+  genotype: healthy control line
+  disease_model: none
+  species: human
+  donor_age: not stated
+  culture_calcium_mM: not stated
+  pacing: not stated
+units:
+  F1BF:
+    where: Fig. 1B–1F
+    title: GSK-3b Inhibition Promotes hiPSC-CM Proliferation in a Cell Density-Dependent Manner
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      nopsg:
+        label: cultured without passaging
+        context:
+          seeding_density: 500,000 to 1,000,000 cells/cm2
+        other_conditions:
+        - text: cultured without passaging
+          anchor:
+            quote: cultured without passaging (500,000 to 1,000,000 cells/cm2) in the presence of CHIR99021
+              (CHIR) (2.0 mM)
+            where: Fig. 1A legend
+      dense:
+        label: plated densely
+        context:
+          seeding_density: 100,000 cells/cm2
+      sparse:
+        label: plated sparsely
+        context:
+          seeding_density: 10,000 cells/cm2
+    anchor:
+      quote: GSK-3b Inhibition Promotes hiPSC-CM Proliferation in a Cell Density-Dependent Manner
+      where: Fig. 1 title
+  F1GI:
+    where: Fig. 1G–1I
+    title: Illustration of conditioned media collection of densely cultured cells, subsequent factor concentration,
+      and application to sparsely cultured hiPSC-CMs
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      fresh:
+        label: Fresh B27+CHIR
+        context:
+          treatment: &id001
+            value: CHIR99021
+            qualifiers:
+              concentration: 2.0 mM
+      cm1x:
+        label: Fresh B27+CHIR + 1x C/M (Dense)
+        context:
+          treatment:
+            value: fresh expansion media (B27 + CHIR) + concentrated factors
+            qualifiers:
+              ratio: 1x
+      cm01x:
+        label: Fresh B27+CHIR + 0.1x C/M (Dense)
+        context:
+          treatment:
+            value: fresh expansion media (B27 + CHIR) + concentrated factors
+            qualifiers:
+              ratio: 0.1x
+      cm001x:
+        label: Fresh B27+CHIR + 0.01x C/M (Dense)
+        context:
+          treatment:
+            value: fresh expansion media (B27 + CHIR) + concentrated factors
+            qualifiers:
+              ratio: 0.01x
+    anchor:
+      quote: Illustration of conditioned media collection of densely cultured cells, subsequent factor
+        concentration, and application to sparsely cultured hiPSC-CMs
+      where: Fig. 1G legend
+  F1JN:
+    where: Fig. 1J–1N
+    title: Schematic of culturing the fixed number of hiPSC-CMs in dense or sparse condition
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 100,000 hiPSC-CMs
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      dense:
+        label: Dense
+        context:
+          platform: 48-well-plate
+      sparse:
+        label: Sparse
+        context:
+          platform: 6-well-plate
+    anchor:
+      quote: Schematic of culturing the fixed number of hiPSC-CMs in dense or sparse condition
+      where: Fig. 1J legend
+  F2CE:
+    where: Fig. 2C and 2E
+    title: GSK-3b Inhibition and Long-Term Low-Density Passaging Results in Massive Expansion of Beating
+      hiPSC-CMs
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: not stated
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+    anchor:
+      quote: GSK-3b Inhibition and Long-Term Low-Density Passaging Results in Massive Expansion of Beating
+        hiPSC-CMs
+      where: Fig. 2 title
+  F2FH:
+    where: Fig. 2F and 2H
+    title: Graph displaying the expansion for multiple passages (P) of low-density cultured and CHIR-treated
+      CMs derived from four different hiPSC lines
+    context:
+      number_of_lines: four lines
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: not stated
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      cvi111:
+        label: CVI-111
+        context:
+          cell_line: CVI-111
+      cvi113:
+        label: CVI-113
+        context:
+          cell_line: CVI-113
+      cvi202:
+        label: CVI-202
+        context:
+          cell_line: CVI-202
+      cvi273:
+        label: CVI-273
+        context:
+          cell_line: CVI-273
+    anchor:
+      quote: Graph displaying the expansion for multiple passages (P) of low-density cultured and CHIR-treated
+        CMs derived from four different hiPSC lines
+      where: Fig. 2F legend
+  F2IJ:
+    where: Fig. 2I and 2J
+    title: Representative flow cytometry plots of TnT expression (green) and unstained controls (gray)
+      in DMSO (CTR) and CHIR-treated cells over multiple passaging
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: dispersed with TrypLE Select Enzyme
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+    anchor:
+      quote: Representative flow cytometry plots of TnT expression (green) and unstained controls (gray)
+        in DMSO (CTR) and CHIR-treated cells over multiple passaging
+      where: Fig. 2I legend
+  F2L:
+    where: Fig. 2K and 2L
+    title: Quantification of proliferating hiPSC-CMs at distinct mitotic phases
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      chir:
+        label: P3 (after day 28) CHIR-treated hiPSC-CMs
+        context: {}
+    anchor:
+      quote: Quantification of proliferating hiPSC-CMs at distinct mitotic phases from (K)
+      where: Fig. 2L legend
+  F3BE:
+    where: Fig. 3B–3E
+    title: Phenotypic Assessment of hiPSC-CMs following GSK-3b Inhibition and Removal of Contact Inhibition
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: micro-patterned Matrigel
+      platform: micropatterned surfaces
+      substrate:
+        value: polyacrylamide hydrogel
+        qualifiers:
+          stiffness: 10 kPa
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: single cells
+      day_of_measurement: D35
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment:
+            value: DMSO
+            qualifiers:
+              dilution: 1:5000
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_c59:
+        label: CHIR > C59
+        context:
+          treatment:
+            value: CHIR followed by C59
+            qualifiers:
+              concentration: 2.0 mM
+    anchor:
+      quote: Phenotypic Assessment of hiPSC-CMs following GSK-3b Inhibition and Removal of Contact Inhibition
+      where: Fig. 3 title
+  F3GH:
+    where: Fig. 3F–3H
+    title: Ca2+ transients (Fluo-4AM) fluorescence expressed relative to baseline (F/F0) in hiPSC-CMs
+      at day (D) 42
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: Matrigel
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: 37 C
+      measurement_calcium_mM: 2 mM
+      measurement_medium: extracellular solution
+      preparation: single cells
+      day_of_measurement: D42
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_c59:
+        label: CHIR > C59
+        context:
+          treatment:
+            value: CHIR followed by C59
+            qualifiers:
+              concentration: 2.0 mM
+    anchor:
+      quote: Ca2+ transients (Fluo-4AM) fluorescence expressed relative to baseline (F/F0) in hiPSC-CMs
+        at day (D) 42
+      where: Fig. 3F legend
+  F3IK:
+    where: Fig. 3I–3K
+    title: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic
+      genes (K) at the indicated days
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: cell lysate
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_ctr:
+        label: CHIR withdraw (CHIR > CTR)
+        context:
+          treatment: CHIR followed by CHIR withdraw
+      chir_c59:
+        label: CHIR > C59
+        context:
+          treatment:
+            value: CHIR followed by C59
+            qualifiers:
+              concentration: 2.0 mM
+    anchor:
+      quote: Fold increases in the expression of sarcomere (I), electrophysiological (J), and metabolic
+        genes (K) at the indicated days
+      where: Fig. 3I-3K legend
+  F3LP:
+    where: Fig. 3L–3P
+    title: UMAP plots of day 12 hiPSC-CMs treated with DMSO (1:2,500) (gray), CHIR (4.0 mM) (yellow),
+      or C59 (4.0 mM) (black) for 24 h
+    context:
+      cell_line: CVI-273
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: dispersed with TrypLE Select Enzyme
+      day_of_measurement: day 12
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 24 h
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment:
+            value: DMSO
+            qualifiers:
+              dilution: 1:2,500
+      chir:
+        label: CHIR
+        context:
+          treatment:
+            value: CHIR99021
+            qualifiers:
+              concentration: 4.0 mM
+      c59:
+        label: C59
+        context:
+          treatment:
+            value: C59
+            qualifiers:
+              concentration: 4.0 mM
+    anchor:
+      quote: UMAP plots of day 12 hiPSC-CMs treated with DMSO (1:2,500) (gray), CHIR (4.0 mM) (yellow),
+        or C59 (4.0 mM) (black) for 24 h
+      where: Fig. 3L legend
+  F4AB:
+    where: Fig. 4A and 4B
+    title: Density-Dependent CHIR-Induced hiPSC-CM Proliferation Is Uncoupled from YAP Activity
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      dense:
+        label: Dense
+        context:
+          platform: 48-well-plate
+      sparse:
+        label: Sparse
+        context:
+          platform: 6-well-plate
+    anchor:
+      quote: Density-Dependent CHIR-Induced hiPSC-CM Proliferation Is Uncoupled from YAP Activity
+      where: Fig. 4 title
+  F4DG:
+    where: Fig. 4D–4G
+    title: Immunofluorescence for Ki67 (green), TnT (cyan), and nuclei (red) in hiPSC-CMs cultured on
+      substrates with varying stiffness (kPa) or on tissue culture plastic (TCP) (GPa)
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: day 24
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      s1:
+        label: Sparse 1 kPa
+        context:
+          substrate:
+            value: polyacrylamide hydrogel
+            qualifiers:
+              stiffness: 1 kPa
+      s10:
+        label: Sparse 10 kPa
+        context:
+          substrate:
+            value: polyacrylamide hydrogel
+            qualifiers:
+              stiffness: 10 kPa
+      s60:
+        label: Sparse 60 kPa
+        context:
+          substrate:
+            value: polyacrylamide hydrogel
+            qualifiers:
+              stiffness: 60 kPa
+      tcp:
+        label: Sparse (TCP)
+        context:
+          substrate: tissue culture plastic (TCP)
+    anchor:
+      quote: Immunofluorescence for Ki67 (green), TnT (cyan), and nuclei (red) in hiPSC-CMs cultured on
+        substrates with varying stiffness (kPa) or on tissue culture plastic (TCP) (GPa)
+      where: Fig. 4D legend
+    other_conditions:
+    - text: cultured in expansion media (B27+CHIR 2mM) for 5 days before fixation
+      anchor:
+        quote: Day 24 hiPSC-CMs were plated on the hydrogel substrate and cultured in expansion media
+          (B27+CHIR 2mM) for 5 days before fixation
+        where: Methods, Biophysical effect examination using hydrogel substrate
+  F4HK:
+    where: Fig. 4H–4K
+    title: YAP localization in hiPSC-CMs cultured in sparse or dense culture conditions with or without
+      YAP inhibitor Verteporfin
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: day 22
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 24 hours
+      mechanical_load: not stated
+    groups:
+      dense_dmso:
+        label: Dense - DMSO
+        context:
+          treatment: DMSO
+          platform: 48-well-plate
+      sparse_dmso:
+        label: Sparse - DMSO
+        context:
+          treatment: DMSO
+          platform: 6-well-plate
+      vp01:
+        label: Sparse - 0.1uM
+        context:
+          treatment:
+            value: Verteporfin
+            qualifiers:
+              concentration: 0.1 mM
+          platform: 6-well-plate
+      vp1:
+        label: Sparse - 1 uM
+        context:
+          treatment:
+            value: Verteporfin
+            qualifiers:
+              concentration: 1 mM
+          platform: 6-well-plate
+      vp10:
+        label: Sparse - 10 uM
+        context:
+          treatment:
+            value: Verteporfin
+            qualifiers:
+              concentration: 10 mM
+          platform: 6-well-plate
+    anchor:
+      quote: YAP localization in hiPSC-CMs cultured in sparse or dense culture conditions with or without
+        YAP inhibitor Verteporfin
+      where: Fig. 4H and 4I legend
+  F5AC:
+    where: Fig. 5A–5C
+    title: CHIR and Low-Density Plating Activate b-Catenin and AKT Signaling to Enhance hiPSC-CM Proliferation
+      via Cyclin D2-Dependent Kinases
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_pnu:
+        label: CHIR + PNU74654
+        context:
+          treatment:
+            value: CHIR99021 + PNU74654
+            qualifiers:
+              concentration: 2.0 mM
+              pnu_concentration: 32 mM
+    anchor:
+      quote: CHIR and Low-Density Plating Activate b-Catenin and AKT Signaling to Enhance hiPSC-CM Proliferation
+        via Cyclin D2-Dependent
+      where: Fig. 5 title
+  F5D:
+    where: Fig. 5D and Fig. S4A
+    title: A mini-screen of 43 kinase targets after CHIR treatment demonstrated an increase in phosphorylation
+      (p) levels at AKT, HSP27, and others
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: not stated
+      day_of_measurement: day 12
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+          time_point: not applicable
+      t10:
+        label: CHIR t=10min
+        context:
+          treatment:
+            value: CHIR99021
+            qualifiers:
+              concentration: 4.0 mM
+          time_point: t=10min
+      t100:
+        label: CHIR t=100min
+        context:
+          treatment:
+            value: CHIR99021
+            qualifiers:
+              concentration: 4.0 mM
+          time_point: t=100min
+    anchor:
+      quote: A mini-screen of 43 kinase targets after CHIR treatment demonstrated an increase in phosphorylation
+        (p) levels at AKT, HSP27, and others
+      where: Fig. 5D legend
+  F5EF:
+    where: Fig. 5E and 5F
+    title: Confirmation of AKT T308 phosphorylation by western blot
+    context:
+      cell_line: CVI-111, CVI-273
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: not stated
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+    anchor:
+      quote: Confirmation of AKT T308 phosphorylation by western blot
+      where: Fig. 5E legend
+  F5GK:
+    where: Fig. 5G–5K
+    title: Immunofluorescence analysis for pAKT T308 expression in TnT+ (green) day 20 hiPSC-CMs cultured
+      for 6 days with the indicated treatment
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: day 20
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 6 days
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_mk:
+        label: CHIR + MK2206
+        context:
+          treatment:
+            value: CHIR99021 + MK2206
+            qualifiers:
+              concentration: 2.0 mM
+              mk2206_concentration: 1.0 mM
+      mk:
+        label: MK2206
+        context:
+          treatment:
+            value: MK2206
+            qualifiers:
+              concentration: 1.0 mM
+    anchor:
+      quote: Immunofluorescence analysis for pAKT T308 expression in TnT+ (green) day 20 hiPSC-CMs cultured
+        for 6 days with the indicated treatment
+      where: Fig. 5G legend
+  F5MN:
+    where: Fig. 5M and 5N
+    title: Immunofluorescence analysis for cyclin D2 (CCND2) (pink) expression in TnT+ (green) day 20
+      hiPSC-CMs cultured for 6 days with the indicated compounds
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: day 20
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 6 days
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_mk:
+        label: CHIR + MK2206
+        context:
+          treatment:
+            value: CHIR99021 + MK2206
+            qualifiers:
+              concentration: 2.0 mM
+              mk2206_concentration: 1.0 mM
+      chir_pnu:
+        label: CHIR + PNU74654
+        context:
+          treatment:
+            value: CHIR99021 + PNU74654
+            qualifiers:
+              concentration: 2.0 mM
+              pnu_concentration: 32 mM
+    anchor:
+      quote: Immunofluorescence analysis for cyclin D2 (CCND2) (pink) expression in TnT+ (green) day 20
+        hiPSC-CMs cultured for 6 days with the indicated compounds
+      where: Fig. 5M legend
+  F5OP:
+    where: Fig. 5O and 5P
+    title: Immunofluorescence analysis for phospho histone H3 (pHH3) (pink) and TnT (green) expression
+      at day 20 hiPSC-CMs cultured for 6 days with the indicated compounds
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: day 20
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 6 days
+      mechanical_load: not stated
+    groups:
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_palbo:
+        label: CHIR + Palbociclib
+        context:
+          treatment:
+            value: CHIR99021 + Palbociclib
+            qualifiers:
+              concentration: 2.0 mM
+              palbociclib_concentration: 1.0 mM
+    anchor:
+      quote: Immunofluorescence analysis for phospho histone H3 (pHH3) (pink) and TnT (green) expression
+        at day 20 hiPSC-CMs cultured for 6 days with the indicated compounds
+      where: Fig. 5O legend
+  F6AB:
+    where: Fig. 6A and 6B
+    title: Long-Term GSK-3b Inhibition with Low-Density Plating Does Not Preclude hiPSC-CMs Terminal Differentiation
+      and Maturation in Functional Cardiac Tissue
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: cell lysate
+      day_of_measurement: D42
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      p1_ctr:
+        label: P1 CTR
+        context:
+          treatment: DMSO
+      p4_chir_ctr:
+        label: P4 CHIR>CTR
+        context:
+          treatment: CHIR followed by CHIR withdraw
+    anchor:
+      quote: Long-Term GSK-3b Inhibition with Low-Density Plating Does Not Preclude hiPSC-CMs Terminal
+        Differentiation and Maturation in Functional Cardiac Tissue
+      where: Fig. 6 title
+  F6CG:
+    where: Fig. 6C–6G
+    title: Bright-field images of engineered heart tissues produced from non-expanded or P4 expanded hiPSC-CMs
+      at D42 and further cultured for 25 days
+    context:
+      cell_line: CVI-111, CVI-273
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: Engineered Heart Tissues
+      substrate: bovine fibrinogen + Matrigel
+      cm_day_at_formation: D42
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: culture medium
+      preparation: muscle strip
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 1x106 cardiomyocytes each
+      incubator_atmosphere: 21% oxygen, 7% CO2
+      time_point: not applicable
+      mechanical_load:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Engineered Heart Tissues were with small modifications generated as described previously
+            where: Methods, Cardiac tissue generation
+    groups:
+      nonexp:
+        label: Non-Expanded
+        context:
+          treatment: DMSO
+      p4exp:
+        label: P4 CHIR>CTR
+        context:
+          treatment: CHIR followed by CHIR withdraw
+    anchor:
+      quote: Bright-field images of engineered heart tissues produced from non-expanded or P4 expanded
+        hiPSC-CMs at D42 and further cultured for 25 days
+      where: Fig. 6C legend
+    other_conditions:
+    - text: culture medium containing 10% horse serum, 1% penicillin/streptomycin, 10 mg/ml insulin and
+        33 mg/ml aprotinin
+      anchor:
+        quote: culture medium (Dulbecco's modified Eagle's medium) containing 10% horse serum, 1% penicillin/streptomycin,
+          10 mg/ml insulin and 33 mg/ml aprotinin
+        where: Methods, Cardiac tissue generation
+  S1A:
+    where: Fig. S1A
+    title: Pluripotent, cardiac mesoderm, cardiac progenitor and cardiomyocyte transcription factor expression
+      during hiPSC-CM differentiation
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: not applicable
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: cell lysate
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+    anchor:
+      quote: Pluripotent, cardiac mesoderm, cardiac progenitor and cardiomyocyte transcription factor
+        expression during hiPSC-CM differentiation
+      where: Fig. S1A legend
+      file: mmc1.pdf
+  S1BC:
+    where: Fig. S1B and S1C
+    title: Immunofluorescence images and graphs displaying Islet-1 (ISL1) or Caspase 3 and cardiac troponin
+      T (TnT) positive cells at day 14
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: day 14
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+    anchor:
+      quote: Islet-1 (ISL1) (red) or (C) Caspase 3 (red) and cardiac troponin T (TnT) positive cells at
+        day 14
+      where: Fig. S1B and S1C legend
+      file: mmc1.pdf
+  S1D:
+    where: Fig. S1D
+    title: Graph displaying the fold increase in cell numbers of freshly differentiated or cryopreserved
+      hiPSC-CMs sparsely cultured with CHIR for multiple passages (P)
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: not stated
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      fresh:
+        label: Freshly differentiated
+        context: {}
+        other_conditions:
+        - text: freshly differentiated
+          anchor:
+            quote: the fold increase in cell numbers of freshly differentiated or cryopreserved hiPSC-CMs
+              sparsely cultured with CHIR for multiple passages
+            where: Fig. S1D legend
+            file: mmc1.pdf
+      cryo:
+        label: Cryopreserved
+        context: {}
+        other_conditions:
+        - text: cryopreserved
+          anchor:
+            quote: the fold increase in cell numbers of freshly differentiated or cryopreserved hiPSC-CMs
+              sparsely cultured with CHIR for multiple passages
+            where: Fig. S1D legend
+            file: mmc1.pdf
+    anchor:
+      quote: Graph displaying the fold increase in cell numbers of freshly differentiated or cryopreserved
+        hiPSC-CMs sparsely cultured with CHIR for multiple passages (P)
+      where: Fig. S1D legend
+      file: mmc1.pdf
+  S1E:
+    where: Fig. S1E
+    title: Expression of ki67, a cell-cycle index, in TnT+ cells after treatment with CHIR or DMSO (CTR)
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: 10,000 cells/cm2
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+    anchor:
+      quote: Expression of ki67, a cell-cycle index, in TnT+ cells after treatment with CHIR or DMSO (CTR)
+      where: Fig. S1E legend
+      file: mmc1.pdf
+  S1FG:
+    where: Fig. S1F and S1G
+    title: Quantification of hiPS-derived eGFP-anillin+ CMs treated with either vehicle (CTR) or CHIR
+    context:
+      cell_line: iLB-C1-30 m-r12
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: eGFP-anillin expression cassette
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+    anchor:
+      quote: Quantification of hiPS-derived eGFP-anillin+ CMs treated with either vehicle (CTR) or CHIR
+      where: Fig. S1G legend
+      file: mmc1.pdf
+  S1HI:
+    where: Fig. S1H and S1I
+    title: Quantification of bi-nucleation and Ki67 expression as a percentage of total cells
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 9 days
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: DMSO
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+      chir_c59:
+        label: CHIR>C59
+        context:
+          treatment:
+            value: CHIR followed by C59
+            qualifiers:
+              concentration: 4.0 mM
+    anchor:
+      quote: Quantification of (H) bi-nucleation and (I) Ki67 expression (i.e. cell cycle index) as a
+        percentage of total cells
+      where: Fig. S1H and S1I legend
+      file: mmc1.pdf
+  S3:
+    where: Fig. S3
+    title: Confirmation of Wnt signaling at the receptor level to induce immature hiPSC-CM proliferation
+      and mature hiPSC-CM cell cycle activity
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: D18
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: 6 days
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          treatment: media alone
+      rspo:
+        label: RSPO
+        context:
+          treatment:
+            value: RSPO
+            qualifiers:
+              concentration: 25 nM
+      dkk:
+        label: scFv-DKK1c
+        context:
+          treatment:
+            value: scFv-DKK1c
+            qualifiers:
+              concentration: 200 nM
+      wnt3a:
+        label: Wnt3A
+        context:
+          treatment:
+            value: Wnt3A
+            qualifiers:
+              concentration: 100 ng/mL
+      dkk_rspo:
+        label: scFv-DKK1c + RSPO
+        context:
+          treatment:
+            value: scFv-DKK1c + RSPO
+            qualifiers:
+              concentration: 200 nM
+              rspo_concentration: 25 nM
+      chir:
+        label: CHIR
+        context:
+          treatment: *id001
+    anchor:
+      quote: Confirmation of Wnt signaling at the receptor level to induce immature hiPSC-CM proliferation
+        and mature hiPSC-CM cell cycle activity
+      where: Fig. S3 legend
+      file: mmc1.pdf
+  S5AE:
+    where: Fig. S5A–S5E
+    title: Treatment of mice with CHIR results in increased myocardial cell-division in the late embryonic
+      but not the postnatal heart
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          species: mice
+          preparation: heart sections
+          treatment: DMSO
+          donor_age: E20.5
+        kind: native tissue
+      chir:
+        label: CHIR
+        context:
+          species: mice
+          preparation: heart sections
+          treatment: CHIR99021 50mg/kg
+          donor_age: E20.5
+        kind: native tissue
+    anchor:
+      quote: Treatment of mice with CHIR results in increased myocardial cell-division in the late embryonic
+        but not the postnatal heart
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  S5FG:
+    where: Fig. S5F and S5G
+    title: Immunofluorescence in postnatal day 10 (P10) animals treated for 6 days with a once-daily injection
+      of CHIR 50mg/kg or CTR
+    context:
+      cell_line: CVI-111
+      number_of_lines: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cm_day_at_formation: day 12
+      treatment:
+        value: CHIR99021
+        qualifiers:
+          concentration: 2.0 mM
+      temperature: not stated
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      preparation: fixed
+      day_of_measurement: not stated
+      transgene: not stated
+      seeding_density: not stated
+      incubator_atmosphere: not stated
+      time_point: not applicable
+      mechanical_load: not stated
+    groups:
+      ctr:
+        label: CTR
+        context:
+          species: mice
+          preparation: heart sections
+          treatment: DMSO
+          donor_age: postnatal day 10 (P10)
+        kind: native tissue
+      chir:
+        label: CHIR
+        context:
+          species: mice
+          preparation: heart sections
+          treatment: CHIR99021 50mg/kg
+          donor_age: postnatal day 10 (P10)
+        kind: native tissue
+    anchor:
+      quote: Immunofluorescence in postnatal day 10 (P10) animals treated for 6 days with a once-daily
+        injection of CHIR 50mg/kg or CTR
+      where: Fig. S5F legend
+      file: mmc1.pdf
+evidence:
+  F1B_sparse:
+    unit: F1BF
+    measure: fold increase in cell number
+    finding: with low-density passaging the cell number rose 8-, 8- and 4-fold per passage, 241-fold overall
+    anchor:
+      quote: When hiPSC-CMs were passaged at low density, the total cell number increased by 8-, 8-, and
+        4-fold at each passage, resulting overall in a 241-fold increase in hiPSC-CM number
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+    groups:
+    - sparse
+    values:
+      fold_first:
+        printed: '8'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        group: sparse
+        expressed_as: fold
+      fold_second:
+        printed: '8'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        group: sparse
+        expressed_as: fold
+      fold_third:
+        printed: '4'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        group: sparse
+        expressed_as: fold
+      fold_overall:
+        printed: '241'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        group: sparse
+        expressed_as: fold
+    n:
+      printed: 4-8 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1B_dense:
+    unit: F1BF
+    measure: fold increase in cell number
+    finding: without passaging and with dense passaging the increase was about 10-fold over three passages
+    anchor:
+      quote: at the end of three passages or 3 weeks, the number increase was 10-fold
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+    groups:
+    - dense
+    - nopsg
+    values:
+      fold_10:
+        printed: '10'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        over:
+        - dense
+        - nopsg
+        expressed_as: fold
+    n:
+      printed: 4-8 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1D_sparse_nopsg:
+    unit: F1BF
+    measure: Ki67+/TnT+ (%)
+    finding: proliferating cardiomyocytes compared between passaging densities
+    anchor: &id002
+      quote: data are mean ± SEM. *p < 0.05, ****p < 0.001, and n.s. (p > 0.05) by one-way ANOVA with
+        Tukey's post hoc multiple-comparisons test
+      where: Fig. 1B, 1D, 1F legend
+    compares:
+    - sparse
+    - nopsg
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA with Tukey's post hoc multiple-comparisons test
+      p: '****p < 0.001'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1D_dense_nopsg:
+    unit: F1BF
+    measure: Ki67+/TnT+ (%)
+    finding: proliferating cardiomyocytes compared between passaging densities
+    anchor: *id002
+    compares:
+    - dense
+    - nopsg
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA with Tukey's post hoc multiple-comparisons test
+      p: n.s. (p > 0.05)
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1D_sparse_dense:
+    unit: F1BF
+    measure: Ki67+/TnT+ (%)
+    finding: proliferating cardiomyocytes compared between passaging densities
+    anchor: *id002
+    compares:
+    - sparse
+    - dense
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA with Tukey's post hoc multiple-comparisons test
+      p: P < 0.05 (Methods)
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+    suspected_error:
+      what: the panel marks this pair ***
+      why: the legend defines only * (p < 0.05) and **** (p < 0.001), so *** has no stated threshold
+  F1F_text:
+    unit: F1BF
+    measure: pHH3+/TnT+ (%)
+    finding: mitotic fraction stayed at 1% without passaging and at high density and rose to 10% at low
+      density
+    anchor:
+      quote: the fraction of mitotic CMs was at 1% without passaging and remained at 1% upon passaging
+        at high cell density
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+    groups:
+    - nopsg
+    - dense
+    - sparse
+    values:
+      pct_nopsg:
+        printed: '1'
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: nopsg
+      pct_dense:
+        printed: '1'
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: dense
+      pct_sparse:
+        printed: '10'
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: sparse
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1F_sparse_nopsg:
+    unit: F1BF
+    measure: pHH3+/TnT+ (%)
+    finding: mitotic cardiomyocytes compared between passaging densities
+    anchor: *id002
+    compares:
+    - sparse
+    - nopsg
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA with Tukey's post hoc multiple-comparisons test
+      p: P < 0.05 (Methods)
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+    suspected_error:
+      what: the panel marks this pair **
+      why: the legend defines only * (p < 0.05) and **** (p < 0.001)
+  F1F_dense_nopsg:
+    unit: F1BF
+    measure: pHH3+/TnT+ (%)
+    finding: mitotic cardiomyocytes compared between passaging densities
+    anchor: *id002
+    compares:
+    - dense
+    - nopsg
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA with Tukey's post hoc multiple-comparisons test
+      p: n.s. (p > 0.05)
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1F_sparse_dense:
+    unit: F1BF
+    measure: pHH3+/TnT+ (%)
+    finding: mitotic cardiomyocytes compared between passaging densities
+    anchor: *id002
+    compares:
+    - sparse
+    - dense
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA with Tukey's post hoc multiple-comparisons test
+      p: P < 0.05 (Methods)
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+    suspected_error:
+      what: the panel marks this pair **
+      why: the legend defines only * (p < 0.05) and **** (p < 0.001)
+  F1I_omnibus:
+    unit: F1GI
+    measure: Ki67+/TnT+ (%)
+    finding: conditioned media from dense cultures did not change the proportion of Ki67-expressing hiPSC-CMs
+    anchor:
+      quote: Data are mean ± SEM. n.s. (p > 0.05) by one-way ANOVA Dunnett's post hoc multiple comparisons
+        with control
+      where: Fig. 1I legend
+    compares:
+    - fresh
+    - cm1x
+    - cm01x
+    - cm001x
+    test_of: omnibus
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA Dunnett's post hoc multiple comparisons
+      p: n.s. (p > 0.05)
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1L:
+    unit: F1JN
+    measure: Ki67+/TnT+ (%)
+    finding: densely plated hiPSC-CMs had a lower proliferative fraction than sparsely plated cells
+    anchor: &id003
+      quote: Data are mean ± SEM. *p < 0.05 and **p < 0.01 by unpaired t test
+      where: Fig. 1K-1N legend
+    compares:
+    - dense
+    - sparse
+    n:
+      printed: 3 biological replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.01'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F1N:
+    unit: F1JN
+    measure: pHH3+/TnT+ (%)
+    finding: densely plated hiPSC-CMs had a lower mitotic fraction than sparsely plated cells
+    anchor: *id003
+    compares:
+    - dense
+    - sparse
+    n:
+      printed: 6 biological replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F2C:
+    unit: F2CE
+    measure: total culture surface (cm2)
+    finding: CHIR-treated cultures covered more surface at every passage than DMSO controls
+    anchor:
+      quote: Total surface area (cm2) coverage by hiPSC-CMs at each passage
+      where: Fig. 2C legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+      p_values:
+      - p: '**p < 0.005'
+        anchor: &id004
+          quote: bar charts represent mean ± SD. *p < 0.05 and **p < 0.005 by unpaired t test
+          where: Fig. 2 legend
+    method: measurement of the culture surface covered at each passage
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F2E:
+    unit: F2CE
+    measure: total cell number (x 10^6)
+    finding: CHIR-treated hiPSC-CMs reached far higher cell numbers over five passages than DMSO controls
+    anchor:
+      quote: Quantification of total cell numbers from P0 to P5
+      where: Fig. 2E legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F2E_text:
+    unit: F2CE
+    measure: total cell number
+    finding: about 2 million day 12 hiPSC-CMs generated 300 to 900 million hiPSC-CMs
+    anchor:
+      quote: 2 million hiPSC-CMs (e.g., one well in a six-well plate) at day 12 of differentiation generate
+        300 million to 900 million hiPSC-CMs
+      where: Results, GSK-3b Inhibition and Low-Density Passaging
+    groups:
+    - chir
+    values:
+      start:
+        printed: 2 million
+        unit: cells
+        kind: value
+        spread: not stated
+        group: chir
+      end_low:
+        printed: 300 million
+        unit: cells
+        kind: value
+        spread: not stated
+        group: chir
+      end_high:
+        printed: 900 million
+        unit: cells
+        kind: value
+        spread: not stated
+        group: chir
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F2GH_text:
+    unit: F2CE
+    measure: fold increase in total CM number
+    finding: more than 30 days of CHIR gave a 100- to 250-fold increase in CM number over control
+    anchor:
+      quote: continuous treatment of day 12 hiPSC-CMs with CHIR for >30 days resulted in a 100- to 250-fold
+        increase in total CM number compared with CTR hiPSC-CMs at similar time points
+      where: Results, GSK-3b Inhibition and Low-Density Passaging
+    groups:
+    - chir
+    - ctr
+    values:
+      fold_low:
+        printed: '100'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        between:
+        - chir
+        - ctr
+        expressed_as: fold
+      fold_high:
+        printed: '250'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        between:
+        - chir
+        - ctr
+        expressed_as: fold
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F2F:
+    unit: F2FH
+    measure: total cell number (x 10^6)
+    finding: all four hiPSC lines expanded over five passages under CHIR
+    anchor:
+      quote: Graph displaying the expansion for multiple passages (P) of low-density cultured and CHIR-treated
+        CMs derived from four different hiPSC lines
+      where: Fig. 2F legend
+    groups:
+    - cvi111
+    - cvi113
+    - cvi202
+    - cvi273
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F2H:
+    unit: F2FH
+    measure: fold increase in TnT+ cells
+    finding: TnT+ cells increased with each passage in CHIR-treated over DMSO-treated cells for four hiPSC
+      lines
+    anchor:
+      quote: Fold increase in TnT+ cells at each passage in CHIR-treated over DMSO-treated cells for four
+        indicated hiPSC lines
+      where: Fig. 2H legend
+    groups:
+    - cvi111
+    - cvi113
+    - cvi202
+    - cvi273
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: immunofluorescence analysis for TnT expression
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F2I_flow:
+    unit: F2IJ
+    measure: percent TnT+ cells
+    finding: flow cytometry gave a high TnT+ fraction in CHIR-treated cells at every passage and a falling
+      fraction in controls
+    anchor:
+      quote: Representative flow cytometry plots of TnT expression
+      where: Fig. 2I
+      file: journal_version.pdf
+      kind: unit
+    groups:
+    - chir
+    - ctr
+    values:
+      p0:
+        printed: 90.9%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        over:
+        - chir
+        - ctr
+        x: P0
+      chir_p1:
+        printed: 93.4%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: chir
+        x: P1
+      chir_p2:
+        printed: 95.2%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: chir
+        x: P2
+      chir_p3:
+        printed: 98.6%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: chir
+        x: P3
+      chir_p4:
+        printed: 94.7%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: chir
+        x: P4
+      ctr_p1:
+        printed: 90.2%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: ctr
+        x: P1
+      ctr_p2:
+        printed: 36.6%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: ctr
+        x: P2
+      ctr_p3:
+        printed: 26.8%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: ctr
+        x: P3
+      ctr_p4:
+        printed: 24.1%
+        unit: '%'
+        kind: percent
+        spread: not stated
+        group: ctr
+        x: P4
+    n:
+      printed: 3 biological replicates, 2 technical replicates, 600000 cells analyzed
+      counts: biological replicates
+    method: flow cytometry with a primary antibody against TnT and an Alexa488-conjugated secondary antibody
+    software: FlowJo (TreeStar)
+  F2J:
+    unit: F2IJ
+    measure: percent TnT+ cells
+    finding: CHIR-treated cultures kept a higher TnT+ percentage over passages than DMSO controls
+    anchor:
+      quote: Average percentages of TnT+ cells from flow cytometric analysis in (I)
+      where: Fig. 2J legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates, 600000 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+      p_values:
+      - p: '**p < 0.005'
+        anchor: *id004
+    method: flow cytometry with a primary antibody against TnT
+    software: FlowJo (TreeStar)
+  F2L:
+    unit: F2L
+    measure: mitosis index
+    finding: CHIR-treated hiPSC-CMs were found at every mitotic phase, most of them in interphase
+    anchor:
+      quote: Representative confocal microscopy images of P3 (after day 28) CHIR-treated hiPSC-CMs at
+        different phases of mitosis
+      where: Fig. 2K legend
+    groups:
+    - chir
+    n:
+      printed: 2 biological replicates, 2 technical replicates, 175 cells analyzed
+      counts: biological replicates
+    method: confocal microscopy of TnT, pHH3 and DAPI staining, cells scored by mitotic phase
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F3D:
+    unit: F3BE
+    measure: percent of sarcomere area by sarcomere angle
+    finding: z-disc-registered a-actinin was less aligned to the long axis in CHIR-treated cells
+    anchor:
+      quote: Representative images of distribution of sarcomere alignment. Color codes represent angle
+        of a-SA with respect to cellular long axis
+      where: Fig. 3C and 3D legend
+    groups:
+    - ctr
+    - chir
+    - chir_c59
+    n:
+      printed: (n = 10)
+      counts: cells
+    method: confocal imaging of sarcomeric a-actinin, angle of z-disc-registered a-actinin
+    software: FIJI software with the Orientation J analysis package
+    definition: the angle of z-disc-registered sarcomeric a-actinin with respect to the cellular long
+      axis
+  F3E_force:
+    unit: F3BE
+    measure: contraction force (nN)
+    finding: contractile properties of CHIR-treated single cells compared with DMSO controls
+    anchor:
+      quote: Contractility measurements in cells treated in (B)
+      where: Fig. 3E legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 20 biological replicates, 60 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: recording of contractile motion of at least 10 individual cells per group with a high speed
+      microscope camera, motion velocity analysis
+    software: Sony Cell Motion Imaging System (SI8000)
+  F3E_contrvel:
+    unit: F3BE
+    measure: contraction velocity (um/s)
+    finding: contractile properties of CHIR-treated single cells compared with DMSO controls
+    anchor:
+      quote: Contractility measurements in cells treated in (B)
+      where: Fig. 3E legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 20 biological replicates, 60 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: recording of contractile motion of at least 10 individual cells per group with a high speed
+      microscope camera, motion velocity analysis
+    software: Sony Cell Motion Imaging System (SI8000)
+  F3E_relaxvel:
+    unit: F3BE
+    measure: relaxation velocity (um/s)
+    finding: contractile properties of CHIR-treated single cells compared with DMSO controls
+    anchor:
+      quote: Contractility measurements in cells treated in (B)
+      where: Fig. 3E legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 20 biological replicates, 60 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: recording of contractile motion of at least 10 individual cells per group with a high speed
+      microscope camera, motion velocity analysis
+    software: Sony Cell Motion Imaging System (SI8000)
+  F3E_duration:
+    unit: F3BE
+    measure: contraction duration (s)
+    finding: contractile properties of CHIR-treated single cells compared with DMSO controls
+    anchor:
+      quote: Contractility measurements in cells treated in (B)
+      where: Fig. 3E legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 20 biological replicates, 60 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: NS
+    method: recording of contractile motion of at least 10 individual cells per group with a high speed
+      microscope camera, motion velocity analysis
+    software: Sony Cell Motion Imaging System (SI8000)
+  F3E_force_text:
+    unit: F3BE
+    measure: contraction force (nN)
+    finding: CHIR treatment decreased force generation in single patterned cells
+    anchor:
+      quote: Imaging-based assessment of contractile properties of CTR- and CHIR-treated hiPSC-CMs demonstrated
+        a decrease in force generation with CHIR treatment
+      where: Results, Single-Cell Phenotypic Assessment
+    compares:
+    - chir
+    - ctr
+    method: maximum contractile force calculated from the contractile deformation distance, patterned
+      surface area and the hydrogel's Young's modulus
+    software: Sony Cell Motion Imaging System (SI8000)
+    stated_direction:
+      direction: down
+      anchor:
+        quote: demonstrated a decrease in force generation with CHIR treatment
+        where: Results, Single-Cell Phenotypic Assessment
+    definition:
+      citation: hayakawa2014
+      anchor:
+        quote: motion velocity analysis was performed using Sony Cell Motion Imaging System (SI8000)
+        where: Methods, Single cell patterning and contractility
+  F3G_freq:
+    unit: F3GH
+    measure: Ca2+ transient frequency (BPM)
+    finding: no difference in the calcium transient between control, CHIR-treated and CHIR-withdrawn cells
+    anchor:
+      quote: Plots displaying the Ca2+ transient (G) frequency, (H) amplitude, and decay t for each group
+      where: Fig. 3G and 3H legend
+    compares:
+    - ctr
+    - chir
+    - chir_c59
+    test_of: omnibus
+    n:
+      printed: 12 biological replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: NS, not significant
+    method: Fluo-4 AM loading (5 mM, 5-10 min), spontaneous calcium transients recorded in line-scanning
+      mode on a confocal microscope
+    software: a custom-made Mat lab algorithm
+  F3H_amp:
+    unit: F3GH
+    measure: Ca2+ transient amplitude (DeltaF/F0)
+    finding: no difference in the calcium transient between control, CHIR-treated and CHIR-withdrawn cells
+    anchor:
+      quote: Plots displaying the Ca2+ transient (G) frequency, (H) amplitude, and decay t for each group
+      where: Fig. 3G and 3H legend
+    compares:
+    - ctr
+    - chir
+    - chir_c59
+    test_of: omnibus
+    n:
+      printed: 12 biological replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: NS, not significant
+    method: Fluo-4 AM loading (5 mM, 5-10 min), spontaneous calcium transients recorded in line-scanning
+      mode on a confocal microscope
+    software: a custom-made Mat lab algorithm
+  F3H_decay:
+    unit: F3GH
+    measure: Ca2+ transient decay tau (ms)
+    finding: no difference in the calcium transient between control, CHIR-treated and CHIR-withdrawn cells
+    anchor:
+      quote: Plots displaying the Ca2+ transient (G) frequency, (H) amplitude, and decay t for each group
+      where: Fig. 3G and 3H legend
+    compares:
+    - ctr
+    - chir
+    - chir_c59
+    test_of: omnibus
+    n:
+      printed: 12 biological replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: NS, not significant
+    method: Fluo-4 AM loading (5 mM, 5-10 min), spontaneous calcium transients recorded in line-scanning
+      mode on a confocal microscope
+    software: a custom-made Mat lab algorithm
+  F3FH_text:
+    unit: F3GH
+    measure: spontaneous action potentials, calcium transients, beating frequency and amplitude
+    finding: age-matched control, CHIR-treated and CHIR-withdrawn cells did not differ
+    anchor:
+      quote: CHIR-treated and CHIR-withdrawn hiPSC-CMs showed no difference in their spontaneous action
+        potentials, calcium transients, beating frequency, or amplitude
+      where: Results, Single-Cell Phenotypic Assessment
+    compares:
+    - ctr
+    - chir
+    - chir_c59
+    test_of: omnibus
+    method: Fluo-4 AM loading (5 mM, 5-10 min), spontaneous calcium transients recorded in line-scanning
+      mode on a confocal microscope
+    software: a custom-made Mat lab algorithm
+    stated_direction:
+      direction: none
+      anchor:
+        quote: showed no difference in their spontaneous action potentials, calcium transients, beating
+          frequency, or amplitude
+        where: Results, Single-Cell Phenotypic Assessment
+  F3I_MYL2:
+    unit: F3IK
+    measure: MYL2 gene expression
+    finding: MYL2 expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: &id005
+      quote: Graphs represent average ± SD. *p < 0.05 and **p < 0.005 by unpaired t test
+      where: Fig. 3 legend
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3I_MYH7:
+    unit: F3IK
+    measure: MYH7 gene expression
+    finding: MYH7 expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: *id005
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3I_MYOM2:
+    unit: F3IK
+    measure: MYOM2 gene expression
+    finding: MYOM2 expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: *id005
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3J_GJA1:
+    unit: F3IK
+    measure: GJA1 gene expression
+    finding: GJA1 expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: *id005
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3J_RYR2:
+    unit: F3IK
+    measure: RYR2 gene expression
+    finding: RYR2 expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: *id005
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3K_COX6A2:
+    unit: F3IK
+    measure: COX6A2 gene expression
+    finding: COX6A2 expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: *id005
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3K_CKMT:
+    unit: F3IK
+    measure: CKMT gene expression
+    finding: CKMT expression stayed low under continued CHIR and rose after CHIR withdrawal or C59
+    anchor: *id005
+    groups:
+    - chir
+    - chir_ctr
+    - chir_c59
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F3IK_text:
+    unit: F3IK
+    measure: expression of maturation, excitation, contractility and metabolism markers
+    finding: CHIR-treated cells downregulated maturation, excitation, contractility and metabolism markers
+    anchor:
+      quote: CHIR-treated hiPSC-CMs downregulate markers associated with CM maturation (MYL2, TNNI3, and
+        MYOM2), excitation (GJA1), contractility (RYR2), and metabolism (COX6A2 and CKMT)
+      where: Results, Single-Cell Phenotypic Assessment
+    groups:
+    - chir
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    stated_direction:
+      direction: down
+      anchor:
+        quote: CHIR-treated hiPSC-CMs downregulate markers associated with CM maturation (MYL2, TNNI3,
+          and MYOM2), excitation (GJA1)
+        where: Results, Single-Cell Phenotypic Assessment
+  F3L_capture:
+    unit: F3LP
+    measure: cells captured, mean reads per cell and median genes per cell
+    finding: 8,381 cells were captured with 93,552 mean reads per cell and a median of 1,297 genes per
+      cell
+    anchor:
+      quote: We captured a total of 8,381 cells and performed 93,552 mean reads per cell resulting in
+        a median of 1,297 genes analyzed per cell
+      where: Results, Single-Cell Phenotypic Assessment
+    groups:
+    - ctr
+    - chir
+    - c59
+    values:
+      cells:
+        printed: 8,381
+        unit: cells
+        kind: count
+        spread: not stated
+        over:
+        - ctr
+        - chir
+        - c59
+      reads:
+        printed: 93,552
+        unit: reads per cell
+        kind: mean
+        spread: not stated
+        over:
+        - ctr
+        - chir
+        - c59
+      genes:
+        printed: 1,297
+        unit: genes per cell
+        kind: median
+        spread: not stated
+        over:
+        - ctr
+        - chir
+        - c59
+    n:
+      printed: 1 biological replicate, 1 technical replicate, 8381 cells analyzed
+      counts: cells
+    method: single cells captured on the 10x Genomics platform, cDNA libraries sequenced on a HiSeq-4000,
+      merged and analysed with Seurat
+    software: Seurat (Satijalab.org)
+  F3N:
+    unit: F3LP
+    measure: average expression of selected mature cardiac genes
+    finding: mature cardiac genes were lower in CHIR-treated cells than in control or C59-treated cells
+    anchor:
+      quote: Average expression of the selected mature cardiac genes normalized to CTR
+      where: Fig. 3N legend
+    groups:
+    - ctr
+    - chir
+    - c59
+    method: single cells captured on the 10x Genomics platform, cDNA libraries sequenced on a HiSeq-4000,
+      merged and analysed with Seurat
+    software: Seurat (Satijalab.org)
+  F3P:
+    unit: F3LP
+    measure: percentage of cells in different cell cycle phases
+    finding: a larger share of CHIR-treated cells was outside G1
+    anchor:
+      quote: Bar graph of the percentage of cells in different cell cycle phases
+      where: Fig. 3P legend
+    groups:
+    - ctr
+    - chir
+    - c59
+    method: single cells captured on the 10x Genomics platform, cDNA libraries sequenced on a HiSeq-4000,
+      merged and analysed with Seurat
+    software: Seurat (Satijalab.org)
+  F4B:
+    unit: F4AB
+    measure: YAP nuclear/cytoplasmic ratio (pixel intensity)
+    finding: sparsely plated hiPSC-CMs had a higher nuclear to cytoplasmic YAP ratio
+    anchor:
+      quote: Quantification of nuclear to cytoplasmic YAP ratios. Data are mean ± SEM. ****p < 0.0001
+        by unpaired t test
+      where: Fig. 4B legend
+    compares:
+    - sparse
+    - dense
+    n:
+      printed: 7 biological replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '****p < 0.0001'
+    method: immunofluorescence for YAP, TnT and nuclei, nuclear and cytoplasmic pixel intensity
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+    suspected_error:
+      what: the panel marks the pair ***
+      why: the legend states ****p < 0.0001 for this test
+  F4E:
+    unit: F4DG
+    measure: Ki67+/TnT+ (%)
+    finding: the proliferative fraction did not change with substrate stiffness
+    anchor:
+      quote: Quantification of the percentage Ki67+/TnT+ cells in (D)
+      where: Fig. 4E legend
+    compares:
+    - s1
+    - s10
+    - s60
+    - tcp
+    test_of: omnibus
+    n:
+      printed: 3 biological replicates, 10 technical replicates
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: n.s.
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F4G:
+    unit: F4DG
+    measure: YAP nuclear/cytoplasmic ratio (pixel intensity)
+    finding: nuclear YAP rose on stiff hydrogel and on rigid plastic
+    anchor:
+      quote: Representative immunofluorescence images and (G) the quantification of nuclear/cytoplasmic
+        ratios of YAP in hiPSC-CMs
+      where: Fig. 4F and 4G legend
+    compares:
+    - s1
+    - s10
+    - s60
+    - tcp
+    test_of: omnibus
+    n:
+      printed: 3 biological replicates, 3 technical replicates
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: '****p < 0.0001'
+    method: immunofluorescence for YAP, nuclear and cytoplasmic pixel intensity
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F4I_dense:
+    unit: F4HK
+    measure: YAP nuclear/cytoplasmic ratio (pixel intensity)
+    finding: nuclear YAP was lower in dense than in sparse DMSO-treated cultures
+    anchor: &id006
+      quote: Data are mean ± SEM. *p < 0.05 and ****p < 0.0001 by one-way ANOVA Dunnett's post hoc multiple
+        comparisons with control
+      where: Fig. 4 legend
+    compares:
+    - dense_dmso
+    - sparse_dmso
+    n:
+      printed: 3-4 biological replicates, 3 technical replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA Dunnett's post hoc multiple comparisons
+      p: '****p < 0.0001'
+    method: immunofluorescence for YAP, nuclear and cytoplasmic pixel intensity
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F4I_vp10:
+    unit: F4HK
+    measure: YAP nuclear/cytoplasmic ratio (pixel intensity)
+    finding: 10 uM verteporfin lowered nuclear YAP in sparse cultures
+    anchor: *id006
+    compares:
+    - vp10
+    - sparse_dmso
+    n:
+      printed: 3-4 biological replicates, 3 technical replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA Dunnett's post hoc multiple comparisons
+      p: '****p < 0.0001'
+    method: immunofluorescence for YAP, nuclear and cytoplasmic pixel intensity
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F4K_vp10:
+    unit: F4HK
+    measure: Ki67+/TnT+ (%)
+    finding: reduced nuclear YAP did not reduce proliferation in sparse cultures
+    anchor: *id006
+    compares:
+    - vp10
+    - sparse_dmso
+    n:
+      printed: 6 biological replicates, 3 technical replicates
+      counts: biological replicates
+    stats:
+      test: one-way ANOVA Dunnett's post hoc multiple comparisons
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5A:
+    unit: F5AC
+    measure: normalized LEF/TCF luciferase expression
+    finding: CHIR raised LEF/TCF reporter activity, and PNU74654 abolished it
+    anchor:
+      quote: TOPFlash (TCF/LEF) luciferase analysis of hiPSC-CMs treated with CTR or CHIR with or without
+        PNU74654 for 24 h
+      where: Fig. 5A legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 6 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: transfection with a TCF reporter plasmid for 48 h, treatment for 24 h, lysis and firefly luciferase
+      read on a 96-well micro plate reader
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 24 h
+  F5B_chir:
+    unit: F5AC
+    measure: relative TnT+ cell number
+    finding: CHIR raised TnT+ cell number over control
+    anchor:
+      quote: Fold increase in TnT+ cell number after DMSO (CTR) or CHIR (2.0 mM) treatment with or without
+        PNU74654 (32 mM)
+      where: Fig. 5B legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 996 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5B_pnu_ctr:
+    unit: F5AC
+    measure: relative TnT+ cell number
+    finding: CHIR with PNU74654 still raised TnT+ cell number over control
+    anchor:
+      quote: Fold increase in TnT+ cell number after DMSO (CTR) or CHIR (2.0 mM) treatment with or without
+        PNU74654 (32 mM)
+      where: Fig. 5B legend
+    compares:
+    - chir_pnu
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 996 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5B_pnu_chir:
+    unit: F5AC
+    measure: relative TnT+ cell number
+    finding: blocking TCF/LEF halved the CHIR-driven increase in TnT+ cell number
+    anchor:
+      quote: the CHIR-mediated hiPSC-CM proliferation decreased only by 50%
+      where: Results, Mechanistic Analysis of GSK-3b Inhibition
+    compares:
+    - chir_pnu
+    - chir
+    values:
+      drop:
+        printed: '50'
+        unit: '%'
+        kind: percent
+        spread: not stated
+        between:
+        - chir_pnu
+        - chir
+        expressed_as: '% change'
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 996 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5C_AXIN2:
+    unit: F5AC
+    measure: AXIN2 normalized gene expression
+    finding: AXIN2 expression under CHIR compared with control
+    anchor: &id007
+      quote: Bar charts represent mean ± SD. *p < 0.05 and **p < 0.005 by unpaired t test
+      where: Fig. 5 legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5C_LEF1:
+    unit: F5AC
+    measure: LEF1 normalized gene expression
+    finding: LEF1 expression under CHIR compared with control
+    anchor: *id007
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5C_CCND2:
+    unit: F5AC
+    measure: CCND2 normalized gene expression
+    finding: CCND2 expression under CHIR compared with control
+    anchor: *id007
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5C_MYL2:
+    unit: F5AC
+    measure: MYL2 normalized gene expression
+    finding: MYL2 expression under CHIR compared with control
+    anchor: *id007
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5C_MYH7:
+    unit: F5AC
+    measure: MYH7 normalized gene expression
+    finding: MYH7 expression under CHIR compared with control
+    anchor: *id007
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5C_MYOM1:
+    unit: F5AC
+    measure: MYOM1 normalized gene expression
+    finding: MYOM1 expression under CHIR compared with control
+    anchor: *id007
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5D_pAKT308_t100:
+    unit: F5D
+    measure: pAkt1/2/3 T308 protein expression
+    finding: pAkt1/2/3 T308 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t100
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_pHSP27_t10:
+    unit: F5D
+    measure: pHSP27 S78/82 protein expression
+    finding: pHSP27 S78/82 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t10
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_pHSP27_t100:
+    unit: F5D
+    measure: pHSP27 S78/82 protein expression
+    finding: pHSP27 S78/82 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t100
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_p70S6K389_t10:
+    unit: F5D
+    measure: p70S6K T389 protein expression
+    finding: p70S6K T389 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t10
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_p70S6K389_t100:
+    unit: F5D
+    measure: p70S6K T389 protein expression
+    finding: p70S6K T389 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t100
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_p70S6K421_t10:
+    unit: F5D
+    measure: p70S6K T421/S424 protein expression
+    finding: p70S6K T421/S424 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t10
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_p70S6K421_t100:
+    unit: F5D
+    measure: p70S6K T421/S424 protein expression
+    finding: p70S6K T421/S424 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t100
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_pP27_t100:
+    unit: F5D
+    measure: pP27 T198 protein expression
+    finding: pP27 T198 protein expression after CHIR treatment compared with control
+    anchor: *id007
+    compares:
+    - t100
+    - ctr
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_pAKT473:
+    unit: F5D
+    measure: pAkt1/2/3 T473 protein expression
+    finding: pAkt1/2/3 T473 protein expression with no significance marked
+    anchor: *id007
+    groups:
+    - ctr
+    - t10
+    - t100
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_pGSK3:
+    unit: F5D
+    measure: pGSK3 S21/S9 protein expression
+    finding: pGSK3 S21/S9 protein expression with no significance marked
+    anchor: *id007
+    groups:
+    - ctr
+    - t10
+    - t100
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5D_bcat:
+    unit: F5D
+    measure: b-Catenin total protein expression
+    finding: b-Catenin total protein expression with no significance marked
+    anchor: *id007
+    groups:
+    - ctr
+    - t10
+    - t100
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  S4A:
+    unit: F5D
+    measure: fold increase kinase expression
+    finding: 43 kinases were read at 0, 10 and 100 minutes of CHIR stimulation
+    anchor:
+      quote: Graph displaying the expression of 43 kinases in hiPSC-CMs at day 12 after 0 (T0), 10 (T10)
+        and 100 minutes of stimulation with 4.0 µM of CHIR99021 (CHIR)
+      where: Fig. S4A legend
+      file: mmc1.pdf
+    groups:
+    - ctr
+    - t10
+    - t100
+    n:
+      printed: 1 biological replicate, 2 technical replicates
+      counts: biological replicates
+    method: Proteome Profiler Human Phospho-Kinase Array Kit containing 43 human kinases, quantified from
+      pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5F:
+    unit: F5EF
+    measure: pAKT T308 protein expression
+    finding: CHIR treatment raised pAKT T308 protein
+    anchor:
+      quote: Quantification of pAKT protein expression level after CHIR treatment
+      where: Fig. 5F legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: western blotting with an antibody against the T308 residues of phosphorylated AKT, quantified
+      from pixel intensity on a gel imager
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F5H_chir:
+    unit: F5GK
+    measure: fold increase in TnT cell number
+    finding: CHIR raised TnT+ cell number over control
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 1144 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5H_mk:
+    unit: F5GK
+    measure: fold increase in TnT cell number
+    finding: MK2206 halved the CHIR-driven increase in TnT+ cell number
+    anchor:
+      quote: When co-treated with MK2206, CHIR- and low density-induced hiPSC-CM proliferation decreased
+        by 50% compared with CHIR treatment alone
+      where: Results, Mechanistic Analysis of GSK-3b Inhibition
+    compares:
+    - chir_mk
+    - chir
+    values:
+      drop:
+        printed: '50'
+        unit: '%'
+        kind: percent
+        spread: not stated
+        between:
+        - chir_mk
+        - chir
+        expressed_as: '% change'
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 1144 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5H_mk_ctr:
+    unit: F5GK
+    measure: fold increase in TnT cell number
+    finding: CHIR with MK2206 still raised TnT+ cell number over control
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 1144 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5I_chir:
+    unit: F5GK
+    measure: fold increase in pAKT T308 cell number
+    finding: CHIR raised the number of pAKT T308+ cells
+    anchor:
+      quote: Quantification of the number of TnT+ (H) and pAKT T308+ (I) cells in (G)
+      where: Fig. 5H and 5I legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 1144 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5I_mk:
+    unit: F5GK
+    measure: fold increase in pAKT T308 cell number
+    finding: MK2206 lowered the number of pAKT T308+ cells under CHIR
+    anchor:
+      quote: although MK2206 treatment inhibits AKT T308 phosphorylation
+      where: Results, Mechanistic Analysis of GSK-3b Inhibition
+    compares:
+    - chir_mk
+    - chir
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 1144 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5J_chir:
+    unit: F5GK
+    measure: normalized LEF/TCF luciferase expression
+    finding: CHIR raised LEF/TCF reporter activity
+    anchor:
+      quote: TOPFlash luciferase analysis of hiPSC-CMs after treatment of CHIR for 24 h with or without
+        MK2206 (1.0 mM)
+      where: Fig. 5J legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: transfection with a TCF reporter plasmid for 48 h, treatment for 24 h, lysis and firefly luciferase
+      read on a 96-well micro plate reader
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 24 h
+  F5J_mk:
+    unit: F5GK
+    measure: normalized LEF/TCF luciferase expression
+    finding: MK2206 did not change the CHIR-driven LEF/TCF reporter activity
+    anchor:
+      quote: TOPFlash luciferase analysis of hiPSC-CMs after treatment of CHIR for 24 h with or without
+        MK2206 (1.0 mM)
+      where: Fig. 5J legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: transfection with a TCF reporter plasmid for 48 h, treatment for 24 h, lysis and firefly luciferase
+      read on a 96-well micro plate reader
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 24 h
+  F5K_AXIN2:
+    unit: F5GK
+    measure: AXIN2 gene expression
+    finding: AXIN2 expression under CHIR compared with control
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated
+        compounds
+      where: Fig. 5K legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_AXIN2_mk:
+    unit: F5GK
+    measure: AXIN2 gene expression
+    finding: AXIN2 expression under CHIR with MK2206 compared with control
+    anchor:
+      quote: Note that AKT signaling is not changing the Wnt-dependent maturation-related gene expression
+      where: Fig. 5K legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_LEF1:
+    unit: F5GK
+    measure: LEF1 gene expression
+    finding: LEF1 expression under CHIR compared with control
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated
+        compounds
+      where: Fig. 5K legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_LEF1_mk:
+    unit: F5GK
+    measure: LEF1 gene expression
+    finding: LEF1 expression under CHIR with MK2206 compared with control
+    anchor:
+      quote: Note that AKT signaling is not changing the Wnt-dependent maturation-related gene expression
+      where: Fig. 5K legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_CCND2:
+    unit: F5GK
+    measure: CCND2 gene expression
+    finding: CCND2 expression under CHIR compared with control
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated
+        compounds
+      where: Fig. 5K legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_CCND2_mk:
+    unit: F5GK
+    measure: CCND2 gene expression
+    finding: CCND2 expression under CHIR with MK2206 compared with control
+    anchor:
+      quote: Note that AKT signaling is not changing the Wnt-dependent maturation-related gene expression
+      where: Fig. 5K legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_MYL2:
+    unit: F5GK
+    measure: MYL2 gene expression
+    finding: MYL2 expression under CHIR compared with control
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated
+        compounds
+      where: Fig. 5K legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_MYL2_mk:
+    unit: F5GK
+    measure: MYL2 gene expression
+    finding: MYL2 expression under CHIR with MK2206 compared with control
+    anchor:
+      quote: Note that AKT signaling is not changing the Wnt-dependent maturation-related gene expression
+      where: Fig. 5K legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_MYH7:
+    unit: F5GK
+    measure: MYH7 gene expression
+    finding: MYH7 expression under CHIR compared with control
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated
+        compounds
+      where: Fig. 5K legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_MYH7_mk:
+    unit: F5GK
+    measure: MYH7 gene expression
+    finding: MYH7 expression under CHIR with MK2206 compared with control
+    anchor:
+      quote: Note that AKT signaling is not changing the Wnt-dependent maturation-related gene expression
+      where: Fig. 5K legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_MYOM1:
+    unit: F5GK
+    measure: MYOM1 gene expression
+    finding: MYOM1 expression under CHIR compared with control
+    anchor:
+      quote: Expression of Wnt target genes and maturation markers after treatment with the indicated
+        compounds
+      where: Fig. 5K legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5K_MYOM1_mk:
+    unit: F5GK
+    measure: MYOM1 gene expression
+    finding: MYOM1 expression under CHIR with MK2206 compared with control
+    anchor:
+      quote: Note that AKT signaling is not changing the Wnt-dependent maturation-related gene expression
+      where: Fig. 5K legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      preparation: cell lysate
+  F5N_chir:
+    unit: F5MN
+    measure: percent CCND2+ cells
+    finding: cyclin D2-positive hiPSC-CMs under CHIR with or without AKT or TCF/LEF inhibition
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N legend
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 955 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5N_mk:
+    unit: F5MN
+    measure: percent CCND2+ cells
+    finding: cyclin D2-positive hiPSC-CMs under CHIR with or without AKT or TCF/LEF inhibition
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N legend
+    compares:
+    - chir_mk
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 955 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5N_pnu:
+    unit: F5MN
+    measure: percent CCND2+ cells
+    finding: cyclin D2-positive hiPSC-CMs under CHIR with or without AKT or TCF/LEF inhibition
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N legend
+    compares:
+    - chir_pnu
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 955 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5N_mk_chir:
+    unit: F5MN
+    measure: percent CCND2+ cells
+    finding: cyclin D2-positive hiPSC-CMs under CHIR with or without AKT or TCF/LEF inhibition
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N legend
+    compares:
+    - chir_mk
+    - chir
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 955 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5N_pnu_chir:
+    unit: F5MN
+    measure: percent CCND2+ cells
+    finding: cyclin D2-positive hiPSC-CMs under CHIR with or without AKT or TCF/LEF inhibition
+    anchor:
+      quote: Quantification of the number of CCND2+/TnT+ cells per treatment group
+      where: Fig. 5N legend
+    compares:
+    - chir_pnu
+    - chir
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 955 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F5P:
+    unit: F5OP
+    measure: percent pHH3+ cells
+    finding: palbociclib nearly abolished mitosis in CHIR-treated hiPSC-CMs
+    anchor:
+      quote: CHIR-treated, sparse hiPSC-CMs were treated with palbociclib, a potent small molecular inhibitor
+        of CDK4/6, and shown mitosis was nearly completely abrogated
+      where: Results, Mechanistic Analysis of GSK-3b Inhibition
+    compares:
+    - chir_palbo
+    - chir
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 1368 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '**p < 0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  F6B_TNNI3:
+    unit: F6AB
+    measure: TNNI3 gene expression
+    finding: TNNI3 expression in P4 expanded compared with non-expanded hiPSC-CMs at day 42
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression in passage 4 (P4) expanded versus non-expanded
+        hiPSC-CMs at day 42 (D42) of differentiation
+      where: Fig. 6A and 6B legend
+    groups:
+    - p1_ctr
+    - p4_chir_ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F6B_MYL2:
+    unit: F6AB
+    measure: MYL2 gene expression
+    finding: MYL2 expression in P4 expanded compared with non-expanded hiPSC-CMs at day 42
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression in passage 4 (P4) expanded versus non-expanded
+        hiPSC-CMs at day 42 (D42) of differentiation
+      where: Fig. 6A and 6B legend
+    groups:
+    - p1_ctr
+    - p4_chir_ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F6B_RYR2:
+    unit: F6AB
+    measure: RYR2 gene expression
+    finding: RYR2 expression in P4 expanded compared with non-expanded hiPSC-CMs at day 42
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression in passage 4 (P4) expanded versus non-expanded
+        hiPSC-CMs at day 42 (D42) of differentiation
+      where: Fig. 6A and 6B legend
+    groups:
+    - p1_ctr
+    - p4_chir_ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F6B_TNNT2:
+    unit: F6AB
+    measure: TNNT2 gene expression
+    finding: TNNT2 expression in P4 expanded compared with non-expanded hiPSC-CMs at day 42
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression in passage 4 (P4) expanded versus non-expanded
+        hiPSC-CMs at day 42 (D42) of differentiation
+      where: Fig. 6A and 6B legend
+    groups:
+    - p1_ctr
+    - p4_chir_ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F6B_GJA1:
+    unit: F6AB
+    measure: GJA1 gene expression
+    finding: GJA1 expression in P4 expanded compared with non-expanded hiPSC-CMs at day 42
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression in passage 4 (P4) expanded versus non-expanded
+        hiPSC-CMs at day 42 (D42) of differentiation
+      where: Fig. 6A and 6B legend
+    groups:
+    - p1_ctr
+    - p4_chir_ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F6B_TNNI1:
+    unit: F6AB
+    measure: TNNI1 gene expression
+    finding: TNNI1 expression in P4 expanded compared with non-expanded hiPSC-CMs at day 42
+    anchor:
+      quote: qPCR analysis of sarcomeric gene expression in passage 4 (P4) expanded versus non-expanded
+        hiPSC-CMs at day 42 (D42) of differentiation
+      where: Fig. 6A and 6B legend
+    groups:
+    - p1_ctr
+    - p4_chir_ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  F6F_force:
+    unit: F6CG
+    measure: contraction force (mN)
+    finding: contractile development of engineered heart tissues from expanded and non-expanded hiPSC-CMs
+      between day 5 and day 20
+    anchor:
+      quote: Graphs displaying development of contraction force (mN), beating rate, and time to peak (T1)
+        in heart tissues generated from previously expanded
+      where: Fig. 6F legend
+    groups:
+    - nonexp
+    - p4exp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: between day (D) 5 tot 20
+  F6F_rate:
+    unit: F6CG
+    measure: beating rate (beats/minute)
+    finding: contractile development of engineered heart tissues from expanded and non-expanded hiPSC-CMs
+      between day 5 and day 20
+    anchor:
+      quote: Graphs displaying development of contraction force (mN), beating rate, and time to peak (T1)
+        in heart tissues generated from previously expanded
+      where: Fig. 6F legend
+    groups:
+    - nonexp
+    - p4exp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: between day (D) 5 tot 20
+  F6F_ttp:
+    unit: F6CG
+    measure: time to peak (T1)
+    finding: contractile development of engineered heart tissues from expanded and non-expanded hiPSC-CMs
+      between day 5 and day 20
+    anchor:
+      quote: Graphs displaying development of contraction force (mN), beating rate, and time to peak (T1)
+        in heart tissues generated from previously expanded
+      where: Fig. 6F legend
+    groups:
+    - nonexp
+    - p4exp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: between day (D) 5 tot 20
+  F6G_rate:
+    unit: F6CG
+    measure: beating rate (beats/minute)
+    finding: engineered heart tissues from expanded hiPSC-CMs compared with those from non-expanded cells
+      14 days after formation
+    anchor:
+      quote: Plots for contraction analysis (contraction force [mN], beating rate, time to peak [T1],
+        relaxation time [s], resting length [mm], and contraction velocity [mN/s]) in engineered heart
+        tissue
+      where: Fig. 6G legend
+    compares:
+    - p4exp
+    - nonexp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 14 days after formation
+  F6G_force:
+    unit: F6CG
+    measure: contraction force (mN)
+    finding: engineered heart tissues from expanded hiPSC-CMs compared with those from non-expanded cells
+      14 days after formation
+    anchor:
+      quote: Plots for contraction analysis (contraction force [mN], beating rate, time to peak [T1],
+        relaxation time [s], resting length [mm], and contraction velocity [mN/s]) in engineered heart
+        tissue
+      where: Fig. 6G legend
+    compares:
+    - p4exp
+    - nonexp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 14 days after formation
+  F6G_ttp:
+    unit: F6CG
+    measure: time to peak (T1)
+    finding: engineered heart tissues from expanded hiPSC-CMs compared with those from non-expanded cells
+      14 days after formation
+    anchor:
+      quote: Plots for contraction analysis (contraction force [mN], beating rate, time to peak [T1],
+        relaxation time [s], resting length [mm], and contraction velocity [mN/s]) in engineered heart
+        tissue
+      where: Fig. 6G legend
+    compares:
+    - p4exp
+    - nonexp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: not stated
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 14 days after formation
+  F6G_relax:
+    unit: F6CG
+    measure: relaxation time (s)
+    finding: engineered heart tissues from expanded hiPSC-CMs compared with those from non-expanded cells
+      14 days after formation
+    anchor:
+      quote: Plots for contraction analysis (contraction force [mN], beating rate, time to peak [T1],
+        relaxation time [s], resting length [mm], and contraction velocity [mN/s]) in engineered heart
+        tissue
+      where: Fig. 6G legend
+    compares:
+    - p4exp
+    - nonexp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: not stated
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 14 days after formation
+  F6G_length:
+    unit: F6CG
+    measure: resting length (mm)
+    finding: engineered heart tissues from expanded hiPSC-CMs compared with those from non-expanded cells
+      14 days after formation
+    anchor:
+      quote: Plots for contraction analysis (contraction force [mN], beating rate, time to peak [T1],
+        relaxation time [s], resting length [mm], and contraction velocity [mN/s]) in engineered heart
+        tissue
+      where: Fig. 6G legend
+    compares:
+    - p4exp
+    - nonexp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: not stated
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 14 days after formation
+  F6G_vel:
+    unit: F6CG
+    measure: contraction velocity (mN/s)
+    finding: engineered heart tissues from expanded hiPSC-CMs compared with those from non-expanded cells
+      14 days after formation
+    anchor:
+      quote: Plots for contraction analysis (contraction force [mN], beating rate, time to peak [T1],
+        relaxation time [s], resting length [mm], and contraction velocity [mN/s]) in engineered heart
+        tissue
+      where: Fig. 6G legend
+    compares:
+    - p4exp
+    - nonexp
+    n:
+      printed: 12-20 biological replicates, 1 technical replicate
+      counts: biological replicates
+    stats:
+      test: unpaired t test
+      p: '*p < 0.05'
+    method: video-based contractility measurement of the engineered heart tissue in culture medium, as
+      described previously
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+    context:
+      time_point: 14 days after formation
+  S1A:
+    unit: S1A
+    measure: normalized gene expression of NANOG, MESP1, ISL1, MEF2C, TBX5 and GATA4
+    finding: stage-specific gene expression ran through pluripotency, mesoderm and cardiac progenitor
+      markers
+    anchor:
+      quote: Dashed lines indicated gene expression in samples treated with 2.0 µM CHIR99021 (CHIR) or
+        DMSO (CTR) from day 12 to 14
+      where: Fig. S1A legend
+      file: mmc1.pdf
+    groups:
+    - ctr
+    - chir
+    n:
+      printed: 3 biological replicates, 2 technical replicates
+      counts: biological replicates
+    method: RNA extracted with a lysis buffer and purified, cDNA synthesis, quantitative PCR with SYBR
+      Green substrate for 40 cycles on a 96-well thermocycler
+    software: Prism 8 (Graphpad) or Excel 2016 (Microsoft)
+  S1B:
+    unit: S1BC
+    measure: '% Isl1+ cells'
+    finding: the Isl1-positive fraction did not differ between CHIR and control
+    anchor:
+      quote: Immunofluorescence images and graphs displaying (B) Islet-1 (ISL1) (red)
+      where: Fig. S1B legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates, 263 cells analyzed
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: NS
+    method: immunofluorescence for ISL1 and TnT
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S1C:
+    unit: S1BC
+    measure: '% Caspase 3+ cells'
+    finding: apoptosis did not differ between CHIR and control
+    anchor:
+      quote: Caspase 3 (red) and cardiac troponin T (TnT) positive cells at day 14
+      where: Fig. S1C legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates, 438 cells analyzed
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: NS
+    method: immunofluorescence for Caspase 3 and TnT
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S1D:
+    unit: S1D
+    measure: fold increase cell number
+    finding: expansion did not differ between freshly differentiated and cryopreserved day 12 hiPSC-CMs
+    anchor:
+      quote: no significant difference in expansion capacity was observed among the same batch of day
+        12 CVI-111 hiPSC-CMs that were either cryopreserved or used directly
+      where: Results, GSK-3b Inhibition and Low-Density Passaging
+    compares:
+    - cryo
+    - fresh
+    n:
+      printed: 2 biological replicates, 2 technical replicates
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: NS
+    method: cell counting at each passage
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S1E:
+    unit: S1E
+    measure: percent Ki67+ cells
+    finding: CHIR with low-density passaging kept proliferating cells present for up to five passages
+    anchor:
+      quote: CHIR treatment with low-density passaging resulted in significant (p = 4.42E-05) extension
+        (up to five passages) of the presence of proliferating cells
+      where: Results, GSK-3b Inhibition and Low-Density Passaging
+    compares:
+    - chir
+    - ctr
+    stats:
+      test: not stated
+      p: p = 4.42E-05
+      p_values:
+      - p: '*p<0.05'
+        anchor:
+          quote: Data shown represent mean ± SD, unless indicated else. *p<0.05
+          where: Fig. S1 legend
+          file: mmc1.pdf
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S1G:
+    unit: S1FG
+    measure: '% anillin-eGFP+ nuclei'
+    finding: CHIR raised the number of eGFP-anillin+ CMs at day 10
+    anchor:
+      quote: CHIR treatment significantly increased the number of eGFP-anillin+ CMs at day (D) 10
+      where: Fig. S1G legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: n=1
+      counts: not stated
+    stats:
+      test: not stated
+      p: '* = p<0.05'
+    method: staining for ACTN2 with cycling CMs identified from Anillin-eGFP expression
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S1H:
+    unit: S1HI
+    measure: '% binucleated cells'
+    finding: CHIR lowered the share of binucleated cells
+    anchor:
+      quote: Quantification of (H) bi-nucleation and (I) Ki67 expression (i.e. cell cycle index) as a
+        percentage of total cells
+      where: Fig. S1H legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates, 274 cells analyzed
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: '*p<0.05'
+    method: immunofluorescence counting of binucleated cells
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S1I:
+    unit: S1HI
+    measure: '% Ki67+ cells'
+    finding: CHIR raised the share of Ki67+ cells
+    anchor:
+      quote: Quantification of (H) bi-nucleation and (I) Ki67 expression (i.e. cell cycle index) as a
+        percentage of total cells
+      where: Fig. S1I legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 2 biological replicates, 2 technical replicates, 274 cells analyzed
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: '*p<0.05'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3C_wnt3a:
+    unit: S3
+    measure: fold increase TnT+ cells
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: &id008
+      quote: Dot plots represent biological replicates and mean. **p<0.005 by unpaired t-test
+      where: Fig. S3 legend
+      file: mmc1.pdf
+    compares:
+    - wnt3a
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3C_dkkrspo:
+    unit: S3
+    measure: fold increase TnT+ cells
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - dkk_rspo
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3C_chir:
+    unit: S3
+    measure: fold increase TnT+ cells
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3E_wnt3a:
+    unit: S3
+    measure: '% Ki67+/TnT+ cells'
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - wnt3a
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3E_dkkrspo:
+    unit: S3
+    measure: '% Ki67+/TnT+ cells'
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - dkk_rspo
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3E_chir:
+    unit: S3
+    measure: '% Ki67+/TnT+ cells'
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3G_wnt3a:
+    unit: S3
+    measure: '% pHH3+/TnT+ cells'
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - wnt3a
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3G_dkkrspo:
+    unit: S3
+    measure: '% pHH3+/TnT+ cells'
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - dkk_rspo
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3G_chir:
+    unit: S3
+    measure: '% pHH3+/TnT+ cells'
+    finding: Wnt ligands and CHIR compared with media alone
+    anchor: *id008
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S3C_rspo:
+    unit: S3
+    measure: fold increase TnT+ cells
+    finding: RSPO alone did not raise TnT+ cell number
+    anchor:
+      quote: Quantification of the TnT positive cell numbers after treatment with the indicated Wnt ligands
+        and CHIR
+      where: Fig. S3C legend
+      file: mmc1.pdf
+    groups:
+    - ctr
+    - rspo
+    - dkk
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 5098 cells analyzed
+      counts: biological replicates
+    method: immunofluorescence staining for Ki67, phospho-histone H3 or troponin T, counted on confocal
+      or epifluorescence images
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S5B:
+    unit: S5AE
+    measure: relative pHH3+/TnT+ cells
+    finding: CHIR-treated embryos had more mitotic cardiomyocytes at E20.5
+    anchor:
+      quote: Relative number of mitotic cardiomyocytes (pHH3+/TnT+) in the myocardium of E20.5 embryo
+      where: Fig. S5B legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    values:
+      fold:
+        printed: '1.8'
+        unit: fold
+        kind: ratio
+        spread: not stated
+        between:
+        - chir
+        - ctr
+        expressed_as: fold
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 112162 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence for TnT, pHH3 and DAPI on myocardial sections
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S5C:
+    unit: S5AE
+    measure: '% pHH3+ cells'
+    finding: the share of mitotic cells in the E20.5 heart rose with CHIR
+    anchor:
+      quote: Percentages of mitotic cells in the heart of E20.5 embryo
+      where: Fig. S5C legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 4 biological replicates, 2 technical replicates, 112162 cells analyzed
+      counts: biological replicates
+    stats:
+      test: unpaired t-test
+      p: '**p<0.005'
+    method: immunofluorescence for TnT, pHH3 and DAPI on myocardial sections
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S5E:
+    unit: S5AE
+    measure: cell size (relative pixels/area)
+    finding: cardiomyocyte size did not differ between CHIR-treated and control embryos
+    anchor:
+      quote: Quantification of the relative pixels/area indicating cell size for both groups
+      where: Fig. S5E legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 3 biological replicates, 2 technical replicates, 600 cells analyzed
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: P=0.4
+    method: wheat germ agglutin and DAPI staining of heart sections, relative pixels per area
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+  S5G:
+    unit: S5FG
+    measure: relative pHH3+/TnT+ cells
+    finding: mitotic cardiomyocytes in the postnatal heart did not rise with CHIR
+    anchor:
+      quote: percentages of mitotic cells (pHH3+) in the myocardium of P10 animals treated with CHIR or
+        CTR
+      where: Fig. S5G legend
+      file: mmc1.pdf
+    compares:
+    - chir
+    - ctr
+    n:
+      printed: 3 biological replicates, 4 technical replicates, 157280 cells analyzed
+      counts: biological replicates
+    stats:
+      test: not stated
+      p: P=0.07
+    method: immunofluorescence for TnT, pHH3 and DAPI on myocardial sections
+    software: ImageJ software, Luna-FL fluorescence cell counter, BD flow cytometry system or manual counting
+claims:
+  C_abstract_expansion:
+    kind: stated
+    quote: Here, we demonstrate massive expansion of hiPSC-CMs in vitro (i.e., 100- to 250-fold) by glycogen
+      synthase kinase-3b (GSK-3b) inhibition using CHIR99021 and concurrent removal of cell-cell contact
+    where: Summary
+    scope: hiPSC-CMs from four hiPSC lines expanded in vitro
+    direction: increase
+    strength: demonstrate massive expansion
+    rests_on:
+    - F2E
+    - F2GH_text
+    - F1B_sparse
+    - F2C
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    asserts_direction: up
+  C_abstract_maturation:
+    kind: stated
+    quote: We show that GSK-3b inhibition suppresses CM maturation, while contact removal prevents CMs
+      from cell cycle exit
+    where: Summary
+    scope: hiPSC-CMs in vitro
+    direction: decrease in maturation markers
+    strength: suppresses
+    rests_on:
+    - F3I_MYL2
+    - F3I_MYH7
+    - F3I_MYOM2
+    - F3J_GJA1
+    - F3J_RYR2
+    - F1L
+    - F1N
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_abstract_contact:
+    kind: stated
+    quote: Remarkably, contact removal enabled 10 to 25 times greater expansion beyond GSK-3b inhibition
+      alone
+    where: Summary
+    scope: hiPSC-CMs in vitro
+    direction: increase
+    strength: remarkably
+    rests_on:
+    - F1B_sparse
+    - F1B_dense
+    opposes: []
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    asserts_direction: up
+  C_abstract_mechanism:
+    kind: stated
+    quote: Mechanistically, persistent CM proliferation required both LEF/TCF activity and AKT phosphorylation
+      but was independent from yes-associated protein (YAP) signaling
+    where: Summary
+    scope: CHIR-treated hiPSC-CMs at low density
+    direction: required
+    strength: required
+    rests_on:
+    - F5B_pnu_chir
+    - F5H_mk
+    - F4K_vp10
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_abstract_eht:
+    kind: stated
+    quote: Engineered heart tissues from expanded hiPSC-CMs showed comparable contractility to those from
+      unexpanded hiPSC-CMs, demonstrating uncompromised cellular functionality after expansion
+    where: Summary
+    scope: engineered heart tissues from two hiPSC lines
+    direction: comparable
+    strength: demonstrating uncompromised cellular functionality
+    rests_on:
+    - F6G_force
+    - F6G_rate
+    - F6G_vel
+    - F6G_ttp
+    - F6G_relax
+    - F6G_length
+    opposes: []
+    judgement:
+      direction: does not follow
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_highlight_density:
+    kind: stated
+    quote: GSK-3b inhibition-mediated hiPSC-cardiomyocyte proliferation is cell density dependent
+    where: Highlights
+    scope: hiPSC-CMs treated with CHIR
+    direction: increase at low density
+    strength: is dependent
+    rests_on:
+    - F1D_sparse_nopsg
+    - F1D_sparse_dense
+    - F1F_sparse_dense
+    - F1L
+    - F1N
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    asserts_direction: up
+  C_highlight_lef:
+    kind: stated
+    quote: LEF/TCF activity inhibits hiPSC-cardiomyocyte maturation without promoting cell cycling
+    where: Highlights
+    scope: hiPSC-CMs treated with CHIR and PNU74654
+    direction: inhibits maturation
+    strength: without promoting cell cycling
+    rests_on:
+    - F5C_MYL2
+    - F5C_MYH7
+    - F5C_MYOM1
+    - F5B_pnu_chir
+    opposes: []
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: does not follow
+      presence: follows
+  C_highlight_function:
+    kind: stated
+    quote: Long-term expansion does not alter cardiomyocyte contractile function
+    where: Highlights
+    scope: engineered heart tissues from expanded hiPSC-CMs
+    direction: no change
+    strength: does not alter
+    rests_on:
+    - F6G_force
+    - F6G_rate
+    - F6G_vel
+    opposes:
+    - F6G_force
+    - F6G_rate
+    - F6G_vel
+    judgement:
+      direction: does not follow
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_fig1_contact:
+    kind: stated
+    quote: Taken together, we demonstrate here that cell-cell contact is a major barrier to hiPSC-CM proliferation
+      and that prevention of cell-cell contact is critical to maintain CHIR-induced CM proliferation
+    where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+    scope: CHIR-treated hiPSC-CMs in 2D culture
+    direction: decrease with contact
+    strength: major barrier, critical
+    rests_on:
+    - F1L
+    - F1N
+    - F1D_sparse_dense
+    - F1F_sparse_dense
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    asserts_direction: up
+  C_fig1_paracrine:
+    kind: stated
+    quote: We did not find any significant changes in the proportion of Ki67-expressing hiPSC-CMs between
+      different conditioned media treatment groups
+    where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+    scope: sparsely plated hiPSC-CMs given concentrated conditioned media
+    direction: no change
+    strength: did not find any significant changes
+    rests_on:
+    - F1I_omnibus
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    asserts_direction: none
+  C_fig2_purity:
+    kind: stated
+    quote: CHIR treatment appeared to maintain, if not slightly enrich, CM purity as opposed to control
+      DMSO-treated hiPSC-CMs, which decreased CM purity with each passage
+    where: Results, GSK-3b Inhibition and Low-Density Passaging
+    scope: hiPSC-CMs over four passages
+    direction: maintained purity
+    strength: appeared to maintain
+    rests_on:
+    - F2I_flow
+    - F2J
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    asserts_direction: up
+  C_fig3_maturation:
+    kind: stated
+    quote: Overall, these data strongly support the inhibition of hiPSC-CM maturation by CHIR/GSK-3b inhibition
+    where: Results, Single-Cell Phenotypic Assessment
+    scope: hiPSC-CMs treated with CHIR
+    direction: decrease in maturation
+    strength: strongly support
+    rests_on:
+    - F3D
+    - F3I_MYL2
+    - F3I_MYH7
+    - F3I_MYOM2
+    - F3N
+    - F3E_force
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_fig3_calcium:
+    kind: stated
+    quote: Additional single-cell calcium studies of age-matched CTR- and CHIR-treated and CHIR-withdrawn
+      hiPSC-CMs showed no difference in their spontaneous action potentials, calcium transients, beating
+      frequency, or amplitude
+    where: Results, Single-Cell Phenotypic Assessment
+    scope: single hiPSC-CMs at day 42
+    direction: no difference
+    strength: showed no difference
+    rests_on:
+    - F3G_freq
+    - F3H_amp
+    - F3H_decay
+    - F3FH_text
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: overstated
+    asserts_direction: none
+  C_fig4_yap:
+    kind: stated
+    quote: of CHIR and cell-cell contact regulated hiPSC-CM proliferation from nuclear YAP activity
+    where: Results, YAP Activity Is Uncoupled
+    scope: CHIR-treated hiPSC-CMs on hydrogels and with verteporfin
+    direction: no coupling
+    strength: demonstrate an uncoupling
+    rests_on:
+    - F4E
+    - F4G
+    - F4I_vp10
+    - F4K_vp10
+    opposes: []
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_fig5_interplay:
+    kind: stated
+    quote: these data demonstrate that GSK-3b inhibition and concomitant cell contact removal induce a
+      molecular interplay to enhance LEF/TCF activity via canonical b-catenin signaling
+    where: Results, Mechanistic Analysis of GSK-3b Inhibition
+    scope: CHIR-treated hiPSC-CMs at low density
+    direction: enhance
+    strength: demonstrate
+    rests_on:
+    - F5A
+    - F5D_pAKT308_t100
+    - F5F
+    - F5I_chir
+    - F5N_chir
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_fig5_half:
+    kind: stated
+    quote: These results demonstrate that b-catenin-mediated canonical Wnt signaling prevents hiPSC-CM
+      maturation and is responsible for roughly 50% of the observed CHIR-induced expansion of hiPSC-CMs
+    where: Results, Mechanistic Analysis of GSK-3b Inhibition
+    scope: CHIR-treated hiPSC-CMs with PNU74654
+    direction: decrease by half
+    strength: demonstrate, responsible for
+    rests_on:
+    - F5B_pnu_chir
+    - F5C_MYL2
+    - F5C_MYH7
+    - F5C_MYOM1
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_fig6_recovered:
+    kind: stated
+    quote: previously long-term expanded cells had phenotypically recovered to normal as assessed using
+      immunohistochemistry
+    where: Results, Long-Term GSK-3b Inhibition
+    scope: P4 expanded hiPSC-CMs at day 42
+    direction: recovered
+    strength: recovered to normal
+    rests_on:
+    - F6B_TNNI3
+    - F6B_MYL2
+    - F6B_RYR2
+    - F6B_TNNT2
+    - F6B_GJA1
+    - F6B_TNNI1
+    opposes: []
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_fig6_eht:
+    kind: stated
+    quote: CVI-273) have comparable or slightly enhanced functional properties compared with those generated
+      from age-matched unexpanded control cells
+    where: Results, Long-Term GSK-3b Inhibition
+    scope: engineered heart tissues from two hiPSC lines
+    direction: comparable or slightly enhanced
+    strength: comparable or slightly enhanced
+    rests_on:
+    - F6G_force
+    - F6G_vel
+    - F6G_rate
+    - F6G_ttp
+    - F6G_relax
+    - F6G_length
+    opposes: []
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_invivo:
+    kind: stated
+    quote: These data suggest the potential for residual hyperplasia of CMs during late gestation with
+      GSK-3b inhibition, despite substantially attenuated proliferative effect compared with in vitro
+      CHIR-treated hiPSC-CMs
+    where: Results, Long-Term GSK-3b Inhibition
+    scope: mouse hearts at E20.5 and P10
+    direction: increase in mitotic CMs
+    strength: suggest the potential
+    rests_on:
+    - S5B
+    - S5C
+    - S5G
+    - S5E
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: cannot judge
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_disc_250:
+    kind: stated
+    quote: the modest expansion of hiPSC-CMs by GSK-3b inhibition alone can be overcome by removal of
+      cell-cell contact following multiple passages, which can cumulatively result in a 250-fold expansion
+    where: Discussion
+    scope: hiPSC-CMs expanded in vitro
+    direction: increase
+    strength: can be overcome
+    rests_on:
+    - F1B_sparse
+    - F2E
+    - F2GH_text
+    opposes: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    restates: C_abstract_expansion
+    asserts_direction: up
+  C_disc_billion:
+    kind: stated
+    quote: number of CMs in an adult heart) with >95% purity can be prepared from two six-well plates
+      of day 12 hiPSC-CMs
+    where: Discussion
+    scope: projection from the reported expansion
+    direction: increase
+    strength: can be prepared
+    rests_on:
+    - F2E_text
+    - F2I_flow
+    opposes: []
+    judgement:
+      direction: cannot judge
+      support: does not follow
+      comparison: cannot judge
+      scope: does not follow
+      replication: cannot judge
+      strength: overstated
+      presence: does not follow
+  C_lit_first:
+    kind: literature
+    quote: Mechanistically, none of the previous studies that demonstrated the ability of GSK-3b inhibition
+      and Wnt signaling to induce CM division
+    where: Discussion
+    scope: the previous literature on GSK-3b inhibition
+    direction: not stated
+    strength: none of the previous studies
+    rests_on: []
+    opposes: []
+    cites:
+    - buikema2013b
+    - heallen2011
+    - titmarsh2016
+  C_attr_yap:
+    kind: attributed
+    quote: Previous studies have shown that overexpression of active YAP is sufficient to induce CM proliferation
+    where: Results, YAP Activity Is Uncoupled
+    scope: other studies of YAP in cardiomyocytes
+    direction: increase
+    strength: sufficient
+    rests_on: []
+    opposes: []
+    cites:
+    - heallen2011
+  C_attr_modest:
+    kind: attributed
+    quote: Despite the known role of GSK-3b inhibitor as a mitogen, the extent of CM proliferation has
+      been reported to be modest (<3- to 5-fold increase in total cell number)
+    where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+    scope: earlier hiPSC-CM studies
+    direction: modest increase
+    strength: modest
+    rests_on: []
+    opposes: []
+    cites:
+    - mills2017
+    - sharma2018
+citations:
+  lian2013:
+    label: Lian et al., 2013
+    text: Lian, X., Zhang, J., Azarin, S.M., et al. (2013). Directed cardiomyocyte differentiation from
+      human pluripotent stem cells by modulating Wnt/b-catenin signaling under fully defined conditions.
+      Nat. Protoc. 8, 162-175.
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: hiPSC-CM differentiation was performed using the previously described canonical Wnt stimulation
+        and inhibition protocol (Lian
+      where: Methods, Cell culture
+  hansen2010:
+    label: Hansen et al., 2010
+    text: Hansen, A., Eder, A., Bonstrup, M., et al. (2010). Development of a drug screening platform
+      based on engineered heart tissue. Circ. Res. 107, 35-44.
+    year: '2010'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Engineered Heart Tissues were with small modifications generated as described previously
+        (Hansen et al., 2010)
+      where: Methods, Cardiac tissue generation
+  lee2020:
+    label: Lee et al., 2020
+    text: Lee, S., Yang, H., Chen, C., et al. (2020). Simple lithography-free single cell micropatterning
+      using laser-cut stencils. J. Vis. Exp. (158), e60888.
+    year: '2020'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: to achieve a final hiPSC-CM aspect ratio of 7:1 (Lee et al., 2020)
+      where: Methods, Single cell patterning and contractility
+  lee2019:
+    label: Lee et al., 2019
+    text: Lee, S., Stanton, A.E., Tong, X., and Yang, F. (2019). Hydrogels with enhanced protein conjugation
+      efficiency reveal stiffness-induced YAP localization in stem cells depends on biochemical cues.
+      Biomaterials 202, 26-34.
+    year: '2019'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: polyacrylamide hydrogels were prepared as previously described (Lee et al., 2019, 2020)
+      where: Methods, Biophysical effect examination using hydrogel substrate
+  hesse2012:
+    label: Hesse et al., 2012
+    text: Hesse, M., Raulf, A., Pilz, G.-A., et al. (2012). Direct visualization of cell division using
+      high-resolution imaging of M-phase of the cell cycle. Nat. Commun. 3, 1076.
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: The previously described eGFP-anillin expression cassette (Hesse et al., 2012) was inserted
+        into the AAV-CAGGS vector
+      where: Methods, Generation of eGFP-anillin+ expressing hiPSCs
+  janda2017:
+    label: Janda et al., 2017
+    text: Janda, C.Y., Dang, L.T., You, C., et al. (2017). Surrogate Wnt agonists that phenocopy canonical
+      Wnt and b-catenin signalling. Nature 545, 234-237.
+    year: '2017'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: recombinant scFv-DKK1c and RSPO were expressed and purified as previously described (Janda
+        et al., 2017)
+      where: Methods, Small molecules / growth factors
+  matsa2016:
+    label: Matsa et al., 2016
+    text: Matsa, E., Burridge, P.W., Yu, K.-H., et al. (2016). Transcriptome profiling of patient-specific
+      human iPSC-cardiomyocytes predicts individual drug safety and efficacy responses in vitro. Cell
+      Stem Cell 19, 311-325.
+    year: '2016'
+    purpose:
+    - borrows_data
+    anchor:
+      quote: SCVI-273, Sendai virus reprogrammed, PBMCs, female (Matsa et al., 2016)) were maintained
+        in DMEM/F12
+      where: Methods, Cell culture
+  hayakawa2014:
+    label: Hayakawa et al., 2014
+    text: Hayakawa, T., Kunihiro, T., Ando, T., et al. (2014). Image-based evaluation of contraction-relaxation
+      kinetics of human-induced pluripotent stem cell-derived cardiomyocytes. J. Mol. Cell. Cardiol. 77,
+      178-191.
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: motion velocity analysis was performed using Sony Cell Motion Imaging System (SI8000) (Hayakawa
+        et al., 2014)
+      where: Methods, Single cell patterning and contractility
+  stuart2019:
+    label: Stuart et al., 2019
+    text: Stuart, T., Butler, A., Hoffman, P., et al. (2019). Comprehensive integration of single-cell
+      data. Cell 177, 1888-1902.e21.
+    year: '2019'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: To remove batch effect, Seurat integration tool was employed (Stuart et al., 2019)
+      where: Methods, Single cell gene expression analysis
+  mills2017:
+    label: Mills et al., 2017
+    text: Mills, R.J., Titmarsh, D.M., Koenig, X., et al. (2017). Functional screening in human cardiac
+      organoids reveals a metabolic mechanism for cardiomyocyte cell cycle arrest. Proc. Natl. Acad. Sci.
+      U S A 114, E8372-E8381.
+    year: '2017'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: the extent of CM proliferation has been reported to be modest (<3- to 5-fold increase in
+        total cell number) (Mills et al., 2017; Sharma et al., 2018)
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+  sharma2018:
+    label: Sharma et al., 2018
+    text: Sharma, A., Zhang, Y., Buikema, J.W., et al. (2018). Stage-specific effects of bioactive lipids
+      on human iPSC cardiac differentiation and cardiomyocyte proliferation. Sci. Rep. 8, 6618.
+    year: '2018'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: earlier investigations were all performed in densely plated cell cultures
+      where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+  trosset2006:
+    label: Trosset et al., 2006
+    text: 'Trosset, J.-Y., Dalvit, C., Knapp, S., et al. (2006). Inhibition of protein-protein interactions:
+      the discovery of druglike beta-catenin inhibitors by combining virtual and biophysical screening.
+      Proteins 64, 60-67.'
+    year: '2006'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: PNU74654, a specific TCF/LEF b-catenin signaling blocker (Trosset et al., 2006)
+      where: Results, Mechanistic Analysis of GSK-3b Inhibition
+  lindsley2007:
+    label: Lindsley et al., 2007
+    text: Lindsley, C.W., Barnett, S.F., Yaroschak, M., et al. (2007). Recent progress in the development
+      of ATP-competitive and allosteric Akt kinase inhibitors. Curr. Top. Med. Chem. 7, 1349-1363.
+    year: '2007'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: by using a previously described highly selective AKT phosphorylation inhibitor MK2206 (Lindsley
+        et al., 2007)
+      where: Results, Mechanistic Analysis of GSK-3b Inhibition
+  heallen2011:
+    label: Heallen et al., 2011
+    text: Heallen, T., Zhang, M., Wang, J., et al. (2011). Hippo pathway inhibits Wnt signaling to restrain
+      cardiomyocyte proliferation and heart size. Science 332, 458-461.
+    year: '2011'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Previous studies have shown that overexpression of active YAP is sufficient to induce CM
+        proliferation (Bassat et al., 2017; von Gise et al., 2012; Lin et al., 2015)
+      where: Results, YAP Activity Is Uncoupled
+  buikema2013b:
+    label: Buikema et al., 2013b
+    text: Buikema, J.W., Mady, A.S., Mittal, N.V., et al. (2013b). Wnt/b-catenin signaling directs the
+      regional expansion of first and second heart field-derived ventricular cardiomyocytes. Development
+      140, 4165-4176.
+    year: '2013'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: the extent remained modest (<10-fold) (Buikema et al., 2013b; Mills et al., 2019; Sharma
+        et al., 2018; Titmarsh et al., 2016; Uosaki et al., 2013)
+      where: Discussion
+  titmarsh2016:
+    label: Titmarsh et al., 2016
+    text: Titmarsh, D.M., Glass, N.R., Mills, R.J., et al. (2016). Induction of human iPSC-derived cardiomyocyte
+      proliferation revealed by combinatorial screening in high density microbioreactor arrays. Sci. Rep.
+      6, 24637.
+    year: '2016'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: We chose CHIR as the hiPSC-CM mitogen because several studies have previously demonstrated
+        that it is the most potent CM mitogen in vitro
+      where: Introduction
+cross_references:
+- cited: Figures 3I-3K
+  shows: the text names MYL2, TNNI3 and MYOM2 as the maturation markers, while the panel plots MYL2, MYH7
+    and MYOM2
+  anchor:
+    quote: CHIR-treated hiPSC-CMs downregulate markers associated with CM maturation (MYL2, TNNI3, and
+      MYOM2), excitation (GJA1), contractility (RYR2)
+    where: Results, Single-Cell Phenotypic Assessment
+- cited: Figures 2F and 2H
+  shows: the text cites these panels for non-myocyte overgrowth on passaging, while they show the expansion
+    of CHIR-treated cardiomyocytes from four hiPSC lines
+  anchor:
+    quote: passaging of hiPSC-CMs has not been possible because passaging alone leads to expanding only
+      non-myocytes (Figures 2F and 2H)
+    where: Discussion
+context_anchors:
+- field: cell_line
+  value: CVI-111
+  anchor:
+    quote: the expansion capacity was reproducible in CMs from four different iPSC lines (CVI-111, CVI-113,
+      CVI-202 and CVI-273)
+    where: Results, GSK-3b Inhibition and Low-Density Passaging
+- field: cell_line
+  value: CVI-111, CVI-273
+  anchor:
+    quote: CVI-111, CVI-273
+    where: Supplementary Table 1, rows for Fig. 5F and Fig. 6F-G
+    file: mmc1.pdf
+- field: cell_line
+  value: CVI-113
+  anchor:
+    quote: the expansion capacity was reproducible in CMs from four different iPSC lines (CVI-111, CVI-113,
+      CVI-202 and CVI-273)
+    where: Results, GSK-3b Inhibition and Low-Density Passaging
+- field: cell_line
+  value: CVI-202
+  anchor:
+    quote: the expansion capacity was reproducible in CMs from four different iPSC lines (CVI-111, CVI-113,
+      CVI-202 and CVI-273)
+    where: Results, GSK-3b Inhibition and Low-Density Passaging
+- field: cell_line
+  value: CVI-273
+  anchor:
+    quote: the expansion capacity was reproducible in CMs from four different iPSC lines (CVI-111, CVI-113,
+      CVI-202 and CVI-273)
+    where: Results, GSK-3b Inhibition and Low-Density Passaging
+- field: cell_line
+  value: iLB-C1-30 m-r12
+  anchor:
+    quote: hiPSCs (iLB-C1-30 m-r12), kindly provided by Dr. O. Bru
+    where: Methods, Generation of eGFP-anillin+ expressing hiPSCs
+- field: cell_types
+  value: hiPSC-CMs
+  anchor:
+    quote: When hiPSC-CMs were passaged at low density, the total cell number increased by 8-, 8-, and
+      4-fold at each passage
+    where: Results, GSK-3b Inhibition Promotes hiPSC-CM Proliferation
+- field: cm_day_at_formation
+  value: D42
+  anchor:
+    quote: engineered heart tissues produced from non-expanded or P4 expanded hiPSC-CMs at D42 and further
+      cultured for 25 days
+    where: Fig. 6C legend
+- field: cm_day_at_formation
+  value: day 12
+  anchor:
+    quote: At day 12, hiPSC-CMs were further expanded for downstream assays in RPMI 1640 + B27 1X differentiation
+      media
+    where: Methods, Cell culture
+- field: cm_medium
+  value: RPMI 1640 + B27
+  anchor:
+    quote: hiPSC-CMs were further expanded for downstream assays in RPMI 1640 + B27 1X differentiation
+      media
+    where: Methods, Cell culture
+- field: day_of_measurement
+  value: D18
+  anchor:
+    quote: D18
+    where: Fig. S3A
+    file: mmc1.pdf
+    kind: unit
+- field: day_of_measurement
+  value: D35
+  anchor:
+    quote: Confocal microscopy images of P3 (D35) hiPSC-CMs treated with either DMSO (1:5000) (CTR) or
+      CHIR (2.0 mM)
+    where: Fig. 3A and 3B legend
+- field: day_of_measurement
+  value: D42
+  anchor:
+    quote: fluorescence expressed relative to baseline (F/F0) in hiPSC-CMs at day (D) 42
+    where: Fig. 3F legend
+- field: day_of_measurement
+  value: day 12
+  anchor:
+    quote: performed single cell RNA sequencing in day 12 hiPSC-CMs treated for 24 h with DMSO (CTR)
+    where: Results, Single-Cell Phenotypic Assessment
+- field: day_of_measurement
+  value: day 14
+  anchor:
+    quote: positive cells at day 14 as in A
+    where: Fig. S1B and S1C legend
+    file: mmc1.pdf
+- field: day_of_measurement
+  value: day 20
+  anchor:
+    quote: expression in TnT+ (green) day 20 hiPSC-CMs cultured for 6 days with the indicated treatment
+    where: Fig. 5G legend
+- field: day_of_measurement
+  value: day 22
+  anchor:
+    quote: verteporfin (SML0534, Sigma) was administered to day 22 hiPSC-CMs at different concentrations
+    where: Methods, YAP inhibition study
+- field: day_of_measurement
+  value: day 24
+  anchor:
+    quote: Day 24 hiPSC-CMs were plated on the hydrogel substrate and cultured in expansion media
+    where: Methods, Biophysical effect examination using hydrogel substrate
+- field: differentiation_factors
+  value: CHIR99021 + Wnt-C59
+  anchor:
+    quote: CHIR99021 (Seleckchem) concentrations (3.0, 4.0, 5.0, 6.0, 7.0, 8.0 mM) was used. Between day
+      3-5, Wnt-C59 (2.0 mM) (Selleckchem) was added to the differentiation media
+    where: Methods, Cell culture
+- field: dissociation_reagent
+  value: TrypLE Select Enzyme
+  anchor:
+    quote: wells that contain more than 80% beating cells were treated with TrypLE Select Enzyme 10X (Invitrogen)
+      at 37 C
+    where: Methods, Cell culture
+- field: donor_age
+  value: E20.5
+  anchor:
+    quote: myocardial sections with magnified views from day 20.5 (E20.5) embryo
+    where: Fig. S5A legend
+    file: mmc1.pdf
+- field: donor_age
+  value: postnatal day 10 (P10)
+  anchor:
+    quote: Immunofluorescence in postnatal day 10 (P10) animals treated for 6 days with a once-daily injection
+      of CHIR 50mg/kg or CTR
+    where: Fig. S5F legend
+    file: mmc1.pdf
+- field: hipsc_coating
+  value: Matrigel
+  anchor:
+    quote: in a Matrigel (Corning) coated (1:400 for 24h) polystyrene 2D culture system
+    where: Methods, Cell culture
+- field: hipsc_coating.dilution
+  value: 1:400
+  anchor:
+    quote: in a Matrigel (Corning) coated (1:400 for 24h) polystyrene 2D culture system
+    where: Methods, Cell culture
+- field: hipsc_medium
+  value: DMEM/F12 + essential eight (E8)
+  anchor:
+    quote: were maintained in DMEM/F12 (ThermoFisher) supplemented with the essential eight (E8) (Thermo
+      Fisher) growth factors
+    where: Methods, Cell culture
+- field: incubator_atmosphere
+  value: 21% oxygen, 7% CO2
+  anchor:
+    quote: maintained at 21% oxygen, 7% CO2 and 37 C in a humidified cell culture incubator for 25 days
+    where: Methods, Cardiac tissue generation
+- field: insulin_day
+  value: day 7
+  anchor:
+    quote: At day 7, B27 with insulin was added to the differentiation media
+    where: Methods, Cell culture
+- field: measurement_calcium_mM
+  value: 2 mM
+  anchor:
+    quote: immersed in extracellular solution containing 140 mM NaCl, 2.8 mM KCl, 2 mM CaCl2, 2 mM MgCl2,
+      10 mM HEPES, and 10 mM glucose, at pH 7.4
+    where: Methods, Electrophysiological studies
+- field: measurement_medium
+  value: culture medium
+  anchor:
+    quote: Contractility measurements were performed in culture medium as described previously
+    where: Methods, Cardiac tissue generation
+- field: measurement_medium
+  value: extracellular solution
+  anchor:
+    quote: Cells on coverslips were immersed in extracellular solution containing 140 mM NaCl, 2.8 mM
+      KCl, 2 mM CaCl2
+    where: Methods, Electrophysiological studies
+- field: number_of_lines
+  value: four lines
+  anchor:
+    quote: the expansion capacity was reproducible in CMs from four different iPSC lines (CVI-111, CVI-113,
+      CVI-202 and CVI-273)
+    where: Results, GSK-3b Inhibition and Low-Density Passaging
+- field: platform
+  value: 48-well-plate
+  anchor:
+    quote: 100,000 hiPSC-CMs were plated in small surface area (i.e., 48-well-plate) to induce dense culture,
+      while the same number of cells were plated in large surface (i.e., 6-well-plate)
+    where: Methods, Contact inhibition study
+- field: platform
+  value: 6-well-plate
+  anchor:
+    quote: 100,000 hiPSC-CMs were plated in small surface area (i.e., 48-well-plate) to induce dense culture,
+      while the same number of cells were plated in large surface (i.e., 6-well-plate)
+    where: Methods, Contact inhibition study
+- field: platform
+  value: Engineered Heart Tissues
+  anchor:
+    quote: Engineered Heart Tissues were with small modifications generated as described previously
+    where: Methods, Cardiac tissue generation
+- field: platform
+  value: micropatterned surfaces
+  anchor:
+    quote: immunostained on micropatterned surfaces for the expression of troponin T (TnT) and sarcomeric
+      a-actinin
+    where: Fig. 3A and 3B legend
+- field: preparation
+  value: cell lysate
+  anchor:
+    quote: Total RNA from each sample was purified from cell lysate using a RNA purification kit
+    where: Methods, Real-time PCR expression analysis
+- field: preparation
+  value: dispersed with TrypLE Select Enzyme
+  anchor:
+    quote: hiPSC-CM aggregates were dispersed with TrypLE Select Enzyme as described above and dissociated
+      with gentle
+    where: Methods, Single cell gene expression analysis
+- field: preparation
+  value: fixed
+  anchor:
+    quote: For immunostaining, cells were fixed at 4% paraformaldehyde for 15 min at room temperature
+    where: Methods, Contact inhibition study
+- field: preparation
+  value: heart sections
+  anchor:
+    quote: Representative immunofluorescence images of heart sections from embryo
+    where: Fig. S5D legend
+    file: mmc1.pdf
+- field: preparation
+  value: muscle strip
+  anchor:
+    quote: Fibrin polymerization (37 C, 7% CO2, 98% RH, 2 h) led to the formation of a muscle strip
+    where: Methods, Cardiac tissue generation
+- field: preparation
+  value: single cells
+  anchor:
+    quote: Treated hiPSC-CMs were micropatterned as single cells to adopt rectangular morphology with
+      7:1 aspect ratio
+    where: Fig. 3A and 3B legend
+- field: replating_coating
+  value: Matrigel
+  anchor:
+    quote: seeded sparsely on Matrigel
+    where: Methods, Electrophysiological studies
+- field: replating_coating
+  value: micro-patterned Matrigel
+  anchor:
+    quote: hiPSC-CMs were plated on polyacrylamide hydrogels of 10 kPa stiffness with micro-patterned
+      Matrigel
+    where: Methods, Single cell patterning and contractility
+- field: seeding_density
+  value: 10,000 cells/cm2
+  anchor:
+    quote: On day 12, hiPSC-CMs were plated densely (100,000 cells/cm2) or sparsely (10,000 cells/cm2)
+      for serial passaging or cultured without passaging (500,000 to 1,000,000 cells/cm2)
+    where: Fig. 1A legend
+- field: seeding_density
+  value: 100,000 cells/cm2
+  anchor:
+    quote: On day 12, hiPSC-CMs were plated densely (100,000 cells/cm2) or sparsely (10,000 cells/cm2)
+      for serial passaging or cultured without passaging (500,000 to 1,000,000 cells/cm2)
+    where: Fig. 1A legend
+- field: seeding_density
+  value: 100,000 hiPSC-CMs
+  anchor:
+    quote: 100,000 hiPSC-CMs were plated in small surface area (i.e., 48-well-plate) to induce dense culture
+    where: Methods, Contact inhibition study
+- field: seeding_density
+  value: 1x106 cardiomyocytes each
+  anchor:
+    quote: EHTs of 1x106 cardiomyocytes each were casted by mixing the reconstitution
+    where: Methods, Cardiac tissue generation
+- field: seeding_density
+  value: 500,000 to 1,000,000 cells/cm2
+  anchor:
+    quote: On day 12, hiPSC-CMs were plated densely (100,000 cells/cm2) or sparsely (10,000 cells/cm2)
+      for serial passaging or cultured without passaging (500,000 to 1,000,000 cells/cm2)
+    where: Fig. 1A legend
+- field: species
+  value: human
+  anchor:
+    quote: Wnt Activation and Reduced Cell-Cell Contact Synergistically Induce Massive Expansion of Functional
+      Human iPSC-Derived Cardiomyocytes
+    where: Title
+- field: species
+  value: mice
+  anchor:
+    quote: Pregnant mice at gestational day 16.5 and 4-day-old CD1 mice (Jackson Laboratory, Bar Harbor,
+      ME) were given 4-6 consecutive daily intraperitoneally injections of CHIR
+    where: Methods, In vivo studies in mice
+- field: substrate
+  value: bovine fibrinogen + Matrigel
+  anchor:
+    quote: resuspended in culture medium containing bovine fibrinogen (5 mg/ml), aprotinin (2.5 mg/ml)
+      and 10% Matrigel
+    where: Methods, Cardiac tissue generation
+- field: substrate
+  value: polyacrylamide hydrogel
+  anchor:
+    quote: hiPSC-CMs were plated on polyacrylamide hydrogels of 10 kPa stiffness with micro-patterned
+    where: Methods, Single cell patterning and contractility
+- field: substrate
+  value: tissue culture plastic (TCP)
+  anchor:
+    quote: hiPSC-CMs cultured on substrates with varying stiffness (kPa) or on tissue culture plastic
+      (TCP) (GPa)
+    where: Fig. 4D legend
+- field: substrate.stiffness
+  value: 1 kPa
+  anchor:
+    quote: to achieve hydrogel stiffness of 1, 10, and 60 kPa, respectively
+    where: Methods, Biophysical effect examination using hydrogel substrate
+- field: substrate.stiffness
+  value: 10 kPa
+  anchor:
+    quote: hiPSC-CMs were plated on polyacrylamide hydrogels of 10 kPa stiffness with micro-patterned
+    where: Methods, Single cell patterning and contractility
+- field: substrate.stiffness
+  value: 60 kPa
+  anchor:
+    quote: to achieve hydrogel stiffness of 1, 10, and 60 kPa, respectively
+    where: Methods, Biophysical effect examination using hydrogel substrate
+- field: supplements
+  value: Knock Out Replacement Serum + Thiozovivin
+  anchor:
+    quote: For the first 24h after passaging, 10% Knock Out Replacement Serum and Thiozovivin 1.0 mM were
+      added to the differentiation media
+    where: Methods, Cell culture
+- field: temperature
+  value: 37 C
+  anchor:
+    quote: Spontaneous calcium transients were observed at 37 C with a Carl Zeiss LSM 510 confocal microscopy
+    where: Methods, Electrophysiological studies
+- field: time_point
+  value: 14 days after formation
+  anchor:
+    quote: in engineered heart tissue 14 days after formation for the indicated treatment and hiPSC lines
+    where: Fig. 6G legend
+- field: time_point
+  value: 24 h
+  anchor:
+    quote: treated for 24 h with DMSO (CTR), CHIR (4.0 mM), or C59 (4.0 mM)
+    where: Results, Single-Cell Phenotypic Assessment
+- field: time_point
+  value: 24 hours
+  anchor:
+    quote: verteporfin (SML0534, Sigma) was administered to day 22 hiPSC-CMs at different concentrations
+      (0.1, 1, 10, 50, 100 mM) for 24 hours
+    where: Methods, YAP inhibition study
+- field: time_point
+  value: 6 days
+  anchor:
+    quote: day 20 hiPSC-CMs cultured for 6 days with the indicated treatment
+    where: Fig. 5G legend
+- field: time_point
+  value: 9 days
+  anchor:
+    quote: hiPSC-CMs were cultured for 9 days with DMSO (CTR), CHIR or 6 days with CHIR followed by 3
+      days of Wnt inhibitor C59 (4.0 µM)
+    where: Fig. S1H and S1I legend
+    file: mmc1.pdf
+- field: time_point
+  value: between day (D) 5 tot 20
+  anchor:
+    quote: in heart tissues generated from previously expanded (P4 CHIR > CTR) (yellow) or non-expanded
+      (gray) hiPSC-CMs measured at time points between day (D) 5 tot 20
+    where: Fig. 6F legend
+- field: time_point
+  value: t=100min
+  anchor:
+    quote: CHIR t=100min
+    where: Fig. 5D
+    file: journal_version.pdf
+    kind: unit
+- field: time_point
+  value: t=10min
+  anchor:
+    quote: CHIR t=10min
+    where: Fig. 5D
+    file: journal_version.pdf
+    kind: unit
+- field: transgene
+  value: eGFP-anillin expression cassette
+  anchor:
+    quote: The previously described eGFP-anillin expression cassette (Hesse et al., 2012) was inserted
+      into the AAV-CAGGS vector
+    where: Methods, Generation of eGFP-anillin+ expressing hiPSCs
+- field: treatment
+  value: C59
+  anchor:
+    quote: subsequently treated for 6 days with either continuation of CHIR (2.0 mM) or replacement of
+      CHIR with C59 (2.0 mM) (CHIR > C59)
+    where: Fig. 3A and 3B legend
+- field: treatment
+  value: CHIR followed by C59
+  anchor:
+    quote: treated with CHIR from D12 to D28 followed by either continued treatment with CHIR, CHIR withdraw
+      (CHIR > CTR), or replacement of CHIR with C59 (CHIR > C59)
+    where: Fig. 3I-3K legend
+- field: treatment
+  value: CHIR followed by CHIR withdraw
+  anchor:
+    quote: treated with CHIR from D12 to D28 followed by either continued treatment with CHIR, CHIR withdraw
+      (CHIR > CTR), or replacement of CHIR with C59 (CHIR > C59)
+    where: Fig. 3I-3K legend
+- field: treatment
+  value: CHIR99021
+  anchor:
+    quote: cultured without passaging (500,000 to 1,000,000 cells/cm2) in the presence of CHIR99021 (CHIR)
+      (2.0 mM)
+    where: Fig. 1A legend
+- field: treatment
+  value: CHIR99021 + MK2206
+  anchor:
+    quote: PNU74654, MK2206, CHIR99021, C59 and Palbociclib were obtained commercially
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: CHIR99021 + PNU74654
+  anchor:
+    quote: PNU74654, MK2206, CHIR99021, C59 and Palbociclib were obtained commercially
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: CHIR99021 + Palbociclib
+  anchor:
+    quote: PNU74654, MK2206, CHIR99021, C59 and Palbociclib were obtained commercially
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: CHIR99021 50mg/kg
+  anchor:
+    quote: treated at E16.5 for 4 consecutive days with a once-daily injection of 50mg/kg CHIR99021 (CHIR)
+      (N = 3) or DMSO carrier control (CTR) (N = 3)
+    where: Fig. S5A legend
+    file: mmc1.pdf
+- field: treatment
+  value: DMSO
+  anchor:
+    quote: Representative bright-field images of hiPSC-CMs treated with CHIR (2.0 mM) or DMSO (CTR) prior
+      to being passaged
+    where: Fig. 2D legend
+- field: treatment
+  value: MK2206
+  anchor:
+    quote: PNU74654, MK2206, CHIR99021, C59 and Palbociclib were obtained commercially
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: RSPO
+  anchor:
+    quote: recombinant scFv-DKK1c and RSPO were expressed and purified as previously described (Janda
+      et al., 2017) and used in final concentrations of 200 and 25 nM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: Verteporfin
+  anchor:
+    quote: a well-known inhibitor, verteporfin (SML0534, Sigma) was administered to day 22 hiPSC-CMs at
+      different concentrations (0.1, 1, 10, 50, 100 mM) for 24 hours
+    where: Methods, YAP inhibition study
+- field: treatment
+  value: Wnt3A
+  anchor:
+    quote: Recombinant Wnt3A protein was purchased commercially and added in 100 ng/mL final concentration
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: fresh expansion media (B27 + CHIR) + concentrated factors
+  anchor:
+    quote: The concentrated factors were diluted with fresh expansion media (B27 + CHIR) at different
+      ratios (1x, 0.1x, 0.01x), then given to sparsely plated hiPSC-CMs
+    where: Methods, Contact inhibition study
+- field: treatment
+  value: media alone
+  anchor:
+    quote: or media alone (CTR)
+    where: Fig. S3B legend
+    file: mmc1.pdf
+- field: treatment
+  value: scFv-DKK1c
+  anchor:
+    quote: recombinant scFv-DKK1c and RSPO were expressed and purified as previously described (Janda
+      et al., 2017) and used in final concentrations of 200 and 25 nM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment
+  value: scFv-DKK1c + RSPO
+  anchor:
+    quote: Representative immunofluorescence images of immature hiPSC-CMs treated with R-Spondin 1 (RSPO)
+      (25nM), Wnt3A (100 ng/mL), scFv-DKK1c (200 nM), scFV-DKK1c (200nM) + RSPO (25 nM)
+    where: Fig. S3B legend
+    file: mmc1.pdf
+- field: treatment.concentration
+  value: 0.1 mM
+  anchor:
+    quote: verteporfin (SML0534, Sigma) was administered to day 22 hiPSC-CMs at different concentrations
+      (0.1, 1, 10, 50, 100 mM) for 24 hours
+    where: Methods, YAP inhibition study
+- field: treatment.concentration
+  value: 1 mM
+  anchor:
+    quote: verteporfin (SML0534, Sigma) was administered to day 22 hiPSC-CMs at different concentrations
+      (0.1, 1, 10, 50, 100 mM) for 24 hours
+    where: Methods, YAP inhibition study
+- field: treatment.concentration
+  value: 1.0 mM
+  anchor:
+    quote: PNU74654, MK2206 and Palbociclib were used at 32, 1.0 and 1.0 mM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment.concentration
+  value: 10 mM
+  anchor:
+    quote: verteporfin (SML0534, Sigma) was administered to day 22 hiPSC-CMs at different concentrations
+      (0.1, 1, 10, 50, 100 mM) for 24 hours
+    where: Methods, YAP inhibition study
+- field: treatment.concentration
+  value: 100 ng/mL
+  anchor:
+    quote: Recombinant Wnt3A protein was purchased commercially and added in 100 ng/mL final concentration
+    where: Methods, Small molecules / growth factors
+- field: treatment.concentration
+  value: 2.0 mM
+  anchor:
+    quote: cultured without passaging (500,000 to 1,000,000 cells/cm2) in the presence of CHIR99021 (CHIR)
+      (2.0 mM)
+    where: Fig. 1A legend
+- field: treatment.concentration
+  value: 200 nM
+  anchor:
+    quote: recombinant scFv-DKK1c and RSPO were expressed and purified as previously described (Janda
+      et al., 2017) and used in final concentrations of 200 and 25 nM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment.concentration
+  value: 25 nM
+  anchor:
+    quote: recombinant scFv-DKK1c and RSPO were expressed and purified as previously described (Janda
+      et al., 2017) and used in final concentrations of 200 and 25 nM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment.concentration
+  value: 4.0 mM
+  anchor:
+    quote: performed single cell RNA sequencing in day 12 hiPSC-CMs treated for 24 h with DMSO (CTR),
+      CHIR (4.0 mM), or C59 (4.0 mM)
+    where: Results, Single-Cell Phenotypic Assessment
+- field: treatment.dilution
+  value: 1:2,500
+  anchor:
+    quote: UMAP plots of day 12 hiPSC-CMs treated with DMSO (1:2,500) (gray)
+    where: Fig. 3L legend
+- field: treatment.dilution
+  value: 1:5000
+  anchor:
+    quote: treated with either DMSO (1:5000) (CTR) or CHIR (2.0 mM) since P0
+    where: Fig. 3A and 3B legend
+- field: treatment.mk2206_concentration
+  value: 1.0 mM
+  anchor:
+    quote: PNU74654, MK2206 and Palbociclib were used at 32, 1.0 and 1.0 mM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment.palbociclib_concentration
+  value: 1.0 mM
+  anchor:
+    quote: PNU74654, MK2206 and Palbociclib were used at 32, 1.0 and 1.0 mM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment.pnu_concentration
+  value: 32 mM
+  anchor:
+    quote: PNU74654, MK2206 and Palbociclib were used at 32, 1.0 and 1.0 mM, respectively
+    where: Methods, Small molecules / growth factors
+- field: treatment.ratio
+  value: 0.01x
+  anchor:
+    quote: The concentrated factors were diluted with fresh expansion media (B27 + CHIR) at different
+      ratios (1x, 0.1x, 0.01x), then given to sparsely plated hiPSC-CMs
+    where: Methods, Contact inhibition study
+- field: treatment.ratio
+  value: 0.1x
+  anchor:
+    quote: The concentrated factors were diluted with fresh expansion media (B27 + CHIR) at different
+      ratios (1x, 0.1x, 0.01x), then given to sparsely plated hiPSC-CMs
+    where: Methods, Contact inhibition study
+- field: treatment.ratio
+  value: 1x
+  anchor:
+    quote: The concentrated factors were diluted with fresh expansion media (B27 + CHIR) at different
+      ratios (1x, 0.1x, 0.01x), then given to sparsely plated hiPSC-CMs
+    where: Methods, Contact inhibition study
+- field: treatment.rspo_concentration
+  value: 25 nM
+  anchor:
+    quote: recombinant scFv-DKK1c and RSPO were expressed and purified as previously described (Janda
+      et al., 2017) and used in final concentrations of 200 and 25 nM, respectively
+    where: Methods, Small molecules / growth factors
+- field: wnt_activation_days
+  value: day 0-2
+  anchor:
+    quote: Between day 0-2, a gradient of CHIR99021 (Seleckchem) concentrations (3.0, 4.0, 5.0, 6.0, 7.0,
+      8.0 mM) was used
+    where: Methods, Cell culture
+- field: wnt_inhibition_days
+  value: day 3-5
+  anchor:
+    quote: Between day 3-5, Wnt-C59 (2.0 mM) (Selleckchem) was added to the differentiation media
+    where: Methods, Cell culture

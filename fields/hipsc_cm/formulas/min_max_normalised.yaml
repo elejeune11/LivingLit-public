@@ -1,0 +1,39 @@
+# Written by code from changes.yaml (version 30); never edited.
+formula: min_max_normalised
+kind: derived
+statement: 'Min–max normalisation maps a value onto [0, 1] between the lowest and largest values of its set: (x - xmin)/(xmax
+  - xmin).'
+equations:
+- n = (x - xmin)/(xmax - xmin)
+variables:
+  n: dimensionless
+  x: D
+  xmin: D
+  xmax: D
+uses:
+- formula: ratio_of_differences
+  subs:
+    r: n
+    x1: x
+    x2: xmin
+    y1: xmax
+    y2: xmin
+does_not_apply: normalisation to a reference value (x/x0), a percent change from baseline ((x - x0)/x0), or a z-score
+tests:
+- given:
+    x: 5.0
+    xmin: 1.0
+    xmax: 9.0
+  expect:
+    n: 0.5
+- given:
+    x: 1.0
+    xmin: 1.0
+    xmax: 9.0
+  expect:
+    n: 0.0
+- given:
+    x: 5.0
+    xmin: 1.0
+    xmax: 9.0
+  does_not_apply: 'percent change from the lowest value: (5 - 1)/1 = 4, not 0.5'

@@ -1,0 +1,48 @@
+# Written by code from changes.yaml (version 17); never edited.
+formula: ptotal_from_relative_abundance
+kind: derived
+statement: The mean number of phosphates per protein molecule (Ptotal, mol Pi/mol protein) is the sum of each phosphorylated
+  form's percent relative abundance times its number of phosphates, divided by 100 (forms with up to three phosphates).
+equations:
+- P = (p1 + 2*p2 + 3*p3)/100
+variables:
+  P: dimensionless
+  p1: dimensionless
+  p2: dimensionless
+  p3: dimensionless
+  S: count
+  n: count
+  n1: count
+  n2: count
+  n3: count
+assumes:
+- S = n1 + 2*n2 + 3*n3
+- p1 = 100*n1/n
+- p2 = 100*n2/n
+- p3 = 100*n3/n
+uses:
+- formula: mean_def
+  subs:
+    m: P
+    S: S
+    n: n
+does_not_apply: a protein with forms carrying four or more phosphates (add 4*p4/100 and so on), or abundances given as fractions
+  rather than percentages
+tests:
+- given:
+    p1: 30.0
+    p2: 10.0
+    p3: 0.0
+  expect:
+    P: 0.5
+- given:
+    p1: 20.0
+    p2: 20.0
+    p3: 20.0
+  expect:
+    P: 1.2
+- given:
+    p1: 30.0
+    p2: 10.0
+    p3: 0.0
+  does_not_apply: 'abundances as fractions (0.3, 0.1): P is 0.005, not 0.5'

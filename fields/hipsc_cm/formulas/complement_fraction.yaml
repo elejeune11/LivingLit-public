@@ -1,0 +1,29 @@
+# Written by code from changes.yaml (version 10); never edited.
+formula: complement_fraction
+kind: derived
+statement: When a whole is split into two exclusive parts, the fraction in one part is one minus the fraction in the other.
+equations:
+- c = 1 - f
+variables:
+  c: dimensionless
+  f: dimensionless
+  t: dimensionless
+assumes:
+- t = 1
+uses:
+- formula: sum_of_parts
+  subs:
+    t: t
+    a: f
+    b: c
+does_not_apply: more than two categories, or categories that overlap or leave a remainder
+tests:
+- given:
+    f: 0.326
+    t: 1.0
+  expect:
+    c: 0.674
+- given:
+    f: 0.3
+    t: 1.0
+  does_not_apply: 'three categories (0.3, 0.2, 0.5): the second is 0.2, not 0.7'

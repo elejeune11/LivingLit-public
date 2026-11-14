@@ -1,0 +1,26 @@
+# Written by code from changes.yaml (version 1); never edited.
+formula: relative_change
+kind: derived
+statement: The relative change of a value from a reference, (x - x0)/x0, is the ratio of the difference to the reference.
+equations:
+- d = (x - x0)/x0
+variables:
+  d: dimensionless
+  x: D
+  x0: D
+  dx: D
+assumes:
+- dx = x - x0
+uses:
+- formula: ratio_def
+  subs:
+    r: d
+    a: dx
+    b: x0
+does_not_apply: a change expressed relative to a value other than the reference subtracted (e.g. % of peak)
+tests:
+- given:
+    x: 3.0
+    x0: 2.0
+  expect:
+    d: 0.5

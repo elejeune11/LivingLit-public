@@ -1,0 +1,552 @@
+record: 2015_Hinson
+vocabulary_version: 34
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---- synonyms on existing terms
+- add_synonym:
+    id: CL:0000746
+    text: iPS-CMs
+    anchor: We generated iPS cell-derived cardiomyocytes (iPS-CMs) from patients
+- add_synonym:
+    id: preparation:intact_tissue
+    text: microtissue
+    anchor: For quantifying microtissue forces, bright-field and fluorescence images were taken at 30Hz
+- add_synonym:
+    id: preparation:dissociated_cells
+    text: single iPS-CMs
+    anchor: Images of single iPS-CMs on fibronectin coated glass coverslips and patterned substrates
+- add_synonym:
+    id: preparation:lysate
+    text: protein lysates
+    anchor: Protein lysates were solubilised in RIPA buffer followed by western blotting by standard protocols
+- add_synonym:
+    id: pacing:field_stimulation
+    text: electrical field stimulation
+    anchor: Electrical field stimulation of biphasic square pulses of 1ms was given by placing two carbon electrodes
+- add_synonym:
+    id: measure:contractile_work
+    text: strain energy
+    anchor: To calculate the strain energy on each attached micro-post, the post displacement was squared
+# ---- platform
+- add_term:
+    field: platform
+    id: platform:microfabricated_tissue_gauge
+    label: microfabricated tissue gauge (µTUG)
+    parent: platform:tissue_between_pillars
+    definition: A microtissue formed in a moulded PDMS microwell and anchored between the tips of two flexible PDMS cantilevers
+      whose deflection reports its force.
+    scope: The PDMS microwell-and-cantilever microtissue format; not the Heart-Dyno or other larger tissues between two pillars.
+    synonyms:
+    - text: micro-fabricated tissue gauges
+      anchor: polydimethylsiloxane (PDMS) micro-fabricated tissue gauges (µTUG) substrates were molded from the SU-8 masters
+- add_term:
+    field: platform
+    id: platform:micropost_array
+    label: micropost array
+    parent: platform:culture_2d
+    definition: Cells cultured on the fibronectin-stamped tops of an array of elastic microposts whose deflections report traction
+      forces.
+    scope: A 2D surface of discrete elastic posts; not a flat monolayer surface and not a micropatterned flat island.
+    synonyms:
+    - text: Micro-post arrays (mPads)
+      anchor: Micro-post arrays (mPads)
+# ---- genotype
+- add_term:
+    field: genotype
+    id: genotype:ttn_variant
+    label: TTN variant
+    parent: genotype:gene_variant
+    definition: Cells carrying a variant in TTN, the gene encoding titin.
+    scope: A variant in TTN (truncating or missense; the variant, consequence and zygosity are qualifiers); not a PKP2, DSP,
+      MYBPC3, RBM20 or SCN5A variant.
+# ---- transgene
+- add_term:
+    field: transgene
+    id: transgene:reprogramming_vector
+    label: reprogramming factor vector
+    definition: A vector that delivers reprogramming factors (such as OCT4, KLF4, SOX2 and c-MYC) to make iPSCs.
+    scope: Introduced to reprogram somatic cells to pluripotency; not an indicator, reporter, overexpressed gene of interest,
+      Cre recombinase, shRNA or empty vector.
+- add_term:
+    field: transgene
+    id: transgene:stemcca
+    label: STEMCCA lentiviral cassette
+    parent: transgene:reprogramming_vector
+    definition: The polycistronic lentiviral STEMCCA cassette expressing OCT4, KLF4, SOX2 and c-MYC.
+    scope: The integrating STEMCCA lentivirus; other reprogramming vectors (Sendai virus, episomal plasmids) are siblings to add.
+    synonyms:
+    - text: STEMCCA cassette
+      anchor: lentivirus expressing the poly-cistronic STEMCCA cassette
+# ---- treatment (ChEBI has no protein growth factors under these names)
+- adopt_own:
+    field: treatment
+    id: treatment:vegf_isoform_not_stated
+    label: VEGF (isoform not stated)
+    scope: VEGF whose isoform the source does not state; not VEGF165 (a named isoform) or other growth factors.
+    definition: Vascular endothelial growth factor added to the medium, isoform not stated by the source.
+    lookup: 'lookup chebi "vascular endothelial growth factor" and "VEGF": only VEGF receptor antagonists and activators; the existing
+      own term VEGF165 names one isoform, which this source does not state'
+    synonyms:
+    - text: VEGF
+      anchor: iPS-CMs with VEGF (50ng/ml)
+- adopt_own:
+    field: treatment
+    id: treatment:tgf_beta_isoform_not_stated
+    label: TGF-β (isoform not stated)
+    scope: TGF-β whose isoform the source does not state; not TGFβ-1 or TGF-β2 (named isoforms) or a TGF-β signalling inhibitor.
+    definition: Transforming growth factor beta added to the medium, isoform not stated by the source.
+    lookup: 'lookup chebi "transforming growth factor beta" and "TGF-beta": only TGFbeta receptor antagonist; the existing own terms
+      TGFβ-1 and TGF-β2 name isoforms, which this source does not state'
+    synonyms:
+    - text: TGF-beta
+      anchor: VEGF supplementation but not TGF-beta (fig. S3F) improved force production
+# ---- cell lines (unnamed patient lines; clones as a qualifier)
+- adopt_own:
+    field: cell_line
+    id: cell_line:hinson_pwt_ipsc
+    label: pWT control patient hiPSC line of the Hinson 2015 study (unnamed)
+    scope: The pWT control line of this source only (its clones are a qualifier); not its patient lines or other studies' unnamed lines.
+    definition: The unnamed hiPSC line reprogrammed from T cells of the wild-type control individual, called pWT by its source.
+    lookup: 'lookup cellosaurus TTN, MEK-111, W976R, P22582: no line from this study; the source names the line only as pWT, with
+      no accession'
+- adopt_own:
+    field: cell_line
+    id: cell_line:hinson_pp22582fs_ipsc
+    label: pP22582fs patient hiPSC line of the Hinson 2015 study (unnamed)
+    scope: The pP22582fs patient line of this source only (its clones are a qualifier); not its pWT control line or other studies' unnamed lines.
+    definition: The unnamed hiPSC line reprogrammed from T cells of the dilated cardiomyopathy patient carrying TTN P22582fs, called
+      pP22582fs by its source.
+    lookup: 'lookup cellosaurus TTN, MEK-111, P22582: no line from this study; the source names the line only as pP22582fs+/-, with
+      no accession'
+- add_qualifier:
+    id: cell_line:hinson_pwt_ipsc
+    name: clone
+    dimension: text
+- add_qualifier:
+    id: cell_line:hinson_pp22582fs_ipsc
+    name: clone
+    dimension: text
+# ---- measures
+- add_term:
+    field: measure
+    id: measure:protein_band_apparent_mass
+    label: apparent molecular mass of a protein band
+    definition: Molecular mass of a protein species estimated from its migration on a gel (qualifier protein).
+    scope: The size of a protein band in kDa; not the amount of protein (protein level) or the share of an isoform.
+    dimension: mass
+    qualifiers:
+      protein:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:fourier_spectrum_profile
+    label: sarcomere image Fourier spectrum profile
+    definition: The one-dimensional profile of the 2D Fourier power spectrum of a sarcomere image, intensity against spatial frequency.
+    scope: The whole spectrum curve; not an index computed from it (sarcomere alignment index) and not a qualitative grade (sarcomere
+      organisation).
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:lv_end_diastolic_dimension
+    label: left ventricular end-diastolic dimension
+    definition: Internal diameter of the left ventricle at end diastole, measured by imaging in vivo.
+    scope: A cavity diameter (length); not a cavity area (left ventricular end diastolic area), a volume or a fraction.
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:age_at_diagnosis
+    label: age at diagnosis
+    definition: Age of a patient when the disease was diagnosed.
+    scope: A patient's age at diagnosis; not the donor age of a sample (donor_age field) or a day of culture.
+    dimension: time
+- add_term:
+    field: measure
+    id: measure:gene_editing_colony_count
+    label: gene-editing colony count
+    definition: Number of colonies in a gene-editing experiment with a stated outcome (qualifier outcome, e.g. screened, edited,
+      homozygous or heterozygous in/del).
+    scope: Counts of colonies or clones from a gene-editing screen; not the number of cells in a construct or cells per field.
+    dimension: dimensionless
+    qualifiers:
+      outcome:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:allele_specific_expression
+    label: allele-specific expression
+    parent: measure:gene_expression
+    definition: mRNA of one gene counted per allele (qualifier allele), as reads or as the share of each allele.
+    scope: Expression split by allele; the parent is the level of the gene as a whole.
+    dimension: dimensionless
+    qualifiers:
+      allele:
+        dimension: text
+# ---- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:protein_band_apparent_mass
+    value: {must_match: [preparation, measure.protein], may_vary: [cell_line, genotype]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:fourier_spectrum_profile
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lv_end_diastolic_dimension
+    value: {must_match: [species, disease_model, treatment, genotype, time_point], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:age_at_diagnosis
+    value: {must_match: [species, disease_model, genotype], may_vary: []}
+    direction: {must_match: [contrast, species], may_vary: []}
+- standing_key:
+    measure: measure:gene_editing_colony_count
+    value: {must_match: [measure.outcome, genotype], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.outcome], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:allele_specific_expression
+    value: {must_match: [platform@1, preparation, measure.gene, measure.allele, measure.expressed_as, treatment, genotype, disease_model],
+      may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.gene, measure.allele], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---- flags
+- field: wnt_activation_days
+  stated: D0-D1
+  flag: {kind: not a context, note: 'printed as "D0-D1", which code cannot read as a quantity; the reader should write the days
+      as a number range ("day 0-1")'}
+- field: wnt_inhibition_days
+  stated: D3-D5
+  flag: {kind: not a context, note: 'printed as "D3-D5", which code cannot read as a quantity; the reader should write the days
+      as a number range ("day 3-5")'}
+- field: hipsc_medium
+  stated: feeder-free conditions
+  flag: {kind: not a context, note: 'names a culture condition (no feeder cells), not a medium; the source names no hiPSC medium,
+      so the field is not stated'}
+- field: purity_method
+  stated: FACS analysis or by morphology
+  flag: {kind: alternatives, note: 'the methods say purity "was determined by FACS analysis (>90% TnnT+) or by morphology": two
+      alternative methods, not one'}
+- field: cell_line
+  stated: patient-derived iPS-CMs
+  flag: {kind: several conditions, note: 'names no line; at unit level it covers groups from different patients'' lines (pWT,
+      pW976R, pA22352fs, pP22582fs), which each group should carry under its own line name'}
+- field: donor_age
+  stated: adult human donor hearts
+  flag: {kind: not a context, note: 'holds the declared state "adult" plus words for species ("human", already in species) and
+      the tissue ("donor hearts"); the reader should write "adult"'}
+  split:
+  - {words: donor hearts, field: platform}
+# ---- context
+- field: platform
+  stated: cardiac microtissue
+  terms: [platform:microfabricated_tissue_gauge]
+  note: the CMTs are µTUG microtissues between two PDMS cantilevers (Methods, Cardiac Microtissue (CMT) platform); "cardiac
+    microtissue" is broader than the term, so no synonym
+- field: platform
+  stated: fibronectin coated glass coverslips
+  terms: [platform:culture_2d]
+  qualifiers: {format: glass coverslips}
+  split:
+  - {words: fibronectin coated, field: replating_coating}
+  - {words: glass, field: substrate}
+  note: single un-patterned cells on coverslips; not a monolayer. Coating and substrate are already filled and agree
+- field: preparation
+  stated: H&E stained tissue
+  terms: [preparation:fixed]
+  note: fixed, H&E-stained sections of patient LV; broader term, no synonym
+- field: mechanical_load
+  stated: cantilever
+  terms: [mechanical_load:auxotonic]
+  note: tissues contract against flexible PDMS cantilevers; "cantilever" names the device, so no synonym
+- field: mechanical_load
+  stated: flexible cantilever
+  terms: [mechanical_load:auxotonic]
+  note: stiffness 0.2 μN/μm is carried by the value's qualifier
+- field: mechanical_load
+  stated: rigid cantilever
+  terms: [mechanical_load:auxotonic]
+  note: '"rigid" is the paper''s word for the stiffer (0.45 μN/μm) cantilever, still auxotonic; stiffness is carried by the value''s
+    qualifier'
+- field: mechanical_load
+  stated: microposts
+  terms: [mechanical_load:auxotonic]
+  note: single cells contract against elastic microposts; the value's qualifier "spring constant" is a stiffness
+- field: cell_types
+  stated: iPS cells
+  terms: [CL:0002248]
+  no_ontology_term: induced pluripotent stem cell (CL has no iPS cell class in the pinned release)
+- field: cell_line
+  stated: pWT (1)
+  terms: [cell_line:hinson_pwt_ipsc]
+  qualifiers: {clone: '1'}
+- field: cell_line
+  stated: pWT (2)
+  terms: [cell_line:hinson_pwt_ipsc]
+  qualifiers: {clone: '2'}
+- field: cell_line
+  stated: pP22582fs+/- (A)
+  terms: [cell_line:hinson_pp22582fs_ipsc]
+  qualifiers: {clone: A}
+- field: cell_line
+  stated: pP22582fs+/- (I)
+  terms: [cell_line:hinson_pp22582fs_ipsc]
+  qualifiers: {clone: I}
+- field: genotype
+  stated: W976R+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: W976R, consequence: missense, zygosity: heterozygous}
+- field: genotype
+  stated: A22352fs+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: A22352fs, consequence: frameshift, zygosity: heterozygous}
+- field: genotype
+  stated: P22582fs+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: P22582fs, consequence: frameshift, zygosity: heterozygous}
+- field: genotype
+  stated: V6382fs+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: V6382fs, consequence: frameshift, zygosity: heterozygous}
+- field: genotype
+  stated: V6382fs−/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: V6382fs, consequence: frameshift, zygosity: homozygous}
+- field: genotype
+  stated: N22577fs+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: N22577fs, consequence: frameshift, zygosity: heterozygous}
+- field: genotype
+  stated: N22577fs−/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: N22577fs, consequence: frameshift, zygosity: homozygous}
+- field: genotype
+  stated: T33520fs−/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: T33520fs, consequence: frameshift, zygosity: homozygous}
+- field: genotype
+  stated: S6394fs+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: S6394fs, consequence: frameshift, zygosity: heterozygous}
+- field: genotype
+  stated: A22353fs+/−
+  terms: [genotype:ttn_variant]
+  qualifiers: {variant: A22353fs, consequence: frameshift, zygosity: heterozygous}
+# ---- measures
+- field: measure
+  stated: isoproterenol-induced force
+  terms: [measure:inotropic_response]
+  qualifiers: {agonist: isoproterenol}
+- field: measure
+  stated: sarcomere organization (ɛ)
+  terms: [measure:sarcomere_alignment_index]
+  qualifiers: {expressed_as: normalised, normalised_to: maximum value observed for each condition}
+  note: 'ε is the area under the first nonzero FFT peak normalised to the maximum per condition; the term''s definition divides
+    by the spectrum''s total area, so normalised_to records the difference'
+- field: measure
+  stated: size of TTN isoforms and fragments
+  terms: [measure:protein_band_apparent_mass]
+  qualifiers: {protein: titin}
+- field: measure
+  stated: MYH7:MYH6 transcript ratio
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7, normalised_to: MYH6, expressed_as: normalised}
+- field: measure
+  stated: NPPA transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NPPA}
+- field: measure
+  stated: NPPB transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NPPB}
+- field: measure
+  stated: TGF-β1 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TGFB1}
+- field: measure
+  stated: VEGF-A transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: VEGFA}
+- field: measure
+  stated: TTN transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TTN}
+- field: measure
+  stated: MYH7 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7}
+- field: measure
+  stated: MYBPC3 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYBPC3}
+- field: measure
+  stated: TNNT2 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNT2}
+- field: measure
+  stated: TNNI1 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI1}
+- field: measure
+  stated: TNNI3 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3}
+- field: measure
+  stated: TNNC1 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNC1}
+- field: measure
+  stated: TPM1 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TPM1}
+- field: measure
+  stated: ACTC1 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ACTC1}
+- field: measure
+  stated: MYH6 transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH6}
+- field: measure
+  stated: EGF transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: EGF}
+- field: measure
+  stated: HGF transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: HGF}
+- field: measure
+  stated: bFGF transcript level
+  terms: [measure:gene_expression]
+  qualifiers: {gene: FGF2}
+- field: measure
+  stated: growth factor transcript level
+  flag: {kind: alternatives, note: 'the one printed P (p<0.03) marks one of EGF, HGF or bFGF and the source does not say which;
+      the measure is not one gene'}
+- field: measure
+  stated: phosphorylated JNK (p46) level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: phosphorylated JNK (p46), normalised_to: protein loading}
+- field: measure
+  stated: phosphorylated JNK (p54) level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: phosphorylated JNK (p54), normalised_to: protein loading}
+- field: measure
+  stated: phosphorylated ERK level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: phosphorylated ERK, normalised_to: protein loading}
+- field: measure
+  stated: phosphorylated p38 level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: phosphorylated p38, normalised_to: protein loading}
+- field: measure
+  stated: phosphorylated AKT level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: phosphorylated AKT, normalised_to: protein loading}
+- field: measure
+  stated: TGF-β1-3 level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: TGF-β1-3, normalised_to: protein loading}
+- field: measure
+  stated: VEGF level by densitometry
+  terms: [measure:protein_level]
+  qualifiers: {protein: VEGF, normalised_to: protein loading}
+- field: measure
+  stated: proportion of TTN transcripts including exon 66
+  terms: [measure:transcript_isoform_fraction]
+  qualifiers: {isoform: TTN transcripts including exon 66, total: all TTN transcripts}
+- field: measure
+  stated: proportion spliced-in (PSI) of a TTN exon
+  terms: [measure:transcript_isoform_fraction]
+  qualifiers: {total: all TTN transcripts}
+  note: the exon differs per value (each value names its exon); percent spliced in sits under this term by its scope note
+- field: measure
+  stated: average PSI for the TTN I-band (exons 29-252) domain
+  terms: [measure:transcript_isoform_fraction]
+  qualifiers: {isoform: average over TTN I-band exons 29-252, total: all TTN transcripts}
+- field: measure
+  stated: average PSI for the TTN all TTN (exons 1-365) domain
+  terms: [measure:transcript_isoform_fraction]
+  qualifiers: {isoform: average over TTN exons 1-365, total: all TTN transcripts}
+- field: measure
+  stated: '%TnnT+ cells'
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TnnT}
+- field: measure
+  stated: static force
+  terms: [measure:passive_force]
+  note: resting force on the cantilevers between twitches; the stretch is not stated. Broader match, no synonym
+- field: measure
+  stated: tissue stress
+  terms: [measure:twitch_stress]
+  note: the methods define it as twitch force per tissue cross-sectional area; "tissue stress" could name a resting stress elsewhere,
+    so no synonym
+- field: measure
+  stated: 1D representation of the 2D Fourier transform of α-actinin images
+  terms: [measure:fourier_spectrum_profile]
+- field: measure
+  stated: 1D representation of the 2D Fourier transform of H&E stained tissue
+  terms: [measure:fourier_spectrum_profile]
+- field: measure
+  stated: relative TTN isoform expression, fetal Ttn/N2BA
+  terms: [measure:protein_isoform_fraction]
+  qualifiers: {isoform: fetal Ttn/N2BA, total: sum of all titin band intensities}
+- field: measure
+  stated: relative TTN isoform expression, N2B
+  terms: [measure:protein_isoform_fraction]
+  qualifiers: {isoform: N2B, total: sum of all titin band intensities}
+- field: measure
+  stated: relative TTN isoform expression, T2 or Truncated TTN
+  terms: [measure:protein_isoform_fraction]
+  qualifiers: {isoform: T2 or Truncated TTN, total: sum of all titin band intensities}
+- field: measure
+  stated: relative TTN isoform expression, T3
+  terms: [measure:protein_isoform_fraction]
+  qualifiers: {isoform: T3, total: sum of all titin band intensities}
+- field: measure
+  stated: TTN species detected by the T12 antibody, indexed to fetal Ttn/N2BA
+  terms: [measure:protein_level]
+  qualifiers: {protein: titin species detected by the T12 antibody, normalised_to: fetal Ttn/N2BA, expressed_as: normalised}
+- field: measure
+  stated: TTN species detected by the T31 antibody, indexed to fetal Ttn/N2BA
+  terms: [measure:protein_level]
+  qualifiers: {protein: titin species detected by the T31 antibody, normalised_to: fetal Ttn/N2BA, expressed_as: normalised}
+- field: measure
+  stated: titin signal intensity, fetal Ttn/N2BA, indexed to obscurin
+  terms: [measure:protein_level]
+  qualifiers: {protein: fetal Ttn/N2BA, normalised_to: obscurin, expressed_as: normalised}
+- field: measure
+  stated: titin signal intensity, N2B, indexed to obscurin
+  terms: [measure:protein_level]
+  qualifiers: {protein: N2B titin, normalised_to: obscurin, expressed_as: normalised}
+- field: measure
+  stated: titin signal intensity, T2/trunc Ttn, indexed to obscurin
+  terms: [measure:protein_level]
+  qualifiers: {protein: T2/truncated titin, normalised_to: obscurin, expressed_as: normalised}
+- field: measure
+  stated: titin signal intensity, T3, indexed to obscurin
+  terms: [measure:protein_level]
+  qualifiers: {protein: T3 titin, normalised_to: obscurin, expressed_as: normalised}
+- field: measure
+  stated: left ventricular end-diastolic dimension (LVEDD)
+  terms: [measure:lv_end_diastolic_dimension]
+- field: measure
+  stated: colonies screened
+  terms: [measure:gene_editing_colony_count]
+  qualifiers: {outcome: screened}
+- field: measure
+  stated: edited clones
+  terms: [measure:gene_editing_colony_count]
+  qualifiers: {outcome: edited}
+- field: measure
+  stated: homozygous in/dels
+  terms: [measure:gene_editing_colony_count]
+  qualifiers: {outcome: homozygous in/del}
+- field: measure
+  stated: heterozygous in/dels
+  terms: [measure:gene_editing_colony_count]
+  qualifiers: {outcome: heterozygous in/del}
+- field: measure
+  stated: allele-specific TTN RNA expression
+  terms: [measure:allele_specific_expression]
+  qualifiers: {gene: TTN}

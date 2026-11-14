@@ -1,0 +1,30 @@
+# Written by code from changes.yaml (version 2); never edited.
+formula: relative_decrease
+kind: derived
+statement: The relative decrease of a value from a reference, (x0 - x)/x0, is the ratio of the drop to the reference.
+equations:
+- s = (x0 - x)/x0
+variables:
+  s: dimensionless
+  x: D
+  x0: D
+  dx: D
+assumes:
+- dx = x0 - x
+uses:
+- formula: ratio_def
+  subs:
+    r: s
+    a: dx
+    b: x0
+does_not_apply: a signed relative change (x - x0)/x0, or a drop relative to a value other than the reference
+tests:
+- given:
+    x: 1.5
+    x0: 2.0
+  expect:
+    s: 0.25
+- given:
+    x: 1.5
+    x0: 2.0
+  does_not_apply: signed relative change gives -0.25

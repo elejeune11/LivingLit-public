@@ -1,0 +1,42 @@
+# Written by code from changes.yaml (version 32); never edited.
+formula: normalized_time_integral
+kind: derived
+statement: A time integral of a quantity over an interval, normalised to the interval's duration and to a reference value
+  of the quantity (e.g. a systolic stress-time integral over cycle time and peak stress), is the integral divided by the product
+  of duration and reference; it is dimensionless.
+equations:
+- e = Si/(T*m)
+variables:
+  e: dimensionless
+  Si: D*time
+  T: time
+  m: D
+  q: D*time
+assumes:
+- q = T*m
+uses:
+- formula: ratio_def
+  subs:
+    r: e
+    a: Si
+    b: q
+does_not_apply: an integral normalised to time only (a time-averaged value, with the quantity's own dimension), or to the
+  reference only
+tests:
+- given:
+    Si: 6.0
+    T: 2.0
+    m: 3.0
+  expect:
+    e: 1.0
+- given:
+    Si: 3.0
+    T: 2.0
+    m: 3.0
+  expect:
+    e: 0.5
+- given:
+    Si: 6.0
+    T: 2.0
+    m: 3.0
+  does_not_apply: normalised to time only gives 3, not 1

@@ -1,0 +1,29 @@
+# Written by code from changes.yaml (version 26); never edited.
+formula: sphere_volume
+kind: model
+statement: The volume of a body treated as a sphere of radius r is 4/3 pi r^3 (e.g. a cell volume from one measured size).
+equations:
+- V = 4*pi*r**3/3
+variables:
+  V: volume
+  r: length
+assumes:
+- spherical shape
+does_not_apply: elongated, flattened or irregular bodies (rod-shaped adult cardiomyocytes, spread cells), whose volume is
+  not set by one radius
+tests:
+- given:
+    r: 1.0
+  expect:
+    V: 4.1887902
+- given:
+    r: 3.0
+  expect:
+    V: 113.097336
+- given:
+    r: 1.0
+  does_not_apply: a prolate ellipsoid with semi-axes 1, 1 and 2 has volume 8.38, not 4.19
+cites:
+  text: 'Zwillinger D (ed.). CRC Standard Mathematical Tables and Formulae, 33rd ed., CRC Press 2018, section 4.6 (solids:
+    sphere of radius r)'
+  quote: V = 4/3 πr^3

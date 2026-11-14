@@ -1,0 +1,69 @@
+# The hiPSC-CM field's context fields (09-first-corpus, Fields for the review; 03-vocabulary, Fields and terms).
+# Field content, not code. Declarations only: no terms are seeded here; every term is added by a
+# vocabulary job from a paper's text and logged in changes.yaml.
+# kind: terms (own tree) | adopted (ontology ids, own terms allowed via adopt_own) | quantity | measure
+name: hipsc_cm
+description: Human iPSC-derived cardiomyocytes and engineered cardiac tissues.
+separators: ["+", ",", ";", "and", "with", "/"]
+named_states: ["not stated", "not applicable", "none", "not stated in this source"]
+# Field sets (open world): a record names the set it was read against (Record.field_set). Fields with a later
+# `since` resolve to "not yet read" in earlier records and are filled at the next re-map checkpoint.
+field_set: 3
+fields:
+  cell_line:               {kind: adopted, ontology: cellosaurus, set: true, scope: "the hiPSC line(s) the cells came from"}
+  number_of_lines:         {kind: quantity, scope: "how many cell lines"}
+  differentiation_factors: {kind: adopted, ontology: chebi, set: true, scope: "molecules used to differentiate (Wnt activators, inhibitors and others)"}
+  hipsc_medium:            {kind: terms, set: true, scope: "medium for undifferentiated hiPSCs"}
+  hipsc_coating:           {kind: terms, set: true, scope: "coating for undifferentiated hiPSCs"}
+  wnt_activation_days:     {kind: quantity, scope: "days of Wnt activation"}
+  wnt_inhibition_days:     {kind: quantity, scope: "days of Wnt inhibition"}
+  insulin_day:             {kind: quantity, scope: "day insulin is added"}
+  confluency:              {kind: quantity, scope: "confluency at the start of differentiation", states: ["confluent", "confluence"]}
+  purification:            {kind: terms, set: true, scope: "how cardiomyocytes were enriched"}
+  purity_method:           {kind: terms, set: true, scope: "how purity was measured"}
+  purity:                  {kind: quantity, scope: "fraction of cardiomyocytes"}
+  cm_medium:               {kind: terms, set: true, scope: "base medium for cardiomyocytes; small molecules and energy substrates added to it go to supplements or treatment"}
+  supplements:             {kind: adopted, ontology: chebi, set: true, scope: "routine additions to the culture medium, the same across compared groups"}
+  replating_coating:       {kind: terms, set: true, scope: "coating used when cardiomyocytes are replated"}
+  platform:                {kind: terms, set: true, scope: "culture platform or construct format (2D surfaces and 3D formats in one tree)"}
+  substrate:               {kind: terms, set: true, scope: "the material cells sit on or in"}
+  cell_types:              {kind: adopted, ontology: cl, set: true, scope: "cell types in the construct"}
+  stromal_cell:            {kind: adopted, ontology: cl, set: true, scope: "non-myocyte stromal cells added"}
+  endothelial_cell:        {kind: adopted, ontology: cl, set: true, scope: "endothelial cells added"}
+  composition:             {kind: quantity, scope: "fractions of cell types"}
+  cm_day_at_formation:     {kind: quantity, scope: "day of differentiation when cells were put into the platform"}
+  maturation_strategy:     {kind: terms, set: true, scope: "interventions intended to mature the cells (alignment, mechanical, electrical, co-culture, metabolic)"}
+  treatment:               {kind: adopted, ontology: chebi, set: true, scope: "a drug or other exposure that a comparison varies"}
+  genotype:                {kind: terms, set: true, scope: "gene, variant and zygosity; isogenic contrasts vary genotype", states: ["healthy control line"]}
+  disease_model:           {kind: adopted, ontology: mondo, set: true, scope: "disease modelled"}
+  temperature:             {kind: quantity, scope: "measurement temperature", states: ["room temperature"]}
+  pacing:                  {kind: terms, set: true, scope: "electrical stimulation during the measurement or as training regime"}
+  preparation:             {kind: terms, set: true, scope: "how the sample is prepared for measurement (intact tissue, dissociated cells, fixed, lysate)"}
+  day_of_measurement:      {kind: quantity, scope: "day the measurement was made"}
+  culture_calcium_mM:      {kind: quantity, scope: "calcium concentration of the culture medium; the measurement bath's calcium goes to measurement_calcium_mM"}
+  measurement_calcium_mM:  {kind: quantity, scope: "calcium concentration of the bath or medium during the measurement; culture calcium goes to culture_calcium_mM"}
+  mechanical_load:         {kind: terms, set: true, scope: "mechanical load during culture (static, auxotonic, dynamic or cyclic stretch, post or strip stiffness as a qualifier); not a platform qualifier or a treatment"}
+  transgene:               {kind: terms, set: true, scope: "an introduced gene, reporter or viral construct (with MOI or dose as qualifiers); not a treatment, and not the line's own genotype"}
+  donor_age:               {kind: quantity, scope: "age of the donor of native tissue or of a patient line (gestational week, years)", states: ["fetal", "neonatal", "newborn", "infant", "young", "adult"]}
+  species:                 {kind: terms, set: false, since: 2, scope: "species of the cells or tissue (human, rat, mouse); own terms, each with an NCBITaxon xref"}
+  time_point:              {kind: quantity, since: 2, scope: "a time within an experiment that is not a day of culture (baseline, 30 min after a drug, next day); days of culture go to day_of_measurement", states: ["baseline"]}
+  measurement_medium:      {kind: terms, set: true, since: 2, scope: "the bath or medium during the measurement (Tyrode's, assay medium); its calcium goes to measurement_calcium_mM, culture medium to cm_medium"}
+  # field set 3: the field survey of 28 papers (03-vocabulary; runs/2026-11-09_build/survey_tally.yaml)
+  seeding_density:         {kind: quantity, since: 3, scope: "cells seeded per area, volume or construct at the start of a culture step (differentiation, replating, tissue formation)"}
+  dissociation_reagent:    {kind: terms, set: true, since: 3, scope: "reagent used to dissociate cells before replating or tissue formation (e.g. TrypLE, Accutase, collagenase)"}
+  incubator_atmosphere:    {kind: quantity, since: 3, scope: "gas atmosphere during culture: O2 and CO2 levels (measurement temperature is `temperature`; assay O2 is a qualifier)"}
+  measure:                 {kind: measure, scope: "what was measured"}
+# Linked fields count as one contrast on the first when a pair differs only in them (02-audit, What code
+# computes). Added by a person at a checkpoint, never by an agent (decision 21, 2026-11-07).
+linked:
+  - [genotype, disease_model]
+# Measure qualifiers every measure may carry; a list fixes the values, null leaves them as printed text
+# (03-vocabulary, Relative measures; decision 24).
+measure_qualifiers:
+  expressed_as: [absolute, "% of baseline", "% change", fold, normalised]
+  normalised_to: null
+  level: null
+# Used only for a measure that has no standing key yet; keys start loose (05-across-sources, Standing keys).
+default_key:
+  value: {must_match: [platform@1, preparation, pacing, temperature]}
+  direction: {must_match: [contrast]}

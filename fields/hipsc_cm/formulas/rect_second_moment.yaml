@@ -1,0 +1,30 @@
+# Written by code from changes.yaml (version 4); never edited.
+formula: rect_second_moment
+kind: definition
+statement: The second moment of area of a rectangular cross-section of width w and thickness t, about its centroidal axis
+  parallel to the width, is w t^3 / 12.
+equations:
+- I = w*t**3/12
+variables:
+  I: second_moment
+  w: length
+  t: length
+does_not_apply: bending about the other axis (I = t*w^3/12) or a non-rectangular section
+tests:
+- given:
+    w: 12.0
+    t: 1.0
+  expect:
+    I: 1.0
+- given:
+    w: 3.0
+    t: 2.0
+  expect:
+    I: 2.0
+- given:
+    w: 3.0
+    t: 2.0
+  does_not_apply: 'bending about the width axis swapped: t*w^3/12 = 4.5, not 2'
+cites:
+  text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix E (properties of plane areas, rectangle)
+  quote: Ix = bh^3/12

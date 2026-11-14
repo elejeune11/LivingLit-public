@@ -1,0 +1,120 @@
+figures:
+  F7D:
+    file: main.pdf
+    page: 14
+    crop:
+    - 340
+    - 290
+    - 550
+    - 405
+    script: figures/f7d_pkp2.py
+    unit: F7D
+    kind: raster
+    groups:
+      CTRL-EPI:
+        item: F7D_pkp2
+        group: ctrl_epi
+        unit_of_value: PKP2 Protein Expression (norm. GAPDH)
+      ACM-EPI:
+        item: F7D_pkp2
+        group: acm_epi
+        unit_of_value: PKP2 Protein Expression (norm. GAPDH)
+      CTRL-CFs:
+        item: F7D_pkp2
+        group: ctrl_cf
+        unit_of_value: PKP2 Protein Expression (norm. GAPDH)
+      ACM-CFs:
+        item: F7D_pkp2
+        group: acm_cf
+        unit_of_value: PKP2 Protein Expression (norm. GAPDH)
+    note: Fig. 7D densitometry. The whole figure is one embedded image; the broken y axis (1-5 and 0.00-0.15) is calibrated
+      per segment from tick marks found in the raster. CF squares stand alone and are read as points; the EPI circles lie
+      under the mean line, so the EPI groups give the line only. The legend does not say whether the line is a mean or a median;
+      it is read as the mean.
+  S7G:
+    file: mmc1.pdf
+    page: 10
+    crop:
+    - 326
+    - 360
+    - 395
+    - 448
+    script: figures/s7g_sma_epi.py
+    unit: S7G
+    kind: raster
+    groups:
+      CTRL:
+        item: S7G_sma
+        group: ctrl_epi
+        unit_of_value: '% SMA positive cells'
+      ACM:
+        item: S7G_sma
+        group: acm_epi
+        unit_of_value: '% SMA positive cells'
+    note: Fig. S7G is one embedded image (~300 dpi); y ticks 0-5 found in the raster. CTRL dots stand alone and are read as
+      points (3, legend N=3). Both ACM dots sit on the group line and merge with it, so ACM gives the line only (countable
+      false). The legend does not say whether the line is a mean or a median; it is read as the mean.
+  S7I:
+    file: mmc1.pdf
+    page: 10
+    crop:
+    - 326
+    - 448
+    - 399
+    - 534
+    script: figures/s7i_sma_cf.py
+    unit: S7I
+    kind: raster
+    groups:
+      CTRL:
+        item: S7I_sma
+        group: ctrl_cf
+        unit_of_value: '% SMA positive cells'
+      ACM:
+        item: S7I_sma
+        group: acm_cf
+        unit_of_value: '% SMA positive cells'
+    note: Fig. S7I is one embedded image (~300 dpi); y ticks 0-15 found in the raster. Both groups have two dots that stand
+      clear of the group line, read as points (legend N=2 each). The legend does not say whether the line is a mean or a median;
+      it is read as the mean.
+no_points:
+  F1: Fig. 1C is a qPCR heat map of row-scaled colours (colour bar labelled only "row min" and "row max", no numeric scale)
+    with one cell per line and gene; no individual replicate points, so no value can be read
+  F2F: 'first look (small model): Panel F shows bars with error bars only; no per-sample markers visible. (main.pdf p. 5)'
+  F2G: 'first look (small model): Panel G shows bars with error bars only; no individual sample markers. (main.pdf p. 5)'
+  F2H: 'first look (small model): Panel H shows bars with error bars and no visible individual sample markers (main.pdf p. 5)'
+  F4B: 'first look (small model): Bar graph of notch fractions; bars only, no per-sample markers. (main.pdf p. 9)'
+  F4C: 'first look (small model): Bar graphs with mean ± SEM error bars; no individual markers visible (main.pdf p. 9)'
+  F4D: 'first look (small model): Bar graph of Vmax with mean ± SEM error bars; no individual points (main.pdf p. 9)'
+  F4F: 'first look (small model): Bar graph of mean ± SEM with error bars; no individual points visible (main.pdf p. 9)'
+  F4G: 'first look (small model): Panel G is bars with mean ± SEM error bars and no per-sample markers (main.pdf p. 9)'
+  F4H: 'first look (small model): Bars with mean ± SEM error bars; no individual sample markers visible. (main.pdf p. 9)'
+  F4J: 'first look (small model): Panel J is bars with mean ± SEM error bars, no individual markers. (main.pdf p. 9)'
+  F5B: 'first look (small model): Panel B shows OCR line traces and bars with error bars only, no per-sample markers. (main.pdf
+    p. 10)'
+  F5C: 'first look (small model): Panel C shows mean traces and bars with error bars; no per-sample markers. (main.pdf p. 10)'
+  S1B: 'first look (small model): Bar graphs with mean and SEM error bars; no per-sample markers visible. (mmc1.pdf p. 2)'
+  S1C: 'first look (small model): Stacked bars with error bars; no per-sample markers visible. (mmc1.pdf p. 2)'
+  S1E: 'first look (small model): Panel E is stacked bars with mean ± SEM error bars; no per-sample markers. (mmc1.pdf p. 2)'
+  S1F: 'first look (small model): Panel F is plain bars with SEM error bars; no individual dots visible (mmc1.pdf p. 2)'
+  S1G: 'first look (small model): Bars with SEM error bars only; no individual data points visible. (mmc1.pdf p. 2)'
+  S2A: 'first look (small model): Panel A shows bars with mean ± SEM error bars, no individual points. (mmc1.pdf p. 4)'
+  S2B: 'first look (small model): Panel B shows bars with mean ± SEM, no per-sample points (mmc1.pdf p. 4)'
+  S4A: 'first look (small model): Bars with SEM error bars only; no individual sample markers visible (mmc1.pdf p. 6)'
+  S4C: 'first look (small model): Panel C shows bars with error bars and asterisks; no individual points. (mmc1.pdf p. 6)'
+  S4E: 'first look (small model): Mean markers with SD error bars joined by lines; no individual points. (mmc1.pdf p. 6)'
+  S4G: 'first look (small model): Bars with mean ± SEM error bars and a star; no visible per-sample dots. (mmc1.pdf p. 6)'
+  S6B: 'first look (small model): Bars with mean ± SEM error bars; no individual sample markers visible (mmc1.pdf p. 9)'
+  F6E: 'first look (small model): Bars with mean and SEM error bars; no per-sample markers visible (main.pdf p. 12)'
+  F6HI: 'first look (small model): Panels H and I are bars with SEM error bars; no per-sample markers visible. (main.pdf p. 12)'
+  S6FG: 'first look (small model): Panels F and G are bars with mean ± SEM error bars; no individual points visible (mmc1.pdf p.
+    9)'
+  S6H: 'first look (small model): Panel H shows two bars with SEM error bars; no individual dots visible. (mmc1.pdf p. 9)'
+  S6I: 'first look (small model): Panel I is bars with mean ± SEM error bars; no individual markers visible. (mmc1.pdf p. 9)'
+  S6K: 'first look (small model): Panel K shows three solid bars with SD error bars; no per-sample markers visible. (mmc1.pdf p.
+    9)'
+  F6LM: 'first look (small model): Panels L and M are bars with mean and SEM error bars, no per-sample markers (main.pdf p. 12)'
+  F6N: 'first look (small model): Panel N is bars with mean ± SEM error bars; no individual markers. (main.pdf p. 12)'
+  F6O: 'first look (small model): Bar graphs with mean ± SEM error bars; no individual markers visible (main.pdf p. 12)'
+  F7F: 'first look (small model): Panel F shows two bars with error bars; no per-sample markers visible. (main.pdf p. 14)'
+  S7K: 'first look (small model): Bar charts with error bars only; no per-sample markers (mmc1.pdf p. 10)'

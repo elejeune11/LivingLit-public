@@ -1,0 +1,1152 @@
+# Vocabulary agent output for 2016_Mannhardt (03-vocabulary); applied by the orchestrator.
+record: 2016_Mannhardt
+vocabulary_version: 11
+agent:
+  model: llm
+  instructions: terms_v3
+edits:
+- add_synonym:
+    id: CL:0000746
+    text: hiPSC-CM
+    anchor: induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CM)
+- add_synonym:
+    id: purity_method:flow_cytometry
+    text: FACS
+    anchor: Flow cytometry (FACS) analysis
+- add_synonym:
+    id: platform:native_tissue
+    text: non-failing human heart tissue
+    anchor: non-failing human heart tissue has been mainly evaluated
+- adopt_own:
+    field: cell_line
+    id: cell_line:mannhardt_inhouse_reference_ipsc
+    label: in-house reference hiPSC control line of the Mannhardt 2016 study (unnamed)
+    definition: The undifferentiated hiPSC control line of Moretti et al. 2010 that the Hamburg EHT study calls its in-house
+      reference line; no line name or accession is printed.
+    scope: The unnamed in-house control line of the 2016 Hamburg EHT study; not another study's unnamed line and not a commercial
+      cardiomyocyte product.
+    lookup: searched Cellosaurus for 'Moretti', 'in-house reference' and the paper's wording; the paper prints no line name,
+      so no accession can be chosen
+- adopt_own:
+    field: cell_line
+    id: cell_line:icell_cardiomyocytes
+    label: iCell cardiomyocytes (CDI)
+    definition: Commercial hiPSC-derived cardiomyocytes sold by Cellular Dynamics International as iCell Cardiomyocytes; the
+      source line is not printed.
+    scope: Commercial CDI iCell cardiomyocytes whose source line is not printed; not a study's own unnamed line.
+    lookup: 'searched Cellosaurus for ''iCell'', ''iCell Cardiomyocytes'', ''iCell cardiomyocyte'', ''iCell2'', ''CMC-100''
+      and ''Cellular Dynamics'': no entry'
+    synonyms:
+    - text: iCell
+      anchor: CM (CDI, iCell; Axiogenesis, Cor.4U) were used for comparison
+- adopt:
+    field: cell_line
+    id: CVCL_Y550
+    label: Cor.4U
+    lookup: 'Cellosaurus ''Cor.4U'': exact label match (synonym Cor4U)'
+- adopt:
+    field: differentiation_factors
+    id: CHEBI:760509
+    label: basic fibroblast growth factor (human)
+    lookup: ChEBI 'FGF2' and 'fibroblast growth factor 2' gave nothing; 'basic fibroblast growth factor' gave CHEBI:760509
+      (FGF2 is basic FGF)
+    synonyms:
+    - text: FGF2
+      anchor: with 30 ng/ml FGF2
+- adopt_own:
+    field: differentiation_factors
+    id: differentiation_factors:ds_07
+    label: DS-07
+    definition: The small-molecule Wnt inhibitor DS-07 used in the cardiac stage of differentiation.
+    scope: The Wnt inhibitor DS-07; not IWP4, another Wnt inhibitor, and not the growth factor VEGF.
+    lookup: 'searched ChEBI for ''DS-07'', ''DS07'' and the printed chemical name fragment ''dioxooctahydro'': no matching
+      entry'
+- adopt:
+    field: supplements
+    id: CHEBI:145810
+    label: insulin
+    lookup: 'ChEBI ''insulin'': exact label match'
+- adopt_own:
+    field: supplements
+    id: supplements:horse_serum
+    label: horse serum
+    definition: Serum from horses added to culture medium as a supplement.
+    scope: Serum from horses; not fetal bovine serum, KnockOut Serum Replacement or a defined supplement such as B27.
+    lookup: 'searched ChEBI for ''horse serum'': no entry (serum is a mixture, not a chemical entity)'
+- adopt:
+    field: supplements
+    id: CHEBI:74537
+    label: monothioglycerol
+    lookup: 'ChEBI ''thioglycerol'': CHEBI:74537 monothioglycerol (1-thioglycerol, 3-mercaptopropane-1,2-diol)'
+    synonyms:
+    - text: 1-thioglycerol
+      anchor: 1-thioglycerol (Sigma, M6145), 1 µM Y-27632
+- adopt:
+    field: treatment
+    id: CHEBI:3385
+    label: carbachol
+    lookup: 'ChEBI ''carbachol'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:233563
+    label: SEA0400
+    lookup: 'ChEBI ''SEA-0400'' and ''SEA0400'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:9506
+    label: tetrodotoxin
+    lookup: 'ChEBI ''tetrodotoxin'': exact label match'
+    synonyms:
+    - text: TTX
+      anchor: Effect of tetrodotoxin (TTX)
+- adopt:
+    field: treatment
+    id: CHEBI:34732
+    label: E-4031
+    lookup: 'ChEBI ''E-4031'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:34781
+    label: HMR1556
+    lookup: 'ChEBI ''HMR-1556'': exact label match HMR1556'
+- adopt:
+    field: treatment
+    id: CHEBI:472805
+    label: ouabain
+    lookup: 'ChEBI ''ouabain'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:104872
+    label: rolipram
+    lookup: 'ChEBI ''rolipram'': exact label match (racemate; the paper does not name an enantiomer)'
+- adopt_own:
+    field: treatment
+    id: treatment:atx_ii
+    label: ATX-II
+    definition: Sea anemone toxin II (ATX-II), a peptide that slows inactivation of the fast sodium current.
+    scope: The sodium-current toxin ATX-II, a peptide absent from ChEBI; not another compound or a physical exposure.
+    lookup: 'searched ChEBI for ''ATX-II'', ''anemone toxin'', ''sea anemone'', ''Anemonia'' and ''anthopleurin'': no entry
+      for the toxin'
+- adopt_own:
+    field: treatment
+    id: treatment:ns_1643
+    label: NS-1643
+    definition: NS-1643, a small-molecule activator of the hERG (IKr) potassium channel.
+    scope: The hERG activator NS-1643, absent from ChEBI; not another compound or a physical exposure.
+    lookup: 'searched ChEBI for ''NS-1643'', ''NS1643'', ''NS 1643'' and ''1643'': no entry'
+- adopt:
+    field: treatment
+    id: CHEBI:8428
+    label: procainamide
+    lookup: 'ChEBI ''procainamide'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:3061
+    label: bepridil
+    lookup: 'ChEBI ''bepridil'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:28462
+    label: ajmaline
+    lookup: 'ChEBI ''ajmaline'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:6916
+    label: mexiletine
+    lookup: 'ChEBI ''mexiletine'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:75984
+    label: flecainide
+    lookup: 'ChEBI ''flecainide'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:4636
+    label: diphenhydramine
+    lookup: 'ChEBI ''diphenhydramine'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:9122
+    label: sertindole
+    lookup: 'ChEBI ''sertindole'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:28593
+    label: quinidine
+    lookup: 'ChEBI ''quinidine'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:5856
+    label: Ibutilide
+    lookup: 'ChEBI ''ibutilide'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:3720
+    label: cisapride
+    lookup: 'ChEBI ''cisapride'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:46195
+    label: paracetamol
+    lookup: 'ChEBI ''paracetamol'': exact label match'
+- adopt:
+    field: treatment
+    id: CHEBI:15365
+    label: acetylsalicylic acid
+    lookup: ChEBI 'aspirin' gave only salts and derivatives; 'acetylsalicylic acid' is the exact label for aspirin
+    synonyms:
+    - text: aspirin
+      anchor: of four compounds known to be safe (aspirin, paracetamol
+- adopt:
+    field: treatment
+    id: CHEBI:28971
+    label: ampicillin
+    lookup: 'ChEBI ''ampicillin'': exact label match'
+- add_term:
+    field: replating_coating
+    id: replating_coating:gelatin
+    label: gelatin
+    parent: null
+    definition: Denatured collagen (gelatin) coated on a surface before cells are plated.
+    scope: Gelatin coating; not Matrigel, a basement-membrane extract, and not fibronectin, a single purified matrix glycoprotein.
+- add_term:
+    field: purification
+    id: purification:genetic_selection
+    label: genetic selection
+    parent: null
+    definition: Enrichment of cardiomyocytes by a genetically encoded selection marker (such as antibiotic resistance driven
+      by a cardiac promoter).
+    scope: Selection through a transgene in the cells; not selection by energy substrate (metabolic selection).
+- add_term:
+    field: preparation
+    id: preparation:skinned_tissue
+    label: skinned tissue
+    parent: null
+    definition: Muscle tissue whose cell membranes have been chemically permeabilised so that the myofilaments are exposed
+      to the bath.
+    scope: Permeabilised (skinned) muscle for myofilament measurements; not intact tissue with membranes intact, and not dissociated,
+      fixed or extracted samples.
+- add_term:
+    field: measure
+    id: measure:force_trace
+    label: force trace
+    parent: null
+    definition: Force of a tissue over the time course of contraction and relaxation, shown as a curve (an averaged contraction
+      peak or a recording of beating).
+    scope: The waveform of force over time; not a single twitch force value and not a stress trace (force per cross-section).
+    dimension: force
+- add_term:
+    field: measure
+    id: measure:embryoid_body_diameter
+    label: embryoid body diameter
+    parent: null
+    definition: Diameter of embryoid bodies formed during differentiation.
+    scope: Size of embryoid bodies before cardiac differentiation is complete; not cell area or tissue size.
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:cardiomyocyte_yield
+    label: cardiomyocyte yield per input hiPSC
+    parent: null
+    definition: Number of cardiomyocytes obtained per hiPSC put into differentiation (input/output ratio).
+    scope: A count ratio of output cardiomyocytes to input stem cells; not the fraction of marker-positive cells (purity).
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:beating_onset_time
+    label: onset of spontaneous beating
+    parent: null
+    definition: 'Time at which cells or tissues first beat spontaneously, counted from a stated reference event (qualifier
+      reference: start of differentiation, casting).'
+    scope: When beating starts; not the beating rate and not whether beating is present at one time.
+    dimension: time
+    qualifiers:
+      reference:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:max_force_rise_rate
+    label: maximal rate of force rise
+    parent: null
+    definition: Maximal rate of change of force (dF/dt) during contraction, in force per time.
+    scope: Rate of force development; not contractile velocity (speed of tissue displacement) and not time to peak force.
+    dimension: force_rate
+- add_term:
+    field: measure
+    id: measure:max_force_decay_rate
+    label: maximal rate of force decline
+    parent: null
+    definition: Maximal rate of change of force (dF/dt) during relaxation, in force per time.
+    scope: Rate of force decline; not relaxation velocity (speed of tissue re-lengthening) and not relaxation time.
+    dimension: force_rate
+- add_term:
+    field: measure
+    id: measure:tissue_anisotropy
+    label: structural anisotropy
+    parent: null
+    definition: Qualitative assessment of whether cells in a tissue are aligned along a common axis, from histology.
+    scope: Qualitative alignment of cells in a tissue section; not a quantified orientation distribution or order parameter.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:tubular_structure_diameter
+    label: tubular structure diameter
+    parent: null
+    definition: Diameter of membrane tubules (t-tubule-like structures) seen in electron micrographs.
+    scope: A length of tubular membrane structures; not the presence or organisation of T-tubules as a whole.
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:expression_clusters
+    label: gene expression clusters
+    parent: null
+    definition: Groups of genes or probes with similar expression profiles across samples, from a cluster analysis.
+    scope: The clustering of many genes or probes; not the expression of one gene and not a count of differentially expressed
+      genes.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:enrichment_p_value
+    label: functional enrichment p-value
+    parent: null
+    definition: Significance of over-representation of a functional annotation (GO term, pathway, disease) in a gene set.
+    scope: Enrichment of annotations in a gene set; not the expression of a gene and not a count of genes.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:frequency_dependent_acceleration_of_relaxation
+    label: frequency-dependent acceleration of relaxation
+    parent: null
+    definition: Change in relaxation time when pacing frequency is raised over a stated range.
+    scope: The shortening of relaxation with pacing rate as a whole; not relaxation time at one frequency and not the force-frequency
+      relationship.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:frank_starling_response
+    label: Frank-Starling response
+    parent: null
+    definition: Increase in twitch force when preload (tissue length) is increased.
+    scope: Change of force with preload; not twitch force at one length and not the force-frequency relationship.
+    dimension: dimensionless
+- standing_key:
+    measure: measure:force_trace
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      - mechanical_load
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction: &id001
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:embryoid_body_diameter
+    value:
+      must_match: []
+      may_vary:
+      - cell_line
+      - differentiation_factors
+    direction: *id001
+- standing_key:
+    measure: measure:cardiomyocyte_yield
+    value:
+      must_match: []
+      may_vary:
+      - cell_line
+      - differentiation_factors
+    direction: *id001
+- standing_key:
+    measure: measure:beating_onset_time
+    value:
+      must_match:
+      - measure.reference
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.reference
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:max_force_rise_rate
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      - mechanical_load
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:max_force_decay_rate
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      - mechanical_load
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:tissue_anisotropy
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:tubular_structure_diameter
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:expression_clusters
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:enrichment_p_value
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:frequency_dependent_acceleration_of_relaxation
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:frank_starling_response
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      may_vary:
+      - cell_line
+    direction: *id001
+- standing_key:
+    measure: measure:force_trace
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:max_force_rise_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:max_force_decay_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_anisotropy
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tubular_structure_diameter
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:expression_clusters
+    value:
+      must_match: [platform@1, preparation, contrast, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:enrichment_p_value
+    value:
+      must_match: [platform@1, preparation, contrast, measure.annotation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.annotation]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:frequency_dependent_acceleration_of_relaxation
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:frank_starling_response
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+- field: cell_line
+  stated: in-house reference
+  terms:
+  - cell_line:mannhardt_inhouse_reference_ipsc
+  note: the paper's name for the Moretti et al. 2010 control line; no synonym added because other studies of the lab use the
+    same words
+- field: purity_method
+  stated: FACS (cTNT)
+  terms:
+  - purity_method:flow_cytometry
+  qualifiers:
+    marker: cTNT
+- field: platform
+  stated: fibrin EHT
+  terms:
+  - platform:tissue_between_pillars
+  qualifiers:
+    posts: flexible silicone posts
+  split:
+  - words: fibrin
+    field: substrate
+  note: strip-format EHT between two flexible silicone posts (unit note); fibrin agrees with substrate
+- field: day_of_measurement
+  stated: end of differentiation
+  flag:
+    kind: not a context
+    note: a quantity field holding an event, not a day; the legend gives day 21 for the end of differentiation in Fig. S1D,
+      the reader should give the day or not stated
+- field: platform
+  stated: native tissue
+  terms:
+  - platform:native_tissue
+  note: NFH group of Fig. S2D; wording differs from 'non-failing human heart tissue' in S5F
+- field: preparation
+  stated: skinned preparations
+  terms:
+  - preparation:skinned_tissue
+  note: 'no synonym: the words appear only in the S5F table image, not in the extracted text'
+- field: measure
+  stated: average contraction peak (force over time)
+  terms:
+  - measure:force_trace
+- field: measure
+  stated: spontaneous beating pattern (force trace)
+  terms:
+  - measure:force_trace
+- field: measure
+  stated: differentiation efficiency (cTNT-positive cells)
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: cTNT
+- field: measure
+  stated: input/output ratio (hiPSC/hiPSC-CM)
+  terms:
+  - measure:cardiomyocyte_yield
+- field: measure
+  stated: onset of spontaneous beating during differentiation
+  terms:
+  - measure:beating_onset_time
+  qualifiers:
+    reference: start of differentiation
+- field: measure
+  stated: onset of spontaneous beating of EHTs
+  terms:
+  - measure:beating_onset_time
+  qualifiers:
+    reference: casting
+- field: measure
+  stated: contraction time T1
+  terms:
+  - measure:contraction_time_to_peak
+  note: "level not set: Methods print 80% of peak height, Fig. S3 prints 20%; two printed levels conflict"
+- field: measure
+  stated: relaxation time T2
+  terms:
+  - measure:relaxation_time
+  note: "level not set: Methods print 80% of peak height, Fig. S3 prints 20%; two printed levels conflict"
+- field: measure
+  stated: maximal contraction velocity
+  terms:
+  - measure:max_force_rise_rate
+  note: 'printed in mN/s: a rate of force rise, not a displacement speed'
+- field: measure
+  stated: maximal relaxation velocity
+  terms:
+  - measure:max_force_decay_rate
+  note: 'printed in mN/s: a rate of force decline, not a displacement speed'
+- field: measure
+  stated: sarcomeric organization and cellular alignment
+  flag:
+    kind: several measures
+    note: sarcomeric organisation and cellular alignment are two measures in one item
+- field: measure
+  stated: MLC2v-positive cardiomyocytes
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: MLC2v
+- field: measure
+  stated: MLC2v-positive cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: MLC2v
+- field: measure
+  stated: caveolin-3 and junctophilin-2 staining pattern
+  flag:
+    kind: several measures
+    note: staining of two proteins (caveolin-3, junctophilin-2) in one item; protein staining is one protein per item
+- field: measure
+  stated: mitochondria and sarcomere ultrastructure
+  terms:
+  - measure:ultrastructure
+- field: measure
+  stated: OCT-4 relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: OCT-4
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: Brachyury (T) relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: Brachyury (T)
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: MESP relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MESP
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: VEGFR2 relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: VEGFR2
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: Isl-1 relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: Isl-1
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: TNNT2 relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNT2
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: MYH6 relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH6
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: MYH7 relative expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH7
+    expressed_as: fold
+    normalised_to: GUSB and day 0
+- field: measure
+  stated: isotype control positive fraction
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: isotype control
+- field: measure
+  stated: α-actinin-positive cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: α-actinin
+- field: measure
+  stated: cTNT-positive cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: cTNT
+- field: measure
+  stated: MLC2a-positive cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: MLC2a
+- field: measure
+  stated: relative RNA expression of cell-type markers
+  flag:
+    kind: several measures
+    note: a summary over many marker genes of several cell types in one item
+- field: measure
+  stated: CACNA1C relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1C
+    expressed_as: normalised
+- field: measure
+  stated: CACNB2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNB2
+    expressed_as: normalised
+- field: measure
+  stated: CACNB3 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNB3
+    expressed_as: normalised
+- field: measure
+  stated: SCN1B relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN1B
+    expressed_as: normalised
+- field: measure
+  stated: SCN2A relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN2A
+    expressed_as: normalised
+- field: measure
+  stated: KCNH2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNH2
+    expressed_as: normalised
+- field: measure
+  stated: KCNJ2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+    expressed_as: normalised
+- field: measure
+  stated: KCNJ5 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ5
+    expressed_as: normalised
+- field: measure
+  stated: KCNQ1 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNQ1
+    expressed_as: normalised
+- field: measure
+  stated: HCN4 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HCN4
+    expressed_as: normalised
+- field: measure
+  stated: ACTN2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ACTN2
+    expressed_as: normalised
+- field: measure
+  stated: MYL2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+    expressed_as: normalised
+- field: measure
+  stated: PLN relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PLN
+    expressed_as: normalised
+- field: measure
+  stated: RYR2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RYR2
+    expressed_as: normalised
+- field: measure
+  stated: TNNC1 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNC1
+    expressed_as: normalised
+- field: measure
+  stated: TNNT1 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNT1
+    expressed_as: normalised
+- field: measure
+  stated: DMD relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: DMD
+    expressed_as: normalised
+- field: measure
+  stated: ADRB1 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ADRB1
+    expressed_as: normalised
+- field: measure
+  stated: NCX1 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: NCX1
+    expressed_as: normalised
+- field: measure
+  stated: SERCA2 relative RNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SERCA2
+    expressed_as: normalised
+- field: measure
+  stated: CACNA1C RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1C
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: CACNB2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNB2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: CACNB3 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNB3
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: SCN1B RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN1B
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: SCN2A RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN2A
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: KCNH2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNH2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: KCNJ2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: KCNJ5 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ5
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: KCNQ1 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNQ1
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: HCN4 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HCN4
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: ACTN2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ACTN2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: MYL2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: PLN RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PLN
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: RYR2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RYR2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: TNNC1 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNC1
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: TNNT1 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNT1
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: DMD RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: DMD
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: ADRB1 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ADRB1
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: NCX1 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: NCX1
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: SERCA2 RNA expression fold change
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SERCA2
+    expressed_as: fold
+    normalised_to: 2D
+- field: measure
+  stated: K-means clusters of differentially expressed probes
+  terms:
+  - measure:expression_clusters
+- field: measure
+  stated: number of significantly expressed genes
+  terms:
+  - measure:differentially_expressed_gene_count
+- field: measure
+  stated: ion channel and cardiac marker expression EHT vs 2D
+  flag:
+    kind: several measures
+    note: a summary over many ion-channel and cardiac genes in one item
+- field: measure
+  stated: NCX1 protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: NCX1
+    normalised_to: ERK
+- field: measure
+  stated: Na+/K+-ATPase protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: Na+/K+-ATPase
+    normalised_to: ERK
+- field: measure
+  stated: NHE1 protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: NHE1
+    normalised_to: ERK
+- field: measure
+  stated: L-type calcium channel protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: L-type calcium channel
+    normalised_to: ERK
+- field: measure
+  stated: phospholamban protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: phospholamban
+    normalised_to: ERK
+- field: measure
+  stated: SERCA2 protein abundance
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: SERCA2
+    normalised_to: ERK
+- field: measure
+  stated: relative force
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: normalised
+  note: item F4A_force carries the EC50 and Hill slope of the calcium concentration-response curve, not a force value
+- field: measure
+  stated: relative force (average contraction peak)
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: '% of baseline'
+    normalised_to: baseline maximum
+- field: measure
+  stated: relaxation kinetics
+  terms:
+  - measure:relaxation_time
+  note: level not stated
+- field: measure
+  stated: threshold value for T2 prolongation against 10-20% increase in APD90
+  flag:
+    kind: several measures
+    note: 'a correlation between an EHT threshold concentration for T2 prolongation and published APD90 concentrations: two
+      measures in one item'
+- field: measure
+  stated: isoprenaline effect on peak force
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: '% change'
+    normalised_to: before isoprenaline
+- field: measure
+  stated: calcium concentration response curve EC50
+  terms:
+  - measure:ec50
+  qualifiers:
+    response: force
+- field: measure
+  stated: calcium concentration response curve EC50 (skinned preparations)
+  terms:
+  - measure:ec50
+  qualifiers:
+    response: force
+  note: skinned preparations are the group's preparation context
+- field: measure
+  stated: Frank-Starling law (force increase with preload)
+  terms:
+  - measure:frank_starling_response

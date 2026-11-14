@@ -1,0 +1,3105 @@
+record: 2020_Saleem-U
+formula_library_version: 1
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1C_ttp_ratio.longer:
+    item: F1C_ttp_ratio
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: In GCaMP5G EHTs, kinetics of time-to-peak CaT (TTP80%,CaT; 0.181 ± 0.004 s) was 28% longer than time-to-peak force (TTP80%,force; 0.141 ± 0.001 s)
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        reading: s1a_ttp_cat/gcamp5g
+        kind: per sample
+        note: TTP80%,CaT of each EHT (CaT, red bar); printed mean 0.181 s
+      x0:
+        reading: s1a_ttp_force/gcamp5g
+        kind: per sample
+        note: TTP80%,force of the same EHTs (force, blue bar); printed mean 0.141 s
+    output: F1C_ttp_ratio.values.longer
+    output_unit: '%'
+    aggregation: not stated
+    note: 'A test between two measures of the same tissues, not a contrast: the paired t-test (Figure 1C and S1A, *p<0.05) compares TTP80%,CaT with TTP80%,force in the same EHTs, and the printed relation
+      is their relative difference. Inputs are the read bar means; the sentence prints the means 0.181 and 0.141 s. Whether the % is of the two means or the mean of per-EHT ratios is not stated; no per-EHT
+      points are readable.'
+  F1C_dt_ratio.longer:
+    item: F1C_dt_ratio
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: decay time of the CaT (DT80%; 0.329 ± 0.003 s) was 99% longer than relaxation time for force (RT80%,force; 0.165 ± 0.002 s
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        reading: s1a_dt_cat/gcamp5g
+        kind: per sample
+        note: DT80%,CaT of each EHT (CaT, red bar); printed mean 0.329 s
+      x0:
+        reading: s1a_rt_force/gcamp5g
+        kind: per sample
+        note: RT80%,force of the same EHTs (force, blue bar); printed mean 0.165 s
+    output: F1C_dt_ratio.values.longer
+    output_unit: '%'
+    aggregation: not stated
+    note: 'A test between two measures of the same tissues, not a contrast: the paired t-test (Figure 1C and S1A, *p<0.05) compares DT80%,CaT with RT80%,force in the same EHTs, and the printed relation
+      is their relative difference. Inputs are the read bar means; the sentence prints the means 0.329 and 0.165 s. Whether the % is of the two means or the mean of per-EHT ratios is not stated; no per-EHT
+      points are readable.'
+  F1D_ttp_ratio.shorter:
+    item: F1D_ttp_ratio
+    formula: s = (x0 - x)/x0
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    anchor:
+      quote: In GCaMP6f EHTs, TTP80%,CaT was 20% shorter than TTP80%,force (0.116 ± 0.004 s versus 0.145 ± 0.005 s)
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        reading: s1b_ttp_cat/gcamp6f
+        kind: per sample
+        note: TTP80%,CaT of each EHT (CaT, red bar); printed mean 0.116 s
+      x0:
+        reading: s1b_ttp_force/gcamp6f
+        kind: per sample
+        note: TTP80%,force of the same EHTs (force, blue bar); printed mean 0.145 s
+    output: F1D_ttp_ratio.values.shorter
+    output_unit: '%'
+    aggregation: not stated
+    note: 'A test between two measures of the same tissues, not a contrast: the paired t-test (Figure 1D and S1B, *p<0.05) compares TTP80%,CaT with TTP80%,force in the same EHTs, and the printed relation
+      is their relative difference. Inputs are the read bar means; the sentence prints the means 0.116 and 0.145 s. Whether the % is of the two means or the mean of per-EHT ratios is not stated; no per-EHT
+      points are readable.'
+  F1D_dt_ratio.longer:
+    item: F1D_dt_ratio
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: DT80%,CaT was 16% longer than RT80%,force (0.173 ± 0.007 s versus 0.149 ± 0.003 s)
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        reading: s1b_dt_cat/gcamp6f
+        kind: per sample
+        note: DT80%,CaT of each EHT (CaT, red bar); printed mean 0.173 s
+      x0:
+        reading: s1b_rt_force/gcamp6f
+        kind: per sample
+        note: RT80%,force of the same EHTs (force, blue bar); printed mean 0.149 s
+    output: F1D_dt_ratio.values.longer
+    output_unit: '%'
+    aggregation: not stated
+    note: 'A test between two measures of the same tissues, not a contrast: the paired t-test (Figure 1D and S1B, *p<0.05) compares DT80%,CaT with RT80%,force in the same EHTs, and the printed relation
+      is their relative difference. Inputs are the read bar means; the sentence prints the means 0.173 and 0.149 s. Whether the % is of the two means or the mean of per-EHT ratios is not stated; no per-EHT
+      points are readable.'
+  F1F_cat.higher:
+    item: F1F_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: At 1.8 mM calcium, CaT amplitude was 185% higher (15,128 versus 5,318 AU) and force amplitude was 154% higher (0.165 versus 0.065 mN, Figures 1F and S1E)
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        value: F1F_cat.values.ca18
+        part: mean
+        kind: per sample
+      x0:
+        value: F1F_cat.values.ca06
+        part: mean
+        kind: per sample
+    output: F1F_cat.values.higher
+    output_unit: '%'
+    aggregation: not stated
+  F1F_force.higher:
+    item: F1F_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: At 1.8 mM calcium, CaT amplitude was 185% higher (15,128 versus 5,318 AU) and force amplitude was 154% higher (0.165 versus 0.065 mN, Figures 1F and S1E)
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        value: F1F_force.values.ca18
+        part: mean
+        kind: per sample
+      x0:
+        value: F1F_force.values.ca06
+        part: mean
+        kind: per sample
+    output: F1F_force.values.higher
+    output_unit: '%'
+    aggregation: not stated
+  S2FG_cat.decline:
+    item: S2FG_cat
+    formula: s = (x0 - x)/x0
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    anchor:
+      quote: CaT amplitudes showed 10% decline (8,003 ± 344, 7,241 ± 327, 7,293 ± 320, AU ± SEM, N = 15)
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        value: S2FG_cat.values.m3
+        part: mean
+        kind: per sample
+      x0:
+        value: S2FG_cat.values.m1
+        part: mean
+        kind: per sample
+    output: S2FG_cat.values.decline
+    output_unit: '%'
+    note: 'The 10% decline is stated over the series of three measurements (over: [m1, m2, m3]) without saying which pair; written as last versus first (m3 vs m1, 8.9%); m2 vs m1 (9.5%) is the alternative.
+      Dunnett post-test is vs measurement 1, so both compare to m1.'
+    alternatives:
+    - label: m2 versus m1 (unstated choice)
+      formula: s = (x0 - x)/x0
+      note: 'x = S2FG_cat.values.m2 (7,241 AU), x0 = m1 (8,003 AU): 9.5%'
+    aggregation: not stated
+  F2D_force.pct_baseline:
+    item: F2D_force
+    formula: r = x/x0
+    anchor: &id001
+      quote: data are normalized to own baseline
+      where: Figure 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F2D_force.change:
+    item: F2D_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The reason for the BDM-induced reduction of CaT is not clear, but the low potency of BDM and thus the high working concentration likely result in multiple off-target effects
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        reading: f2d_force/bdm
+        kind: per sample
+      x0:
+        reading: f2d_force/bl
+        kind: per sample
+    output: F2D_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F2D_cat.pct_baseline:
+    item: F2D_cat
+    formula: r = x/x0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F2D_cat.change:
+    item: F2D_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The reason for the BDM-induced reduction of CaT is not clear, but the low potency of BDM and thus the high working concentration likely result in multiple off-target effects
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        reading: f2d_cat/bdm
+        kind: per sample
+      x0:
+        reading: f2d_cat/bl
+        kind: per sample
+    output: F2D_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F2D_tmc_force.change:
+    item: F2D_tmc_force
+    formula: s = (x0 - x)/x0
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    anchor:
+      quote: TMCs for this experiment showed again no significant changes in CaT, but force decreased by 21%
+      where: Results, Specificity of Fluorescence Signal
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: TMC force at the end of the experiment; the TMC panel (Figure 2D, left) is not read
+      x0:
+        not_stated: true
+        kind: per sample
+        note: TMC force at baseline; not printed
+    output: F2D_tmc_force.values.change
+    output_unit: '%'
+    note: Printed without sign after "force decreased by"; the decrease is written as a relative decrease.
+    aggregation: not stated
+  F3A_force.pct_baseline:
+    item: F3A_force
+    formula: r = x/x0
+    anchor: &id002
+      quote: Depicted are the relative effects in percentage of baseline
+      where: Figure 3 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3A_force.change:
+    item: F3A_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: led to an increase in force (+51%) and reduction in TTP80%,force and RT80%,force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3a_force/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s3a_force/bl
+        kind: per sample
+        x: 0 nM
+    output: F3A_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3A_ttp_force.pct_baseline:
+    item: F3A_ttp_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3A_ttp_force.change:
+    item: F3A_ttp_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: led to an increase in force (+51%) and reduction in TTP80%,force and RT80%,force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3a_ttp/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s3a_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: F3A_ttp_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3A_rt_force.pct_baseline:
+    item: F3A_rt_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3A_rt_force.change:
+    item: F3A_rt_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: led to an increase in force (+51%) and reduction in TTP80%,force and RT80%,force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3a_rt/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s3a_rt/bl
+        kind: per sample
+        x: 0 nM
+    output: F3A_rt_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3A_cat.pct_baseline:
+    item: F3A_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3A_cat.change:
+    item: F3A_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: This was accompanied by an increase in CaT amplitude (+64%) and reduction in TTP80%,CaT and RT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4a_cat/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s4a_cat/bl
+        kind: per sample
+        x: 0 nM
+    output: F3A_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3A_ttp_cat.pct_baseline:
+    item: F3A_ttp_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3A_ttp_cat.change:
+    item: F3A_ttp_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: This was accompanied by an increase in CaT amplitude (+64%) and reduction in TTP80%,CaT and RT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4a_ttp/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s4a_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: F3A_ttp_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3A_rt_cat.pct_baseline:
+    item: F3A_rt_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3A_rt_cat.change:
+    item: F3A_rt_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: This was accompanied by an increase in CaT amplitude (+64%) and reduction in TTP80%,CaT and RT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4a_dt/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s4a_dt/bl
+        kind: per sample
+        x: 0 nM
+    output: F3A_rt_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3B_force.pct_baseline:
+    item: F3B_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3B_force.change:
+    item: F3B_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The LTCC inhibitor nifedipine (10, 30, and 100 nM) led to a concentration-dependent decrease in force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3b_force/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s3b_force/bl
+        kind: per sample
+        x: 0 nM
+    output: F3B_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3B_cat.pct_baseline:
+    item: F3B_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3B_cat.change:
+    item: F3B_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The LTCC inhibitor nifedipine (10, 30, and 100 nM) led to a concentration-dependent decrease in force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4b_cat/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4b_cat/bl
+        kind: per sample
+        x: 0 nM
+    output: F3B_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3B_ttp_force.pct_baseline:
+    item: F3B_ttp_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3B_ttp_force.change:
+    item: F3B_ttp_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Also TTP80%,force/TTP80%,CaT and RT80%,force/DT80%,CaT were significantly reduced
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3b_ttp/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s3b_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: F3B_ttp_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3B_ttp_cat.pct_baseline:
+    item: F3B_ttp_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3B_ttp_cat.change:
+    item: F3B_ttp_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Also TTP80%,force/TTP80%,CaT and RT80%,force/DT80%,CaT were significantly reduced
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4b_ttp/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4b_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: F3B_ttp_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3B_rt_force.pct_baseline:
+    item: F3B_rt_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3B_rt_force.change:
+    item: F3B_rt_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Also TTP80%,force/TTP80%,CaT and RT80%,force/DT80%,CaT were significantly reduced
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3b_rt/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s3b_rt/bl
+        kind: per sample
+        x: 0 nM
+    output: F3B_rt_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3B_dt_cat.pct_baseline:
+    item: F3B_dt_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3B_dt_cat.change:
+    item: F3B_dt_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Also TTP80%,force/TTP80%,CaT and RT80%,force/DT80%,CaT were significantly reduced
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4b_dt/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4b_dt/bl
+        kind: per sample
+        x: 0 nM
+    output: F3B_dt_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3C_force.pct_baseline:
+    item: F3C_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3C_force.change:
+    item: F3C_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The LTCC agonist Bay K-8644 (300 nM) led to an increase in force (+71%) and RT80%,force (+86%)
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3c_force/c300
+        kind: per sample
+        x: 300 nM
+      x0:
+        reading: s3c_force/bl
+        kind: per sample
+        x: 0 nM
+    output: F3C_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3C_rt_force.pct_baseline:
+    item: F3C_rt_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3C_rt_force.change:
+    item: F3C_rt_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The LTCC agonist Bay K-8644 (300 nM) led to an increase in force (+71%) and RT80%,force (+86%)
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3c_rt/c300
+        kind: per sample
+        x: 300 nM
+      x0:
+        reading: s3c_rt/bl
+        kind: per sample
+        x: 0 nM
+    output: F3C_rt_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3C_dt_cat.pct_baseline:
+    item: F3C_dt_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3C_dt_cat.change:
+    item: F3C_dt_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: This was accompanied by an increase in DT80%,CaT (+74%).
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: the 300 nM mean lies above the axis break in Figure S4C and is not read
+      x0:
+        reading: s4c_dt/bl
+        kind: per sample
+        x: 0 nM
+    output: F3C_dt_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3C_cat_30.pct_baseline:
+    item: F3C_cat_30
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3C_cat_30.change:
+    item: F3C_cat_30
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: CaT amplitude increased at 30 and 100 nM (+53%, +62%) but not at 300 nM.
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4c_cat_30/c30
+        kind: per sample
+        x: 30 nM
+      x0:
+        reading: s4c_cat_30/bl
+        kind: per sample
+        x: 0 nM
+    output: F3C_cat_30.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3C_cat_100.pct_baseline:
+    item: F3C_cat_100
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3C_cat_100.change:
+    item: F3C_cat_100
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: CaT amplitude increased at 30 and 100 nM (+53%, +62%) but not at 300 nM.
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4c_cat_100/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4c_cat_100/bl
+        kind: per sample
+        x: 0 nM
+    output: F3C_cat_100.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3D_force_03.pct_baseline:
+    item: F3D_force_03
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3D_force_03.change:
+    item: F3D_force_03
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: (+87%, +142%), accompanied by a reduction in RT80%,force and DT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3d_force_03/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s3d_force_03/bl
+        kind: per sample
+        x: 0 µM
+    output: F3D_force_03.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3D_cat_03.pct_baseline:
+    item: F3D_cat_03
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3D_cat_03.change:
+    item: F3D_cat_03
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: (+87%, +142%), accompanied by a reduction in RT80%,force and DT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4d_cat_03/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s4d_cat_03/bl
+        kind: per sample
+        x: 0 µM
+    output: F3D_cat_03.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3D_rt_force.pct_baseline:
+    item: F3D_rt_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3D_rt_force.change:
+    item: F3D_rt_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: (+87%, +142%), accompanied by a reduction in RT80%,force and DT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3d_rt/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s3d_rt/bl
+        kind: per sample
+        x: 0 µM
+    output: F3D_rt_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3D_dt_cat.pct_baseline:
+    item: F3D_dt_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3D_dt_cat.change:
+    item: F3D_dt_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: (+87%, +142%), accompanied by a reduction in RT80%,force and DT80%,CaT
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4d_dt/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s4d_dt/bl
+        kind: per sample
+        x: 0 µM
+    output: F3D_dt_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3D_force_1.pct_baseline:
+    item: F3D_force_1
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3D_force_1.change:
+    item: F3D_force_1
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: At 1 µM, digoxin led to a reduction in force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3d_force_1/c1
+        kind: per sample
+        x: 1 µM
+      x0:
+        reading: s3d_force_1/bl
+        kind: per sample
+        x: 0 µM
+    output: F3D_force_1.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3D_cat_1.pct_baseline:
+    item: F3D_cat_1
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3D_cat_1.change:
+    item: F3D_cat_1
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: At 1 µM, digoxin led to a reduction in force
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4d_cat_1/c1
+        kind: per sample
+        x: 1 µM
+      x0:
+        reading: s4d_cat_1/bl
+        kind: per sample
+        x: 0 µM
+    output: F3D_cat_1.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3E_force.pct_baseline:
+    item: F3E_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3E_force.change:
+    item: F3E_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: EMD-57033 led to an increase in force (+130%) and TTP80%,force (+15%) at 10 µM
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3e_force/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s3e_force/bl
+        kind: per sample
+        x: 0 µM
+    output: F3E_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3E_ttp_force.pct_baseline:
+    item: F3E_ttp_force
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3E_ttp_force.change:
+    item: F3E_ttp_force
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: EMD-57033 led to an increase in force (+130%) and TTP80%,force (+15%) at 10 µM
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s3e_ttp/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s3e_ttp/bl
+        kind: per sample
+        x: 0 µM
+    output: F3E_ttp_force.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3E_cat.pct_baseline:
+    item: F3E_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3E_cat.change:
+    item: F3E_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: TTP80%,CaT increased (+21%)
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4e_cat/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s4e_cat/bl
+        kind: per sample
+        x: 0 µM
+    output: F3E_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F3E_ttp_cat.pct_baseline:
+    item: F3E_ttp_cat
+    formula: r = x/x0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F3E_ttp_cat.change:
+    item: F3E_ttp_cat
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: TTP80%,CaT increased (+21%)
+      where: Results, Compound-Specific Effects
+    inputs:
+      x:
+        reading: s4e_ttp/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s4e_ttp/bl
+        kind: per sample
+        x: 0 µM
+    output: F3E_ttp_cat.values.change
+    output_unit: '%'
+    aggregation: not stated
+  T1_force.change_iso:
+    item: T1_force
+    group: iso
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3a_force/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s3a_force/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_force.values.iso
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_force.change_nif:
+    item: T1_force
+    group: nif
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3b_force/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s3b_force/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_force.values.nif
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_force.change_bay:
+    item: T1_force
+    group: bay
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3c_force/c300
+        kind: per sample
+        x: 300 nM
+      x0:
+        reading: s3c_force/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_force.values.bay
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_force.change_dig:
+    item: T1_force
+    group: dig
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3d_force_03/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s3d_force_03/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_force.values.dig
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_force.change_emd:
+    item: T1_force
+    group: emd
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3e_force/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s3e_force/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_force.values.emd
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_force.change_iso:
+    item: T1_ttp_force
+    group: iso
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3a_ttp/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s3a_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_ttp_force.values.iso
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_force.change_nif:
+    item: T1_ttp_force
+    group: nif
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3b_ttp/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s3b_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_ttp_force.values.nif
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_force.change_bay:
+    item: T1_ttp_force
+    group: bay
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_ttp_force.values.bay
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_force.change_dig:
+    item: T1_ttp_force
+    group: dig
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_ttp_force.values.dig
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_force.change_emd:
+    item: T1_ttp_force
+    group: emd
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3e_ttp/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s3e_ttp/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_ttp_force.values.emd
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_rt_force.change_iso:
+    item: T1_rt_force
+    group: iso
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3a_rt/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s3a_rt/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_rt_force.values.iso
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_rt_force.change_nif:
+    item: T1_rt_force
+    group: nif
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3b_rt/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s3b_rt/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_rt_force.values.nif
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_rt_force.change_bay:
+    item: T1_rt_force
+    group: bay
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3c_rt/c300
+        kind: per sample
+        x: 300 nM
+      x0:
+        reading: s3c_rt/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_rt_force.values.bay
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_rt_force.change_dig:
+    item: T1_rt_force
+    group: dig
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s3d_rt/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s3d_rt/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_rt_force.values.dig
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_rt_force.change_emd:
+    item: T1_rt_force
+    group: emd
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_rt_force.values.emd
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_cat.change_iso:
+    item: T1_cat
+    group: iso
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4a_cat/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s4a_cat/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_cat.values.iso
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_cat.change_nif:
+    item: T1_cat
+    group: nif
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4b_cat/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4b_cat/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_cat.values.nif
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_cat.change_bay:
+    item: T1_cat
+    group: bay
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4c_cat_300/c300
+        kind: per sample
+        x: 300 nM
+      x0:
+        reading: s4c_cat_300/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_cat.values.bay
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_cat.change_dig:
+    item: T1_cat
+    group: dig
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4d_cat_03/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s4d_cat_03/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_cat.values.dig
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_cat.change_emd:
+    item: T1_cat
+    group: emd
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4e_cat/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s4e_cat/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_cat.values.emd
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_cat.change_iso:
+    item: T1_ttp_cat
+    group: iso
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4a_ttp/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s4a_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_ttp_cat.values.iso
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_cat.change_nif:
+    item: T1_ttp_cat
+    group: nif
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4b_ttp/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4b_ttp/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_ttp_cat.values.nif
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_cat.change_bay:
+    item: T1_ttp_cat
+    group: bay
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_ttp_cat.values.bay
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_cat.change_dig:
+    item: T1_ttp_cat
+    group: dig
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_ttp_cat.values.dig
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_ttp_cat.change_emd:
+    item: T1_ttp_cat
+    group: emd
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4e_ttp/c10
+        kind: per sample
+        x: 10 µM
+      x0:
+        reading: s4e_ttp/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_ttp_cat.values.emd
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_dt_cat.change_iso:
+    item: T1_dt_cat
+    group: iso
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4a_dt/c10
+        kind: per sample
+        x: 10 nM
+      x0:
+        reading: s4a_dt/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_dt_cat.values.iso
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_dt_cat.change_nif:
+    item: T1_dt_cat
+    group: nif
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4b_dt/c100
+        kind: per sample
+        x: 100 nM
+      x0:
+        reading: s4b_dt/bl
+        kind: per sample
+        x: 0 nM
+    output: T1_dt_cat.values.nif
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_dt_cat.change_bay:
+    item: T1_dt_cat
+    group: bay
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_dt_cat.values.bay
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_dt_cat.change_dig:
+    item: T1_dt_cat
+    group: dig
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        reading: s4d_dt/c03
+        kind: per sample
+        x: 0.3 µM
+      x0:
+        reading: s4d_dt/bl
+        kind: per sample
+        x: 0 µM
+    output: T1_dt_cat.values.dig
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  T1_dt_cat.change_emd:
+    item: T1_dt_cat
+    group: emd
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Listed are maximum relative changes in force, time-to-peak force (TTP-80%,force), relaxation time (RT80%), CaT, time-to-peak CaT (TTP-80%,CaT), decay time (DT80%)
+      where: Table S1 legend
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: no read panel shows this parameter for this compound
+      x0:
+        not_stated: true
+        kind: per sample
+        note: no read panel; not printed
+    output: T1_dt_cat.values.emd
+    output_unit: '%'
+    note: '"Maximum relative change": the concentration is not stated per compound; the concentration of the matching Results sentence is used.'
+    aggregation: not stated
+  F4_force_20.pct_baseline:
+    item: F4_force_20
+    formula: r = x/x0
+    anchor: &id003
+      quote: relative values (means ± SEM) normalized to own baseline (0.75 Hz)
+      where: Figure 4 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F4_force_20.change:
+    item: F4_force_20
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Between 0.75 and 2.0 Hz, the increase in stimulation frequency was accompanied by an increase in force (+96%) and CaT (97%).
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: f4a_force_20/f20
+        kind: per sample
+        x: 2 Hz
+      x0:
+        reading: f4a_force_20/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: F4_force_20.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F4_cat_20.pct_baseline:
+    item: F4_cat_20
+    formula: r = x/x0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F4_cat_20.change:
+    item: F4_cat_20
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: Between 0.75 and 2.0 Hz, the increase in stimulation frequency was accompanied by an increase in force (+96%) and CaT (97%).
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: f4b_cat_20/f20
+        kind: per sample
+        x: 2 Hz
+      x0:
+        reading: f4b_cat_20/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: F4_cat_20.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F4_force_25.pct_baseline:
+    item: F4_force_25
+    formula: r = x/x0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F4_force_25.change:
+    item: F4_force_25
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: 'At higher frequencies, up to 2.5 Hz, force values decreased (2.5 Hz: +82%). In contrast, CaT further increased (2.5 Hz: 102%)'
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: f4a_force_25/f25
+        kind: per sample
+        x: 2.5 Hz
+      x0:
+        reading: f4a_force_25/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: F4_force_25.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F4_cat_25.pct_baseline:
+    item: F4_cat_25
+    formula: r = x/x0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F4_cat_25.change:
+    item: F4_cat_25
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: 'At higher frequencies, up to 2.5 Hz, force values decreased (2.5 Hz: +82%). In contrast, CaT further increased (2.5 Hz: 102%)'
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: f4b_cat_25/f25
+        kind: per sample
+        x: 2.5 Hz
+      x0:
+        reading: f4b_cat_25/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: F4_cat_25.values.change
+    output_unit: '%'
+    aggregation: not stated
+  S5_force_20.pct_baseline:
+    item: S5_force_20
+    formula: r = x/x0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  S5_force_20.change:
+    item: S5_force_20
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: This showed a maximal increase in force by +45% at 2.0 Hz.
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: s5_force/f20
+        kind: per sample
+        x: 2 Hz
+      x0:
+        reading: s5_force/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: S5_force_20.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F4_kinetics.pct_baseline:
+    item: F4_kinetics
+    formula: r = x/x0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F4_kinetics.lo:
+    item: F4_kinetics
+    formula: s = (x0 - x)/x0
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    anchor:
+      quote: declined by 10%–30% between 0.75 and 2.5 Hz
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: f4a_ttp/f25
+        kind: per sample
+        x: 2.5 Hz
+      x0:
+        reading: f4a_ttp/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: F4_kinetics.values.lo
+    output_unit: '%'
+    note: The range spans four parameters; the smallest decline read is TTP80%,force (Figure 4A).
+    aggregation: not stated
+  F4_kinetics.hi:
+    item: F4_kinetics
+    formula: s = (x0 - x)/x0
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    anchor:
+      quote: declined by 10%–30% between 0.75 and 2.5 Hz
+      where: Results, Force-Frequency Relationship
+    inputs:
+      x:
+        reading: f4b_dt/f25
+        kind: per sample
+        x: 2.5 Hz
+      x0:
+        reading: f4b_dt/f075
+        kind: per sample
+        x: 0.75 Hz
+    output: F4_kinetics.values.hi
+    output_unit: '%'
+    note: The range spans four parameters; the largest decline read is DT80%,CaT (Figure 4B).
+    aggregation: not stated
+  F5_force_075.pct_baseline:
+    item: F5_force_075
+    formula: r = x/x0
+    anchor: &id004
+      quote: normalized to own baseline (respective pacing frequency in the presence of ivabradine and absence of OM)
+      where: Figure 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F5_force_075.change:
+    item: F5_force_075
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The positive inotropic effect of OM was +99% at 0.75 Hz, decreased to +54% at 1.25 Hz, and was not significant at higher frequencies.
+      where: Results, Omecamtiv Mecarbil
+    inputs:
+      x:
+        reading: f5a_force_075/omf075
+        kind: per sample
+        x: 0.75 Hz
+      x0:
+        reading: f5a_force_075/blf075
+        kind: per sample
+        x: 0.75 Hz
+    output: F5_force_075.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F5_force_125.pct_baseline:
+    item: F5_force_125
+    formula: r = x/x0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F5_force_125.change:
+    item: F5_force_125
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: The positive inotropic effect of OM was +99% at 0.75 Hz, decreased to +54% at 1.25 Hz, and was not significant at higher frequencies.
+      where: Results, Omecamtiv Mecarbil
+    inputs:
+      x:
+        reading: f5a_force_125/omf125
+        kind: per sample
+        x: 1.25 Hz
+      x0:
+        reading: f5a_force_125/blf125
+        kind: per sample
+        x: 1.25 Hz
+    output: F5_force_125.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F5_ttp_force_125.pct_baseline:
+    item: F5_ttp_force_125
+    formula: r = x/x0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F5_ttp_force_125.change:
+    item: F5_ttp_force_125
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: OM prolonged TTP80%,force and RT80%,force, with maximal effects at 1.25 (79%) and 0.75 Hz (35%), respectively
+      where: Results, Omecamtiv Mecarbil
+    inputs:
+      x:
+        reading: f5a_ttp_125/omf125
+        kind: per sample
+        x: 1.25 Hz
+      x0:
+        reading: f5a_ttp_125/blf125
+        kind: per sample
+        x: 1.25 Hz
+    output: F5_ttp_force_125.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F5_rt_force_075.pct_baseline:
+    item: F5_rt_force_075
+    formula: r = x/x0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F5_rt_force_075.change:
+    item: F5_rt_force_075
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: OM prolonged TTP80%,force and RT80%,force, with maximal effects at 1.25 (79%) and 0.75 Hz (35%), respectively
+      where: Results, Omecamtiv Mecarbil
+    inputs:
+      x:
+        reading: f5a_rt_075/omf075
+        kind: per sample
+        x: 0.75 Hz
+      x0:
+        reading: f5a_rt_075/blf075
+        kind: per sample
+        x: 0.75 Hz
+    output: F5_rt_force_075.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F5_ttp_cat_125.pct_baseline:
+    item: F5_ttp_cat_125
+    formula: r = x/x0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F5_ttp_cat_125.change:
+    item: F5_ttp_cat_125
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: CaT amplitude remained unchanged, while TTP80%,CaT and DT80%,CaT were maximally increased by 30% and 24% at 1.25 and 1.0 Hz, respectively
+      where: Results, Omecamtiv Mecarbil
+    inputs:
+      x:
+        reading: f5b_ttp_125/omf125
+        kind: per sample
+        x: 1.25 Hz
+      x0:
+        reading: f5b_ttp_125/blf125
+        kind: per sample
+        x: 1.25 Hz
+    output: F5_ttp_cat_125.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F5_dt_cat_10.pct_baseline:
+    item: F5_dt_cat_10
+    formula: r = x/x0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: absolute value of each EHT after the intervention; not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the same EHT's own baseline value; not printed
+    note: '"% of baseline" (named operation, per EHT); the plotted means are read in readings.yaml and feed the % change derivation of this item.'
+  F5_dt_cat_10.change:
+    item: F5_dt_cat_10
+    formula: d = (x - x0)/x0
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    anchor:
+      quote: CaT amplitude remained unchanged, while TTP80%,CaT and DT80%,CaT were maximally increased by 30% and 24% at 1.25 and 1.0 Hz, respectively
+      where: Results, Omecamtiv Mecarbil
+    inputs:
+      x:
+        reading: f5b_dt_10/omf10
+        kind: per sample
+        x: 1 Hz
+      x0:
+        reading: f5b_dt_10/blf10
+        kind: per sample
+        x: 1 Hz
+    output: F5_dt_cat_10.values.change
+    output_unit: '%'
+    aggregation: not stated
+  F1E_force.force:
+    item: F1E_force
+    formula: not stated
+    anchor: &id005
+      quote: Force was then calculated based on EHT shortening and the elastic propensity and geometry of the PDMS posts to which the EHTs were attached.
+      where: Experimental Procedures, Force and CaT Measurement
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: EHT shortening is tracked per EHT; no deflection value is printed
+      k:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Force was analyzed by video-optical recording as described in the past (Hansen et al., 2010; Mannhardt et al., 2016; Schaaf et al., 2011).
+            where: Experimental Procedures, Force and CaT Measurement
+        kind: constant
+        note: '"elastic propensity and geometry of the PDMS posts"; no stiffness, modulus or post dimension printed'
+    alternatives:
+    - label: deflection of one post equals the EHT shortening
+      formula: F = k*x
+    - label: two identical flexible posts share the shortening (unstated)
+      formula: F = k*x/2
+      note: if x is the EHT shortening and both posts deflect equally; the paper does not say how shortening maps to post deflection
+    note: The paper names the inputs (EHT shortening, post elasticity and geometry) but not the formula; method by citation.
+  F1F_force.force:
+    item: F1F_force
+    formula: not stated
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: EHT shortening is tracked per EHT; no deflection value is printed
+      k:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Force was analyzed by video-optical recording as described in the past (Hansen et al., 2010; Mannhardt et al., 2016; Schaaf et al., 2011).
+            where: Experimental Procedures, Force and CaT Measurement
+        kind: constant
+        note: '"elastic propensity and geometry of the PDMS posts"; no stiffness, modulus or post dimension printed'
+    alternatives:
+    - label: deflection of one post equals the EHT shortening
+      formula: F = k*x
+    - label: two identical flexible posts share the shortening (unstated)
+      formula: F = k*x/2
+      note: if x is the EHT shortening and both posts deflect equally; the paper does not say how shortening maps to post deflection
+    note: The paper names the inputs (EHT shortening, post elasticity and geometry) but not the formula; method by citation.
+  S2FG_force.force:
+    item: S2FG_force
+    formula: not stated
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: EHT shortening is tracked per EHT; no deflection value is printed
+      k:
+        by_reference:
+          citation: hansen2010
+          anchor:
+            quote: Force was analyzed by video-optical recording as described in the past (Hansen et al., 2010; Mannhardt et al., 2016; Schaaf et al., 2011).
+            where: Experimental Procedures, Force and CaT Measurement
+        kind: constant
+        note: '"elastic propensity and geometry of the PDMS posts"; no stiffness, modulus or post dimension printed'
+    alternatives:
+    - label: deflection of one post equals the EHT shortening
+      formula: F = k*x
+    - label: two identical flexible posts share the shortening (unstated)
+      formula: F = k*x/2
+      note: if x is the EHT shortening and both posts deflect equally; the paper does not say how shortening maps to post deflection
+    note: The paper names the inputs (EHT shortening, post elasticity and geometry) but not the formula; method by citation.
+  TXT1_snr.snr:
+    item: TXT1_snr
+    formula: snr = S/B
+    anchor:
+      quote: Signal-to-noise ratio was calculated based on CaT amplitudes and background signal intensity in original recordings
+      where: Experimental Procedures, Force and CaT Measurement
+    library:
+      formula: ratio_def
+      vars:
+        r: snr
+        a: S
+        b: B
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: CaT amplitude per recording; not printed
+      B:
+        not_stated: true
+        kind: per sample
+        note: background signal intensity per recording; not printed
+    output: TXT1_snr.values.snr
+    output_unit: dimensionless
+    alternatives:
+    - label: noise as the mean background intensity
+      formula: snr = S/B
+    - label: noise as the SD of the background (unstated)
+      formula: snr = S/B
+      note: B would then be the background standard deviation
+    note: Mean of per-recording ratios (64.2 ± 8.6 SEM, 12 recordings).
+    aggregation: not stated
+  TXT1_fold.fold_nontransduced:
+    item: TXT1_fold
+    formula: r = a/b
+    anchor:
+      quote: Peak amplitude of the autofluorescence or GFP fluorescence signals was more than 10-fold smaller than GCaMP5G or GCaMP6f signal intensities
+      where: Results, Specificity of Fluorescence Signal
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: GCaMP peak amplitude; printed only as the range 5,000-25,000 AU
+      b:
+        not_stated: true
+        kind: per sample
+        note: peak amplitude of the autofluorescence of non-transduced EHTs; not printed
+    output: TXT1_fold.values.fold_nontransduced
+    output_unit: fold
+    note: '"more than 10-fold smaller": a lower bound on the ratio, not a value.'
+    aggregation: not stated
+  TXT1_fold.fold_gfp:
+    item: TXT1_fold
+    formula: r = a/b
+    anchor:
+      quote: Peak amplitude of the autofluorescence or GFP fluorescence signals was more than 10-fold smaller than GCaMP5G or GCaMP6f signal intensities
+      where: Results, Specificity of Fluorescence Signal
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: GCaMP peak amplitude; printed only as the range 5,000-25,000 AU
+      b:
+        not_stated: true
+        kind: per sample
+        note: peak amplitude of the GFP fluorescence of GFP-transduced EHTs; not printed
+    output: TXT1_fold.values.fold_gfp
+    output_unit: fold
+    note: '"more than 10-fold smaller": a lower bound on the ratio, not a value.'
+    aggregation: not stated
+  S2C_gfp.fraction:
+    item: S2C_gfp
+    formula: r = a/b
+    anchor:
+      quote: Staining for GFP revealed transduction of 20%–40% of hiPSC-CMs within the EHT (Figures S2C and S2D).
+      where: Results, Specificity of Fluorescence Signal
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: GFP-positive hiPSC-CMs counted; not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: hiPSC-CMs counted; not printed
+    note: A fraction of cells printed as the range 20%-40%; no output value (a range).
+assumptions:
+  F1E_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F1F_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  S2FG_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+bounds: []
+proposals:
+- formula: hooke_spring
+  kind: model
+  statement: The force of a linear elastic spring (or a flexible post loaded at a point) is its stiffness times its deflection.
+  equations:
+  - F = k*x
+  variables:
+    F: force
+    k: stiffness
+    x: length
+  assumes:
+  - linear spring
+  - small deflection
+  does_not_apply: large deflections or a nonlinear (e.g. viscoelastic or strain-stiffening) post, where force is not proportional to deflection
+  tests:
+  - given:
+      k: 2.0
+      x: 3.0
+    expect:
+      F: 6.0
+  - given:
+      k: 2.0
+      x: 3.0
+    does_not_apply: 'post deflected beyond its linear range: measured F differs from k*x'
+  cites:
+    text: Halliday, Resnick and Walker, Fundamentals of Physics, 10th ed., Wiley 2014, ch. 7 (spring force, Hooke's law)
+    quote: Fx = -kx (Hooke's law)
+- formula: relative_decrease
+  kind: derived
+  statement: The relative decrease of a value from a reference, (x0 - x)/x0, is the ratio of the drop to the reference.
+  equations:
+  - s = (x0 - x)/x0
+  variables:
+    s: dimensionless
+    x: D
+    x0: D
+    dx: D
+  assumes:
+  - dx = x0 - x
+  uses:
+  - formula: ratio_def
+    subs:
+      r: s
+      a: dx
+      b: x0
+  does_not_apply: a signed relative change (x - x0)/x0, or a drop relative to a value other than the reference
+  tests:
+  - given:
+      x: 1.5
+      x0: 2.0
+    expect:
+      s: 0.25
+  - given:
+      x: 1.5
+      x0: 2.0
+    does_not_apply: signed relative change gives -0.25

@@ -1,0 +1,4569 @@
+id: 2015_Hinson
+field_set: 3
+source:
+  title: Titin Mutations in iPS cells Define Sarcomere Insufficiency as a Cause of Dilated Cardiomyopathy
+  doi: 10.1126/science.aaa5458
+  year: '2015'
+  first_author: John T. Hinson
+  last_author: Christine E. Seidman
+  lab: Seidman lab, Harvard Medical School / Brigham and Women's Hospital
+  journal: Science
+  files:
+  - nihms727908.pdf
+  - journal_version.pdf
+  - NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  - NIHMS727908-supplement-Supplemental_Table.xlsx
+  missing: []
+  version_note: the folder holds both the published Science article (journal_version.pdf) and the NIH author manuscript (nihms727908.pdf) of the same paper; quotes are taken from whichever version prints
+    the sentence, and the two versions differ in places (Fig. 2H n, Fig. 3E N)
+default_context:
+  species: human
+  differentiation_factors: CHIR99021 + IWP4
+  wnt_activation_days: D0-D1
+  wnt_inhibition_days: D3-D5
+  insulin_day: not stated
+  confluency: not stated
+  hipsc_medium: feeder-free conditions
+  hipsc_coating:
+    by_reference:
+      citation: c22
+      anchor:
+        quote: IPScs were reprogrammed on MEFs and then transitioned to feeder-free conditions using standard protocols (22)
+        where: Methods, iPSc production
+        file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  purity: '>90% TnnT+'
+  purity_method: FACS analysis or by morphology
+  cm_medium: not stated
+  supplements: not stated
+  number_of_lines: not stated
+  endothelial_cell: not stated
+  cm_day_at_formation: not stated
+  maturation_strategy: not stated
+  temperature: not stated
+  culture_calcium_mM: not stated
+  measurement_calcium_mM: not stated
+  measurement_medium: not stated
+  donor_age: not stated
+  time_point: not stated
+  incubator_atmosphere: not stated
+units:
+  F1D:
+    where: Fig. 1D
+    title: Mean force of pW976R+/−, pA22352fs+/−, and pP22582fs+/− iPS-CMTs compared to pWT iPS-CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: &id001
+        value: collagen I + fibrinogen
+        qualifiers:
+          collagen I: 2.25mg/mL
+          fibrinogen: 0.5mg/mL
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pW976R:
+        label: pW976R+/−
+        context:
+          genotype: W976R+/−
+          disease_model: dilated cardiomyopathy
+      pA22352fs:
+        label: pA22352fs+/−
+        context:
+          genotype: A22352fs+/−
+          disease_model: dilated cardiomyopathy
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  F1E:
+    where: Fig. 1E
+    title: Mean force produced by isogenic iPS-CMTs with heterozygous or homozygous I-band (cV6382fs) or A-band (cN22577fs) TTNtv
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cV6382fs_het:
+        label: cV6382fs+/−
+        context:
+          genotype: V6382fs+/−
+          disease_model: not stated
+      cV6382fs_hom:
+        label: cV6382fs−/−
+        context:
+          genotype: V6382fs−/−
+          disease_model: not stated
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+      cT33520fs_hom:
+        label: cT33520fs−/−
+        context:
+          genotype: T33520fs−/−
+          disease_model: not stated
+  F1F:
+    where: Fig. 1F
+    title: Mean force produced by pWT and pP22582fs+/− CMTs in response to increased pillar stiffness
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT_low:
+        label: pWT, 0.2 μN/μm
+        context:
+          genotype: healthy control line
+          disease_model: none
+          mechanical_load: &id002
+            value: flexible cantilever
+            qualifiers:
+              stiffness: 0.2 μN/μm
+      pWT_high:
+        label: pWT, 0.45 μN/μm
+        context:
+          genotype: healthy control line
+          disease_model: none
+          mechanical_load: &id003
+            value: rigid cantilever
+            qualifiers:
+              stiffness: 0.45 μN/μm
+      pP22582fs_low:
+        label: pP22582fs+/−, 0.2 μN/μm
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          mechanical_load: *id002
+      pP22582fs_high:
+        label: pP22582fs+/−, 0.45 μN/μm
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          mechanical_load: *id003
+  F1G:
+    where: Fig. 1G
+    title: Isoproterenol-induced force in pP22582fs+/− versus pWT CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: isoproterenol
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  F1H:
+    where: Fig. 1H
+    title: Spontaneous beating rate in pP22582fs+/− versus pWT CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: none
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  F2D:
+    where: Fig. 2D
+    title: Sarcomere organization (ɛ) quantified by 2-dimensional Fourier Transform (FFT) analysis of pWT, pP22582fs+/− and cT33520fs−/− iPS-CMs
+    context: &id005
+      purification: metabolic selection
+      platform: fibronectin coated glass coverslips
+      substrate: glass
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: fibronectin
+      preparation: single iPS-CMs
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+          cell_line: patient-derived iPS-CMs
+          transgene: STEMCCA cassette
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          cell_line: patient-derived iPS-CMs
+          transgene: STEMCCA cassette
+      cT33520fs_hom:
+        label: cT33520fs−/−
+        context:
+          genotype: T33520fs−/−
+          disease_model: not stated
+          cell_line: PGP1
+          transgene: not stated
+  F2E:
+    where: Fig. 2E
+    title: Sarcomere length (μm) measured by intensity profiles of α-actinin in pWT and pP22582fs+/− iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: fibronectin coated glass coverslips
+      substrate: glass
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: fibronectin
+      preparation: single iPS-CMs
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  F2F:
+    where: Fig. 2F
+    title: Protein electropherograms of lysates from pP22582fs+/− and pWT iPS-CMs and human LV stained with Coomassie Blue
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+      LV_adult: &id007
+        label: adult human donor LV
+        kind: native tissue
+        context:
+          species: human
+          donor_age: adult human donor hearts
+          preparation: protein lysates
+          genotype: healthy control line
+          disease_model: none
+        anchor:
+          quote: pellets of human iPS-derived myocytes or small pieces of LV tissue from adult human donor hearts were analyzed (30)
+          where: Methods, Western blotting and tissue staining
+          file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  F2H:
+    where: Fig. 2H
+    title: Sarcomere organization (ɛ) quantified by FFT analysis of LV tissue from control and P22582fs+/− patients
+    context: {}
+    groups: &id006
+      LV_control:
+        label: control patient LV
+        kind: native tissue
+        context:
+          species: human
+          preparation: H&E stained tissue
+          genotype: healthy control line
+          disease_model: none
+        anchor:
+          quote: Representative micrographs of H&E stained tissue from the left ventricles (LV) of control and P22582fs+/− patients
+          where: Fig. 2G legend
+      LV_P22582fs:
+        label: P22582fs+/− patient LV
+        kind: native tissue
+        context:
+          species: human
+          preparation: H&E stained tissue
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+        anchor:
+          quote: Representative micrographs of H&E stained tissue from the left ventricles (LV) of control and P22582fs+/− patients
+          where: Fig. 2G legend
+  F3B:
+    where: Fig. 3B
+    title: Normalized expression (FPKM) of β(MYH7) and α(MYH6) myosin heavy chain ratios
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+  F3C:
+    where: Fig. 3C
+    title: Normalized expression (FPKM) of atrial (NPPA) and brain natriuretic (NPPB) peptides
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+  F3D:
+    where: Fig. 3D
+    title: Normalized expression (FPKM) of TGF-β1 and VEGF-A in cWT, cN22577fs+/−, and cN22577fs−/− iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+  F3E:
+    where: Fig. 3E
+    title: Densitometry of western blots of pWT and pP22582fs+/− lysates probed with antibodies to phosphorylated JNK (p46, p54), ERK, p38, and AKT
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  F3G:
+    where: Fig. 3G
+    title: Densitometry of western blots normalized to protein loading of TGF-β1-3 and VEGF
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  F3I:
+    where: Fig. 3I
+    title: Mean twitch force (μN) generated by pP22582fs+/− iPS-CMTs pre-treated with 50ng/ml VEGF
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          treatment: none
+      pP22582fs_VEGF:
+        label: pP22582fs+/− + VEGF
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          treatment:
+            value: VEGF
+            qualifiers:
+              dose: 50ng/ml
+      pW976R:
+        label: pW976R+/−
+        context:
+          genotype: W976R+/−
+          disease_model: dilated cardiomyopathy
+          treatment: none
+      pW976R_VEGF:
+        label: pW976R+/− + VEGF
+        context:
+          genotype: W976R+/−
+          disease_model: dilated cardiomyopathy
+          treatment:
+            value: VEGF
+            qualifiers:
+              dose: 50ng/ml
+  S2B:
+    where: Fig. S2B
+    title: Representative FACS analysis of purified iPS-CMs stained with antibodies to troponin T (TnnT)
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: not stated
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: not stated
+      treatment: not stated
+      cell_line: not stated
+      transgene: not stated
+    groups:
+      purified:
+        label: purified iPS-CMs
+        context:
+          genotype: not stated
+          disease_model: not stated
+    anchor:
+      quote: Following differentiation, iPS-CM purity was determined by FACS analysis (>90% TnnT+) or by morphology
+      where: Methods, iPSc differentiation
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2C:
+    where: Fig. S2C
+    title: Summary of data obtained from a representative iPS line before and after metabolic selection
+    context:
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: not stated
+      pacing: not applicable
+      mechanical_load: not stated
+      treatment: not stated
+      cell_line: not stated
+      transgene: not stated
+    groups:
+      pre:
+        label: Day 12 - Pre-selection
+        context:
+          genotype: not stated
+          disease_model: not stated
+          purification: none
+          day_of_measurement: Day 12
+      post:
+        label: Day 60 - Post-selection
+        context:
+          genotype: not stated
+          disease_model: not stated
+          purification: metabolic selection
+          day_of_measurement: Day 60
+  S2D:
+    where: Fig. S2D
+    title: Strain energy (fJ) on mPADS computed for single iPS-CMs derived from pWT and pP22582fs+/−
+    context:
+      purification: metabolic selection
+      platform: micro-post arrays (mPads)
+      substrate: PDMS
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating:
+        value: fibronectin
+        qualifiers:
+          concentration: 50µg/ml
+      preparation: single iPS-CMs
+      pacing:
+        value: electrical field stimulation
+        qualifiers:
+          frequency: 1hz
+      mechanical_load:
+        value: microposts
+        qualifiers:
+          spring constant: k=11.076µN/µm
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  S2E:
+    where: Fig. S2E
+    title: Twitch force (µN) of five different biological replicates of pP22582fs+/−
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  S2F:
+    where: Fig. S2F
+    title: Twitch force (µN) of two distinct clones derived from pWT (1,2) and pP22582fs+/− (A,I) CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      transgene: STEMCCA cassette
+    groups:
+      pWT1:
+        label: pWT1
+        context:
+          genotype: healthy control line
+          disease_model: none
+          cell_line: pWT (1)
+      pWT2:
+        label: pWT2
+        context:
+          genotype: healthy control line
+          disease_model: none
+          cell_line: pWT (2)
+      pP22582fs_A:
+        label: pP22582fs-A+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          cell_line: pP22582fs+/- (A)
+      pP22582fs_I:
+        label: pP22582fs-I+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          cell_line: pP22582fs+/- (I)
+  S2G:
+    where: Fig. S2G
+    title: Twitch force (µN) of CMTs derived from pWT and pP22582fs+/− measured on days 4-6
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT_Day4:
+        label: pWT, Day 4
+        context:
+          genotype: healthy control line
+          disease_model: none
+          day_of_measurement: Day 4
+      pWT_Day5:
+        label: pWT, Day 5
+        context:
+          genotype: healthy control line
+          disease_model: none
+          day_of_measurement: Day 5
+      pWT_Day6:
+        label: pWT, Day 6
+        context:
+          genotype: healthy control line
+          disease_model: none
+          day_of_measurement: Day 6
+      pP22582fs_Day4:
+        label: pP22582fs+/−, Day 4
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          day_of_measurement: Day 4
+      pP22582fs_Day5:
+        label: pP22582fs+/−, Day 5
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          day_of_measurement: Day 5
+      pP22582fs_Day6:
+        label: pP22582fs+/−, Day 6
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          day_of_measurement: Day 6
+  S2H:
+    where: Fig. S2H
+    title: Static force (µN) of pWT and pP22582fs+/− CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  S2I:
+    where: Fig. S2I
+    title: Tissue stress (kN/m2) of pWT and pP22582fs+/− CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  S2J:
+    where: Fig. S2J
+    title: Tissue stress (kN/m2) of cWT, cV6382fs+/−, cV6382fs−/−, cN2257fs+/−, cN2257fs−/−, and cT33520fs+/−
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cV6382fs_het:
+        label: cV6382fs+/−
+        context:
+          genotype: V6382fs+/−
+          disease_model: not stated
+      cV6382fs_hom:
+        label: cV6382fs−/−
+        context:
+          genotype: V6382fs−/−
+          disease_model: not stated
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+      cT33520fs_hom:
+        label: cT33520fs−/−
+        context:
+          genotype: T33520fs−/−
+          disease_model: not stated
+  S3A:
+    where: Fig. S3A
+    title: Proportion spliced-in (PSI) of TTN exons (1-365) from RNAseq analyses of iPS-CMs and normal LV
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: not stated
+      transgene: not stated
+    groups:
+      iPSCM:
+        label: iPS-Myocytes
+        context:
+          genotype: not stated
+          disease_model: not stated
+      LV_normal: &id004
+        label: normal LV
+        kind: native tissue
+        context:
+          species: human
+          donor_age: adult human donor hearts
+          preparation: total RNA
+          genotype: healthy control line
+          disease_model: none
+        anchor:
+          quote: pellets of human iPS-derived myocytes or small pieces of LV tissue from adult human donor hearts were analyzed (30)
+          where: Methods, Western blotting and tissue staining
+          file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S3B:
+    where: Fig. S3B
+    title: Average PSI in TTN segments in normal LV (GTex), pWT, cN22577fs+/− and cN22577fs−/− iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+      LV_normal: *id004
+  S3C:
+    where: Fig. S3C
+    title: Normalized expression of titin transcripts by RNAseq from cWT, cN22577fs+/−, and cN22577fs−/− iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+  S3D:
+    where: Fig. S3D
+    title: Normalized expression of sarcomere components by RNAseq, adult LV and iPS-CM
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: not stated
+      transgene: not stated
+    groups:
+      iPSCM:
+        label: iPS-CM
+        context:
+          genotype: not stated
+          disease_model: not stated
+      LV_adult: *id004
+  S3E:
+    where: Fig. S3E
+    title: Normalized expression of growth factors by RNAseq from cWT, cN22577fs+/−, and cN22577fs−/− iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+  S3F:
+    where: Fig. S3F
+    title: Twitch force (µN) of pP22582fs+/− CMTs pre-treated with TGF-beta
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          treatment: none
+      pP22582fs_TGFb:
+        label: pP22582fs+/− +TGF-beta
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          treatment:
+            value: TGF-beta
+            qualifiers:
+              dose: 0.5ng/ml
+  S4A:
+    where: Fig. S4A
+    title: One dimensional representation of 2D Fourier transform analyses of un-patterned single iPS-CMs from pWT, pP22582fs+/−, and cT33520fs+/−
+    context: *id005
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+          cell_line: patient-derived iPS-CMs
+          transgene: STEMCCA cassette
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          cell_line: patient-derived iPS-CMs
+          transgene: STEMCCA cassette
+      cT33520fs_hom:
+        label: cT33520fs−/−
+        context:
+          genotype: T33520fs−/−
+          disease_model: not stated
+          cell_line: PGP1
+          transgene: not stated
+  S4B:
+    where: Fig. S4B
+    title: One dimensional representation of 2D Fourier transform analyses of LV tissue samples from WT control and P22528fs+/−
+    context: {}
+    groups: *id006
+  S6B:
+    where: Fig. S6B
+    title: TTN protein variants detected on loose (1.8%) polyacrylamide gels, ~30 day old iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: ~30 day old
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pS6394fs:
+        label: pS6394fs+/−
+        context:
+          genotype: S6394fs+/−
+          disease_model: not stated
+      pA22353fs:
+        label: pA22353fs+/−
+        context:
+          genotype: A22353fs+/−
+          disease_model: dilated cardiomyopathy
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+      LV_adult: *id007
+  S6C:
+    where: Fig. S6C
+    title: TTN protein variants detected on loose (1.8%) polyacrylamide gels, 50-90 day old iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: 50-90 day old
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+      LV_adult: *id007
+  S6F:
+    where: Fig. S6F
+    title: Results of densitometric analyses of titin species on Western blots, as detected by T12 antibody or T31 antibody
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pS6394fs:
+        label: pS6394fs+/−
+        context:
+          genotype: S6394fs+/−
+          disease_model: not stated
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  S6G:
+    where: Fig. S6G
+    title: Signal intensity of titin species on Coomassie-stained gels using 50-90 day old iPS-CMs, indexed to the obscurin signal
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: protein lysates
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: 50-90 day old
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pWT:
+        label: pWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+      pS6394fs:
+        label: pS6394fs+/−
+        context:
+          genotype: S6394fs+/−
+          disease_model: not stated
+      pA22353fs:
+        label: pA22353fs+/−
+        context:
+          genotype: A22353fs+/−
+          disease_model: dilated cardiomyopathy
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  T1A:
+    where: Table S1 (A)
+    title: DCM phenotypes in patients with TTNtv that were modelled in iPS-CM and CMTs
+    context: {}
+    groups:
+      MEK111:
+        label: MEK-111 (P22582fs+/−)
+        kind: native tissue
+        context:
+          species: human
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+      MHG23:
+        label: MHG-23 (A22352fs+/−)
+        kind: native tissue
+        context:
+          species: human
+          genotype: A22352fs+/−
+          disease_model: dilated cardiomyopathy
+      MAO61:
+        label: MAO-61 (W976R+/−)
+        kind: native tissue
+        context:
+          species: human
+          genotype: W976R+/−
+          disease_model: dilated cardiomyopathy
+  T1B:
+    where: Table S1 (B)
+    title: Summary statistics of TTN gene editing
+    context:
+      purification: not applicable
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS cells
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: not stated
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: not stated
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cN22577fs:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+      cV6382fs:
+        label: cV6382fs+/−
+        context:
+          genotype: V6382fs+/−
+          disease_model: not stated
+      cT33520fs:
+        label: cT33520fs−/−
+        context:
+          genotype: T33520fs−/−
+          disease_model: not stated
+  T1D:
+    where: Table S1 (D)
+    title: RNAseq data of allele-specific (mutant and wildtype) RNA expression for pP22582fs+/− iPS-CMs
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: patient-derived iPS-CMs
+      transgene: STEMCCA cassette
+    groups:
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+  TXT1:
+    where: Results, isogenic lines
+    title: Contractile force of isogenic cN22577fs+/− CMTs against isogenic cWT and against patient-derived A-band TTNtv CMTs
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+    groups:
+      cWT:
+        label: cWT
+        context:
+          genotype: healthy control line
+          disease_model: none
+          cell_line: PGP1
+          transgene: not stated
+      cN22577fs_het:
+        label: cN22577fs+/−
+        context:
+          genotype: N22577fs+/−
+          disease_model: not stated
+          cell_line: PGP1
+          transgene: not stated
+      pA22352fs:
+        label: pA22352fs+/−
+        context:
+          genotype: A22352fs+/−
+          disease_model: dilated cardiomyopathy
+          cell_line: patient-derived iPS-CMs
+          transgene: STEMCCA cassette
+      pP22582fs:
+        label: pP22582fs+/−
+        context:
+          genotype: P22582fs+/−
+          disease_model: dilated cardiomyopathy
+          cell_line: patient-derived iPS-CMs
+          transgene: STEMCCA cassette
+  TXT2:
+    where: Results, I-band versus A-band
+    title: Force generated by CMTs with homozygous I-band or A-band TTNtv
+    context:
+      purification: metabolic selection
+      platform: cardiac microtissue
+      substrate: *id001
+      cell_types: iPS-CMs + human mesenchymal stem cells
+      stromal_cell: human mesenchymal stem cells
+      composition: 7% of the total myocyte population
+      seeding_density: ~1.1x106 cells
+      dissociation_reagent: trypsin
+      replating_coating: not stated
+      preparation: microtissue
+      pacing: electrical field stimulation
+      mechanical_load: cantilever
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: PGP1
+      transgene: not stated
+    groups:
+      cV6382fs_hom:
+        label: cV6382fs−/−
+        context:
+          genotype: V6382fs−/−
+          disease_model: not stated
+      cN22577fs_hom:
+        label: cN22577fs−/−
+        context:
+          genotype: N22577fs−/−
+          disease_model: not stated
+      cT33520fs_hom:
+        label: cT33520fs−/−
+        context:
+          genotype: T33520fs−/−
+          disease_model: not stated
+  TXT3:
+    where: Results, I-band versus A-band
+    title: Inclusion of TTN exon 66 in iPS-CM and adult LV transcripts
+    context:
+      purification: metabolic selection
+      platform: not stated
+      substrate: not stated
+      cell_types: iPS-CMs
+      stromal_cell: not stated
+      composition: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+      replating_coating: not stated
+      preparation: total RNA
+      pacing: not applicable
+      mechanical_load: not stated
+      day_of_measurement: day 30-40
+      treatment: not stated
+      cell_line: not stated
+      transgene: not stated
+    groups:
+      iPSCM:
+        label: iPS-CM
+        context:
+          genotype: not stated
+          disease_model: not stated
+      LV_adult: *id004
+evidence:
+  F1D_pW976R:
+    unit: F1D
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force of pW976R+/− iPS-CMTs compared to pWT iPS-CMTs
+    compares:
+    - pW976R
+    - pWT
+    test_of: pair
+    n:
+      printed: N=5
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id008
+      quote: (D) Mean force of pW976R+/−, pA22352fs+/−, and pP22582fs+/− iPS-CMTs compared to pWT iPS-CMTs (N=5)
+      where: Fig. 1D legend
+  F1D_pA22352fs:
+    unit: F1D
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force of pA22352fs+/− iPS-CMTs compared to pWT iPS-CMTs
+    compares:
+    - pA22352fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N=5
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id008
+  F1D_pP22582fs:
+    unit: F1D
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force of pP22582fs+/− iPS-CMTs compared to pWT iPS-CMTs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N=5
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id008
+  F1E_cV6382fs_het:
+    unit: F1E
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force produced by isogenic cV6382fs+/− iPS-CMTs compared to cWT
+    compares:
+    - cV6382fs_het
+    - cWT
+    test_of: pair
+    n:
+      printed: N > 4
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id009
+      quote: (E) Mean force produced by isogenic iPS-CMTs with heterozygous or homozygous I-band (cV6382fs) or A-band (cN22577fs) TTNtv (N > 4 CMTs)
+      where: Fig. 1E legend
+    stated_direction:
+      direction: down
+      anchor:
+        quote: cV6382fs+/− CMTs had markedly impaired force generation, similar to the deficits observed in isogenic CMTs with A-band cN22577fs+/−
+        where: Results, I-band versus A-band
+  F1E_cV6382fs_hom:
+    unit: F1E
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force produced by isogenic cV6382fs−/− iPS-CMTs compared to cWT
+    compares:
+    - cV6382fs_hom
+    - cWT
+    test_of: pair
+    n:
+      printed: N > 4
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id009
+  F1E_cN22577fs_het:
+    unit: F1E
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force produced by isogenic cN22577fs+/− iPS-CMTs compared to cWT
+    compares:
+    - cN22577fs_het
+    - cWT
+    test_of: pair
+    n:
+      printed: N > 4
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id009
+  F1E_cN22577fs_hom:
+    unit: F1E
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force produced by isogenic cN22577fs−/− iPS-CMTs compared to cWT
+    compares:
+    - cN22577fs_hom
+    - cWT
+    test_of: pair
+    n:
+      printed: N > 4
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id009
+  F1E_cT33520fs_hom:
+    unit: F1E
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: mean force produced by isogenic cT33520fs−/− iPS-CMTs compared to cWT
+    compares:
+    - cT33520fs_hom
+    - cWT
+    test_of: pair
+    n:
+      printed: N > 4
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id009
+  F1F_pWT:
+    unit: F1F
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: pWT CMTs produced a two-fold increase in force at higher cantilever stiffness
+    compares:
+    - pWT_high
+    - pWT_low
+    test_of: pair
+    n:
+      printed: N>11
+      counts: CMTs
+    values:
+      fold_pWT:
+        printed: two-fold
+        unit: fold
+        kind: ratio
+        between:
+        - pWT_high
+        - pWT_low
+        expressed_as: fold
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id010
+      quote: At higher load, pWT CMTs produced a two-fold increase in force, greater than four-fold more than that produced by pP22582fs+/− CMTs
+      where: Results, mechanical load
+  F1F_low:
+    unit: F1F
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: pP22582fs+/− CMTs produced less force than pWT CMTs at low load
+    compares:
+    - pP22582fs_low
+    - pWT_low
+    test_of: pair
+    n:
+      printed: N>11
+      counts: CMTs
+    stated_direction:
+      direction: down
+      anchor:
+        quote: pP22582fs+/− CMTs produced less force than pWT CMTs at low load
+        where: Results, mechanical load
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor:
+      quote: (F) Mean force produced by pWT and pP22582fs+/− CMTs in response to increased pillar stiffness (0.2 to 0.45 μN/μm; N>11 CMTs)
+      where: Fig. 1F legend
+  F1F_high:
+    unit: F1F
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: at higher load pWT CMTs produced greater than four-fold more force than pP22582fs+/− CMTs
+    compares:
+    - pWT_high
+    - pP22582fs_high
+    test_of: pair
+    n:
+      printed: N>11
+      counts: CMTs
+    values:
+      fold_high:
+        printed: greater than four-fold
+        unit: fold
+        kind: ratio
+        between:
+        - pWT_high
+        - pP22582fs_high
+        expressed_as: fold
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id010
+  F1G:
+    unit: F1G
+    measure: isoproterenol-induced force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: isoproterenol-induced force in pP22582fs+/− versus pWT CMTs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>5
+      counts: CMTs
+    stated_direction:
+      direction: down
+      anchor: &id011
+        quote: force and beating rate were increased in pWT CMTs, but pP22582fs+/− CMTs had markedly blunted responses (Figs. 1G, H)
+        where: Results, stress responses
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id012
+      quote: (G) Isoproterenol-induced force (N>5) and (H) spontaneous beating rate (N >5, Hz) in pP22582fs+/− versus pWT CMTs (N>5)
+      where: Fig. 1G,H legend
+  F1H:
+    unit: F1H
+    measure: spontaneous beating rate
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: spontaneous beating rate in pP22582fs+/− versus pWT CMTs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N >5
+      counts: CMTs
+    stated_direction:
+      direction: down
+      anchor: *id011
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id012
+  F2D_pP22582fs:
+    unit: F2D
+    measure: sarcomere organization (ɛ)
+    method: 2-dimensional Fourier Transform (FFT) analysis of α-actinin images
+    software: custom routine in ImageJ (NIH, Bethesda, MD) and MATLAB (Mathworks, Natick, MA)
+    definition: the area under the first nonzero peak of the periodic component, normalized to the maximum value observed for each condition
+    finding: sarcomere organization of pP22582fs+/− iPS-CMs compared to pWT
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>5 per genotype
+      counts: iPS-CMs
+    stated_direction:
+      direction: down
+      anchor: &id013
+        quote: pP22582fs+/− iPS-CMs had fewer myofibrils and abnormal, irregular sarcomeres, a phenotype that was even more pronounced in homozygous cT33520fs−/− iPS-CMs (Figs. 2A, D and S4A)
+        where: Results, sarcomere organization
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id014
+      quote: (D) Sarcomere organization (ɛ) quantified by 2-dimensional Fourier Transform (FFT) analysis of pWT, pP22582fs+/− and cT33520fs−/− iPS-CMs (N>5 per genotype)
+      where: Fig. 2D legend
+  F2D_cT33520fs_hom:
+    unit: F2D
+    measure: sarcomere organization (ɛ)
+    method: 2-dimensional Fourier Transform (FFT) analysis of α-actinin images
+    software: custom routine in ImageJ (NIH, Bethesda, MD) and MATLAB (Mathworks, Natick, MA)
+    definition: the area under the first nonzero peak of the periodic component, normalized to the maximum value observed for each condition
+    finding: sarcomere organization of cT33520fs−/− iPS-CMs compared to pWT
+    compares:
+    - cT33520fs_hom
+    - pWT
+    test_of: pair
+    n:
+      printed: N>5 per genotype
+      counts: iPS-CMs
+    stated_direction:
+      direction: down
+      anchor: *id013
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id014
+  F2E:
+    unit: F2E
+    measure: sarcomere length
+    method: intensity profiles of α-actinin
+    software: custom routine in ImageJ (NIH, Bethesda, MD) and MATLAB (Mathworks, Natick, MA)
+    finding: sarcomere length was shorter in pP22582fs+/− CMs compared to pWT CMs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>22
+      counts: iPS-CMs
+    stated_direction:
+      direction: down
+      anchor:
+        quote: In addition, sarcomere length was shorter in pP22582fs+/− CMs compared to pWT CMs (Fig. 2E), indicating both a quantitative and qualitative defect in sarcomerogenesis
+        where: Results, sarcomere organization
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor:
+      quote: (E) Sarcomere length (μm) measured by intensity profiles of α-actinin in pWT and pP22582fs+/− iPS-CMs (N>22)
+      where: Fig. 2E legend
+  F2F_sizes:
+    unit: F2F
+    measure: size of TTN isoforms and fragments
+    method: protein electropherograms of lysates stained with Coomassie Blue
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: sizes of the TTN isoforms, the TTNtv and the degradation species on the gel
+    groups:
+    - pWT
+    - pP22582fs
+    - LV_adult
+    values:
+      n2ba_fetal:
+        printed: ~3700
+        unit: kDa
+        kind: value
+        over:
+        - pWT
+        - pP22582fs
+        - LV_adult
+      n2ba_adult:
+        printed: ~3300
+        unit: kDa
+        kind: value
+        over:
+        - pWT
+        - pP22582fs
+        - LV_adult
+      n2b:
+        printed: ~3000
+        unit: kDa
+        kind: value
+        over:
+        - pWT
+        - pP22582fs
+        - LV_adult
+      ttntv:
+        printed: ~2500
+        unit: kDa
+        kind: value
+        group: pP22582fs
+      degraded_lo:
+        printed: ~1800
+        unit: kDa
+        kind: value
+        over:
+        - pWT
+        - pP22582fs
+        - LV_adult
+      degraded_hi:
+        printed: '2200'
+        unit: kDa
+        kind: value
+        over:
+        - pWT
+        - pP22582fs
+        - LV_adult
+    anchor:
+      quote: 'Sizes of TTN isoforms and fragments are: N2BA fetal, ~3700 kDa; N2BA adult, ~3300 kDa; N2B, ~3000kDa; TTNtv, ~2500 kDa; degraded TTN, ~1800–2200 kDa'
+      where: Fig. 2F legend
+  F2H:
+    unit: F2H
+    measure: sarcomere organization (ɛ)
+    method: 2-dimensional Fourier Transform (FFT) analysis of α-actinin images
+    software: custom routine in ImageJ (NIH, Bethesda, MD) and MATLAB (Mathworks, Natick, MA)
+    definition: the area under the first nonzero peak of the periodic component, normalized to the maximum value observed for each condition
+    finding: sarcomere organization of LV tissue from the P22582fs+/− patient compared to control LV tissue
+    compares:
+    - LV_P22582fs
+    - LV_control
+    test_of: pair
+    n:
+      printed: n>15 per genotype
+      counts: regions
+    stated_direction:
+      direction: down
+      anchor:
+        quote: LV tissue from the patient with the P22582fs+/− mutation showed disorganized myofibrils compared to control tissue (Figs. 2G, H and S4B)
+        where: Results, sarcomere organization
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor:
+      quote: LV tissue from control and P22582fs+/− patients (n>15 per genotype)
+      where: Fig. 2H legend
+    note: the journal version prints 'n > 15 regions per genotype' for the same panel
+  F3B_MYH7_MYH6:
+    unit: F3B
+    measure: MYH7:MYH6 transcript ratio
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: β(MYH7) and α(MYH6) myosin heavy chain transcript ratio in cWT, cN22577fs+/− and cN22577fs−/− iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor:
+      quote: (B–D) Comparison of cWT, cN22577fs+/−, and cN22577fs−/−iPS-CMs normalized expression (FPKM) of (B) β(MYH7) and α(MYH6) myosin heavy chain ratios
+      where: Fig. 3B–D legend
+    stated_direction:
+      direction: down
+      anchor:
+        quote: 'cN22577fs+/− and cN22577fs−/− iPS-CMs had diminished expression of miR-124 targets (15) including lower MYH7: MYH6 transcript and protein ratios'
+        where: Results, RNAseq
+  F3C_NPPA:
+    unit: F3C
+    measure: NPPA transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: atrial natriuretic peptide (NPPA) transcript level in cWT, cN22577fs+/− and cN22577fs−/− iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: &id015
+      quote: (C) atrial (NPPA) and brain natriuretic (NPPB) peptides; (D) TGF-β1 and VEGF-A in cWT, cN22577fs+/−, and cN22577fs−/− iPS-CMs
+      where: Fig. 3C,D legend
+    stated_direction:
+      direction: down
+      anchor: &id016
+        quote: reduced atrial (NPPA) and brain (NPPB) natriuretic peptide transcript levels compared to WTiPS-CMs (Figs. 3B, C)
+        where: Results, RNAseq
+  F3C_NPPB:
+    unit: F3C
+    measure: NPPB transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: brain natriuretic peptide (NPPB) transcript level in cWT, cN22577fs+/− and cN22577fs−/− iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: *id015
+    stated_direction:
+      direction: down
+      anchor: *id016
+  F3D_TGFB1:
+    unit: F3D
+    measure: TGF-β1 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TGF-β1 transcript level in cWT, cN22577fs+/− and cN22577fs−/− iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: *id015
+  F3D_VEGFA:
+    unit: F3D
+    measure: VEGF-A transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: VEGF-A transcript level in cWT, cN22577fs+/− and cN22577fs−/− iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: *id015
+  F3E_pJNK_p46:
+    unit: F3E
+    measure: phosphorylated JNK (p46) level by densitometry
+    method: densitometry of western blots, normalized for protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: phosphorylated JNK (p46) in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    values: {}
+    anchor: &id017
+      quote: (E) Densitometry of western blots (N>4) of pWT and pP22582fs+/− lysates, normalized for protein loading, and probed with antibodies to phosphorylated JNK (p46, p54), ERK, p38, and AKT
+      where: Fig. 3E legend
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: &id018
+        quote: Quantification of transcripts, proteins, and phosphorylation levels confirmed that TTNtv iPS-CMs exhibited significant attenuation (all p<0.01)
+        where: Results, signalling
+  F3E_pJNK_p54:
+    unit: F3E
+    measure: phosphorylated JNK (p54) level by densitometry
+    method: densitometry of western blots, normalized for protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: phosphorylated JNK (p54) in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    values: {}
+    anchor: *id017
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: *id018
+  F3E_pERK:
+    unit: F3E
+    measure: phosphorylated ERK level by densitometry
+    method: densitometry of western blots, normalized for protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: phosphorylated ERK in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    values: {}
+    anchor: *id017
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: *id018
+  F3E_pp38:
+    unit: F3E
+    measure: phosphorylated p38 level by densitometry
+    method: densitometry of western blots, normalized for protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: phosphorylated p38 in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    values: {}
+    anchor: *id017
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: *id018
+  F3E_pAKT:
+    unit: F3E
+    measure: phosphorylated AKT level by densitometry
+    method: densitometry of western blots, normalized for protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: phosphorylated AKT in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    values: {}
+    anchor: *id017
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: *id018
+  F3G_TGFB:
+    unit: F3G
+    measure: TGF-β1-3 level by densitometry
+    method: densitometry of western blots, normalized to protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: TGF-β1-3 protein in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    anchor: &id019
+      quote: (G) Densitometry of western blots (N>4) normalized to protein loading of TGF-β1-3 and VEGF
+      where: Fig. 3G legend
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: *id018
+  F3G_VEGF:
+    unit: F3G
+    measure: VEGF level by densitometry
+    method: densitometry of western blots, normalized to protein loading
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: VEGF protein in pP22582fs+/− compared to pWT iPS-CM lysates
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: lanes
+    stats:
+      test: Student's t test
+      p: p<0.01
+    anchor: *id019
+    note: the P is the paper-wide 'all p<0.01' stated in the Results for Fig. 3D–H
+    stated_direction:
+      direction: down
+      anchor: *id018
+  F3I_P22582fs:
+    unit: F3I
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: VEGF pre-treatment improved force production in pP22582fs+/− CMTs
+    compares:
+    - pP22582fs_VEGF
+    - pP22582fs
+    test_of: pair
+    n:
+      printed: N>4
+      counts: CMTs
+    stated_direction:
+      direction: up
+      anchor: &id020
+        quote: VEGF supplementation but not TGF-beta (fig. S3F) improved force production in pP22582fs+/− and pW976R+/− CMTs (Fig. 3I)
+        where: Results, signalling
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor:
+      quote: (I) Mean twitch force (μN) generated by pP22582fs+/− iPS-CMTs pre-treated with
+      where: Fig. 3I legend
+  F3I_W976R:
+    unit: F3I
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: VEGF pre-treatment improved force production in pW976R+/− CMTs
+    compares:
+    - pW976R_VEGF
+    - pW976R
+    test_of: pair
+    n:
+      printed: N>4
+      counts: CMTs
+    stated_direction:
+      direction: up
+      anchor: *id020
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id020
+  TXT1_cN_cWT:
+    unit: TXT1
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: cN22577fs+/− CMTs had significantly reduced contractile force compared to isogenic cWT-CMTs
+    compares:
+    - cN22577fs_het
+    - cWT
+    test_of: pair
+    values:
+      force_cN:
+        printed: '2.19'
+        unit: μN
+        kind: mean
+        group: cN22577fs_het
+    stats:
+      test: Student's t test
+      p: p<0.003
+    anchor:
+      quote: cN22577fs+/− CMTs had significantly reduced contractile force (2.19 μN) compared to isogenic cWT-CMTs (Fig. 1E, p<0.003), but not to the extent observed in pA22352fs+/− or pP22582fs+/− CMTs
+      where: Results, isogenic lines
+  TXT1_cN_pA:
+    unit: TXT1
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: the force deficit of cN22577fs+/− CMTs was smaller than that of pA22352fs+/− CMTs
+    compares:
+    - cN22577fs_het
+    - pA22352fs
+    test_of: pair
+    values:
+      force_pA:
+        printed: '0.767'
+        unit: μN
+        kind: mean
+        group: pA22352fs
+    stats:
+      test: Student's t test
+      p: p<0.02
+    anchor: &id021
+      quote: but not to the extent observed in pA22352fs+/− or pP22582fs+/− CMTs (0.767μN and 1.001μN, respectively, p<0.02)
+      where: Results, isogenic lines
+  TXT1_cN_pP:
+    unit: TXT1
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: the force deficit of cN22577fs+/− CMTs was smaller than that of pP22582fs+/− CMTs
+    compares:
+    - cN22577fs_het
+    - pP22582fs
+    test_of: pair
+    values:
+      force_pP:
+        printed: '1.001'
+        unit: μN
+        kind: mean
+        group: pP22582fs
+    stats:
+      test: Student's t test
+      p: p<0.02
+    anchor: *id021
+  TXT2_cV_hom:
+    unit: TXT2
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: homozygous I-band cV6382fs−/− CMTs generated small but demonstrable force
+    groups:
+    - cV6382fs_hom
+    values:
+      force_cV_hom:
+        printed: '0.472'
+        unit: μN
+        kind: mean
+        group: cV6382fs_hom
+    anchor: &id022
+      quote: Homozygous A-band CMTs (cN22577fs−/− and cT33520fs−/−) produced no force while homozygous I-band CMTs (cV6382fs−/−) generated small but demonstrable force (0.472 μN)
+      where: Results, I-band versus A-band
+  TXT2_aband_hom:
+    unit: TXT2
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: homozygous A-band CMTs produced no force
+    groups:
+    - cN22577fs_hom
+    - cT33520fs_hom
+    anchor: *id022
+  TXT3_exon66:
+    unit: TXT3
+    measure: proportion of TTN transcripts including exon 66
+    method: RNAseq, proportion spliced-in (PSI)
+    software: STAR 2-pass method
+    finding: more than 80% of iPS-CM TTN transcripts included exon 66, 5-fold more than adult LV
+    groups:
+    - iPSCM
+    - LV_adult
+    values:
+      psi_ipscm:
+        printed: '>80'
+        unit: '%'
+        kind: percent
+        group: iPSCM
+      psi_lv:
+        printed: '18'
+        unit: '%'
+        kind: percent
+        group: LV_adult
+      fold:
+        printed: 5-fold
+        unit: fold
+        kind: ratio
+        between:
+        - iPSCM
+        - LV_adult
+        expressed_as: fold
+    anchor:
+      quote: Importantly, >80% of iPS-CM TTN transcripts included exon 66, 5-fold more than adult LV (18% of TTN transcripts contained exon 66)
+      where: Results, I-band versus A-band
+  S2B_TnnT:
+    unit: S2B
+    measure: '%TnnT+ cells'
+    method: FACS analysis sorted by %FITC (%TnnT+)
+    software: not stated
+    finding: representative FACS analysis of purified iPS-CMs
+    groups:
+    - purified
+    values:
+      tnnt:
+        printed: '94.8'
+        unit: '%'
+        kind: percent
+        group: purified
+    anchor:
+      quote: (B) Representative FACS analysis of purified iPS-CMs stained with antibodies to troponin T (TnnT) and Alexa Fluor® 488 sorted by %FITC (%TnnT+)
+      where: Fig. S2B legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2C_TnnT:
+    unit: S2C
+    measure: '%TnnT+ cells'
+    method: FACS analysis sorted by %FITC (%TnnT+)
+    software: not stated
+    finding: TnnT% of a representative iPS line before and after metabolic selection
+    groups:
+    - pre
+    - post
+    n:
+      printed: N>4
+      counts: samples
+    anchor:
+      quote: (C) Summary of data obtained from a representative iPS line before and after metabolic selection (N>4 samples)
+      where: Fig. S2C legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2D_strain:
+    unit: S2D
+    measure: strain energy
+    method: post displacement squared multiplied by one-half times the spring constant of a micro-post
+    software: not stated
+    finding: the strain energy of pWT cells and pP22582fs+/- cells were indistinguishable
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>9
+      counts: cells
+    stats:
+      test: Student's t test
+      p: n/s
+    stated_direction:
+      direction: none
+      anchor:
+        quote: The strain energy of pWT cells and pP22582fs+/- cells were indistinguishable (n/s, not significant)
+        where: Fig. S2D legend
+        file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    anchor:
+      quote: (D) Strain energy (fJ) on mPADS computed for single iPS-CMs derived from pWT and pP22582fs+/- (N>9 cells)
+      where: Fig. S2D legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2E_force:
+    unit: S2E
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: twitch force of five different biological replicates of pP22582fs+/-
+    groups:
+    - pP22582fs
+    n:
+      printed: five different biological replicates
+      counts: biological replicates
+    anchor:
+      quote: (E) Twitch force (µN) of five different biological replicates of pP22582fs+/-
+      where: Fig. S2E legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2F_force:
+    unit: S2F
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: twitch force of two distinct clones derived from pWT and pP22582fs+/-
+    groups:
+    - pWT1
+    - pWT2
+    - pP22582fs_A
+    - pP22582fs_I
+    anchor:
+      quote: (F) Twitch force (µN) of two distinct clones derived from pWT (1,2) and pP22582fs+/- (A,I) CMTs
+      where: Fig. S2F legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2G_force:
+    unit: S2G
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: twitch force of pWT and pP22582fs+/- CMTs measured on days 4-6
+    groups:
+    - pWT_Day4
+    - pWT_Day5
+    - pWT_Day6
+    - pP22582fs_Day4
+    - pP22582fs_Day5
+    - pP22582fs_Day6
+    n:
+      printed: N>4
+      counts: CMTs
+    anchor:
+      quote: (G) Twitch force (µN) of CMTs (N>4) derived from pWT and pP22582fs+/- measured on days 4-6
+      where: Fig. S2G legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2H_static:
+    unit: S2H
+    measure: static force
+    method: displacement of fluorescent microbeads at the top of the cantilevers, static force
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: static force in pWT and pP22582fs+/- CMTs was not significantly different
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>4
+      counts: CMTs
+    stats:
+      test: Student's t test
+      p: n/s
+    stated_direction:
+      direction: none
+      anchor:
+        quote: As static force in pWT and pP22582fs+/− CMTs were similar (fig. S2H), we conclude that the contractile deficits observed in mutant CMTs are not due to non-myocyte factors
+        where: Results, first paragraph
+    anchor:
+      quote: (H) Static force (µN) of pWT and pP22582fs+/- CMTs (N>4)
+      where: Fig. S2H legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2I_stress:
+    unit: S2I
+    measure: tissue stress
+    method: twitch force normalized per tissue cross-sectional area
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: tissue stress of pP22582fs+/- CMTs compared to pWT CMTs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: N>25
+      counts: tissues
+    stats:
+      test: Student's t test
+      p: p<4E-11
+    anchor: &id023
+      quote: Tissue stress (kN/m2) of (I) pWT and pP22582fs+/- CMTs (N>25 tissues), and (J) cWT, cV6382fs+/-, cV6382fs-/-, cN2257fs+/-, cN2257fs-/-, and cT33520fs+/- (N>4 tissues)
+      where: Fig. S2I,J legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S2J_stress:
+    unit: S2J
+    measure: tissue stress
+    method: twitch force normalized per tissue cross-sectional area
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: tissue stress of isogenic TTNtv CMTs compared to cWT CMTs
+    compares:
+    - cWT
+    - cV6382fs_het
+    - cV6382fs_hom
+    - cN22577fs_het
+    - cN22577fs_hom
+    - cT33520fs_hom
+    test_of: omnibus
+    n:
+      printed: N>4
+      counts: tissues
+    stats:
+      test: Student's t test
+      p: p<0.002
+      p_values:
+      - p: p<0.001
+        anchor:
+          quote: p<0.001
+          where: Fig. S2J
+          file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    anchor: *id023
+    suspected_error:
+      what: the legend names cN2257fs+/-, cN2257fs-/- and cT33520fs+/-
+      why: the panel and the main text call these lines cN22577fs+/-, cN22577fs-/- and cT33520fs-/-
+    note: the panel prints two P (p<0.002, p<0.001); which pairs of bars they mark is not stated in the legend or text
+  S3A_PSI:
+    unit: S3A
+    measure: proportion spliced-in (PSI) of a TTN exon
+    method: RNAseq, exon usage reported as the proportion spliced-in
+    software: STAR 2-pass method
+    finding: PSI in adult LV of the exons containing P22582fs and V6382fs
+    groups:
+    - LV_normal
+    values:
+      psi_P22582fs:
+        printed: '1.0'
+        unit: PSI
+        kind: value
+        group: LV_normal
+        x: P22582fs exon
+      psi_V6382fs:
+        printed: '0.18'
+        unit: PSI
+        kind: value
+        group: LV_normal
+        x: V6382fs exon
+    anchor:
+      quote: P22582fs – PSI 1.0 in Adult LV
+      where: Fig. S3A
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    note: the second value is anchored to the same panel label 'V6382fs – PSI 0.18 in Adult LV'
+  S3B_iband:
+    unit: S3B
+    measure: average PSI for the TTN I-band (exons 29-252) domain
+    method: RNAseq, average proportion spliced-in per TTN segment
+    software: STAR 2-pass method
+    finding: average PSI for I-band (exons 29-252) in normal LV and in cWT, cN22577fs+/- and cN22577fs-/- iPS-CMs
+    compares:
+    - LV_normal
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    test_of: omnibus
+    stats:
+      test: Bayesian p-value
+      p: p<10E-15
+    anchor: &id024
+      quote: (B) Average PSI in TTN segments (Z-line (exons 1-28), I-band (exons 29-252), A-band (exons 253-365) and all TTN (exons 1-365)) in normal LV (GTex)
+      where: Fig. S3B legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    note: the panel prints p<10E-15 beside this segment; which groups the test compares is not stated
+  S3B_allttn:
+    unit: S3B
+    measure: average PSI for the TTN all TTN (exons 1-365) domain
+    method: RNAseq, average proportion spliced-in per TTN segment
+    software: STAR 2-pass method
+    finding: average PSI for all TTN (exons 1-365) in normal LV and in cWT, cN22577fs+/- and cN22577fs-/- iPS-CMs
+    compares:
+    - LV_normal
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    test_of: omnibus
+    stats:
+      test: Bayesian p-value
+      p: p<10E-15
+    anchor: *id024
+    note: the panel prints p<10E-15 beside this segment; which groups the test compares is not stated
+  S3C_TTN:
+    unit: S3C
+    measure: TTN transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TTN transcript levels (FPKM) in cWT, cN22577fs+/- and cN22577fs-/- iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    anchor:
+      quote: Normalized expression of (C) titin transcripts
+      where: Fig. S3C legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S3D_MYH7:
+    unit: S3D
+    measure: MYH7 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: MYH7 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: &id025
+      quote: (D) sarcomere components (*note TNNI3 is the predominant troponin I in adult LV but not iPS-CMs)
+      where: Fig. S3D legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S3D_MYBPC3:
+    unit: S3D
+    measure: MYBPC3 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: MYBPC3 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_TNNT2:
+    unit: S3D
+    measure: TNNT2 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TNNT2 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_TNNI1:
+    unit: S3D
+    measure: TNNI1 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TNNI1 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_TNNI3:
+    unit: S3D
+    measure: TNNI3 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TNNI3 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_TNNC1:
+    unit: S3D
+    measure: TNNC1 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TNNC1 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_TPM1:
+    unit: S3D
+    measure: TPM1 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: TPM1 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_ACTC1:
+    unit: S3D
+    measure: ACTC1 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: ACTC1 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3D_MYH6:
+    unit: S3D
+    measure: MYH6 transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: MYH6 transcript level (FPKM) in adult LV and iPS-CM
+    groups:
+    - iPSCM
+    - LV_adult
+    anchor: *id025
+  S3E_EGF:
+    unit: S3E
+    measure: EGF transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: EGF transcript level (FPKM) in cWT, cN22577fs+/- and cN22577fs-/- iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: &id026
+      quote: and (E) growth factors by RNAseq from cWT cN22577fs+/-, and cN22577fs-/- iPS-CMs
+      where: Fig. S3E legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S3E_HGF:
+    unit: S3E
+    measure: HGF transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: HGF transcript level (FPKM) in cWT, cN22577fs+/- and cN22577fs-/- iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: *id026
+  S3E_bFGF:
+    unit: S3E
+    measure: bFGF transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: bFGF transcript level (FPKM) in cWT, cN22577fs+/- and cN22577fs-/- iPS-CMs
+    groups:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    stats:
+      test: Bayesian p-value
+      p: not stated
+    anchor: *id026
+  S3E_p003:
+    unit: S3E
+    measure: growth factor transcript level
+    method: RNAseq, normalized expression (FPKM)
+    software: STAR 2-pass method
+    finding: one growth factor transcript differed significantly between the iPS-CM genotypes
+    compares:
+    - cWT
+    - cN22577fs_het
+    - cN22577fs_hom
+    test_of: omnibus
+    stats:
+      test: Bayesian p-value
+      p: p<0.03
+    anchor: *id026
+    note: the panel prints one p<0.03; which of EGF, HGF or bFGF it marks is not stated in the legend or text
+  S3F_TGFb:
+    unit: S3F
+    measure: twitch force
+    method: displacement of fluorescent microbeads at the top of the cantilevers tracked and converted to twitch force (dynamic tension)
+    software: SpotTracker plug-in in ImageJ (National Institutes of Health) and a custom MATLAB script
+    finding: TGF-beta pre-treatment did not improve force production in pP22582fs+/- CMTs
+    compares:
+    - pP22582fs_TGFb
+    - pP22582fs
+    test_of: pair
+    stated_direction:
+      direction: none
+      anchor: &id027
+        quote: VEGF supplementation but not TGF-beta (fig. S3F) improved force production in pP22582fs+/− and pW976R+/− CMTs
+        where: Results, signalling
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id027
+  S4A_fft:
+    unit: S4A
+    measure: 1D representation of the 2D Fourier transform of α-actinin images
+    method: 2-dimensional Fourier Transform (FFT) analysis of α-actinin images
+    software: custom routine in ImageJ (NIH, Bethesda, MD) and MATLAB (Mathworks, Natick, MA)
+    definition: the area under the first nonzero peak of the periodic component, normalized to the maximum value observed for each condition
+    finding: 1D Fourier spectra of un-patterned single iPS-CMs from pWT, pP22582fs+/- and cT33520fs iPS-CMs
+    groups:
+    - pWT
+    - pP22582fs
+    - cT33520fs_hom
+    n:
+      printed: N>15
+      counts: myocytes
+    anchor:
+      quote: One dimensional representation of 2D Fourier transform analyses of (A) un-patterned single iPS-CMs from pWT, pP22582fs+/-, and cT33520fs+/- (N>15 myocytes)
+      where: Fig. S4A legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    suspected_error:
+      what: the legend names cT33520fs+/-
+      why: Fig. 2D and the main text call this line cT33520fs-/-
+  S4B_fft:
+    unit: S4B
+    measure: 1D representation of the 2D Fourier transform of H&E stained tissue
+    method: 2-dimensional Fourier Transform (FFT) analysis of α-actinin images
+    software: custom routine in ImageJ (NIH, Bethesda, MD) and MATLAB (Mathworks, Natick, MA)
+    definition: the area under the first nonzero peak of the periodic component, normalized to the maximum value observed for each condition
+    finding: 1D Fourier spectra of LV tissue samples from WT control and the P22582fs+/- patient
+    groups:
+    - LV_control
+    - LV_P22582fs
+    n:
+      printed: N>15
+      counts: myocytes
+    anchor:
+      quote: (B) LV tissue samples from WT control and P22528fs+/- (N>15 myocytes)
+      where: Fig. S4B legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    suspected_error:
+      what: the legend names P22528fs+/- and counts myocytes
+      why: the mutation is P22582fs+/- elsewhere and Fig. 2H counts regions
+  S6B_fetal:
+    unit: S6B
+    measure: relative TTN isoform expression, fetal Ttn/N2BA
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of fetal Ttn/N2BA in ~30 day old iPS-CMs; no significant differences between iPS-CMs
+    compares:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    test_of: omnibus
+    n:
+      printed: n=5, n=5, n=4, n=3
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '5'
+        pA22353fs: '5'
+        pP22582fs: '4'
+        pWT: '3'
+    stats:
+      test: Student's t test
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: &id028
+        quote: No statistically significant differences were found between different iPS-CMs (adult human heart tissue was not included in the statistical analysis)
+        where: Fig. S6B legend
+        file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    anchor: &id029
+      quote: (B) ~30 day old iPS-CMs (pS6394fs+/-, pA22353fs+/-, pP22582fs+/- and pWT). Adult N2B isoform was undetectable in iPS-CMs, even in pWT cells (inset)
+      where: Fig. S6B legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S6C_fetal:
+    unit: S6C
+    measure: relative TTN isoform expression, fetal Ttn/N2BA
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of fetal Ttn/N2BA in 50-90 day old pP22582fs+/- and pWT iPS-CMs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: n=4, n=6
+      counts: iPS-CM samples
+      per_group:
+        pP22582fs: '4'
+        pWT: '6'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id030
+      quote: This is also reflected by the statistically significant difference between pP22582fs+/- and pWT iPS-CMs for “T2 or Truncated TTN”
+      where: Fig. S6C legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S6B_N2B:
+    unit: S6B
+    measure: relative TTN isoform expression, N2B
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of N2B in ~30 day old iPS-CMs; no significant differences between iPS-CMs
+    compares:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    test_of: omnibus
+    n:
+      printed: n=5, n=5, n=4, n=3
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '5'
+        pA22353fs: '5'
+        pP22582fs: '4'
+        pWT: '3'
+    stats:
+      test: Student's t test
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id028
+    anchor: *id029
+  S6C_N2B:
+    unit: S6C
+    measure: relative TTN isoform expression, N2B
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of N2B in 50-90 day old pP22582fs+/- and pWT iPS-CMs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: n=4, n=6
+      counts: iPS-CM samples
+      per_group:
+        pP22582fs: '4'
+        pWT: '6'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id030
+  S6B_T2:
+    unit: S6B
+    measure: relative TTN isoform expression, T2 or Truncated TTN
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of T2 or Truncated TTN in ~30 day old iPS-CMs; no significant differences between iPS-CMs
+    compares:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    test_of: omnibus
+    n:
+      printed: n=5, n=5, n=4, n=3
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '5'
+        pA22353fs: '5'
+        pP22582fs: '4'
+        pWT: '3'
+    stats:
+      test: Student's t test
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id028
+    anchor: *id029
+  S6C_T2:
+    unit: S6C
+    measure: relative TTN isoform expression, T2 or Truncated TTN
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of T2 or Truncated TTN in 50-90 day old pP22582fs+/- and pWT iPS-CMs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: n=4, n=6
+      counts: iPS-CM samples
+      per_group:
+        pP22582fs: '4'
+        pWT: '6'
+    stats:
+      test: Student's t test
+      p: p<0.02
+    anchor: *id030
+  S6B_T3:
+    unit: S6B
+    measure: relative TTN isoform expression, T3
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of T3 in ~30 day old iPS-CMs; no significant differences between iPS-CMs
+    compares:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    test_of: omnibus
+    n:
+      printed: n=5, n=5, n=4, n=3
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '5'
+        pA22353fs: '5'
+        pP22582fs: '4'
+        pWT: '3'
+    stats:
+      test: Student's t test
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor: *id028
+    anchor: *id029
+  S6C_T3:
+    unit: S6C
+    measure: relative TTN isoform expression, T3
+    method: densitometric analysis of titin bands (100% = sum of all titin band intensities)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: relative expression of T3 in 50-90 day old pP22582fs+/- and pWT iPS-CMs
+    compares:
+    - pP22582fs
+    - pWT
+    test_of: pair
+    n:
+      printed: n=4, n=6
+      counts: iPS-CM samples
+      per_group:
+        pP22582fs: '4'
+        pWT: '6'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id030
+  S6F_T12:
+    unit: S6F
+    measure: TTN species detected by the T12 antibody, indexed to fetal Ttn/N2BA
+    method: densitometric analysis of western blots, values indexed to fetal Ttn/N2BA (set to 100%)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: titin species detected by T12 in pS6394fs+/-, pP22582fs+/- and pWT iPS-CMs
+    groups:
+    - pWT
+    - pS6394fs
+    - pP22582fs
+    n:
+      printed: n = 1, n = 2, n = 4
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '1'
+        pP22582fs: '2'
+        pWT: '4'
+    values:
+      index:
+        printed: '100'
+        unit: '%'
+        kind: percent
+        over:
+        - pWT
+        - pS6394fs
+        - pP22582fs
+        expressed_as: normalised
+        normalised_to: fetal Ttn/N2BA
+    anchor: &id031
+      quote: (F) Results of densitometric analyses of titin species on Western blots, for pS6394fs+/-, pP22582fs+/- and pWT iPS-CMs, as detected by T12 antibody (top panel) or T31 antibody (bottom panel)
+      where: Fig. S6F legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  S6F_T31:
+    unit: S6F
+    measure: TTN species detected by the T31 antibody, indexed to fetal Ttn/N2BA
+    method: densitometric analysis of western blots, values indexed to fetal Ttn/N2BA (set to 100%)
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: titin species detected by T31 in pS6394fs+/-, pP22582fs+/- and pWT iPS-CMs
+    groups:
+    - pWT
+    - pS6394fs
+    - pP22582fs
+    n:
+      printed: n = 1, n = 1, n = 4
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '1'
+        pP22582fs: '1'
+        pWT: '4'
+    values:
+      index:
+        printed: '100'
+        unit: '%'
+        kind: percent
+        over:
+        - pWT
+        - pS6394fs
+        - pP22582fs
+        expressed_as: normalised
+        normalised_to: fetal Ttn/N2BA
+    anchor: *id031
+  S6G_fetal:
+    unit: S6G
+    measure: titin signal intensity, fetal Ttn/N2BA, indexed to obscurin
+    method: signal intensity on Coomassie-stained gels, indexed to the obscurin signal
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: fetal Ttn/N2BA signal intensity in 50-90 day old iPS-CMs, indexed to obscurin
+    groups:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    n:
+      printed: n = 6, n = 3, n = 8, n = 9
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '6'
+        pA22353fs: '3'
+        pP22582fs: '8'
+        pWT: '9'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: &id032
+      quote: (G) Signal intensity of titin species on Coomassie-stained gels using 50-90 day old iPS-CMs (three mutants and WT), indexed to the obscurin signal
+      where: Fig. S6G legend
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+    suspected_error:
+      what: the panel labels one group S22353fs+/-
+      why: the mutation is A22353fs+/- in the legend and the main text
+  S6G_N2B:
+    unit: S6G
+    measure: titin signal intensity, N2B, indexed to obscurin
+    method: signal intensity on Coomassie-stained gels, indexed to the obscurin signal
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: N2B signal intensity in 50-90 day old iPS-CMs, indexed to obscurin
+    groups:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    n:
+      printed: n = 6, n = 3, n = 8, n = 9
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '6'
+        pA22353fs: '3'
+        pP22582fs: '8'
+        pWT: '9'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id032
+    suspected_error:
+      what: the panel labels one group S22353fs+/-
+      why: the mutation is A22353fs+/- in the legend and the main text
+  S6G_T2:
+    unit: S6G
+    measure: titin signal intensity, T2/trunc Ttn, indexed to obscurin
+    method: signal intensity on Coomassie-stained gels, indexed to the obscurin signal
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: T2/trunc Ttn signal intensity in 50-90 day old iPS-CMs, indexed to obscurin
+    groups:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    n:
+      printed: n = 6, n = 3, n = 8, n = 9
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '6'
+        pA22353fs: '3'
+        pP22582fs: '8'
+        pWT: '9'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id032
+    suspected_error:
+      what: the panel labels one group S22353fs+/-
+      why: the mutation is A22353fs+/- in the legend and the main text
+  S6G_T3:
+    unit: S6G
+    measure: titin signal intensity, T3, indexed to obscurin
+    method: signal intensity on Coomassie-stained gels, indexed to the obscurin signal
+    software: ImageQuant TL (v8.1; GE Healthcare)
+    finding: T3 signal intensity in 50-90 day old iPS-CMs, indexed to obscurin
+    groups:
+    - pWT
+    - pS6394fs
+    - pA22353fs
+    - pP22582fs
+    n:
+      printed: n = 6, n = 3, n = 8, n = 9
+      counts: iPS-CM samples
+      per_group:
+        pS6394fs: '6'
+        pA22353fs: '3'
+        pP22582fs: '8'
+        pWT: '9'
+    stats:
+      test: Student's t test
+      p: not stated
+    anchor: *id032
+    suspected_error:
+      what: the panel labels one group S22353fs+/-
+      why: the mutation is A22353fs+/- in the legend and the main text
+  T1A_LVEDD:
+    unit: T1A
+    measure: left ventricular end-diastolic dimension (LVEDD)
+    method: not stated
+    software: not stated
+    finding: LVEDD of the three DCM patients whose TTNtv were modelled
+    groups:
+    - MEK111
+    - MHG23
+    - MAO61
+    values:
+      lvedd_MEK111:
+        printed: '77'
+        unit: mm
+        kind: value
+        group: MEK111
+      lvedd_MHG23:
+        printed: '77'
+        unit: mm
+        kind: value
+        group: MHG23
+      lvedd_MAO61:
+        printed: '70'
+        unit: mm
+        kind: value
+        group: MAO61
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(A) DCM phenotypes!F3
+      where: Table S1 (A), LVEDD
+      kind: dataset cell
+  T1A_age:
+    unit: T1A
+    measure: age at diagnosis
+    method: not stated
+    software: not stated
+    finding: age at diagnosis of the three DCM patients
+    groups:
+    - MEK111
+    - MHG23
+    - MAO61
+    values:
+      age_MEK111:
+        printed: '15'
+        unit: years
+        kind: value
+        group: MEK111
+      age_MHG23:
+        printed: '31'
+        unit: years
+        kind: value
+        group: MHG23
+      age_MAO61:
+        printed: '18'
+        unit: years
+        kind: value
+        group: MAO61
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(A) DCM phenotypes!E3
+      where: Table S1 (A), age at diagnosis
+      kind: dataset cell
+  T1A_EF:
+    unit: T1A
+    measure: ejection fraction
+    method: not stated
+    software: not stated
+    finding: ejection fraction of patient MHG-23
+    groups:
+    - MHG23
+    values:
+      ef_MHG23:
+        printed: '29'
+        unit: '%'
+        kind: percent
+        group: MHG23
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(A) DCM phenotypes!G4
+      where: Table S1 (A), clinical details
+      kind: dataset cell
+  T1B_screened:
+    unit: T1B
+    measure: colonies screened
+    method: Sanger sequencing of CRISPR/CAS9-edited iPSc colonies
+    software: not stated
+    finding: colonies screened for each TTN gene editing target
+    groups:
+    - cN22577fs
+    - cV6382fs
+    - cT33520fs
+    values:
+      cN22577fs:
+        printed: '90'
+        unit: colonies
+        kind: count
+        group: cN22577fs
+      cV6382fs:
+        printed: '66'
+        unit: colonies
+        kind: count
+        group: cV6382fs
+      cT33520fs:
+        printed: '68'
+        unit: colonies
+        kind: count
+        group: cT33520fs
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(B) CRISPR CAS9!B26
+      where: Table S1 (B), gene editing results
+      kind: dataset cell
+  T1B_edited:
+    unit: T1B
+    measure: edited clones
+    method: Sanger sequencing of CRISPR/CAS9-edited iPSc colonies
+    software: not stated
+    finding: edited clones for each TTN gene editing target
+    groups:
+    - cN22577fs
+    - cV6382fs
+    - cT33520fs
+    values:
+      cN22577fs:
+        printed: '15'
+        unit: colonies
+        kind: count
+        group: cN22577fs
+      cV6382fs:
+        printed: '62'
+        unit: colonies
+        kind: count
+        group: cV6382fs
+      cT33520fs:
+        printed: '38'
+        unit: colonies
+        kind: count
+        group: cT33520fs
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(B) CRISPR CAS9!B27
+      where: Table S1 (B), gene editing results
+      kind: dataset cell
+  T1B_hom:
+    unit: T1B
+    measure: homozygous in/dels
+    method: Sanger sequencing of CRISPR/CAS9-edited iPSc colonies
+    software: not stated
+    finding: homozygous in/dels for each TTN gene editing target
+    groups:
+    - cN22577fs
+    - cV6382fs
+    - cT33520fs
+    values:
+      cN22577fs:
+        printed: '2'
+        unit: colonies
+        kind: count
+        group: cN22577fs
+      cV6382fs:
+        printed: '56'
+        unit: colonies
+        kind: count
+        group: cV6382fs
+      cT33520fs:
+        printed: '9'
+        unit: colonies
+        kind: count
+        group: cT33520fs
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(B) CRISPR CAS9!B28
+      where: Table S1 (B), gene editing results
+      kind: dataset cell
+  T1B_het:
+    unit: T1B
+    measure: heterozygous in/dels
+    method: Sanger sequencing of CRISPR/CAS9-edited iPSc colonies
+    software: not stated
+    finding: heterozygous in/dels for each TTN gene editing target
+    groups:
+    - cN22577fs
+    - cV6382fs
+    - cT33520fs
+    values:
+      cN22577fs:
+        printed: '12'
+        unit: colonies
+        kind: count
+        group: cN22577fs
+      cV6382fs:
+        printed: '4'
+        unit: colonies
+        kind: count
+        group: cV6382fs
+      cT33520fs:
+        printed: '29'
+        unit: colonies
+        kind: count
+        group: cT33520fs
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(B) CRISPR CAS9!B29
+      where: Table S1 (B), gene editing results
+      kind: dataset cell
+  T1D_alleles:
+    unit: T1D
+    measure: allele-specific TTN RNA expression
+    method: RNAseq allele counts
+    software: STAR 2-pass method
+    finding: equal amounts of mutant and WT TTN transcripts in pP22582fs+/- iPS-CMs
+    groups:
+    - pP22582fs
+    values:
+      mutant_count:
+        printed: '177'
+        unit: reads
+        kind: count
+        group: pP22582fs
+      wt_count:
+        printed: '160'
+        unit: reads
+        kind: count
+        group: pP22582fs
+      ratio:
+        printed: 0.53/0.47
+        unit: ratio
+        kind: ratio
+        group: pP22582fs
+    anchor:
+      quote: NIHMS727908-supplement-Supplemental_Table.xlsx!(D) Genotypes!D4
+      where: Table S1 (D), allele counts
+      kind: dataset cell
+claims:
+  A1:
+    kind: stated
+    quote: cardiac microtissues engineered from human induced pluripotent stem (iPS) cells are a powerful system for evaluating the pathogenicity of titin gene variants
+    where: Abstract
+    rests_on:
+    - F1D_pW976R
+    - F1D_pA22352fs
+    - F1D_pP22582fs
+    - TXT1_cN_cWT
+    - F1E_cV6382fs_het
+    - F1D_pW976R
+    scope: titin gene variants modelled in iPS-CMTs
+    strength: powerful system
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  A2:
+    kind: stated
+    quote: certain missense mutations, like TTNtv, diminish contractile performance and are pathogenic
+    where: Abstract
+    rests_on:
+    - F1D_pW976R
+    - F3I_W976R
+    direction: diminished contractile performance
+    asserts_direction: down
+    scope: the TTN W976R+/− missense variant
+    strength: are pathogenic
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  A3:
+    kind: stated
+    quote: we explain why truncations in the A-band domain of TTN cause DCM while truncations in the I-band are better tolerated
+    where: Abstract
+    rests_on:
+    - TXT3_exon66
+    - S3A_PSI
+    - TXT2_cV_hom
+    - TXT2_aband_hom
+    - F1E_cV6382fs_het
+    scope: A-band versus I-band TTN truncations
+    strength: explain why ... cause DCM
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: cannot judge
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  A4:
+    kind: stated
+    quote: we demonstrate that mutant titin protein in iPS-cardiomyocytes results in sarcomere insufficiency
+    where: Abstract
+    rests_on:
+    - F2D_pP22582fs
+    - F2D_cT33520fs_hom
+    - F2E
+    - F2F_sizes
+    direction: fewer and shorter sarcomeres
+    asserts_direction: down
+    scope: pP22582fs+/− and cT33520fs−/− iPS-CMs
+    strength: demonstrate
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  A5:
+    kind: stated
+    quote: mutant titin protein in iPS-cardiomyocytes results in sarcomere insufficiency, impaired responses to mechanical and β-adrenergic stress
+    where: Abstract
+    rests_on:
+    - F1F_low
+    - F1F_high
+    - F1G
+    - F1H
+    direction: impaired stress responses
+    scope: pP22582fs+/− CMTs
+    strength: demonstrate
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  A6:
+    kind: stated
+    quote: attenuated growth factor and cell signaling activation
+    where: Abstract
+    rests_on:
+    - F3E_pJNK_p46
+    - F3E_pJNK_p54
+    - F3E_pERK
+    - F3E_pp38
+    - F3E_pAKT
+    - F3G_TGFB
+    - F3G_VEGF
+    - F3D_TGFB1
+    - F3D_VEGFA
+    direction: attenuated
+    asserts_direction: down
+    scope: TTNtv iPS-CMs
+    strength: attenuated
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  A7:
+    kind: stated
+    quote: Our findings indicate that titin mutations cause DCM by disrupting critical linkages between sarcomerogenesis and adaptive remodelling
+    where: Abstract
+    rests_on:
+    - F2D_pP22582fs
+    - F1F_high
+    - F1G
+    - F3E_pERK
+    - F3I_P22582fs
+    scope: titin mutations in DCM
+    strength: cause DCM
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: does not follow
+      presence: follows
+  R1:
+    kind: stated
+    quote: the comparable force deficits observed in CMTs with both A-band TTNtv and the Z/I junction missense mutation demonstrates that W976R+/− is a pathogenic TTN missense mutation
+    where: Results, first paragraph
+    rests_on:
+    - F1D_pW976R
+    - F1D_pA22352fs
+    - F1D_pP22582fs
+    direction: comparable force deficits
+    scope: the W976R+/− missense variant
+    strength: demonstrates
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  R2:
+    kind: stated
+    quote: we conclude that the contractile deficits observed in mutant CMTs are not due to non-myocyte factors
+    where: Results, first paragraph
+    rests_on:
+    - S2H_static
+    direction: no difference in static force
+    asserts_direction: none
+    scope: pWT and pP22582fs+/− CMTs
+    strength: conclude
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  R3:
+    kind: stated
+    quote: These data confirm that A-band TTNtv markedly reduced contractile function in both patient-derived and isogenic CMTs
+    where: Results, isogenic lines
+    rests_on:
+    - F1D_pA22352fs
+    - F1D_pP22582fs
+    - TXT1_cN_cWT
+    direction: markedly reduced
+    asserts_direction: down
+    scope: A-band TTNtv CMTs
+    strength: confirm
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  R4:
+    kind: stated
+    quote: and raise the possibility that genetic background can modify the functional severity of TTNtv
+    where: Results, isogenic lines
+    rests_on:
+    - TXT1_cN_pA
+    - TXT1_cN_pP
+    scope: patient-derived versus isogenic CMTs
+    strength: raise the possibility
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  R5:
+    kind: stated
+    quote: Based on these functional and RNAseq data we suggest that alternative exon splicing is the predominant mechanism for reduced penetrance of I-band TTNtv
+    where: Results, I-band versus A-band
+    rests_on:
+    - TXT3_exon66
+    - S3A_PSI
+    - TXT2_cV_hom
+    - TXT2_aband_hom
+    scope: I-band TTNtv
+    strength: predominant mechanism
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  R6:
+    kind: stated
+    quote: Together these data demonstrate that TTNtv had both basal and stress-induced inotropic and chronotropic deficits
+    where: Results, stress responses
+    rests_on:
+    - F1D_pP22582fs
+    - F1F_high
+    - F1G
+    - F1H
+    direction: deficits
+    asserts_direction: down
+    scope: pP22582fs+/− CMTs
+    strength: demonstrate
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  R7:
+    kind: stated
+    quote: indicating both a quantitative and qualitative defect in sarcomerogenesis
+    where: Results, sarcomere organization
+    rests_on:
+    - F2D_pP22582fs
+    - F2E
+    direction: fewer and shorter sarcomeres
+    asserts_direction: down
+    scope: pP22582fs+/− iPS-CMs
+    strength: indicating
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  R8:
+    kind: stated
+    quote: we deduced that TTNtv protein, even if stable within CMs, is unable to promote sarcomerogenesis
+    where: Results, titin protein
+    rests_on:
+    - F2F_sizes
+    - F2D_pP22582fs
+    - F2D_cT33520fs_hom
+    scope: pP22582fs+/− and cT33520fs−/− iPS-CMs
+    strength: unable to promote
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  R9:
+    kind: stated
+    quote: CMTs expressing either A-band TTNtv or W976R+/− variants exhibited less than half the contractile force
+    where: Results, first paragraph
+    rests_on:
+    - F1D_pW976R
+    - F1D_pA22352fs
+    - F1D_pP22582fs
+    direction: less than half
+    asserts_direction: down
+    scope: patient-derived CMTs
+    strength: less than half
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  R10:
+    kind: stated
+    quote: VEGF supplementation but not TGF-beta (fig. S3F) improved force production in pP22582fs+/− and pW976R+/− CMTs
+    where: Results, signalling
+    rests_on:
+    - F3I_P22582fs
+    - F3I_W976R
+    - S3F_TGFb
+    direction: improved
+    asserts_direction: up
+    scope: pP22582fs+/− and pW976R+/− CMTs
+    strength: improved
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  FT1:
+    kind: stated
+    quote: Engineered iPS-CM microtissues with TTN mutations have impaired intrinsic contractility and responses to stress
+    where: Fig. 1 title
+    rests_on:
+    - F1D_pP22582fs
+    - F1E_cN22577fs_het
+    - F1F_high
+    - F1G
+    - F1H
+    direction: impaired
+    asserts_direction: down
+    scope: TTN mutant iPS-CMTs
+    strength: impaired
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    restates: null
+  FT2:
+    kind: stated
+    quote: Sarcomere abnormalities in TTNtv iPS-CMs
+    where: Fig. 2 title
+    rests_on:
+    - F2D_pP22582fs
+    - F2D_cT33520fs_hom
+    - F2E
+    scope: TTNtv iPS-CMs
+    strength: abnormalities
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    restates: R7
+  FT3:
+    kind: stated
+    quote: TTN regulates iPS-CM signalling and RNA expression
+    where: Fig. 3 title
+    rests_on:
+    - F3B_MYH7_MYH6
+    - F3C_NPPA
+    - F3C_NPPB
+    - F3D_TGFB1
+    - F3D_VEGFA
+    - F3E_pERK
+    - F3G_VEGF
+    scope: cN22577fs and pP22582fs+/− iPS-CMs
+    strength: regulates
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  FT7:
+    kind: stated
+    quote: A-band TTNtv impairs sarcomere structure and myofibrillar assembly causing sarcomere insufficiency
+    where: Fig. S7 legend
+    rests_on:
+    - F2D_pP22582fs
+    - F2D_cT33520fs_hom
+    - F2E
+    direction: impairs
+    asserts_direction: down
+    scope: A-band TTNtv
+    strength: causing
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    restates: A4
+  L1:
+    kind: attributed
+    quote: We recently identified dominant mutations that truncate the sarcomere protein titin (TTNtv) as the most common genetic cause of DCM
+    where: Introduction
+    rests_on: []
+    cites:
+    - c2
+    judgement: null
+  L2:
+    kind: attributed
+    quote: However I-band TTNtv have been identified in healthy individuals and in the general population without DCM (2, 3)
+    where: Results, I-band versus A-band
+    rests_on: []
+    cites:
+    - c2
+    - c3
+    judgement: null
+  L3:
+    kind: attributed
+    quote: Occurring in 1 of 250 adults (1), DCM arises from underlying cardiovascular conditions or as a primary genetic disorder
+    where: Introduction
+    rests_on: []
+    cites:
+    - c1
+    judgement: null
+  L4:
+    kind: literature
+    quote: the consequences of TTNtv are strikingly different from truncating mutations in another sarcomere protein, myosin-binding protein-C, which causes LV hypertrophy and enhanced contractile force
+    where: Discussion
+    rests_on: []
+    cites:
+    - c18
+    judgement: null
+citations:
+  c1:
+    label: '1'
+    text: 'Hershberger RE, Hedges DJ, Morales A. Dilated cardiomyopathy: the complexity of a diverse genetic architecture. Nat Rev Cardiol 2013;10:531'
+    year: '2013'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Occurring in 1 of 250 adults (1), DCM arises from underlying cardiovascular conditions or as a primary genetic disorder
+      where: Introduction
+  c2:
+    label: '2'
+    text: Herman DS, et al. Truncations of titin causing dilated cardiomyopathy. N Engl J Med 2012;366:619
+    year: '2012'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: We recently identified dominant mutations that truncate the sarcomere protein titin (TTNtv) as the most common genetic cause of DCM
+      where: Introduction
+  c3:
+    label: '3'
+    text: Roberts AM, et al. Integrated allelic, transcriptional, and phenomic dissection of the cardiac effects of titin truncations in health and disease. Sci Transl Med 2015;7:270ra6
+    year: '2015'
+    purpose:
+    - attributes_finding
+    - borrows_method
+    anchor:
+      quote: Exon usage in libraries is reported as the proportion spliced-in (3)
+      where: Methods, RNAseq and titin splicing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c4:
+    label: '4'
+    text: Loh YH, et al. Reprogramming of T cells from human peripheral blood. Cell Stem Cell 2010;7:15
+    year: '2010'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Patient-specific iPScs were produced from cryopreserved T-cells using the method reported by Loh et al. (4) with the following modifications
+      where: Methods, iPSc production
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c5:
+    label: '5'
+    text: Mali P, et al. RNA-Guided Human Genome Engineering via Cas9. Science 2013
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: The scarless, iPSc gene-editing protocol summarized by Mali et al. (5) and Ding et al. (24) was used with minor modifications
+      where: Methods, CRISPR/CAS9 gene editing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c6:
+    label: '6'
+    text: Boudou T, et al. A microfabricated platform to measure and manipulate the mechanics of engineered cardiac microtissues. Tissue Eng Part A 2012;18:910
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: CMTs were prepared as previously described (6)
+      where: Methods, Cardiac Microtissue (CMT) platform
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c7:
+    label: '7'
+    text: Lian X, et al. Directed cardiomyocyte differentiation from human pluripotent stem cells by modulating Wnt/beta-catenin signaling under fully defined conditions. Nat Protoc 2012;8:162
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: iPScs were maintained in feeder-free conditions and differentiated to the CM lineage by sequential targeting of the WNT pathway as described (7)
+      where: Methods, iPSc differentiation
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c8:
+    label: '8'
+    text: Tohyama S, et al. Distinct metabolic flow enables large-scale purification of mouse and human pluripotent stem cell-derived cardiomyocytes. Cell Stem Cell 2013;12:127
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: CMs were purified using metabolic selection (8) and studied on day 30-40 after initiation of differentiation
+      where: Methods, iPSc differentiation
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c9:
+    label: '9'
+    text: Gerull B, et al. Mutations of TTN, encoding the giant muscle filament titin, cause familial dilated cardiomyopathy. Nat Genet 2002;30:201
+    year: '2002'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: a missense mutation (pW976R+/−) within the Z/I junction that co-segregated with DCM in a large family (9)
+      where: Results, first paragraph
+  c10:
+    label: '10'
+    text: 'Tan JL, et al. Cells lying on a bed of microneedles: an approach to isolate mechanical force. PNAS 2003;100:1484'
+    year: '2003'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Single cell assays of contractile function on microarray post detectors (mPADS) (10) showed no significant difference
+      where: Results, first paragraph
+  c14:
+    label: '14'
+    text: Christodoulou DC, Gorham JM, Herman DS, Seidman JG. Construction of normalized RNA-seq libraries for next-generation sequencing. Curr Protoc Mol Biol 2011
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: To determine if sarcomere deficits reflected insufficient TTN levels, we performed RNAseq (14) and protein analyses
+      where: Results, titin protein
+  c15:
+    label: '15'
+    text: Cai B, et al. microRNA-124 regulates cardiomyocyte differentiation of bone marrow-derived mesenchymal stem cells via targeting STAT3 signaling. Stem Cells 2012;30:1746
+    year: '2012'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: cN22577fs+/− and cN22577fs−/− iPS-CMs had diminished expression of miR-124 targets (15)
+      where: Results, RNAseq
+  c18:
+    label: '18'
+    text: Watkins H, et al. Mutations in the cardiac myosin binding protein-C gene on chromosome 11 cause familial hypertrophic cardiomyopathy. Nat Genet 1995;11:434
+    year: '1995'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: myosin-binding protein-C, which causes LV hypertrophy and enhanced contractile force (18)
+      where: Discussion
+  c21:
+    label: '21'
+    text: Somers A, et al. Generation of transgene-free lung disease-specific human induced pluripotent stem cells using a single excisable lentiviral stem cell cassette. Stem Cells 2010;28:1728
+    year: '2010'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: OKSM (Oct4, Klf4, Sox2 and c-Myc) was delivered via lentivirus expressing the poly-cistronic STEMCCA cassette (21)
+      where: Methods, iPSc production
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c22:
+    label: '22'
+    text: Ludwig TE, et al. Derivation of human embryonic stem cells in defined conditions. Nat Biotechnol 2006;24:185
+    year: '2006'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: IPScs were reprogrammed on MEFs and then transitioned to feeder-free conditions using standard protocols (22)
+      where: Methods, iPSc production
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c24:
+    label: '24'
+    text: Ding Q, et al. A TALEN genome-editing system for generating human stem cell-based disease models. Cell Stem Cell 2013;12:238
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: 'and Ding et al. (24) was used with minor modifications (table S1B: Gene editing protocol)'
+      where: Methods, CRISPR/CAS9 gene editing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c25:
+    label: '25'
+    text: Mali P, et al. CAS9 transcriptional activators for target specificity screening and paired nickases for cooperative genome engineering. Nat Biotechnol 2013;31:833
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: iPScs (PGP1 cells used for all isogenic studies (25)) were sorted by FACS for GFP+
+      where: Methods, CRISPR/CAS9 gene editing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c26:
+    label: '26'
+    text: Wang K, et al. Rapid adaptive optical recovery of optimal resolution over large volumes. Nature Methods 2014;11:625
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: The 2D Fourier transforms of images were determined as described previously (26) for un-patterned images
+      where: Methods, Sarcomere content and length analysis (FFT)
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c27:
+    label: '27'
+    text: Legant WR, et al. Microfabricated tissue gauges to measure and manipulate forces from 3D microtissues. PNAS 2009;106:10097
+    year: '2009'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Cantilever spring constants were computed utilizing a capacitive MEMS force sensor mounted on a micromanipulator as described previously(6, 27)
+      where: Methods, Cardiac Microtissue (CMT) platform
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c28:
+    label: '28'
+    text: Tan JL, Liu W, Nelson CM, Raghavan S, Chen CS. Simple approach to micropattern cells on common culture substrates by tuning substrate wettability. Tissue Engineering 2004;10:865
+    year: '2004'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Micropatterened substrates were prepared as described previously (28)
+      where: Methods, Microcontact printing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c29:
+    label: '29'
+    text: Yang MT, Fu J, Wang YK, Desai RA, Chen CS. Assaying stem cell mechanobiology on microfabricated elastomeric substrates with geometrically modulated rigidity. Nat Protoc 2011;6:187
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Micro-post devices were made of PDMS (Sylgard 184, Dow-Corning) via replica molding from a PDMS negative molds produced from a Si master, as described previously (29)
+      where: Methods, Micro-post arrays (mPads)
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c30:
+    label: '30'
+    text: Neagoe C, et al. Titin isoform switch in ischemic human heart disease. Circulation 2002;106:1333
+    year: '2002'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: For analysis of titin protein, pellets of human iPS-derived myocytes or small pieces of LV tissue from adult human donor hearts were analyzed (30)
+      where: Methods, Western blotting and tissue staining
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c31:
+    label: '31'
+    text: Furst DO, Osborn M, Nave R, Weber K. The organization of titin filaments in the half-sarcomere revealed by monoclonal antibodies. J Cell Biol 1988;106:1563
+    year: '1988'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: 'Antibodies used include: anti-N-terminal TTN (T12 (31)), anti-C-terminal TTN (T31 (32))'
+      where: Methods, Western blotting and tissue staining
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c33:
+    label: '33'
+    text: Christodoulou DC, et al. 5'RNA-Seq identifies Fhl1 as a genetic modifier in cardiomyopathy. J Clin Invest 2014;124:1364
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Libraries were prepared and sequenced as described by Christodoulou et al. (33), and were aligned with STAR (34)
+      where: Methods, RNAseq and titin splicing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+  c34:
+    label: '34'
+    text: Engstrom PG, et al. Systematic evaluation of spliced alignment programs for RNA-seq data. Nat Methods 2013;10:1185
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Alignment was performed with STAR 2-pass method (34), and splice junctions were called from a two-pass alignment
+      where: Methods, RNAseq and titin splicing
+      file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+cross_references:
+- cited: Fig. S4A
+  shows: Fig. S4A is labelled cT33520fs+/- while the cited sarcomere result is for cT33520fs-/-
+  anchor:
+    quote: a phenotype that was even more pronounced in homozygous cT33520fs−/− iPS-CMs (Figs. 2A, D and S4A)
+    where: Results, sarcomere organization
+- cited: Fig. 2A, C
+  shows: Fig. 2C shows CMTs stained for α-actinin and F-actin, not the paucity of sarcomeres in heterozygous and homozygous iPS-CMs cited there
+  anchor:
+    quote: the paucity of sarcomeres in heterozygous pP22582fs+/− and homozygous cT33520fs−/− iPS-CMs (Figs. 2A, C)
+    where: Results, titin protein
+context_anchors:
+- field: cell_line
+  value: PGP1
+  anchor:
+    quote: iPScs (PGP1 cells used for all isogenic studies (25)) were sorted by FACS for GFP+, expanded, and Sanger sequenced for genotyping
+    where: Methods, CRISPR/CAS9 gene editing
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_line
+  value: pP22582fs+/- (A)
+  anchor:
+    quote: Two clones of each genotype are shown (clones are pWT (1, 2) and pP22582fs+/- (A, I))
+    where: Fig. S1 legend
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_line
+  value: pP22582fs+/- (I)
+  anchor:
+    quote: Two clones of each genotype are shown (clones are pWT (1, 2) and pP22582fs+/- (A, I))
+    where: Fig. S1 legend
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_line
+  value: pWT (1)
+  anchor:
+    quote: Two clones of each genotype are shown (clones are pWT (1, 2) and pP22582fs+/- (A, I))
+    where: Fig. S1 legend
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_line
+  value: pWT (2)
+  anchor:
+    quote: Two clones of each genotype are shown (clones are pWT (1, 2) and pP22582fs+/- (A, I))
+    where: Fig. S1 legend
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_line
+  value: patient-derived iPS-CMs
+  anchor:
+    quote: To ensure that the observed functional abnormalities did not reflect background genetic differences in patient-derived iPS-CMs
+    where: Results, isogenic lines
+- field: cell_types
+  value: iPS cells
+  anchor:
+    quote: iPScs (PGP1 cells used for all isogenic studies (25)) were sorted by FACS for GFP+, expanded, and Sanger sequenced for genotyping
+    where: Methods, CRISPR/CAS9 gene editing
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_types
+  value: iPS-CMs
+  anchor:
+    quote: Images of single iPS-CMs on fibronectin coated glass coverslips and patterned substrates were (25x25 µm lines) stained for α-actinin
+    where: Methods, Sarcomere content and length analysis (FFT)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: cell_types
+  value: iPS-CMs + human mesenchymal stem cells
+  anchor:
+    quote: iPS-CMs were dissociated after trypsin digestion and mixed with stromal cells (human mesenchymal stem cells, hMSCs) to enable tissue compaction
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: composition
+  value: 7% of the total myocyte population
+  anchor:
+    quote: The amount of stromal cells added was 7% of the total myocyte population; higher percentages lead to tissue breakage
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: 50-90 day old
+  anchor:
+    quote: (C) 50-90 day old iPS-CMs (pP22582fs+/− and pWT)
+    where: Fig. S6 legend
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: Day 12
+  anchor:
+    quote: Day 12 - Pre
+    where: Fig. S2C
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: Day 4
+  anchor:
+    quote: Day 4           Day 5           Day 6
+    where: Fig. S2G
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: Day 5
+  anchor:
+    quote: Day 4           Day 5           Day 6
+    where: Fig. S2G
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: Day 6
+  anchor:
+    quote: Day 4           Day 5           Day 6
+    where: Fig. S2G
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: Day 60
+  anchor:
+    quote: Day 60 -Post
+    where: Fig. S2C
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: day 30-40
+  anchor:
+    quote: CMs were purified using metabolic selection (8) and studied on day 30-40 after initiation of differentiation except when mentioned otherwise
+    where: Methods, iPSc differentiation
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: day_of_measurement
+  value: ~30 day old
+  anchor:
+    quote: (B) ~30 day old iPS-CMs (pS6394fs+/−, pA22353fs+/−, pP22582fs+/− and pWT)
+    where: Fig. S6 legend
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: differentiation_factors
+  value: CHIR99021 + IWP4
+  anchor:
+    quote: CHIR99021 IWP4
+    where: Fig. S2A
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: disease_model
+  value: dilated cardiomyopathy
+  anchor:
+    quote: Human mutations that truncate the massive sarcomere protein titin (TTNtv) are the most common genetic cause for dilated cardiomyopathy
+    where: Abstract
+- field: dissociation_reagent
+  value: trypsin
+  anchor:
+    quote: iPS-CMs were dissociated after trypsin digestion and mixed with stromal cells (human mesenchymal stem cells, hMSCs) to enable tissue compaction
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: donor_age
+  value: adult human donor hearts
+  anchor:
+    quote: pellets of human iPS-derived myocytes or small pieces of LV tissue from adult human donor hearts were analyzed (30)
+    where: Methods, Western blotting and tissue staining
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: genotype
+  value: A22352fs+/−
+  anchor:
+    quote: We produced iPS-CMs with two A-band TTNtvs (pA22352fs+/− or pP22582fs+/−) and a missense mutation (pW976R+/−)
+    where: Results, first paragraph
+- field: genotype
+  value: A22353fs+/−
+  anchor:
+    quote: we next sought to identify truncated TTN protein (Figs. 2F, S6A–I) in protein lysates from iPS-CMs with an A-band (pP22582fs+/−, pA22353fs+/−) or I-band (pS6394fs+/− (benign variant)) TTNtv
+    where: Results, titin protein
+- field: genotype
+  value: N22577fs+/−
+  anchor:
+    quote: cN22577fs+/− creates an A-band TTNtv in exon 322 (similar to patient-derived pP22582fs+/−; Fig 1A)
+    where: Results, isogenic lines
+- field: genotype
+  value: N22577fs−/−
+  anchor:
+    quote: we compared the functional consequences of isogenic heterozygous (cV6382fs+/−) and homozygous (cV6382fs−/−) I-band TTNtv in exon 66 to A-band TTNtv (cN22577fs+/−, cN22577fs−/−, cT33520fs−/−)
+    where: Results, I-band vs A-band
+- field: genotype
+  value: P22582fs+/−
+  anchor:
+    quote: We produced iPS-CMs with two A-band TTNtvs (pA22352fs+/− or pP22582fs+/−) and a missense mutation (pW976R+/−)
+    where: Results, first paragraph
+- field: genotype
+  value: S6394fs+/−
+  anchor:
+    quote: we next sought to identify truncated TTN protein (Figs. 2F, S6A–I) in protein lysates from iPS-CMs with an A-band (pP22582fs+/−, pA22353fs+/−) or I-band (pS6394fs+/− (benign variant)) TTNtv
+    where: Results, titin protein
+- field: genotype
+  value: T33520fs−/−
+  anchor:
+    quote: we compared the functional consequences of isogenic heterozygous (cV6382fs+/−) and homozygous (cV6382fs−/−) I-band TTNtv in exon 66 to A-band TTNtv (cN22577fs+/−, cN22577fs−/−, cT33520fs−/−)
+    where: Results, I-band vs A-band
+- field: genotype
+  value: V6382fs+/−
+  anchor:
+    quote: we compared the functional consequences of isogenic heterozygous (cV6382fs+/−) and homozygous (cV6382fs−/−) I-band TTNtv in exon 66 to A-band TTNtv (cN22577fs+/−, cN22577fs−/−, cT33520fs−/−)
+    where: Results, I-band vs A-band
+- field: genotype
+  value: V6382fs−/−
+  anchor:
+    quote: we compared the functional consequences of isogenic heterozygous (cV6382fs+/−) and homozygous (cV6382fs−/−) I-band TTNtv in exon 66 to A-band TTNtv (cN22577fs+/−, cN22577fs−/−, cT33520fs−/−)
+    where: Results, I-band vs A-band
+- field: genotype
+  value: W976R+/−
+  anchor:
+    quote: We produced iPS-CMs with two A-band TTNtvs (pA22352fs+/− or pP22582fs+/−) and a missense mutation (pW976R+/−)
+    where: Results, first paragraph
+- field: hipsc_medium
+  value: feeder-free conditions
+  anchor:
+    quote: iPScs were maintained in feeder-free conditions and differentiated to the CM lineage by sequential targeting of the WNT pathway as described (7)
+    where: Methods, iPSc differentiation
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: mechanical_load
+  value: cantilever
+  anchor:
+    quote: Cantilever stiffness in the µ-tug platform was varied using different PDMS to cross-linker ratios
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: mechanical_load
+  value: flexible cantilever
+  anchor:
+    quote: we assessed contractile performance of pWT and pP22582fs+/− CMTs grown on flexible (0.2 μN/μm) and rigid (0.45 μN/μm) cantilevers
+    where: Results, mechanical load
+- field: mechanical_load
+  value: microposts
+  anchor:
+    quote: The microposts used in this study were of 1.83µm diameter, 7.1µm height having a spring constant k=11.076µN/µm
+    where: Methods, Micro-post arrays (mPads)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: mechanical_load
+  value: rigid cantilever
+  anchor:
+    quote: we assessed contractile performance of pWT and pP22582fs+/− CMTs grown on flexible (0.2 μN/μm) and rigid (0.45 μN/μm) cantilevers
+    where: Results, mechanical load
+- field: mechanical_load.spring constant
+  value: k=11.076µN/µm
+  anchor:
+    quote: The microposts used in this study were of 1.83µm diameter, 7.1µm height having a spring constant k=11.076µN/µm
+    where: Methods, Micro-post arrays (mPads)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: mechanical_load.stiffness
+  value: 0.2 μN/μm
+  anchor:
+    quote: we assessed contractile performance of pWT and pP22582fs+/− CMTs grown on flexible (0.2 μN/μm) and rigid (0.45 μN/μm) cantilevers
+    where: Results, mechanical load
+- field: mechanical_load.stiffness
+  value: 0.45 μN/μm
+  anchor:
+    quote: we assessed contractile performance of pWT and pP22582fs+/− CMTs grown on flexible (0.2 μN/μm) and rigid (0.45 μN/μm) cantilevers
+    where: Results, mechanical load
+- field: pacing
+  value: electrical field stimulation
+  anchor:
+    quote: Electrical field stimulation of biphasic square pulses of 1ms was given by placing two carbon electrodes
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: pacing.frequency
+  value: 1hz
+  anchor:
+    quote: 2D contractile traction forces exerted by myocytes were measured by recording fluorescent images of micro-post deflection, under 1hz electrical field stimulation
+    where: Methods, Micro-post arrays (mPads)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: platform
+  value: cardiac microtissue
+  anchor:
+    quote: we harnessed recent advances in stem cell reprogramming (4), gene editing (5), and tissue engineering (6) to produce human cardiac microtissue (CMT) models of TTNtv
+    where: Results, first paragraph
+- field: platform
+  value: fibronectin coated glass coverslips
+  anchor:
+    quote: Images of single iPS-CMs on fibronectin coated glass coverslips and patterned substrates were (25x25 µm lines) stained for α-actinin
+    where: Methods, Sarcomere content and length analysis (FFT)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: platform
+  value: micro-post arrays (mPads)
+  anchor:
+    quote: Micro-post arrays (mPads)
+    where: Methods, Micro-post arrays (mPads)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: preparation
+  value: H&E stained tissue
+  anchor:
+    quote: Representative micrographs of H&E stained tissue from the left ventricles (LV) of control and P22582fs+/− patients
+    where: Fig. 2G legend
+- field: preparation
+  value: microtissue
+  anchor:
+    quote: For quantifying microtissue forces, bright-field and fluorescence images were taken at 30Hz
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: preparation
+  value: protein lysates
+  anchor:
+    quote: Protein lysates were solubilised in RIPA buffer followed by western blotting by standard protocols
+    where: Methods, Western blotting and tissue staining
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: preparation
+  value: single iPS-CMs
+  anchor:
+    quote: Images of single iPS-CMs on fibronectin coated glass coverslips and patterned substrates were (25x25 µm lines) stained for α-actinin
+    where: Methods, Sarcomere content and length analysis (FFT)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: preparation
+  value: total RNA
+  anchor:
+    quote: Total RNA was isolated from day 30-40 iPS-CMs using Trizol (Invitrogen)
+    where: Methods, RNAseq and titin splicing
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: purification
+  value: metabolic selection
+  anchor:
+    quote: CMs were purified using metabolic selection (8) and studied on day 30-40 after initiation of differentiation except when mentioned otherwise
+    where: Methods, iPSc differentiation
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: purity
+  value: '>90% TnnT+'
+  anchor:
+    quote: Following differentiation, iPS-CM purity was determined by FACS analysis (>90% TnnT+) or by morphology
+    where: Methods, iPSc differentiation
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: purity_method
+  value: FACS analysis or by morphology
+  anchor:
+    quote: Following differentiation, iPS-CM purity was determined by FACS analysis (>90% TnnT+) or by morphology
+    where: Methods, iPSc differentiation
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: replating_coating
+  value: fibronectin
+  anchor:
+    quote: Images of single iPS-CMs on fibronectin coated glass coverslips and patterned substrates were (25x25 µm lines) stained for α-actinin
+    where: Methods, Sarcomere content and length analysis (FFT)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: replating_coating.concentration
+  value: 50µg/ml
+  anchor:
+    quote: PDMS stamps were inked with 50µg/ml fibronectin (Fn) and stamped onto UV ozone treated PDMS coated glass substrates
+    where: Methods, Microcontact printing
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: seeding_density
+  value: ~1.1x106 cells
+  anchor:
+    quote: A suspension of ~1.1x106 cells within reconstitution mixture
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: species
+  value: human
+  anchor:
+    quote: Human mutations that truncate the massive sarcomere protein titin (TTNtv) are the most common genetic cause for dilated cardiomyopathy
+    where: Abstract
+- field: stromal_cell
+  value: human mesenchymal stem cells
+  anchor:
+    quote: iPS-CMs were dissociated after trypsin digestion and mixed with stromal cells (human mesenchymal stem cells, hMSCs) to enable tissue compaction
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: substrate
+  value: PDMS
+  anchor:
+    quote: PDMS stamps were inked with 50µg/ml fibronectin (Fn) and stamped onto UV ozone treated PDMS coated glass substrates
+    where: Methods, Microcontact printing
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: substrate
+  value: collagen I + fibrinogen
+  anchor:
+    quote: consisting of 2.25mg/mL liquid neutralized collagen I (BD Biosciences) and 0.5mg/mL human fibrinogen (Sigma-Aldrich)
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: substrate
+  value: glass
+  anchor:
+    quote: Images of single iPS-CMs on fibronectin coated glass coverslips and patterned substrates were (25x25 µm lines) stained for α-actinin
+    where: Methods, Sarcomere content and length analysis (FFT)
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: substrate.collagen I
+  value: 2.25mg/mL
+  anchor:
+    quote: consisting of 2.25mg/mL liquid neutralized collagen I (BD Biosciences) and 0.5mg/mL human fibrinogen (Sigma-Aldrich)
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: substrate.fibrinogen
+  value: 0.5mg/mL
+  anchor:
+    quote: consisting of 2.25mg/mL liquid neutralized collagen I (BD Biosciences) and 0.5mg/mL human fibrinogen (Sigma-Aldrich)
+    where: Methods, Cardiac Microtissue (CMT) platform
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: transgene
+  value: STEMCCA cassette
+  anchor:
+    quote: OKSM (Oct4, Klf4, Sox2 and c-Myc) was delivered via lentivirus expressing the poly-cistronic STEMCCA cassette (21)
+    where: Methods, iPSc production
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: treatment
+  value: TGF-beta
+  anchor:
+    quote: we pre-treated pP22582fs+/− and pW976R+/− iPS-CMs with VEGF (50ng/ml) or TGF-beta (0.5ng/ml) for four days prior to studying CMTs
+    where: Results, signalling
+- field: treatment
+  value: VEGF
+  anchor:
+    quote: we pre-treated pP22582fs+/− and pW976R+/− iPS-CMs with VEGF (50ng/ml) or TGF-beta (0.5ng/ml) for four days prior to studying CMTs
+    where: Results, signalling
+- field: treatment
+  value: isoproterenol
+  anchor:
+    quote: In response to isoproterenol treatment to mimic β-adrenergic stimulation, force and beating rate were increased in pWT CMTs
+    where: Results, stress responses
+- field: treatment.dose
+  value: 0.5ng/ml
+  anchor:
+    quote: we pre-treated pP22582fs+/− and pW976R+/− iPS-CMs with VEGF (50ng/ml) or TGF-beta (0.5ng/ml) for four days prior to studying CMTs
+    where: Results, signalling
+- field: treatment.dose
+  value: 50ng/ml
+  anchor:
+    quote: we pre-treated pP22582fs+/− and pW976R+/− iPS-CMs with VEGF (50ng/ml) or TGF-beta (0.5ng/ml) for four days prior to studying CMTs
+    where: Results, signalling
+- field: wnt_activation_days
+  value: D0-D1
+  anchor:
+    quote: D0-D1       D3-D5
+    where: Fig. S2A
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf
+- field: wnt_inhibition_days
+  value: D3-D5
+  anchor:
+    quote: D0-D1       D3-D5
+    where: Fig. S2A
+    file: NIHMS727908-supplement-Supplemental_text_and_figures.pdf

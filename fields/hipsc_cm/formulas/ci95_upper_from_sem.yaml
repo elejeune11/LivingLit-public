@@ -1,0 +1,43 @@
+# Written by code from changes.yaml (version 31); never edited.
+formula: ci95_upper_from_sem
+kind: derived
+statement: The upper limit of a 95 % confidence interval of a mean is the mean plus the t quantile (n - 1 degrees of freedom)
+  times the SEM.
+equations:
+- u = m + tq975(n - 1)*se
+variables:
+  u: D
+  m: D
+  se: D
+  sd: D
+  h: D
+  n: count
+uses:
+- formula: ci95_halfwidth
+  subs:
+    h: h
+    sd: sd
+    n: n
+- formula: sem_def
+  subs:
+    sem: se
+    sd: sd
+    n: n
+- formula: sum_of_parts
+  subs:
+    t: u
+    a: m
+    b: h
+does_not_apply: a printed spread that is an SD (then u = m + tq975(n - 1)*sd/sqrt(n)), or a lower limit
+tests:
+- given:
+    m: 10.0
+    se: 1.0
+    n: 4.0
+  expect:
+    u: 13.182446305284262
+- given:
+    m: 10.0
+    se: 2.0
+    n: 4.0
+  does_not_apply: 'spread is an SD of 2: u = 10 + 3.182*2/2 = 13.18, not 16.36'

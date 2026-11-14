@@ -1,0 +1,360 @@
+record: 2019_Yang
+vocabulary_version: 68
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- adopted ids
+- adopt:
+    field: cell_line
+    id: CVCL_0045
+    label: HEK293
+    lookup: Cellosaurus lookup 'HEK293' (exact; Cellosaurus lists 'HEK 293' as a synonym)
+    synonyms:
+    - text: HEK 293
+      anchor: House-made palmitate-albumin complex is endotoxin-free, related to Results 2.1. HEK 293
+- adopt:
+    field: treatment
+    id: CHEBI:16412
+    label: lipopolysaccharide
+    lookup: ChEBI lookup 'lipopolysaccharide' (exact)
+    synonyms:
+    - text: LPS
+      anchor: different concentrations of E.coli lipopolysaccharides (LPS) suspended in DMEM/
+- adopt:
+    field: treatment
+    id: CHEBI:17351
+    label: linoleic acid
+    lookup: ChEBI lookup 'linoleic acid' (exact); chosen over the anion 'linoleate' (CHEBI:30245) to sit with the adopted
+      'oleic acid' (CHEBI:16196); the paper writes both 'linoleate-BSA' and 'linoleic acid-albumin'
+- adopt:
+    field: treatment
+    id: CHEBI:30807
+    label: tetradecanoate
+    lookup: ChEBI lookup 'myristate' found no exact label; 'tetradecanoate' (exact) is the myristate anion, as the adopted
+      'hexadecanoate' (CHEBI:7896) carries 'palmitate'
+    synonyms:
+    - text: myristate
+      anchor: adding three of the constituent fatty acids (myristate C14:0,
+- adopt:
+    field: treatment
+    id: CHEBI:32372
+    label: palmitoleate
+    lookup: ChEBI lookup 'palmitoleate' (exact)
+- adopt_own:
+    field: treatment
+    id: treatment:fatty_acid_free_albumin
+    label: fatty acid-free albumin
+    definition: Serum albumin stripped of bound fatty acids, given as the vehicle or carrier for fatty acids.
+    scope: The albumin carrier or vehicle itself; fatty acids bound to it take their own ids, and not serum (fetal bovine
+      serum), a lipid mixture (chemically defined lipid concentrate) or a salt vehicle (phosphate-buffered saline).
+    lookup: ChEBI lookup 'albumin', 'serum albumin' and 'bovine serum albumin' found only human, recombinant and labelled
+      albumins (e.g. CHEBI:749447 albumin human, CHEBI:760525 recombinant rice-derived human serum albumin); no bovine or
+      fatty acid-free albumin
+    synonyms:
+    - text: fatty acid-free BSA
+      anchor: palmitate with 12% fatty acid-free BSA (molecular ratio 2.2:1)
+# ---------------------------------------------------------------- own terms
+- add_term:
+    field: hipsc_medium
+    id: hipsc_medium:mtesr_version_not_stated
+    label: mTeSR (version not stated)
+    parent: null
+    definition: An mTeSR-family pluripotent stem cell medium whose version (mTeSR1, mTeSR Plus) the source does not state.
+    scope: mTeSR named without its version; mTeSR1 when the source names it, and not FTDA, Essential 8, StemFlex,
+      MEF-conditioned or an unnamed growth medium.
+    synonyms:
+    - text: mTeSR
+      anchor: RUES2 and WTC-11 undifferentiated cells were cultured with mTeSR medium
+- add_term:
+    field: replating_coating
+    id: replating_coating:laminin
+    label: laminin
+    parent: null
+    definition: Laminin, a basement-membrane glycoprotein, coated or printed on a surface so that cardiomyocytes attach.
+    scope: Purified laminin (source or isoform in the qualifier source); not Matrigel or Geltrex, which are basement-membrane
+      mixtures, and not fibronectin, vitronectin, gelatin or agarose.
+    qualifiers:
+      source: {dimension: text}
+- add_term:
+    field: transgene
+    id: transgene:luciferase_reporter
+    label: luciferase reporter
+    parent: null
+    definition: A luciferase gene introduced under a stated promoter or response element so that its light output reports that
+      element's activity.
+    scope: A light-producing enzyme reporter read by a luminescence assay; not a fluorescent protein reporter, a calcium or
+      voltage indicator, or an overexpressed gene studied for its own effect.
+    qualifiers:
+      luciferase: {dimension: text}
+      promoter: {dimension: text}
+- add_qualifier:
+    id: transgene:overexpressed_gene
+    name: gene
+    dimension: text
+- add_term:
+    field: measure
+    id: measure:reporter_activity
+    label: reporter gene activity
+    parent: null
+    dimension: dimensionless
+    definition: Signal of a reporter gene driven by a stated pathway or response element (qualifier reporter), usually divided
+      by a constitutive control reporter.
+    scope: Activity of an introduced reporter construct; not the mRNA level of an endogenous gene (gene expression) and not a
+      protein's amount (protein level).
+    qualifiers:
+      reporter: {dimension: text}
+# ---------------------------------------------------------------- synonyms
+- add_synonym:
+    id: platform:micropost_array
+    text: silicone microposts
+    anchor: Arrays of silicone microposts were fabricated by casting polydimethylsiloxane (PDMS)
+- add_synonym:
+    id: preparation:lysate
+    text: homogenized
+    anchor: collected in PBS, and homogenized
+- add_synonym:
+    id: preparation:lysate
+    text: total protein
+    anchor: Total protein was acquired from control cardiomyocytes or cardiomyocytes after 15 and 30 min of fatty acid treatment
+- add_synonym:
+    id: preparation:dissociated_cells
+    text: single cardiomyocytes
+    anchor: Only the contractile forces of single cardiomyocytes (no junctions with adjacent cells) with obvious beating
+- add_synonym:
+    id: measure:cell_circularity
+    text: circularity index
+    anchor: in cell area (C), circularity index (D), and sarcomere length (E)
+- add_synonym:
+    id: measure:cell_capacitance
+    text: membrane capacitance
+    anchor: (C) Analysis of cardiomyocyte membrane capacitance.
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:reporter_activity
+    value:
+      must_match: [platform@1, preparation, cell_line, measure.reporter, measure.expressed_as, measure.normalised_to,
+        treatment, genotype, disease_model]
+      may_vary: [day_of_measurement]
+    direction:
+      must_match: [contrast, measure.reporter]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: platform
+  stated: 96-well plates
+  terms: [platform:culture_2d]
+  qualifiers: {format: 96-well plates}
+- field: platform
+  stated: 10 cm2 plates
+  terms: [platform:culture_2d]
+  qualifiers: {format: 10 cm2 plates}
+- field: platform
+  stated: Seahorse plates
+  terms: [platform:culture_2d]
+  qualifiers: {format: Seahorse XF96 plates}
+- field: platform
+  stated: glass slides
+  terms: [platform:culture_2d]
+  qualifiers: {format: glass slides}
+  note: cardiomyocytes replated onto fibronectin-coated glass slides; whether a monolayer or sparse cells is not stated
+- field: platform
+  stated: glass coverslips
+  terms: [platform:culture_2d]
+  qualifiers: {format: glass coverslips}
+- field: transgene
+  stated: fire-fly luciferase + Renilla luciferase + human HATLR4 + MD-2 + mCD14
+  terms: [transgene:luciferase_reporter, transgene:overexpressed_gene]
+  qualifiers:
+    luciferase: fire-fly (NF-κB-dependent) + Renilla (β-Actin promoter-dependent)
+    gene: human HATLR4 + MD-2 + mCD14
+  note: HEK293 cells transiently transfected with reporter and TLR4/MD-2/CD14 plasmids for the endotoxin assay (mmc1,
+    Supplemental Experimental Procedures 1)
+- field: hipsc_medium
+  stated: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+  terms: [hipsc_medium:mef_conditioned_medium]
+  qualifiers: {supplement: basic fibroblast growth factor}
+- field: cm_medium
+  stated: RPMI-B27-insulin
+  terms: [cm_medium:rpmi_1640]
+  split:
+  - {words: B27-insulin, field: supplements}
+- field: supplements
+  stated: carnitine
+  terms: [CHEBI:16347]
+  note: the paper's Methods name it 'L-Carnitine was added to the medium at 120 µM'; L-carnitine is (R)-carnitine
+- field: preparation
+  stated: medium
+  terms: [preparation:collected_medium]
+  note: nonesterified fatty acids measured in the medium before and 48 h after treatment
+- field: measurement_medium
+  stated: HEPES-containing medium
+  terms: [measurement_medium:hepes_buffered_medium]
+  qualifiers: {hepes: 15 mM}
+  note: '''live cell chamber at 37 C with 15 mM HEPES-containing medium''; stored only for the concentration qualifier'
+- field: replating_coating
+  stated: mouse laminin
+  terms: [replating_coating:laminin]
+  qualifiers: {source: mouse}
+- field: treatment
+  stated: palmitate-albumin complexes
+  terms: [CHEBI:7896, treatment:fatty_acid_free_albumin]
+  note: palmitate complexed with fatty acid-free BSA (Methods, Making Palmitate-Albumin Complexes)
+- field: treatment
+  stated: palmitate-BSA + oleate-BSA + linoleate-BSA
+  terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351, treatment:fatty_acid_free_albumin]
+  note: each fatty acid bound to albumin; the control group gets fatty acid-free albumin alone
+- field: treatment
+  stated: palmitate-albumin + oleic acid-albumin + linoleic acid-albumin
+  terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351, treatment:fatty_acid_free_albumin]
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: relative NF-κB activity
+  terms: [measure:reporter_activity]
+  qualifiers:
+    reporter: NF-κB
+    expressed_as: normalised
+    normalised_to: β-Actin promoter-dependent Renilla luciferase activity
+- field: measure
+  stated: cell number
+  terms: [measure:cell_number]
+  note: cells per 2D culture after two weeks (Supplemental Results 2); the culture is the construct
+- field: measure
+  stated: intracellular fatty acid content
+  terms: [measure:metabolite_abundance]
+  qualifiers:
+    metabolite: nonesterified fatty acids
+    normalised_to: protein
+- field: measure
+  stated: fatty acid uptake rate
+  terms: [measure:fatty_acid_uptake]
+- field: measure
+  stated: calcium transient maximal upstroke velocity
+  terms: [measure:calcium_transient_rise_rate]
+  qualifiers: {statistic: maximum}
+- field: measure
+  stated: action potential duration at 50% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD50}
+- field: measure
+  stated: action potential duration at 90% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD90}
+- field: measure
+  stated: maximal mitochondrial respiratory capacity
+  terms: [measure:oxygen_consumption_rate]
+  note: the paper names it maximal capacity after FCCP (text, y axis) and defines it as FCCP minus baseline OCR, the
+    reserve capacity (title, Methods); the record labels this a suspected error, so the common parent
+- field: measure
+  stated: GO enrichment of upregulated genes
+  terms: [measure:enrichment_p_value]
+  qualifiers: {gene_set: upregulated genes, annotation: GO}
+- field: measure
+  stated: GO enrichment of downregulated genes
+  terms: [measure:enrichment_p_value]
+  qualifiers: {gene_set: downregulated genes, annotation: GO}
+- field: measure
+  stated: SCD mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SCD}
+- field: measure
+  stated: FADS2 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: FADS2}
+- field: measure
+  stated: SREBF1 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SREBF1}
+- field: measure
+  stated: CD36 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CD36}
+  note: RNA-seq (Fig. 6) and qPCR normalised to HPRT (Fig. 6D, S5B) share this wording, so normalised_to is left to the values
+- field: measure
+  stated: CPT-1A mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CPT1A}
+- field: measure
+  stated: SLC25A20 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SLC25A20}
+- field: measure
+  stated: ACADVL mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ACADVL}
+- field: measure
+  stated: ECH1 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ECH1}
+- field: measure
+  stated: ACAA2 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ACAA2}
+- field: measure
+  stated: PDK4 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PDK4}
+- field: measure
+  stated: ETFDH mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ETFDH}
+- field: measure
+  stated: CPT1B mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CPT1B}
+- field: measure
+  stated: GluT4 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SLC2A4}
+  note: GluT4 is the protein name of the gene SLC2A4
+- field: measure
+  stated: HK2 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: HK2}
+- field: measure
+  stated: MYH6 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH6}
+- field: measure
+  stated: MYH7 mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7}
+- field: measure
+  stated: NPPA mRNA
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NPPA}
+- field: measure
+  stated: myofibril gene mRNA
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: myofibril genes}
+- field: measure
+  stated: MYH6, MYH7 and NPPA mRNA
+  flag:
+    kind: several measures
+    note: one value names the mRNA of three genes (one item, no per-gene direction or data); split into one item per gene
+      as in TXT3, or say why it is one measure
+- field: measure
+  stated: cardiac troponin T-positive cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cardiac troponin T}
+- field: measure
+  stated: phospho-AMPK (Thr172)
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-AMPK (Thr172)}
+  note: western blot with GAPDH shown and Ponceau S loading; no total-protein ratio, so protein level
+- field: measure
+  stated: phospho-ACC
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-ACC}
+- field: measure
+  stated: phospho-Akt (Ser473)
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-Akt (Ser473)}
+- field: measure
+  stated: phospho-ERK
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-ERK}
+- field: measure
+  stated: phospho-p38 MAPK
+  terms: [measure:protein_level]
+  qualifiers: {protein: phospho-p38 MAPK}

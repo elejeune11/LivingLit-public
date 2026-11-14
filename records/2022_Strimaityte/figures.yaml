@@ -1,0 +1,122 @@
+figures:
+  fig2ef:
+    file: journal_version.pdf
+    page: 3
+    crop:
+    - 150
+    - 470
+    - 456
+    - 565
+    script: figures/fig2ef.py
+    unit: F2
+    kind: raster
+    groups:
+      e:Random Single:
+        item: F2_cv_rc_rs
+        group: rs
+        unit_of_value: μm/s
+      e:Random Cluster:
+        item: F2_cv_rc_rs
+        group: rc
+        unit_of_value: μm/s
+      e:Micropatterned single:
+        item: F2_cv_ms_rs
+        group: ms
+        unit_of_value: μm/s
+      e:iCMF:
+        item: F2_cv_icmf_rs
+        group: icmf
+        unit_of_value: μm/s
+      f:Random Single:
+        item: F2_rv_rc_rs
+        group: rs
+        unit_of_value: μm/s
+      f:Random Cluster:
+        item: F2_rv_rc_rs
+        group: rc
+        unit_of_value: μm/s
+      f:Micropatterned single:
+        item: F2_rv_ms_rs
+        group: ms
+        unit_of_value: μm/s
+      f:iCMF:
+        item: F2_rv_icmf_rs
+        group: icmf
+        unit_of_value: μm/s
+    note: 'Raster (one embedded 300 dpi image). Each group plots 60-80 translucent markers that overlap heavily (many stack
+      at 0), so no points or counts are read: bar means and upper error-bar ends only (countable false). Each label is linked
+      to one item of its measure; the same group sits in the other pair items of that measure. Error bars are not described
+      in the legend; in 2e they are narrow (SEM-like), in 2f wide (SD-like).'
+  fig5eg:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 284
+    - 414
+    - 470
+    - 633
+    script: figures/fig5eg.py
+    unit: F5
+    kind: raster
+    groups:
+      e:0.5 Hz:
+        item: F5e_variation_rc
+        group: rc_0p5Hz
+        unit_of_value: '%'
+      e:1 Hz:
+        item: F5e_variation_rc
+        group: rc_1Hz
+        unit_of_value: '%'
+      e:2 Hz:
+        item: F5e_variation_rc
+        group: rc_2Hz
+        unit_of_value: '%'
+      e:3 Hz:
+        item: F5e_variation_rc
+        group: rc_3Hz
+        unit_of_value: '%'
+      e:5 Hz:
+        item: F5e_variation_rc
+        group: rc_5Hz
+        unit_of_value: '%'
+      g:0.5 Hz:
+        item: F5g_variation_icmf
+        group: icmf_0p5Hz
+        unit_of_value: '%'
+      g:1 Hz:
+        item: F5g_variation_icmf
+        group: icmf_1Hz
+        unit_of_value: '%'
+      g:2 Hz:
+        item: F5g_variation_icmf
+        group: icmf_2Hz
+        unit_of_value: '%'
+      g:3 Hz:
+        item: F5g_variation_icmf
+        group: icmf_3Hz
+        unit_of_value: '%'
+      g:5 Hz:
+        item: F5g_variation_icmf
+        group: icmf_5Hz
+        unit_of_value: '%'
+      g:6 Hz:
+        item: F5g_variation_icmf
+        group: icmf_6Hz
+        unit_of_value: '%'
+      g:7 Hz:
+        item: F5g_variation_icmf
+        group: icmf_7Hz
+        unit_of_value: '%'
+    note: Raster (one embedded 300 dpi image). Fig. 5e and 5g plot N = 4 markers per frequency with a black mean line and
+      error bar (type not stated in the legend). Markers overlap each other and the mean line in every column but e 5 Hz,
+      so points are read for e 5 Hz only (one of its four diamonds is crossed by the error-bar line and read from the two
+      slivers either side); every other column gives its mean only, plus the upper error-bar end in e (in g the error bars
+      are drawn in the group colour over the markers and are not read). Fig. 5d and 5f (intervals) are bars with no individual
+      points and are not read.
+no_points:
+  F4io: 'first look (small model): Violin plots with median/quartile lines; no individual sample markers visible (journal_version.pdf
+    p. 6)'
+  F6: 'first look (small model): Bar charts with SEM error bars only; no individual sample markers visible. (journal_version.pdf
+    p. 8)'
+  S6: 'first look (small model): Panels a–j are bars with SEM error bars; no per-sample markers visible. (am2c07326_si_001.pdf p.
+    7)'

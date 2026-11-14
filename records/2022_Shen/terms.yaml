@@ -1,0 +1,154 @@
+record: 2022_Shen
+vocabulary_version: 10
+agent: {model: llm, instructions: terms_v3}
+# Re-map v3. Edits from the earlier run (vocabulary 4) are in the log already and are left out here;
+# only the edits below are new. The relative_* measure terms stay in the vocabulary but no mapping uses them.
+edits:
+- add_synonym: {id: mechanical_load:isometric, text: isometric, anchor: "EHT grown under isometric conditions"}
+# ---------------------------------------------------------------- standing keys (revised)
+# Relative values now map to the base measure with expressed_as / normalised_to / level, so the base keys need them:
+# a % change before isoproterenol and a dF/F0 are both '% change' and differ only by normalised_to.
+- standing_key:
+    measure: measure:twitch_force
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_amplitude
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contraction_time_to_peak
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:relaxation_time
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_decay_time
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+# Force ratios measured in the bath: the bath calcium (measurement_calcium_mM), not the culture calcium, must match.
+- standing_key:
+    measure: measure:diastolic_excess_fraction
+    value: {must_match: [platform@1, preparation, temperature, measurement_calcium_mM], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:force_frequency_relationship
+    value: {must_match: [platform@1, preparation, temperature, measurement_calcium_mM], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:relative_twitch_force
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, culture_calcium_mM, measure.normalised_to, measure.expressed_as, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, treatment, measure.normalised_to, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relative_time_to_peak_force
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, measure.normalised_to, measure.expressed_as, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, treatment, measure.normalised_to]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relative_relaxation_time
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, measure.level, measure.normalised_to, measure.expressed_as, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, treatment, measure.level, measure.normalised_to]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relative_calcium_transient_amplitude
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, measure.normalised_to, measure.expressed_as, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, treatment, measure.normalised_to]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relative_calcium_transient_decay_time
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, measure.level, measure.normalised_to, measure.expressed_as, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, treatment, measure.level, measure.normalised_to]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:diastolic_excess_fraction
+    value:
+      must_match: [platform@1, preparation, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:force_frequency_relationship
+    value:
+      must_match: [platform@1, preparation, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:differentially_expressed_gene_count
+    value:
+      must_match: [platform@1, preparation, contrast, method, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- {field: substrate, stated: decellularized porcine myocardium, terms: [substrate:decellularized_myocardium], qualifiers: {species: porcine}}
+- {field: purification, stated: lactate, terms: [purification:metabolic_selection], qualifiers: {substrate: lactate}, note: "the reader's value names the selection substrate; the 4 mM, 4-day lactate treatment is metabolic selection"}
+- {field: cm_medium, stated: high-glucose DMEM, terms: [cm_medium:dmem], qualifiers: {glucose: high glucose}}
+- {field: cm_medium, stated: high-glucose RPMI, terms: [cm_medium:rpmi_1640], qualifiers: {glucose: high glucose}, note: "the paper's RPMI is RPMI 1640 (ATCC modification); the formulation qualifier is not filled from another field"}
+- {field: maturation_strategy, stated: rapid pacing, terms: [maturation_strategy:electrical_stimulation], note: "Zhao et al. 2019 as cited; the paper does not say whether the rate was fixed or raised, so the broader term"}
+- {field: platform, stated: engineered three-dimensional tissues, terms: [platform:engineered_3d], note: "Mills et al. 2017 as cited; the printed text has '[3D]' inside the phrase, so no synonym"}
+- {field: cell_line, stated: second healthy control line, terms: [cell_line:shen_pbmc_healthy_male_ipsc]}
+# ---------------------------------------------------------------- measures
+- {field: measure, stated: normalized peak force, terms: [measure:twitch_force], qualifiers: {expressed_as: normalised}, note: "systolic peak force across 1-3 Hz printed as 'Normalized FFR'; the reference force is not stated, so no normalised_to"}
+- {field: measure, stated: time to peak, terms: [measure:contraction_time_to_peak], note: "time to peak of isometric force; no synonym because 'time to peak' alone is broader (it could name a calcium transient)"}
+- {field: measure, stated: time to 50% relaxation, terms: [measure:relaxation_time], qualifiers: {level: 50%}}
+- {field: measure, stated: Ca2+ transient decay time constant t80, terms: [measure:calcium_transient_decay_time], qualifiers: {level: 80%}, note: "defined as decay from peak to 80% relaxation, a time to a level, not a fitted constant"}
+- {field: measure, stated: systolic force increase with isoproterenol, terms: [measure:twitch_force], qualifiers: {expressed_as: '% change', normalised_to: before isoproterenol}, note: "'Systolic force increases in percentage' (Fig. 3C)"}
+- {field: measure, stated: time to peak change with isoproterenol, terms: [measure:contraction_time_to_peak], qualifiers: {expressed_as: '% change', normalised_to: before isoproterenol}, note: "'TTP changes in percentage' (Fig. 3D)"}
+- {field: measure, stated: time to 50% relaxation change with isoproterenol, terms: [measure:relaxation_time], qualifiers: {level: 50%, expressed_as: '% change', normalised_to: before isoproterenol}, note: "'RT50 change in percentage' (Fig. 3E)"}
+- {field: measure, stated: Ca2+ transient intensity increase with isoproterenol, terms: [measure:calcium_transient_amplitude], qualifiers: {expressed_as: '% change', normalised_to: before isoproterenol}}
+- {field: measure, stated: Ca2+ transient decay time constant t80 change with isoproterenol, terms: [measure:calcium_transient_decay_time], qualifiers: {level: 80%, expressed_as: '% change', normalised_to: before isoproterenol}, note: "t80 is decay from peak to 80% relaxation, a time to a level"}
+- {field: measure, stated: TPM1 content, terms: [measure:protein_level], qualifiers: {protein: TPM1}}
+- {field: measure, stated: SERCA content, terms: [measure:protein_level], qualifiers: {protein: SERCA}}
+- {field: measure, stated: PLN content, terms: [measure:protein_level], qualifiers: {protein: PLN}}
+- {field: measure, stated: p-PLN content, terms: [measure:protein_level], qualifiers: {protein: p-PLN}}
+- {field: measure, stated: cTnI content, terms: [measure:protein_level], qualifiers: {protein: cTnI}}
+- {field: measure, stated: p-cTnI content, terms: [measure:protein_level], qualifiers: {protein: p-cTnI}}
+- {field: measure, stated: RNA expression of genes of interest, flag: {kind: several measures, note: "a heat map over many genes; gene expression is one measure per gene, so the item needs one value per gene or the genes named"}}
+- {field: measure, stated: S100A4 expression, terms: [measure:gene_expression], qualifiers: {gene: S100A4}}
+- {field: measure, stated: CACNA2D1 expression, terms: [measure:gene_expression], qualifiers: {gene: CACNA2D1}}
+- {field: measure, stated: TNNI3 expression, terms: [measure:gene_expression], qualifiers: {gene: TNNI3}}
+- {field: measure, stated: MYL2 expression, terms: [measure:gene_expression], qualifiers: {gene: MYL2}}
+- {field: measure, stated: SLC8A1 expression, terms: [measure:gene_expression], qualifiers: {gene: SLC8A1}}
+- {field: measure, stated: SCN5A expression, terms: [measure:gene_expression], qualifiers: {gene: SCN5A}}
+- {field: measure, stated: ATP1A3 expression, terms: [measure:gene_expression], qualifiers: {gene: ATP1A3}}
+- {field: measure, stated: KCND3 expression, terms: [measure:gene_expression], qualifiers: {gene: KCND3}}
+- {field: measure, stated: PPARGC1A expression, terms: [measure:gene_expression], qualifiers: {gene: PPARGC1A}}
+- {field: measure, stated: PPARA expression, terms: [measure:gene_expression], qualifiers: {gene: PPARA}}
+- {field: measure, stated: NPPA expression, terms: [measure:gene_expression], qualifiers: {gene: NPPA}}
+- {field: measure, stated: NPPB expression, terms: [measure:gene_expression], qualifiers: {gene: NPPB}}
+- {field: measure, stated: CASQ2 expression, terms: [measure:gene_expression], qualifiers: {gene: CASQ2}}
+- {field: measure, stated: AKAP6 expression, terms: [measure:gene_expression], qualifiers: {gene: AKAP6}}
+- {field: measure, stated: ATP2A2 expression, terms: [measure:gene_expression], qualifiers: {gene: ATP2A2}}
+- {field: measure, stated: CASQ1 expression, terms: [measure:gene_expression], qualifiers: {gene: CASQ1}}
+- {field: measure, stated: Akt expression, terms: [measure:gene_expression], qualifiers: {gene: Akt}, note: "Akt as a node of the KEGG PI3K-Akt pathway analysis of RNA-seq data; the paper does not name AKT1/2/3"}
+- {field: measure, stated: log2 fold change of 50 cardiac genes, flag: {kind: several measures, note: "50 genes in one item; gene expression is one measure per gene"}}
+- {field: measure, stated: amino acids concentration, terms: [measure:medium_component_concentration], qualifiers: {component: total amino acids}}
+- {field: measure, stated: vitamin concentration, terms: [measure:medium_component_concentration], qualifiers: {component: total vitamins}}
+- {field: measure, stated: Na+ concentration, terms: [measure:medium_component_concentration], qualifiers: {component: Na+}}
+- {field: measure, stated: K+ concentration, terms: [measure:medium_component_concentration], qualifiers: {component: K+}}
+- {field: measure, stated: Mg2+ concentration, terms: [measure:medium_component_concentration], qualifiers: {component: Mg2+}}
+- {field: measure, stated: Ca2+ concentration, terms: [measure:medium_component_concentration], qualifiers: {component: Ca2+}}
+- {field: measure, stated: glucose concentration, terms: [measure:medium_component_concentration], qualifiers: {component: glucose}}

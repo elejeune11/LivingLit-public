@@ -1,0 +1,420 @@
+figures:
+  F1g:
+    file: 41467_2017_Article_1946.pdf
+    page: 3
+    crop: [55, 640, 160, 740]
+    script: figures/F1g.py
+    unit: F1g
+    kind: vector
+    groups:
+      w2_vs_w1.w2: {item: F1g_w2_vs_w1, group: w2, unit_of_value: '%'}
+      w2_vs_w1.w1: {item: F1g_w2_vs_w1, group: w1, unit_of_value: '%'}
+      w3_vs_w2.w3: {item: F1g_w3_vs_w2, group: w3, unit_of_value: '%'}
+      w3_vs_w2.w2: {item: F1g_w3_vs_w2, group: w2, unit_of_value: '%'}
+      w3_vs_w1.w3: {item: F1g_w3_vs_w1, group: w3, unit_of_value: '%'}
+      w3_vs_w1.w1: {item: F1g_w3_vs_w1, group: w1, unit_of_value: '%'}
+    note: Bar chart of mean ± SEM (upper bar only drawn); no individual points, so no counts. Each week's bar is
+      returned under one label per comparison item it enters.
+  F1i:
+    file: 41467_2017_Article_1946.pdf
+    page: 3
+    crop: [175, 645, 290, 740]
+    script: figures/F1i.py
+    unit: F1i
+    kind: vector
+    groups:
+      mlc2v_w2_vs_w1.w2: {item: F1i_mlc2v_w2_vs_w1, group: w2, unit_of_value: '%'}
+      mlc2v_w2_vs_w1.w1: {item: F1i_mlc2v_w2_vs_w1, group: w1, unit_of_value: '%'}
+      mlc2v_w3_vs_w1.w3: {item: F1i_mlc2v_w3_vs_w1, group: w3, unit_of_value: '%'}
+      mlc2v_w3_vs_w1.w1: {item: F1i_mlc2v_w3_vs_w1, group: w1, unit_of_value: '%'}
+      mlc2a2v_w2_vs_w1.w2: {item: F1i_mlc2a2v_w2_vs_w1, group: w2, unit_of_value: '%'}
+      mlc2a2v_w2_vs_w1.w1: {item: F1i_mlc2a2v_w2_vs_w1, group: w1, unit_of_value: '%'}
+      mlc2a2v_w3_vs_w1.w3: {item: F1i_mlc2a2v_w3_vs_w1, group: w3, unit_of_value: '%'}
+      mlc2a2v_w3_vs_w1.w1: {item: F1i_mlc2a2v_w3_vs_w1, group: w1, unit_of_value: '%'}
+    note: Grouped bar chart (MLC2a+2v orange, MLC2v green, per legend) of mean ± SEM (upper bar only drawn); no
+      individual points, so no counts. Y tick labels are printed 0/33/67/100% on equally spaced ticks; the rounded
+      labels are used as printed and their misfit widens every interval. Each bar is returned under one label per
+      comparison item it enters. Panel h (images) has no values.
+  F2b:
+    file: 41467_2017_Article_1946.pdf
+    page: 4
+    crop: [228, 50, 395, 182]
+    script: figures/F2b.py
+    unit: F2b
+    kind: vector
+    groups:
+      force_w2_vs_w1.w2: {item: F2b_force_w2_vs_w1, group: w2, unit_of_value: mN}
+      force_w2_vs_w1.w1: {item: F2b_force_w2_vs_w1, group: w1, unit_of_value: mN}
+      force_w3_vs_w1.w3: {item: F2b_force_w3_vs_w1, group: w3, unit_of_value: mN}
+      force_w3_vs_w1.w1: {item: F2b_force_w3_vs_w1, group: w1, unit_of_value: mN}
+      specific_w2_vs_w1.w2: {item: F2b_specific_w2_vs_w1, group: w2, unit_of_value: mN/mm2}
+      specific_w2_vs_w1.w1: {item: F2b_specific_w2_vs_w1, group: w1, unit_of_value: mN/mm2}
+      specific_w3_vs_w1.w3: {item: F2b_specific_w3_vs_w1, group: w3, unit_of_value: mN/mm2}
+      specific_w3_vs_w1.w1: {item: F2b_specific_w3_vs_w1, group: w1, unit_of_value: mN/mm2}
+    note: Two vector bar charts (left max active force, right specific force) of mean ± SEM (upper bar only
+      drawn); no individual points, so no counts. Weeks are named by the legend's fill colours. Each bar is
+      returned under one label per comparison item it enters.
+  F2e:
+    file: 41467_2017_Article_1946.pdf
+    page: 4
+    crop: [317, 200, 410, 325]
+    script: figures/F2e.py
+    unit: F2e
+    kind: vector
+    groups:
+      cv_w2_vs_w1.w2: {item: F2e_cv_w2_vs_w1, group: w2, unit_of_value: cm/s}
+      cv_w2_vs_w1.w1: {item: F2e_cv_w2_vs_w1, group: w1, unit_of_value: cm/s}
+      cv_w3_vs_w1.w3: {item: F2e_cv_w3_vs_w1, group: w3, unit_of_value: cm/s}
+      cv_w3_vs_w1.w1: {item: F2e_cv_w3_vs_w1, group: w1, unit_of_value: cm/s}
+    note: Vector bar chart of mean ± SEM (upper bar only drawn); no individual points, so no counts. Weeks are
+      named by the legend's fill colours. Each bar is returned under one label per comparison item it enters.
+      Panel d (activation maps) prints CV of representative patches only, not values read here.
+  F2gj:
+    file: 41467_2017_Article_1946.pdf
+    page: 4
+    crop: [55, 335, 530, 525]
+    script: figures/F2gj.py
+    unit: F2gj
+    kind: vector
+    groups:
+      force_omnibus.rb: {item: F2gj_force_omnibus, group: rb, unit_of_value: mN}
+      force_omnibus.fbs14: {item: F2gj_force_omnibus, group: fbs14, unit_of_value: mN}
+      force_omnibus.fbs7: {item: F2gj_force_omnibus, group: fbs7, unit_of_value: mN}
+      force_omnibus.fbs0: {item: F2gj_force_omnibus, group: fbs0, unit_of_value: mN}
+      cv_omnibus.rb: {item: F2gj_cv_omnibus, group: rb, unit_of_value: cm/s}
+      cv_omnibus.fbs14: {item: F2gj_cv_omnibus, group: fbs14, unit_of_value: cm/s}
+      cv_omnibus.fbs7: {item: F2gj_cv_omnibus, group: fbs7, unit_of_value: cm/s}
+      cv_omnibus.fbs0: {item: F2gj_cv_omnibus, group: fbs0, unit_of_value: cm/s}
+      specific_rb_vs_fbs14.rb: {item: F2gj_specific_rb_vs_fbs14, group: rb, unit_of_value: mN/mm2}
+      specific_rb_vs_fbs14.fbs14: {item: F2gj_specific_rb_vs_fbs14, group: fbs14, unit_of_value: mN/mm2}
+      specific_rb_vs_fbs7.rb: {item: F2gj_specific_rb_vs_fbs7, group: rb, unit_of_value: mN/mm2}
+      specific_rb_vs_fbs7.fbs7: {item: F2gj_specific_rb_vs_fbs7, group: fbs7, unit_of_value: mN/mm2}
+      specific_rb_vs_fbs0.rb: {item: F2gj_specific_rb_vs_fbs0, group: rb, unit_of_value: mN/mm2}
+      specific_rb_vs_fbs0.fbs0: {item: F2gj_specific_rb_vs_fbs0, group: fbs0, unit_of_value: mN/mm2}
+      apd_rb_vs_fbs14.rb: {item: F2gj_apd_rb_vs_fbs14, group: rb, unit_of_value: ms}
+      apd_rb_vs_fbs14.fbs14: {item: F2gj_apd_rb_vs_fbs14, group: fbs14, unit_of_value: ms}
+      apd_rb_vs_fbs7.rb: {item: F2gj_apd_rb_vs_fbs7, group: rb, unit_of_value: ms}
+      apd_rb_vs_fbs7.fbs7: {item: F2gj_apd_rb_vs_fbs7, group: fbs7, unit_of_value: ms}
+      apd_rb_vs_fbs0.rb: {item: F2gj_apd_rb_vs_fbs0, group: rb, unit_of_value: ms}
+      apd_rb_vs_fbs0.fbs0: {item: F2gj_apd_rb_vs_fbs0, group: fbs0, unit_of_value: ms}
+    note: Four vector bar charts (g max active force, h specific force, i CV, j APD80) of mean ± SEM (upper bar
+      only drawn); no individual points, so no counts. Groups are named by the rotated x-axis labels under each
+      bar. Each bar is returned under one label per comparison item it enters.
+  F3bde:
+    file: 41467_2017_Article_1946.pdf
+    page: 5
+    crop: [465, 60, 532, 185]
+    script: figures/F3bde.py
+    unit: F3bde
+    kind: vector
+    groups:
+      cellnumber.mm05: {item: F3e_cellnumber, group: mm05, unit_of_value: Norm. cell number}
+      cellnumber.mm1: {item: F3e_cellnumber, group: mm1, unit_of_value: Norm. cell number}
+    note: Panel e only, a vector bar chart of mean ± SEM (upper bar only drawn) of cell number normalised to 1MM
+      patches (axis printed as a fraction, 0–1.2; the record prints the result as 54%); no individual points, so
+      no counts. Groups are named by the legend's fill colours. Panels b and d have their means printed in the
+      text; relative volume (F3e_volume) and cell size (F3e_cellsize) are not plotted in Fig. 3, so they have no
+      reading.
+  S9:
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+    page: 9
+    crop: [165, 270, 485, 400]
+    script: figures/S9.py
+    unit: S9
+    kind: vector
+    groups:
+      relaxation.mm05: {item: S9_relaxation, group: mm05, unit_of_value: ms}
+      relaxation.mm1: {item: S9_relaxation, group: mm1, unit_of_value: ms}
+      duration.mm05: {item: S9_duration, group: mm05, unit_of_value: ms}
+      duration.mm1: {item: S9_duration, group: mm1, unit_of_value: ms}
+    note: Panels B (relaxation time) and C (twitch duration), vector bar charts of mean ± SEM (upper bar only
+      drawn); no individual points, so no counts. Groups are named by the legend's fill colours, panels by their
+      y-axis titles. Panel A (rise time) is not read; its means and SEMs are printed in the Results.
+  F4a:
+    file: 41467_2017_Article_1946.pdf
+    page: 6
+    crop: [40, 45, 540, 212]
+    script: figures/F4a.py
+    unit: F4a
+    kind: vector
+    groups:
+      TNNI3.d0: {item: F4a_TNNI3, group: d0, unit_of_value: Expression rel. to LV}
+      TNNI3.w1: {item: F4a_TNNI3, group: w1, unit_of_value: Expression rel. to LV}
+      TNNI3.w2: {item: F4a_TNNI3, group: w2, unit_of_value: Expression rel. to LV}
+      TNNI3.w3: {item: F4a_TNNI3, group: w3, unit_of_value: Expression rel. to LV}
+      MYL2.d0: {item: F4a_MYL2, group: d0, unit_of_value: Expression rel. to LV}
+      MYL2.w1: {item: F4a_MYL2, group: w1, unit_of_value: Expression rel. to LV}
+      MYL2.w2: {item: F4a_MYL2, group: w2, unit_of_value: Expression rel. to LV}
+      MYL2.w3: {item: F4a_MYL2, group: w3, unit_of_value: Expression rel. to LV}
+      MYOM2.d0: {item: F4a_MYOM2, group: d0, unit_of_value: Expression rel. to LV}
+      MYOM2.w1: {item: F4a_MYOM2, group: w1, unit_of_value: Expression rel. to LV}
+      MYOM2.w2: {item: F4a_MYOM2, group: w2, unit_of_value: Expression rel. to LV}
+      MYOM2.w3: {item: F4a_MYOM2, group: w3, unit_of_value: Expression rel. to LV}
+      MYOM3.d0: {item: F4a_MYOM3, group: d0, unit_of_value: Expression rel. to LV}
+      MYOM3.w1: {item: F4a_MYOM3, group: w1, unit_of_value: Expression rel. to LV}
+      MYOM3.w2: {item: F4a_MYOM3, group: w2, unit_of_value: Expression rel. to LV}
+      MYOM3.w3: {item: F4a_MYOM3, group: w3, unit_of_value: Expression rel. to LV}
+      CASQ2.d0: {item: F4a_CASQ2, group: d0, unit_of_value: Expression rel. to LV}
+      CASQ2.w1: {item: F4a_CASQ2, group: w1, unit_of_value: Expression rel. to LV}
+      CASQ2.w2: {item: F4a_CASQ2, group: w2, unit_of_value: Expression rel. to LV}
+      CASQ2.w3: {item: F4a_CASQ2, group: w3, unit_of_value: Expression rel. to LV}
+      S100A1.d0: {item: F4a_S100A1, group: d0, unit_of_value: Expression rel. to LV}
+      S100A1.w1: {item: F4a_S100A1, group: w1, unit_of_value: Expression rel. to LV}
+      S100A1.w2: {item: F4a_S100A1, group: w2, unit_of_value: Expression rel. to LV}
+      S100A1.w3: {item: F4a_S100A1, group: w3, unit_of_value: Expression rel. to LV}
+      PLN.d0: {item: F4a_PLN, group: d0, unit_of_value: Expression rel. to LV}
+      PLN.w1: {item: F4a_PLN, group: w1, unit_of_value: Expression rel. to LV}
+      PLN.w2: {item: F4a_PLN, group: w2, unit_of_value: Expression rel. to LV}
+      PLN.w3: {item: F4a_PLN, group: w3, unit_of_value: Expression rel. to LV}
+      COX6A2.d0: {item: F4a_COX6A2, group: d0, unit_of_value: Expression rel. to LV}
+      COX6A2.w1: {item: F4a_COX6A2, group: w1, unit_of_value: Expression rel. to LV}
+      COX6A2.w2: {item: F4a_COX6A2, group: w2, unit_of_value: Expression rel. to LV}
+      COX6A2.w3: {item: F4a_COX6A2, group: w3, unit_of_value: Expression rel. to LV}
+      CKMT2.d0: {item: F4a_CKMT2, group: d0, unit_of_value: Expression rel. to LV}
+      CKMT2.w1: {item: F4a_CKMT2, group: w1, unit_of_value: Expression rel. to LV}
+      CKMT2.w2: {item: F4a_CKMT2, group: w2, unit_of_value: Expression rel. to LV}
+      CKMT2.w3: {item: F4a_CKMT2, group: w3, unit_of_value: Expression rel. to LV}
+      CKM.d0: {item: F4a_CKM, group: d0, unit_of_value: Expression rel. to LV}
+      CKM.w1: {item: F4a_CKM, group: w1, unit_of_value: Expression rel. to LV}
+      CKM.w2: {item: F4a_CKM, group: w2, unit_of_value: Expression rel. to LV}
+      CKM.w3: {item: F4a_CKM, group: w3, unit_of_value: Expression rel. to LV}
+    note: Vector bar chart on a log axis (0.0001-1.0000) of mean + upper error bar (error type not stated in the
+      legend); no individual points, so no counts. Bars are assigned d0/1wk/2wk/3wk by order within each gene;
+      the 2wk bars of MYL2 and MYOM2 use a blue that differs from the legend's 2wk square. Middle and right
+      sections have no y ticks of their own; their x-axis lines are offset by 0.40/0.29 pt and the intervals
+      widened by that. F4a_fold_range (3- to 163-fold, all genes pooled) has no single bar and is not read.
+  F4b:
+    file: 41467_2017_Article_1946.pdf
+    page: 6
+    crop: [55, 235, 165, 390]
+    script: figures/F4b.py
+    unit: F4b
+    kind: vector
+    groups:
+      MYOM3.mm05: {item: F4b_MYOM3, group: mm05, unit_of_value: Gene expr. rel. to 1MM}
+      MYOM3.mm1: {item: F4b_MYOM3, group: mm1, unit_of_value: Gene expr. rel. to 1MM}
+      CASQ2.mm05: {item: F4b_CASQ2, group: mm05, unit_of_value: Gene expr. rel. to 1MM}
+      CASQ2.mm1: {item: F4b_CASQ2, group: mm1, unit_of_value: Gene expr. rel. to 1MM}
+      S100A1.mm05: {item: F4b_S100A1, group: mm05, unit_of_value: Gene expr. rel. to 1MM}
+      S100A1.mm1: {item: F4b_S100A1, group: mm1, unit_of_value: Gene expr. rel. to 1MM}
+      COX6A2.mm05: {item: F4b_COX6A2, group: mm05, unit_of_value: Gene expr. rel. to 1MM}
+      COX6A2.mm1: {item: F4b_COX6A2, group: mm1, unit_of_value: Gene expr. rel. to 1MM}
+    note: Vector bar chart (linear axis 0-2) of mean + upper error bar (error type not stated for this panel); no
+      individual points, so no counts. Groups are named by the legend's fill colours, genes by the rotated labels
+      in x order against the category ticks. The 1MM bars are the reference (near 1) and carry their own error bars.
+  F4ce:
+    file: 41467_2017_Article_1946.pdf
+    page: 6
+    crop: [160, 240, 540, 400]
+    script: figures/F4ce.py
+    unit: F4ce
+    kind: vector
+    groups:
+      proteindna.mm05: {item: F4c_proteindna, group: mm05, unit_of_value: Protein/DNA ratio (norm.)}
+      proteindna.mm1: {item: F4c_proteindna, group: mm1, unit_of_value: Protein/DNA ratio (norm.)}
+      bMHC.mm05: {item: F4e_bMHC, group: mm05, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      bMHC.mm1: {item: F4e_bMHC, group: mm1, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      SAA.mm05: {item: F4e_SAA, group: mm05, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      SAA.mm1: {item: F4e_SAA, group: mm1, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      Cx43.mm05: {item: F4e_Cx43, group: mm05, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      Cx43.mm1: {item: F4e_Cx43, group: mm1, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      gapdh.mm05: {item: F4e_gapdh, group: mm05, unit_of_value: Expr. rel. to LamB1 (norm.)}
+      gapdh.mm1: {item: F4e_gapdh, group: mm1, unit_of_value: Expr. rel. to LamB1 (norm.)}
+    note: Panels c (protein/DNA, one category) and e (four proteins), vector bar charts of mean + upper error bar
+      (error type not stated in the panel legend); no individual points, so no counts. Groups are named by panel
+      e's legend fills (panel c has no legend and uses the same red/blue fills). Genes are the rotated labels in x
+      order against the category ticks. Panel e's d0 bars enter no item and are not returned. Panel d (blots) has
+      no values.
+  S11:
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+    page: 11
+    crop: [100, 180, 510, 510]
+    script: figures/S11.py
+    unit: S11
+    kind: vector
+    groups:
+      TNNI3.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      TNNI3.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      MYL2.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      MYL2.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      MYOM2.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      MYOM2.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      MYOM3.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      MYOM3.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      CASQ2.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      CASQ2.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      S100A1.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      S100A1.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      PLN.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      PLN.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      COX6A2.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      COX6A2.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      CKMT2.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      CKMT2.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      CKM.patch_vs_d0.patch: {item: S11_patch_vs_d0, group: patch, unit_of_value: Expression rel. to d0}
+      CKM.patch_vs_d0.d0: {item: S11_patch_vs_d0, group: d0, unit_of_value: Expression rel. to d0}
+      TNNI3.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      TNNI3.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      MYL2.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      MYL2.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      MYOM2.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      MYOM2.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      MYOM3.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      MYOM3.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      CASQ2.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      CASQ2.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      S100A1.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      S100A1.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      PLN.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      PLN.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      COX6A2.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      COX6A2.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      CKMT2.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      CKMT2.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+      CKM.patch_vs_mono.patch: {item: S11_patch_vs_mono, group: patch, unit_of_value: Expression rel. to monolayer}
+      CKM.patch_vs_mono.mono: {item: S11_patch_vs_mono, group: mono, unit_of_value: Expression rel. to monolayer}
+    note: Two rows (A rel. to d0, B rel. to monolayer) of three vector grouped bar charts of mean ± SEM (upper bar
+      only drawn); no individual points, so no counts. Groups are named by each row's legend fills. Gene names under
+      the bars are glyph outlines, not text, so the script fixes their left-to-right order (asserting the category
+      count per axis); each item covers ten genes, so ten labels feed each (item, group).
+  S12:
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+    page: 12
+    crop: [430, 195, 570, 480]
+    script: figures/S12.py
+    unit: S12
+    kind: vector
+    groups:
+      Akt.mm05: {item: S12_Akt, group: mm05, unit_of_value: Relative phosphorylation}
+      Akt.mm1: {item: S12_Akt, group: mm1, unit_of_value: Relative phosphorylation}
+      mTOR.mm05: {item: S12_mTOR, group: mm05, unit_of_value: Relative phosphorylation}
+      mTOR.mm1: {item: S12_mTOR, group: mm1, unit_of_value: Relative phosphorylation}
+      AMPK.mm05: {item: S12_AMPK, group: mm05, unit_of_value: Relative phosphorylation}
+      AMPK.mm1: {item: S12_AMPK, group: mm1, unit_of_value: Relative phosphorylation}
+    note: Panel B, a vector grouped bar chart of mean ± SEM (upper bar only drawn), normalised to 1MM; no individual
+      points, so no counts. Groups are named by the legend's fill colours. The category names under the bars are
+      glyph outlines, so the script fixes their order (Akt, mTOR, AMPK) and asserts three category slots. Panel A
+      (blots) has no values.
+  S14:
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+    page: 14
+    crop: [325, 128, 460, 240]
+    script: figures/S14.py
+    unit: S14
+    kind: vector
+    groups:
+      JPH2.patch: {item: S14_JPH2, group: patch, unit_of_value: Exp. rel. to GAPDH}
+      JPH2.d0: {item: S14_JPH2, group: d0, unit_of_value: Exp. rel. to GAPDH}
+      Cav3.patch: {item: S14_Cav3, group: patch, unit_of_value: Exp. rel. to GAPDH}
+      Cav3.d0: {item: S14_Cav3, group: d0, unit_of_value: Exp. rel. to GAPDH}
+    note: Panel B, a vector grouped bar chart of mean ± SEM (upper bar only drawn); no individual points, so no
+      counts. Groups are named by the legend (d0 an unfilled outline, Patch a blue fill), categories by the JPH2/Cav3
+      words under each slot. Cav3 d0 is a near-zero bar (about 0.02) with a very short error bar. Panel A (blots),
+      C and D (images) have no values.
+  S5b:
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+    page: 5
+    crop: [110, 300, 295, 482]
+    script: figures/S5b.py
+    unit: S5b
+    kind: vector
+    groups:
+      f15.f15: {item: S5b_f15, group: f15, unit_of_value: Force (norm. to 1Hz)}
+      f15.f1: {item: S5b_f15, group: f1, unit_of_value: Force (norm. to 1Hz)}
+      f2.f2: {item: S5b_f2, group: f2, unit_of_value: Force (norm. to 1Hz)}
+      f2.f1: {item: S5b_f2, group: f1, unit_of_value: Force (norm. to 1Hz)}
+    note: Panel B, a vector line plot of mean force normalised to 1 Hz at 1, 1.5 and 2 Hz, with mean ± SEM error
+      bars at 1.5 and 2 Hz; no individual points, so no counts. Means are the vertices of the black polyline,
+      frequencies the labels under each slot. The 1 Hz mean is the normalisation reference (1 by construction)
+      and has no error bar. The axis is a fraction (0–1.2); the record prints the results in %. Panel A (traces)
+      and C–E (scatter plots of 2 Hz force vs twitch timings) enter no S5b item and are not read.
+  F5ef:
+    file: 41467_2017_Article_1946.pdf
+    page: 7
+    crop: [128, 436, 304, 592]
+    script: figures/F5ef.py
+    unit: F5ef
+    kind: vector
+    groups:
+      cv.ctrl: {item: F5e_cv, group: ctrl, unit_of_value: cm/s}
+      apd.ctrl: {item: F5f_apd, group: ctrl, unit_of_value: ms}
+    note: Panels e (CV) and f (APD80), vector bar charts of mean ± SEM (upper bar only drawn); no individual
+      points, so no counts. Only the Ctrl bars are read (solid fill above the rotated word Ctrl); the Mega and
+      Giga means and SEMs are printed in the Results. Panels are named by their y-axis titles. Panel d
+      (activation maps) has no group values.
+  F5hi:
+    file: 41467_2017_Article_1946.pdf
+    page: 7
+    crop: [304, 436, 470, 592]
+    script: figures/F5hi.py
+    unit: F5hi
+    kind: vector
+    groups:
+      giga_vs_ctrl.giga: {item: F5h_giga_vs_ctrl, group: giga, unit_of_value: Max active force (norm.)}
+      giga_vs_ctrl.ctrl: {item: F5h_giga_vs_ctrl, group: ctrl, unit_of_value: Max active force (norm.)}
+      giga_vs_mega.giga: {item: F5h_giga_vs_mega, group: giga, unit_of_value: Max active force (norm.)}
+      giga_vs_mega.mega: {item: F5h_giga_vs_mega, group: mega, unit_of_value: Max active force (norm.)}
+      specific.ctrl: {item: F5i_specific, group: ctrl, unit_of_value: Spec force (norm)}
+      specific.mega: {item: F5i_specific, group: mega, unit_of_value: Spec force (norm)}
+      specific.giga: {item: F5i_specific, group: giga, unit_of_value: Spec force (norm)}
+    note: Panels h (max active force) and i (specific force), vector bar charts of mean ± SEM (upper bar only
+      drawn), normalised to Ctrl; no individual points, so no counts. Bars are named by the rotated category
+      words below them, panels by their y-axis titles. Bar tops are the centre of each outline's top stroke
+      (Mega and Giga are hatched outlines). Each bar is returned under one label per comparison item it enters.
+  F6c:
+    file: 41467_2017_Article_1946.pdf
+    page: 8
+    crop: [275, 158, 372, 330]
+    script: figures/F6c.py
+    unit: F6c
+    kind: vector
+    groups:
+      time.patch_d14: {item: F6c_time, group: patch_d14, unit_of_value: BVD (A.U.)}
+      time.blank_d14: {item: F6c_time, group: blank_d14, unit_of_value: BVD (A.U.)}
+      time.patch_d7: {item: F6c_time, group: patch_d7, unit_of_value: BVD (A.U.)}
+      time.blank_d7: {item: F6c_time, group: blank_d7, unit_of_value: BVD (A.U.)}
+      interaction.patch_d7: {item: F6c_interaction, group: patch_d7, unit_of_value: BVD (A.U.)}
+      interaction.patch_d14: {item: F6c_interaction, group: patch_d14, unit_of_value: BVD (A.U.)}
+      interaction.blank_d7: {item: F6c_interaction, group: blank_d7, unit_of_value: BVD (A.U.)}
+      interaction.blank_d14: {item: F6c_interaction, group: blank_d14, unit_of_value: BVD (A.U.)}
+      d14_vs_d7.patch_d14: {item: F6c_d14_vs_d7, group: patch_d14, unit_of_value: BVD (A.U.)}
+      d14_vs_d7.patch_d7: {item: F6c_d14_vs_d7, group: patch_d7, unit_of_value: BVD (A.U.)}
+      patch_vs_blank.patch_d14: {item: F6c_patch_vs_blank, group: patch_d14, unit_of_value: BVD (A.U.)}
+      patch_vs_blank.blank_d14: {item: F6c_patch_vs_blank, group: blank_d14, unit_of_value: BVD (A.U.)}
+    note: Panel c, vector line plot of mean ± SEM (both caps drawn) for cardiopatch (square marker) and blank
+      (diamond marker) at d7 and d14; no individual points, so no counts. Series are named by the legend's marker
+      shapes, days by the x-axis words. The y axis starts at 0.2, not 0. Each mean is returned under one label per
+      comparison item it enters. Panel b (images) has no values.
+  F6h:
+    file: 41467_2017_Article_1946.pdf
+    page: 8
+    crop: [465, 235, 545, 335]
+    script: figures/F6h.py
+    unit: F6h
+    kind: vector
+    groups:
+      dff.d14: {item: F6h_dff, group: d14, unit_of_value: dF/F (norm.)}
+      dff.d7: {item: F6h_dff, group: d7, unit_of_value: dF/F (norm.)}
+    note: Panel h, a vector plot of mean ± SEM (both caps drawn) of normalised dF/F at d7 and d14, the two means
+      (green diamonds) joined by a line; no individual points, so no counts (n = 12 patches, paired). Days are the
+      x-axis words under each marker. The axis is printed as dF/F (norm.); the d7 mean sits at 1, so it appears to be
+      the normalisation reference, but it carries its own error bar. Panel g (images, time trace) has no group values.
+  F7f:
+    file: 41467_2017_Article_1946.pdf
+    page: 9
+    crop: [445, 185, 545, 330]
+    script: figures/F7f.py
+    unit: F7f
+    kind: vector
+    groups:
+      cv.control: {item: F7f_cv, group: control, unit_of_value: cm/s}
+      cv.under: {item: F7f_cv, group: under, unit_of_value: cm/s}
+      cv.away: {item: F7f_cv, group: away, unit_of_value: cm/s}
+      apd.control: {item: F7f_apd, group: control, unit_of_value: ms}
+      apd.under: {item: F7f_apd, group: under, unit_of_value: ms}
+      apd.away: {item: F7f_apd, group: away, unit_of_value: ms}
+    note: Panel f, a vector bar chart of mean ± SEM (upper bar only drawn) of host epicardial CV and APD80 on one
+      shared y axis printed "CV (cm/s) or APD80 (ms)"; CV values are read in cm/s and APD values in ms. No individual
+      points, so no counts (n = 6/3/3 hearts). Measures are named by the x-axis words; Ctrl by its solid red fill;
+      Under and Away by matching each bar's hatch direction to the legend swatches on a render (a direction check
+      only, no value is read from the raster). Panels a–e, g, h (images, maps, traces) have no group values.

@@ -1,0 +1,461 @@
+# Derivations of 2021_Silva (formula agent, instructions formulas_v3)
+record: 2021_Silva
+formula_library_version: 20
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  # ---------------------------------------------------------------- Fig. 3H / S2G: classifier shares of all cells
+  # pct = count / cells classified. The total (3012, the record's n) is printed only in images, so it is rebuilt as the
+  # sum of the nine class counts of Fig. S2G (1201+13+6+1322+344+99+4+2+21 = 3012), in three steps.
+  F3H_fibroblast.noncm_total:
+    item: F3H_fibroblast
+    group: ml_d100
+    formula: s = fib + smcf + subepi
+    anchor: not stated
+    library: {formula: sum_of_three_parts, vars: {t: s, a: fib, b: smcf, c: subepi}}
+    inputs:
+      fib: {value: F3H_fibroblast.values.count_table, kind: constant}
+      smcf: {value: F3H_smc_fibroblast.values.count_table, kind: constant}
+      subepi: {value: F3H_subepicardial.values.count_table, kind: constant}
+    output_unit: cells
+    note: partial sum of class counts (fibroblast-like, SMC/fibroblast-like, subepicardial); no printed output
+  F3H_cap_endo_peri.minor_total:
+    item: F3H_cap_endo_peri
+    group: ml_d100
+    formula: s = cep + ce + ery
+    anchor: not stated
+    library: {formula: sum_of_three_parts, vars: {t: s, a: cep, b: ce, c: ery}}
+    inputs:
+      cep: {value: F3H_cap_endo_peri.values.count_table, kind: constant}
+      ce: {value: F3H_cap_endo.values.count_table, kind: constant}
+      ery: {value: F3H_erythrocytes.values.count_table, kind: constant}
+    output_unit: cells
+    note: partial sum of class counts (capillary endothelium/pericytes/adventia, capillary endothelium, erythrocytes); no printed output
+  F3H_atrial_cm.cells_total:
+    item: F3H_atrial_cm
+    group: ml_d100
+    formula: total = cm + noncm + minor
+    anchor: not stated
+    library: {formula: sum_of_three_parts, vars: {t: total, a: cm, b: noncm, c: minor}}
+    inputs:
+      cm: {derived: F3H_atrial_cm.cm_total, kind: constant}
+      noncm: {derived: F3H_fibroblast.noncm_total, kind: constant}
+      minor: {derived: F3H_cap_endo_peri.minor_total, kind: constant}
+    output_unit: cells
+    note: all classified cells; equals the record's n (F3H_*.n, '3012 cells'), which is printed only in images, so it is
+      not an output value here
+  F3H_atrial_cm.pct_of_cells_fig:
+    item: F3H_atrial_cm
+    group: ml_d100
+    formula: pct = count/total
+    anchor: &cellpct
+      quote: Data displayed include cell percentage and assignment probability of transcriptomic resemblance with in vivo heart cells.
+      where: Fig. 3H legend
+    library: &ratio_ct {formula: ratio_def, vars: {r: pct, a: count, b: total}}
+    inputs:
+      count: {value: F3H_atrial_cm.values.count_table, kind: constant}
+      total: &total {derived: F3H_atrial_cm.cells_total, kind: constant}
+    output: F3H_atrial_cm.values.pct_of_cells_fig
+  F3H_ventricular_cm.pct_of_cells_fig:
+    item: F3H_ventricular_cm
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_ventricular_cm.values.count_table, kind: constant}
+      total: *total
+    output: F3H_ventricular_cm.values.pct_of_cells_fig
+  F3H_cardiomyocytes.pct_of_cells_fig:
+    item: F3H_cardiomyocytes
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_cardiomyocytes.values.count_table, kind: constant}
+      total: *total
+    output: F3H_cardiomyocytes.values.pct_of_cells_fig
+  F3H_fibroblast.pct_of_cells_fig:
+    item: F3H_fibroblast
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_fibroblast.values.count_table, kind: constant}
+      total: *total
+    output: F3H_fibroblast.values.pct_of_cells_fig
+  F3H_fibroblast.pct_of_cells_text:
+    item: F3H_fibroblast
+    group: ml_d100
+    formula: pct = count/total
+    anchor: &fib_smc_text
+      quote: which represented 44% and 11% of the cells analyzed
+      where: Results, Long-term culture
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_fibroblast.values.count_table, kind: constant}
+      total: *total
+    output: F3H_fibroblast.values.pct_of_cells_text
+  F3H_smc_fibroblast.pct_of_cells_fig:
+    item: F3H_smc_fibroblast
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_smc_fibroblast.values.count_table, kind: constant}
+      total: *total
+    output: F3H_smc_fibroblast.values.pct_of_cells_fig
+  F3H_smc_fibroblast.pct_of_cells_text:
+    item: F3H_smc_fibroblast
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *fib_smc_text
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_smc_fibroblast.values.count_table, kind: constant}
+      total: *total
+    output: F3H_smc_fibroblast.values.pct_of_cells_text
+  F3H_subepicardial.pct_of_cells_fig:
+    item: F3H_subepicardial
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_subepicardial.values.count_table, kind: constant}
+      total: *total
+    output: F3H_subepicardial.values.pct_of_cells_fig
+  F3H_cap_endo_peri.pct_of_cells_fig:
+    item: F3H_cap_endo_peri
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_cap_endo_peri.values.count_table, kind: constant}
+      total: *total
+    output: F3H_cap_endo_peri.values.pct_of_cells_fig
+  F3H_cap_endo_peri.pct_of_cells_text:
+    item: F3H_cap_endo_peri
+    group: ml_d100
+    formula: pct = count/total
+    anchor:
+      quote: Although the capillary endothelium/pericytes/adventia cells corresponded to only 0.1% of the cells
+      where: Results, Long-term culture
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_cap_endo_peri.values.count_table, kind: constant}
+      total: *total
+    output: F3H_cap_endo_peri.values.pct_of_cells_text
+  F3H_cap_endo.pct_of_cells_fig:
+    item: F3H_cap_endo
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_cap_endo.values.count_table, kind: constant}
+      total: *total
+    output: F3H_cap_endo.values.pct_of_cells_fig
+  F3H_erythrocytes.pct_of_cells_fig:
+    item: F3H_erythrocytes
+    group: ml_d100
+    formula: pct = count/total
+    anchor: *cellpct
+    library: *ratio_ct
+    inputs:
+      count: {value: F3H_erythrocytes.values.count_table, kind: constant}
+      total: *total
+    output: F3H_erythrocytes.values.pct_of_cells_fig
+  # ---------------------------------------------------------------- Fig. 3H / S2G: shares of cardiomyocytes
+  F3H_atrial_cm.cm_total:
+    item: F3H_atrial_cm
+    group: ml_d100
+    formula: cm = atr + ven + unsp
+    anchor: not stated
+    library: {formula: sum_of_three_parts, vars: {t: cm, a: atr, b: ven, c: unsp}}
+    inputs:
+      atr: {value: F3H_atrial_cm.values.count_table, kind: constant}
+      ven: {value: F3H_ventricular_cm.values.count_table, kind: constant}
+      unsp: {value: F3H_cardiomyocytes.values.count_table, kind: constant}
+    output_unit: cells
+    note: The paper does not say which classes make up 'the organoid cardiomyocytes'; taken as the three cardiomyocyte
+      classes of Fig. S2G (atrial CM, ventricular CM, cardiomyocytes). No printed output; the denominator of the shares below.
+  F3H_atrial_cm.pct_of_cm_text:
+    item: F3H_atrial_cm
+    group: ml_d100
+    formula: pct = count/cm
+    anchor: &cmpct
+      quote: The classifier estimated that 98% of the organoid cardiomyocytes were atrial cardiomyocytes
+      where: Results, Long-term culture
+    library: &ratio_cm {formula: ratio_def, vars: {r: pct, a: count, b: cm}}
+    inputs:
+      count: {value: F3H_atrial_cm.values.count_table, kind: constant}
+      cm: &cm {derived: F3H_atrial_cm.cm_total, kind: constant}
+    output: F3H_atrial_cm.values.pct_of_cm_text
+  F3H_atrial_cm.pct_of_cm_table:
+    item: F3H_atrial_cm
+    group: ml_d100
+    formula: pct = count/cm
+    anchor: *cmpct
+    library: *ratio_cm
+    inputs:
+      count: {value: F3H_atrial_cm.values.count_table, kind: constant}
+      cm: *cm
+    output: F3H_atrial_cm.values.pct_of_cm_table
+  F3H_ventricular_cm.pct_of_cm_text:
+    item: F3H_ventricular_cm
+    group: ml_d100
+    formula: pct = count/cm
+    anchor: &vpct
+      quote: Ventricular cells represented only 1% of the cardiomyocytes
+      where: Results, Long-term culture
+    library: *ratio_cm
+    inputs:
+      count: {value: F3H_ventricular_cm.values.count_table, kind: constant}
+      cm: *cm
+    output: F3H_ventricular_cm.values.pct_of_cm_text
+  F3H_ventricular_cm.pct_of_cm_table:
+    item: F3H_ventricular_cm
+    group: ml_d100
+    formula: pct = count/cm
+    anchor: *vpct
+    library: *ratio_cm
+    inputs:
+      count: {value: F3H_ventricular_cm.values.count_table, kind: constant}
+      cm: *cm
+    output: F3H_ventricular_cm.values.pct_of_cm_table
+  F3H_cardiomyocytes.pct_of_cm_table:
+    item: F3H_cardiomyocytes
+    group: ml_d100
+    formula: pct = count/cm
+    anchor: not stated
+    library: *ratio_cm
+    inputs:
+      count: {value: F3H_cardiomyocytes.values.count_table, kind: constant}
+      cm: *cm
+    output: F3H_cardiomyocytes.values.pct_of_cm_table
+    note: the S2G table prints this share of cardiomyocytes with no text naming it
+  # ---------------------------------------------------------------- Fig. 4J / S4D: AP amplitude = peak - MDP
+  F4J_Amplitude.amp_conv_d30_v: &amp
+    item: F4J_Amplitude
+    group: conv_d30_v
+    formula: amp = peak - mdp
+    anchor: &amp_anchor
+      quote: MDP, peak, amplitude, frequency, and dV/dTMax
+      where: STAR Methods, Patch clamp analysis
+    library: &sop {formula: sum_of_parts, vars: {t: peak, a: amp, b: mdp}}
+    inputs:
+      peak: {value: F4J_Peak.values.conv_d30_v_table, part: mean, kind: per sample}
+      mdp: {value: F4J_MDP.values.conv_d30_v_table, part: mean, kind: per sample}
+    output: F4J_Amplitude.values.conv_d30_v_table
+    aggregation: not stated
+    alternatives: &amp_alt
+    - label: amplitude from take-off (threshold) potential
+      formula: amp = peak - vth
+      note: another usage of AP amplitude; the take-off potential is not reported
+    note: &amp_note Amplitude, peak and MDP are named action potential parameters (Clampfit); amplitude taken as peak minus
+      MDP, the formula itself is not printed. Linear, so mean of per-sample equals the formula of means.
+  F4J_Amplitude.amp_conv_d30_an:
+    item: F4J_Amplitude
+    group: conv_d30_an
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: F4J_Peak.values.conv_d30_an_table, part: mean, kind: per sample}
+      mdp: {value: F4J_MDP.values.conv_d30_an_table, part: mean, kind: per sample}
+    output: F4J_Amplitude.values.conv_d30_an_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  F4J_Amplitude.amp_ml_d30_v:
+    item: F4J_Amplitude
+    group: ml_d30_v
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: F4J_Peak.values.ml_d30_v_table, part: mean, kind: per sample}
+      mdp: {value: F4J_MDP.values.ml_d30_v_table, part: mean, kind: per sample}
+    output: F4J_Amplitude.values.ml_d30_v_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  F4J_Amplitude.amp_ml_d30_an:
+    item: F4J_Amplitude
+    group: ml_d30_an
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: F4J_Peak.values.ml_d30_an_table, part: mean, kind: per sample}
+      mdp: {value: F4J_MDP.values.ml_d30_an_table, part: mean, kind: per sample}
+    output: F4J_Amplitude.values.ml_d30_an_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  F4J_Amplitude.amp_ml_d60_v:
+    item: F4J_Amplitude
+    group: ml_d60_v
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: F4J_Peak.values.ml_d60_v_table, part: mean, kind: per sample}
+      mdp: {value: F4J_MDP.values.ml_d60_v_table, part: mean, kind: per sample}
+    output: F4J_Amplitude.values.ml_d60_v_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  F4J_Amplitude.amp_ml_d60_an:
+    item: F4J_Amplitude
+    group: ml_d60_an
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: F4J_Peak.values.ml_d60_an_table, part: mean, kind: per sample}
+      mdp: {value: F4J_MDP.values.ml_d60_an_table, part: mean, kind: per sample}
+    output: F4J_Amplitude.values.ml_d60_an_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  S4D_Amplitude.amp_conv_v:
+    item: S4D_Amplitude
+    group: conv_v
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: S4D_Peak.values.conv_v_table, part: mean, kind: per sample}
+      mdp: {value: S4D_MDP.values.conv_v_table, part: mean, kind: per sample}
+    output: S4D_Amplitude.values.conv_v_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  S4D_Amplitude.amp_conv_an:
+    item: S4D_Amplitude
+    group: conv_an
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: S4D_Peak.values.conv_an_table, part: mean, kind: per sample}
+      mdp: {value: S4D_MDP.values.conv_an_table, part: mean, kind: per sample}
+    output: S4D_Amplitude.values.conv_an_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  S4D_Amplitude.amp_suppl_v:
+    item: S4D_Amplitude
+    group: suppl_v
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: S4D_Peak.values.suppl_v_table, part: mean, kind: per sample}
+      mdp: {value: S4D_MDP.values.suppl_v_table, part: mean, kind: per sample}
+    output: S4D_Amplitude.values.suppl_v_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  S4D_Amplitude.amp_ml_v:
+    item: S4D_Amplitude
+    group: ml_v
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: S4D_Peak.values.ml_v_table, part: mean, kind: per sample}
+      mdp: {value: S4D_MDP.values.ml_v_table, part: mean, kind: per sample}
+    output: S4D_Amplitude.values.ml_v_table
+    aggregation: not stated
+    alternatives: *amp_alt
+    note: *amp_note
+  S4D_Amplitude.amp_ml_an:
+    item: S4D_Amplitude
+    group: ml_an
+    formula: amp = peak - mdp
+    anchor: *amp_anchor
+    library: *sop
+    inputs:
+      peak: {value: S4D_Peak.values.ml_an_table, kind: constant, note: 'one cell (n=1)'}
+      mdp: {value: S4D_MDP.values.ml_an_table, kind: constant, note: 'one cell (n=1)'}
+    output: S4D_Amplitude.values.ml_an_table
+    alternatives: *amp_alt
+    note: one cell, so peak, MDP and amplitude are that cell's values; amplitude taken as peak minus MDP (not printed)
+  # ---------------------------------------------------------------- ratios with no readable inputs (recorded; cannot rebuild)
+  F1E_size_ratio.ratio:
+    item: F1E_size_ratio
+    formula: r = a_ml/a_conv
+    anchor:
+      quote: multilineage microtissues growing to approximately 3 times the size of conventional microtissues by 30 days
+      where: Results, Formation of heart-like compartments
+    library: {formula: ratio_def, vars: {r: r, a: a_ml, b: a_conv}}
+    inputs:
+      a_ml: {item: F1E_area_d30, kind: not stated, note: 'mean surface area, multilineage day 30 (Fig. 1E, not read)'}
+      a_conv: {item: F1E_area_d30, kind: not stated, note: 'mean surface area, conventional day 30 (Fig. 1E, not read)'}
+    output: F1E_size_ratio.values.ratio_text
+    aggregation: of means
+    alternatives:
+    - label: size as diameter
+      formula: r = sqrt(a_ml/a_conv)
+      note: "'size' is not defined; a 3-fold diameter would be a 9-fold projected area"
+    note: "'size' taken as surface area (the sentence cites Fig. 1E). Fig. 1E is not read, so the inputs carry no values."
+  S1E_ratio.ratio:
+    item: S1E_ratio
+    formula: r = vc/vt
+    anchor:
+      quote: ratio of cardiac:total volume
+      where: Fig. S1E legend
+    library: {formula: ratio_def, vars: {r: r, a: vc, b: vt}}
+    inputs:
+      vc: {item: S1E_cardiac_volume, kind: per sample}
+      vt: {item: S1E_total_volume, kind: per sample}
+    aggregation: not stated
+    note: no values printed or readable (no_points S1E); recorded for completeness
+  S1J_mlc2v.pct_area:
+    item: S1J_mlc2v
+    formula: pct = a_mlc2v/a_cm
+    anchor:
+      quote: The dynamics of the percentage area occupied by ventricular cardiomyocytes (MLC2v) over the total cardiac area
+      where: Fig. S1J legend
+    library: {formula: ratio_def, vars: {r: pct, a: a_mlc2v, b: a_cm}}
+    inputs:
+      a_mlc2v: {not_stated: true, kind: per sample, note: 'thresholded MLC2v+ area, not reported'}
+      a_cm: {not_stated: true, kind: per sample, note: 'total cardiac area, not reported'}
+    aggregation: not stated
+    note: no values printed; recorded for completeness
+assumptions: {}
+bounds:
+- {item: F4A_spontaneous, value: F4A_spontaneous.values.ml_d10_text, formula: fraction_bounds}
+- {item: F4A_spontaneous, value: F4A_spontaneous.values.ml_d100_text, formula: fraction_bounds}
+- {item: F4A_spontaneous, value: F4A_spontaneous.values.conv_text, formula: fraction_bounds}
+- {item: S4B_responding, value: S4B_responding.values.conv_2hz_text, formula: fraction_bounds}
+- {item: F3G_ventricular_markers, value: F3G_ventricular_markers.values.pct_text, formula: fraction_bounds}
+- {item: F4K_atrial_nodal, value: F4K_atrial_nodal.values.conv_d30_text, formula: fraction_bounds}
+- {item: F4K_atrial_nodal, value: F4K_atrial_nodal.values.ml_d30_text, formula: fraction_bounds}
+- {item: F4K_atrial_nodal, value: F4K_atrial_nodal.values.ml_d60_text, formula: fraction_bounds}
+- {item: S4F_ventricular, value: S4F_ventricular.values.ml_text, formula: fraction_bounds}
+- {item: F3H_atrial_cm, value: F3H_atrial_cm.values.pct_of_cm_text, formula: fraction_bounds}
+- {item: F3H_atrial_cm, value: F3H_atrial_cm.values.pct_of_cm_table, formula: fraction_bounds}
+- {item: F3H_atrial_cm, value: F3H_atrial_cm.values.pct_of_cells_fig, formula: fraction_bounds}
+- {item: F3H_ventricular_cm, value: F3H_ventricular_cm.values.pct_of_cm_table, formula: fraction_bounds}
+- {item: F3H_fibroblast, value: F3H_fibroblast.values.pct_of_cells_fig, formula: fraction_bounds}
+- {item: F3H_smc_fibroblast, value: F3H_smc_fibroblast.values.pct_of_cells_fig, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.atrial_text, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.ventricular_text, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.ventricular_fig, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.fibroblast_text, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.smc_fibroblast_text, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.cap_endo_peri_text, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.cardiomyocytes_fig, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.subepicardial_fig, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.erythrocytes_fig, formula: fraction_bounds}
+- {item: F3H_probability, value: F3H_probability.values.cap_endo_fig, formula: fraction_bounds}
+proposals: []

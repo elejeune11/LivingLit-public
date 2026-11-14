@@ -1,0 +1,327 @@
+record: 2016_Herron
+formula_library_version: 30
+agent: {model: llm, instructions: formulas_v3}
+derived:
+  # ---------------------------------------------------------------- E4031 effects in the 96-well format (Fig. 4D)
+  F4D_rate_plastic.reduction:
+    item: F4D_rate_plastic
+    formula: "s = (x0 - x)/x0"
+    anchor:
+      quote: 100 nmol/L E4031 reduced spontaneous beating frequency by ≈50%
+      where: Results, ECM Effects on iCell hPSC-CM Monolayer AP
+    library: {formula: relative_decrease, vars: {s: s, x: x, x0: x0}}
+    inputs:
+      x0: {value: F4D_rate_plastic.values.rate_plastic_pre, kind: per sample}
+      x: {value: F4D_rate_plastic.values.rate_plastic_e4031, kind: per sample}
+    output: F4D_rate_plastic.values.rate_change_plastic_text
+    aggregation: not stated
+    note: "'reduced ... by ≈50%' names a relative decrease from the pre-E4031 value; pre and post are the same monolayers"
+  F4D_rate_pdms.reduction:
+    item: F4D_rate_pdms
+    formula: "s = (x0 - x)/x0"
+    anchor:
+      quote: the same dose of E4031 modestly reduced beating frequency by ≈20%
+      where: Results, ECM Effects on iCell hPSC-CM Monolayer AP
+    library: {formula: relative_decrease, vars: {s: s, x: x, x0: x0}}
+    inputs:
+      x0: {value: F4D_rate_pdms.values.rate_pdms_pre, kind: per sample}
+      x: {value: F4D_rate_pdms.values.rate_pdms_e4031, kind: per sample}
+    output: F4D_rate_pdms.values.rate_change_pdms_text
+    aggregation: not stated
+  F4D_catd80_plastic.fold:
+    item: F4D_catd80_plastic
+    formula: "r = a/b"
+    anchor:
+      quote: CaT duration 80 increased ≈3X after E4031 application
+      where: Results, ECM Effects on iCell hPSC-CM Monolayer AP
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {value: F4D_catd80_plastic.values.catd80_plastic_e4031, kind: per sample}
+      b: {value: F4D_catd80_plastic.values.catd80_plastic_pre, kind: per sample}
+    output: F4D_catd80_plastic.values.catd80_ratio_plastic_text
+    aggregation: not stated
+    alternatives:
+      - {label: relative increase, formula: "d = (a - b)/b", note: "'increased ≈3X' could also be read as an increase of 3×; the ratio reading is used"}
+  F4D_catd80_pdms.fold:
+    item: F4D_catd80_pdms
+    formula: "r = a/b"
+    anchor:
+      quote: CaT duration 80 only increased by ≈1.34× in hPSC-CMs plated on PDMS
+      where: Results, ECM Effects on iCell hPSC-CM Monolayer AP
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {value: F4D_catd80_pdms.values.catd80_pdms_e4031, kind: per sample}
+      b: {value: F4D_catd80_pdms.values.catd80_pdms_pre, kind: per sample}
+    output: F4D_catd80_pdms.values.catd80_ratio_pdms_text
+    aggregation: not stated
+    alternatives:
+      - {label: relative increase, formula: "d = (a - b)/b", note: "'increased by ≈1.34×' could be read as an increase of 1.34×; the ratio reading is used"}
+  # ---------------------------------------------------------------- Western blot ratios
+  F5B_cx43_wb.fold:
+    item: F5B_cx43_wb
+    formula: "r = a/b"
+    anchor:
+      quote: connexin43 expression was ≈3× greater when fibronectin+PDMS is compared with matrigel+PDMS
+      where: 'Results, Gap Junctions: Connexin43 Expression'
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {value: F5B_cx43_wb.values.cx43_MP}
+      b: {value: F5B_cx43_wb.values.cx43_FP}
+    output: F5B_cx43_wb.values.cx43_ratio_text
+    aggregation: not stated
+    note: the text names fibronectin+PDMS first, but the printed values make matrigel+PDMS the larger; the ratio follows the record's between [MP, FP]
+  F5B_cx43_wb.normalised:
+    item: F5B_cx43_wb
+    formula: "q = c/m"
+    anchor:
+      quote: The total myosin (MF20, mouse monoclonal, ATCC) protein expression or GAPDH (rabbit polyclonal, Sigma) was used as the loading control in each case.
+      where: Data Supplement, Western Blotting
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    library: {formula: ratio_def, vars: {r: q, a: c, b: m}}
+    inputs:
+      c: {not_stated: true, kind: per sample, note: Cx43 band intensity}
+      m: {not_stated: true, kind: per sample, note: total myosin (MF20) band intensity}
+    aggregation: not stated
+    note: no output; per-band intensities are not printed, so code checks the formula only
+  F6D_ctni.normalised:
+    item: F6D_ctni
+    formula: "q = c/g"
+    anchor:
+      quote: the cTnI/GAPDH ratio=0.39±0.11 AU
+      where: Fig. 6 legend
+    library: {formula: ratio_def, vars: {r: q, a: c, b: g}}
+    inputs:
+      c: {not_stated: true, kind: per sample, note: cTnI band intensity}
+      g: {not_stated: true, kind: per sample, note: GAPDH band intensity}
+    aggregation: not stated
+  # ---------------------------------------------------------------- fractions (flow cytometry, confluence)
+  F6B_binuc.fraction:
+    item: F6B_binuc
+    formula: "p = b/t"
+    anchor:
+      quote: Histograms of DAPI staining were generated for determination of percentages of mononucleated and binucleated iPSC-CMs.
+      where: Data Supplement, Flow cytometry analysis
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    library: {formula: ratio_def, vars: {r: p, a: b, b: t}}
+    inputs:
+      b: {not_stated: true, kind: per sample, note: binucleated cardiomyocytes counted}
+      t: {not_stated: true, kind: per sample, note: single cardiomyocytes gated (mono- plus binucleated)}
+    aggregation: not stated
+  F6B_ki67.fraction:
+    item: F6B_ki67
+    formula: "p = k/b"
+    anchor:
+      quote: cells within the green autofluorescence threshold were counted as of Ki67 positive cells and used for calculation of percentage of Ki67 positive binucleated iPSC-CMs
+      where: Data Supplement, Flow cytometry analysis
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    library: {formula: ratio_def, vars: {r: p, a: k, b: b}}
+    inputs:
+      k: {not_stated: true, kind: per sample, note: Ki67-positive binucleated cardiomyocytes}
+      b: {not_stated: true, kind: per sample, note: "denominator not stated: binucleated cells or all gated cells"}
+    aggregation: not stated
+  S7_conf_pdms_100.fraction:
+    item: S7_conf_pdms_100
+    formula: "c = a/f"
+    anchor:
+      quote: Monolayer confluence was quantified in the center of each monolayer by masking the areas containing cardiomyocytes
+      where: Data Supplement Fig. VII legend
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    library: {formula: ratio_def, vars: {r: c, a: a, b: f}}
+    inputs:
+      a: {not_stated: true, kind: per sample, note: masked area containing cardiomyocytes}
+      f: {not_stated: true, kind: constant, note: area of the full field}
+    aggregation: not stated
+    note: the legend continues 'and expressed as a relative proportion of the full field'; the same method covers all S7 items
+  # ---------------------------------------------------------------- qPCR (Fig. 3H, Fig. 7A/B): fold = 2^(-ΔCt)
+  F3H_scn5a.dct:
+    item: F3H_scn5a
+    formula: "dct = ctg - ctr"
+    anchor: &dct_anchor
+      quote: ΔCt was calculated as each gene’s mean Ct value minus the mean Ct value of the endogenous control
+      where: Data Supplement, Quantitative RT-PCR
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    library: {formula: difference_from_reference, vars: {d: dct, x: ctg, x0: ctr}}
+    inputs:
+      ctg: {not_stated: true, kind: per sample, note: mean Ct of SCN5A}
+      ctr: {not_stated: true, kind: per sample, note: mean Ct of GAPDH}
+  F3H_scn5a.fold:
+    item: F3H_scn5a
+    formula: "fold = 2^(-dct)"
+    anchor: &fold_anchor
+      quote: Fold of expression was calculated according to the formula
+      where: Data Supplement, Quantitative RT-PCR
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    library: {formula: ddct_relative_expression, vars: {r: fold, ddct: dct}}
+    inputs:
+      dct: {derived: F3H_scn5a.dct, kind: per sample}
+    aggregation: not stated
+    note: &fold_note "the formula is printed as an image after the anchor: 'fold of expression = 2^(−ΔCt)'; it uses ΔCt (no calibrator), so the entry's ddct is the paper's ΔCt"
+  F7A_itga5.dct:
+    item: F7A_itga5
+    formula: "dct = ctg - ctr"
+    anchor: *dct_anchor
+    library: {formula: difference_from_reference, vars: {d: dct, x: ctg, x0: ctr}}
+    inputs:
+      ctg: {not_stated: true, kind: per sample, note: mean Ct of ITGA5}
+      ctr: {not_stated: true, kind: per sample, note: mean Ct of GAPDH}
+  F7A_itga5.fold:
+    item: F7A_itga5
+    formula: "fold = 2^(-dct)"
+    anchor: *fold_anchor
+    library: {formula: ddct_relative_expression, vars: {r: fold, ddct: dct}}
+    inputs:
+      dct: {derived: F7A_itga5.dct, kind: per sample}
+    aggregation: not stated
+    note: *fold_note
+  F7A_itgb1.dct:
+    item: F7A_itgb1
+    formula: "dct = ctg - ctr"
+    anchor: *dct_anchor
+    library: {formula: difference_from_reference, vars: {d: dct, x: ctg, x0: ctr}}
+    inputs:
+      ctg: {not_stated: true, kind: per sample, note: mean Ct of ITGB1}
+      ctr: {not_stated: true, kind: per sample, note: mean Ct of GAPDH}
+  F7A_itgb1.fold:
+    item: F7A_itgb1
+    formula: "fold = 2^(-dct)"
+    anchor: *fold_anchor
+    library: {formula: ddct_relative_expression, vars: {r: fold, ddct: dct}}
+    inputs:
+      dct: {derived: F7A_itgb1.dct, kind: per sample}
+    aggregation: not stated
+    note: *fold_note
+  F7A_itga6.dct:
+    item: F7A_itga6
+    formula: "dct = ctg - ctr"
+    anchor: *dct_anchor
+    library: {formula: difference_from_reference, vars: {d: dct, x: ctg, x0: ctr}}
+    inputs:
+      ctg: {not_stated: true, kind: per sample, note: mean Ct of ITGA6}
+      ctr: {not_stated: true, kind: per sample, note: mean Ct of GAPDH}
+  F7A_itga6.fold:
+    item: F7A_itga6
+    formula: "fold = 2^(-dct)"
+    anchor: *fold_anchor
+    library: {formula: ddct_relative_expression, vars: {r: fold, ddct: dct}}
+    inputs:
+      dct: {derived: F7A_itga6.dct, kind: per sample}
+    aggregation: not stated
+    note: *fold_note
+  F7B_ptk2.dct:
+    item: F7B_ptk2
+    formula: "dct = ctg - ctr"
+    anchor: *dct_anchor
+    library: {formula: difference_from_reference, vars: {d: dct, x: ctg, x0: ctr}}
+    inputs:
+      ctg: {not_stated: true, kind: per sample, note: mean Ct of PTK2}
+      ctr: {not_stated: true, kind: per sample, note: mean Ct of GAPDH}
+  F7B_ptk2.fold:
+    item: F7B_ptk2
+    formula: "fold = 2^(-dct)"
+    anchor: *fold_anchor
+    library: {formula: ddct_relative_expression, vars: {r: fold, ddct: dct}}
+    inputs:
+      dct: {derived: F7B_ptk2.dct, kind: per sample}
+    aggregation: not stated
+    note: *fold_note
+  # ---------------------------------------------------------------- printed 95 % CI of the MP conduction velocity
+  F2C_cv_MP_FG.ci95_upper:
+    item: F2C_cv_MP_FG
+    group: MP
+    formula: "u = m + tq975(n - 1)*se"
+    anchor:
+      quote: Upper 95% confidence interval for the matrigel+PDMS group is 47.8 cm/s.
+      where: Results, ECM Effects on iCell hPSC-CM Monolayer Impulse Propagation
+    library: {formula: ci95_upper_from_sem, vars: {u: u, m: m, se: se, n: n}}
+    inputs:
+      m: {value: F2C_cv_MP_FG.values.cv_MP_text, kind: constant}
+      se: {value: F2C_cv_MP_FG.values.cv_MP_sem_text, kind: constant}
+      n:
+        printed: '9'
+        unit: count
+        anchor: {quote: 'matrigel+PDMS=43.6±7.0 cm/s, n=9', where: 'Results, ECM Effects on iCell hPSC-CM Monolayer Impulse Propagation'}
+        kind: constant
+    output: F2C_cv_MP_FG.values.cv_MP_ci95upper_text
+    alternatives:
+      - {label: spread is SD, formula: "u = m + tq975(n - 1)*se/sqrt(n)", note: the sentence states mean±SEM; this alternative tests the 7.0 as an SD}
+      - {label: normal quantile, formula: "u = m + 1.96*se", note: the paper does not say which quantile it used}
+  # ---------------------------------------------------------------- conduction velocity: method by citation only
+  F1B_cv.cv: &cv
+    item: F1B_cv
+    formula: not stated
+    anchor: not stated
+    no_formula: CV was measured as described previously (ref22); the method is stated only by citation
+    inputs:
+      method:
+        by_reference:
+          citation: ref22
+          anchor: {quote: 'Movies were filtered in both the time and the space domain, and CV was measured as described previously', where: 'Methods, Optical Mapping'}
+  F1A_cv_max.cv: {<<: *cv, item: F1A_cv_max}
+  F2C_cv_MP_FG.cv: {<<: *cv, item: F2C_cv_MP_FG}
+  F2C_cv_MP_MG.cv: {<<: *cv, item: F2C_cv_MP_MG}
+  F2C_cv_MP_FP.cv: {<<: *cv, item: F2C_cv_MP_FP}
+  F2C_cv_ns.cv: {<<: *cv, item: F2C_cv_ns}
+  F2D_cv_MP_FG.cv: {<<: *cv, item: F2D_cv_MP_FG}
+  F2D_cv_MP_FP.cv: {<<: *cv, item: F2D_cv_MP_FP}
+  F2D_cv_MP_MG.cv: {<<: *cv, item: F2D_cv_MP_MG}
+  F2D_cv_ns.cv: {<<: *cv, item: F2D_cv_ns}
+  S1C_cv.cv: {<<: *cv, item: S1C_cv}
+  S2_cv_methyl_glass.cv: {<<: *cv, item: S2_cv_methyl_glass}
+  S2_cv_pdms_glass.cv: {<<: *cv, item: S2_cv_pdms_glass}
+  S2_cv_silan.cv: {<<: *cv, item: S2_cv_silan}
+  # ---------------------------------------------------------------- INa inactivation V1/2: a fitted parameter
+  S3_inact_v12.fit:
+    item: S3_inact_v12
+    formula: not stated
+    anchor:
+      quote: fitting the data with a standard Boltzman function (Origin 8.1; Microcal)
+      where: Data Supplement, Single hiPSC-CM sodium and potassium current recordings
+      file: NIHMS772087-supplement-003638_-_Supplemental_Material.pdf
+    no_formula: V1/2 is a parameter of a Boltzmann curve fit to per-cell data that are not printed; curve fitting is out of scope (closed-form algebra only)
+    note: the anchor sentence is written for activation; the inactivation fit is not described separately
+
+assumptions:
+  F3H_scn5a.fold: &qpcr_assume
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %: {reported: not stated}
+      equal amplification efficiencies of target and reference: {reported: not stated}
+  F7A_itga5.fold: *qpcr_assume
+  F7A_itgb1.fold: *qpcr_assume
+  F7A_itga6.fold: *qpcr_assume
+  F7B_ptk2.fold: *qpcr_assume
+  F2C_cv_MP_FG.ci95_upper:
+    model: ci95_halfwidth
+    assumptions:
+      normality: {reported: not stated}
+      independence: {reported: not stated}
+
+bounds:
+  - {item: F6B_binuc, value: F6B_binuc.values.binuc_MP, formula: fraction_bounds}
+  - {item: F6B_binuc, value: F6B_binuc.values.binuc_MG, formula: fraction_bounds}
+  - {item: F6B_ki67, value: F6B_ki67.values.ki67_MP, formula: fraction_bounds}
+  - {item: F6B_ki67, value: F6B_ki67.values.ki67_MG, formula: fraction_bounds}
+  - {item: S7_conf_pdms_100, value: S7_conf_pdms_100.values.conf_pdms_100, formula: fraction_bounds}
+  - {item: S7_conf_pdms_100, value: S7_conf_pdms_100.values.conf_pdms_ctrl, formula: fraction_bounds}
+  - {item: S7_conf_glass_100, value: S7_conf_glass_100.values.conf_glass_100, formula: fraction_bounds}
+  - {item: S7_conf_glass_100, value: S7_conf_glass_100.values.conf_glass_ctrl, formula: fraction_bounds}
+  - {item: S7_conf_pdms_10, value: S7_conf_pdms_10.values.conf_pdms_10, formula: fraction_bounds}
+  - {item: S7_conf_glass_10, value: S7_conf_glass_10.values.conf_glass_10, formula: fraction_bounds}
+
+proposals:
+  - formula: ci95_upper_from_sem
+    kind: derived
+    statement: The upper limit of a 95 % confidence interval of a mean is the mean plus the t quantile (n - 1 degrees of freedom) times the SEM.
+    equations:
+      - u = m + tq975(n - 1)*se
+    variables: {u: D, m: D, se: D, sd: D, h: D, n: count}
+    uses:
+      - {formula: ci95_halfwidth, subs: {h: h, sd: sd, n: n}}
+      - {formula: sem_def, subs: {sem: se, sd: sd, n: n}}
+      - {formula: sum_of_parts, subs: {t: u, a: m, b: h}}
+    does_not_apply: a printed spread that is an SD (then u = m + tq975(n - 1)*sd/sqrt(n)), or a lower limit
+    tests:
+      - given: {m: 10.0, se: 1.0, n: 4.0}
+        expect: {u: 13.182446305284263}
+      - given: {m: 10.0, se: 2.0, n: 4.0}
+        does_not_apply: 'spread is an SD of 2: u = 10 + 3.182*2/2 = 13.18, not 16.36'

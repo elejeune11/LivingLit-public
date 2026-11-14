@@ -1,0 +1,334 @@
+record: 2022_Garay
+vocabulary_version: 53
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- cell lines
+- adopt:
+    field: cell_line
+    id: CVCL_UK03
+    label: WTC-mEGFP-MYL2-cl27
+    lookup: "Cellosaurus searched 'MYL2-mEGFP', 'MYL2' and 'AICS-0060': the only MYL2-mEGFP line is the Allen Institute's WTC-mEGFP-MYL2-cl27, described in Roberts et al. 2019, which the paper cites for this line."
+    synonyms:
+    - {text: MYL2-mEGFP, anchor: "Three hiPSC lines, PLZ (Darabi et al., 2012), MYL2-mEGFP (Roberts et al., 2019), and 19004, were utilized in this study"}
+- adopt_own:
+    field: cell_line
+    id: cell_line:plz
+    label: PLZ
+    definition: The PLZ hiPSC line of Darabi et al. 2012 (Perlingeiro lab, University of Minnesota).
+    scope: Use only for the line named PLZ; every other own cell line term is a different, separately named or unnamed line.
+    lookup: "Cellosaurus searched 'PLZ' and 'PLZ iPSC': no hiPSC line of that name (nearest hit 293GP/LZRNL is unrelated)."
+- adopt_own:
+    field: cell_line
+    id: cell_line:line_19004
+    label: '19004'
+    definition: The 19004 hiPSC line reprogrammed from skin-biopsy fibroblasts with the CytoTune 2.0 Sendai kit at the University of Minnesota (Garay et al. 2022).
+    scope: Use only for the line named 19004 in Garay et al. 2022; not the Coriell line GM19004, and not any other own cell line term.
+    lookup: "Cellosaurus searched '19004': only GM19004, a Coriell lymphoblastoid line, unrelated; the paper describes 19004 as newly generated."
+# ---------------------------------------------------------------- treatments
+- adopt:
+    field: treatment
+    id: CHEBI:90705
+    label: SB 203580
+    lookup: "ChEBI searched 'SB203580' and 'SB 203580': exact label match."
+- adopt:
+    field: treatment
+    id: CHEBI:88249
+    label: PD 0325901
+    lookup: "ChEBI searched 'PD0325901' and 'PD 0325901': exact label match."
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:microelectrode_array
+    label: microelectrode array culture
+    parent: platform:culture_2d
+    definition: Cells grown as a layer on a plate with embedded electrodes that record extracellular field potentials.
+    scope: Use when cells are cultured on a microelectrode array (MEA); not plain monolayers in plates or on coverslips, micropatterned cultures, microposts, inserts or thin films.
+    synonyms:
+    - {text: microelectrode arrays, anchor: "Day-25/-55 hiPSC-CMs were plated onto GFR-matrigel-coated microelectrode arrays (MEAs)"}
+# ---------------------------------------------------------------- measurement medium
+- add_synonym:
+    id: measurement_medium:tyrode_solution
+    text: Tyrode’s salt solution
+    anchor: "Medium was then replaced with Tyrode’s salt solution and incubated for an additional 30 minutes at 37°C"
+- add_synonym:
+    id: measurement_medium:extracellular_solution
+    text: bath solution
+    anchor: "The bath solution will consist of (in mM): NaCl 150, KCl 5.4"
+# ---------------------------------------------------------------- measures: synonyms
+- add_synonym:
+    id: measure:shared_de_gene_count
+    text: DEGs in common
+    anchor: evidence.F1_deg_shared.anchor
+- add_synonym:
+    id: measure:cell_area
+    text: cell surface area
+    anchor: evidence.F3C_area_SP30_vs_D30.anchor
+- add_synonym:
+    id: measure:extracellular_acidification_rate
+    text: basal ECAR
+    anchor: "(L) basal ECAR."
+- add_synonym:
+    id: measure:calcium_transient_rise_rate
+    text: Ca2+ transient upstroke velocity
+    anchor: evidence.F6F_amp_SP40_vs_D40.anchor
+- add_synonym:
+    id: measure:calcium_transient_decay_rate
+    text: Ca2+ transient downstroke velocity
+    anchor: evidence.F6F_amp_SP40_vs_D40.anchor
+- add_qualifier:
+    id: measure:gene_expression
+    name: isoform
+    dimension: text
+# ---------------------------------------------------------------- measures: new terms
+- add_term:
+    field: measure
+    id: measure:differential_histone_mark_locus_count
+    label: number of loci with differential histone mark deposition
+    definition: Count of genomic loci whose ChIP-seq signal for a stated histone mark (qualifier mark) differs between compared conditions at a stated threshold.
+    scope: A count of chromatin loci from ChIP-seq (direction as qualifier regulation); not a count of differentially expressed genes and not the signal at one locus.
+    dimension: dimensionless
+    qualifiers:
+      mark: {dimension: text}
+      regulation: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:histone_mark_signal
+    label: histone mark signal at a locus
+    definition: ChIP-seq signal of a stated histone mark (qualifier mark) at a stated genomic locus (qualifier locus).
+    scope: The mark's signal at one locus; not a count of loci with differential deposition and not mRNA expression of the gene.
+    dimension: dimensionless
+    qualifiers:
+      mark: {dimension: text}
+      locus: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:gene_set_overlap_count
+    label: number of genes shared between two gene sets
+    definition: Count of genes found in both of two stated gene sets (qualifier sets) from different analyses or assays.
+    scope: The overlap of gene sets from different assays (such as RNA-seq differentially expressed genes and ChIP-seq loci); the overlap of differentially expressed genes between two expression comparisons is shared differentially expressed genes.
+    dimension: dimensionless
+    qualifiers:
+      sets: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:t_tubule_density
+    label: T-tubule density
+    parent: measure:t_tubules
+    definition: Membrane area of transverse tubules per cell volume, from a membrane stain imaged in 3D.
+    scope: A quantitative density of T-tubules; the parent covers presence or organisation judged from images.
+    dimension: area_per_volume
+    synonyms:
+    - {text: T-tubule density, anchor: "(H and I) Quantification of T-tubule density (H) and (I) CM volume."}
+- add_term:
+    field: measure
+    id: measure:mitochondrial_cross_sectional_area
+    label: mitochondrial cross-sectional area
+    definition: Area of single mitochondria in electron micrograph sections.
+    scope: Size of individual mitochondria as an area; not the share of image area covered by mitochondria (mitochondrial area fraction), not mitochondrial mass from a dye and not cell area.
+    dimension: area
+    synonyms:
+    - {text: mitochondrial cross-sectional area, anchor: "(P) Quantification of mitochondrial cross-sectional area."}
+- add_term:
+    field: measure
+    id: measure:steady_state_inactivation
+    label: steady-state inactivation
+    definition: Voltage dependence of steady-state inactivation of a stated ionic current (qualifier current), summarised by a Boltzmann fit's half-inactivation voltage and slope factor (qualifier parameter).
+    scope: Gating of a channel current against voltage; not the current's density and not membrane or action potential voltages.
+    dimension: voltage
+    qualifiers:
+      current: {dimension: text}
+      parameter: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:field_potential_duration
+    label: field potential duration
+    definition: Duration of the extracellular field potential recorded by an electrode, from depolarisation spike to repolarisation wave.
+    scope: Extracellular repolarisation time on electrodes (a correction such as rate correction is qualifier correction); not the action potential duration of a single cell recorded intracellularly or optically.
+    dimension: time
+    qualifiers:
+      correction: {dimension: text}
+    synonyms:
+    - {text: FPD, anchor: "monolayer hiPSC-CMs along with the field potential duration (FPD)"}
+# ---------------------------------------------------------------- standing keys for the new measures
+- standing_key:
+    measure: measure:differential_histone_mark_locus_count
+    value: {must_match: [platform@1, preparation, contrast, method, measure.mark, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.mark], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:histone_mark_signal
+    value: {must_match: [platform@1, preparation, measure.mark, measure.locus, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.mark, measure.locus], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:gene_set_overlap_count
+    value: {must_match: [platform@1, preparation, contrast, method, measure.sets, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.sets], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:t_tubule_density
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitochondrial_cross_sectional_area
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:steady_state_inactivation
+    value: {must_match: [platform@1, preparation, temperature, measure.current, measure.parameter, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.current, measure.parameter], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:field_potential_duration
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.correction, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- {field: purification, stated: DL-lactate, terms: [purification:metabolic_selection], qualifiers: {substrate: DL-lactate},
+   note: "hiPSC-CMs were purified using DL-lactate to induce a metabolic switch (5 mM sodium DL-lactate, glucose-free RPMI)."}
+- {field: supplements, stated: B27 (plus insulin), terms: [supplements:b27], qualifiers: {insulin: plus insulin}}
+- {field: dissociation_reagent, stated: 0.25% trypsin in EDTA, terms: [dissociation_reagent:trypsin_edta], qualifiers: {concentration: 0.25%}}
+- {field: platform, stated: glass coverslips, terms: [platform:culture_2d], qualifiers: {format: coverslip},
+   split: [{words: glass, field: substrate}]}
+- {field: platform, stated: micropatterned polyacrylamide gels, terms: [platform:micropatterned_single_cell],
+   split: [{words: polyacrylamide gels, field: substrate}],
+   note: "The micropattern islands (~20 x 140 um) are sized for a single cell; 'Only micropatterned single-cell hiPSCs were imaged'."}
+- {field: platform, stated: XF96 96-well microplates, terms: [platform:culture_2d], qualifiers: {format: XF96 96-well microplate},
+   split: [{words: XF96 96-well microplates, field: substrate}]}
+- {field: platform, stated: Thermonox plastic coverslips, terms: [platform:culture_2d], qualifiers: {format: coverslip},
+   split: [{words: Thermonox plastic, field: substrate}]}
+- {field: platform, stated: 24-well plates, terms: [platform:culture_2d], qualifiers: {format: 24-well plate},
+   split: [{words: 24-well plates, field: substrate}]}
+- {field: pacing, stated: paced, terms: [pacing:field_stimulation],
+   note: "TFM: 'MyoPacer external field stimulator'; calcium imaging: 'paced with platinum wire electrodes at 1 Hz, 10V'. Both are field stimulation."}
+- {field: pacing, stated: stimulation, terms: [pacing:current_clamp_stimulation],
+   note: "APs recorded under current clamp with 3 ms pulses at 1.2-fold threshold at 1 Hz."}
+- {field: preparation, stated: RNA extracted, terms: [preparation:rna_extract]}
+- {field: preparation, stated: micropatterned single-cell, terms: [preparation:dissociated_cells],
+   split: [{words: micropatterned, field: platform}],
+   note: "Single cells on micropatterns, measured live by TFM; 'single cells' is a synonym of dissociated cells in this vocabulary."}
+- {field: measurement_medium, stated: basal media, terms: [measurement_medium:culture_medium],
+   qualifiers: {medium: "RPMI1640 with B-27 (plus insulin)"},
+   note: "'basal media (RPMI1640 with B-27™ (plus insulin) supplement)'; no synonym, since 'basal medium' elsewhere often means an unsupplemented base."}
+# ---------------------------------------------------------------- measures: genomics
+- {field: measure, stated: differentially expressed genes in common, terms: [measure:shared_de_gene_count]}
+- {field: measure, stated: loci with reduced H3K27ac, terms: [measure:differential_histone_mark_locus_count],
+   qualifiers: {mark: H3K27ac, regulation: reduced}}
+- {field: measure, stated: loci with differential H3K27ac deposition, terms: [measure:differential_histone_mark_locus_count],
+   qualifiers: {mark: H3K27ac}}
+- {field: measure, stated: genes shared between RNA-seq and ChIP-seq, terms: [measure:gene_set_overlap_count],
+   qualifiers: {sets: "RNA-seq DEGs and ChIP-seq H3K27ac clusters 1 and 3"}}
+- {field: measure, stated: KEGG MAPK pathway enrichment, terms: [measure:enrichment_p_value],
+   qualifiers: {annotation: KEGG MAPK signaling pathway, gene_set: "1,452 shared genes"}}
+- {field: measure, stated: KEGG Hippo pathway enrichment, terms: [measure:enrichment_p_value],
+   qualifiers: {annotation: KEGG Hippo signaling pathway, gene_set: "1,452 shared genes"}}
+- {field: measure, stated: KEGG Wnt pathway enrichment, terms: [measure:enrichment_p_value],
+   qualifiers: {annotation: KEGG Wnt signaling pathway, gene_set: "1,452 shared genes"}}
+- {field: measure, stated: MAPK genes shared with PI3K-AKT pathway, terms: [measure:annotation_share],
+   qualifiers: {category: KEGG PI3K-AKT signaling pathway, gene_set: MAPK pathway genes}}
+- {field: measure, stated: "cell cycle-related gene expression (CDK1, AURKB)", terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: "cell cycle-related genes (CDK1, AURKB)"}}
+- {field: measure, stated: "structural and metabolic gene expression (MYOM2, CD36)", terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: "structural and metabolic genes (MYOM2, CD36)"}}
+- {field: measure, stated: "MAPK gene expression (MAP2K6, MAP3K1, FGF13, IGF2BP3)", terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: "MAPK genes (MAP2K6, MAP3K1, FGF13, IGF2BP3)"}}
+- {field: measure, stated: DUSP1 and DUSP6 expression, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: DUSP1 and DUSP6}}
+- {field: measure, stated: ECT2 and GAS2L3 transcript-level expression, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: ECT2 and GAS2L3}}
+- {field: measure, stated: H3K27ac signal at MAPK14 locus, terms: [measure:histone_mark_signal],
+   qualifiers: {mark: H3K27ac, locus: MAPK14}}
+- {field: measure, stated: "KEGG pathway enrichment (Wnt/Hippo signaling, cell cycle)",
+   flag: {kind: several measures, note: "Names three KEGG pathways (Wnt, Hippo, cell cycle) in one item; each pathway's enrichment is its own measure."}}
+- {field: measure, stated: "KEGG pathway enrichment (OXPHOS, PPAR signaling, fatty acid degradation)",
+   flag: {kind: several measures, note: "Names three KEGG pathways (OXPHOS, PPAR signaling, fatty acid degradation) in one item; each pathway's enrichment is its own measure."}}
+- {field: measure, stated: number of samples,
+   flag: {kind: not a context, note: "Table S1 sample counts per public dataset group are study design (n), not a measurement of the cells or tissue."}}
+- {field: measure, stated: KEGG cholesterol metabolism pathway enrichment, terms: [measure:normalized_enrichment_score],
+   qualifiers: {annotation: KEGG cholesterol metabolism}}
+- {field: measure, stated: KEGG NF-κB signaling pathway enrichment, terms: [measure:normalized_enrichment_score],
+   qualifiers: {annotation: KEGG NF-kappa B signaling pathway}}
+- {field: measure, stated: KEGG PI3K-AKT signaling pathway enrichment, terms: [measure:normalized_enrichment_score],
+   qualifiers: {annotation: KEGG PI3K-AKT signaling pathway}}
+- {field: measure, stated: KEGG TGF-β signaling pathway enrichment, terms: [measure:normalized_enrichment_score],
+   qualifiers: {annotation: KEGG TGF-beta signaling pathway}}
+- {field: measure, stated: PC1 position (308 shared DEGs), terms: [measure:principal_component_score],
+   qualifiers: {component: PC1, gene_set: 308 shared DEGs}}
+- {field: measure, stated: AURKB expression, terms: [measure:gene_expression], qualifiers: {gene: AURKB}}
+- {field: measure, stated: MKI67 expression (log2 counts per million), terms: [measure:gene_expression],
+   qualifiers: {gene: MKI67, scale: log2 counts per million}}
+- {field: measure, stated: HK1 expression, terms: [measure:gene_expression], qualifiers: {gene: HK1, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: PKM expression, terms: [measure:gene_expression], qualifiers: {gene: PKM, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: ESRRG expression, terms: [measure:gene_expression], qualifiers: {gene: ESRRG, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: PPARGC1B expression, terms: [measure:gene_expression], qualifiers: {gene: PPARGC1B, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: RYR2 expression, terms: [measure:gene_expression], qualifiers: {gene: RYR2, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: ATP1A2 expression, terms: [measure:gene_expression], qualifiers: {gene: ATP1A2, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: SCN5A expression, terms: [measure:gene_expression], qualifiers: {gene: SCN5A, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: HCN4 expression, terms: [measure:gene_expression], qualifiers: {gene: HCN4, normalised_to: TBP and POLR2A}}
+- {field: measure, stated: RNF20 expression, terms: [measure:gene_expression], qualifiers: {gene: RNF20}}
+- {field: measure, stated: CACNA1C transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: CACNA1C, isoform: canonical (longest) isoform}}
+- {field: measure, stated: RYR2 transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: RYR2, isoform: canonical (longest) isoform}}
+- {field: measure, stated: ASPH transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: ASPH, isoform: canonical (longest) isoform}}
+- {field: measure, stated: CASQ2 transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: CASQ2, isoform: canonical (longest) isoform}}
+- {field: measure, stated: TRDN transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: TRDN, isoform: canonical (longest) isoform}}
+- {field: measure, stated: HRC transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: HRC, isoform: canonical (longest) isoform}}
+- {field: measure, stated: ATP2A2 transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: ATP2A2, isoform: canonical (longest) isoform}}
+- {field: measure, stated: ATP1A2 transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: ATP1A2, isoform: canonical (longest) isoform}}
+- {field: measure, stated: BAK1 transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: BAK1, isoform: canonical (longest) isoform}}
+- {field: measure, stated: BAX transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: BAX, isoform: canonical (longest) isoform}}
+- {field: measure, stated: TNFRSF10B transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: TNFRSF10B, isoform: canonical (longest) isoform}}
+- {field: measure, stated: SCN5A adult isoform transcript-level expression, terms: [measure:gene_expression], qualifiers: {gene: SCN5A, isoform: adult isoform}}
+# ---------------------------------------------------------------- measures: cell populations
+- {field: measure, stated: "% cTnT+ cells (representative plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT},
+   note: "A representative flow plot's percentage, not a mean."}
+- {field: measure, stated: "% cTnT+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT}}
+- {field: measure, stated: "% cTnT+MLC-2v+ cells (representative plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT+ MLC-2v+},
+   note: "A representative flow plot's percentage, not a mean."}
+- {field: measure, stated: "% cTnT+MLC-2v+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT+ MLC-2v+}}
+- {field: measure, stated: "% cTnT+MLC-2a+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT+ MLC-2a+}}
+- {field: measure, stated: "% cTnT+ MLC-2a+ MLC-2v− cells", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT+ MLC-2a+ MLC-2v−}}
+- {field: measure, stated: "% cTnT+ MLC-2a+ MLC-2v+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT+ MLC-2a+ MLC-2v+}}
+- {field: measure, stated: "% cTnT+ MLC-2a− MLC-2v+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT+ MLC-2a− MLC-2v+}}
+- {field: measure, stated: MLC-2v+/MLC-2a+ ratio, terms: [measure:marker_positive_ratio], qualifiers: {markers: MLC-2v+/MLC-2a+}}
+- {field: measure, stated: "% MHC+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: MHC}}
+- {field: measure, stated: "% MHC+ cells (representative plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: MHC},
+   note: "A representative flow plot's percentage, not a mean."}
+- {field: measure, stated: "% Ki-67+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: Ki-67}}
+- {field: measure, stated: "% Ki-67+ cells (representative plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: Ki-67},
+   note: "A representative flow plot's percentage, not a mean."}
+- {field: measure, stated: "% cTnT+ pHH3+ nuclei", terms: [measure:marker_positive_cells], qualifiers: {marker: pHH3, population: cTnT+ nuclei},
+   note: "Counted per nucleus, not per cell."}
+- {field: measure, stated: "% cTnT+ TUNEL+ nuclei", terms: [measure:marker_positive_cells], qualifiers: {marker: TUNEL, population: cTnT+ nuclei},
+   note: "Counted per nucleus, not per cell."}
+- {field: measure, stated: "% mononucleated cardiomyocytes", terms: [measure:mononucleated_cell_fraction]}
+- {field: measure, stated: "% binucleated cardiomyocytes", terms: [measure:binucleated_cell_fraction]}
+- {field: measure, stated: "% trinucleated cardiomyocytes", terms: [measure:multinucleated_cell_fraction],
+   note: "Exactly three nuclei; the paper's classes are mono-, bi- and trinucleated, so trinucleated is its more-than-two class."}
+# ---------------------------------------------------------------- measures: protein
+- {field: measure, stated: relative cTnI (adult) expression, terms: [measure:protein_level], qualifiers: {protein: cTnI (TNNI3), expressed_as: normalised},
+   note: "Western blot 'quantification of stoichiometric relationship'; what it is divided by is not clear from the legend, so normalised_to is left out."}
+- {field: measure, stated: relative ssTnI (fetal) expression, terms: [measure:protein_level], qualifiers: {protein: ssTnI (TNNI1), expressed_as: normalised},
+   note: "Western blot 'quantification of stoichiometric relationship'; what it is divided by is not clear from the legend, so normalised_to is left out."}
+- {field: measure, stated: p-ERK/total ERK expression, terms: [measure:phosphorylated_protein_fraction], qualifiers: {protein: ERK1/2}}
+- {field: measure, stated: p-AKT/total AKT expression, terms: [measure:phosphorylated_protein_fraction], qualifiers: {protein: AKT}}
+- {field: measure, stated: p-ERK1/2 level, terms: [measure:protein_level], qualifiers: {protein: p-ERK1/2},
+   note: "Discussion prints '<5% p-ERK1/2 levels'; whether it is over total ERK is not said, so the broader protein level."}
+# ---------------------------------------------------------------- measures: morphology and structure
+- {field: measure, stated: sarcomere length (representative inset), terms: [measure:sarcomere_length],
+   note: "Value printed on a representative image inset, not a mean."}
+- {field: measure, stated: cardiomyocyte volume, terms: [measure:cell_volume], qualifiers: {cell_type: cardiomyocyte}}
+# ---------------------------------------------------------------- measures: force and metabolism
+- {field: measure, stated: normalized contraction force, terms: [measure:traction_stress],
+   qualifiers: {statistic: "force of contraction per cell surface area", phase: maximum contraction minus uncontracted},
+   note: "Traction force of contraction normalised by the cell's surface area (supplement, TFM) is a force per area on a 2D substrate."}
+- {field: measure, stated: OCR kinetic profile, terms: [measure:ocr_time_course]}
+- {field: measure, stated: ECAR kinetic profile, terms: [measure:ecar_time_course], qualifiers: {assay: mitochondrial stress test}}
+- {field: measure, stated: ATP-linked OCR, terms: [measure:atp_linked_respiration]}
+- {field: measure, stated: "% spare respiratory capacity", terms: [measure:spare_respiratory_capacity],
+   note: "'percentage spare capacity OCR'; the formula (max/basal or (max−basal)/basal) is not printed, so expressed_as is left to the value's unit."}
+- {field: measure, stated: ROS mean fluorescence intensity, terms: [measure:reactive_oxygen_species_level],
+   note: "Cellular ROS assay kit ab113851 read by flow cytometry MFI; the probe is not named in the text."}
+# ---------------------------------------------------------------- measures: calcium and electrophysiology
+- {field: measure, stated: Ca2+ transient time to peak, terms: [measure:calcium_transient_rise_time], qualifiers: {level: time to peak}}
+- {field: measure, stated: APD90, terms: [measure:action_potential_duration], qualifiers: {level: APD90}}
+- {field: measure, stated: peak sodium current density (INa), terms: [measure:current_density], qualifiers: {current: INa},
+   note: "Peak of the current-voltage relation."}
+- {field: measure, stated: maximum upstroke velocity (dV/dtmax), terms: [measure:upstroke_velocity]}
+- {field: measure, stated: steady-state INa inactivation, terms: [measure:steady_state_inactivation], qualifiers: {current: INa},
+   note: "The item carries both V1/2 and the slope factor k; the parameter is left to the values."}

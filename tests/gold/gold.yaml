@@ -1,0 +1,36 @@
+# The gold set (02-audit, Not the paper's error; 08 decision 44).
+# Each entry is a verdict an independent check confirmed against the source.
+# A check enters or changes only when it reproduces every entry; every artefact an
+# independent check finds becomes an entry. `open` marks a known artefact the code
+# does not yet get right: its test is an expected failure that turns into an error
+# the day it passes, so the entry is then closed.
+#
+# match: any = at least one check of that kind has the verdict; all = every one does.
+source: runs/2026-11-07_rebuild10/INDEPENDENT_CHECK.md
+entries:
+  - {paper: 2021_Bliley, item: S18D_mut_d8_ctl_d8, check: n against data, match: any, verdict: inconsistent,
+     why: "real: data columns differ from the legend n (8, Bliley S18/S19)"}
+  - {paper: 2021_Bliley, item: S9H_c8_d1, check: n against data, match: any, verdict: inconsistent,
+     why: "real: S9/S10 legends swap n between 1x EHT and 1x dyn-EHT (8)"}
+  - {paper: 2021_Zhang, item: F3D_apd30, check: n against readings, match: all, verdict: inconsistent,
+     why: "real: vector counts 27 and 25, legend prints the reverse (8)"}
+  - {paper: 2021_Zhang, item: F3D_apd80, check: n against readings, match: all, verdict: inconsistent,
+     why: "real: as F3D_apd30 (4)"}
+  - {paper: 2018_Ulmer, item: f3b_d_3d, check: points to P, match: all, verdict: inconsistent,
+     why: "real: Bonferroni p = 0.0054 with n = 3, ***p < 0.001 printed (8)"}
+  - {paper: 2018_Ulmer, item: f6g_glycolysis_share, check: reported twice, match: any, verdict: inconsistent,
+     why: "real: 49 % in the Results, 51 % in the Discussion (8)"}
+  - {paper: 2021_Bliley, item: F6F_ctl_d1_ctl_c1, check: points to P, match: all, verdict: consistent,
+     why: "within one loading amount, adjusted p = 0.0049 (3)"}
+  - {paper: 2021_Bliley, item: F6G_mut_d8_mut_c8, check: points to P, match: all, verdict: consistent,
+     why: "within the 8x loading amount, adjusted p = 0.0099 < 0.05 printed (3)",
+     open: "loading amount (1x/8x) is a qualifier of mechanical_load, and qualifiers are not factors (decision 33), so the family cannot be formed within it; closes when field set 3 gives loading amount a field"}
+  - {paper: 2021_Bliley, item: S19A_mut_c1_ctl_d1, check: points to P, match: all, verdict: consistent,
+     why: "within the 1x loading condition, adjusted p = 0.037 < 0.05 printed (3)",
+     open: "as F6G_mut_d8_mut_c8"}
+  - {paper: 2019_Zhao, item: F4D_V, check: n against readings, match: all, verdict: consistent within reading,
+     why: "artefact: 6 and 8 points read, legend prints n ≥ 6 (a lower bound); checked by Emma on the figure 2026-11-10"}
+  - {paper: 2021_Bliley, item: S1D_col1_col2p5, status: cannot check,
+     why: "post-hoc family without points (8: cannot check, no points)"}
+  - {paper: 2017_Mills, item: F2F_peak_ctrl, status: cannot check,
+     why: "post-hoc family without points (8)"}

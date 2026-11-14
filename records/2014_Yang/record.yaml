@@ -1,0 +1,1874 @@
+id: 2014_Yang
+field_set: 3
+source:
+  title: Tri-iodo-L-thyronine promotes the maturation of human cardiomyocytes-derived from induced pluripotent stem cells
+  doi: 10.1016/j.yjmcc.2014.04.005
+  year: '2014'
+  first_author: Xiulan Yang
+  last_author: Charles E. Murry
+  lab: Murry lab, University of Washington
+  journal: Journal of Molecular and Cellular Cardiology
+  files:
+  - journal_version.pdf
+  - nihms-586803.pdf
+  - NIHMS586803-supplement-01.docx
+  missing:
+  - Supplemental video 1
+  - Supplemental video 2
+  version_note: journal_version.pdf is the published article; nihms-586803.pdf is the author manuscript with the same text and values
+    (used for quotes where the journal extraction renders < and > as 'b' and 'N'); the .docx holds the supplemental methods, video
+    captions and Supplemental Figure 1 (an embedded image).
+
+default_context:
+  species: human
+  cell_types: cardiomyocytes
+  genotype: not stated
+  disease_model: not stated
+  transgene: not stated
+  mechanical_load: not stated
+  maturation_strategy: not stated
+  culture_calcium_mM: not stated
+  measurement_calcium_mM: not stated
+  incubator_atmosphere: not stated
+  donor_age: not stated
+  stromal_cell: not stated
+  endothelial_cell: not stated
+  composition: not stated
+  number_of_lines: not stated
+  hipsc_coating: not stated
+  wnt_activation_days: not stated
+  wnt_inhibition_days: not stated
+  insulin_day: not stated
+  confluency: not stated
+  purification: not stated
+  day_of_measurement: not stated
+  time_point: not applicable
+
+units:
+  F1CE:
+    where: Fig. 1A–E
+    title: T3 treatment leads to hiPSC-CM morphological and molecular changes
+    context: &ipsc
+      cell_line: IMR90
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: BMP4) under serum-free, monolayer culture conditions. The cultures were also supplemented with the Wnt agonist CHIR
+            99021 in the early stages of differentiation followed by the Wnt antagonist Xav 939
+          where: Methods 2.1
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/ml
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium: RPMI-B27
+      supplements: L-glutamine
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.05%
+      cm_day_at_formation: 20 days
+      platform: not stated
+      substrate: not stated
+      replating_coating: not stated
+      seeding_density: not stated
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      preparation: fixed
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: &t3
+            value: T3
+            qualifiers:
+              concentration: 20 ng/ml
+              duration: one week
+  F1F:
+    where: Fig. 1F
+    title: T3 treatment led to an increase α-MHC, decreased β-MHC, and increased SERCA2a expression level
+    context:
+      <<: *ipsc
+      preparation: total RNA
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  TXT1:
+    where: Results 3.1, text
+    title: T3 treatment does not lead to a change in cardiomyocyte percentage
+    context:
+      <<: *ipsc
+    groups:
+      control:
+        label: control
+        context:
+          treatment: none
+      t3:
+        label: T3-treated
+        context:
+          treatment: *t3
+  TXT2:
+    where: Results 3.1, text (data not shown)
+    title: Titin isoform switch from N2BA to N2B by Q-RT-PCR
+    context:
+      <<: *ipsc
+      preparation: total RNA
+    groups:
+      control:
+        label: control
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  TXT3:
+    where: Results 3.1, text
+    title: Cardiac gene expression in cardiomyocytes derived from human Rockefeller University Embryonic Stem Cell Line 2
+    context:
+      cell_line: Rockefeller University Embryonic Stem Cell Line 2
+      differentiation_factors: not stated
+      hipsc_medium: not stated
+      purity_method: not stated
+      purity: not stated
+      cm_medium: not stated
+      supplements: not stated
+      dissociation_reagent: not stated
+      cm_day_at_formation: not stated
+      platform: not stated
+      substrate: not stated
+      replating_coating: not stated
+      seeding_density: not stated
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      preparation: not stated
+    groups:
+      control:
+        label: control (implied by 'upregulation'; not described)
+        context:
+          treatment: not stated
+      t3_2p5d:
+        label: 2.5 days treatment
+        context:
+          treatment:
+            value: T3
+            qualifiers:
+              duration: 2.5 days
+      t3_14d:
+        label: 14 days treatment
+        context:
+          treatment:
+            value: T3
+            qualifiers:
+              duration: 14 days
+  F2AC:
+    where: Fig. 2A–C
+    title: Effects of T3 on cardiomyocyte cell cycle activity (BrdU incorporation)
+    context:
+      <<: *ipsc
+    other_conditions:
+    - text: 10 μM BrdU overnight before fixation
+      anchor:
+        quote: For cell cycle analysis, cells were treated with 10 μM BrdU overnight before fixation.
+        where: Methods 2.1
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  TXT4:
+    where: Results 3.2, text
+    title: Percentage of binucleated cells
+    context:
+      <<: *ipsc
+      preparation: not stated
+    groups:
+      control:
+        label: control
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  F2D:
+    where: Fig. 2D
+    title: Cell cycle inhibitor p21 mRNA transcript expression level compared with control cells
+    context:
+      <<: *ipsc
+      preparation: total RNA
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  F2EF:
+    where: Fig. 2E–F
+    title: Quantitation of western blots demonstrating that p21 protein was significantly elevated in T3-treated cardiomyocytes
+    context:
+      <<: *ipsc
+      preparation: total protein
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  F3:
+    where: Fig. 3A–F; Supplemental videos 1–2 (captions in the supplement)
+    title: HiPSC-CMs generate more contractile force after T3 treatment and show enhanced contractile kinetics
+    context:
+      <<: *ipsc
+      cm_day_at_formation: Twenty days
+      platform: micropost arrays
+      substrate: PDMS
+      replating_coating:
+        value: mouse laminin
+        qualifiers:
+          concentration: 50 μg/ml
+      seeding_density: 250,000/cm2
+      temperature: 37 °C
+      pacing: spontaneous
+      measurement_medium:
+        value: HEPES-containing medium
+        qualifiers:
+          HEPES: 15 mM
+      preparation: single cardiomyocytes
+    other_conditions:
+    - text: microposts 6.45 μm in height and 2.3 μm in diameter
+      anchor:
+        quote: The microposts used in this study were 6.45 μm in height and 2.3 μm in diameter
+        where: Methods 2.6
+    - text: stiffness of each micropost 38.4 nN/μm
+      anchor:
+        quote: The stiffness of each micropost, which is based upon the dimensions of the microposts and the material properties of
+          PDMS, was 38.4 nN/μm.
+        where: Methods 2.6
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  F4:
+    where: Fig. 4A–F
+    title: T3-treated hiPSC-CMs exhibit increased calcium transient kinetics but no change in magnitude
+    context:
+      <<: *ipsc
+      cm_day_at_formation: not stated
+      platform: glass slides
+      substrate: glass
+      replating_coating: fibronectin
+      temperature: 37 °C
+      pacing:
+        value: stimulated
+        qualifiers:
+          frequency: 0.5 Hz
+      measurement_medium:
+        value: culturing medium
+        qualifiers:
+          HEPES: 15 mM
+      preparation: not stated
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  TXT5:
+    where: Results 3.5, text
+    title: Ratio of mtDNA to nDNA genomes
+    context:
+      <<: *ipsc
+      preparation: total DNA
+    groups:
+      control:
+        label: control
+        context:
+          treatment: none
+      t3:
+        label: T3 treated
+        context:
+          treatment: *t3
+  S1:
+    where: Supplemental Figure 1A–E
+    title: Electron microscopic images and relative mitochondrial volume
+    context:
+      <<: *ipsc
+      platform: tissue culture dishes
+    groups:
+      control:
+        label: control
+        context:
+          treatment: none
+      t3:
+        label: T3-treated
+        context:
+          treatment: *t3
+  F5:
+    where: Fig. 5A–B
+    title: The effect of T3 on mitochondrial function
+    context:
+      <<: *ipsc
+      cm_day_at_formation: around 20 days
+      platform: Seahorse plates
+      replating_coating:
+        value: Gelatin
+        qualifiers:
+          concentration: 0.1%
+      seeding_density: 30,000 per XF96 well (2500/mm2)
+      temperature: not stated
+      pacing: not stated
+      measurement_medium:
+        value: unbuffered DMEM
+        qualifiers:
+          glutamine: 2 mM
+      preparation: not stated
+    other_conditions:
+    - text: glucose at 25 mM, oligomycin (2.5 μM), FCCP (1 μM), rotenone (2.5 μM), and antimycin A (2.5 μM) injected during the
+        measurements
+      anchor:
+        quote: injected during the measurements to achieve final concentrations of glucose at 25 mM, oligomycin (2.5 μM), FCCP (1
+          μM), rotenone (2.5 μM), and antimycin A (2.5 μM)
+        where: Methods 2.8
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+      t3:
+        label: T3
+        context:
+          treatment: *t3
+  TXT6:
+    where: Discussion, text
+    title: Sarcomere length after long-term culture (Lundy and colleagues)
+    groups:
+      lundy_start:
+        label: before long-term culture (Lundy and colleagues)
+        kind: other study
+        citation: r25
+        context: {}
+      lundy_long:
+        label: long-term (~100 day) maintenance of hPSC-CMs in low density cultures
+        kind: other study
+        citation: r25
+        context:
+          day_of_measurement: ~100 day
+        other_conditions:
+        - text: low density cultures
+          anchor:
+            quote: upon the long-term (~100 day) maintenance of hPSC-CMs in low density cultures
+            where: Discussion
+  TXT7:
+    where: Discussion, text
+    title: Contractile force of human embryonic stem cell-derived cardiomyocytes on microposts (Taylor et al.)
+    groups:
+      taylor:
+        label: Taylor et al., human embryonic stem cell-derived cardiomyocytes
+        kind: other study
+        citation: r35
+        context:
+          species: human
+        other_conditions:
+        - text: cells seeded onto 0.01 N/m (10 nN/μm) microposts
+          anchor:
+            quote: They recorded forces between 50 and 100 nN/cell for cells seeded onto 0.01 N/m (10 nN/μm) microposts.
+            where: Discussion
+
+evidence:
+  F1C_area:
+    unit: F1CE
+    measure: cell area
+    method: co-staining of F-actin and α-actinin; confocal images processed and quantified using NIS Elements
+    software: NIS Elements
+    finding: Cell area is larger in T3-treated than in control cells.
+    compares: [t3, control]
+    n: {printed: n > 100 per condition, counts: not stated}
+    values:
+      area_control: {printed: '604', unit: μm2, kind: mean, group: control, spread: SEM, spread_source: methods}
+      area_control_sem: {printed: '28', unit: μm2, kind: sem, group: control}
+      area_t3: {printed: '991', unit: μm2, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      area_t3_sem: {printed: '58', unit: μm2, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P < 0.001
+      p_values:
+      - p: '#P < 0.001'
+        anchor: {quote: '# P<0.001, *P<0.05', where: Fig. 1 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: We observed a significant increase in cell size (cell area) in T3-treated cells compared with control cells (604 ± 28
+      where: Results 3.1
+  F1D_circularity:
+    unit: F1CE
+    measure: circularity index
+    method: immunocytochemistry; images quantified using NIS Elements
+    software: NIS Elements
+    definition: Circularity = 4π · Area / Perimeter2; 0 for a line, 1 for a perfect circle
+    finding: Circularity index is lower in T3-treated than in control cells.
+    compares: [t3, control]
+    n: {printed: n > 100 per condition, counts: not stated}
+    values:
+      circ_control: {printed: '0.66', unit: dimensionless, kind: mean, group: control, spread: SEM, spread_source: methods}
+      circ_control_sem: {printed: '0.03', unit: dimensionless, kind: sem, group: control}
+      circ_t3: {printed: '0.54', unit: dimensionless, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      circ_t3_sem: {printed: '0.02', unit: dimensionless, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.004
+      p_values:
+      - p: '*P < 0.05'
+        anchor: {quote: '# P<0.001, *P<0.05', where: Fig. 1 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: T3-treatment resulted in a decreased circularity index (0.66 ± 0.03 vs 0.54 ± 0.02
+      where: Results 3.1
+  F1E_sarcomere:
+    unit: F1CE
+    measure: sarcomere length
+    method: myofibrils with at least ten continuous α-actinin+ bands; length divided by the number of sarcomeres
+    software: NIS Elements
+    definition: distance between Z-disks
+    finding: Sarcomere length is longer in T3-treated than in control cells.
+    compares: [t3, control]
+    n: {printed: n > 100 per condition, counts: not stated}
+    values:
+      sarc_control_results: {printed: '1.67', unit: μm, kind: mean, group: control, spread: SEM, spread_source: methods}
+      sarc_control_sem_results: {printed: '0.02', unit: μm, kind: sem, group: control}
+      sarc_t3_results: {printed: '1.73', unit: μm, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      sarc_t3_sem_results: {printed: '0.01', unit: μm, kind: sem, group: t3}
+      sarc_control_discussion: {printed: '1.67', unit: μm, kind: mean, group: control, spread: SEM, spread_source: methods}
+      sarc_control_sem_discussion: {printed: '0.02', unit: μm, kind: sem, group: control}
+      sarc_t3_discussion: {printed: '1.73', unit: μm, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      sarc_t3_sem_discussion: {printed: '0.01', unit: μm, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.006
+      p_values:
+      - p: '*P < 0.05'
+        anchor: {quote: '# P<0.001, *P<0.05', where: Fig. 1 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: increased from 1.67 ± 0.02 μm in untreated controls to 1.73 ± 0.01 μm
+      where: Results 3.1 (repeated in the Discussion)
+  F1F_amhc:
+    unit: F1F
+    measure: α-MHC expression
+    method: quantitative RT-PCR, SYBR green on an ABI 7900HT; normalized first to HPRT mRNA levels and then to untreated control levels
+    software: not stated
+    finding: α-MHC is up-regulated in T3-treated cells relative to control.
+    compares: [t3, control]
+    values:
+      amhc_fold: {printed: '7.3', unit: fold, kind: ratio, between: [t3, control], expressed_as: fold, normalised_to: untreated
+          control levels, spread: SEM, spread_source: methods}
+      amhc_fold_sem: {printed: '1.9', unit: fold, kind: sem, between: [t3, control]}
+    anchor:
+      quote: we observed α-MHC up-regulation (7.3 ± 1.9-fold vs. control)
+      where: Results 3.1
+  F1F_bmhc:
+    unit: F1F
+    measure: β-MHC expression
+    method: quantitative RT-PCR, SYBR green on an ABI 7900HT; normalized first to HPRT mRNA levels and then to untreated control levels
+    software: not stated
+    finding: β-MHC is down-regulated in T3-treated cells relative to control.
+    compares: [t3, control]
+    values:
+      bmhc_fold: {printed: '0.5', unit: fold, kind: ratio, between: [t3, control], expressed_as: fold, normalised_to: untreated
+          control levels, spread: SEM, spread_source: methods}
+      bmhc_fold_sem: {printed: '0.2', unit: fold, kind: sem, between: [t3, control]}
+    anchor:
+      quote: β-MHC down-regulation (0.5 ± 0.2-fold vs. control)
+      where: Results 3.1
+  F1F_serca:
+    unit: F1F
+    measure: SERCA2a expression
+    method: quantitative RT-PCR, SYBR green on an ABI 7900HT; normalized first to HPRT mRNA levels and then to untreated control levels
+    software: not stated
+    finding: SERCA2a expression is increased in T3-treated cells relative to control.
+    compares: [t3, control]
+    values:
+      serca_fold: {printed: '3.9', unit: fold, kind: ratio, between: [t3, control], expressed_as: fold, normalised_to: untreated
+          control levels, spread: SEM, spread_source: methods}
+      serca_fold_sem: {printed: '0.9', unit: fold, kind: sem, between: [t3, control]}
+    anchor:
+      quote: an increase of sarcoendoplasmic reticulum ATPase (SERCA2a) expression (3.9 ± 0.9-fold vs. control)
+      where: Results 3.1
+  TXT1_cm_percentage:
+    unit: TXT1
+    measure: cardiomyocyte percentage
+    method: immunocytochemistry with α-actinin as a cardiomyocyte marker and Hoechst 33342 nuclear counterstain
+    finding: T3 treatment does not change cardiomyocyte percentage.
+    compares: [t3, control]
+    stated_direction:
+      direction: none
+      anchor: {quote: showed that T3 treatment does not lead to a change in cardiomyocyte percentage, where: Results 3.1}
+    anchor:
+      quote: showed that T3 treatment does not lead to a change in cardiomyocyte percentage
+      where: Results 3.1
+  TXT2_n2ba:
+    unit: TXT2
+    measure: titin N2BA isoform expression
+    method: Q-RT-PCR with primers from [19]
+    finding: One week of T3 did not change N2BA expression (data not shown).
+    compares: [t3, control]
+    stated_direction:
+      direction: none
+      anchor: {quote: One week of T3 treatment did not change the expression level of either isoform (data not shown), where: Results
+          3.1}
+    anchor:
+      quote: One week of T3 treatment did not change the expression level of either isoform (data not shown)
+      where: Results 3.1
+  TXT2_n2b:
+    unit: TXT2
+    measure: titin N2B isoform expression
+    method: Q-RT-PCR with primers from [19]
+    finding: One week of T3 did not change N2B expression (data not shown).
+    compares: [t3, control]
+    stated_direction:
+      direction: none
+      anchor: {quote: One week of T3 treatment did not change the expression level of either isoform (data not shown), where: Results
+          3.1}
+    anchor:
+      quote: One week of T3 treatment did not change the expression level of either isoform (data not shown)
+      where: Results 3.1
+  TXT2_dominant:
+    unit: TXT2
+    measure: titin isoform expression (N2BA and N2B)
+    method: Q-RT-PCR with primers from [19]
+    finding: Both N2BA and N2B are expressed, N2BA being dominant.
+    groups: [control, t3]
+    note: a comparison between two measures in the same samples (N2BA against N2B); no values printed
+    anchor:
+      quote: Both N2BA and N2B isoforms were expressed with N2BA being the dominant one
+      where: Results 3.1
+  TXT3_amhc_2p5d:
+    unit: TXT3
+    measure: α-MHC expression
+    finding: α-MHC up-regulated 4.35-fold after 2.5 days of T3.
+    compares: [t3_2p5d, control]
+    values:
+      amhc_2p5d: {printed: '4.35', unit: fold, kind: ratio, between: [t3_2p5d, control], expressed_as: fold, spread: none}
+    anchor:
+      quote: We observed a 4.35-fold and a 10.78-fold upregulation of α-MHC after 2.5 and 14 days treatment
+      where: Results 3.1
+  TXT3_amhc_14d:
+    unit: TXT3
+    measure: α-MHC expression
+    finding: α-MHC up-regulated 10.78-fold after 14 days of T3.
+    compares: [t3_14d, control]
+    values:
+      amhc_14d: {printed: '10.78', unit: fold, kind: ratio, between: [t3_14d, control], expressed_as: fold, spread: none}
+    anchor:
+      quote: We observed a 4.35-fold and a 10.78-fold upregulation of α-MHC after 2.5 and 14 days treatment
+      where: Results 3.1
+  TXT3_bmhc_2p5d:
+    unit: TXT3
+    measure: β-MHC expression
+    finding: β-MHC 'decreased 0.73-fold' after 2.5 days of T3.
+    compares: [t3_2p5d, control]
+    values:
+      bmhc_2p5d: {printed: '0.73', unit: fold, kind: ratio, between: [t3_2p5d, control], expressed_as: fold, spread: none}
+    anchor:
+      quote: whereas the expression of β-MHC decreased 0.73-fold and 0.48-fold
+      where: Results 3.1
+  TXT3_bmhc_14d:
+    unit: TXT3
+    measure: β-MHC expression
+    finding: β-MHC 'decreased 0.48-fold' after 14 days of T3.
+    compares: [t3_14d, control]
+    values:
+      bmhc_14d: {printed: '0.48', unit: fold, kind: ratio, between: [t3_14d, control], expressed_as: fold, spread: none}
+    anchor:
+      quote: whereas the expression of β-MHC decreased 0.73-fold and 0.48-fold
+      where: Results 3.1
+  TXT3_serca_2p5d:
+    unit: TXT3
+    measure: SERCA2a expression
+    finding: SERCA2a increased 1.88-fold after 2.5 days of T3.
+    compares: [t3_2p5d, control]
+    values:
+      serca_2p5d: {printed: '1.88', unit: fold, kind: ratio, between: [t3_2p5d, control], expressed_as: fold, spread: none}
+    anchor:
+      quote: An increase of 1.88-fold (2.5 days) and 3.93-fold (14 days) was detected for SERCA2a
+      where: Results 3.1
+  TXT3_serca_14d:
+    unit: TXT3
+    measure: SERCA2a expression
+    finding: SERCA2a increased 3.93-fold after 14 days of T3.
+    compares: [t3_14d, control]
+    values:
+      serca_14d: {printed: '3.93', unit: fold, kind: ratio, between: [t3_14d, control], expressed_as: fold, spread: none}
+    anchor:
+      quote: An increase of 1.88-fold (2.5 days) and 3.93-fold (14 days) was detected for SERCA2a
+      where: Results 3.1
+  F2C_brdu:
+    unit: F2AC
+    measure: BrdU-positive cardiomyocyte nuclei
+    method: overnight BrdU pulse, double-staining for α-actinin and BrdU; nuclei counted in three separate experiments
+    finding: Fewer cardiomyocyte nuclei are BrdU-positive after T3 treatment.
+    compares: [t3, control]
+    n: {printed: n > 2000 α-actinin-positive cardiomyocyte nuclei in each group in three separate experiments, counts: nuclei}
+    values:
+      brdu_control: {printed: about 8.0, unit: '%', kind: percent, group: control, spread: not stated}
+      brdu_t3: {printed: around 4.2, unit: '%', kind: percent, group: t3, spread: not stated}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '*P < 0.05'
+    anchor:
+      quote: In the control groups, about 8.0% of cardiomyocyte nuclei were BrdU-positive, while after T3 treatment, the number declined
+        to around 4.2%
+      where: Results 3.2
+  TXT4_binucleation:
+    unit: TXT4
+    measure: binucleated cells
+    finding: No difference in percentage of binucleated cells; both around 12%.
+    compares: [t3, control]
+    values:
+      binuc_both: {printed: around 12, unit: '%', kind: percent, over: [control, t3], spread: not stated}
+    stated_direction:
+      direction: none
+      anchor: {quote: No differences were found in the percentage of binucleated cells between groups, where: Results 3.2}
+    anchor:
+      quote: No differences were found in the percentage of binucleated cells between groups, with both around 12%.
+      where: Results 3.2
+  F2D_p21_mrna:
+    unit: F2D
+    measure: p21 mRNA transcript expression
+    method: quantitative RT-PCR normalized to HPRT; expressed relative to control cells
+    finding: p21 transcript is increased after T3 treatment.
+    compares: [t3, control]
+    n: {printed: n = 3, counts: not stated}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '*P < 0.05'
+    stated_direction:
+      direction: up
+      anchor: {quote: There is a significant increase in p21 transcript after T3 treatment., where: Fig. 2 legend}
+    note: the legend's '*P < 0.05' sentence is printed after panel C and again ('vs. control') after panel F; the asterisk on panel D
+      is read with it
+    anchor:
+      quote: (D) Cell cycle inhibitor p21 mRNA transcript expression level compared with control cells (n = 3). There is a significant
+        increase in p21 transcript after T3 treatment.
+      where: Fig. 2 legend
+  F2F_p21_protein:
+    unit: F2EF
+    measure: p21 protein level
+    method: western blotting with anti-p21 and anti-GAPDH; equal protein loading checked by Ponceau S; bands quantified
+    software: Quantity One (BioRad)
+    finding: p21 protein is elevated in T3-treated cardiomyocytes.
+    compares: [t3, control]
+    n: {printed: n = 3, counts: not stated}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '*P < 0.05 vs. control'
+    stated_direction:
+      direction: up
+      anchor: {quote: p21 protein was significantly elevated in T3-treated cardiomyocytes, where: Fig. 2 legend}
+    anchor:
+      quote: (F) Quantitation of western blots demonstrating that p21 protein was significantly elevated in T3-treated cardiomyocytes
+      where: Fig. 2 legend
+  F3C_force:
+    unit: F3
+    measure: twitch force
+    method: post deflections recorded by high-speed video microscopy at 100–150 frames/s (phase contrast, 60× water immersion objective),
+      compared with a reference fluorescent image of the post base plane; F = kδ per post, summed over the posts beneath the cell
+    software: custom-written MATLAB code
+    definition: force at each micropost F = kδ (k = 38.4 nN/μm, δ = horizontal distance between post tip and base centroids), added
+      together over the posts beneath the cardiomyocyte
+    finding: Twitch force is higher in T3-treated than in control hiPSC-CMs.
+    compares: [t3, control]
+    n:
+      printed: N = 44 for control hiPSC-CMs and N = 66 for T3-treated hiPSC-CMs
+      counts: cells
+      per_group: {control: '44', t3: '66'}
+    values:
+      force_control_text: {printed: '7.5', unit: nN/cell, kind: mean, group: control, spread: SEM, spread_source: methods}
+      force_control_sem_text: {printed: '0.4', unit: nN/cell, kind: sem, group: control}
+      force_t3_text: {printed: '12.3', unit: nN/cell, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      force_t3_sem_text: {printed: '0.7', unit: nN/cell, kind: sem, group: t3}
+      force_control_discussion: {printed: ~7.5, unit: nN/cell, kind: mean, group: control, spread: not stated}
+      force_t3_discussion: {printed: ~12.3, unit: nN/cell, kind: mean, group: t3, spread: not stated}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P < 0.001
+      p_values:
+      - p: '#P < 0.001 vs. control'
+        anchor: {quote: '# P<0.001 vs. control. N=44 for control hiPSC-CMs and N=66 for T3-treated hiPSC-CMs', where: Fig. 3 legend,
+          file: nihms-586803.pdf}
+    suspected_error:
+      what: Fig. 3C bars look lower than the text means (by eye roughly 6.3 and 10.3 nN/cell against 7.5 and 12.3)
+      why: the text cites Fig. 3C for 7.5 ± 0.4 nN/cell; a look at the panel suggests different bar heights; not read by code here,
+        flagged for the figures reader
+    anchor:
+      quote: Control hiPSC-CMs exhibited a twitch force of 7.5 ± 0.4 nN/cell (Fig. 3C). T3-treated hiPSC-CMs exhibited a significantly
+        higher twitch force of 12.3 ± 0.7 nN/cell
+      where: Results 3.3 (repeated in the Discussion)
+  F3_video_control:
+    unit: F3
+    measure: twitch force
+    finding: A representative control cell generated 8.28 nN.
+    groups: [control]
+    n: {printed: A representative control cardiomyocyte, counts: cells, per_group: {control: '1'}}
+    values:
+      force_video_control: {printed: '8.28', unit: nN, kind: value, group: control, spread: none}
+    anchor:
+      quote: This control cell generated a force of 8.28 nN.
+      where: Supplemental video 1 caption
+      file: NIHMS586803-supplement-01.docx
+  F3_video_t3:
+    unit: F3
+    measure: twitch force
+    finding: A representative T3-treated cell generated 12.12 nN.
+    groups: [t3]
+    n: {printed: A representative T3-treated cardiomyocyte, counts: cells, per_group: {t3: '1'}}
+    values:
+      force_video_t3: {printed: '12.12', unit: nN, kind: value, group: t3, spread: none}
+    anchor:
+      quote: This cell generated a force of 12.12 nN.
+      where: Supplemental video 2 caption
+      file: NIHMS586803-supplement-01.docx
+  F3D_time_to_peak:
+    unit: F3
+    measure: time to peak contraction
+    method: contractile time analysis of micropost force traces
+    software: custom-written MATLAB code
+    finding: Time to peak contraction is shorter in T3-treated cells.
+    compares: [t3, control]
+    n:
+      printed: N = 44 for control hiPSC-CMs and N = 66 for T3-treated hiPSC-CMs
+      counts: cells
+      per_group: {control: '44', t3: '66'}
+    values:
+      ttp_t3: {printed: '0.15', unit: s, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      ttp_t3_sem: {printed: '0.01', unit: s, kind: sem, group: t3}
+      ttp_control: {printed: '0.25', unit: s, kind: mean, group: control, spread: SEM, spread_source: methods}
+      ttp_control_sem: {printed: '0.02', unit: s, kind: sem, group: control}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '#P < 0.001 vs. control'
+    anchor:
+      quote: displayed shorter time to peak contraction (0.15 ± 0.01 s versus 0.25 ± 0.02 s in control cells
+      where: Results 3.3
+  F3E_time_to_90_relaxation:
+    unit: F3
+    measure: time to 90% relaxation
+    method: contractile time analysis of micropost force traces
+    software: custom-written MATLAB code
+    finding: Time to 90% relaxation is shorter in T3-treated cells.
+    compares: [t3, control]
+    n:
+      printed: N = 44 for control hiPSC-CMs and N = 66 for T3-treated hiPSC-CMs
+      counts: cells
+      per_group: {control: '44', t3: '66'}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '*P < 0.05 (Methods)'
+    stated_direction:
+      direction: down
+      anchor: {quote: T3 also significantly decreased the time to 90% relaxation (Fig. 3E), where: Results 3.3}
+    suspected_error:
+      what: panel E carries '*' but the Fig. 3 legend defines only '#P < 0.001 vs. control'
+      why: the asterisk's threshold is not stated in the legend; the Methods' paper-wide threshold (P < 0.05) is used
+    anchor:
+      quote: T3 also significantly decreased the time to 90% relaxation (Fig. 3E)
+      where: Results 3.3
+  F3F_total_twitch_time:
+    unit: F3
+    measure: total twitch time
+    method: contractile time analysis of micropost force traces
+    software: custom-written MATLAB code
+    finding: Total twitch time is shorter in T3-treated cells.
+    compares: [t3, control]
+    n:
+      printed: N = 44 for control hiPSC-CMs and N = 66 for T3-treated hiPSC-CMs
+      counts: cells
+      per_group: {control: '44', t3: '66'}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '#P < 0.001 vs. control'
+    stated_direction:
+      direction: down
+      anchor: {quote: time to 90% relaxation (Fig. 3E) and total twitch time (Fig. 3F), where: Results 3.3}
+    anchor:
+      quote: T3 treatment led to significant decrease in time to peak contraction (D), time to 90% relaxation (E), and total twitch
+        time (F).
+      where: Fig. 3 legend
+  F4B_amplitude:
+    unit: F4
+    measure: calcium transient amplitude
+    method: ratiometric fura-2 AM (1 μM, 20 min, 37 °C); IonOptix Stepper Switch system on a Nikon inverted fluorescence microscope,
+      40× objective, 510-nm filter, photomultiplier tube
+    software: not stated
+    finding: Peak transient amplitude unchanged after T3 treatment.
+    compares: [t3, control]
+    n: {printed: n = 10–15 cells per condition, counts: cells}
+    values:
+      amp_control: {printed: '0.24', unit: F/F0, kind: mean, group: control, expressed_as: fold, spread: SEM, spread_source: methods}
+      amp_control_sem: {printed: '0.03', unit: F/F0, kind: sem, group: control}
+      amp_t3: {printed: '0.20', unit: F/F0, kind: mean, group: t3, expressed_as: fold, spread: SEM, spread_source: methods}
+      amp_t3_sem: {printed: '0.02', unit: F/F0, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.23
+    note: the text prints '0.24 ± 0.03 vs 0.20 ± 0.02' without naming the groups; the order (control first) follows the other
+      calcium values of the paragraph and Fig. 4B
+    anchor:
+      quote: While the peak transient amplitude remained unchanged after treatment (0.24 ± 0.03 vs 0.20 ± 0.02
+      where: Results 3.4
+  F4C_upstroke:
+    unit: F4
+    measure: maximal calcium transient upstroke velocity
+    method: ratiometric fura-2 AM; IonOptix Stepper Switch system, photomultiplier tube
+    software: not stated
+    finding: Vmax upstroke is faster in T3-treated cells.
+    compares: [t3, control]
+    n: {printed: n = 10–15 cells per condition, counts: cells}
+    values:
+      up_control: {printed: '2.99', unit: F/F0/s, kind: mean, group: control, spread: SEM, spread_source: methods}
+      up_control_sem: {printed: '0.64', unit: F/F0/s, kind: sem, group: control}
+      up_t3: {printed: '7.43', unit: F/F0/s, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      up_t3_sem: {printed: '1.43', unit: F/F0/s, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.004
+      p_values:
+      - p: '*P < 0.05 vs. control hiPSC-CMs'
+        anchor: {quote: n=10-15 cells per condition. *P<0.05 vs. control hiPSC-CMs., where: Fig. 4 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: Vmax upstroke was faster (2.99 ± 0.64 vs. 7.43 ± 1.43
+      where: Results 3.4
+  F4D_decay_velocity:
+    unit: F4
+    measure: maximal calcium transient decay velocity
+    method: ratiometric fura-2 AM; IonOptix Stepper Switch system, photomultiplier tube
+    software: not stated
+    finding: Ca2+-transient decay rate is faster in T3-treated cells.
+    compares: [t3, control]
+    n: {printed: n = 10–15 cells per condition, counts: cells}
+    values:
+      decay_control: {printed: '0.39', unit: F/F0/s, kind: mean, group: control, spread: SEM, spread_source: methods}
+      decay_control_sem: {printed: '0.03', unit: F/F0/s, kind: sem, group: control}
+      decay_t3: {printed: '0.55', unit: F/F0/s, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      decay_t3_sem: {printed: '0.07', unit: F/F0/s, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.028
+      p_values:
+      - p: '*P < 0.05 vs. control hiPSC-CMs'
+        anchor: {quote: n=10-15 cells per condition. *P<0.05 vs. control hiPSC-CMs., where: Fig. 4 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: A faster Ca2+-transient decay rate (0.39 ± 0.03 vs 0.55 ± 0.07
+      where: Results 3.4
+  F4E_time_to_90_peak:
+    unit: F4
+    measure: time to 90% peak [Ca2+]i
+    method: ratiometric fura-2 AM; IonOptix Stepper Switch system, photomultiplier tube
+    software: not stated
+    finding: Time to 90% peak [Ca2+]i is shorter in T3-treated cells.
+    compares: [t3, control]
+    n: {printed: n = 10–15 cells per condition, counts: cells}
+    values:
+      t90p_control: {printed: '0.52', unit: s, kind: mean, group: control, spread: SEM, spread_source: methods}
+      t90p_control_sem: {printed: '0.08', unit: s, kind: sem, group: control}
+      t90p_t3: {printed: '0.25', unit: s, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      t90p_t3_sem: {printed: '0.06', unit: s, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.029
+      p_values:
+      - p: '*P < 0.05 vs. control hiPSC-CMs'
+        anchor: {quote: n=10-15 cells per condition. *P<0.05 vs. control hiPSC-CMs., where: Fig. 4 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: time to 90% peak [Ca2+]i was significantly shorter (0.52 ± 0.08 vs. 0.25 ± 0.06
+      where: Results 3.4
+  F4F_time_to_50_decay:
+    unit: F4
+    measure: time to 50% decay of the calcium transient
+    method: ratiometric fura-2 AM; IonOptix Stepper Switch system, photomultiplier tube
+    software: not stated
+    finding: Time to 50% decay is shorter in T3-treated cells.
+    compares: [t3, control]
+    n: {printed: n = 10–15 cells per condition, counts: cells}
+    values:
+      t50d_control: {printed: '0.51', unit: s, kind: mean, group: control, spread: SEM, spread_source: methods}
+      t50d_control_sem: {printed: '0.05', unit: s, kind: sem, group: control}
+      t50d_t3: {printed: '0.33', unit: s, kind: mean, group: t3, spread: SEM, spread_source: methods}
+      t50d_t3_sem: {printed: '0.04', unit: s, kind: sem, group: t3}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: P = 0.0141
+      p_values:
+      - p: '*P < 0.05 vs. control hiPSC-CMs'
+        anchor: {quote: n=10-15 cells per condition. *P<0.05 vs. control hiPSC-CMs., where: Fig. 4 legend, file: nihms-586803.pdf}
+    anchor:
+      quote: significant shorter time to 50% decay (0.51 ± 0.05 vs 0.33 ± 0.04
+      where: Results 3.4
+  TXT5_mtdna:
+    unit: TXT5
+    measure: mtDNA to nDNA ratio
+    method: qPCR of a mtDNA fragment within ND1 against a region of the nuclear LPL gene; primers from [20]
+    finding: mtDNA/nDNA ratio around 600 in both groups, no significant difference.
+    compares: [t3, control]
+    values:
+      mtdna_both: {printed: around 600, unit: ratio, kind: ratio, over: [control, t3], spread: not stated}
+    stated_direction:
+      direction: none
+      anchor: {quote: The ratio of mtDNA to nDNA genomes was around 600 for both control and T3 treated cardiomyocytes with no significant
+          differences, where: Results 3.5}
+    anchor:
+      quote: The ratio of mtDNA to nDNA genomes was around 600 for both control and T3 treated cardiomyocytes with no significant differences
+      where: Results 3.5
+  S1E_mito_volume:
+    unit: S1
+    measure: relative mitochondrial volume
+    method: transmission electron microscopy; point counting on 20 horizontal and 20 perpendicular lines, crosspoints overlapping mitochondria
+      divided by the total points
+    definition: crosspoints that overlapped with mitochondria divided by the total points
+    finding: No difference in mitochondrial volume fraction (~7% in both groups).
+    compares: [t3, control]
+    values:
+      mitovol_both: {printed: ~7, unit: '%', kind: percent, over: [control, t3], spread: not stated}
+    stats:
+      p: P=0.36
+    stated_direction:
+      direction: none
+      anchor: {quote: No difference was found in the mitochondrial volume fraction, where: Results 3.5}
+    anchor:
+      quote: Panel E showed the relative mitochondrial volume with P=0.36 between groups.
+      where: Supplemental Figure 1 legend
+      file: NIHMS586803-supplement-01.docx
+  F5B_basal:
+    unit: F5
+    measure: basal OCR
+    method: Seahorse XF96 extracellular flux analyzer; OCR normalized to cell number by Hoechst 33342 fluorescence; relative T3 treated/untreated
+      control levels
+    software: not stated
+    definition: the average values measured from time points 1 to 5 (0–15 min)
+    finding: Basal respiration increases significantly after T3.
+    compares: [t3, control]
+    n: {printed: n = 6 biological replicates, counts: biological replicates}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '#P < 0.001 vs control hiPSC-CMs'
+    stated_direction:
+      direction: up
+      anchor: {quote: 'After treatment with T3, basal respiration increases significantly (Fig. 5B)', where: Results 3.5}
+    anchor:
+      quote: After treatment with T3, basal respiration increases significantly (Fig. 5B)
+      where: Results 3.5
+  F5B_maximal:
+    unit: F5
+    measure: maximal OCR
+    method: Seahorse XF96 extracellular flux analyzer; OCR normalized to cell number by Hoechst 33342 fluorescence; relative T3 treated/untreated
+      control levels
+    software: not stated
+    definition: the OCR difference between uncoupler FCCP and (rotenone + antimycin A)
+    finding: Maximal respiration increased after T3 (1.5-fold).
+    compares: [t3, control]
+    n: {printed: n = 6 biological replicates, counts: biological replicates}
+    values:
+      maxocr_fold: {printed: '1.5', unit: fold, kind: ratio, between: [t3, control], expressed_as: fold, spread: not stated}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '#P < 0.001 vs control hiPSC-CMs'
+    anchor:
+      quote: Assessment of mitochondrial function showed a significant 1.5-fold increase in maximal respiratory capacity after T3 treatment
+      where: Discussion
+  F5B_reserve:
+    unit: F5
+    measure: respiratory reserve capacity
+    method: Seahorse XF96 extracellular flux analyzer; OCR normalized to cell number by Hoechst 33342 fluorescence; relative T3 treated/untreated
+      control levels
+    software: not stated
+    definition: the difference between FCCP and baseline OCR values
+    finding: Respiratory reserve capacity increased after T3.
+    compares: [t3, control]
+    n: {printed: n = 6 biological replicates, counts: biological replicates}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '*P < 0.05 vs control hiPSC-CMs'
+    stated_direction:
+      direction: up
+      anchor: {quote: T3 treatment led to an increase in respiratory reserve capacity, where: Discussion}
+    anchor:
+      quote: T3 treatment led to an increase in respiratory reserve capacity
+      where: Discussion
+  F5B_nonmito:
+    unit: F5
+    measure: non-mitochondrial OCR
+    method: Seahorse XF96 extracellular flux analyzer; OCR normalized to cell number by Hoechst 33342 fluorescence; relative T3 treated/untreated
+      control levels
+    software: not stated
+    definition: the OCR value after rotenone and antimycin A treatment
+    finding: Non-mitochondrial OCR increased significantly after T3.
+    compares: [t3, control]
+    n: {printed: n = 6 biological replicates, counts: biological replicates}
+    stats:
+      test: ANOVA with Student–Newman–Keuls post hoc testing
+      p: '#P < 0.001 vs control hiPSC-CMs'
+    stated_direction:
+      direction: up
+      anchor: {quote: there is a significant increase of non-mitochondrial OCR after T3 treatment, where: Results 3.5}
+    anchor:
+      quote: there is a significant increase of non-mitochondrial OCR after T3 treatment
+      where: Results 3.5
+  F5_nonmito_fraction:
+    unit: F5
+    measure: non-mitochondrial OCR as a fraction of total OCR
+    finding: Non-mitochondrial OCR was 20–30% of total OCR in both groups.
+    groups: [control, t3]
+    values:
+      nonmito_frac_low: {printed: '20', unit: '% of total OCR', kind: percent, over: [control, t3], spread: none}
+      nonmito_frac_high: {printed: '30', unit: '% of total OCR', kind: percent, over: [control, t3], spread: none}
+    anchor:
+      quote: for both control and T3-treated cells, non-mitochondrial OCR was 20–30% of total OCR
+      where: Results 3.5
+  TXT6_lundy_sarcomere:
+    unit: TXT6
+    measure: sarcomere length
+    finding: Long-term culture (Lundy and colleagues) increased sarcomere length from 1.65 to 1.81 μm, described as significant.
+    compares: [lundy_long, lundy_start]
+    values:
+      lundy_start_mean: {printed: '1.65', unit: μm, kind: mean, group: lundy_start, spread: not stated}
+      lundy_start_spread: {printed: '0.02', unit: μm, kind: value, group: lundy_start}
+      lundy_long_mean: {printed: '1.81', unit: μm, kind: mean, group: lundy_long, spread: not stated}
+      lundy_long_spread: {printed: '0.01', unit: μm, kind: value, group: lundy_long}
+    note: values of another study [25] as printed here; the ± values are recorded as kind value because their spread type is not
+      stated here; described as 'a significant increase' with no P
+    anchor:
+      quote: compared with the long-term culture, which resulted in a significant increase in sarcomere length from 1.65 ± 0.02 μm
+        to 1.81 ± 0.01 μm
+      where: Discussion
+  TXT7_taylor_force:
+    unit: TXT7
+    measure: contractile force
+    finding: Taylor et al. recorded 50–100 nN/cell for hESC-CMs on 10 nN/μm microposts.
+    groups: [taylor]
+    values:
+      taylor_low: {printed: '50', unit: nN/cell, kind: value, group: taylor, spread: none}
+      taylor_high: {printed: '100', unit: nN/cell, kind: value, group: taylor, spread: none}
+    anchor:
+      quote: They recorded forces between 50 and 100 nN/cell for cells seeded onto 0.01 N/m (10 nN/μm) microposts.
+      where: Discussion
+
+context_anchors:
+- field: species
+  value: human
+  anchor: {quote: Undifferentiated human IMR90-induced pluripotent stem cells, where: Methods 2.1}
+- field: cell_types
+  value: cardiomyocytes
+  anchor: {quote: Cardiomyocytes were obtained using a protocol based on our previously reported directed differentiation method,
+    where: Methods 2.1}
+- field: cell_line
+  value: IMR90
+  anchor: {quote: Undifferentiated human IMR90-induced pluripotent stem cells, where: Methods 2.1}
+- field: hipsc_medium
+  value: mouse embryonic fibroblast-conditioned medium
+  anchor: &bfgf {quote: were expanded using mouse embryonic fibroblast-conditioned medium supplemented with 5 ng/ml basic fibroblast
+      growth factor, where: Methods 2.1}
+- field: hipsc_medium.basic fibroblast growth factor
+  value: 5 ng/ml
+  anchor: *bfgf
+- field: purity_method
+  value: flow cytometry
+  anchor: {quote: cardiac troponin T-positive cardiomyocytes (by flow cytometry) were used for the current investigation, where: Methods
+      2.1}
+- field: purity
+  value: '>80%'
+  anchor: {quote: Only cell preparations containing >80% cardiac troponin T-positive cardiomyocytes, where: Methods 2.1, file: nihms-586803.pdf}
+- field: cm_medium
+  value: RPMI-B27
+  anchor: &rpmi {quote: Cultures were fed every other day thereafter with serum-free RPMI-B27 plus L-glutamine., where: Methods 2.1}
+- field: supplements
+  value: L-glutamine
+  anchor: *rpmi
+- field: dissociation_reagent
+  value: trypsin-EDTA
+  anchor: &trypsin {quote: 'After 20 days of in vitro differentiation, the cells were dispersed using 0.05% trypsin-EDTA and replated.',
+    where: Methods 2.1}
+- field: dissociation_reagent.concentration
+  value: 0.05%
+  anchor: *trypsin
+- field: cm_day_at_formation
+  value: 20 days
+  anchor: *trypsin
+- field: preparation
+  value: fixed
+  anchor: {quote: Cells were fixed in 4% paraformaldehyde for 10 min, where: Methods 2.2}
+- field: treatment
+  value: T3
+  anchor: &t3q {quote: 'After 20 days of differentiation, the cells were treated with 20 ng/ml T3 for one week', where: Methods 2.1}
+- field: treatment.concentration
+  value: 20 ng/ml
+  anchor: *t3q
+- field: treatment.duration
+  value: one week
+  anchor: *t3q
+- field: preparation
+  value: total RNA
+  anchor: {quote: Total RNA was isolated using the Qiagen RNeasy kit, where: Methods 2.4}
+- field: cell_line
+  value: Rockefeller University Embryonic Stem Cell Line 2
+  anchor: {quote: 'In the cardiomyocytes derived from human Rockefeller University Embryonic Stem Cell Line 2, T3 treatment induced
+      similar cardiac gene expression patterns', where: Results 3.1}
+- field: treatment.duration
+  value: 2.5 days
+  anchor: &rues {quote: 'An increase of 1.88-fold (2.5 days) and 3.93-fold (14 days) was detected for SERCA2a', where: Results 3.1}
+- field: treatment.duration
+  value: 14 days
+  anchor: *rues
+- field: preparation
+  value: total protein
+  anchor: {quote: Total protein was acquired from control cardiomyocytes or cardiomyocytes after one week of T3 treatment, where: Methods
+      2.5}
+- field: cm_day_at_formation
+  value: Twenty days
+  anchor: &seed3 {quote: 'Twenty days following differentiation, iPS-derived cardiomyocytes were seeded onto the arrays at a density
+      of 250,000/cm2', where: Methods 2.6}
+- field: seeding_density
+  value: 250,000/cm2
+  anchor: *seed3
+- field: platform
+  value: micropost arrays
+  anchor: &posts {quote: Arrays of silicone microposts were fabricated by casting polydimethylsiloxane (PDMS), where: Methods 2.6}
+- field: substrate
+  value: PDMS
+  anchor: *posts
+- field: replating_coating
+  value: mouse laminin
+  anchor: &lam {quote: the tips of these microposts were stamped with 50 μg/ml of mouse laminin, where: Methods 2.6}
+- field: replating_coating.concentration
+  value: 50 μg/ml
+  anchor: *lam
+- field: temperature
+  value: 37 °C
+  anchor: &chamber {quote: The experiments were performed in a live cell chamber at 37 °C with 15 mM HEPES-containing medium., where: Methods
+      2.6}
+- field: measurement_medium
+  value: HEPES-containing medium
+  anchor: *chamber
+- field: measurement_medium.HEPES
+  value: 15 mM
+  anchor: *chamber
+- field: pacing
+  value: spontaneous
+  anchor: {quote: T3 treatment increased the spontaneous contractile force generation, where: Discussion}
+- field: preparation
+  value: single cardiomyocytes
+  anchor: {quote: Only the contractile forces of single cardiomyocytes (no junctions with adjacent cells) with obvious beating activity
+      were assessed., where: Methods 2.6}
+- field: platform
+  value: glass slides
+  anchor: &fn {quote: cardiomyocytes were replated onto fibronectin-coated glass slides, where: Methods 2.7}
+- field: substrate
+  value: glass
+  anchor: *fn
+- field: replating_coating
+  value: fibronectin
+  anchor: *fn
+- field: pacing
+  value: stimulated
+  anchor: &stim {quote: Stimulated calcium transients (0.5 Hz) were then monitored with the Ionoptix Stepper Switch system, where: Methods
+      2.7}
+- field: pacing.frequency
+  value: 0.5 Hz
+  anchor: *stim
+- field: measurement_medium
+  value: culturing medium
+  anchor: {quote: The experiments were done at 37 °C with culturing medium containing 15 mM HEPES., where: Methods 2.7}
+- field: preparation
+  value: total DNA
+  anchor: {quote: Total DNA was extracted using phenol–chloroform extraction method., where: Methods 2.4}
+- field: platform
+  value: tissue culture dishes
+  anchor: {quote: Adherent cells in tissue culture dishes were fixed for transmission electron microscopy, where: 'Supplement, Electron
+      Microscopy', file: NIHMS586803-supplement-01.docx}
+- field: cm_day_at_formation
+  value: around 20 days
+  anchor: &seed5 {quote: 'At around 20 days after differentiation, the cardiomyocytes were seeded onto the plates with a density of 30,000
+      per XF96 well (2500/mm2)', where: Methods 2.8}
+- field: seeding_density
+  value: 30,000 per XF96 well (2500/mm2)
+  anchor: *seed5
+- field: platform
+  value: Seahorse plates
+  anchor: {quote: The cells were treated with 20 ng/ml T3 for one week in the Seahorse plates before the assay., where: Methods 2.8}
+- field: replating_coating
+  value: Gelatin
+  anchor: &gel {quote: The plates were pre-treated with 0.1% Gelatin., where: Methods 2.8}
+- field: replating_coating.concentration
+  value: 0.1%
+  anchor: *gel
+- field: measurement_medium
+  value: unbuffered DMEM
+  anchor: &dmem {quote: 'base media (unbuffered DMEM, Sigma D5030, supplemented with 2 mM glutamine) 1 h before the assay', where: Methods
+      2.8}
+- field: measurement_medium.glutamine
+  value: 2 mM
+  anchor: *dmem
+- field: day_of_measurement
+  value: ~100 day
+  anchor: {quote: upon the long-term (~100 day) maintenance of hPSC-CMs in low density cultures, where: Discussion}
+
+claims:
+  abs_size:
+    kind: stated
+    quote: A one-week treatment with T3 increased cardiomyocyte size, anisotropy, and sarcomere length.
+    where: Abstract
+    scope: hiPSC-CMs (IMR90 line), one week of 20 ng/ml T3
+    direction: size up
+    asserts_direction: up
+    rests_on: [F1C_area]
+    judgement: &cells {direction: follows, support: follows, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: n counts cells (n > 100 per condition); the number of differentiations behind them is not stated
+  abs_anisotropy:
+    kind: stated
+    quote: A one-week treatment with T3 increased cardiomyocyte size, anisotropy, and sarcomere length.
+    where: Abstract
+    scope: hiPSC-CMs (IMR90 line), one week of 20 ng/ml T3
+    direction: anisotropy up, measured as a lower circularity index
+    asserts_direction: down
+    rests_on: [F1D_circularity]
+    judgement: *cells
+  abs_sarcomere:
+    kind: stated
+    quote: A one-week treatment with T3 increased cardiomyocyte size, anisotropy, and sarcomere length.
+    where: Abstract
+    scope: hiPSC-CMs (IMR90 line), one week of 20 ng/ml T3
+    direction: sarcomere length up
+    asserts_direction: up
+    rests_on: [F1E_sarcomere]
+    judgement: *cells
+  abs_cellcycle:
+    kind: stated
+    quote: T3 treatment was associated with reduced cell cycle activity, manifest as reduced DNA synthesis
+    where: Abstract
+    direction: BrdU incorporation down
+    asserts_direction: down
+    rests_on: [F2C_brdu]
+    judgement: &ok {direction: follows, support: follows, comparison: follows, scope: follows, replication: follows, strength: follows,
+      presence: follows}
+  abs_p21:
+    kind: stated
+    quote: increased expression of the cyclin-dependent kinase inhibitor p21
+    where: Abstract
+    direction: p21 mRNA and protein up
+    asserts_direction: up
+    rests_on: [F2D_p21_mrna, F2F_p21_protein]
+    judgement: {direction: follows, support: follows, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: n = 3 without saying what it counts
+  abs_force:
+    kind: stated
+    quote: revealing an almost two-fold higher force per-beat after T3 treatment
+    where: Abstract
+    direction: twitch force up
+    asserts_direction: up
+    rests_on: [F3C_force]
+    judgement: {direction: follows, support: follows, comparison: follows, scope: follows, replication: cannot judge, strength: overstated,
+      presence: follows}
+    note: the printed means (12.3 against 7.5 nN/cell) are about 1.6-fold, worded as 'almost two-fold'
+  abs_kinetics:
+    kind: stated
+    quote: and also an enhancement in contractile kinetics
+    where: Abstract
+    direction: contraction and relaxation times down
+    asserts_direction: down
+    rests_on: [F3D_time_to_peak, F3E_time_to_90_relaxation, F3F_total_twitch_time]
+    judgement: *cells
+  abs_calcium:
+    kind: stated
+    quote: This improvement in force generation was accompanied by an increase in rates of calcium release and reuptake
+    where: Abstract
+    direction: upstroke and decay velocities up
+    asserts_direction: up
+    rests_on: [F4C_upstroke, F4D_decay_velocity]
+    judgement: *cells
+  abs_serca:
+    kind: stated
+    quote: along with a significant increase in sarcoendoplasmic reticulum ATPase expression
+    where: Abstract
+    direction: SERCA2a expression up
+    asserts_direction: up
+    rests_on: [F1F_serca]
+    judgement: {direction: follows, support: does not follow, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: '''significant'' is asserted but Fig. 1F and the text print no test, P or n for SERCA2a'
+  abs_mtdna:
+    kind: stated
+    quote: although mitochondrial genomes were not numerically increased
+    where: Abstract
+    direction: no change in mtDNA/nDNA ratio
+    asserts_direction: none
+    rests_on: [TXT5_mtdna]
+    judgement: {direction: follows, support: cannot judge, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: no test, P or n printed for the mtDNA/nDNA ratio
+  abs_maxresp:
+    kind: stated
+    quote: extracellular flux analysis showed a significant increase in maximal mitochondrial respiratory capacity
+    where: Abstract
+    direction: maximal OCR up
+    asserts_direction: up
+    rests_on: [F5B_maximal]
+    judgement: *ok
+  abs_reserve:
+    kind: stated
+    quote: and respiratory reserve capability after T3 treatment
+    where: Abstract
+    direction: respiratory reserve capacity up
+    asserts_direction: up
+    rests_on: [F5B_reserve]
+    judgement: *ok
+  abs_driver:
+    kind: stated
+    quote: we conclude that T3 is a driver for hiPSC-CM maturation
+    where: Abstract, Conclusions
+    scope: hiPSC-CMs generally
+    strength: driver
+    rests_on: [F1C_area, F1D_circularity, F1E_sarcomere, F2C_brdu, F3C_force, F4C_upstroke, F4D_decay_velocity, F5B_maximal]
+    opposes: [F1F_bmhc]
+    judgement: {direction: follows, support: follows, comparison: follows, scope: overstated, replication: cannot judge, strength: overstated,
+      presence: follows}
+    note: function rests on one hiPSC line (IMR90); the paper itself calls the β-MHC decrease the opposite of human maturation and the
+      maturation 'by no means complete'
+  abs_utility:
+    kind: stated
+    quote: T3 treatment may enhance the utility of hiPSC-CMs for therapy, disease modeling, or drug/toxicity screens.
+    where: Abstract, Conclusions
+    strength: may
+    judgement: {direction: cannot judge, support: cannot judge, comparison: cannot judge, scope: cannot judge, replication: cannot judge,
+      strength: follows, presence: does not follow}
+    note: no therapy, disease-modelling or screening use is tested
+  intro_size:
+    kind: stated
+    quote: we found that T3-treated hiPSC-CMs exhibited a larger cell size, longer sarcomere length, lower proliferative activity
+    where: Introduction
+    asserts_direction: up
+    rests_on: [F1C_area]
+    restates: abs_size
+    judgement: *cells
+  intro_sarcomere:
+    kind: stated
+    quote: we found that T3-treated hiPSC-CMs exhibited a larger cell size, longer sarcomere length, lower proliferative activity
+    where: Introduction
+    asserts_direction: up
+    rests_on: [F1E_sarcomere]
+    restates: abs_sarcomere
+    judgement: *cells
+  intro_prolif:
+    kind: stated
+    quote: we found that T3-treated hiPSC-CMs exhibited a larger cell size, longer sarcomere length, lower proliferative activity
+    where: Introduction
+    asserts_direction: down
+    rests_on: [F2C_brdu]
+    restates: abs_cellcycle
+    judgement: *ok
+  intro_force:
+    kind: stated
+    quote: higher contractile force generation, enhanced calcium handling properties, and increased maximal mitochondrial respiration capacity
+      compared with the untreated control cells
+    where: Introduction
+    asserts_direction: up
+    rests_on: [F3C_force]
+    judgement: *cells
+  intro_calcium:
+    kind: stated
+    quote: higher contractile force generation, enhanced calcium handling properties, and increased maximal mitochondrial respiration capacity
+      compared with the untreated control cells
+    where: Introduction
+    rests_on: [F4C_upstroke, F4D_decay_velocity, F4E_time_to_90_peak, F4F_time_to_50_decay]
+    restates: abs_calcium
+    judgement: *cells
+  intro_maxresp:
+    kind: stated
+    quote: higher contractile force generation, enhanced calcium handling properties, and increased maximal mitochondrial respiration capacity
+      compared with the untreated control cells
+    where: Introduction
+    asserts_direction: up
+    rests_on: [F5B_maximal]
+    restates: abs_maxresp
+    judgement: *ok
+  intro_promotes:
+    kind: stated
+    quote: these results demonstrate that T3 promotes the maturation of hiPSC-CM
+    where: Introduction
+    strength: demonstrate
+    rests_on: [F1C_area, F1D_circularity, F1E_sarcomere, F2C_brdu, F3C_force, F4C_upstroke, F4D_decay_velocity, F5B_maximal]
+    opposes: [F1F_bmhc]
+    restates: abs_driver
+    judgement: {direction: follows, support: follows, comparison: follows, scope: overstated, replication: cannot judge, strength: overstated,
+      presence: follows}
+  r31_title:
+    kind: stated
+    quote: T3 treatment leads to hiPSC-CM morphological and molecular changes
+    where: Results 3.1 heading; Fig. 1 title
+    rests_on: [F1C_area, F1D_circularity, F1E_sarcomere, F1F_amhc, F1F_bmhc, F1F_serca]
+    judgement: *cells
+    note: the morphological changes carry tests; the molecular changes in Fig. 1F print no test
+  r31_round:
+    kind: stated
+    quote: Untreated hiPSC-CMs were small and round to polygonal in shape, consistent with previous reports [25]
+    where: Results 3.1
+    cites: [r25]
+    rests_on: [F1C_area, F1D_circularity]
+    judgement: *cells
+  r31_cmpct:
+    kind: stated
+    quote: showed that T3 treatment does not lead to a change in cardiomyocyte percentage
+    where: Results 3.1
+    asserts_direction: none
+    rests_on: [TXT1_cm_percentage]
+    judgement: {direction: cannot judge, support: cannot judge, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: does not follow}
+    note: no values, n or test are shown
+  r31_mature_morph:
+    kind: stated
+    quote: indicating that the hiPSC-CMs exhibited a more mature morphology
+    where: Results 3.1
+    rests_on: [F1D_circularity]
+    judgement: *cells
+  r31_titin:
+    kind: stated
+    quote: One week of T3 treatment did not change the expression level of either isoform (data not shown)
+    where: Results 3.1
+    asserts_direction: none
+    rests_on: [TXT2_n2ba, TXT2_n2b]
+    judgement: {direction: cannot judge, support: cannot judge, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: does not follow}
+  r31_rues2:
+    kind: stated
+    quote: In the cardiomyocytes derived from human Rockefeller University Embryonic Stem Cell Line 2, T3 treatment induced similar cardiac
+      gene expression patterns
+    where: Results 3.1
+    rests_on: [TXT3_amhc_2p5d, TXT3_amhc_14d, TXT3_bmhc_2p5d, TXT3_bmhc_14d, TXT3_serca_2p5d, TXT3_serca_14d]
+    judgement: {direction: follows, support: cannot judge, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: fold changes only; no n, test, T3 dose or control described for this line
+  f1_amhc:
+    kind: stated
+    quote: T3 treatment led to an increase α-MHC, decreased β-MHC, and increased SERCA2a expression level (F)
+    where: Fig. 1 legend
+    asserts_direction: up
+    rests_on: [F1F_amhc]
+    judgement: &notest {direction: follows, support: cannot judge, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: no test or n printed for Fig. 1F
+  f1_bmhc:
+    kind: stated
+    quote: T3 treatment led to an increase α-MHC, decreased β-MHC, and increased SERCA2a expression level (F)
+    where: Fig. 1 legend
+    asserts_direction: down
+    rests_on: [F1F_bmhc]
+    judgement: *notest
+  f1_serca:
+    kind: stated
+    quote: T3 treatment led to an increase α-MHC, decreased β-MHC, and increased SERCA2a expression level (F)
+    where: Fig. 1 legend
+    asserts_direction: up
+    rests_on: [F1F_serca]
+    judgement: *notest
+  r32_prolif:
+    kind: stated
+    quote: our study showed lower proliferation rates in the T3 treated cultures as compared to those of control cells
+    where: Results 3.2
+    asserts_direction: down
+    rests_on: [F2C_brdu]
+    restates: abs_cellcycle
+    judgement: *ok
+  r32_binuc:
+    kind: stated
+    quote: No differences were found in the percentage of binucleated cells between groups, with both around 12%.
+    where: Results 3.2
+    asserts_direction: none
+    rests_on: [TXT4_binucleation]
+    judgement: {direction: follows, support: cannot judge, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: no test, P or n printed
+  r33_force:
+    kind: stated
+    quote: T3-treatment improves contractile force generation and enhances contractile kinetics
+    where: Results 3.3 heading
+    asserts_direction: up
+    rests_on: [F3C_force]
+    restates: intro_force
+    judgement: *cells
+  r33_kinetics:
+    kind: stated
+    quote: T3-treatment improves contractile force generation and enhances contractile kinetics
+    where: Results 3.3 heading
+    asserts_direction: down
+    rests_on: [F3D_time_to_peak, F3E_time_to_90_relaxation, F3F_total_twitch_time]
+    restates: abs_kinetics
+    judgement: *cells
+  f3_title:
+    kind: stated
+    quote: HiPSC-CMs generate more contractile force after T3 treatment and show enhanced contractile kinetics
+    where: Fig. 3 title
+    asserts_direction: up
+    rests_on: [F3C_force]
+    restates: r33_force
+    judgement: *cells
+  r33_contraction:
+    kind: stated
+    quote: functionally relevant parameters such as contraction are also positively-regulated
+    where: Results 3.3
+    asserts_direction: up
+    rests_on: [F3C_force]
+    judgement: *cells
+  r34_title:
+    kind: stated
+    quote: T3-treated cardiomyocytes exhibit faster calcium transient kinetics
+    where: Results 3.4 heading
+    rests_on: [F4C_upstroke, F4D_decay_velocity, F4E_time_to_90_peak, F4F_time_to_50_decay]
+    judgement: *cells
+  f4_kinetics:
+    kind: stated
+    quote: T3-treated hiPSC-CMs exhibit increased calcium transient kinetics but no change in magnitude
+    where: Fig. 4 title
+    rests_on: [F4C_upstroke, F4D_decay_velocity, F4E_time_to_90_peak, F4F_time_to_50_decay]
+    restates: r34_title
+    judgement: *cells
+  f4_magnitude:
+    kind: stated
+    quote: T3-treated hiPSC-CMs exhibit increased calcium transient kinetics but no change in magnitude
+    where: Fig. 4 title
+    asserts_direction: none
+    rests_on: [F4B_amplitude]
+    judgement: *cells
+  r35_mitovol:
+    kind: stated
+    quote: No difference was found in the mitochondrial volume fraction
+    where: Results 3.5
+    asserts_direction: none
+    rests_on: [S1E_mito_volume]
+    judgement: {direction: follows, support: follows, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: n is not printed for the electron microscopy
+  r35_basal:
+    kind: stated
+    quote: After treatment with T3, basal respiration increases significantly (Fig. 5B)
+    where: Results 3.5
+    asserts_direction: up
+    rests_on: [F5B_basal]
+    judgement: *ok
+  r35_basal_force:
+    kind: stated
+    quote: which correlates with the enhanced contractile force generation in these cells
+    where: Results 3.5
+    rests_on: [F5B_basal, F3C_force]
+    judgement: {direction: follows, support: does not follow, comparison: does not follow, scope: follows, replication: cannot judge, strength: overstated,
+      presence: follows}
+    note: no correlation is computed; OCR and force come from different preparations
+  r35_max:
+    kind: stated
+    quote: Maximum respiration rate was significantly increased after T3-treatment.
+    where: Results 3.5
+    asserts_direction: up
+    rests_on: [F5B_maximal]
+    restates: abs_maxresp
+    judgement: *ok
+  r35_nonmito:
+    kind: stated
+    quote: there is a significant increase of non-mitochondrial OCR after T3 treatment
+    where: Results 3.5
+    asserts_direction: up
+    rests_on: [F5B_nonmito]
+    judgement: *ok
+  d_size:
+    kind: stated
+    quote: after T3 treatment, the cardiomyocytes grew in size and became more anisotropic
+    where: Discussion
+    asserts_direction: up
+    rests_on: [F1C_area]
+    restates: abs_size
+    judgement: *cells
+  d_anisotropy:
+    kind: stated
+    quote: after T3 treatment, the cardiomyocytes grew in size and became more anisotropic
+    where: Discussion
+    asserts_direction: down
+    rests_on: [F1D_circularity]
+    restates: abs_anisotropy
+    judgement: *cells
+  d_physiological:
+    kind: stated
+    quote: the hypertrophy observed in this study appears to be physiological, because it is accompanied by enhanced calcium dynamics,
+      enhanced mitochondrial respiratory capacity, and increased contractile force
+    where: Discussion
+    strength: appears
+    rests_on: [F1C_area, F4C_upstroke, F5B_maximal, F3C_force]
+    judgement: {direction: follows, support: cannot judge, comparison: cannot judge, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+    note: no marker of pathological hypertrophy is measured
+  d_elongated:
+    kind: stated
+    quote: T3 treatment led to a more elongated cell shape
+    where: Discussion
+    asserts_direction: down
+    rests_on: [F1D_circularity]
+    restates: abs_anisotropy
+    judgement: *cells
+  d_force:
+    kind: stated
+    quote: T3 treatment increased the spontaneous contractile force generation from ~7.5 nN/cell to ~12.3 nN/cell (Fig. 3)
+    where: Discussion
+    asserts_direction: up
+    rests_on: [F3C_force]
+    restates: intro_force
+    judgement: *cells
+  d_taylor:
+    kind: literature
+    quote: These values are almost ten times larger than the results that we found for our control group.
+    where: Discussion
+    cites: [r35]
+  d_maxresp:
+    kind: stated
+    quote: Assessment of mitochondrial function showed a significant 1.5-fold increase in maximal respiratory capacity after T3 treatment
+    where: Discussion
+    asserts_direction: up
+    rests_on: [F5B_maximal]
+    restates: abs_maxresp
+    judgement: *ok
+  d_metabolic:
+    kind: stated
+    quote: which indicates a more mature metabolic state of the cardiomyocytes
+    where: Discussion
+    rests_on: [F5B_maximal]
+    judgement: *ok
+  d_biogenesis:
+    kind: stated
+    quote: neither the mtDNA/nDNA ratio nor the mitochondrial volume fraction supports this possibility
+    where: Discussion
+    asserts_direction: none
+    rests_on: [TXT5_mtdna, S1E_mito_volume]
+    judgement: {direction: follows, support: follows, comparison: follows, scope: follows, replication: cannot judge, strength: follows,
+      presence: follows}
+  d_reserve:
+    kind: stated
+    quote: T3 treatment led to an increase in respiratory reserve capacity, indicating that the treated cells may perform better under
+      increased energy demands
+    where: Discussion
+    asserts_direction: up
+    rests_on: [F5B_reserve]
+    restates: abs_reserve
+    judgement: *ok
+  d_more_mature:
+    kind: stated
+    quote: T3-treated cardiomyocytes were clearly more mature than the control cells
+    where: Discussion
+    strength: clearly
+    rests_on: [F1C_area, F1D_circularity, F1E_sarcomere, F2C_brdu, F3C_force, F4C_upstroke, F4D_decay_velocity, F5B_maximal]
+    opposes: [F1F_bmhc]
+    restates: abs_driver
+    judgement: {direction: follows, support: follows, comparison: follows, scope: follows, replication: cannot judge, strength: overstated,
+      presence: follows}
+  d_incomplete:
+    kind: stated
+    quote: the improvement in maturation is by no means complete
+    where: Discussion
+    rests_on: [F1F_bmhc]
+    judgement: *notest
+  d_bmhc:
+    kind: stated
+    quote: This decrease in β-MHC expression is the opposite of what one would expect to see in the case of human cardiomyocyte maturation.
+    where: Discussion
+    asserts_direction: down
+    rests_on: [F1F_bmhc]
+    judgement: *notest
+  d_lundy_calcium:
+    kind: literature
+    quote: we found that these two maturation approaches resulted in similar increases in calcium handling properties
+    where: Discussion
+    cites: [r25]
+  d_lundy_morph:
+    kind: literature
+    quote: Morphological changes (size and circularity index), however, were not as pronounced in the T3 cultures as the long-term cultured
+      ones.
+    where: Discussion
+    cites: [r25]
+  d_step:
+    kind: stated
+    quote: we conclude that T3 treatment is a step forward in the efforts to mature the hiPSC-CMs in a timely manner
+    where: Discussion
+    rests_on: [F1E_sarcomere]
+    judgement: *cells
+  d_summary:
+    kind: stated
+    quote: In summary, we have shown that T3 is a driver for hiPSC-CM maturation.
+    where: Discussion
+    strength: driver
+    rests_on: [F1C_area, F1D_circularity, F1E_sarcomere, F2C_brdu, F3C_force, F4C_upstroke, F4D_decay_velocity, F5B_maximal]
+    opposes: [F1F_bmhc]
+    restates: abs_driver
+    judgement: {direction: follows, support: follows, comparison: follows, scope: overstated, replication: cannot judge, strength: overstated,
+      presence: follows}
+  d_combined:
+    kind: stated
+    quote: this study suggests that a combined intervening approach in addition to T3 is needed to promote further maturation of hiPSC-CMs
+    where: Discussion
+    strength: suggests
+    judgement: {direction: cannot judge, support: cannot judge, comparison: cannot judge, scope: cannot judge, replication: cannot judge,
+      strength: follows, presence: does not follow}
+    note: no combined approach is tested
+  a_titin:
+    kind: attributed
+    quote: In the rodent perinatal period, for example, T3 regulates isoform switching of titin [4,5] from fetal to adult type.
+    where: Introduction
+    cites: [r4, r5]
+  a_sheep:
+    kind: attributed
+    quote: T3 has also been shown to promote the maturation of in vivo fetal sheep cardiomyocytes [13]
+    where: Introduction
+    cites: [r13]
+  a_ivashchenko:
+    kind: attributed
+    quote: A recent study reported T3 treatment of hiPSC-CMs modulated cardiac gene expression [17].
+    where: Introduction
+    cites: [r17]
+  a_lee:
+    kind: attributed
+    quote: Lee et al. reported that T3 promotes cardiac differentiation of murine embryonic stem cells via the classical genomic pathway
+    where: Discussion
+    cites: [r15]
+
+citations:
+  r4:
+    label: '[4]'
+    text: Kruger M, et al. Thyroid hormone regulates developmental titin isoform transitions via the phosphatidylinositol-3-kinase/Akt
+      pathway. Circ Res 2008
+    year: '2008'
+    purpose: [attributes_finding]
+    anchor: {quote: 'T3 regulates isoform switching of titin [4,5] from fetal to adult type', where: Introduction}
+  r5:
+    label: '[5]'
+    text: Klein I, Ojamaa K. Thyroid hormone and the cardiovascular system. N Engl J Med 2001
+    year: '2001'
+    purpose: [attributes_finding]
+    anchor: {quote: 'T3 regulates isoform switching of titin [4,5] from fetal to adult type', where: Introduction}
+  r13:
+    label: '[13]'
+    text: Chattergoon NN, et al. Thyroid hormone drives fetal cardiomyocyte maturation. FASEB J 2012
+    year: '2012'
+    purpose: [attributes_finding]
+    anchor: {quote: 'T3 has also been shown to promote the maturation of in vivo fetal sheep cardiomyocytes [13]', where: Introduction}
+  r15:
+    label: '[15]'
+    text: Lee YK, et al. Triiodothyronine promotes cardiac differentiation and maturation of embryonic stem cells via the classical genomic
+      pathway. Mol Endocrinol 2010
+    year: '2010'
+    purpose: [attributes_finding]
+    anchor: {quote: Lee et al. reported that T3 promotes cardiac differentiation of murine embryonic stem cells via the classical genomic
+        pathway, where: Discussion}
+  r17:
+    label: '[17]'
+    text: Ivashchenko CY, et al. Human-induced pluripotent stem cell-derived cardiomyocytes exhibit temporal changes in phenotype. Am J
+      Physiol Heart Circ Physiol 2013
+    year: '2013'
+    purpose: [attributes_finding]
+    anchor: {quote: 'A recent study reported T3 treatment of hiPSC-CMs modulated cardiac gene expression [17].', where: Introduction}
+  r18:
+    label: '[18]'
+    text: Yu J, et al. Induced pluripotent stem cell lines derived from human somatic cells. Science 2007
+    year: '2007'
+    purpose: [borrows_method]
+    anchor: {quote: 'Undifferentiated human IMR90-induced pluripotent stem cells, originally derived from lung fibroblasts [18]', where: Methods
+        2.1}
+  r19:
+    label: '[19]'
+    text: Makarenko I, et al. Passive stiffness changes caused by upregulation of compliant titin isoforms in human dilated cardiomyopathy
+      hearts. Circ Res 2004
+    year: '2004'
+    purpose: [borrows_method]
+    anchor: {quote: 'Primers to detect titin isoform switch is from [19].', where: Methods 2.4}
+  r20:
+    label: '[20]'
+    text: Rao M, et al. Mitochondrial DNA injury and mortality in hemodialysis patients. J Am Soc Nephrol 2009
+    year: '2009'
+    purpose: [borrows_method]
+    anchor: {quote: 'The primer sequences for ND1 and LPL were adapted from [20].', where: Methods 2.4}
+  r21:
+    label: '[21]'
+    text: 'Tan JL, et al. Cells lying on a bed of microneedles: an approach to isolate mechanical force. Proc Natl Acad Sci U S A 2003'
+    year: '2003'
+    purpose: [borrows_method]
+    anchor: {quote: 'from a silicon wafer with patterned SU8 features as previously described [21]', where: Methods 2.6}
+  r22:
+    label: '[22]'
+    text: Sniadecki NJ, Chen CS. Microfabricated silicone elastomeric post arrays for measuring traction forces of adherent cells. Methods
+      in cell biology 2007
+    year: '2007'
+    purpose: [borrows_method]
+    anchor: {quote: 'blocked with 0.2% Pluronic F-127 (in PBS) [22]', where: Methods 2.6}
+  r23:
+    label: '[23]'
+    text: Rodriguez ML, et al. Measuring the contractile forces of human induced pluripotent stem cell-derived cardiomyocytes with arrays
+      of microposts. J Biomech Eng 2014
+    year: '2014'
+    purpose: [borrows_method]
+    anchor: {quote: 'twitch forces were recorded under phase light using high-speed video microscopy as previously described [23]', where: Methods
+        2.6}
+  r24:
+    label: '[24]'
+    text: Korte FS, et al. Upregulation of cardiomyocyte ribonucleotide reductase increases intracellular 2 deoxy-ATP, contractility,
+      and relaxation. J Mol Cell Cardiol 2011
+    year: '2011'
+    purpose: [borrows_method]
+    anchor: {quote: 'Intracellular calcium content was measured using the ratiometric indicator dye fura2-AM as described previously [24].',
+      where: Methods 2.7}
+  r25:
+    label: '[25]'
+    text: Lundy SD, et al. Structural and functional maturation of cardiomyocytes derived from human pluripotent stem cells. Stem Cells
+      Dev 2013
+    year: '2013'
+    purpose: [borrows_data, contrasts]
+    anchor: {quote: 'a report from Lundy and colleagues [25] showed a significant increase in various maturation parameters', where: Discussion}
+  r26:
+    label: '[26]'
+    text: Jacot JG, et al. Substrate stiffness affects the functional maturation of neonatal rat ventricular myocytes. Biophys J 2008
+    year: '2008'
+    purpose: [borrows_method]
+    anchor: {quote: 'we assessed the "circularity index" (Circularity = 4π · Area / Perimeter2) [26]', where: Results 3.1}
+  r27:
+    label: '[27]'
+    text: Rodriguez AG, et al. Substrate stiffness increases twitch power of neonatal cardiomyocytes in correlation with changes in myofibril
+      structure and intracellular calcium. Biophys J 2011
+    year: '2011'
+    purpose: [borrows_method]
+    anchor: {quote: 'To characterize force production on a per-cell basis we used micropost arrays [27].', where: Results 3.3}
+  r35:
+    label: '[35]'
+    text: Taylor RE, et al. Sacrificial layer technique for axial force post assay of immature cardiomyocytes. Biomed Microdevices 2013
+    year: '2013'
+    purpose: [borrows_data, contrasts]
+    anchor: {quote: 'A recent study [35] employed similar microfabricated platforms to measure the contractile force of human embryonic
+        stem cell-derived cardiomyocytes', where: Discussion}

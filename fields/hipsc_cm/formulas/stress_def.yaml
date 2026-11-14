@@ -1,0 +1,20 @@
+# Written by code from changes.yaml (version 1); never edited.
+formula: stress_def
+kind: definition
+statement: Normal stress is the normal force divided by the area it acts on.
+equations:
+- sigma = F/A
+variables:
+  sigma: stress
+  F: force
+  A: area
+does_not_apply: shear force, or an area other than the one carrying the force (e.g. a per-cell or per-myofibril area)
+tests:
+- given:
+    F: 2.0
+    A: 4.0
+  expect:
+    sigma: 0.5
+cites:
+  text: 'ISO 80000-4:2019 Quantities and units, Part 4: Mechanics (normal stress)'
+  url: https://www.iso.org/standard/64975.html

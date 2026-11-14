@@ -1,0 +1,1375 @@
+# Formula agent (formulas_v3), 2018_Leonard. Derivations as the methods state them; verdicts are code's.
+record: 2018_Leonard
+formula_library_version: 12
+derived:
+  F2_force_text.force_K1:
+    item: F2_force_text
+    group: K1
+    measure: twitch force
+    formula: F = k*d
+    anchor: &id001
+      quote: Twitch force, velocity, power, and work were then calculated from the deflection of the flexible post and its
+        bending stiffness
+      where: Section 2.3
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: d
+    inputs:
+      k:
+        value: F1_stiffness_text.values.K1_text
+        kind: constant
+      d:
+        not_stated: true
+        kind: per sample
+        note: peak deflection of the flexible post per tissue (Δpost); not printed
+    output: F2_force_text.values.K1_mean_text
+    aggregation: mean of per-sample
+    note: one post rigid, so the tissue force is the force on the flexible post; the plotted force is the maximum during contraction
+      (Fig. 2 legend)
+  F2_force_text.force_K2:
+    item: F2_force_text
+    group: K2
+    measure: twitch force
+    formula: F = k*d
+    anchor: *id001
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: d
+    inputs:
+      k:
+        value: F1_stiffness_text.values.K2_text
+        kind: constant
+      d:
+        not_stated: true
+        kind: per sample
+        note: peak deflection of the flexible post per tissue (Δpost); not printed
+    output: F2_force_text.values.K2_mean_text
+    aggregation: mean of per-sample
+    note: one post rigid, so the tissue force is the force on the flexible post; the plotted force is the maximum during contraction
+      (Fig. 2 legend)
+  F2_force_text.force_K3:
+    item: F2_force_text
+    group: K3
+    measure: twitch force
+    formula: F = k*d
+    anchor: *id001
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: d
+    inputs:
+      k:
+        value: F1_stiffness_text.values.K3_text
+        kind: constant
+      d:
+        not_stated: true
+        kind: per sample
+        note: peak deflection of the flexible post per tissue (Δpost); not printed
+    output: F2_force_text.values.K3_mean_text
+    aggregation: mean of per-sample
+    note: one post rigid, so the tissue force is the force on the flexible post; the plotted force is the maximum during contraction
+      (Fig. 2 legend)
+  F2_force_text.force_K4:
+    item: F2_force_text
+    group: K4
+    measure: twitch force
+    formula: F = k*d
+    anchor: *id001
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: d
+    inputs:
+      k:
+        value: F1_stiffness_text.values.K4_text
+        kind: constant
+      d:
+        not_stated: true
+        kind: per sample
+        note: peak deflection of the flexible post per tissue (Δpost); not printed
+    output: F2_force_text.values.K4_mean_text
+    aggregation: mean of per-sample
+    note: one post rigid, so the tissue force is the force on the flexible post; the plotted force is the maximum during contraction
+      (Fig. 2 legend)
+  F2_resolution_K4.force_per_pixel:
+    item: F2_resolution_K4
+    group: K4
+    measure: force resolution of post tracking
+    formula: F = k*p
+    anchor: *id001
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: p
+    inputs:
+      k:
+        value: F1_stiffness_text.values.K4_text
+        kind: constant
+      p:
+        printed: '8.3'
+        unit: μm
+        anchor:
+          quote: 65 frames per second (FPS) with 8.3 μm/pixel resolution
+          where: Section 2.3
+        kind: constant
+        note: one pixel of post movement
+    output: F2_resolution_K4.values.force_per_pixel
+    output_unit: μN
+    note: the printed 76 μN/pixel is the force of one pixel (8.3 μm) of K4 post deflection; output unit per pixel
+  F2_csa.area:
+    item: F2_csa
+    measure: cross-sectional area
+    formula: A = pi/4*w*t
+    anchor:
+      quote: The cross-sectional area was calculated assuming an elliptical cross section (A = π/4 × width × thickness)
+      where: Section 2.1
+    library:
+      formula: elliptical_cross_section_area
+      vars:
+        A: A
+        a: w
+        b: t
+    inputs:
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue width from image analysis, per tissue; not printed
+      t:
+        printed: '500'
+        unit: μm
+        anchor:
+          quote: the thickness was conservatively estimated be to 500 μm
+          where: Section 2.1
+        kind: constant
+    output: F2_csa.values.all_mean
+    aggregation: mean of per-sample
+  F2_stress_K4vK1.stress_K1:
+    item: F2_stress_K4vK1
+    group: K1
+    measure: twitch stress
+    formula: s = F/A
+    anchor: &id002
+      quote: when the twitch force of each tissue was normalized by its cross-sectional area
+      where: Section 3.2
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F2_force_text.values.K1_mean_text
+        kind: per sample
+      A:
+        value: F2_csa.values.all_mean
+        kind: per sample
+        note: each tissue has its own area; only the mean over all four groups is printed
+    output_unit: mN/mm2
+    alternatives:
+    - label: mean of per-sample (as the paper states)
+      formula: s_i = F_i/A_i
+      note: per-tissue F and A are not printed or read, so only the ratio of means can be rebuilt
+    note: 'no printed stress value: the rebuilt ratio of means (pooled area) is for comparison with the Fig. 2B stress panel;
+      applies to every F2_stress_* item holding this group'
+  F2_stress_K2vK1.stress_K2:
+    item: F2_stress_K2vK1
+    group: K2
+    measure: twitch stress
+    formula: s = F/A
+    anchor: *id002
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F2_force_text.values.K2_mean_text
+        kind: per sample
+      A:
+        value: F2_csa.values.all_mean
+        kind: per sample
+        note: each tissue has its own area; only the mean over all four groups is printed
+    output_unit: mN/mm2
+    alternatives:
+    - label: mean of per-sample (as the paper states)
+      formula: s_i = F_i/A_i
+      note: per-tissue F and A are not printed or read, so only the ratio of means can be rebuilt
+    note: 'no printed stress value: the rebuilt ratio of means (pooled area) is for comparison with the Fig. 2B stress panel;
+      applies to every F2_stress_* item holding this group'
+  F2_stress_K3vK1.stress_K3:
+    item: F2_stress_K3vK1
+    group: K3
+    measure: twitch stress
+    formula: s = F/A
+    anchor: *id002
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F2_force_text.values.K3_mean_text
+        kind: per sample
+      A:
+        value: F2_csa.values.all_mean
+        kind: per sample
+        note: each tissue has its own area; only the mean over all four groups is printed
+    output_unit: mN/mm2
+    alternatives:
+    - label: mean of per-sample (as the paper states)
+      formula: s_i = F_i/A_i
+      note: per-tissue F and A are not printed or read, so only the ratio of means can be rebuilt
+    note: 'no printed stress value: the rebuilt ratio of means (pooled area) is for comparison with the Fig. 2B stress panel;
+      applies to every F2_stress_* item holding this group'
+  F2_stress_K4vK1.stress_K4:
+    item: F2_stress_K4vK1
+    group: K4
+    measure: twitch stress
+    formula: s = F/A
+    anchor: *id002
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        value: F2_force_text.values.K4_mean_text
+        kind: per sample
+      A:
+        value: F2_csa.values.all_mean
+        kind: per sample
+        note: each tissue has its own area; only the mean over all four groups is printed
+    output_unit: mN/mm2
+    alternatives:
+    - label: mean of per-sample (as the paper states)
+      formula: s_i = F_i/A_i
+      note: per-tissue F and A are not printed or read, so only the ratio of means can be rebuilt
+    note: 'no printed stress value: the rebuilt ratio of means (pooled area) is for comparison with the Fig. 2B stress panel;
+      applies to every F2_stress_* item holding this group'
+  F2_fs_K4vK1.fs_K1:
+    item: F2_fs_K4vK1
+    group: K1
+    measure: fractional shortening
+    formula: fs = (L0 - L)/L0
+    anchor: &id003
+      quote: a continuous decrease in fractional shortening
+      where: Section 4
+    library:
+      formula: relative_decrease
+      vars:
+        s: fs
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        reading: fig2b/F2_rl_K4vK1/K1
+        kind: per sample
+      L:
+        not_stated: true
+        kind: per sample
+        note: tissue length at peak contraction; not printed
+    alternatives:
+    - label: shortening = flexible-post deflection (one post rigid)
+      formula: fs = F/(k*L0)
+      note: not stated; would chain from twitch force, post stiffness and resting length
+    note: '"fractional shortening" names its formula; how the contracted length was taken is not stated'
+  F2_fs_K2vK1.fs_K2:
+    item: F2_fs_K2vK1
+    group: K2
+    measure: fractional shortening
+    formula: fs = (L0 - L)/L0
+    anchor: *id003
+    library:
+      formula: relative_decrease
+      vars:
+        s: fs
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        reading: fig2b/F2_rl_K2vK1/K2
+        kind: per sample
+      L:
+        not_stated: true
+        kind: per sample
+        note: tissue length at peak contraction; not printed
+    alternatives:
+    - label: shortening = flexible-post deflection (one post rigid)
+      formula: fs = F/(k*L0)
+      note: not stated; would chain from twitch force, post stiffness and resting length
+    note: '"fractional shortening" names its formula; how the contracted length was taken is not stated'
+  F2_fs_K3vK1.fs_K3:
+    item: F2_fs_K3vK1
+    group: K3
+    measure: fractional shortening
+    formula: fs = (L0 - L)/L0
+    anchor: *id003
+    library:
+      formula: relative_decrease
+      vars:
+        s: fs
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        reading: fig2b/F2_rl_K3vK1/K3
+        kind: per sample
+      L:
+        not_stated: true
+        kind: per sample
+        note: tissue length at peak contraction; not printed
+    alternatives:
+    - label: shortening = flexible-post deflection (one post rigid)
+      formula: fs = F/(k*L0)
+      note: not stated; would chain from twitch force, post stiffness and resting length
+    note: '"fractional shortening" names its formula; how the contracted length was taken is not stated'
+  F2_fs_K4vK1.fs_K4:
+    item: F2_fs_K4vK1
+    group: K4
+    measure: fractional shortening
+    formula: fs = (L0 - L)/L0
+    anchor: *id003
+    library:
+      formula: relative_decrease
+      vars:
+        s: fs
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        reading: fig2b/F2_rl_K4vK1/K4
+        kind: per sample
+      L:
+        not_stated: true
+        kind: per sample
+        note: tissue length at peak contraction; not printed
+    alternatives:
+    - label: shortening = flexible-post deflection (one post rigid)
+      formula: fs = F/(k*L0)
+      note: not stated; would chain from twitch force, post stiffness and resting length
+    note: '"fractional shortening" names its formula; how the contracted length was taken is not stated'
+  F2_vel_K4vK1.velocity:
+    item: F2_vel_K4vK1
+    measure: shortening velocity
+    formula: not stated
+    anchor: not stated
+    no_formula: method stated only by citation [27] ("as previously described")
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: flexible-post deflection over time
+      method:
+        by_reference:
+          citation: ref27
+          anchor: &id004
+            quote: Twitch force, velocity, power, and work were then calculated from the deflection of the flexible post and
+              its bending stiffness, as previously described [27]
+            where: Section 2.3
+        kind: not stated
+    alternatives:
+    - label: rate of post deflection
+      formula: v = dd/dt
+    note: the same method holds for every F2 shortening velocity item; plotted values are maxima during contraction
+  F2_power_K4vK1.power:
+    item: F2_power_K4vK1
+    measure: twitch power
+    formula: not stated
+    anchor: not stated
+    no_formula: method stated only by citation [27] ("as previously described")
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: flexible-post deflection over time
+      method:
+        by_reference:
+          citation: ref27
+          anchor: *id004
+        kind: not stated
+    alternatives:
+    - label: force times velocity
+      formula: P = F*v
+    note: the same method holds for every F2 twitch power item; plotted values are maxima during contraction
+  F2_work_K4vK1.work:
+    item: F2_work_K4vK1
+    measure: twitch work
+    formula: not stated
+    anchor: not stated
+    no_formula: method stated only by citation [27] ("as previously described")
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: flexible-post deflection over time
+      method:
+        by_reference:
+          citation: ref27
+          anchor: *id004
+        kind: not stated
+    alternatives:
+    - label: force times displacement (work_def)
+      formula: W = F*d
+    note: the same method holds for every F2 twitch work item; plotted values are maxima during contraction
+  F1_stiffness_text.stiffness:
+    item: F1_stiffness_text
+    measure: flexible post stiffness
+    formula: not stated
+    anchor: not stated
+    no_formula: calibration stated only by citation [27]
+    inputs:
+      k_pipette:
+        printed: '0.28'
+        unit: μN/μm
+        anchor: &id005
+          quote: with a glass pipette of known stiffness (0.28 μN/μm) following a previously described procedure [27]
+          where: Section 2.1
+        kind: constant
+      method:
+        by_reference:
+          citation: ref27
+          anchor: *id005
+        kind: not stated
+    alternatives:
+    - label: springs in series (pipette against post)
+      formula: k = k_pipette*d_pipette/d_post
+      note: the usual calibration; not stated here
+  F3_maxforce_text.K4_over_K1_discussion:
+    item: F3_maxforce_text
+    measure: maximum isometric twitch force at Lmax
+    formula: r = a/b
+    anchor:
+      quote: Here, we observe a similar (1.5-fold) improvement with applied afterload
+      where: Section 4
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: F3_maxforce_text.values.K4_mean_text
+        kind: constant
+      b:
+        value: F3_maxforce_text.values.K1_mean_text
+        kind: constant
+    output: F3_maxforce_text.values.K4_over_K1_discussion
+    aggregation: of means
+    note: '"n-fold improvement" read as the ratio of group means'
+  F3_maxforce_text.K4_over_UL_discussion:
+    item: F3_maxforce_text
+    measure: maximum isometric twitch force at Lmax
+    formula: r = a/b
+    anchor:
+      quote: a more dramatic (4.7-fold) improvement when comparing our highest afterload to our unloaded condition
+      where: Section 4
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: F3_maxforce_text.values.K4_mean_text
+        kind: constant
+      b:
+        value: F3_maxforce_text.values.UL_mean_text
+        kind: constant
+    output: F3_maxforce_text.values.K4_over_UL_discussion
+    aggregation: of means
+    note: '"n-fold improvement" read as the ratio of group means'
+  F7A_NPPA_K4vDay1.change:
+    item: F7A_NPPA_K4vDay1
+    group: K4
+    measure: NPPA expression
+    formula: c = r - 1
+    anchor: &id006
+      quote: where NPPA went up by 40% and ACTA1 went up by 80% compared to EHTs at Day 1
+      where: Section 4
+    library:
+      formula: relative_change_from_ratio
+      vars:
+        d: c
+        r: r
+    inputs:
+      r:
+        reading: fig7a/F7A_NPPA_K4vDay1/K4
+        kind: per sample
+        note: K4 fold change normalized to EHTs at Day 1 (Day 1 = 1)
+    output: F7A_NPPA_K4vDay1.values.change_text
+    aggregation: of means
+    note: '"went up by 40% ... compared to EHTs at Day 1" read as the K4 mean ratio minus 1'
+  F7A_ACTA1_K4vDay1.change:
+    item: F7A_ACTA1_K4vDay1
+    group: K4
+    measure: ACTA1 expression
+    formula: c = r - 1
+    anchor: *id006
+    library:
+      formula: relative_change_from_ratio
+      vars:
+        d: c
+        r: r
+    inputs:
+      r:
+        reading: fig7a/F7A_ACTA1_K4vDay1/K4
+        kind: per sample
+        note: K4 fold change normalized to EHTs at Day 1 (Day 1 = 1)
+    output: F7A_ACTA1_K4vDay1.values.change_text
+    aggregation: of means
+    note: '"went up by 40% ... compared to EHTs at Day 1" read as the K4 mean ratio minus 1'
+  F7E_stiff_K.stiffness:
+    item: F7E_stiff_K
+    measure: tissue stiffness
+    formula: E = s/A
+    anchor:
+      quote: Tissue stiffness obtained by determining the slope between 0% and 40% strain and dividing by cross-sectional
+        area for each tissue
+      where: Fig. 7 legend
+    library:
+      formula: modulus_from_force_strain_slope
+      vars:
+        E: E
+        s: s
+        A: A
+    inputs:
+      s:
+        not_stated: true
+        kind: per sample
+        note: slope of passive force against strain, 0-40 % strain
+      A:
+        value: F2_csa.values.all_mean
+        kind: per sample
+        note: '"the same cross-sectional area as for the in situ measurements"; per tissue, pooled mean only'
+    aggregation: mean of per-sample
+    note: printed 0.6-0.9 kPa is a range over group means, not one output
+  S7_aMHC.normalized:
+    item: S7_aMHC
+    measure: αMHC protein relative to lamin A/C
+    formula: r = p/l
+    anchor: &id007
+      quote: protein estimation was normalized on the levels of lamin A/C within each lysate
+      where: Section 2.7
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: l
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: αMHC band density
+      l:
+        not_stated: true
+        kind: per sample
+        note: lamin A/C band density, same lysate
+    note: further expressed relative to EHTs at Day 1 and to a common sample across gels; how is not stated
+  S7_bMHC.normalized:
+    item: S7_bMHC
+    measure: βMHC protein relative to lamin A/C
+    formula: r = p/l
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: l
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: βMHC band density
+      l:
+        not_stated: true
+        kind: per sample
+        note: lamin A/C band density, same lysate
+    note: further expressed relative to EHTs at Day 1 and to a common sample across gels; how is not stated
+  F6C_ratio_K4vK1.ratio_K4:
+    item: F6C_ratio_K4vK1
+    group: K4
+    measure: ratio of βMHC to αMHC protein
+    formula: r = b/a
+    anchor: &id008
+      quote: The corresponding ratio of βMHC to αMHC relative to EHTs after 1 day on afterload
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: b
+        b: a
+    inputs:
+      b:
+        reading: figS7/S7_bMHC/K4
+        kind: per sample
+      a:
+        reading: figS7/S7_aMHC/K4
+        kind: per sample
+    note: both normalized to lamin A/C and to Day 1, which cancel in the ratio; no printed ratio, so the rebuilt ratio of
+      means is for comparison with the Fig. 6C reading (a mean of per-tissue ratios may differ)
+  F6C_ratio_K4vK1.ratio_K1:
+    item: F6C_ratio_K4vK1
+    group: K1
+    measure: ratio of βMHC to αMHC protein
+    formula: r = b/a
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: b
+        b: a
+    inputs:
+      b:
+        reading: figS7/S7_bMHC/K1
+        kind: per sample
+      a:
+        reading: figS7/S7_aMHC/K1
+        kind: per sample
+    note: both normalized to lamin A/C and to Day 1, which cancel in the ratio; no printed ratio, so the rebuilt ratio of
+      means is for comparison with the Fig. 6C reading (a mean of per-tissue ratios may differ)
+  F6A_MYH6_K4vK1.ddct:
+    item: F6A_MYH6_K4vK1
+    measure: MYH6 expression
+    formula: r = 2**(-ddct)
+    anchor: &id009
+      quote: data was analyzed using the ΔΔCt method using HPRT1 as the housekeeping gene
+      where: Section 2.6
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of MYH6 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every MYH6 expression item
+  F6A_MYH7_K4vK1.ddct:
+    item: F6A_MYH7_K4vK1
+    measure: MYH7 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of MYH7 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every MYH7 expression item
+  F6A_MYL2_K4vK1.ddct:
+    item: F6A_MYL2_K4vK1
+    measure: MYL2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of MYL2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every MYL2 expression item
+  F6A_ACTC1_K4vK1.ddct:
+    item: F6A_ACTC1_K4vK1
+    measure: ACTC1 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of ACTC1 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every ACTC1 expression item
+  F6A_TNNI3_K4vK1.ddct:
+    item: F6A_TNNI3_K4vK1
+    measure: TNNI3 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of TNNI3 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every TNNI3 expression item
+  F6A_ITGB1BP2_K4vK1.ddct:
+    item: F6A_ITGB1BP2_K4vK1
+    measure: ITGB1BP2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of ITGB1BP2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every ITGB1BP2 expression item
+  F6A_CASQ2.ddct:
+    item: F6A_CASQ2
+    measure: CASQ2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of CASQ2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every CASQ2 expression item
+  F6A_CACNA1C.ddct:
+    item: F6A_CACNA1C
+    measure: CACNA1C expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of CACNA1C minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every CACNA1C expression item
+  F6A_SCN5A.ddct:
+    item: F6A_SCN5A
+    measure: SCN5A expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of SCN5A minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every SCN5A expression item
+  TXT1_RYR2.ddct:
+    item: TXT1_RYR2
+    measure: RYR2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of RYR2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every RYR2 expression item
+  TXT1_KCNJ2.ddct:
+    item: TXT1_KCNJ2
+    measure: KCNJ2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of KCNJ2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every KCNJ2 expression item
+  TXT1_HCN4.ddct:
+    item: TXT1_HCN4
+    measure: HCN4 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of HCN4 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every HCN4 expression item
+  F6B_MYH6.ddct:
+    item: F6B_MYH6
+    measure: MYH6 expression relative to HPRT
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of MYH6 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: 'plotted relative to HPRT only (Day 1, K4, fetal ventricle): the exponent may be ΔCt, not ΔΔCt'
+  F6B_MYH7.ddct:
+    item: F6B_MYH7
+    measure: MYH7 expression relative to HPRT
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of MYH7 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: 'plotted relative to HPRT only (Day 1, K4, fetal ventricle): the exponent may be ΔCt, not ΔΔCt'
+  F7A_NPPA_K4vK1.ddct:
+    item: F7A_NPPA_K4vK1
+    measure: NPPA expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of NPPA minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every NPPA expression item
+  F7A_NPPB_K4vK1.ddct:
+    item: F7A_NPPB_K4vK1
+    measure: NPPB expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of NPPB minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every NPPB expression item
+  F7A_ACTA1_K4vK1.ddct:
+    item: F7A_ACTA1_K4vK1
+    measure: ACTA1 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of ACTA1 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every ACTA1 expression item
+  F7A_ADRA1B_K4vK1.ddct:
+    item: F7A_ADRA1B_K4vK1
+    measure: ADRA1B expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of ADRA1B minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every ADRA1B expression item
+  F7A_ATP2A2.ddct:
+    item: F7A_ATP2A2
+    measure: ATP2A2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of ATP2A2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every ATP2A2 expression item
+  S8_GLUT4.ddct:
+    item: S8_GLUT4
+    measure: GLUT4 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of GLUT4 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every GLUT4 expression item
+  S8_CPT1B.ddct:
+    item: S8_CPT1B
+    measure: CPT1B expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of CPT1B minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every CPT1B expression item
+  S8_TFAM.ddct:
+    item: S8_TFAM
+    measure: TFAM expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of TFAM minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every TFAM expression item
+  S8_CKMT2.ddct:
+    item: S8_CKMT2
+    measure: CKMT2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of CKMT2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every CKMT2 expression item
+  S8_TGFB2.ddct:
+    item: S8_TGFB2
+    measure: TGFB2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of TGFB2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every TGFB2 expression item
+  S8_COL5A2.ddct:
+    item: S8_COL5A2
+    measure: COL5A2 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of COL5A2 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every COL5A2 expression item
+  S8_FN1.ddct:
+    item: S8_FN1
+    measure: FN1 expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of FN1 minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every FN1 expression item
+  S8_POSTN.ddct:
+    item: S8_POSTN
+    measure: POSTN expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of POSTN minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every POSTN expression item
+  S8_CTGF_K4vK1.ddct:
+    item: S8_CTGF_K4vK1
+    measure: CTGF expression
+    formula: r = 2**(-ddct)
+    anchor: *id009
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct of CTGF minus Ct of HPRT1, minus the same for EHTs at Day 1
+    note: the same method holds for every CTGF expression item
+  F7B_GLUT4.zscore:
+    item: F7B_GLUT4
+    measure: GLUT4 expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7B_CPT1B.zscore:
+    item: F7B_CPT1B
+    measure: CPT1B expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7B_TFAM.zscore:
+    item: F7B_TFAM
+    measure: TFAM expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7B_CKMT2.zscore:
+    item: F7B_CKMT2
+    measure: CKMT2 expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7C_TGFB2.zscore:
+    item: F7C_TGFB2
+    measure: TGFB2 expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7C_CTGF.zscore:
+    item: F7C_CTGF
+    measure: CTGF expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7C_COL5A2.zscore:
+    item: F7C_COL5A2
+    measure: COL5A2 expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7C_FN1.zscore:
+    item: F7C_FN1
+    measure: FN1 expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+  F7C_POSTN.zscore:
+    item: F7C_POSTN
+    measure: POSTN expression (z-score)
+    formula: not stated
+    anchor: not stated
+    no_formula: 'heat-map z-scores of the ΔΔCt fold changes: the z-score (centre, scale, across which groups) is not stated
+      and the library has no z-score entry'
+assumptions:
+  F2_force_text.force_K1:
+    model: hooke_spring
+    assumptions: &id010
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported:
+          post_length: Fabricated posts were 22 mm long
+          K4_deflection: which yielded 3 to 4 pixels of movement
+  F2_force_text.force_K2:
+    model: hooke_spring
+    assumptions: *id010
+  F2_force_text.force_K3:
+    model: hooke_spring
+    assumptions: *id010
+  F2_force_text.force_K4:
+    model: hooke_spring
+    assumptions: *id010
+  F2_resolution_K4.force_per_pixel:
+    model: hooke_spring
+    assumptions: *id010
+  F2_csa.area:
+    model: elliptical_cross_section_area
+    assumptions:
+      elliptical cross-section:
+        reported:
+          assumed: The cross-sectional area was calculated assuming an elliptical cross section
+      width and thickness are the full axes of the ellipse:
+        reported:
+          formula: A = π/4 × width × thickness
+      uniform cross-section along the length:
+        reported: not stated
+  F7E_stiff_K.stiffness:
+    model: modulus_from_force_strain_slope
+    assumptions:
+      linear elastic material:
+        reported: not stated
+      small strain:
+        reported:
+          strain_range: determining the slope between 0% and 40% strain
+  F6A_MYH6_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: &id011
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F6A_MYH7_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_MYL2_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_ACTC1_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_TNNI3_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_ITGB1BP2_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_CASQ2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_CACNA1C.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6A_SCN5A.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  TXT1_RYR2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  TXT1_KCNJ2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  TXT1_HCN4.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6B_MYH6.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F6B_MYH7.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F7A_NPPA_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F7A_NPPB_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F7A_ACTA1_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F7A_ADRA1B_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  F7A_ATP2A2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_GLUT4.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_CPT1B.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_TFAM.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_CKMT2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_TGFB2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_COL5A2.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_FN1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_POSTN.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+  S8_CTGF_K4vK1.ddct:
+    model: ddct_relative_expression
+    assumptions: *id011
+bounds:
+- item: S2C_purity
+  value: S2C_purity.values.stained
+  formula: fraction_bounds
+- item: S2C_purity
+  value: S2C_purity.values.isotype
+  formula: fraction_bounds
+proposals:
+- formula: elliptical_cross_section_area
+  kind: model
+  statement: The cross-sectional area of a specimen whose section is treated as an ellipse with full axes a and b (e.g. width
+    and thickness) is A = pi*a*b/4.
+  equations:
+  - A = pi*a*b/4
+  variables:
+    A: area
+    a: length
+    b: length
+  assumes:
+  - elliptical cross-section
+  - width and thickness are the full axes of the ellipse
+  - uniform cross-section along the length
+  does_not_apply: rectangular or irregular sections, or a and b given as semi-axes (then A = pi*a*b)
+  tests:
+  - given:
+      a: 2.0
+      b: 1.0
+    expect:
+      A: 1.5707963
+  - given:
+      a: 2.0
+      b: 2.0
+    expect:
+      A: 3.14159265
+  - given:
+      a: 2.0
+      b: 1.0
+    does_not_apply: a 2 x 1 rectangle has area 2, not pi/2
+  cites:
+    text: 'Zwillinger D (ed.). CRC Standard Mathematical Tables and Formulas, 33rd ed., CRC Press 2018, section 4.5 (Conic
+      sections: ellipse, area pi*a*b for semi-axes a and b)'
+    quote: area of an ellipse with semi-axes a and b is πab
+- formula: modulus_from_force_strain_slope
+  kind: derived
+  statement: For a linear elastic specimen of constant cross-sectional area A whose force rises linearly with strain (F =
+    s*eps), Young's modulus is the force-strain slope divided by the area, E = s/A.
+  equations:
+  - E = s/A
+  variables:
+    E: modulus
+    s: force
+    A: area
+    F: force
+    sigma: stress
+    eps: dimensionless
+  uses:
+  - formula: stress_def
+    subs:
+      sigma: sigma
+      F: F
+      A: A
+  - formula: linear_elastic_stress_strain
+    subs:
+      sigma: sigma
+      E: E
+      eps: eps
+  assumes:
+  - F = s*eps
+  does_not_apply: a curved force-strain response (strain stiffening), or an area that changes with strain
+  tests:
+  - given:
+      s: 6.0
+      A: 2.0
+    expect:
+      E: 3.0
+  - given:
+      s: 6.0
+      A: 2.0
+    does_not_apply: 'strain-stiffening tissue: the secant slope over 0-40 % strain is not the initial modulus'

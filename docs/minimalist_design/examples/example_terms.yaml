@@ -1,0 +1,64 @@
+# SKETCH of records/<paper>/terms.yaml: one vocabulary-agent job for one paper
+# (docs/minimalist_design/03-vocabulary.md, How the vocabulary grows).
+#
+# The stated values below are REAL, quoted from records/2021_Zhang/record.yaml.
+# The terms, flags and edits are what the agent might write against example_vocab.yaml.
+#
+# Only what code cannot match is stored. For example, E01 platform "monolayer" matches
+# platform:monolayer by synonym, so it is computed on every build and does not appear here.
+
+record: 2021_Zhang
+vocabulary: {field: hipsc_cm, version: 14}          # the vocabulary the job saw
+agent: {model: llm, instructions: terms_v1, run: V1}
+
+# ---------------------------------------------------------------- 1. edits (checked by code first)
+edits:
+  - add_term:
+      id: platform:micropillar_tissue
+      parent: platform:anchored_eht
+      label: micropillar tissue
+      definition: An anchored tissue formed on a micropillar array, under about 1 mm across.
+      scope: >-
+        Pillar arrays holding sub-millimetre tissues. Tissues of several millimetres held by
+        posts or wires are anchored EHT.
+      synonyms:
+        - {text: CMT, anchor: "evidence.E08.anchor"}               # code: found in the paper's text
+      why: >-
+        Question 5: a kind of anchored EHT that matters. Force and stress from these tissues
+        are not comparable with mm-scale EHTs (pillar stiffness and size differ by orders
+        of magnitude), so a comparison would treat them differently.
+
+# ---------------------------------------------------------------- 2. mappings
+assigned:
+  - at: evidence.E08.context.platform
+    stated: "3D CMT"
+    terms: [platform:micropillar_tissue]        # after the edit above; "3D" is an ancestor and is dropped
+  - at: evidence.E11.context.platform
+    stated: "single CM on polyacrylamide"
+    terms: [platform:single_cell_pattern]
+    note: the substrate is printed inside the platform value; flagged below for the substrate field
+
+flagged:
+  - at: default_context.platform
+    stated: "varies by evidence"
+    kind: placeholder
+    note: Every item that inherits it and has no platform of its own is flagged too.
+
+  - at: evidence.E07.context.platform
+    stated: "3D CMT between two PDMS pillars (fibrin + 10% Matrigel), 90% iPSC-CMs + 10% hMSCs"
+    kind: two fields in one
+    other_fields: [substrate, composition]
+    note: >-
+      No term is assigned from this text for substrate or composition. Those fields are
+      re-read by the record reader. The platform part alone ("3D CMT between two PDMS
+      pillars") would be micropillar tissue, but the value as a whole is not one context.
+
+  - at: evidence.E10.context.platform
+    stated: "single CM on 1:7 rectangle, 2000 um2, polyacrylamide (7.9 or 4 kPa, not assigned)"
+    kind: two fields in one
+    other_fields: [substrate]
+
+  - at: evidence.E14.context.platform
+    stated: "monolayer (text) or micropatterned patch (methods, movie legends)"
+    kind: alternatives
+    note: The paper describes the platform two ways. Neither is chosen.

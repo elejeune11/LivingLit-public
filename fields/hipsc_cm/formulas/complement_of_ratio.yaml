@@ -1,0 +1,40 @@
+# Written by code from changes.yaml (version 23); never edited.
+formula: complement_of_ratio
+kind: derived
+statement: One minus the ratio of a part to the whole containing it is the fraction of the whole outside that part, 1 - a/b
+  (e.g. a viability index from a stained area within a nuclear area).
+equations:
+- c = 1 - a/b
+variables:
+  c: dimensionless
+  a: D
+  b: D
+  f: dimensionless
+  t: dimensionless
+assumes:
+- t = 1
+uses:
+- formula: ratio_def
+  subs:
+    r: f
+    a: a
+    b: b
+- formula: complement_fraction
+  subs:
+    c: c
+    f: f
+    t: t
+does_not_apply: a part not contained in the whole (a > b, or areas that only partly overlap), or a ratio of two unrelated
+  quantities
+tests:
+- given:
+    a: 1.0
+    b: 4.0
+    t: 1.0
+  expect:
+    c: 0.75
+- given:
+    a: 1.0
+    b: 4.0
+    t: 1.0
+  does_not_apply: 'part only half inside the whole: the outside fraction is 0.875, not 0.75'

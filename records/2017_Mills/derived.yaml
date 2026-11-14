@@ -1,0 +1,2865 @@
+record: 2017_Mills
+formula_library_version: 8
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  SIM1_k.I:
+    item: SIM1_k
+    formula: I = b*h**3/12
+    anchor:
+      quote: Irectangle = bh3
+      where: SI Methods, eq. S2
+      file: pnas.201707316si.pdf
+    library:
+      formula: rect_second_moment
+      vars:
+        I: I
+        w: b
+        t: h
+    inputs:
+      b:
+        printed: '0.5'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      h:
+        printed: '0.2'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+    note: second moment of area of one PDMS pole (b = length of the pole, h = width in the bending direction)
+  SIM1_k.k_S1:
+    item: SIM1_k
+    formula: k = 6*E*I/(-x**3 + 3*L*x**2)
+    anchor:
+      quote: Maximum deflection at the end of a rectangular cantilever fixed at one end with force applied at a specified
+        distance
+      where: SI Methods, eq. S1
+      file: pnas.201707316si.pdf
+    library:
+      formula: cantilever_point_load_stiffness
+      vars:
+        k: k
+        E: E
+        I: I
+        L: L
+        x: x
+    inputs:
+      E:
+        printed: 1,500
+        unit: kPa
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      L:
+        printed: '0.7'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      x:
+        printed: '0.35'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      I:
+        derived: SIM1_k.I
+        kind: constant
+    output_unit: μN/μm
+    note: eq. S1 written as F = k*delta; the methods print k = 14 μN/μm for these parameters (not a record value, so no output);
+      the measured k is 14.2 ± 2.4 μN/μm (SIM1_k.values.k), an independent validation
+  SIM1_k.k_S3:
+    item: SIM1_k
+    formula: k = E*b*h**3/(2*(-x**3 + 3*L*x**2))
+    anchor:
+      quote: Combining Eqs. S1 and S2
+      where: SI Methods, eq. S3
+      file: pnas.201707316si.pdf
+    library:
+      formula: cantilever_point_load_stiffness_rect
+      vars:
+        k: k
+        E: E
+        w: b
+        t: h
+        L: L
+        x: x
+    inputs:
+      E:
+        printed: 1,500
+        unit: kPa
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      b:
+        printed: '0.5'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      h:
+        printed: '0.2'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      L:
+        printed: '0.7'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+      x:
+        printed: '0.35'
+        unit: mm
+        anchor:
+          quote: E = 1,500 kPa, b = 0.5 mm, h = 0.2 mm, L = 0.7 mm, x = 0.35 mm
+          where: SI Methods, Force Analysis of hCO in Heart-Dyno
+          file: pnas.201707316si.pdf
+        kind: constant
+    output_unit: μN/μm
+    note: eq. S3 (S1 with S2); the methods print k = 14 μN/μm for these parameters, not stored as a record value
+  F1D_force.force:
+    item: F1D_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1F_force.force:
+    item: F1F_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1F_g1p10.force:
+    item: F1F_g1p10
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1F_g1p100.force:
+    item: F1F_g1p100
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1F_ctrl.force:
+    item: F1F_ctrl
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1I_force.force:
+    item: F1I_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1I_05.force:
+    item: F1I_05
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1I_1.force:
+    item: F1I_1
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1I_55.force:
+    item: F1I_55
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F1I_ctrl.force:
+    item: F1I_ctrl
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  TXT1_p10.force:
+    item: TXT1_p10
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  TXT1_p100.force:
+    item: TXT1_p100
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F2A_force.force:
+    item: F2A_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F2D_curve.force:
+    item: F2D_curve
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F2E_force_ctrl.force:
+    item: F2E_force_ctrl
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F2E_force_mm.force:
+    item: F2E_force_mm
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bd_sig.force:
+    item: S1Bd_sig
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bc_12.force:
+    item: S1Bc_12
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bc_16.force:
+    item: S1Bc_16
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bc_3.force:
+    item: S1Bc_3
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bc_4.force:
+    item: S1Bc_4
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bn_107.force:
+    item: S1Bn_107
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bn_106.force:
+    item: S1Bn_106
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1Bn_105.force:
+    item: S1Bn_105
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1H_force.force:
+    item: S1H_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1J_force.force:
+    item: S1J_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1J_1_29.force:
+    item: S1J_1_29
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1J_3_29.force:
+    item: S1J_3_29
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1J_10_25.force:
+    item: S1J_10_25
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1J_10_27.force:
+    item: S1J_10_27
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1J_10_29.force:
+    item: S1J_10_29
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1L_low_high.force:
+    item: S1L_low_high
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S1L_high_mg.force:
+    item: S1L_high_mg
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S3Ah9_force.force:
+    item: S3Ah9_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S3Ahipsc_force.force:
+    item: S3Ahipsc_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S7C_force.force:
+    item: S7C_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S8I_chir.force:
+    item: S8I_chir
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  S9H_force.force:
+    item: S9H_force
+    formula: F = k*delta
+    anchor:
+      quote: The pole deflection was used to approximate the force of contraction
+      where: SI Methods, Force Analysis of hCO in Heart-Dyno
+      file: pnas.201707316si.pdf
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '14'
+        unit: μN/μm
+        anchor:
+          quote: k = 14 μN/μm
+          where: SI Methods, eq. S4
+          file: pnas.201707316si.pdf
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: pole deflection tracked per hCO; not printed or plotted
+  F2C_mm_106.normalised:
+    item: F2C_mm_106
+    formula: not stated
+    anchor: not stated
+    no_formula: force plotted normalised to baseline; the divisor is shown only on the axis, not stated in text
+    inputs: {}
+  F1G_mlc2v.relative:
+    item: F1G_mlc2v
+    formula: r = a/b
+    anchor:
+      quote: MLC2v expression is relative to control serum-free conditions
+      where: Fig. 1G legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+    note: each condition divided by the 5.5 mM glucose, no palmitate condition
+  F1G_mlc2v.reference:
+    item: F1G_mlc2v
+    group: g55_p0
+    formula: r = a/a
+    anchor:
+      quote: MLC2v expression is relative to control serum-free conditions
+      where: Fig. 1G legend
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+        mx: a
+    inputs:
+      a:
+        not_stated: true
+        kind: constant
+        note: mean of the reference condition itself
+    output: F1G_mlc2v.values.v_g55_p0
+    aggregation: not stated
+  F1J_mlc2v.relative:
+    item: F1J_mlc2v
+    formula: r = a/b
+    anchor:
+      quote: MLC2v expression is relative to control serum-free conditions
+      where: Fig. 1J legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+    note: each condition divided by the 5.5 mM glucose, no palmitate condition
+  F1J_mlc2v.reference:
+    item: F1J_mlc2v
+    group: g55_p0
+    formula: r = a/a
+    anchor:
+      quote: MLC2v expression is relative to control serum-free conditions
+      where: Fig. 1J legend
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+        mx: a
+    inputs:
+      a:
+        not_stated: true
+        kind: constant
+        note: mean of the reference condition itself
+    output: F1J_mlc2v.values.v_g55_p0
+    aggregation: not stated
+  S1I_mlc2v.relative:
+    item: S1I_mlc2v
+    formula: r = a/b
+    anchor:
+      quote: MLC2v expression is relative to control serum-free conditions
+      where: Fig. S1I legend
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+    note: each condition divided by the 5.5 mM glucose, no palmitate condition
+  S1I_mlc2v.reference:
+    item: S1I_mlc2v
+    group: g55_p0
+    formula: r = a/a
+    anchor:
+      quote: MLC2v expression is relative to control serum-free conditions
+      where: Fig. S1I legend
+      file: pnas.201707316si.pdf
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+        mx: a
+    inputs:
+      a:
+        not_stated: true
+        kind: constant
+        note: mean of the reference condition itself
+    output: S1I_mlc2v.values.v_g55_p0
+    aggregation: not stated
+  F1H_noins_ins.relative:
+    item: F1H_noins_ins
+    formula: r = a/b
+    anchor:
+      quote: Ki-67 expression is relative to CTRL
+      where: Fig. 1H/1K legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+  F1H_noins_ctrl.relative:
+    item: F1H_noins_ctrl
+    formula: r = a/b
+    anchor:
+      quote: Ki-67 expression is relative to CTRL
+      where: Fig. 1H/1K legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+  F1K_ki67.relative:
+    item: F1K_ki67
+    formula: r = a/b
+    anchor:
+      quote: Ki-67 expression is relative to CTRL
+      where: Fig. 1H/1K legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+  F5C_main.relative:
+    item: F5C_main
+    formula: r = a/b
+    anchor:
+      quote: Data are normalized to the 0 mM glucose, 0 μM palmitate condition
+      where: Fig. 5C legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+  F5E_main.relative:
+    item: F5E_main
+    formula: r = a/b
+    anchor:
+      quote: Data are normalized to the 0 mM glucose, 0 μM palmitate condition
+      where: Fig. 5E legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+      b:
+        not_stated: true
+        kind: constant
+        note: mean of the reference group
+  F5H_ki67.relative:
+    item: F5H_ki67
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F5J_ctrl.relative:
+    item: F5J_ctrl
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F5J_mm.relative:
+    item: F5J_mm
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F5J_between.relative:
+    item: F5J_between
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F7D_10.relative:
+    item: F7D_10
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F7D_30.relative:
+    item: F7D_30
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S1D_ki67.relative:
+    item: S1D_ki67
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S7A_ki67.relative:
+    item: S7A_ki67
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S7B_ki67.relative:
+    item: S7B_ki67
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S9B_bcat.relative:
+    item: S9B_bcat
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S9B_yap.relative:
+    item: S9B_yap
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S9F_ki67.relative:
+    item: S9F_ki67
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F7H_dna.relative:
+    item: F7H_dna
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S2A_dna.relative:
+    item: S2A_dna
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F3H_MYH7.relative:
+    item: F3H_MYH7
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F3H_IRX4.relative:
+    item: F3H_IRX4
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F3H_MYBPC3.relative:
+    item: F3H_MYBPC3
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F3I_MYH7.relative:
+    item: F3I_MYH7
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F3I_IRX4.relative:
+    item: F3I_IRX4
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F3I_MYBPC3.relative:
+    item: F3I_MYBPC3
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F4B_ocr.relative:
+    item: F4B_ocr
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F4C_ocr.relative:
+    item: F4C_ocr
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F4D_ocr.relative:
+    item: F4D_ocr
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  S1E_ldh.relative:
+    item: S1E_ldh
+    formula: not stated
+    anchor: not stated
+    no_formula: value shown relative to a reference only on the figure axis; the divisor is not stated in text
+  F2F_peak_ctrl.relative:
+    item: F2F_peak_ctrl
+    formula: not stated
+    anchor: not stated
+    no_formula: F/F0 printed as the unit; F0 is not defined in the text
+  F2F_peak_mm.relative:
+    item: F2F_peak_mm
+    formula: not stated
+    anchor: not stated
+    no_formula: F/F0 printed as the unit; F0 is not defined in the text
+  F4E_mtdna.relative:
+    item: F4E_mtdna
+    formula: not stated
+    anchor: not stated
+    no_formula: relative mtDNA by qPCR against ND1 and RNA18S5; the calculation is not stated
+  S8E_mir199a.relative:
+    item: S8E_mir199a
+    formula: not stated
+    anchor: not stated
+    no_formula: miR quantified with TaqMan against RNU6B; the 2^-ΔΔCt sentence names only genes against HRPT1
+  S8E_mir590.relative:
+    item: S8E_mir590
+    formula: not stated
+    anchor: not stated
+    no_formula: miR quantified with TaqMan against RNU6B; the 2^-ΔΔCt sentence names only genes against HRPT1
+  S9E_bcat.relative:
+    item: S9E_bcat
+    formula: not stated
+    anchor: not stated
+    no_formula: BIRC5 expression relative to the GFP control; the method (qPCR or intensity) is not stated in the legend
+  S9E_yap.relative:
+    item: S9E_yap
+    formula: not stated
+    anchor: not stated
+    no_formula: BIRC5 expression relative to the GFP control; the method (qPCR or intensity) is not stated in the legend
+  F4F_metabolites.norm_ctrl:
+    item: F4F_metabolites
+    group: ctrl
+    formula: n = m/dna
+    anchor:
+      quote: Metabolomics values are normalized to the DNA intensity
+      where: Fig. 4F legend
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: m
+        b: dna
+    inputs:
+      m:
+        not_stated: true
+        kind: per sample
+      dna:
+        not_stated: true
+        kind: per sample
+  F4F_metabolites.norm_mm:
+    item: F4F_metabolites
+    group: mm
+    formula: n = m/dna
+    anchor:
+      quote: Metabolomics values are normalized to the DNA intensity
+      where: Fig. 4F legend
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: m
+        b: dna
+    inputs:
+      m:
+        not_stated: true
+        kind: per sample
+      dna:
+        not_stated: true
+        kind: per sample
+  F4F_metabolites.fold:
+    item: F4F_metabolites
+    formula: f = nc/nm
+    anchor:
+      quote: Values in red indicate fold higher in CTRL medium vs. MM
+      where: Fig. 4F legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nc
+        b: nm
+    inputs:
+      nc:
+        derived: F4F_metabolites.norm_ctrl
+        kind: per sample
+      nm:
+        derived: F4F_metabolites.norm_mm
+        kind: per sample
+    note: one fold per metabolite (value x); the DNA intensities are not printed
+  F7G_birc5.ddct:
+    item: F7G_birc5
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S9G_birc5.ddct:
+    item: S9G_birc5
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S5G_TTN_N2B.ddct:
+    item: S5G_TTN_N2B
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S5G_MYH7_6.ddct:
+    item: S5G_MYH7_6
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S5G_TNNI3_1.ddct:
+    item: S5G_TNNI3_1
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S5G_MYL2_MYL7.ddct:
+    item: S5G_MYL2_MYL7
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S10C_PARP1.ddct:
+    item: S10C_PARP1
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  S10C_RAD50.ddct:
+    item: S10C_RAD50
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: The 2−ΔΔCt method was used to determine gene expression changes using HRPT1 as a housekeeping gene
+      where: SI Methods, qPCR
+      file: pnas.201707316si.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+  F1K_fourfold.fold:
+    item: F1K_fourfold
+    formula: fold = c/m
+    anchor:
+      quote: reduced cell cycle activity fourfold relative to the results obtained in
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: fold
+        a: c
+        b: m
+    inputs:
+      c:
+        reading: F1K/ctrl
+        kind: per sample
+      m:
+        reading: F1K/mm
+        kind: per sample
+    output: F1K_fourfold.values.fold
+    aggregation: not stated
+    note: '"fourfold" read as CTRL over MM Ki-67 relative intensity (a reduction)'
+  F7I_area.increase:
+    item: F7I_area
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: 2.5% (Fig. 7I) increase in hCO size after 48 h
+      where: Results
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: F7I/d10
+        kind: per sample
+      x0:
+        reading: F7I/d0
+        kind: per sample
+    output: F7I_area.values.increase
+    aggregation: not stated
+  F5A_ki67.percent:
+    item: F5A_ki67
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F5B_ph3.percent:
+    item: F5B_ph3
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+    output: F5B_ph3.values.mm_text
+    group: mm
+    aggregation: mean of per-sample
+  F5I_ki67.percent:
+    item: F5I_ki67
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F5K_ctrl.percent:
+    item: F5K_ctrl
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F5K_mm.percent:
+    item: F5K_mm
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F5K_between.percent:
+    item: F5K_between
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F7B_ki67.percent:
+    item: F7B_ki67
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F7C_ph3.percent:
+    item: F7C_ph3
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F7E_10.percent:
+    item: F7E_10
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F7E_30.percent:
+    item: F7E_30
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  F7F_ph3.percent:
+    item: F7F_ph3
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S8H_chir.percent:
+    item: S8H_chir
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S8H_bcat.percent:
+    item: S8H_bcat
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S8H_yap.percent:
+    item: S8H_yap
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S9C_bcat.percent:
+    item: S9C_bcat
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S9C_yap.percent:
+    item: S9C_yap
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S9D_bcat.percent:
+    item: S9D_bcat
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S9D_yap.percent:
+    item: S9D_yap
+    formula: p = pos/tot
+    anchor:
+      quote: These were added together to calculate the percentage of hPSC-CM proliferation in each hCO
+      where: SI Methods, Immunostaining Analysis
+      file: pnas.201707316si.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: pos
+        b: tot
+    inputs:
+      pos:
+        not_stated: true
+        kind: per sample
+        note: positive hPSC-CMs in three fields of view per hCO
+      tot:
+        not_stated: true
+        kind: per sample
+        note: α-actinin+ hPSC-CMs in the same fields
+    output_unit: '%'
+  S8B_ph3.percent:
+    item: S8B_ph3
+    formula: not stated
+    anchor: not stated
+    no_formula: percentage of pH3+ neonatal rat cardiomyocytes; how it was computed for the rat cells is not stated
+  S8G_gfp.percent:
+    item: S8G_gfp
+    formula: not stated
+    anchor: not stated
+    no_formula: percentage of GFP+ hPSC-CMs; the calculation is not stated
+  TXT2_transcripts.total:
+    item: TXT2_transcripts
+    formula: t = d + u
+    anchor:
+      quote: We identified 3,856 transcripts and 855 proteins that were differentially regulated
+      where: Results
+    library:
+      formula: sum_of_parts
+      vars:
+        t: t
+        a: d
+        b: u
+    inputs:
+      d:
+        value: S5E_counts.values.down
+        kind: constant
+      u:
+        value: S5E_counts.values.up
+        kind: constant
+    output: TXT2_transcripts.values.transcripts
+    note: differentially regulated = down + up in the Fig. S5E volcano plot
+  TXT2_proteins.total:
+    item: TXT2_proteins
+    formula: t = d + u
+    anchor:
+      quote: We identified 3,856 transcripts and 855 proteins that were differentially regulated
+      where: Results
+    library:
+      formula: sum_of_parts
+      vars:
+        t: t
+        a: d
+        b: u
+    inputs:
+      d:
+        value: S5F_counts.values.down
+        kind: constant
+      u:
+        value: S5F_counts.values.up
+        kind: constant
+    output: TXT2_proteins.values.proteins
+    note: differentially regulated = down + up in the Fig. S5F volcano plot
+  S5E_counts.down_pct:
+    item: S5E_counts
+    formula: p = c/N
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: c
+        b: N
+    inputs:
+      c:
+        value: S5E_counts.values.down
+        kind: constant
+      N:
+        not_stated: true
+        kind: constant
+        note: number of features quantified; not printed
+    output: S5E_counts.values.down_pct
+    note: percentage printed beside the count on the volcano plot; the denominator is not printed
+  S5E_counts.up_pct:
+    item: S5E_counts
+    formula: p = c/N
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: c
+        b: N
+    inputs:
+      c:
+        value: S5E_counts.values.up
+        kind: constant
+      N:
+        not_stated: true
+        kind: constant
+        note: number of features quantified; not printed
+    output: S5E_counts.values.up_pct
+    note: percentage printed beside the count on the volcano plot; the denominator is not printed
+  S5F_counts.down_pct:
+    item: S5F_counts
+    formula: p = c/N
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: c
+        b: N
+    inputs:
+      c:
+        value: S5F_counts.values.down
+        kind: constant
+      N:
+        not_stated: true
+        kind: constant
+        note: number of features quantified; not printed
+    output: S5F_counts.values.down_pct
+    note: percentage printed beside the count on the volcano plot; the denominator is not printed
+  S5F_counts.up_pct:
+    item: S5F_counts
+    formula: p = c/N
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: c
+        b: N
+    inputs:
+      c:
+        value: S5F_counts.values.up
+        kind: constant
+      N:
+        not_stated: true
+        kind: constant
+        note: number of features quantified; not printed
+    output: S5F_counts.values.up_pct
+    note: percentage printed beside the count on the volcano plot; the denominator is not printed
+  S9K_counts.down_pct:
+    item: S9K_counts
+    formula: p = c/N
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: c
+        b: N
+    inputs:
+      c:
+        value: S9K_counts.values.down
+        kind: constant
+      N:
+        not_stated: true
+        kind: constant
+        note: number of features quantified; not printed
+    output: S9K_counts.values.down_pct
+    note: percentage printed beside the count on the volcano plot; the denominator is not printed
+  S9K_counts.up_pct:
+    item: S9K_counts
+    formula: p = c/N
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: c
+        b: N
+    inputs:
+      c:
+        value: S9K_counts.values.up
+        kind: constant
+      N:
+        not_stated: true
+        kind: constant
+        note: number of features quantified; not printed
+    output: S9K_counts.values.up_pct
+    note: percentage printed beside the count on the volcano plot; the denominator is not printed
+assumptions:
+  SIM1_k.k_S1:
+    model: cantilever_point_load_stiffness
+    assumptions: &id001
+      small deflection:
+        reported: not stated
+      linear elastic material:
+        reported: not stated
+      slender beam:
+        reported:
+          L: L = 0.7 mm
+          h: h = 0.2 mm
+      point load at distance x from the fixed end:
+        reported:
+          x: x = 0.35 mm (hCO halfway up the poles)
+      deflection taken at the free end:
+        reported:
+          where: Maximum deflection at the end of a rectangular cantilever
+  SIM1_k.k_S3:
+    model: cantilever_point_load_stiffness_rect
+    assumptions: *id001
+  F1D_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1F_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1F_g1p10.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1F_g1p100.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1F_ctrl.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1I_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1I_05.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1I_1.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1I_55.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F1I_ctrl.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  TXT1_p10.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  TXT1_p100.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F2A_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F2D_curve.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F2E_force_ctrl.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F2E_force_mm.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bd_sig.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bc_12.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bc_16.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bc_3.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bc_4.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bn_107.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bn_106.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1Bn_105.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1H_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1J_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1J_1_29.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1J_3_29.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1J_10_25.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1J_10_27.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1J_10_29.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1L_low_high.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S1L_high_mg.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S3Ah9_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S3Ahipsc_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S7C_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S8I_chir.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  S9H_force.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          validation: We validated that these parameters using a sensitive isometric force transducer
+      small deflection:
+        reported: not stated
+  F7G_birc5.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S9G_birc5.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S5G_TTN_N2B.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S5G_MYH7_6.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S5G_TNNI3_1.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S5G_MYL2_MYL7.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S10C_PARP1.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S10C_RAD50.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- item: S2C_purity
+  value: S2C_purity.values.ctrl
+  formula: fraction_bounds
+- item: S2C_purity
+  value: S2C_purity.values.mm
+  formula: fraction_bounds
+- item: S2D_cd90
+  value: S2D_cd90.values.ctrl_fig
+  formula: fraction_bounds
+- item: S2D_cd90
+  value: S2D_cd90.values.mm_fig
+  formula: fraction_bounds
+- item: S2D_cd90
+  value: S2D_cd90.values.ctrl_text
+  formula: fraction_bounds
+- item: S2D_cd90
+  value: S2D_cd90.values.mm_text
+  formula: fraction_bounds
+- item: SIR1_viability
+  value: SIR1_viability.values.h9
+  formula: fraction_bounds
+- item: SIR1_viability
+  value: SIR1_viability.values.hipsc
+  formula: fraction_bounds
+- item: F5B_ph3
+  value: F5B_ph3.values.mm_text
+  formula: fraction_bounds
+- item: S5E_counts
+  value: S5E_counts.values.down_pct
+  formula: fraction_bounds
+- item: S5E_counts
+  value: S5E_counts.values.up_pct
+  formula: fraction_bounds
+- item: S5F_counts
+  value: S5F_counts.values.down_pct
+  formula: fraction_bounds
+- item: S5F_counts
+  value: S5F_counts.values.up_pct
+  formula: fraction_bounds
+- item: S9K_counts
+  value: S9K_counts.values.down_pct
+  formula: fraction_bounds
+- item: S9K_counts
+  value: S9K_counts.values.up_pct
+  formula: fraction_bounds
+- item: F1L_ninety
+  value: F1L_ninety.values.viability
+  formula: fraction_bounds
+- item: S8G_gfp
+  value: S8G_gfp.values.text
+  formula: fraction_bounds
+proposals:
+- formula: cantilever_point_load_stiffness
+  kind: model
+  statement: The stiffness of a slender elastic cantilever loaded by a point force at distance x from its fixed end, with
+    the deflection taken at the free end, is 6EI/(3Lx^2 - x^3).
+  equations:
+  - k = 6*E*I/(3*L*x**2 - x**3)
+  variables:
+    k: stiffness
+    E: modulus
+    I: second_moment
+    L: length
+    x: length
+  assumes:
+  - small deflection
+  - linear elastic material
+  - slender beam
+  - point load at distance x from the fixed end
+  - deflection taken at the free end
+  does_not_apply: large deflections, a short thick beam where shear deformation matters, or a deflection taken at the load
+    point (then k = 3EI/x^3)
+  tests:
+  - given:
+      E: 1.0
+      I: 1.0
+      L: 1.0
+      x: 1.0
+    expect:
+      k: 3.0
+  - given:
+      E: 1.0
+      I: 1.0
+      L: 2.0
+      x: 1.0
+    expect:
+      k: 1.2
+  - given:
+      E: 1.0
+      I: 1.0
+      L: 2.0
+      x: 1.0
+    does_not_apply: 'deflection read at the load point: k = 3EI/x^3 = 3, not 1.2'
+  cites:
+    text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, concentrated
+      load P at distance a from the support)
+    quote: δB = Pa^2(3L - a)/6EI
+- formula: cantilever_point_load_stiffness_rect
+  kind: derived
+  statement: For a rectangular cantilever (width w in the plane, thickness t in the bending direction) loaded at distance
+    x from its fixed end, the stiffness at the free end is E w t^3 / (2(3Lx^2 - x^3)).
+  equations:
+  - k = E*w*t**3/(2*(3*L*x**2 - x**3))
+  variables:
+    k: stiffness
+    E: modulus
+    I: second_moment
+    L: length
+    x: length
+    w: length
+    t: length
+  uses:
+  - formula: cantilever_point_load_stiffness
+    subs:
+      k: k
+      E: E
+      I: I
+      L: L
+      x: x
+  - formula: rect_second_moment
+    subs:
+      I: I
+      w: w
+      t: t
+  does_not_apply: a non-rectangular (e.g. circular) pole section, where I = pi d^4/64
+  tests:
+  - given:
+      E: 1.0
+      w: 12.0
+      t: 1.0
+      L: 1.0
+      x: 1.0
+    expect:
+      k: 3.0
+  - given:
+      E: 1500000.0
+      w: 0.0005
+      t: 0.0002
+      L: 0.0007
+      x: 0.00035
+    expect:
+      k: 13.994169096209912
+  - given:
+      E: 1.0
+      w: 12.0
+      t: 1.0
+      L: 1.0
+      x: 1.0
+    does_not_apply: 'width and thickness swapped (w = 1, t = 12): k is 144 times larger'

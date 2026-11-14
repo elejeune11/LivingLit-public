@@ -1,0 +1,39 @@
+# Written by code from changes.yaml (version 6); never edited.
+formula: ratio_from_log2_values
+kind: derived
+statement: The ratio of two positive quantities given as binary logarithms is two to the power of the difference of the logarithms
+  (a fold change from log2 values).
+equations:
+- r = 2**(la - lb)
+variables:
+  r: dimensionless
+  a: dimensionless
+  b: dimensionless
+  la: dimensionless
+  lb: dimensionless
+assumes:
+- a = 2**la
+- b = 2**lb
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: a
+    b: b
+does_not_apply: values on a natural-log or log10 scale, or a mean of per-sample linear fold changes (2 to the difference of
+  mean log2 values is the ratio of geometric means)
+tests:
+- given:
+    la: 3.0
+    lb: 1.0
+  expect:
+    r: 4.0
+- given:
+    la: 7.85342
+    lb: 7.29583
+  expect:
+    r: 1.47181
+- given:
+    la: 3.0
+    lb: 1.0
+  does_not_apply: 'log2 difference read as a fold change: 2, not 4'

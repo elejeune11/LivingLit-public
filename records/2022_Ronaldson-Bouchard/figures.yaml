@@ -1,0 +1,476 @@
+figures:
+  F4c:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 50.0
+    - 508.0
+    - 128.0
+    - 606.0
+    script: figures/F4c.py
+    unit: F4c
+    kind: vector
+    groups:
+      liver_d0:
+        item: F4c_teer
+        group: liver_d0
+        unit_of_value: Ohms × cm2
+      liver_d14:
+        item: F4c_teer
+        group: liver_d14
+        unit_of_value: Ohms × cm2
+      heart_d0:
+        item: F4c_teer
+        group: heart_d0
+        unit_of_value: Ohms × cm2
+      heart_d14:
+        item: F4c_teer
+        group: heart_d14
+        unit_of_value: Ohms × cm2
+      bone_d0:
+        item: F4c_teer
+        group: bone_d0
+        unit_of_value: Ohms × cm2
+      bone_d14:
+        item: F4c_teer
+        group: bone_d14
+        unit_of_value: Ohms × cm2
+      skin_d0:
+        item: F4c_teer
+        group: skin_d0
+        unit_of_value: Ohms × cm2
+      skin_d14:
+        item: F4c_teer
+        group: skin_d14
+        unit_of_value: Ohms × cm2
+    note: Horizontal bars (mean ± s.d.) with individual points; Day 0 black circles, Day 14 pink squares. No source-data sheet
+      for Fig. 4c. Mean read as the s.d. whisker midpoint; the bar outline ends ~0.46 pt short of it (stroke inset) and the
+      mean interval spans both.
+  F4f:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 342.0
+    - 264.0
+    - 446.0
+    - 348.0
+    script: figures/F4f.py
+    unit: F4f
+    kind: vector
+    groups:
+      mo_d0:
+        item: F4f_trap
+        group: mo_d0
+        unit_of_value: absorbance normalized to chamber volume
+      mo_d28:
+        item: F4f_trap
+        group: mo_d28
+        unit_of_value: absorbance normalized to chamber volume
+      mix_d0:
+        item: F4f_trap
+        group: mix_d0
+        unit_of_value: absorbance normalized to chamber volume
+      mix_d28:
+        item: F4f_trap
+        group: mix_d28
+        unit_of_value: absorbance normalized to chamber volume
+      iso_d0:
+        item: F4f_trap
+        group: iso_d0
+        unit_of_value: absorbance normalized to chamber volume
+      iso_d28:
+        item: F4f_trap
+        group: iso_d28
+        unit_of_value: absorbance normalized to chamber volume
+    note: Vertical bars (mean ± s.d.) with six individual points each; Day 0 black circles, Day 28 pink squares. Read although
+      source data exist (MOESM5 sheet 4F), because the sheet holds 3 values for Mixed and Isolated against six plotted points,
+      and its values do not match the plotted points or bars.
+  S8b_liver:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 10
+    crop:
+    - 105.0
+    - 240.0
+    - 296.0
+    - 420.0
+    script: figures/S8b_liver.py
+    unit: S8
+    kind: raster
+    groups:
+      liver_m5:
+        item: S8b_dox
+        group: liver_m5
+        unit_of_value: ng/mL
+      liver_h1:
+        item: S8b_dox
+        group: liver_h1
+        unit_of_value: ng/mL
+      liver_h24:
+        item: S8b_dox
+        group: liver_h24
+        unit_of_value: ng/mL
+      liver_h72:
+        item: S8b_dox
+        group: liver_h72
+        unit_of_value: ng/mL
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. (upward whisker only) with n=3 dots. Dots by a disc opening
+      of the dark mask; a dot blob over 1.3 dot diameters is touching dots and that category returns its bar only (countable
+      false). Tick values are given by the script (labels are pixels).
+  S8b_reservoir:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 10
+    crop:
+    - 296.0
+    - 240.0
+    - 475.0
+    - 420.0
+    script: figures/S8b_reservoir.py
+    unit: S8
+    kind: raster
+    groups:
+      reservoir_m5:
+        item: S8b_dox
+        group: reservoir_m5
+        unit_of_value: ng/mL
+      reservoir_h1:
+        item: S8b_dox
+        group: reservoir_h1
+        unit_of_value: ng/mL
+      reservoir_h24:
+        item: S8b_dox
+        group: reservoir_h24
+        unit_of_value: ng/mL
+      reservoir_h72:
+        item: S8b_dox
+        group: reservoir_h72
+        unit_of_value: ng/mL
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. (upward whisker only) with n=3 dots. Dots by a disc opening
+      of the dark mask; a dot blob over 1.3 dot diameters is touching dots and that category returns its bar only (countable
+      false). Tick values are given by the script (labels are pixels).
+  S8c_liver:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 10
+    crop:
+    - 112.0
+    - 445.0
+    - 300.0
+    - 612.0
+    script: figures/S8c_liver.py
+    unit: S8
+    kind: raster
+    groups:
+      liver_h24:
+        item: S8c_doxol
+        group: liver_h24
+        unit_of_value: ng/mL
+      liver_h72:
+        item: S8c_doxol
+        group: liver_h72
+        unit_of_value: ng/mL
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. (upward whisker only) with n=3 dots. Dots by a disc opening
+      of the dark mask; a dot blob over 1.3 dot diameters is touching dots and that category returns its bar only (countable
+      false). Tick values are given by the script (labels are pixels). Nothing is drawn at 1 hr (no bar, no dots); 1 hr not
+      read.
+  S8c_reservoir:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 10
+    crop:
+    - 300.0
+    - 445.0
+    - 475.0
+    - 612.0
+    script: figures/S8c_reservoir.py
+    unit: S8
+    kind: raster
+    groups:
+      reservoir_h24:
+        item: S8c_doxol
+        group: reservoir_h24
+        unit_of_value: ng/mL
+      reservoir_h72:
+        item: S8c_doxol
+        group: reservoir_h72
+        unit_of_value: ng/mL
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. (upward whisker only) with n=3 dots. Dots by a disc opening
+      of the dark mask; a dot blob over 1.3 dot diameters is touching dots and that category returns its bar only (countable
+      false). Tick values are given by the script (labels are pixels). Nothing is drawn at 1 hr (no bar, no dots); 1 hr not
+      read.
+  S7a:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 55.0
+    - 62.0
+    - 178.0
+    - 182.0
+    script: figures/S7a.py
+    unit: S7a
+    kind: raster
+    groups:
+      m5:
+        item: S7a_fitc
+        group: m5
+        unit_of_value: µM
+      h1:
+        item: S7a_fitc
+        group: h1
+        unit_of_value: µM
+      h24:
+        item: S7a_fitc
+        group: h24
+        unit_of_value: µM
+      h48:
+        item: S7a_fitc
+        group: h48
+        unit_of_value: µM
+      h72:
+        item: S7a_fitc
+        group: h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. with n=3 markers per time point. In every time point at
+      least one marker is joined to the bar outline or to another marker (tested in code on connected components of the dark
+      mask), so no time point is countable and no points are returned; the bar tops and caps are covered by the markers, so
+      no bar is returned either. The panel is titled "Transwell" while the legend calls panel a "Absorption".
+  S7b:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 45.0
+    - 255.0
+    - 200.0
+    - 392.0
+    script: figures/S7b.py
+    unit: S7b
+    kind: raster
+    groups:
+      top_m5:
+        item: S7b_fitc
+        group: top_m5
+        unit_of_value: µM
+      top_h1:
+        item: S7b_fitc
+        group: top_h1
+        unit_of_value: µM
+      top_h24:
+        item: S7b_fitc
+        group: top_h24
+        unit_of_value: µM
+      top_h48:
+        item: S7b_fitc
+        group: top_h48
+        unit_of_value: µM
+      top_h72:
+        item: S7b_fitc
+        group: top_h72
+        unit_of_value: µM
+      bottom_m5:
+        item: S7b_fitc
+        group: bottom_m5
+        unit_of_value: µM
+      bottom_h1:
+        item: S7b_fitc
+        group: bottom_h1
+        unit_of_value: µM
+      bottom_h24:
+        item: S7b_fitc
+        group: bottom_h24
+        unit_of_value: µM
+      bottom_h48:
+        item: S7b_fitc
+        group: bottom_h48
+        unit_of_value: µM
+      bottom_h72:
+        item: S7b_fitc
+        group: bottom_h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. (black top, grey bottom) with n=3 hollow markers per time
+      point (open circles on top, open squares on bottom). Markers are found by their white interiors; a marker stands alone
+      when its outline's dark component holds no other marker and is not the axes-and-bars component (tested in code). In
+      every time point at least one marker is joined to the bar outline or to another marker (top 5 min shows the three circles
+      merged into one interior), so no time point is countable and no points are returned; the bar tops and caps are covered
+      by the markers, so no bar is returned.
+  S7d:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 212.0
+    - 238.0
+    - 372.0
+    - 372.0
+    script: figures/S7d.py
+    unit: S7dh
+    kind: raster
+    groups:
+      reservoir_m5:
+        item: S7dh_fitc
+        group: reservoir_m5
+        unit_of_value: µM
+      reservoir_h1:
+        item: S7dh_fitc
+        group: reservoir_h1
+        unit_of_value: µM
+      reservoir_h24:
+        item: S7dh_fitc
+        group: reservoir_h24
+        unit_of_value: µM
+      reservoir_h48:
+        item: S7dh_fitc
+        group: reservoir_h48
+        unit_of_value: µM
+      reservoir_h72:
+        item: S7dh_fitc
+        group: reservoir_h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. with n=4 markers per time point; 1 hr is drawn with filled
+      triangles, the other time points with dots (the script names the triangle category). Dots are found by a disc opening,
+      triangles by a triangle opening; a category with two markers merged into one blob (box over 1.3 marker sizes) returns
+      no points. Triangles are placed at their box centre, with a sixth of their height added to the interval.
+  S7e:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 378.0
+    - 238.0
+    - 542.0
+    - 372.0
+    script: figures/S7e.py
+    unit: S7dh
+    kind: raster
+    groups:
+      ch1_m5:
+        item: S7dh_fitc
+        group: ch1_m5
+        unit_of_value: µM
+      ch1_h1:
+        item: S7dh_fitc
+        group: ch1_h1
+        unit_of_value: µM
+      ch1_h24:
+        item: S7dh_fitc
+        group: ch1_h24
+        unit_of_value: µM
+      ch1_h48:
+        item: S7dh_fitc
+        group: ch1_h48
+        unit_of_value: µM
+      ch1_h72:
+        item: S7dh_fitc
+        group: ch1_h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. with n=4 markers per time point; 1 hr is drawn with filled
+      triangles, the other time points with dots (the script names the triangle category). Dots are found by a disc opening,
+      triangles by a triangle opening; a category with two markers merged into one blob (box over 1.3 marker sizes) returns
+      no points. Triangles are placed at their box centre, with a sixth of their height added to the interval.
+  S7f:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 42.0
+    - 435.0
+    - 208.0
+    - 568.0
+    script: figures/S7f.py
+    unit: S7dh
+    kind: raster
+    groups:
+      ch2_m5:
+        item: S7dh_fitc
+        group: ch2_m5
+        unit_of_value: µM
+      ch2_h1:
+        item: S7dh_fitc
+        group: ch2_h1
+        unit_of_value: µM
+      ch2_h24:
+        item: S7dh_fitc
+        group: ch2_h24
+        unit_of_value: µM
+      ch2_h48:
+        item: S7dh_fitc
+        group: ch2_h48
+        unit_of_value: µM
+      ch2_h72:
+        item: S7dh_fitc
+        group: ch2_h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. with n=4 markers per time point; 1 hr is drawn with filled
+      triangles, the other time points with dots (the script names the triangle category). Dots are found by a disc opening,
+      triangles by a triangle opening; a category with two markers merged into one blob (box over 1.3 marker sizes) returns
+      no points. Triangles are placed at their box centre, with a sixth of their height added to the interval.
+  S7g:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 210.0
+    - 435.0
+    - 372.0
+    - 568.0
+    script: figures/S7g.py
+    unit: S7dh
+    kind: raster
+    groups:
+      ch3_m5:
+        item: S7dh_fitc
+        group: ch3_m5
+        unit_of_value: µM
+      ch3_h1:
+        item: S7dh_fitc
+        group: ch3_h1
+        unit_of_value: µM
+      ch3_h24:
+        item: S7dh_fitc
+        group: ch3_h24
+        unit_of_value: µM
+      ch3_h48:
+        item: S7dh_fitc
+        group: ch3_h48
+        unit_of_value: µM
+      ch3_h72:
+        item: S7dh_fitc
+        group: ch3_h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. with n=4 markers per time point; 1 hr is drawn with filled
+      triangles, the other time points with dots (the script names the triangle category). Dots are found by a disc opening,
+      triangles by a triangle opening; a category with two markers merged into one blob (box over 1.3 marker sizes) returns
+      no points. Triangles are placed at their box centre, with a sixth of their height added to the interval.
+  S7h:
+    file: 41551_2022_882_MOESM1_ESM.pdf
+    page: 9
+    crop:
+    - 376.0
+    - 435.0
+    - 542.0
+    - 568.0
+    script: figures/S7h.py
+    unit: S7dh
+    kind: raster
+    groups:
+      ch4_m5:
+        item: S7dh_fitc
+        group: ch4_m5
+        unit_of_value: µM
+      ch4_h1:
+        item: S7dh_fitc
+        group: ch4_h1
+        unit_of_value: µM
+      ch4_h24:
+        item: S7dh_fitc
+        group: ch4_h24
+        unit_of_value: µM
+      ch4_h48:
+        item: S7dh_fitc
+        group: ch4_h48
+        unit_of_value: µM
+      ch4_h72:
+        item: S7dh_fitc
+        group: ch4_h72
+        unit_of_value: µM
+    note: Raster (one embedded image, ~121 dpi). Bars mean ± s.d. with n=4 markers per time point; 1 hr is drawn with filled
+      triangles, the other time points with dots (the script names the triangle category). Dots are found by a disc opening,
+      triangles by a triangle opening; a category with two markers merged into one blob (box over 1.3 marker sizes) returns
+      no points. Triangles are placed at their box centre, with a sixth of their height added to the interval.
+no_points:
+  ED4e: 'first look (small model): Stacked bars of relative percent over time; no per-sample markers. (journal_version.pdf p. 25)'
+  F6: 'first look (small model): Red bars with s.d. error bars and blue curves; no per-sample markers. (journal_version.pdf p. 10)'
+  F7ik: 'first look (small model): Volcano plots: one dot per miRNA, not per sample. (journal_version.pdf p. 11)'
+  F7l: 'first look (small model): PCA scatter; one labeled point per condition, not per replicate (journal_version.pdf p. 11)'

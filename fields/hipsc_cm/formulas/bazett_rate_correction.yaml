@@ -1,0 +1,32 @@
+# Written by code from changes.yaml (version 15); never edited.
+formula: bazett_rate_correction
+kind: definition
+statement: A rate-corrected duration (Bazett's correction) is the duration divided by the square root of the beat interval,
+  both in seconds.
+equations:
+- dc = d/sqrt(RR)
+variables:
+  dc: time^(1/2)
+  d: time
+  RR: time
+does_not_apply: 'other rate corrections: Fridericia''s divides by the cube root of the interval, Framingham''s is linear in
+  the interval'
+tests:
+- given:
+    d: 0.4
+    RR: 1.0
+  expect:
+    dc: 0.4
+- given:
+    d: 0.3
+    RR: 0.25
+  expect:
+    dc: 0.6
+- given:
+    d: 0.3
+    RR: 0.25
+  does_not_apply: Fridericia's correction gives 0.3/0.25^(1/3) = 0.476
+cites:
+  text: Bazett HC. An analysis of the time-relations of electrocardiograms. Heart 7, 353-370 (1920); reprinted in Ann Noninvasive
+    Electrocardiol 2, 177-194 (1997)
+  url: https://doi.org/10.1111/j.1542-474X.1997.tb00325.x

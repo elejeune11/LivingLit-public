@@ -1,0 +1,387 @@
+record: 2019_Dwenger
+vocabulary_version: 64
+agent: {model: llm, instructions: terms_v4}
+
+edits:
+
+  # --- synonyms onto existing terms (so code matches these wordings next time) ---
+  - add_synonym:
+      id: purity_method:flow_cytometry
+      text: "Flow Cytometer"
+      anchor: "Stained cells were analyzed for cell population percentages using a BD LSRII Flow Cytometer"
+  - add_synonym:
+      id: substrate:collagen_hydrogel
+      text: "collagen type-1"
+      anchor: "acidic rat-tail collagen type-1"
+  - add_synonym:
+      id: pacing:field_stimulation
+      text: "electric field pacing"
+      anchor: "We then performed electric field pacing of the ECT, starting at the intrinsic beat rate"
+  - add_synonym:
+      id: measure:contraction_frequency
+      text: "intrinsic beat rate"
+      anchor: "We recorded intrinsic beat rate, optical MCR, and C-OP rate daily from D7 to D14"
+  - add_synonym:
+      id: measure:twitch_stress
+      text: "mean active stress"
+      anchor: "(g) Mean active stress was similar in D14 control and C-OP ECTs"
+  - add_synonym:
+      id: measure:force_frequency_relationship
+      text: "stress–frequency relationship"
+      anchor: "We calculated the mean σA at each captured frequency to determine stress–frequency relationship"
+  - add_synonym:
+      id: measure:von_mises_concentration
+      text: "alignment concentration"
+      anchor: "Alignment concentration κ describes the concentration of local orientation vectors"
+
+  # --- own terms ---
+  - add_term:
+      field: preparation
+      id: preparation:paraffin_section
+      label: paraffin section
+      parent: preparation:fixed
+      definition: A thin section cut from a fixed, paraffin-embedded sample for staining.
+      scope: Sections cut from paraffin-embedded fixed tissue; not a fixed sample imaged whole (whole mount), not a
+        section cut from frozen tissue (cryosection).
+      qualifiers: {thickness: {dimension: length}}
+      synonyms:
+        - text: "paraffin sections"
+          anchor: "Images of paraffin sections were obtained with a 40X 1.30 NA"
+  - add_term:
+      field: preparation
+      id: preparation:whole_mount
+      label: whole mount
+      parent: preparation:fixed
+      definition: A fixed sample stained and imaged whole, without sectioning.
+      scope: A fixed sample imaged whole; not a section cut from it (paraffin section), and not living whole tissue
+        (intact tissue).
+      synonyms:
+        - text: "whole-mount"
+          anchor: "We performed confocal imaging of whole-mount and paraffin sectioned ECTs"
+  - add_term:
+      field: maturation_strategy
+      id: maturation_strategy:optical_pacing
+      label: optical pacing conditioning
+      definition: Repeated optical stimulation of light-sensitive cells during culture, to pace the tissue over days as a
+        conditioning regime.
+      scope: Beats driven by light during culture (the cells carry an optogenetic actuator); not current delivered to the
+        tissue (electrical stimulation), not mechanical loading and not a medium change.
+      qualifiers:
+        wavelength: {dimension: text}
+        pulse_width: {dimension: text}
+        rate: {dimension: text}
+        days: {dimension: text}
+      synonyms:
+        - text: "chronic optical pacing"
+          anchor: "chronic optical pacing (C-OP)"
+  - add_term:
+      field: pacing
+      id: pacing:optical_pacing
+      label: optical pacing
+      definition: Light pulses that drive beats during the measurement, in cells carrying an optogenetic actuator.
+      scope: Beats driven by light; not an electrical stimulus (electrical pacing and its narrower terms) and not
+        unpaced spontaneous beating.
+      qualifiers:
+        wavelength: {dimension: text}
+        frequency: {dimension: frequency}
+        pulse_width: {dimension: text}
+      synonyms:
+        - text: "optical pacing"
+          anchor: "chronic optical pacing (C-OP)"
+  - add_term:
+      field: transgene
+      id: transgene:optogenetic_actuator
+      label: optogenetic actuator
+      definition: An introduced light-gated ion channel or pump that lets light depolarise or hyperpolarise the cells.
+      scope: A light-driven actuator; not a genetically encoded indicator that only reports voltage or calcium, not a
+        fluorescent reporter and not an overexpressed native gene.
+      qualifiers:
+        vector: {dimension: text}
+        MOI: {dimension: text}
+        promoter: {dimension: text}
+  - add_term:
+      field: transgene
+      id: transgene:ochief_tdtomato
+      label: oChIEF-tdTomato
+      parent: transgene:optogenetic_actuator
+      definition: The channelrhodopsin variant oChIEF fused to the fluorescent protein tdTomato, delivered here by an
+        AAV1/2 vector under the CAG promoter.
+      scope: The oChIEF-tdTomato construct; not other channelrhodopsins and not a fluorescent reporter alone.
+      synonyms:
+        - text: "AAV1/2-CAG-oChIEF-tdTomato"
+          anchor: "AAV1/2-CAG-oChIEF-tdTomato virus was then added to the gel mixture at 500 MOI"
+  - add_term:
+      field: measure
+      id: measure:beat_to_beat_hysteresis
+      label: beat-to-beat contraction hysteresis
+      definition: The difference in contraction amplitude between one beat and the next, as force or stress, sometimes
+        divided by the mean amplitude.
+      scope: Beat-to-beat variation of the contraction's amplitude; not the variation of the interval between beats
+        (beat-to-beat change in beat interval), not variability between cells or samples and not the trend of force
+        across pacing frequencies (force-frequency relationship).
+      dimension: dimensionless
+      synonyms:
+        - text: "beat-to-beat hysteresis"
+          anchor: "in the amplitude variation between sequential beats, termed beat-to-beat hysteresis"
+  - add_term:
+      field: measure
+      id: measure:normalized_systolic_energy
+      label: normalized systolic energy
+      definition: The systolic stress-time integral of a contraction cycle, divided by the cycle's duration and by the
+        maximum stress.
+      scope: The normalised systolic stress-time integral of a tissue's own contraction; not mechanical work done on a
+        substrate (contractile work), not stress at one instant and not the duration of the twitch.
+      dimension: dimensionless
+      synonyms:
+        - text: "normalized systolic energy"
+          anchor: "Mean σA was 0.29 mN/mm2, σbb was 0.17, RT50 was 63 ms, and normalized systolic energy was 0.53."
+  - add_term:
+      field: measure
+      id: measure:absorbance_ratio
+      label: absorbance ratio
+      definition: The ratio of a sample's absorbance at two stated wavelengths (qualifier wavelengths), used to judge the
+        purity of an extract.
+      scope: A ratio of absorbances of an extract at two wavelengths; not the amount of nucleic acid or protein in the
+        sample and not a ratio of two measured biological quantities.
+      dimension: dimensionless
+      qualifiers:
+        wavelengths: {dimension: text}
+
+  # --- an ontology id this paper needs in a second field ---
+  - adopt:
+      field: stromal_cell
+      id: CL:0008034
+      label: mural cell
+      lookup: "livinglit lookup cl \"mural cell\", \"pericyte\", \"smooth muscle cell\": CL:0008034 mural cell is the
+        class the paper's MC population names; already adopted in cell_types, adopted here for stromal_cell."
+
+  # --- standing keys for the measures this paper adds ---
+  - standing_key:
+      measure: measure:beat_to_beat_hysteresis
+      value:
+        must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load,
+                     measure.level, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+        may_vary: [cell_line]
+      direction:
+        must_match: [contrast, pacing, measure.level]
+        may_vary: [cell_line, day_of_measurement]
+  - standing_key:
+      measure: measure:normalized_systolic_energy
+      value:
+        must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load,
+                     measure.level, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+        may_vary: [cell_line]
+      direction:
+        must_match: [contrast, pacing, measure.level]
+        may_vary: [cell_line, day_of_measurement]
+  - standing_key:
+      measure: measure:absorbance_ratio
+      value:
+        must_match: [preparation, measure.wavelengths]
+        may_vary: [cell_line, platform, day_of_measurement]
+      direction:
+        must_match: [contrast, measure.wavelengths]
+        may_vary: [cell_line, day_of_measurement]
+
+mappings:
+
+  # --- context ---
+  - field: hipsc_coating
+    stated: "thin-coat Matrigel"
+    terms: [hipsc_coating:gfr_matrigel]
+    note: "the paper's thin coat is growth-factor-reduced Matrigel at 1:60; 'thin-coat' describes the coat, not the
+      product, so it is not added as a synonym"
+  - field: supplements
+    stated: "FBS + penicillin-streptomyocin + 2-mercaptoethanol"
+    terms: [supplements:fetal_bovine_serum, CHEBI:17334, CHEBI:17076, CHEBI:41218]
+    note: "the paper's 'penicillin-streptomyocin' (sic) is the penicillin-streptomycin mixture, mapped to both compounds;
+      no synonym, because one wording cannot belong to two terms"
+  - field: platform
+    stated: "linear ECT"
+    terms: [platform:tissuetrain]
+    note: "the linear ECT is cast in a Flexcell TissueTrain trough and held by nylon mesh tabs; 'linear ECT' is broader
+      than the plate, so it is not added as a synonym"
+  - field: substrate
+    stated: "collagen + Matrigel"
+    terms: [substrate:collagen_hydrogel, substrate:matrigel]
+  - field: mechanical_load
+    stated: "constrained at the long axis ends by nylon anchors"
+    terms: [mechanical_load:end_anchored]
+    note: "the paper does not say whether the nylon mesh anchors yield"
+  - field: preparation
+    stated: "ECT culture"
+    terms: [preparation:intact_tissue]
+  - field: preparation
+    stated: "linear ECT in the perfusion bath"
+    terms: [preparation:intact_tissue]
+  - field: preparation
+    stated: "fixed with paraformaldehyde"
+    terms: [preparation:fixed]
+    qualifiers: {fixative: "4% paraformaldehyde"}
+  - field: preparation
+    stated: "homogenized ECT samples in Trizol"
+    terms: [preparation:rna_extract]
+    note: "homogenisation in Trizol is the RNA extraction step; what is measured is the purified RNA"
+  - field: preparation
+    stated: "stained cells"
+    terms: [preparation:dissociated_cells]
+    note: "cells in suspension stained for surface antigens before tissue formation, read on a flow cytometer"
+  - field: preparation
+    stated: "patched single cells within the ECT"
+    terms: [preparation:intact_tissue]
+    note: "single cells are patched in situ; the tissue is neither dissociated nor fixed"
+  - field: pacing
+    stated: "electrical field pacing"
+    terms: [pacing:field_stimulation]
+
+  # --- measures ---
+  - field: measure
+    stated: "day of onset of spontaneous beating"
+    terms: [measure:beating_onset_time]
+    qualifiers: {reference: "start of ECT culture"}
+  - field: measure
+    stated: "relaxation time to 50% diastolic stress"
+    terms: [measure:relaxation_time]
+    qualifiers: {level: "RT50", expressed_as: absolute}
+  - field: measure
+    stated: "action potential generation on optical stimulation"
+    terms: [measure:pacing_entrainment]
+    note: "whether a light pulse triggers an action potential in a patched cell: one-to-one following of the stimulus"
+  - field: measure
+    stated: "optical pacing capture"
+    terms: [measure:pacing_entrainment]
+  - field: measure
+    stated: "optical maximum capture rate"
+    terms: [measure:maximum_capture_rate]
+    note: "the stimulus being light is carried by the pacing field, not by the measure"
+  - field: measure
+    stated: "cardiomyocyte fraction"
+    terms: [measure:cell_type_fraction_by_number]
+    qualifiers: {cell_type: "cardiomyocyte"}
+    note: "counted as cTnT-positive nuclei; the paper states it as the tissue's CM fraction"
+  - field: measure
+    stated: "alignment concentration"
+    terms: [measure:von_mises_concentration]
+    qualifiers: {structure: "cardiomyocytes (cTnT-stained)"}
+  - field: measure
+    stated: "fraction of cardiomyocytes transfected"
+    terms: [measure:marker_positive_cells]
+    qualifiers: {marker: "tdTomato (ChIEF)", population: "cardiomyocytes (cTnT-positive)"}
+  - field: measure
+    stated: "fraction of transfected cells that are cardiomyocytes"
+    terms: [measure:marker_positive_cells]
+    qualifiers: {marker: "cTnT", population: "transfected (tdTomato-positive) cells"}
+  - field: measure
+    stated: "fraction of ChIEF-transfected cells"
+    terms: [measure:marker_positive_cells]
+    qualifiers: {marker: "tdTomato (ChIEF)", population: "all cells"}
+  - field: measure
+    stated: "transfection efficiency"
+    terms: [measure:marker_positive_cells]
+    qualifiers: {marker: "ChIEF-tdTomato", population: "all cells"}
+    note: "the pilot experiments' read-out is not stated; the share of cells expressing the construct"
+  - field: measure
+    stated: "cTnT mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "cTnT", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "SERCA2A mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "SERCA2A", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "KCNJ2 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "KCNJ2", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "MLC2v/MLC2a ratio"
+    terms: [measure:gene_expression_ratio]
+    qualifiers: {gene: "MLC2v/MLC2a", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "MLC2v mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MLC2v", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "MLC2a mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MLC2a", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "RYR2 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "RYR2", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "PLN mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "PLN", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "CASQ2 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "CASQ2", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "ASPH mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "ASPH", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "SLC8A1 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "SLC8A1", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "Cacna1C mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "Cacna1C", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "Cacna1D mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "Cacna1D", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "Cacna1G mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "Cacna1G", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "SCN4A mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "SCN4A", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "SCN5A mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "SCN5A", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "KCNH2 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "KCNH2", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "KCNJ12 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "KCNJ12", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "GJA1 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "GJA1", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "KCND3 mRNA expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "KCND3", normalised_to: "18 S rRNA"}
+  - field: measure
+    stated: "L-type calcium and sodium channel mRNA expression"
+    terms: [measure:gene_set_expression]
+    qualifiers: {gene_set: "L-type Ca2+ and Na+ channel genes"}
+    note: "the legend summarises several channel transcripts together; the genes behind the summary are not listed"
+  - field: measure
+    stated: "cardiomyocyte percentage of the cell mixture"
+    terms: [measure:cell_type_fraction_by_number]
+    qualifiers: {cell_type: "cardiomyocyte"}
+  - field: measure
+    stated: "endothelial cell percentage of the cell mixture"
+    terms: [measure:cell_type_fraction_by_number]
+    qualifiers: {cell_type: "endothelial cell"}
+  - field: measure
+    stated: "mural cell percentage of the cell mixture"
+    terms: [measure:cell_type_fraction_by_number]
+    qualifiers: {cell_type: "mural cell"}
+  - field: measure
+    stated: "260/280 ratio of RNA samples"
+    terms: [measure:absorbance_ratio]
+    qualifiers: {wavelengths: "260/280"}
+  - field: measure
+    stated: "260/230 ratio of RNA samples"
+    terms: [measure:absorbance_ratio]
+    qualifiers: {wavelengths: "260/230"}

@@ -1,0 +1,41 @@
+# Written by code from changes.yaml (version 20); never edited.
+formula: apparent_permeability
+kind: model
+statement: The apparent permeability of a barrier is the amount that has crossed it (receiver concentration times receiver
+  volume) per unit barrier area, per unit donor concentration, per unit time.
+equations:
+- P = Ct*V/(C0*A*t)
+variables:
+  P: velocity
+  Ct: concentration
+  V: volume
+  C0: concentration
+  A: area
+  t: time
+assumes:
+- sink conditions (receiver concentration much lower than donor concentration)
+- donor concentration constant over the assay time
+- linear accumulation in the receiver over the assay time
+does_not_apply: a receiver concentration approaching the donor concentration (no sink), or a curved accumulation over the
+  assay time; the amount crossed then underestimates the initial flux and P is too low
+tests:
+- given:
+    Ct: 1.0
+    V: 2.0
+    C0: 10.0
+    A: 0.5
+    t: 4.0
+  expect:
+    P: 0.1
+- given:
+    Ct: 5.0
+    V: 1.0
+    C0: 10.0
+    A: 1.0
+    t: 1.0
+  does_not_apply: 'receiver at half the donor concentration: no sink, the formula gives 0.5, an underestimate of the initial
+    flux per concentration'
+cites:
+  text: 'Hubatsch I, Ragnarsson EGE, Artursson P. Determination of drug permeability and prediction of drug absorption in
+    Caco-2 monolayers. Nature Protocols 2, 2111–2119 (2007): Papp = (dQ/dt)/(A·C0), under sink conditions'
+  url: https://doi.org/10.1038/nprot.2007.303

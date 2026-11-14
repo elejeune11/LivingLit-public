@@ -1,0 +1,547 @@
+record: 2022_Ronaldson-Bouchard
+formula_library_version: 19
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  # ---------------------------------------------------------------- TEER = measured resistance × effective area
+  # Skin: the methods name the product. Written through ratio_def (R = TEER/A), which is the same equation.
+  F4g_teer.unit_area_resistance:
+    item: F4g_teer
+    measure: skin unit area resistance (TEER)
+    formula: TEER = R*A
+    anchor:
+      quote: calculated the tissue resistance by multiplying the measured resistance (Ohm) with the effective tissue area (cm2)
+      where: Methods, Skin function assays
+    library: {formula: ratio_def, vars: {r: R, a: TEER, b: A}}
+    inputs:
+      R: {not_stated: true, kind: per sample, note: 'measured resistance (Ohm), mean of 2–3 technical replicates per tissue; not released'}
+      A: {not_stated: true, kind: constant, note: 'effective tissue area (cm2) of the EndOhm chamber; value not printed'}
+    note: no single printed TEER value; the released per-tissue values (data F4g_teer) are the outputs, not inputs
+  ED3i_teer.unit_area_resistance:
+    item: ED3i_teer
+    measure: skin unit area resistance (TEER)
+    formula: TEER = R*A
+    anchor:
+      quote: calculated the tissue resistance by multiplying the measured resistance (Ohm) with the effective tissue area (cm2)
+      where: Methods, Skin function assays
+    library: {formula: ratio_def, vars: {r: R, a: TEER, b: A}}
+    inputs:
+      R: {not_stated: true, kind: per sample, note: 'measured resistance (Ohm); not released'}
+      A: {not_stated: true, kind: constant, note: 'effective tissue area (cm2); value not printed'}
+  # Endothelial barriers: "from the measured resistance and the effective barrier area" names the inputs, not the
+  # operation; the product is the labelled alternative (as for skin, and as the Ohms × cm2 axis unit implies).
+  F3c_teer.unit_area_resistance:
+    item: F3c_teer
+    measure: vascular barrier TEER (unit area resistance)
+    formula: not stated
+    anchor:
+      quote: calculated the barrier resistance from the measured resistance (Ohm) and the effective barrier area (cm2)
+      where: Methods, Endothelial barriers
+    library: {formula: ratio_def, vars: {r: R, a: TEER, b: A}}
+    inputs:
+      R: {not_stated: true, kind: per sample, note: 'measured resistance (Ohm), 2–3 technical replicates per barrier'}
+      A: {not_stated: true, kind: constant, note: 'effective barrier area (cm2); value not printed'}
+    alternatives:
+    - {label: 'product, as stated for skin', formula: TEER = R*A}
+    - {label: blank-subtracted product (a common TEER practice; not stated), formula: TEER = (R - R0)*A}
+  F3d_teer.unit_area_resistance:
+    item: F3d_teer
+    measure: vascular barrier TEER (unit area resistance)
+    formula: not stated
+    anchor:
+      quote: calculated the barrier resistance from the measured resistance (Ohm) and the effective barrier area (cm2)
+      where: Methods, Endothelial barriers
+    library: {formula: ratio_def, vars: {r: R, a: TEER, b: A}}
+    inputs:
+      R: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: constant}
+    alternatives:
+    - {label: 'product, as stated for skin', formula: TEER = R*A}
+    - {label: blank-subtracted product (not stated), formula: TEER = (R - R0)*A}
+  F4c_teer.unit_area_resistance:
+    item: F4c_teer
+    measure: vascular barrier TEER (unit area resistance)
+    formula: not stated
+    anchor:
+      quote: calculated the barrier resistance from the measured resistance (Ohm) and the effective barrier area (cm2)
+      where: Methods, Endothelial barriers
+    library: {formula: ratio_def, vars: {r: R, a: TEER, b: A}}
+    inputs:
+      R: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: constant}
+    alternatives:
+    - {label: 'product, as stated for skin', formula: TEER = R*A}
+    - {label: blank-subtracted product (not stated), formula: TEER = (R - R0)*A}
+  F7h_teer.unit_area_resistance:
+    item: F7h_teer
+    measure: vascular barrier TEER (unit area resistance)
+    formula: not stated
+    anchor:
+      quote: calculated the barrier resistance from the measured resistance (Ohm) and the effective barrier area (cm2)
+      where: Methods, Endothelial barriers
+    library: {formula: ratio_def, vars: {r: R, a: TEER, b: A}}
+    inputs:
+      R: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: constant}
+    alternatives:
+    - {label: 'product, as stated for skin', formula: TEER = R*A}
+    - {label: blank-subtracted product (not stated), formula: TEER = (R - R0)*A}
+  # ---------------------------------------------------------------- dextran permeability, Pe = Ct V / (C0 A Δt)
+  ED4b_3kDa.permeability:
+    item: ED4b_3kDa
+    measure: 3 kDa FITC-dextran permeability
+    formula: Pe = Ct*V/(C0*A*dt)
+    anchor:
+      quote: permeability was calculated using the equation
+      where: Methods, Endothelial barriers
+    library: {formula: apparent_permeability, vars: {P: Pe, Ct: Ct, V: V, C0: C0, A: A, t: dt}}
+    inputs: &pe_inputs
+      Ct: {not_stated: true, kind: per sample, note: 'concentration in the tissue chamber at the end of the assay; not released'}
+      V: {not_stated: true, kind: constant, note: 'volume of the medium in the vascular chamber; not printed for this assay'}
+      C0: {not_stated: true, kind: constant, note: 'initial reservoir concentration; not printed for this assay'}
+      A: {not_stated: true, kind: constant, note: 'area of the membrane with cells; not printed'}
+      dt: {not_stated: true, kind: constant, note: 'assay time: samples taken at 0, 1, 2, 6, 12, 24 and 48 h; which interval enters Pe is not stated'}
+  ED4b_70kDa.permeability:
+    item: ED4b_70kDa
+    measure: 70 kDa FITC-dextran permeability
+    formula: Pe = Ct*V/(C0*A*dt)
+    anchor:
+      quote: permeability was calculated using the equation
+      where: Methods, Endothelial barriers
+    library: {formula: apparent_permeability, vars: {P: Pe, Ct: Ct, V: V, C0: C0, A: A, t: dt}}
+    inputs: *pe_inputs
+  ED4d_3kDa.permeability:
+    item: ED4d_3kDa
+    measure: 3 kDa FITC-dextran permeability
+    formula: Pe = Ct*V/(C0*A*dt)
+    anchor:
+      quote: permeability was calculated using the equation
+      where: Methods, Endothelial barriers
+    library: {formula: apparent_permeability, vars: {P: Pe, Ct: Ct, V: V, C0: C0, A: A, t: dt}}
+    inputs: *pe_inputs
+  ED4d_70kDa.permeability:
+    item: ED4d_70kDa
+    measure: 70 kDa FITC-dextran permeability
+    formula: Pe = Ct*V/(C0*A*dt)
+    anchor:
+      quote: permeability was calculated using the equation
+      where: Methods, Endothelial barriers
+    library: {formula: apparent_permeability, vars: {P: Pe, Ct: Ct, V: V, C0: C0, A: A, t: dt}}
+    inputs: *pe_inputs
+  # ---------------------------------------------------------------- specificity = TN / (FP + TN) × 100
+  # The ×100 is the % unit of the output (04-formulas, Percent); written as a fraction so it maps to part_of_whole.
+  TXT2_specificity.specificity_mo4:
+    item: TXT2_specificity
+    group: mo4_dox
+    measure: specificity of miRNA biomarker changes against clinical data
+    formula: Sp = TN/(FP + TN)
+    anchor:
+      quote: From these tallies, the specificity was calculated as described below.
+      where: Methods, Sensitivity and specificity calculations
+    library: {formula: part_of_whole, vars: {f: Sp, a: TN, b: FP}}
+    inputs:
+      TN: {not_stated: true, kind: constant, note: 'true-negative tally; not printed'}
+      FP: {not_stated: true, kind: constant, note: 'false-positive tally; not printed'}
+    output: TXT2_specificity.values.mo4_text
+  TXT2_specificity.specificity_mix4:
+    item: TXT2_specificity
+    group: mix4_dox
+    measure: specificity of miRNA biomarker changes against clinical data
+    formula: Sp = TN/(FP + TN)
+    anchor:
+      quote: From these tallies, the specificity was calculated as described below.
+      where: Methods, Sensitivity and specificity calculations
+    library: {formula: part_of_whole, vars: {f: Sp, a: TN, b: FP}}
+    inputs:
+      TN: {not_stated: true, kind: constant}
+      FP: {not_stated: true, kind: constant}
+    output: TXT2_specificity.values.mix4_text
+  # ---------------------------------------------------------------- "k out of 17 miRNAs (p %)"
+  S10_consistent_mo4.share:
+    item: S10_consistent_mo4
+    measure: paediatric miRNAs with activity consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: consistent with clinical results for 10 out of 17 miRNAs17 (58.8%)
+      where: Results, Identification of miRNA biomarkers
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: S10_consistent_mo4.values.frac_text, kind: constant}
+      n:
+        printed: '17'
+        unit: miRNAs
+        anchor: {quote: 'identifying 17 miRNAs differentially expressed in paediatric cancer patients', where: 'Results, Identification of miRNA biomarkers'}
+        kind: constant
+    output: S10_consistent_mo4.values.pct_text
+  S10_consistent_mix4.share:
+    item: S10_consistent_mix4
+    measure: paediatric miRNAs with activity consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: out of 17 miRNAs (29.4%) for the Mixed model
+      where: Results, Identification of miRNA biomarkers
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: S10_consistent_mix4.values.frac_text, kind: constant}
+      n:
+        printed: '17'
+        unit: miRNAs
+        anchor: {quote: 'identifying 17 miRNAs differentially expressed in paediatric cancer patients', where: 'Results, Identification of miRNA biomarkers'}
+        kind: constant
+    output: S10_consistent_mix4.values.pct_text
+  S10_mix4_agree_oppose.share_agree:
+    item: S10_mix4_agree_oppose
+    measure: paediatric miRNAs with activity consistent with the clinical study
+    formula: p = a/(a + b)
+    anchor:
+      quote: However, only 5 were in agreement with published results (29.4%), while 12 showed differential activities opposite to clinical observation
+      where: Results
+    library: {formula: part_of_whole, vars: {f: p, a: a, b: b}}
+    inputs:
+      a: {value: S10_mix4_agree_oppose.values.agree_text, kind: constant}
+      b: {value: S10_mix4_agree_oppose.values.opposite_text, kind: constant}
+    output: S10_mix4_agree_oppose.values.agree_pct_text
+    note: the whole is taken as agree + opposite (all 17 differentially active), as the record's finding states
+  S12_consistent_mo4p.share:
+    item: S12_consistent_mo4p
+    measure: paediatric miRNAs with activity consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: consistent with clinical results for 9 out of the 17 (52.9%)
+      where: Results, Identification of miRNA biomarkers
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: S12_consistent_mo4p.values.frac_text, kind: constant}
+      n:
+        printed: '17'
+        unit: miRNAs
+        anchor: {quote: 'identifying 17 miRNAs differentially expressed in paediatric cancer patients', where: 'Results, Identification of miRNA biomarkers'}
+        kind: constant
+    output: S12_consistent_mo4p.values.pct_text
+  S12_consistent_mix4p.share:
+    item: S12_consistent_mix4p
+    measure: paediatric miRNAs with activity consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: 17 miRNAs (23.5%)
+      where: Results, Identification of miRNA biomarkers
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: S12_consistent_mix4p.values.frac_text, kind: constant}
+      n:
+        printed: '17'
+        unit: miRNAs
+        anchor: {quote: 'identifying 17 miRNAs differentially expressed in paediatric cancer patients', where: 'Results, Identification of miRNA biomarkers'}
+        kind: constant
+    output: S12_consistent_mix4p.values.pct_text
+  # ---------------------------------------------------------------- Fig. 7m "k/7 (p %)"
+  F7m_consistent.share_mo4:
+    item: F7m_consistent
+    measure: miRNAs with fold change consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: 'Multi-organ 4-tissue: 6/7 (85.7%)'
+      where: Fig. 7m
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: F7m_consistent.values.mo4_frac_figure, kind: constant}
+      n: {printed: '7', unit: miRNAs, anchor: {quote: 'Multi-organ 4-tissue: 6/7 (85.7%)', where: 'Fig. 7m'}, kind: constant}
+    output: F7m_consistent.values.mo4_pct_figure
+  F7m_consistent.share_mix4:
+    item: F7m_consistent
+    measure: miRNAs with fold change consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: 'Mixed 4-tissue: 2/7 (28.6%)'
+      where: Fig. 7m
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: F7m_consistent.values.mix4_frac_figure, kind: constant}
+      n: {printed: '7', unit: miRNAs, anchor: {quote: 'Mixed 4-tissue: 2/7 (28.6%)', where: 'Fig. 7m'}, kind: constant}
+    output: F7m_consistent.values.mix4_pct_figure
+  F7m_consistent.share_mo1:
+    item: F7m_consistent
+    measure: miRNAs with fold change consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: 'Multi-organ 1-tissue: 5/7 (71.4%)'
+      where: Fig. 7m
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: F7m_consistent.values.mo1_frac_figure, kind: constant}
+      n: {printed: '7', unit: miRNAs, anchor: {quote: 'Multi-organ 1-tissue: 5/7 (71.4%)', where: 'Fig. 7m'}, kind: constant}
+    output: F7m_consistent.values.mo1_pct_figure
+  F7m_consistent.share_mix1:
+    item: F7m_consistent
+    measure: miRNAs with fold change consistent with the clinical study
+    formula: p = k/n
+    anchor:
+      quote: 'Multi-organ 1-tissue: 5/7 (71.4%)'
+      where: Fig. 7m
+    library: {formula: ratio_def, vars: {r: p, a: k, b: n}}
+    inputs:
+      k: {value: F7m_consistent.values.mix1_frac_figure, kind: constant}
+      n: {printed: '7', unit: miRNAs, anchor: {quote: 'Multi-organ 1-tissue: 5/7 (71.4%)', where: 'Fig. 7m'}, kind: constant}
+    output: F7m_consistent.values.mix1_pct_figure
+    note: the Mixed 1-tissue line of the summary box is not in the extracted text; the denominator 7 is anchored on the line above
+  # ---------------------------------------------------------------- normalised values with unstated inputs
+  F7f_trap.percent_of_control:
+    item: F7f_trap
+    measure: TRAP activity (% of control)
+    formula: T = x/x0
+    anchor:
+      quote: TRAP activity (% of control)
+      where: Fig. 7f axis
+    library: {formula: ratio_def, vars: {r: T, a: x, b: x0}}
+    inputs:
+      x: {not_stated: true, kind: per sample, note: 'TRAP activity of a doxorubicin-exposed bone tissue; not released'}
+      x0: {not_stated: true, kind: not stated, note: 'control: which control (the matching untreated configuration, its mean or a paired chip) is not stated'}
+    alternatives:
+    - {label: control is the mean of the untreated group of the same configuration, formula: T = x/mean(x0)}
+    - {label: control is a paired untreated chip, formula: T = x/x0}
+  F4f_trap.per_volume:
+    item: F4f_trap
+    measure: TRAP activity
+    formula: T = Abs/V
+    anchor:
+      quote: Absorbance normalized to chamber volume
+      where: Fig. 4f axis
+    library: {formula: ratio_def, vars: {r: T, a: Abs, b: V}}
+    inputs:
+      Abs: {not_stated: true, kind: per sample, note: 'TRAP assay absorbance; not released'}
+      V: {not_stated: true, kind: not stated, note: "chamber volume; not printed (Supplementary Table 3 lists model compartment volumes, not this assay's)"}
+  F3m_mono.density:
+    item: F3m_mono
+    measure: monocytes per mm2 tissue
+    formula: rho = N/A
+    anchor:
+      quote: Cells per mm2 tissue (no.)
+      where: Fig. 3m axis
+    library: {formula: ratio_def, vars: {r: rho, a: N, b: A}}
+    inputs:
+      N: {not_stated: true, kind: per sample, note: 'labelled monocytes counted in the confocal field'}
+      A: {not_stated: true, kind: not stated, note: 'imaged tissue area; not printed'}
+  F5e_go.fold_enrichment:
+    item: F5e_go
+    measure: fold enrichment of cardiac GO cellular components
+    formula: FE = obs/expd
+    anchor:
+      quote: Fold enrichment
+      where: Fig. 5e axis
+    library: {formula: ratio_def, vars: {r: FE, a: obs, b: expd}}
+    inputs:
+      obs: {not_stated: true, kind: per sample, note: 'proteins of the list in the GO term; computed by PANTHER'}
+      expd: {not_stated: true, kind: per sample, note: 'proteins expected from the reference list; computed by PANTHER'}
+  # ---------------------------------------------------------------- proteome overlap with adult tissue (Fig. 5b)
+  F5b_heart_overlap.shared: &overlap
+    item: F5b_heart_overlap
+    measure: overlap of expressed proteins with adult tissue
+    formula: p = s/N
+    anchor:
+      quote: as a percentage of shared proteins (expressed in both tissues) within the total number of proteins
+      where: Methods, Proteomics analysis
+    library: {formula: ratio_def, vars: {r: p, a: s, b: N}}
+    inputs:
+      s: {not_stated: true, kind: constant, note: 'proteins expressed in both the engineered and the adult dataset; not printed'}
+      N: {not_stated: true, kind: not stated, note: '"total number of proteins": of the engineered set, the adult set or their union is not stated'}
+    output: F5b_heart_overlap.values.overlap_figure
+    alternatives:
+    - {label: total = engineered tissue proteins, formula: p = s/Ne}
+    - {label: total = adult tissue proteins, formula: p = s/Na}
+    - {label: total = union of the two sets, formula: p = s/(Ne + Na - s)}
+  F5b_liver_overlap.shared:
+    <<: *overlap
+    item: F5b_liver_overlap
+    output: F5b_liver_overlap.values.overlap_figure
+  F5b_bone_overlap.shared:
+    <<: *overlap
+    item: F5b_bone_overlap
+    output: F5b_bone_overlap.values.overlap_figure
+  F5b_skin_overlap.shared:
+    <<: *overlap
+    item: F5b_skin_overlap
+    output: F5b_skin_overlap.values.overlap_figure
+  F5b_heart_correlation.matching: &matching
+    item: F5b_heart_correlation
+    measure: correlation of expression level with adult tissue
+    formula: p = m/s
+    anchor:
+      quote: were calculated as a percentage over the total number of shared proteins expressed overall
+      where: Methods, Proteomics analysis
+    library: {formula: ratio_def, vars: {r: p, a: m, b: s}}
+    inputs:
+      m: {not_stated: true, kind: constant, note: 'shared proteins in the same tertile (Low, Medium or High) in both datasets'}
+      s: {not_stated: true, kind: constant, note: 'shared proteins'}
+    note: one formula for the three conditions; the outputs per condition (mo, mix, iso) are printed in the figure, the counts are not
+  F5b_liver_correlation.matching:
+    <<: *matching
+    item: F5b_liver_correlation
+  F5b_bone_correlation.matching:
+    <<: *matching
+    item: F5b_bone_correlation
+  F5b_skin_correlation.matching:
+    <<: *matching
+    item: F5b_skin_correlation
+  # ---------------------------------------------------------------- headline miR-1 fold changes
+  F7i_mir1.fold_change: &fc
+    item: F7i_mir1
+    measure: miR-1 expression
+    formula: FC = xa/xb
+    anchor:
+      quote: Multi-organ vs Mixed FC = 38.84, P = 0.0015, Fig. 7i
+      where: Results, Identification of miRNA biomarkers of doxorubicin cardiotoxicity
+    library: {formula: ratio_def, vars: {r: FC, a: xa, b: xb}}
+    inputs:
+      xa: {not_stated: true, kind: per sample, note: 'miR-1 signal, Multi-organ; array values not released'}
+      xb: {not_stated: true, kind: per sample, note: 'miR-1 signal, Mixed'}
+    output: F7i_mir1.values.fc_text
+    aggregation: not stated
+    alternatives:
+    - {label: 'from mean log2 signals (array software convention; not stated)', formula: FC = 2**(la - lb)}
+  F7j_mir1.fold_change:
+    <<: *fc
+    item: F7j_mir1
+    anchor:
+      quote: Multi-organ vs Mixed FC = 18.84, P = 0.0245, Fig. 7j
+      where: Results, Identification of miRNA biomarkers of doxorubicin cardiotoxicity
+    output: F7j_mir1.values.fc_text
+  F7k_mir1.fold_change:
+    <<: *fc
+    item: F7k_mir1
+    anchor:
+      quote: Mixed perfusate FC = 4.69, P = 0.0048, Fig. 7k
+      where: Results, Identification of miRNA biomarkers of doxorubicin cardiotoxicity
+    output: F7k_mir1.values.fc_text
+  # ---------------------------------------------------------------- no library formula
+  ED3c_force.stress:
+    item: ED3c_force
+    measure: force
+    formula: not stated
+    anchor:
+      quote: Cardiac excitability, force and beat rate were obtained using our previously established protocols
+      where: Methods, Heart function assays
+    no_formula: 'stated only by citation (ref38); the axis unit mN/mm2 implies force per area, but the area and the force-from-image method are not stated here'
+    inputs:
+      F:
+        by_reference: {citation: ref38, anchor: {quote: 'Cardiac excitability, force and beat rate were obtained using our previously established protocols', where: 'Methods, Heart function assays'}}
+  F3f_cd63.radiant_efficiency:
+    item: F3f_cd63
+    measure: average radiant efficiency of CD63-GFP
+    formula: not stated
+    anchor:
+      quote: quantifying the sum of the radiant efficiencies of all fluorescent pixels within the region of interest
+      where: Methods
+    no_formula: 'a sum over the pixels of a region of interest, each pixel converted to normalized radiant efficiency (emission / excitation) inside IVIS Living Image; no sum-over-n entry and no per-pixel values'
+  F3i_mono.radiant_efficiency:
+    item: F3i_mono
+    measure: average radiant efficiency of labelled monocytes
+    formula: not stated
+    anchor:
+      quote: quantifying the sum of the radiant efficiencies of all fluorescent pixels within the region of interest
+      where: Methods
+    no_formula: 'a sum over the pixels of a region of interest, computed in IVIS Living Image; no sum-over-n entry and no per-pixel values'
+  ED4e_3kDa.relative_percent:
+    item: ED4e_3kDa
+    measure: 3 kDa FITC-dextran, relative % of total in reservoir and compartments
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative % of total is named only in the axis label (an image); the whole (reservoir plus four compartments, by concentration or by amount) is not stated'
+  ED4e_70kDa.relative_percent:
+    item: ED4e_70kDa
+    measure: 70 kDa FITC-dextran, relative % of total in reservoir and compartments
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative % of total is named only in the axis label (an image); the whole is not stated'
+  S4c_verapamil.ec50: &ec50
+    item: S4c_verapamil
+    measure: EC50 of beat frequency
+    formula: not stated
+    anchor:
+      quote: defined as the concentration of a compound that elicits 50% of its maximal overall effect
+      where: Results
+    no_formula: 'EC50 from a dose–response curve fit; the fitted model (Hill slope, bounds) is not stated and no curve-fit entry is in the library'
+  S4c_nifedipine.ec50:
+    <<: *ec50
+    item: S4c_nifedipine
+  S4c_astemizol.ec50:
+    <<: *ec50
+    item: S4c_astemizol
+  S4c_dofetilide.ec50:
+    <<: *ec50
+    item: S4c_dofetilide
+assumptions:
+  ED4b_3kDa.permeability:
+    model: apparent_permeability
+    assumptions: &pe_assumptions
+      sink conditions (receiver concentration much lower than donor concentration): {reported: not stated}
+      donor concentration constant over the assay time: {reported: not stated}
+      linear accumulation in the receiver over the assay time: {reported: not stated}
+  ED4b_70kDa.permeability:
+    model: apparent_permeability
+    assumptions: *pe_assumptions
+  ED4d_3kDa.permeability:
+    model: apparent_permeability
+    assumptions: *pe_assumptions
+  ED4d_70kDa.permeability:
+    model: apparent_permeability
+    assumptions: *pe_assumptions
+bounds:
+- {item: F3e_flow, value: F3e_flow.values.q3_1, formula: fraction_bounds}
+- {item: F3e_flow, value: F3e_flow.values.q3_2, formula: fraction_bounds}
+- {item: F3e_flow, value: F3e_flow.values.q3_3, formula: fraction_bounds}
+- {item: F3e_flow, value: F3e_flow.values.q3_4, formula: fraction_bounds}
+- {item: ED5a_cd14_itgam, value: ED5a_cd14_itgam.values.frac_text, formula: fraction_bounds}
+- {item: ED5a_live, value: ED5a_live.values.live_figure, formula: fraction_bounds}
+- {item: ED5a_cd14, value: ED5a_cd14.values.cd14_figure, formula: fraction_bounds}
+- {item: ED5a_itgam, value: ED5a_itgam.values.itgam_figure, formula: fraction_bounds}
+- {item: F5b_heart_overlap, value: F5b_heart_overlap.values.overlap_figure, formula: fraction_bounds}
+- {item: F5b_liver_overlap, value: F5b_liver_overlap.values.overlap_figure, formula: fraction_bounds}
+- {item: F5b_bone_overlap, value: F5b_bone_overlap.values.overlap_figure, formula: fraction_bounds}
+- {item: F5b_skin_overlap, value: F5b_skin_overlap.values.overlap_figure, formula: fraction_bounds}
+- {item: F5b_heart_correlation, value: F5b_heart_correlation.values.mo_figure, formula: fraction_bounds}
+- {item: F5b_heart_correlation, value: F5b_heart_correlation.values.mix_figure, formula: fraction_bounds}
+- {item: F5b_heart_correlation, value: F5b_heart_correlation.values.iso_figure, formula: fraction_bounds}
+- {item: F5b_liver_correlation, value: F5b_liver_correlation.values.mo_figure, formula: fraction_bounds}
+- {item: F5b_liver_correlation, value: F5b_liver_correlation.values.mix_figure, formula: fraction_bounds}
+- {item: F5b_liver_correlation, value: F5b_liver_correlation.values.iso_figure, formula: fraction_bounds}
+- {item: F5b_bone_correlation, value: F5b_bone_correlation.values.mo_figure, formula: fraction_bounds}
+- {item: F5b_bone_correlation, value: F5b_bone_correlation.values.mix_figure, formula: fraction_bounds}
+- {item: F5b_bone_correlation, value: F5b_bone_correlation.values.iso_figure, formula: fraction_bounds}
+- {item: F5b_skin_correlation, value: F5b_skin_correlation.values.mo_figure, formula: fraction_bounds}
+- {item: F5b_skin_correlation, value: F5b_skin_correlation.values.mix_figure, formula: fraction_bounds}
+- {item: F5b_skin_correlation, value: F5b_skin_correlation.values.iso_figure, formula: fraction_bounds}
+- {item: TXT2_specificity, value: TXT2_specificity.values.mo4_text, formula: fraction_bounds}
+- {item: TXT2_specificity, value: TXT2_specificity.values.mix4_text, formula: fraction_bounds}
+- {item: S10_consistent_mo4, value: S10_consistent_mo4.values.pct_text, formula: fraction_bounds}
+- {item: S10_consistent_mix4, value: S10_consistent_mix4.values.pct_text, formula: fraction_bounds}
+- {item: S12_consistent_mo4p, value: S12_consistent_mo4p.values.pct_text, formula: fraction_bounds}
+- {item: S12_consistent_mix4p, value: S12_consistent_mix4p.values.pct_text, formula: fraction_bounds}
+- {item: F7m_consistent, value: F7m_consistent.values.mo4_pct_figure, formula: fraction_bounds}
+- {item: F7m_consistent, value: F7m_consistent.values.mix4_pct_figure, formula: fraction_bounds}
+- {item: F7m_consistent, value: F7m_consistent.values.mo1_pct_figure, formula: fraction_bounds}
+- {item: F7m_consistent, value: F7m_consistent.values.mix1_pct_figure, formula: fraction_bounds}
+proposals:
+- formula: apparent_permeability
+  kind: model
+  statement: >-
+    The apparent permeability of a barrier is the amount that has crossed it (receiver concentration times receiver
+    volume) per unit barrier area, per unit donor concentration, per unit time.
+  equations:
+  - P = Ct*V/(C0*A*t)
+  variables: {P: velocity, Ct: concentration, V: volume, C0: concentration, A: area, t: time}
+  assumes:
+  - sink conditions (receiver concentration much lower than donor concentration)
+  - donor concentration constant over the assay time
+  - linear accumulation in the receiver over the assay time
+  does_not_apply: >-
+    a receiver concentration approaching the donor concentration (no sink), or a curved accumulation over the assay
+    time; the amount crossed then underestimates the initial flux and P is too low
+  tests:
+  - given: {Ct: 1.0, V: 2.0, C0: 10.0, A: 0.5, t: 4.0}
+    expect: {P: 0.1}
+  - given: {Ct: 5.0, V: 1.0, C0: 10.0, A: 1.0, t: 1.0}
+    does_not_apply: 'receiver at half the donor concentration: no sink, the formula gives 0.5, an underestimate of the initial flux per concentration'
+  cites:
+    text: 'Hubatsch I, Ragnarsson EGE, Artursson P. Determination of drug permeability and prediction of drug absorption in Caco-2 monolayers. Nature Protocols 2, 2111–2119 (2007): Papp = (dQ/dt)/(A·C0), under sink conditions'
+    url: https://doi.org/10.1038/nprot.2007.303

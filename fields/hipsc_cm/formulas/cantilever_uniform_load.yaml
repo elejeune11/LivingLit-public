@@ -1,0 +1,49 @@
+# Written by code from changes.yaml (version 19); never edited.
+formula: cantilever_uniform_load
+kind: model
+statement: A slender elastic cantilever under a uniformly distributed load q along its length L deflects at its free end by
+  qL^4/(8EI); the total load is F = qL, so F = 8EI·d/L^3.
+equations:
+- d = q*L**4/(8*E*I)
+- F = q*L
+variables:
+  d: length
+  q: force/length
+  L: length
+  E: modulus
+  I: second_moment
+  F: force
+assumes:
+- small deflection
+- linear elastic material
+- slender beam
+- uniformly distributed load along the length
+- deflection taken at the free end
+does_not_apply: a point load at the free end (d = F L^3/(3EI)), large deflections, or a short thick beam where shear deformation
+  matters
+tests:
+- given:
+    q: 1.0
+    L: 1.0
+    E: 1.0
+    I: 1.0
+  expect:
+    d: 0.125
+    F: 1.0
+- given:
+    q: 2.0
+    L: 2.0
+    E: 4.0
+    I: 1.0
+  expect:
+    d: 1.0
+    F: 4.0
+- given:
+    q: 1.0
+    L: 1.0
+    E: 1.0
+    I: 1.0
+  does_not_apply: the same total load F = 1 at the free end deflects the tip by 1/3, not 1/8
+cites:
+  text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, uniform load)
+  quote: δB = qL^4/8EI

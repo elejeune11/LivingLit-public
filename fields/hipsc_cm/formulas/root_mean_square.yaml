@@ -1,0 +1,29 @@
+# Written by code from changes.yaml (version 3); never edited.
+formula: root_mean_square
+kind: definition
+statement: The root mean square of n values is the square root of the mean of their squares.
+equations:
+- S = sqrt(Q/n)
+variables:
+  S: D
+  Q: D**2
+  n: count
+does_not_apply: the mean of the magnitudes (not squared), or a spread about the mean (that is the SD)
+tests:
+- given:
+    Q: 8.0
+    n: 2.0
+  expect:
+    S: 2.0
+- given:
+    Q: 25.0
+    n: 1.0
+  expect:
+    S: 5.0
+- given:
+    Q: 10.0
+    n: 2.0
+  does_not_apply: 'values 1 and 3 (mean of squares 5): the plain mean 2 differs from the RMS sqrt(5)'
+cites:
+  text: Weisstein, Root-Mean-Square, MathWorld (Wolfram Research)
+  url: https://mathworld.wolfram.com/Root-Mean-Square.html

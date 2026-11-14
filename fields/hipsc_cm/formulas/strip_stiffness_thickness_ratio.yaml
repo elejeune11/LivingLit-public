@@ -1,0 +1,61 @@
+# Written by code from changes.yaml (version 4); never edited.
+formula: strip_stiffness_thickness_ratio
+kind: derived
+statement: For two cantilever strips of the same modulus, width and length, the bending stiffness scales with the cube of
+  the thickness.
+equations:
+- k2 = k1*(t2/t1)**3
+variables:
+  k1: stiffness
+  k2: stiffness
+  E1: modulus
+  E2: modulus
+  I1: second_moment
+  I2: second_moment
+  L1: length
+  L2: length
+  w1: length
+  w2: length
+  t1: length
+  t2: length
+assumes:
+- E2 = E1
+- w2 = w1
+- L2 = L1
+uses:
+- formula: cantilever_tip_stiffness
+  subs:
+    k: k1
+    E: E1
+    I: I1
+    L: L1
+- formula: cantilever_tip_stiffness
+  subs:
+    k: k2
+    E: E2
+    I: I2
+    L: L2
+- formula: rect_second_moment
+  subs:
+    I: I1
+    w: w1
+    t: t1
+- formula: rect_second_moment
+  subs:
+    I: I2
+    w: w2
+    t: t2
+does_not_apply: strips of different modulus, width or free length, where k2/k1 = (E2/E1)(w2/w1)(L1/L2)^3 (t2/t1)^3
+tests:
+- given:
+    k1: 1.0
+    t1: 1.0
+    t2: 2.0
+  expect:
+    k2: 8.0
+- given:
+    k1: 2.0
+    t1: 2.0
+    t2: 1.0
+  expect:
+    k2: 0.25

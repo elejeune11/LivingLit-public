@@ -1,0 +1,470 @@
+record: 2022_Huebsch
+formula_library_version: 18
+agent: {model: llm, instructions: formulas_v3}
+
+derived:
+  # ------------------------------------------------------------ Fridericia rate correction (cAPD80, cτ75, FWHMc)
+  F2AB_trace.capd80_sm:
+    item: F2AB_trace
+    group: mps_sm
+    formula: "capd = apd/RR**(1/3)"
+    anchor: &a_frid {quote: "data on beating interval and calcium transient decay times were rate corrected using Fridericia’s method", where: "Methods, Image Analysis"}
+    library: {formula: fridericia_rate_correction, vars: {dcf: capd, dur: apd, RR: RR}}
+    inputs:
+      apd: {not_stated: true, kind: per sample, note: "uncorrected APD80 of the representative trace is not printed"}
+      RR: {not_stated: true, kind: per sample, note: "beat interval of the trace is not printed"}
+    output: F2AB_trace.values.capd80_sm
+    alternatives:
+      - {label: "trace paced at 1 Hz (RR = 1 s): cAPD80 equals APD80", formula: "capd = apd"}
+    note: "Methods state the Fridericia correction for spontaneously beating cells; whether these traces were spontaneous or paced is not stated"
+  F2AB_trace.capd80_mm:
+    item: F2AB_trace
+    group: mps_mm
+    formula: "capd = apd/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: capd, dur: apd, RR: RR}}
+    inputs:
+      apd: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+    output: F2AB_trace.values.capd80_mm
+    alternatives:
+      - {label: "trace paced at 1 Hz (RR = 1 s): cAPD80 equals APD80", formula: "capd = apd"}
+  ED3E_capd80.capd80:
+    item: ED3E_capd80
+    formula: "capd = apd/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: capd, dur: apd, RR: RR}}
+    inputs:
+      apd: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+  ED3G_mm.capd80: &frid_item
+    item: ED3G_mm
+    formula: "capd = apd/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: capd, dur: apd, RR: RR}}
+    inputs:
+      apd: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+  ED3G_m2.capd80: {<<: *frid_item, item: ED3G_m2}
+  ED3G_m4.capd80: {<<: *frid_item, item: ED3G_m4}
+  ED3G_m1.capd80: {<<: *frid_item, item: ED3G_m1}
+  ED3G_m1_sm.capd80: {<<: *frid_item, item: ED3G_m1_sm}
+  ED4A_wtc.capd80:
+    <<: *frid_item
+    item: ED4A_wtc
+    note: "the spontaneous beat rate of the same groups is item ED4B_wtc (RR = 1/rate), but the uncorrected APD80 is not printed, so the chain cannot be rebuilt"
+  ED4A_scvi20.capd80: {<<: *frid_item, item: ED4A_scvi20}
+  ED4A_scvi273.capd80: {<<: *frid_item, item: ED4A_scvi273}
+  ED4A_g15.capd80: {<<: *frid_item, item: ED4A_g15}
+  ED2E_bsa.fwhmc:
+    item: ED2E_bsa
+    formula: "fwhmc = fwhm/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: fwhmc, dur: fwhm, RR: RR}}
+    inputs:
+      fwhm: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+    note: "FWHM is called rate-corrected but the methods name Fridericia only for beating interval and decay times of spontaneously beating cells; the panel is at 1 Hz pacing"
+  ED2E_fattyacid.fwhmc:
+    item: ED2E_fattyacid
+    formula: "fwhmc = fwhm/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: fwhmc, dur: fwhm, RR: RR}}
+    inputs:
+      fwhm: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+  S4C_tau75.ctau75:
+    item: S4C_tau75
+    formula: "ctau = tau/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: ctau, dur: tau, RR: RR}}
+    inputs:
+      tau: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+  S4C_tau75.normalized:
+    item: S4C_tau75
+    formula: "rn = ctau/ctau0"
+    anchor: {quote: "Normalized beat-rate corrected decay time", where: "Supplementary Fig. 4 legend"}
+    library: {formula: ratio_def, vars: {r: rn, a: ctau, b: ctau0}}
+    inputs:
+      ctau: {derived: S4C_tau75.ctau75, kind: per sample}
+      ctau0: {not_stated: true, kind: per sample, note: "the reference (pre-drug or vehicle) is not stated for Fig. S4"}
+    aggregation: mean of per-sample
+  S5C_tau75.ctau75:
+    item: S5C_tau75
+    formula: "ctau = tau/RR**(1/3)"
+    anchor: *a_frid
+    library: {formula: fridericia_rate_correction, vars: {dcf: ctau, dur: tau, RR: RR}}
+    inputs:
+      tau: {not_stated: true, kind: per sample}
+      RR: {not_stated: true, kind: per sample}
+  S5C_tau75.normalized:
+    item: S5C_tau75
+    formula: "rn = ctau/ctau0"
+    anchor: {quote: "Normalized beat-rate corrected decay time", where: "Supplementary Fig. 5 legend"}
+    library: {formula: ratio_def, vars: {r: rn, a: ctau, b: ctau0}}
+    inputs:
+      ctau: {derived: S5C_tau75.ctau75, kind: per sample}
+      ctau0: {not_stated: true, kind: per sample, note: "the reference is not stated for Fig. S5"}
+    aggregation: mean of per-sample
+
+  # ------------------------------------------------------------ normalized to vehicle / baseline (ratio)
+  S4A_rate.normalized: &norm_s4
+    item: S4A_rate
+    formula: "rn = x/x0"
+    anchor: {quote: "Normalized beat rate", where: "Supplementary Fig. 4 legend"}
+    library: {formula: ratio_def, vars: {r: rn, a: x, b: x0}}
+    inputs:
+      x: {not_stated: true, kind: per sample, note: "value after ryanodine, per MPS"}
+      x0: {not_stated: true, kind: per sample, note: "reference not stated (pre-drug or vehicle)"}
+    aggregation: not stated
+  S4B_ff0.normalized: {<<: *norm_s4, item: S4B_ff0, anchor: {quote: "Normalized F/F0", where: "Supplementary Fig. 4 legend"}}
+  S4D_upstroke.normalized:
+    <<: *norm_s4
+    item: S4D_upstroke
+    note: "panel D is labelled 'upstroke duration' in the legend; the normalisation is taken from panels A–C"
+  S5A_rate.normalized: {<<: *norm_s4, item: S5A_rate, anchor: {quote: "Normalized beat rate", where: "Supplementary Fig. 5 legend"}}
+  S5B_ff0.normalized: {<<: *norm_s4, item: S5B_ff0, anchor: {quote: "Normalized F/F0", where: "Supplementary Fig. 5 legend"}}
+  S5D_upstroke.normalized: {<<: *norm_s4, item: S5D_upstroke, anchor: {quote: "Normalized beat rate", where: "Supplementary Fig. 5 legend"}}
+  S7A_upstroke.normalized: &norm_s7
+    item: S7A_upstroke
+    formula: "rn = x/xv"
+    anchor: &a_s7 {quote: "amplitude of the calcium transient for the same MPS treated with vehicle", where: "Supplementary Fig. 7 legend"}
+    library: {formula: ratio_def, vars: {r: rn, a: x, b: xv}}
+    inputs:
+      x: {not_stated: true, kind: per sample, note: "value under flecainide, per MPS"}
+      xv: {not_stated: true, kind: per sample, note: "the same MPS treated with vehicle"}
+    aggregation: mean of per-sample
+  S7B_tau75.normalized: {<<: *norm_s7, item: S7B_tau75}
+  S7C_amplitude.fold_mm:
+    <<: *norm_s7
+    item: S7C_amplitude
+    group: mm_1
+    output: S7C_amplitude.values.fold_mm
+    note: "the printed 'almost 3-fold' is the same quantity as the bar of S7C_amplitude/mm_1 in readings.yaml; per-MPS amplitudes are not printed, so the ratio cannot be rebuilt from its parts"
+
+  # ------------------------------------------------------------ calcium amplitude ΔF/F0
+  F2G.dff0: &dff0
+    item: F2G
+    formula: "dff0 = (F - F0)/F0"
+    anchor: {quote: "baseline-normalized calcium amplitude (ΔF/F0) was significantly increased", where: "Results, Maturation-Media Induced Changes in Action Potential and Calcium Transients for WTC MPS"}
+    library: {formula: relative_change, vars: {d: dff0, x: F, x0: F0}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: "peak fluorescence"}
+      F0: {not_stated: true, kind: per sample, note: "baseline (background) fluorescence"}
+    alternatives:
+      - {label: "F/F0 as labelled on the figure axis (ratio, not relative change)", formula: "ff0 = F/F0"}
+    note: "the text says ΔF/F0, the panel's axis and bracket say F/F0; the two differ by 1"
+  F2I.dff0: {<<: *dff0, item: F2I}
+  ED3F_ff0.ff0:
+    item: ED3F_ff0
+    formula: "ff0 = F/F0"
+    anchor: {quote: "background corrected calcium amplitude (F/F0)", where: "Extended Data Fig. 3 legend"}
+    library: {formula: ratio_def, vars: {r: ff0, a: F, b: F0}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      F0: {not_stated: true, kind: per sample}
+    alternatives:
+      - {label: "ΔF/F0 as named in the Results sentence on this panel", formula: "dff0 = (F - F0)/F0"}
+
+  # ------------------------------------------------------------ beating prevalence
+  ED2D_glucose.prevalence: &prev
+    item: ED2D_glucose
+    formula: "prev = nabove/ntotal"
+    anchor: &a_prev {quote: "Beating prevalence was defined as the percentage of macroblocks within a region-of-interest (ROI) with a time-averaged contraction speed that exceeds a defined threshold", where: "Methods, Image Analysis"}
+    library: {formula: ratio_def, vars: {r: prev, a: nabove, b: ntotal}}
+    inputs:
+      nabove: {not_stated: true, kind: per sample, note: "macroblocks whose time-averaged speed exceeds 2 μm/s"}
+      ntotal: {not_stated: true, kind: per sample, note: "macroblocks in the ROI (the whole chamber)"}
+  ED2G_m7.prevalence: {<<: *prev, item: ED2G_m7}
+  ED2G_m8.prevalence: {<<: *prev, item: ED2G_m8}
+  ED3H_m2.prevalence: {<<: *prev, item: ED3H_m2}
+
+  # ------------------------------------------------------------ safety margins = IC50 (or EC50) / ETPC
+  F7G_ver_sm_mm.margin_mm: &sm_ver
+    item: F7G_ver_sm_mm
+    group: mps_mm
+    formula: "SM = IC50/ETPC"
+    anchor: &a_safety8 {quote: "The safety margin is defined as in vitro IC50/ETPC for prevalence and APD80 for Verapamil", where: "Results, Maturation media affects pharmacology of cardiac-MPS"}
+    library: {formula: ratio_def, vars: {r: SM, a: IC50, b: ETPC}}
+    inputs:
+      IC50: {value: F7A_ic50.values.ic50_mm, kind: constant, note: "one fitted IC50 per group (Fig. 7a)"}
+      ETPC: {not_stated: true, kind: constant, note: "verapamil ETPC 'obtained from the literature'; no value or citation printed"}
+    aggregation: not stated
+    note: "the safety-margin bars carry mean ± SEM (n = 4), so the margin was computed per MPS; the printed IC50 is one value per group"
+  F7G_ver_sm_mm.margin_sm:
+    <<: *sm_ver
+    group: mps_sm
+    inputs:
+      IC50: {value: F7A_ic50.values.ic50_sm, kind: constant}
+      ETPC: {not_stated: true, kind: constant}
+  F7G_ver_2dsm.margin_mps_sm:
+    <<: *sm_ver
+    item: F7G_ver_2dsm
+    group: mps_sm
+    inputs:
+      IC50: {value: F7A_ic50.values.ic50_sm, kind: constant}
+      ETPC: {not_stated: true, kind: constant}
+  F7G_ver_2dsm.margin_2d:
+    <<: *sm_ver
+    item: F7G_ver_2dsm
+    group: d2_sm
+    inputs:
+      IC50: {not_stated: true, kind: per sample, note: "the 2D verapamil IC50 is not printed"}
+      ETPC: {not_stated: true, kind: constant}
+  F7G_ver_2d_mm.margin_mps_mm:
+    <<: *sm_ver
+    item: F7G_ver_2d_mm
+    group: mps_mm
+  F7G_ver_2d_mm.margin_2d:
+    <<: *sm_ver
+    item: F7G_ver_2d_mm
+    group: d2_sm
+    inputs:
+      IC50: {not_stated: true, kind: per sample}
+      ETPC: {not_stated: true, kind: constant}
+  F7G_alf_2d_mm.margin: &sm_gen
+    item: F7G_alf_2d_mm
+    formula: "SM = IC50/ETPC"
+    anchor: &a_safety {quote: "Safety margins (the ratio of in vitro IC50 or EC50 to literature values for ETPC)", where: "Fig. 7 legend"}
+    library: {formula: ratio_def, vars: {r: SM, a: IC50, b: ETPC}}
+    inputs:
+      IC50: {not_stated: true, kind: per sample}
+      ETPC: {not_stated: true, kind: constant, note: "ETPC 'obtained from the literature'; no value printed"}
+    aggregation: not stated
+  F7G_alf_sm_mm.margin_mps:
+    <<: *sm_gen
+    item: F7G_alf_sm_mm
+    inputs:
+      IC50: {value: F7E_alf_ic50.values.ic50_both, kind: constant, note: "'near 1μM' for both MPS groups"}
+      ETPC: {not_stated: true, kind: constant}
+  F7G_flecainide.margin:
+    <<: *sm_gen
+    item: F7G_flecainide
+    inputs:
+      IC50: {not_stated: true, kind: per sample}
+      ETPC: {printed: "1.5μM", unit: μM, anchor: &a_etpc_fle {quote: "Estimated Therapeutic Plasma Concentration (ETPC) of 1.5μM", where: "Results, Maturation media affects pharmacology of cardiac-MPS"}, kind: constant}
+  F7H_alf_2d_sm.margin: {<<: *sm_gen, item: F7H_alf_2d_sm, formula: "SM = EC50/ETPC", library: {formula: ratio_def, vars: {r: SM, a: EC50, b: ETPC}}, inputs: {EC50: {not_stated: true, kind: per sample}, ETPC: {not_stated: true, kind: constant}}}
+  F7H_alf_sm_mm.margin: {<<: *sm_gen, item: F7H_alf_sm_mm, formula: "SM = EC50/ETPC", library: {formula: ratio_def, vars: {r: SM, a: EC50, b: ETPC}}, inputs: {EC50: {not_stated: true, kind: per sample}, ETPC: {not_stated: true, kind: constant}}}
+  F8G_fle_sm_mm.margin:
+    <<: *sm_gen
+    item: F8G_fle_sm_mm
+    inputs:
+      IC50: {not_stated: true, kind: per sample}
+      ETPC: {printed: "1.5μM", unit: μM, anchor: *a_etpc_fle, kind: constant}
+  F8G_ver_2d_mm.margin: {<<: *sm_gen, item: F8G_ver_2d_mm}
+  F8G_alf_2d_mm.margin: {<<: *sm_gen, item: F8G_alf_2d_mm}
+  F8H_alf_2d_sm.margin: {<<: *sm_gen, item: F8H_alf_2d_sm, formula: "SM = EC50/ETPC", library: {formula: ratio_def, vars: {r: SM, a: EC50, b: ETPC}}, inputs: {EC50: {not_stated: true, kind: per sample}, ETPC: {not_stated: true, kind: constant}}}
+  F8H_alf_2d_mm.margin: {<<: *sm_gen, item: F8H_alf_2d_mm, formula: "SM = EC50/ETPC", library: {formula: ratio_def, vars: {r: SM, a: EC50, b: ETPC}}, inputs: {EC50: {not_stated: true, kind: per sample}, ETPC: {not_stated: true, kind: constant}}}
+
+  # ------------------------------------------------------------ twitch stress from pillar deflection
+  F4D_force.second_moment: &i_cyl
+    item: F4D_force
+    formula: "I = pi*R**4/4"
+    anchor: &a_cyl {quote: "the second moment of area I [m4], for a cylinder of radius R [m]", where: "Supplementary Fig. 2 legend"}
+    library: {formula: circular_second_moment, vars: {I: I, R: R}}
+    inputs:
+      R: {not_stated: true, kind: constant, note: "pillar radius not printed"}
+  F4D_force.pillar_force: &f_udl
+    item: F4D_force
+    formula: "F = 8*E*I*d/L**3"
+    anchor: &a_udl {quote: "one can apply the Euler-Bernouilli formula for uniformly distributed load and deduce the contraction force from the pillar’s elastic modulus, deflection and dimensions", where: "Methods, Measurement of contraction force"}
+    library: {formula: cantilever_uniform_load, vars: {F: F, E: E, I: I, d: d, L: L}}
+    inputs:
+      E: {printed: "2.63", unit: MPa, anchor: &a_mod {quote: "2.63 [Mpa] for 1:10 PDMS network", where: "Supplementary Fig. 2 legend"}, kind: constant}
+      I: {derived: F4D_force.second_moment, kind: constant}
+      d: {not_stated: true, kind: per sample, note: "pillar deflection (mean motion of 200 tracking points)"}
+      L: {not_stated: true, kind: constant, note: "pillar height not printed"}
+    note: "the paper names the uniformly-distributed-load formula and its variables (q, L, E, I) but prints no equation; F is the total load q·L"
+  F4D_force.stress: &s_def
+    item: F4D_force
+    formula: "sigma = F/A"
+    anchor: &a_stress {quote: "maximal range of stress similar to adult human heart tissue slices", where: "Results, Pre-Treatment of hiPSC-Cardiac MPS with Maturation Media Supports Inotropic Responsiveness"}
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {derived: F4D_force.pillar_force, kind: per sample}
+      A: {not_stated: true, kind: not stated, note: "the area that converts force to stress (mN/mm2) is not stated"}
+  F4C_vs_adult.second_moment: {<<: *i_cyl, item: F4C_vs_adult}
+  F4C_vs_adult.pillar_force:
+    <<: *f_udl
+    item: F4C_vs_adult
+    inputs:
+      E: {printed: "2.63", unit: MPa, anchor: *a_mod, kind: constant}
+      I: {derived: F4C_vs_adult.second_moment, kind: constant}
+      d: {not_stated: true, kind: per sample, note: "distance between the pillar centroid before and after contraction (ImageJ)"}
+      L: {not_stated: true, kind: constant}
+  F4C_vs_adult.stress:
+    <<: *s_def
+    item: F4C_vs_adult
+    inputs:
+      F: {derived: F4C_vs_adult.pillar_force, kind: per sample}
+      A: {not_stated: true, kind: not stated}
+
+  # ------------------------------------------------------------ reserve OCR, means over fields, ratios
+  ED5F_ocr.reserve:
+    item: ED5F_ocr
+    formula: "reserve = ocrf - ocr0"
+    anchor: {quote: "Quantification of reserve OCR (change in OCR from baseline with FCCP treatment)", where: "Extended Data Fig. 5 legend"}
+    library: {formula: sum_of_parts, vars: {t: ocrf, a: ocr0, b: reserve}}
+    inputs:
+      ocrf: {not_stated: true, kind: per sample, note: "OCR with FCCP"}
+      ocr0: {not_stated: true, kind: per sample, note: "baseline OCR"}
+  ED5G_atp.capacity:
+    item: ED5G_atp
+    formula: "not stated"
+    anchor: {quote: "total ATP capacity", where: "Extended Data Fig. 5 legend"}
+    no_formula: "how total ATP capacity is computed from the Seahorse trace is not stated"
+  F3C_mps.field_mean: &fmean
+    item: F3C_mps
+    formula: "m = S/n"
+    anchor: &a_fields {quote: "MPS intensity values of each biological replicate were calculated by averaging five randomly selected fields", where: "Fig. 3 legend"}
+    library: {formula: mean_def, vars: {m: m, S: S, n: n}}
+    inputs:
+      S: {not_stated: true, kind: per sample, note: "sum of the five field intensities of one MPS"}
+      n: {printed: "five", anchor: *a_fields, kind: constant}
+  F3D_mps.field_mean: {<<: *fmean, item: F3D_mps}
+  F3E_mps.field_mean: {<<: *fmean, item: F3E_mps}
+  S3_raw.field_mean:
+    <<: *fmean
+    item: S3_raw
+    anchor: {quote: "MPS intensity values of each biological replicate were calculated by averaging five randomly selected fields", where: "Supplementary Fig. 3 legend"}
+  S3_ratio.ratio:
+    item: S3_ratio
+    formula: "r = G/A"
+    anchor: {quote: "pixel-wise ratio of intensity of GAPDH / ACTN2", where: "Supplementary Fig. 3 legend"}
+    library: {formula: ratio_def, vars: {r: r, a: G, b: A}}
+    inputs:
+      G: {not_stated: true, kind: per sample, note: "GAPDH intensity per pixel"}
+      A: {not_stated: true, kind: per sample, note: "ACTN2 intensity per pixel"}
+    aggregation: mean of per-sample
+    note: "pixel-wise: the ratio is taken per pixel and then averaged, not the ratio of mean intensities"
+
+  # ------------------------------------------------------------ steps with no closed-form formula
+  F1_motion.x_fraction:
+    item: F1_motion
+    formula: "not stated"
+    anchor: {quote: "indicating that 95% of the contraction coincides with the orientation of the X axis", where: "Fig. 1 legend"}
+    no_formula: "how the fraction is built from X and Y motion vectors (sum of components, of magnitudes or of squares) is not stated"
+    output: F1_motion.values.x_fraction
+  F4C_ec50.ec50: &fitted
+    item: F4C_ec50
+    formula: "not stated"
+    anchor: {quote: "these models yielded ambiguous fits (Fig. 4C,D,F,G), a three-parameter model was used", where: "Methods, Statistical Analysis"}
+    no_formula: "a fitted parameter of a three- or four-parameter logistic curve (GraphPad Prism); curve fitting is outside the closed-form library"
+  F4C_slope.slope:
+    item: F4C_slope
+    formula: "not stated"
+    anchor: {quote: "initial slope of 12±1.5 mN/mm2/mM Ca2+", where: "Results, Pre-Treatment of hiPSC-Cardiac MPS with Maturation Media Supports Inotropic Responsiveness"}
+    no_formula: "slope of the linear region of the stress–calcium curve; the points and the fit are not stated"
+  F4E_ec50.ec50: {<<: *fitted, item: F4E_ec50}
+  F4F_ec50.ec50: {<<: *fitted, item: F4F_ec50}
+  F4G_ec50.ec50: {<<: *fitted, item: F4G_ec50}
+  F4H_ec50.ec50: {<<: *fitted, item: F4H_ec50}
+  F7A_ic50.ic50: {<<: *fitted, item: F7A_ic50, anchor: &a_fit {quote: "IC50 and EC50 curves were fit to four-parameter models", where: "Methods, Statistical Analysis"}, no_formula: "a fitted parameter of a four-parameter logistic curve (GraphPad Prism); curve fitting is outside the closed-form library"}
+  F7E_alf_ic50.ic50: {<<: *fitted, item: F7E_alf_ic50, anchor: *a_fit, no_formula: "a fitted parameter of a four-parameter logistic curve (GraphPad Prism); curve fitting is outside the closed-form library"}
+  F8C_fle_ec50.ec50: {<<: *fitted, item: F8C_fle_ec50, anchor: *a_fit, no_formula: "a fitted parameter of a four-parameter logistic curve (GraphPad Prism); curve fitting is outside the closed-form library"}
+  ED6A_sarcomere.score: &fft
+    item: ED6A_sarcomere
+    formula: "not stated"
+    anchor: {quote: "Fourier-Transform based methods50,61", where: "Results, Pre-Treatment of hiPSC-Cardiac MPS with Maturation Media Supports Inotropic Responsiveness"}
+    no_formula: "FFT-based sarcomere score stated only by citation (refs 50, 61): goes on the completeness list"
+  ED6B_sarcomere.score: {<<: *fft, item: ED6B_sarcomere}
+  F5E_SLN.expression: &qpcr
+    item: F5E_SLN
+    formula: "not stated"
+    anchor: {quote: "quantitative PCR analysis of relative gene expression", where: "Methods, Gene Expression in MPS"}
+    no_formula: "expression relative to GAPDH is plotted, but the quantification (ΔCt, 2^-ΔCt, 2^-ΔΔCt or a standard curve) is not stated"
+    alternatives:
+      - {label: "2^-ΔCt against GAPDH", formula: "r = 2**(-dct)"}
+      - {label: "2^-ΔΔCt against GAPDH and the SM group (ddct_relative_expression)", formula: "r = 2**(-ddct)"}
+  F5E_HCN2.expression: {<<: *qpcr, item: F5E_HCN2}
+  F5E_CACNB2.expression: {<<: *qpcr, item: F5E_CACNB2}
+  F5E_KCNIP2.expression: {<<: *qpcr, item: F5E_KCNIP2}
+  F5E_MYH7.expression: {<<: *qpcr, item: F5E_MYH7}
+  F5E_MYL2.expression: {<<: *qpcr, item: F5E_MYL2}
+  F5E_KCND2.expression: {<<: *qpcr, item: F5E_KCND2}
+  F5E_ALDH1A1.expression: {<<: *qpcr, item: F5E_ALDH1A1}
+  F5F_MYL2.expression: {<<: *qpcr, item: F5F_MYL2}
+  F5F_KCNJ2.expression: {<<: *qpcr, item: F5F_KCNJ2}
+  F5F_KCND2.expression: {<<: *qpcr, item: F5F_KCND2}
+  F5F_CACNB1_SLN.expression: {<<: *qpcr, item: F5F_CACNB1_SLN}
+  F5F_MYH7.expression: {<<: *qpcr, item: F5F_MYH7}
+  F5A_cacnb2_mm.expression: {<<: *qpcr, item: F5A_cacnb2_mm, anchor: "not stated"}
+  F5A_cacnb2_adult.expression: {<<: *qpcr, item: F5A_cacnb2_adult, anchor: "not stated"}
+  F5B_hcn4_sm.expression: {<<: *qpcr, item: F5B_hcn4_sm, anchor: "not stated"}
+  F5B_hcn4_mm.expression: {<<: *qpcr, item: F5B_hcn4_mm, anchor: "not stated"}
+
+assumptions:
+  F4D_force.pillar_force: &udl_assume
+    model: cantilever_uniform_load
+    assumptions:
+      small deflection: {reported: not stated}
+      linear elastic material: {reported: not stated}
+      slender beam: {reported: not stated}
+      uniformly distributed load along the length:
+        reported: {load: "cantilever beam fixed at one end and uniformly loaded with horizontal forces along its height"}
+      deflection taken at the free end:
+        reported: {deflection: "mean motion of a population of 200 tracking points placed all over the pillar"}
+  F4C_vs_adult.pillar_force:
+    model: cantilever_uniform_load
+    assumptions:
+      small deflection: {reported: not stated}
+      linear elastic material: {reported: not stated}
+      slender beam: {reported: not stated}
+      uniformly distributed load along the length:
+        reported: {load: "cantilever beam fixed at one end and uniformly loaded with horizontal forces along its height"}
+      deflection taken at the free end:
+        reported: {deflection: "pillar deflection was calculated with ImageJ by measuring the distance between the pillar’s centroid coordinates before and after contraction"}
+
+bounds:
+  - {item: F1_motion, value: F1_motion.values.x_fraction, formula: fraction_bounds}
+  - {item: S1_purity, value: S1_purity.values.purity_p0, formula: fraction_bounds}
+  - {item: S1_purity, value: S1_purity.values.purity_p6, formula: fraction_bounds}
+  - {item: S1_purity, value: S1_purity.values.purity_p180, formula: fraction_bounds}
+
+proposals:
+  - formula: fridericia_rate_correction
+    kind: definition
+    statement: A rate-corrected duration (Fridericia's correction) is the duration divided by the cube root of the beat interval, both in seconds.
+    equations: ["dcf = dur/RR**(1/3)"]
+    variables: {dcf: "time^(2/3)", dur: time, RR: time}
+    does_not_apply: "other rate corrections: Bazett's divides by the square root of the interval, Framingham's is linear in the interval"
+    tests:
+      - {given: {dur: 0.4, RR: 1.0}, expect: {dcf: 0.4}}
+      - {given: {dur: 0.3, RR: 0.125}, expect: {dcf: 0.6}}
+      - {given: {dur: 0.3, RR: 0.25}, does_not_apply: "Bazett's correction gives 0.3/0.25^(1/2) = 0.6, not 0.3/0.25^(1/3) = 0.476"}
+    cites:
+      text: "Fridericia LS. The duration of systole in an electrocardiogram in normal humans and in patients with heart disease (1920; English translation). Ann Noninvasive Electrocardiol 8, 343–351 (2003)"
+      url: https://doi.org/10.1046/j.1542-474X.2003.08413.x
+  - formula: cantilever_uniform_load
+    kind: model
+    statement: A slender elastic cantilever under a uniformly distributed load q along its length L deflects at its free end by qL^4/(8EI); the total load is F = qL, so F = 8EI·d/L^3.
+    equations: ["d = q*L**4/(8*E*I)", "F = q*L"]
+    variables: {d: length, q: force/length, L: length, E: modulus, I: second_moment, F: force}
+    assumes:
+      - small deflection
+      - linear elastic material
+      - slender beam
+      - uniformly distributed load along the length
+      - deflection taken at the free end
+    does_not_apply: "a point load at the free end (d = F L^3/(3EI)), large deflections, or a short thick beam where shear deformation matters"
+    tests:
+      - {given: {q: 1.0, L: 1.0, E: 1.0, I: 1.0}, expect: {d: 0.125, F: 1.0}}
+      - {given: {q: 2.0, L: 2.0, E: 4.0, I: 1.0}, expect: {d: 1.0, F: 4.0}}
+      - {given: {q: 1.0, L: 1.0, E: 1.0, I: 1.0}, does_not_apply: "the same total load F = 1 at the free end deflects the tip by 1/3, not 1/8"}
+    cites:
+      text: "Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, uniform load)"
+      quote: "δB = qL^4/8EI"
+  - formula: circular_second_moment
+    kind: definition
+    statement: The second moment of area of a solid circular cross-section of radius R about a diameter is πR^4/4.
+    equations: ["I = pi*R**4/4"]
+    variables: {I: second_moment, R: length}
+    does_not_apply: "a hollow tube (π(R^4 − Ri^4)/4) or the polar moment of the same section (πR^4/2)"
+    tests:
+      - {given: {R: 1.0}, expect: {I: 0.7853981633974483}}
+      - {given: {R: 2.0}, expect: {I: 12.566370614359172}}
+      - {given: {R: 1.0}, does_not_apply: "the polar moment πR^4/2 = 1.5708 is not the bending second moment"}
+    cites:
+      text: "Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix E, Properties of plane areas (circle)"
+      quote: "Ix = Iy = πr^4/4"

@@ -1,0 +1,25 @@
+# Written by code from changes.yaml (version 19); never edited.
+formula: circular_second_moment
+kind: definition
+statement: The second moment of area of a solid circular cross-section of radius R about a diameter is πR^4/4.
+equations:
+- I = pi*R**4/4
+variables:
+  I: second_moment
+  R: length
+does_not_apply: a hollow tube (π(R^4 − Ri^4)/4) or the polar moment of the same section (πR^4/2)
+tests:
+- given:
+    R: 1.0
+  expect:
+    I: 0.7853981633974483
+- given:
+    R: 2.0
+  expect:
+    I: 12.566370614359172
+- given:
+    R: 1.0
+  does_not_apply: the polar moment πR^4/2 = 1.5708 is not the bending second moment
+cites:
+  text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix E, Properties of plane areas (circle)
+  quote: Ix = Iy = πr^4/4

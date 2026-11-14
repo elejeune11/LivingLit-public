@@ -1,0 +1,35 @@
+# Written by code from changes.yaml (version 13); never edited.
+formula: elliptical_cross_section_area
+kind: model
+statement: The cross-sectional area of a specimen whose section is treated as an ellipse with full axes a and b (e.g. width
+  and thickness) is A = pi*a*b/4.
+equations:
+- A = pi*a*b/4
+variables:
+  A: area
+  a: length
+  b: length
+assumes:
+- elliptical cross-section
+- width and thickness are the full axes of the ellipse
+- uniform cross-section along the length
+does_not_apply: rectangular or irregular sections, or a and b given as semi-axes (then A = pi*a*b)
+tests:
+- given:
+    a: 2.0
+    b: 1.0
+  expect:
+    A: 1.5707963
+- given:
+    a: 2.0
+    b: 2.0
+  expect:
+    A: 3.14159265
+- given:
+    a: 2.0
+    b: 1.0
+  does_not_apply: a 2 x 1 rectangle has area 2, not pi/2
+cites:
+  text: 'Zwillinger D (ed.). CRC Standard Mathematical Tables and Formulas, 33rd ed., CRC Press 2018, section 4.5 (Conic sections:
+    ellipse, area pi*a*b for semi-axes a and b)'
+  quote: area of an ellipse with semi-axes a and b is πab

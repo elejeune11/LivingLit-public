@@ -1,0 +1,1196 @@
+record: 2022_Afzal
+vocabulary_version: 67
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+- adopt:
+    field: cell_line
+    id: CVCL_E5H8
+    label: UCH-HF-YK-27
+    lookup: 'livinglit lookup cellosaurus ''HF-YK27'' and ''YK27'': CVCL_E5H8 UCH-HF-YK-27 (synonyms HDFa-YK27, YK27); UConn
+      Health line, the authors'' institution'
+    synonyms:
+    - text: HF-YK27
+      anchor: HF-YK27 and PBY4-48D were used to test the effect of CMM on multiple iPSCs lines
+- adopt:
+    field: cell_line
+    id: CVCL_E5HC
+    label: UCH-PBY4-48D
+    lookup: 'livinglit lookup cellosaurus ''PBY4-48D'' and ''PBY4'': CVCL_E5HC UCH-PBY4-48D (synonyms PBY4, RX48D, PB-iPS)'
+    synonyms:
+    - text: PBY4-48D
+      anchor: HF-YK27 and PBY4-48D were used to test the effect of CMM on multiple iPSCs lines
+- adopt:
+    field: treatment
+    id: CHEBI:16240
+    label: hydrogen peroxide
+    lookup: 'livinglit lookup chebi ''hydrogen peroxide'': CHEBI:16240 exact'
+    synonyms:
+    - text: H2O2
+      anchor: Using a pulse of 1 mM hydrogen peroxide (H2O2) in Tyrode buffer
+- add_synonym:
+    id: purification:metabolic_selection
+    text: lactate
+    anchor: metabolically purified using lactate
+- add_qualifier:
+    id: purification:metabolic_selection
+    name: concentration
+    dimension: concentration
+- add_synonym:
+    id: platform:monolayer
+    text: flat tissue-culture surface
+    anchor: Control flat tissue-culture surfaces were coated with fibronectin
+- add_term:
+    field: platform
+    id: platform:nanowrinkled_surface
+    label: nanowrinkled surface
+    parent: platform:culture_2d
+    definition: Cells grown on a flat substrate whose surface carries anisotropic nanoscale wrinkles that align them.
+    scope: Wrinkle topography at the nanoscale moulded into the culture substrate; not micro-grooves scored or embossed (grooved
+      surface), not printed matrix islands (micropatterned culture), not an unpatterned monolayer, and not posts, thin films,
+      inserts, Boyden chambers or electrode arrays.
+    synonyms:
+    - text: ANW
+      anchor: Selected ligands were conjugated to a substrate with anisotropic nanowrinkles (ANW)
+- add_term:
+    field: replating_coating
+    id: replating_coating:grgds_peptide
+    label: GRGDS peptide
+    parent: null
+    definition: The integrin-binding peptide Gly-Arg-Gly-Asp-Ser conjugated to or coated on a surface for cell attachment.
+    scope: The RGD-containing peptide GRGDS; not the collagen-mimetic peptide GFPGER, not whole matrix proteins (fibronectin,
+      laminin, vitronectin, nephronectin, collagen, gelatin) and not matrix extracts (Matrigel, Geltrex) or synthetic coatings
+      (Synthemax, agarose).
+    synonyms:
+    - text: GRGDS
+      anchor: incubated in GRGDS (Peptides International PFA-4189-v), GFPGER (Sigma-Aldrich 165044K), and nephronectin
+- add_term:
+    field: replating_coating
+    id: replating_coating:gfpger_peptide
+    label: GFPGER peptide
+    parent: null
+    definition: The collagen-mimetic integrin-binding peptide GFPGER conjugated to or coated on a surface for cell attachment.
+    scope: The collagen-derived peptide GFPGER; not the RGD peptide GRGDS, not whole collagen or gelatin, not other matrix
+      proteins and not matrix extracts or synthetic coatings.
+    synonyms:
+    - text: GFPGER
+      anchor: incubated in GRGDS (Peptides International PFA-4189-v), GFPGER (Sigma-Aldrich 165044K), and nephronectin
+- add_term:
+    field: replating_coating
+    id: replating_coating:nephronectin
+    label: nephronectin
+    parent: null
+    definition: The extracellular-matrix protein nephronectin, a ligand of integrin alpha8beta1, coated or conjugated on a
+      surface for cell attachment.
+    scope: Purified nephronectin; not fibronectin, laminin, vitronectin or collagen, not short adhesion peptides (GRGDS, GFPGER)
+      and not matrix extracts or synthetic coatings.
+    synonyms:
+    - text: nephronectin
+      anchor: incubated in GRGDS (Peptides International PFA-4189-v), GFPGER (Sigma-Aldrich 165044K), and nephronectin
+- add_synonym:
+    id: preparation:live_cells
+    text: intact cells
+    anchor: in both intact cells (for OxPhos and glycolysis) and permeabilized cells
+- add_synonym:
+    id: preparation:permeabilised_cells
+    text: permeabilized cells
+    anchor: in both intact cells (for OxPhos and glycolysis) and permeabilized cells
+- add_synonym:
+    id: pacing:spontaneous
+    text: spontaneous contraction
+    anchor: monolayers of hiPSC-CMs on CMM (green) or control (purple) during spontaneous contraction
+- add_synonym:
+    id: pacing:electrical_pacing
+    text: electric pace stimulation
+    anchor: Schematic showing electric pace stimulation of hiPSC-CMs
+- add_synonym:
+    id: measurement_medium:seahorse_xf_dmem
+    text: Seahorse XF Base Medium
+    anchor: 'Seahorse XF Base Medium (Part # 102353-100) with addition of D-glucose (11 mM) and'
+- add_synonym:
+    id: measurement_medium:tyrode_solution
+    text: modified Tyrode solution
+    anchor: modified Tyrode solution was performed at 37C
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:respiration_buffer
+    label: mitochondrial respiration buffer
+    parent: null
+    definition: A potassium-based buffer resembling the cytosol in which permeabilised cells or isolated mitochondria respire
+      on supplied substrates.
+    scope: An intracellular-like KCl buffer for permeabilised-cell or mitochondrial respiration; not a physiological bath
+      for intact cells (Tyrode's, Krebs, extracellular solution, HBSS, PBS), not a commercial assay medium for intact cells
+      (Seahorse XF media), not culture medium and not the activating or relaxing solutions of a myofilament rig.
+- add_term:
+    field: transgene
+    id: transgene:redox_indicator
+    label: genetically encoded redox indicator
+    parent: null
+    definition: An introduced gene for a fluorescent protein whose signal changes with the cell's redox state, such as the
+      glutathione redox potential.
+    scope: A redox-sensing reporter (roGFP family and similar); not a calcium or voltage indicator, not a fluorescent protein
+      that reports no cellular variable, and not overexpressed, knockdown, recombinase, reprogramming, luciferase or optogenetic
+      constructs.
+    qualifiers:
+      vector:
+        dimension: text
+      MOI:
+        dimension: text
+      compartment:
+        dimension: text
+- add_term:
+    field: transgene
+    id: transgene:grx1_rogfp2
+    label: Grx1-roGFP2
+    parent: transgene:redox_indicator
+    definition: A redox-sensitive GFP fused to glutaredoxin-1 that reports the glutathione redox potential as a 405/488 nm
+      excitation ratio.
+    synonyms:
+    - text: Grx1-roGFP2
+      anchor: using a cytoplasmic Grx1-roGFP2 probe
+- add_term:
+    field: transgene
+    id: transgene:varnam
+    label: Varnam
+    parent: transgene:voltage_indicator
+    definition: A red-shifted rhodopsin-based genetically encoded voltage indicator.
+    scope: The Varnam voltage indicator; not Archon1 or ArcLight.
+    synonyms:
+    - text: Varnam
+      anchor: optical recording of action potential with Varnam probe
+- add_synonym:
+    id: disease_model:cardiac_hypertrophy
+    text: pathological hypertrophy
+    anchor: Schematic showing acute pathological hypertrophy model
+- add_term:
+    field: measure
+    id: measure:topography_depth
+    label: topographic feature depth
+    parent: null
+    dimension: length
+    definition: Depth of the wrinkles, grooves or other relief features of a culture substrate's surface (qualifier feature).
+    scope: Depth of a substrate's surface relief; not the period of the relief (topographic feature wavelength), not cell
+      or tissue thickness and not fiber diameter.
+    qualifiers:
+      feature:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:topography_wavelength
+    label: topographic feature wavelength
+    parent: null
+    dimension: length
+    definition: Period (crest-to-crest spacing) of periodic relief features of a culture substrate's surface (qualifier feature).
+    scope: Spacing of a substrate's periodic relief; not its depth (topographic feature depth), not sarcomere length and not
+      fiber diameter.
+    qualifiers:
+      feature:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:surface_ligand_fraction
+    label: surface ligand fraction
+    parent: null
+    dimension: dimensionless
+    definition: Share of one bound ligand (qualifier ligand) among the components detected on a functionalised culture surface.
+    scope: Composition of a coated or conjugated surface; not the fraction of cells positive for a marker and not a medium
+      component concentration.
+    qualifiers:
+      ligand:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:transcriptomic_maturation_index
+    label: transcriptomic maturation index
+    parent: null
+    dimension: dimensionless
+    definition: Position of a sample along a transcriptomic maturation path from immature cells towards a reference (qualifier
+      reference, such as adult heart), as a fraction or percentage of that path.
+    scope: A position on a fitted maturation path; not a principal component score, not a correlation of profiles, not a distance
+      between centroids and not a qualitative similarity judged from clustering.
+    qualifiers:
+      reference:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:actin_bundling
+    label: F-actin bundling
+    parent: null
+    dimension: dimensionless
+    definition: Degree to which F-actin filaments are gathered into thick bundles, scored from phalloidin images.
+    scope: Bundling of actin filaments; not the amount of F-actin per area (F-actin density), not its orientational order
+      and not myofibril coverage.
+- add_term:
+    field: measure
+    id: measure:actin_density
+    label: F-actin density
+    parent: null
+    dimension: dimensionless
+    definition: Amount of F-actin per area of cell or image, read from phalloidin staining.
+    scope: Amount of actin filaments; not their bundling (F-actin bundling), not their orientational order and not the area
+      covered by myofibrils (myofibrillar density).
+- add_term:
+    field: measure
+    id: measure:cell_height
+    label: cell height
+    parent: null
+    dimension: length
+    definition: Extent of cells or their cytoskeleton along the z axis above the substrate, from z-stacks.
+    scope: Vertical extent of cells; not cell length, width or area in the plane, and not the thickness of an engineered tissue.
+- add_term:
+    field: measure
+    id: measure:contractility_not_stated
+    label: contractility, quantity not stated
+    parent: null
+    dimension: not stated
+    definition: A contraction readout the source calls contractility without saying which quantity or unit it is.
+    scope: Use only when the source names no quantity; not twitch force, traction stress, contractile work, shortening or
+      an image-based contraction amplitude, each of which states what was measured.
+- add_term:
+    field: measure
+    id: measure:substrate_driven_respiration
+    label: substrate-driven respiration
+    parent: measure:oxygen_consumption_rate
+    dimension: amount_rate
+    definition: Oxygen consumption rate of permeabilised cells or isolated mitochondria supplied with a stated substrate (qualifier
+      substrate) in a stated respiratory state (qualifier respiratory_state, such as state 3 with ADP or state 4 without).
+    scope: Respiration on a supplied substrate in a named state, in permeabilised cells; not the basal, maximal, spare, ATP-linked,
+      proton-leak, non-mitochondrial or total ATP rates of intact cells, and not the time course.
+    qualifiers:
+      substrate:
+        dimension: text
+      respiratory_state:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:respiratory_control_ratio
+    label: respiratory control ratio
+    parent: null
+    dimension: dimensionless
+    definition: Ratio of state 3 (ADP-stimulated) to state 4 respiration on a stated substrate (qualifier substrate).
+    scope: A ratio of two respiratory states; not either respiration rate itself and not the OCR/ECAR ratio.
+    qualifiers:
+      substrate:
+        dimension: text
+    synonyms:
+    - text: respiratory control ratio
+      anchor: Although respiratory control ratio (state-3 [active] respiration
+- add_term:
+    field: measure
+    id: measure:glutathione_redox_state
+    label: glutathione redox state
+    parent: null
+    dimension: dimensionless
+    definition: Oxidation state of the glutathione pool read as the excitation ratio of a redox-sensitive GFP probe (qualifier
+      probe), often scaled between fully oxidised and fully reduced controls.
+    scope: Glutathione redox potential from a genetically encoded roGFP probe; not reactive oxygen species read with a ROS-sensitive
+      dye, not mitochondrial membrane potential and not mitochondrial mass.
+    qualifiers:
+      probe:
+        dimension: text
+- add_qualifier:
+    id: measure:mitochondrial_dna_content
+    name: region
+    dimension: text
+- add_qualifier:
+    id: measure:sarcomere_length
+    name: marker
+    dimension: text
+- add_synonym:
+    id: measure:twitch_duration
+    text: Beating duration
+    anchor: Beating duration and
+- add_synonym:
+    id: measure:upstroke_velocity
+    text: maximum depolarization rate
+    anchor: maximum depolarization rate (MDR) in cells
+- add_synonym:
+    id: measure:atp_linked_respiration
+    text: coupled respiration
+    anchor: indicated higher oxygen consumption, coupled respiration,
+- add_synonym:
+    id: measure:calcium_transient_decay_time
+    text: CaTD
+    anchor: transient decay time (CaTD) and transient amplitude
+- standing_key:
+    measure: measure:topography_depth
+    value:
+      must_match:
+      - substrate
+      - measure.feature
+    direction:
+      must_match:
+      - contrast
+      - measure.feature
+- standing_key:
+    measure: measure:topography_wavelength
+    value:
+      must_match:
+      - substrate
+      - measure.feature
+    direction:
+      must_match:
+      - contrast
+      - measure.feature
+- standing_key:
+    measure: measure:surface_ligand_fraction
+    value:
+      must_match:
+      - replating_coating
+      - measure.ligand
+    direction:
+      must_match:
+      - contrast
+      - measure.ligand
+- standing_key:
+    measure: measure:transcriptomic_maturation_index
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - method
+      - measure.reference
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+      - measure.reference
+- standing_key:
+    measure: measure:actin_bundling
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - method
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+- standing_key:
+    measure: measure:actin_density
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - method
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+- standing_key:
+    measure: measure:cell_height
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+- standing_key:
+    measure: measure:contractility_not_stated
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - method
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+      - pacing
+- standing_key:
+    measure: measure:substrate_driven_respiration
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measurement_medium
+      - measure.substrate
+      - measure.respiratory_state
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+      - measure.substrate
+      - measure.respiratory_state
+- standing_key:
+    measure: measure:respiratory_control_ratio
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.substrate
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+      - measure.substrate
+- standing_key:
+    measure: measure:glutathione_redox_state
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - time_point
+      - measure.probe
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+    direction:
+      must_match:
+      - contrast
+      - measure.probe
+mappings:
+- field: differentiation_factors
+  stated: CHIR99021 + IWR
+  terms:
+  - CHEBI:91091
+  - differentiation_factors:iwr_1
+  note: The Key Resources table names the Wnt inhibitor as IWR-1 (Selleck S7086); no synonym 'IWR' added, since the bare name
+    could stand for other IWR compounds in other papers.
+- field: wnt_activation_days
+  stated: d0-d2
+  flag:
+    kind: not a context
+    note: 'Not parseable as a quantity: the day range is printed in the paper''s ''d0-d2'' notation; the reader should write
+      it as a quantity (e.g. ''days 0-2'').'
+- field: wnt_inhibition_days
+  stated: d4-d5
+  flag:
+    kind: not a context
+    note: 'Not parseable as a quantity: the day range is printed in the paper''s ''d4-d5'' notation; the reader should write
+      it as a quantity (e.g. ''days 4-5'').'
+- field: supplements
+  stated: lipid-enhanced Cellastium S + L-ascorbic acid + B27 with insulin
+  terms:
+  - CHEBI:760525
+  - CHEBI:29073
+  - supplements:b27
+  qualifiers:
+    insulin: with insulin
+  no_ontology_term: lipid-enriched rice-derived recombinant human albumin ('lipid-enhanced Cellastium S', i.e. Cellastim S);
+    ChEBI has only the plain recombinant rice-derived albumin, mapped as the nearest broader id
+  note: '''B27 with insulin'' is B27 with its insulin formulation as a qualifier, not a separate insulin addition.'
+- field: platform
+  stated: anisotropic nanowrinkled surface
+  terms:
+  - platform:nanowrinkled_surface
+- field: platform
+  stated: aligned electrospun PLGA nanofibers
+  terms:
+  - platform:electrospun_fibrous_scaffold
+  qualifiers:
+    orientation: aligned
+  split:
+  - words: PLGA
+    field: substrate
+- field: platform
+  stated: capillary force lithography PU fibers
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    format: capillary force lithography PU fibers
+  split:
+  - words: PU
+    field: substrate
+  note: 'Broader term: the legend calls them fibers, the text ''CFL-based PUA substrates''; whether they are grooves or fibres
+    is not stated, so neither grooved surface nor electrospun scaffold is assumed.'
+- field: replating_coating
+  stated: matrix
+  flag:
+    kind: placeholder
+    note: '''matrix'' names the coating only by reference to CMM; the reader should write the ligands the flat ''Ligands''
+      surface was coated with, as printed.'
+- field: preparation
+  stated: RNA isolated
+  terms:
+  - preparation:rna_extract
+- field: preparation
+  stated: detached cells
+  terms:
+  - preparation:dissociated_cells
+  note: Cells detached from the culture substrate with TrypLE and measured in suspension (flow cytometry).
+- field: pacing
+  stated: 0.2 nA stimulation
+  terms:
+  - pacing:current_clamp_stimulation
+  qualifiers:
+    protocol: 0.2 nA for 2 ms
+  note: Current injected through the patch pipette in whole-cell current clamp (Patch clamp methods).
+- field: measurement_medium
+  stated: KCl buffer
+  terms:
+  - measurement_medium:respiration_buffer
+- field: measure
+  stated: nanowrinkle depth
+  terms:
+  - measure:topography_depth
+  qualifiers:
+    feature: nanowrinkles
+- field: measure
+  stated: nanowrinkle wavelength
+  terms:
+  - measure:topography_wavelength
+  qualifiers:
+    feature: nanowrinkles
+- field: measure
+  stated: ligand fraction (Raman true component analysis)
+  terms:
+  - measure:surface_ligand_fraction
+  note: The ligand is carried by each value (nephronectin, CRGDS, GFPGER, PA).
+- field: measure
+  stated: maturation gene expression (RNA-seq)
+  terms:
+  - measure:gene_set_expression
+  qualifiers:
+    gene_set: genes in key functional categories related to cardiac maturation
+- field: measure
+  stated: gene set enrichment (z-score)
+  terms:
+  - measure:gene_set_distribution_shift
+  note: 'Gene set z-score from a t-test of genes inside versus outside each set: a shift of the set''s distribution; the sets
+    vary per value.'
+- field: measure
+  stated: adult-like gene expression (%)
+  terms:
+  - measure:transcriptomic_maturation_index
+  qualifiers:
+    reference: adult heart
+  note: Projection on the cardiac maturation vector (PC1-PC2 path from d30 to adult heart), printed in %.
+- field: measure
+  stated: PDHB mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PDHB
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: PFKM mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PFKM
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: KCNJ2 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: TTN mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TTN
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: MYL2 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: CAMK2D mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CAMK2D
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: CASQ2 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CASQ2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: LDH mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: LDH
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: HK2 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HK2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: HK1 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HK1
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: NOS1 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: NOS1
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: TXN mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TXN
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: MYBPC2 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYBPC2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: CAV3 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CAV3
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: MYOM1 mRNA relative quantification (RQ)
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYOM1
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: PDHB relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PDHB
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: PFKM relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PFKM
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: KCNJ2 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: TTN relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TTN
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: MYL2 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: CAMK2D relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CAMK2D
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: LDH relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: LDH
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: HK2 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HK2
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: HK1 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HK1
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: MYOM1 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYOM1
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: TNNI1 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNI1
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: TNNI3 relative gene expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNI3
+    expressed_as: fold
+    normalised_to: GAPDH
+- field: measure
+  stated: mitochondrial DNA (minor arc) relative to nuclear DNA
+  terms:
+  - measure:mitochondrial_dna_content
+  qualifiers:
+    region: minor arc
+    expressed_as: fold
+- field: measure
+  stated: mitochondrial DNA (major arc) relative to nuclear DNA
+  terms:
+  - measure:mitochondrial_dna_content
+  qualifiers:
+    region: major arc
+    expressed_as: fold
+- field: measure
+  stated: mitochondrial DNA relative to nuclear DNA
+  terms:
+  - measure:mitochondrial_dna_content
+  qualifiers:
+    expressed_as: fold
+- field: measure
+  stated: F-actin z-axis depth
+  terms:
+  - measure:cell_height
+- field: measure
+  stated: cTnT intensity per cell (flow cytometry)
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: cTnT
+    region: per cell
+- field: measure
+  stated: MYL2 level per cell (flow cytometry)
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: MYL2
+    region: per cell
+- field: measure
+  stated: cTnT-high cells (% of total)
+  terms:
+  - measure:marker_intensity_class_fraction
+  qualifiers:
+    marker: cTnT
+    intensity_class: high
+- field: measure
+  stated: Mitotracker-high cells (% of total)
+  terms:
+  - measure:marker_intensity_class_fraction
+  qualifiers:
+    marker: Mitotracker Green
+    intensity_class: high
+- field: measure
+  stated: cTnT+ cells (%)
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: cTnT
+- field: measure
+  stated: Mitotracker intensity per cell
+  terms:
+  - measure:mitochondrial_mass
+- field: measure
+  stated: cTnI abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: cTnI
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: cTnT abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: cTnT
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: MYL7 abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: MYL7
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: MYL2 abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: MYL2
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: PDK1 abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PDK1
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: PFKP abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PFKP
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: FAS abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: FAS
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: AceCS1 abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: AceCS1
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: ETC subunit CI abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ETC subunit CI
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: ETC subunit CII abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ETC subunit CII
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: ETC subunit CIII abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ETC subunit CIII
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: ETC subunit CIV abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ETC subunit CIV
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: ETC subunit CV abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ETC subunit CV
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: SERCA1 abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: SERCA1
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: SERCA2 abundance (immunoblot, normalized)
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: SERCA2
+    normalised_to: GAPDH
+    expressed_as: normalised
+- field: measure
+  stated: MYL2 band spacing
+  terms:
+  - measure:sarcomere_length
+  qualifiers:
+    marker: MYL2
+  note: Peak-to-peak spacing of MYL2 bands along sarcomeric strips, the sarcomere period read with a myosin marker.
+- field: measure
+  stated: contractility
+  terms:
+  - measure:contractility_not_stated
+  note: Traction force microscopy readout printed without a quantity or unit (Fig. 3T, S10L).
+- field: measure
+  stated: coupled (oligomycin-sensitive) respiration
+  terms:
+  - measure:atp_linked_respiration
+- field: measure
+  stated: uncoupled (FCCP) respiration
+  terms:
+  - measure:maximal_oxygen_consumption_rate
+- field: measure
+  stated: basal glycolysis (ECAR)
+  terms:
+  - measure:extracellular_acidification_rate
+  note: Basal ECAR of intact cells, not the glucose step of a glycolysis stress test (glycolytic rate).
+- field: measure
+  stated: complex I state-4 respiration (glutamate/malate)
+  terms:
+  - measure:substrate_driven_respiration
+  qualifiers:
+    substrate: glutamate/malate
+    respiratory_state: state 4
+- field: measure
+  stated: complex I state-3 respiration (glutamate/malate + ADP)
+  terms:
+  - measure:substrate_driven_respiration
+  qualifiers:
+    substrate: glutamate/malate
+    respiratory_state: state 3
+- field: measure
+  stated: complex II state-4 respiration (succinate)
+  terms:
+  - measure:substrate_driven_respiration
+  qualifiers:
+    substrate: succinate
+    respiratory_state: state 4
+- field: measure
+  stated: complex II state-3 respiration (succinate + ADP)
+  terms:
+  - measure:substrate_driven_respiration
+  qualifiers:
+    substrate: succinate
+    respiratory_state: state 3
+- field: measure
+  stated: palmitoyl-CoA oxidation (FAO)
+  terms:
+  - measure:fatty_acid_oxidation_rate
+  note: Increase in OCR of permeabilised cells on palmitoyl-carnitine/malate; respiratory state not stated.
+- field: measure
+  stated: FAO state4 respiration (palmitoyl-carnitine)
+  terms:
+  - measure:substrate_driven_respiration
+  qualifiers:
+    substrate: palmitoyl-carnitine
+    respiratory_state: state 4
+- field: measure
+  stated: FAO state3 respiration (palmitoyl-carnitine)
+  terms:
+  - measure:substrate_driven_respiration
+  qualifiers:
+    substrate: palmitoyl-carnitine
+    respiratory_state: state 3
+- field: measure
+  stated: respiratory control ratio (state 3/state 4) of FAO
+  terms:
+  - measure:respiratory_control_ratio
+  qualifiers:
+    substrate: palmitoyl-carnitine
+- field: measure
+  stated: Grx1-roGFP2 ratio (400/485) at 60 s
+  terms:
+  - measure:glutathione_redox_state
+  qualifiers:
+    probe: Grx1-roGFP2
+  note: '''at 60 s'' is the unit''s time_point (60 s), already recorded there.'
+- field: measure
+  stated: calcium transient amplitude (ΔF/F)
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: '% change'
+- field: measure
+  stated: calcium transient amplitude (Fura, ΔF/F)
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: '% change'
+- field: measure
+  stated: calcium transient peak amplitude (ΔF/F)
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: '% change'
+- field: measure
+  stated: '% increase in amplitude after caffeine (SR load)'
+  terms:
+  - measure:caffeine_calcium_release
+- field: measure
+  stated: time for Ca2+ decay
+  terms:
+  - measure:calcium_transient_decay_time
+- field: measure
+  stated: diastolic Ca2+ (ΔF/F)
+  terms:
+  - measure:resting_calcium_signal
+  qualifiers:
+    expressed_as: '% change'
+- field: measure
+  stated: action potential duration APD90
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD90
+- field: measure
+  stated: action potential duration APD50
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD50
+- field: measure
+  stated: action potential duration APD20
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD20
+- field: measure
+  stated: APD90 (optical, Varnam)
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD90
+- field: measure
+  stated: APD90 (patch clamp)
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD90
+- field: measure
+  stated: APD50 (% of control, optical)
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD50
+    expressed_as: normalised
+    normalised_to: control
+- field: measure
+  stated: APD90 (% of control, optical)
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD90
+    expressed_as: normalised
+    normalised_to: control
+- field: measure
+  stated: APD90 at 1 Hz
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: APD90
+  split:
+  - words: at 1 Hz
+    field: pacing
+- field: measure
+  stated: time to peak
+  terms:
+  - measure:action_potential_rise_time
+  note: Patch-clamp AP time to peak (Fig. S12C); no synonym, since 'time to peak' alone also names contraction times.
+- field: measure
+  stated: average beat frequency (compared to control)
+  terms:
+  - measure:contraction_frequency
+  qualifiers:
+    expressed_as: normalised
+    normalised_to: control
+- field: measure
+  stated: beating frequency (BPM)
+  terms:
+  - measure:contraction_frequency
+- field: measure
+  stated: structure-related gene expression
+  terms:
+  - measure:gene_set_expression
+  qualifiers:
+    gene_set: structure-related genes
+- field: measure
+  stated: mitochondrial fusion gene expression
+  terms:
+  - measure:gene_set_expression
+  qualifiers:
+    gene_set: mitochondrial fusion genes
+- field: measure
+  stated: ion channel transcript expression
+  terms:
+  - measure:gene_set_expression
+  qualifiers:
+    gene_set: ion channel transcripts
+- field: measure
+  stated: ETC, FAO and OxPhos transcript expression
+  terms:
+  - measure:gene_set_expression
+  qualifiers:
+    gene_set: ETC, FAO and OxPhos transcripts
+- field: measure
+  stated: calcium handling gene expression
+  terms:
+  - measure:gene_set_expression
+  qualifiers:
+    gene_set: calcium handling genes

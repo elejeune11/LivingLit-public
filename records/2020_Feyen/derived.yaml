@@ -1,0 +1,386 @@
+record: 2020_Feyen
+formula_library_version: 15
+agent: {model: llm, instructions: formulas_v3}
+
+derived:
+  # ------------------------------------------------------------ Seahorse (Fig. 1C, 1D)
+  F1C_spare.pct_change:
+    item: F1C_spare
+    formula: "d = (x - x0)/x0"
+    anchor: {quote: "hiPSC-CMs cultured in MM had 30% higher spare and maximal respiration rates than cells maintained", where: "Results, Physiological Phenotyping of hiPSC-CMs Cultured in MM"}
+    library: {formula: relative_change, vars: {d: d, x: x, x0: x0}}
+    inputs:
+      x: {value: F1C_spare.values.spare_mm, part: mean, kind: per sample}
+      x0: {value: F1C_spare.values.spare_rpmi, part: mean, kind: per sample}
+    output: F1C_spare.values.spare_pct
+    aggregation: of means
+    alternatives:
+      - {label: "difference relative to MM", formula: "d = (x - x0)/x", note: "the paper does not say which medium the 30% is relative to"}
+    note: "\"x% higher\" read as the change relative to RPMI/B27; the 30% is printed once for spare and maximal respiration together"
+  F1C_maximal.pct_change:
+    item: F1C_maximal
+    formula: "d = (x - x0)/x0"
+    anchor: {quote: "hiPSC-CMs cultured in MM had 30% higher spare and maximal respiration rates than cells maintained", where: "Results, Physiological Phenotyping of hiPSC-CMs Cultured in MM"}
+    library: {formula: relative_change, vars: {d: d, x: x, x0: x0}}
+    inputs:
+      x: {value: F1C_maximal.values.max_mm, part: mean, kind: per sample}
+      x0: {value: F1C_maximal.values.max_rpmi, part: mean, kind: per sample}
+    output: F1C_spare.values.spare_pct
+    aggregation: of means
+    alternatives:
+      - {label: "difference relative to MM", formula: "d = (x - x0)/x", note: "the paper does not say which medium the 30% is relative to"}
+    note: "the single printed 30% (recorded under F1C_spare) is stated for the maximal respiration rate too"
+  F1C_spare.reserve_mm:
+    item: F1C_spare
+    group: mm
+    formula: "spare = ocr_fccp - ocr_base"
+    anchor: {quote: "with respiratory reserve capacity being the difference between FCCP and baseline OCR values", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: sum_of_parts, vars: {t: ocr_fccp, a: spare, b: ocr_base}}
+    inputs:
+      ocr_fccp: {not_stated: true, kind: per sample}
+      ocr_base: {not_stated: true, kind: per sample, note: "baseline OCR is the mean of time points 1 to 4; not printed"}
+    output: F1C_spare.values.spare_mm
+    aggregation: not stated
+  F1C_spare.reserve_rpmi:
+    item: F1C_spare
+    group: rpmi
+    formula: "spare = ocr_fccp - ocr_base"
+    anchor: {quote: "with respiratory reserve capacity being the difference between FCCP and baseline OCR values", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: sum_of_parts, vars: {t: ocr_fccp, a: spare, b: ocr_base}}
+    inputs:
+      ocr_fccp: {not_stated: true, kind: per sample}
+      ocr_base: {not_stated: true, kind: per sample, note: "baseline OCR is the mean of time points 1 to 4; not printed"}
+    output: F1C_spare.values.spare_rpmi
+    aggregation: not stated
+  F1C_maximal.maximal_mm:
+    item: F1C_maximal
+    group: mm
+    formula: "maxr = ocr_fccp - ocr_rotaa"
+    anchor: {quote: "Maximal OCR was the OCR difference between uncoupler FCCP and (rotenone + antimycin A)", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: sum_of_parts, vars: {t: ocr_fccp, a: maxr, b: ocr_rotaa}}
+    inputs:
+      ocr_fccp: {not_stated: true, kind: per sample}
+      ocr_rotaa: {not_stated: true, kind: per sample}
+    output: F1C_maximal.values.max_mm
+    aggregation: not stated
+  F1C_maximal.maximal_rpmi:
+    item: F1C_maximal
+    group: rpmi
+    formula: "maxr = ocr_fccp - ocr_rotaa"
+    anchor: {quote: "Maximal OCR was the OCR difference between uncoupler FCCP and (rotenone + antimycin A)", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: sum_of_parts, vars: {t: ocr_fccp, a: maxr, b: ocr_rotaa}}
+    inputs:
+      ocr_fccp: {not_stated: true, kind: per sample}
+      ocr_rotaa: {not_stated: true, kind: per sample}
+    output: F1C_maximal.values.max_rpmi
+    aggregation: not stated
+  F1C_spare.per_cell:
+    item: F1C_spare
+    formula: "r = ocr/cells"
+    anchor: {quote: "values were normalized to the number of cells captured by one 10x field of view per well quantified by Hoechst staining", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: ratio_def, vars: {r: r, a: ocr, b: cells}}
+    inputs:
+      ocr: {not_stated: true, kind: per sample}
+      cells: {not_stated: true, kind: per sample, note: "Hoechst-stained nuclei in one 10x field per well"}
+  F1C_maximal.per_cell:
+    item: F1C_maximal
+    formula: "r = ocr/cells"
+    anchor: {quote: "values were normalized to the number of cells captured by one 10x field of view per well quantified by Hoechst staining", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: ratio_def, vars: {r: r, a: ocr, b: cells}}
+    inputs:
+      ocr: {not_stated: true, kind: per sample}
+      cells: {not_stated: true, kind: per sample}
+  F1D_ecar.pct_change:
+    item: F1D_ecar
+    formula: "d = (x - x0)/x0"
+    anchor: {quote: "MM enhanced ECAR by 40%", where: "Results, Physiological Phenotyping of hiPSC-CMs Cultured in MM"}
+    library: {formula: relative_change, vars: {d: d, x: x, x0: x0}}
+    inputs:
+      x: {value: F1D_ecar.values.ecar_mm, part: mean, kind: per sample}
+      x0: {value: F1D_ecar.values.ecar_rpmi, part: mean, kind: per sample}
+    output: F1D_ecar.values.ecar_pct
+    aggregation: of means
+    alternatives:
+      - {label: "difference relative to MM", formula: "d = (x - x0)/x", note: "the paper does not say which medium the 40% is relative to"}
+  F1D_ecar.per_cell:
+    item: F1D_ecar
+    formula: "r = ecar/cells"
+    anchor: {quote: "values were normalized to the number of cells captured by one 10x field of view per well quantified by Hoechst staining", where: "STAR Methods, Seahorse analysis"}
+    library: {formula: ratio_def, vars: {r: r, a: ecar, b: cells}}
+    inputs:
+      ecar: {not_stated: true, kind: per sample}
+      cells: {not_stated: true, kind: per sample}
+
+  # ------------------------------------------------------------ patch clamp (Fig. 3A, S6F)
+  F3A_ik1_m140.density:
+    item: F3A_ik1_m140
+    formula: "dens = ik1/cm"
+    anchor: {quote: "IK1 magnitude were normalized to cell capacitance (IK1 density), determined in each cell using short (10 ms) hyperpolarizing pulses", where: "STAR Methods, Electrophysiology recordings"}
+    library: {formula: ratio_def, vars: {r: dens, a: ik1, b: cm}}
+    inputs:
+      ik1: {not_stated: true, kind: per sample}
+      cm: {item: F3A_capacitance, kind: per sample, note: "capacitance printed for n = 44 cells; IK1 density for n = 32"}
+    output: F3A_ik1_m140.values.ik1_m140
+    aggregation: mean of per-sample
+  F3A_ik1_p60.density:
+    item: F3A_ik1_p60
+    formula: "dens = ik1/cm"
+    anchor: {quote: "IK1 magnitude were normalized to cell capacitance (IK1 density), determined in each cell using short (10 ms) hyperpolarizing pulses", where: "STAR Methods, Electrophysiology recordings"}
+    library: {formula: ratio_def, vars: {r: dens, a: ik1, b: cm}}
+    inputs:
+      ik1: {not_stated: true, kind: per sample}
+      cm: {item: F3A_capacitance, kind: per sample, note: "capacitance printed for n = 44 cells"}
+    output: F3A_ik1_p60.values.ik1_p60
+    aggregation: mean of per-sample
+  S6F_gmax.boltzmann_fit:
+    item: S6F_gmax
+    formula: "not stated"
+    anchor: {quote: "We fit peak INa versus Em (after subtracting nonspecific leak current from all data) to a Boltzmann activation function", where: "STAR Methods, Electrophysiology recordings"}
+    no_formula: "Gmax is a fit parameter of a nonlinear Boltzmann I-V fit; curve fits other than library reductions are not closed-form steps"
+
+  # ------------------------------------------------------------ calcium (Fig. 4B, 4E, S5B)
+  F4B_ctd_slope.fold:
+    item: F4B_ctd_slope
+    formula: "r = dec_mm/dec_rpmi"
+    anchor: {quote: "the 2-fold greater decrease in the slope of the decay phase of the Ca2+ transient duration (CTD75-25)", where: "Results, MM Enhances Ca2+ Cycling and Contractility"}
+    library: {formula: ratio_def, vars: {r: r, a: dec_mm, b: dec_rpmi}}
+    inputs:
+      dec_mm: {not_stated: true, kind: not stated, note: "thapsigargin-induced decrease in MM; how the decrease was formed (difference or ratio to ctr) is not stated"}
+      dec_rpmi: {not_stated: true, kind: not stated}
+    output: F4B_ctd_slope.values.fold
+  S5B_ppln.fold:
+    item: S5B_ppln
+    formula: "r = eff_mm/eff_rpmi"
+    anchor: {quote: "isoproterenol stimulation had a 3-fold higher effect on PLN phosphorylation in MM conditions than in RPMI/B27", where: "Results, MM Enhances Ca2+ Cycling and Contractility"}
+    library: {formula: ratio_def, vars: {r: r, a: eff_mm, b: eff_rpmi}}
+    inputs:
+      eff_mm: {not_stated: true, kind: not stated, note: "the isoproterenol effect in MM; how the effect was formed is not stated"}
+      eff_rpmi: {not_stated: true, kind: not stated}
+    output: S5B_ppln.values.fold
+  F4E_amplitude.amp_rpmi:
+    item: F4E_amplitude
+    group: rpmi
+    formula: "amp = peak - dia"
+    anchor: {quote: "Transient amplitude is derived from subtracting the peak F340/F380 signal by the diastolic calcium level.", where: "STAR Methods, Fura-2 measurements"}
+    library: {formula: sum_of_parts, vars: {t: peak, a: amp, b: dia}}
+    inputs:
+      peak: {not_stated: true, kind: per sample}
+      dia: {not_stated: true, kind: per sample, note: "the lowest F340/F380 signal; F4E_diastolic prints a paced/non-paced ratio, not this level"}
+    output: F4E_amplitude.values.amp_rpmi
+    aggregation: not stated
+  F4E_amplitude.amp_mm:
+    item: F4E_amplitude
+    group: mm
+    formula: "amp = peak - dia"
+    anchor: {quote: "Transient amplitude is derived from subtracting the peak F340/F380 signal by the diastolic calcium level.", where: "STAR Methods, Fura-2 measurements"}
+    library: {formula: sum_of_parts, vars: {t: peak, a: amp, b: dia}}
+    inputs:
+      peak: {not_stated: true, kind: per sample}
+      dia: {not_stated: true, kind: per sample}
+    output: F4E_amplitude.values.amp_mm
+    aggregation: not stated
+  F4E_diastolic.ratio_rpmi:
+    item: F4E_diastolic
+    group: rpmi
+    formula: "r = dia_paced/dia_nonpaced"
+    anchor: {quote: "RPMI 1.27 ± 0.02 versus MM 1.09 ± 0.01 paced/non-paced [Ca2+] diastolic ratio", where: "Results, MM Enhances Ca2+ Cycling and Contractility"}
+    library: {formula: ratio_def, vars: {r: r, a: dia_paced, b: dia_nonpaced}}
+    inputs:
+      dia_paced: {not_stated: true, kind: per sample}
+      dia_nonpaced: {not_stated: true, kind: per sample}
+    output: F4E_diastolic.values.dia_rpmi
+    aggregation: not stated
+  F4E_diastolic.ratio_mm:
+    item: F4E_diastolic
+    group: mm
+    formula: "r = dia_paced/dia_nonpaced"
+    anchor: {quote: "RPMI 1.27 ± 0.02 versus MM 1.09 ± 0.01 paced/non-paced [Ca2+] diastolic ratio", where: "Results, MM Enhances Ca2+ Cycling and Contractility"}
+    library: {formula: ratio_def, vars: {r: r, a: dia_paced, b: dia_nonpaced}}
+    inputs:
+      dia_paced: {not_stated: true, kind: per sample}
+      dia_nonpaced: {not_stated: true, kind: per sample}
+    output: F4E_diastolic.values.dia_mm
+    aggregation: not stated
+  F4E_srload.ratio_mm:
+    item: F4E_srload
+    group: mm
+    formula: "r = srl/amp"
+    anchor: {quote: "SR load/amplitude, 2.3 ± 0.1 versus 1.4 ± 0.05 in RPMI", where: "Results, MM Enhances Ca2+ Cycling and Contractility"}
+    library: {formula: ratio_def, vars: {r: r, a: srl, b: amp}}
+    inputs:
+      srl: {not_stated: true, kind: per sample, note: "caffeine-induced SR Ca2+ release; not printed"}
+      amp: {item: F4E_amplitude, kind: per sample, note: "taken as the paced transient amplitude of the same cells (same figure, same n)"}
+    output: F4E_srload.values.srl_mm
+    aggregation: not stated
+  F4E_srload.ratio_rpmi:
+    item: F4E_srload
+    group: rpmi
+    formula: "r = srl/amp"
+    anchor: {quote: "SR load/amplitude, 2.3 ± 0.1 versus 1.4 ± 0.05 in RPMI", where: "Results, MM Enhances Ca2+ Cycling and Contractility"}
+    library: {formula: ratio_def, vars: {r: r, a: srl, b: amp}}
+    inputs:
+      srl: {not_stated: true, kind: per sample}
+      amp: {item: F4E_amplitude, kind: per sample, note: "taken as the paced transient amplitude of the same cells"}
+    output: F4E_srload.values.srl_rpmi
+    aggregation: not stated
+
+  # ------------------------------------------------------------ monolayer force (Fig. 4G)
+  F4G_tension.monolayer_stress:
+    item: F4G_tension
+    formula: "not stated"
+    anchor: {quote: "Overall intracellular stress was quantified for each sample by spatially averaging the maximum principal value of the intracellular stress at the instant of peak contraction.", where: "STAR Methods, Dynamic Monolayer Force Microscopy (DMFM)"}
+    no_formula: "intracellular stress from traction stresses by solving the Kirchhoff-Love plate equations (Serrano et al. 2019; Tambe et al. 2013): a PDE solution, not closed-form algebra; stated by citation"
+
+  # ------------------------------------------------------------ RBM20 contractility, mexiletine (Fig. 5)
+  F5D_mm.deficit:
+    item: F5D_mm
+    formula: "s = (x0 - x)/x0"
+    anchor: {quote: "a contractile deficit of nearly 50% total amplitude was apparent under MM culture conditions", where: "Results, MM Enhanced Visualization of Contractile Deficits in an hiPSC-CM Model of DCM"}
+    library: {formula: relative_decrease, vars: {s: s, x: x, x0: x0}}
+    inputs:
+      x: {value: F5D_mm.values.amp_mut, part: mean, kind: per sample}
+      x0: {value: F5D_mm.values.amp_wt, part: mean, kind: per sample}
+    output: F5D_mm.values.deficit
+    aggregation: of means
+  F5J_lqt_vs_hd.shortening:
+    item: F5J_lqt_vs_hd
+    group: mm_lqt
+    formula: "sh = apd_drug - apd_ctr"
+    anchor: {quote: "APD75 shortening times (ms) are represented as change from their respective ctr wells.", where: "Fig. 5J legend"}
+    library: {formula: sum_of_parts, vars: {t: apd_drug, a: sh, b: apd_ctr}}
+    inputs:
+      apd_drug: {not_stated: true, kind: per sample}
+      apd_ctr: {not_stated: true, kind: not stated, note: "the respective untreated ctr wells; whether their mean or a matched well is subtracted is not stated"}
+  F5C_fetal_ttn.ddct:
+    item: F5C_fetal_ttn
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "The data were analyzed with the DDCt method, applying TBP as a normalization control (unless stated otherwise).", where: "STAR Methods, qRT-PCR"}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample}
+    note: "the figure's axis gives fetal TTN normalized to total TTN, so total TTN, not TBP, may be the reference here"
+
+  # ------------------------------------------------------------ SCN5a isoform ratio (Fig. S6B)
+  S6B_scn5a.ddct_adult:
+    item: S6B_scn5a
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "The data were analyzed with the DDCt method, applying TBP as a normalization control (unless stated otherwise).", where: "STAR Methods, qRT-PCR"}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample}
+  S6B_scn5a.ddct_fetal:
+    item: S6B_scn5a
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "The data were analyzed with the DDCt method, applying TBP as a normalization control (unless stated otherwise).", where: "STAR Methods, qRT-PCR"}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample}
+  S6B_scn5a.adult_fetal:
+    item: S6B_scn5a
+    formula: "r = adult/fetal"
+    anchor: {quote: "Expression (qPCR) of adult/fetal ratio of SCN5a was higher in maturation media", where: "Fig. S6B legend", file: mmc1.pdf}
+    library: {formula: ratio_def, vars: {r: r, a: adult, b: fetal}}
+    inputs:
+      adult: {derived: S6B_scn5a.ddct_adult, kind: per sample}
+      fetal: {derived: S6B_scn5a.ddct_fetal, kind: per sample}
+    aggregation: not stated
+
+  # ------------------------------------------------------------ EHTs (Fig. 6, S7)
+  F6B_width.normalised:
+    item: F6B_width
+    formula: "r = w/w0"
+    anchor: {quote: "Length and width were normalized to baseline (randomization)", where: "Fig. 6B legend"}
+    library: {formula: ratio_def, vars: {r: r, a: w, b: w0}}
+    inputs:
+      w: {not_stated: true, kind: per sample}
+      w0: {not_stated: true, kind: not stated, note: "each EHT's own width at randomization or a group mean: not stated"}
+  F6B_length.normalised:
+    item: F6B_length
+    formula: "r = l/l0"
+    anchor: {quote: "Length and width were normalized to baseline (randomization)", where: "Fig. 6B legend"}
+    library: {formula: ratio_def, vars: {r: r, a: l, b: l0}}
+    inputs:
+      l: {not_stated: true, kind: per sample}
+      l0: {not_stated: true, kind: not stated}
+  F6C_force.normalised:
+    item: F6C_force
+    formula: "r = f/fctr"
+    anchor: {quote: "Average contractile force normalized to the mean force of ctr of the respective batch", where: "Fig. 6C legend"}
+    library: {formula: ratio_def, vars: {r: r, a: f, b: fctr}}
+    inputs:
+      f: {not_stated: true, kind: per sample}
+      fctr: {not_stated: true, kind: constant, note: "one constant per batch: the mean force of that batch's ctr EHTs"}
+  S7B_ratio.lactate_per_glucose:
+    item: S7B_ratio
+    formula: "r = lac_prod/glc_cons"
+    anchor: {quote: "Ratio of lactate production / glucose consumption calculated from data in (A)", where: "Fig. S7B legend", file: mmc1.pdf}
+    library: {formula: ratio_def, vars: {r: r, a: lac_prod, b: glc_cons}}
+    inputs:
+      lac_prod: {not_stated: true, kind: not stated, note: "from S7A lactate concentrations (no values recorded or read); the time points used are not stated"}
+      glc_cons: {not_stated: true, kind: not stated, note: "from S7A glucose concentrations; the starting concentration is not stated"}
+  S7C_mtdna.ratio:
+    item: S7C_mtdna
+    formula: "r = mt/gen"
+    anchor: {quote: "To study the ratio of mitochondrial DNA content (NADH-dehydrogenase 1 (ND1) and NADH-dehydrogenase 2 (ND2)) to genomic DNA content (g-actin)", where: "STAR Methods, Analyzes of EHTs"}
+    library: {formula: ratio_def, vars: {r: r, a: mt, b: gen}}
+    inputs:
+      mt: {by_reference: {citation: ulmer2018, anchor: {quote: "Blood gas and DNA content analyzes were conducted as previously described by Ulmer et al. (2018).", where: "STAR Methods, Analyzes of EHTs"}}, kind: per sample}
+      gen: {by_reference: {citation: ulmer2018, anchor: {quote: "Blood gas and DNA content analyzes were conducted as previously described by Ulmer et al. (2018).", where: "STAR Methods, Analyzes of EHTs"}}, kind: per sample}
+  S7H_bmhc.to_ctnt:
+    item: S7H_bmhc
+    formula: "r = bmhc/ctnt"
+    anchor: {quote: "MHC was quantified by normalization to cTNT and then to the Complete EHTs per batch", where: "STAR Methods, Analyzes of EHTs"}
+    library: {formula: ratio_def, vars: {r: r, a: bmhc, b: ctnt}}
+    inputs:
+      bmhc: {not_stated: true, kind: per sample}
+      ctnt: {not_stated: true, kind: per sample}
+  S7H_bmhc.to_control:
+    item: S7H_bmhc
+    formula: "r = x/xctr"
+    anchor: {quote: "MHC was quantified by normalization to cTNT and then to the Complete EHTs per batch", where: "STAR Methods, Analyzes of EHTs"}
+    library: {formula: ratio_def, vars: {r: r, a: x, b: xctr}}
+    inputs:
+      x: {derived: S7H_bmhc.to_ctnt, kind: per sample}
+      xctr: {not_stated: true, kind: constant, note: "one constant per batch: the mean of that batch's control (Complete) EHTs"}
+  S7H_amhc.to_ctnt:
+    item: S7H_amhc
+    formula: "r = amhc/ctnt"
+    anchor: {quote: "MHC was quantified by normalization to cTNT and then to the Complete EHTs per batch", where: "STAR Methods, Analyzes of EHTs"}
+    library: {formula: ratio_def, vars: {r: r, a: amhc, b: ctnt}}
+    inputs:
+      amhc: {not_stated: true, kind: per sample}
+      ctnt: {not_stated: true, kind: per sample}
+  S7H_amhc.to_control:
+    item: S7H_amhc
+    formula: "r = x/xctr"
+    anchor: {quote: "MHC was quantified by normalization to cTNT and then to the Complete EHTs per batch", where: "STAR Methods, Analyzes of EHTs"}
+    library: {formula: ratio_def, vars: {r: r, a: x, b: xctr}}
+    inputs:
+      x: {derived: S7H_amhc.to_ctnt, kind: per sample}
+      xctr: {not_stated: true, kind: constant, note: "one constant per batch: the mean of that batch's control (Complete) EHTs"}
+
+assumptions:
+  F5C_fetal_ttn.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %: {reported: not stated}
+      equal amplification efficiencies of target and reference: {reported: not stated}
+  S6B_scn5a.ddct_adult:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %: {reported: not stated}
+      equal amplification efficiencies of target and reference: {reported: not stated}
+  S6B_scn5a.ddct_fetal:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %: {reported: not stated}
+      equal amplification efficiencies of target and reference: {reported: not stated}
+
+bounds:
+  - {item: S2A_edu, value: S2A_edu.values.edu_rpmi, formula: fraction_bounds}
+  - {item: S2A_edu, value: S2A_edu.values.edu_mm, formula: fraction_bounds}
+  - {item: S2B_purity, value: S2B_purity.values.pur_rpmi, formula: fraction_bounds}
+  - {item: S2B_purity, value: S2B_purity.values.pur_mm, formula: fraction_bounds}
+  - {item: F5D_mm, value: F5D_mm.values.deficit, formula: fraction_bounds}
+
+proposals: []

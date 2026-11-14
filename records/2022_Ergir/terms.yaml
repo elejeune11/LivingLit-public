@@ -1,0 +1,201 @@
+record: 2022_Ergir
+vocabulary_version: 48
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---- context fields
+- adopt:
+    field: cell_line
+    id: CVCL_VK80
+    label: WTC-mEGFP-TNNI1-cl172
+    lookup: "cellosaurus 'AICS-0037' and 'TNNI1': CVCL_VK80 lists AICS-0037-172, the catalogue number the paper prints for TNNI1-iPS"
+    synonyms:
+    - {text: TNNI1-iPS, anchor: "the Troponin I1 reporter iPSC line (TNNI1-iPS) was purchased from Coriell Institute"}
+- add_term:
+    field: transgene
+    id: transgene:tnni1_fusion
+    label: troponin I1 fluorescent fusion
+    parent: transgene:fluorescent_fusion_protein
+    definition: A fluorescent protein fused to slow skeletal troponin I (TNNI1), marking cardiomyocytes and their sarcomeres.
+    scope: Fusion to TNNI1; not fusions to N-cadherin, α-actinin-2, connexin-43, SERCA2 or CD63, and not GFP expressed on its own.
+    synonyms:
+    - {text: GFP-tagged Cardiac Troponin I reporter, anchor: "GFP-tagged Cardiac Troponin I reporter over culture time"}
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:static_culture
+    label: static culture
+    definition: Culture the paper calls static, with no cyclic stretch, flow or other dynamic mechanical stimulus applied, the load regime otherwise not stated.
+    scope: Only the absence of a dynamic stimulus is stated; not cyclic stretch or fluid shear stress, and not unloaded, auxotonic or isometric, which say what load the tissue bears.
+    synonyms:
+    - {text: static culture conditions, anchor: "survive for a long time in static culture conditions"}
+- add_synonym: {id: preparation:cryosection, text: cryosections, anchor: "on cryosections obtained from the edge and the core of the 3D tissues"}
+- add_synonym: {id: platform:cell_aggregate, text: 3D hOCMT, anchor: "3D hOCMT viability was assessed with LIVE/DEAD"}
+- add_synonym: {id: substrate:culture_plate, text: tissue culture plate, anchor: "seeded in Matrigel-coated 96-well tissue culture plates"}
+- add_synonym: {id: platform:adult_heart_tissue, text: adult heart tissues, anchor: "adult heart tissues and Engineered Heart Tissues (EHTs) obtained from previously published datasets"}
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:seahorse_xf_rpmi
+    label: Seahorse XF RPMI Medium
+    parent: measurement_medium:assay_medium
+    definition: The RPMI-based medium for Seahorse extracellular flux assays, with its supplements as stated.
+    scope: The RPMI-based Seahorse assay medium; not the DMEM-based Seahorse XF medium, an imaging medium such as FluoroBrite DMEM or a calcium kit buffer.
+- adopt_own:
+    field: treatment
+    id: treatment:dnase_i
+    label: DNase I
+    parent: treatment:endonuclease
+    definition: Deoxyribonuclease I, an endonuclease that cuts DNA, applied to samples to make DNA breaks (a positive control for TUNEL staining).
+    lookup: "chebi 'DNase I' and 'deoxyribonuclease': no entry in the pinned ChEBI release (an enzyme, not a chemical entity)"
+# ---- measures
+- add_term:
+    field: measure
+    id: measure:basal_mitochondrial_respiration
+    label: basal mitochondrial respiration
+    parent: measure:oxygen_consumption_rate
+    dimension: amount_rate
+    definition: Baseline oxygen consumption rate minus the non-mitochondrial rate left after rotenone and antimycin A, in a respiration assay.
+    scope: Baseline mitochondrial respiration with non-mitochondrial consumption removed; not the raw baseline rate (oxygen consumption rate), maximal, spare, ATP-linked, proton leak, non-mitochondrial, ATP capacity or the time course.
+- add_synonym: {id: measure:maximal_oxygen_consumption_rate, text: maximal respiration, anchor: "The surprisingly similar levels of maximal respiration in the 3D and 2D cultures"}
+- add_synonym: {id: measure:z_disk_width, text: z-band width, anchor: "and z-band width (E); day 50, 450 ± 100 nm; day 85 700 ± 250 nm"}
+- add_qualifier: {id: measure:cell_death, name: region, dimension: text}
+- add_term:
+    field: measure
+    id: measure:cell_spatial_distribution
+    label: spatial distribution of a cell population
+    dimension: categorical
+    qualifiers: {population: {dimension: text}}
+    definition: Where a stated cell population (qualifier population) lies within a construct, and how it is arranged, judged from images.
+    scope: Arrangement of cells within a construct; not the fraction of marker-positive cells, not qualitative staining of one protein, and not cell shape.
+- add_term:
+    field: measure
+    id: measure:histological_organisation
+    label: histological organisation
+    dimension: categorical
+    qualifiers: {feature: {dimension: text}}
+    definition: Qualitative organisation or complexity of a tissue section seen by histology and immunostaining, a stated feature (qualifier feature).
+    scope: Light-microscopy appearance of a whole section; not electron-microscopic ultrastructure, not staining of one protein, and not cellular alignment alone (structural anisotropy).
+- add_term:
+    field: measure
+    id: measure:transcriptional_similarity
+    label: transcriptional similarity to a reference
+    dimension: categorical
+    qualifiers: {reference: {dimension: text}}
+    definition: How close samples' expression profiles are to a stated reference tissue or construct (qualifier reference), judged from clustering or heatmaps.
+    scope: Qualitative closeness to a reference; not a correlation coefficient of profiles, not a distance in an embedding, and not the expression of one gene set.
+- add_term:
+    field: measure
+    id: measure:tissue_morphology
+    label: tissue morphology
+    dimension: categorical
+    qualifiers: {feature: {dimension: text}}
+    definition: Qualitative shape or outline of a whole construct, a stated feature (qualifier feature) such as its edges, in images.
+    scope: Shape of a whole construct; not the shape of single cells (cell morphology), not compaction of a cast tissue, and not its measured width, area or length.
+- add_term:
+    field: measure
+    id: measure:contraction_motion_trace
+    label: image-based contraction trace
+    dimension: dimensionless
+    qualifiers: {metric: {dimension: text}}
+    definition: The time course of contractile motion computed from image sequences by a stated motion metric (qualifier metric), shown as a curve.
+    scope: The whole motion curve; not its peak amplitude (image-based contraction amplitude), not a force or stress trace, and not the beating rate.
+# ---- standing keys for the measures added
+- standing_key:
+    measure: measure:basal_mitochondrial_respiration
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model]}
+    direction: {must_match: [contrast]}
+- standing_key:
+    measure: measure:cell_spatial_distribution
+    value: {must_match: [platform@1, preparation, measure.population, treatment, genotype, disease_model]}
+    direction: {must_match: [contrast, measure.population]}
+- standing_key:
+    measure: measure:histological_organisation
+    value: {must_match: [platform@1, preparation, measure.feature, treatment, genotype, disease_model]}
+    direction: {must_match: [contrast, measure.feature]}
+- standing_key:
+    measure: measure:transcriptional_similarity
+    value: {must_match: [platform@1, preparation, measure.reference, treatment, genotype, disease_model]}
+    direction: {must_match: [contrast, measure.reference]}
+- standing_key:
+    measure: measure:tissue_morphology
+    value: {must_match: [platform@1, measure.feature, treatment, genotype, disease_model]}
+    direction: {must_match: [contrast, measure.feature]}
+- standing_key:
+    measure: measure:contraction_motion_trace
+    value: {must_match: [platform@1, preparation, pacing, temperature, method, measure.metric, treatment, genotype, disease_model]}
+    direction: {must_match: [contrast, measure.metric, pacing]}
+mappings:
+# ---- context
+- {field: cm_medium, stated: RPMI 1640 + B-27, terms: [cm_medium:rpmi_1640], split: [{words: B-27, field: supplements}],
+   note: B-27 is a supplement added to the base medium}
+- {field: supplements, stated: Ins + P/S, terms: ['CHEBI:145810', 'CHEBI:17334', 'CHEBI:17076'],
+   note: "Ins = insulin (the paper's 'RPMI + B27 + Ins'); P/S = penicillin/streptomycin, printed as such in Methods"}
+- {field: mechanical_load, stated: static, terms: [mechanical_load:static_culture]}
+- {field: transgene, stated: GFP-tagged TNNI1 reporter, terms: [transgene:tnni1_fusion], qualifiers: {fluorophore: GFP}}
+- {field: preparation, stated: live imaging, terms: [preparation:intact_tissue],
+   note: "live whole hOCMTs imaged in their wells; 'live imaging' is not added as a synonym (it would also fit live 2D cells)"}
+- {field: preparation, stated: whole mount, terms: [preparation:intact_tissue],
+   note: "whole live constructs stained with Calcein AM/EthD-1; not a synonym, since whole mounts are often fixed"}
+- {field: preparation, stated: one 3D hOCMT per well, terms: [preparation:intact_tissue], note: one whole construct per assay well}
+- {field: measurement_medium, stated: RPMI/B27 + Ins, terms: [measurement_medium:culture_medium], qualifiers: {medium: RPMI/B27 + Ins},
+   note: drugs were diluted in the culture medium and the tissues imaged in it}
+- {field: treatment, stated: DMSO or methanol, flag: {kind: alternatives, note: "one untreated group named with two vehicles (DMSO for isoproterenol, methanol for verapamil); which vehicle each comparison uses is not one context"}}
+# ---- measures
+- {field: measure, stated: spatial distribution of GFP-tagged cardiomyocytes, terms: [measure:cell_spatial_distribution],
+   qualifiers: {population: GFP-tagged cardiomyocytes}}
+- {field: measure, stated: microtissue diameter, terms: [measure:tissue_width]}
+- {field: measure, stated: cell viability (Calcein AM/EthD-1), terms: [measure:cell_viability]}
+- {field: measure, stated: apoptotic cells (TUNEL), terms: [measure:marker_positive_cells], qualifiers: {marker: TUNEL}}
+- {field: measure, stated: spontaneous contractile activity, terms: [measure:beating_presence], qualifiers: {mode: spontaneous}}
+- {field: measure, stated: spontaneous beating onset, terms: [measure:beating_onset_time],
+   qualifiers: {reference: seeding in 3D (beating upon ROCK inhibitor removal after 48 h)}}
+- {field: measure, stated: TNNT2-positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: TNNT2}}
+- {field: measure, stated: CD90-positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CD90}}
+- {field: measure, stated: CD31-positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CD31}}
+- {field: measure, stated: 'localisation of epicardial/fibroblast markers (WT1, TBX18, TE-7, SM22a)',
+   flag: {kind: several measures, note: "staining of four proteins (WT1, TBX18, TE-7, SM22a) in one item; one item per protein"}}
+- {field: measure, stated: 'localisation of cardiomyocyte markers (TNNT2, ACTN2)',
+   flag: {kind: several measures, note: "staining of two proteins (TNNT2, ACTN2) in one item; one item per protein"}}
+- {field: measure, stated: NFAT2 and CD31 staining,
+   flag: {kind: several measures, note: "staining of two proteins (NFAT2, CD31) marking different cell types; one item per protein"}}
+- {field: measure, stated: MYL2 and MYL7 staining,
+   flag: {kind: several measures, note: "staining of two proteins (MYL2, MYL7); one item per protein, or a co-staining measure if the reader keeps the two pools"}}
+- {field: measure, stated: 'histological complexity (H&E, α-SMA, ACTN2)', terms: [measure:histological_organisation],
+   qualifiers: {feature: histological complexity}, note: H&E and the two stains are the methods}
+- {field: measure, stated: necrotic/apoptotic core (TEM), terms: [measure:cell_death], qualifiers: {region: core}}
+- {field: measure, stated: 'staining for undifferentiated and gut markers (MESP1, Brachyury, SOX2, ASCL2)',
+   flag: {kind: several measures, note: "staining of four proteins (MESP1, Brachyury, SOX2, ASCL2); one item per protein"}}
+- {field: measure, stated: 'staining for GATA4, SERCA2, α-SMA, Cx43',
+   flag: {kind: several measures, note: "staining of four proteins (GATA4, SERCA2, α-SMA, Cx43); one item per protein"}}
+- {field: measure, stated: myofiber organisation (plot profile intensity), terms: [measure:ultrastructure],
+   qualifiers: {feature: myofiber organisation}, note: TEM micrographs with ImageJ plot profiles}
+- {field: measure, stated: amount of mitochondria, terms: [measure:ultrastructure], qualifiers: {feature: amount of mitochondria}}
+- {field: measure, stated: glycogen accumulation, terms: [measure:ultrastructure], qualifiers: {feature: glycogen accumulation}}
+- {field: measure, stated: GO categories of genes upregulated in 3D (cardiogenesis), terms: [measure:enrichment_p_value],
+   qualifiers: {annotation: GO biological process}}
+- {field: measure, stated: expression of ECM-related genes, terms: [measure:gene_set_expression], qualifiers: {gene_set: ECM-related genes}}
+- {field: measure, stated: top 20 differentially regulated genes at day 50, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: top 20 differentially regulated genes}}
+- {field: measure, stated: expression of heart contraction and sarcomeric genes, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: heart contraction and sarcomeric genes}}
+- {field: measure, stated: expression of calcium handling genes, terms: [measure:gene_set_expression], qualifiers: {gene_set: calcium handling genes}}
+- {field: measure, stated: expression of mitochondrial ATP synthesis coupled electron transport genes, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: mitochondrial ATP synthesis coupled electron transport genes}}
+- {field: measure, stated: transcriptional similarity to adult heart, terms: [measure:transcriptional_similarity], qualifiers: {reference: adult heart}}
+- {field: measure, stated: transcriptional similarity to EHT, terms: [measure:transcriptional_similarity], qualifiers: {reference: EHT}}
+- {field: measure, stated: GO biological process categories of differentially regulated genes, terms: [measure:enrichment_p_value],
+   qualifiers: {annotation: GO biological process}}
+- {field: measure, stated: FABP3 expression, terms: [measure:gene_expression], qualifiers: {gene: FABP3}}
+- {field: measure, stated: LPL expression, terms: [measure:gene_expression], qualifiers: {gene: LPL}}
+- {field: measure, stated: PPARA expression, terms: [measure:gene_expression], qualifiers: {gene: PPARA}}
+- {field: measure, stated: expression of β-oxidation genes, terms: [measure:gene_set_expression], qualifiers: {gene_set: β-oxidation genes}}
+- {field: measure, stated: expression of glucose and pyruvate metabolism genes, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: glucose and pyruvate metabolism genes}}
+- {field: measure, stated: expression of electron transport chain and ATP synthase genes, terms: [measure:gene_set_expression],
+   qualifiers: {gene_set: electron transport chain and ATP synthase genes}}
+- {field: measure, stated: oxygen consumption rate (last baseline measurement), terms: [measure:oxygen_consumption_rate]}
+- {field: measure, stated: extracellular acidification rate (last baseline measurement), terms: [measure:extracellular_acidification_rate]}
+- {field: measure, stated: maximal respiration (after FCCP), terms: [measure:maximal_oxygen_consumption_rate]}
+- {field: measure, stated: contraction amplitude, terms: [measure:contraction_motion_amplitude], qualifiers: {metric: MUSCLEMOTION contraction amplitude},
+   note: "not a synonym: 'contraction amplitude' is also used for force"}
+- {field: measure, stated: microtissue morphology (edge irregularity), terms: [measure:tissue_morphology], qualifiers: {feature: edge irregularity}}
+- {field: measure, stated: beating profile, terms: [measure:contraction_motion_trace], qualifiers: {metric: MUSCLEMOTION contraction amplitude}}
+- {field: measure, stated: live/dead staining, terms: [measure:cell_viability]}

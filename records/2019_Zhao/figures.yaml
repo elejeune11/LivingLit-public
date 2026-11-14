@@ -1,0 +1,143 @@
+figures:
+  F4D:
+    file: journal_version.pdf
+    page: 8
+    crop: [128.5, 280.0, 220.0, 344.0]
+    script: figures/F4D.py
+    unit: F4D
+    kind: vector
+    groups:
+      Ventricular UnST:
+        item: F4D_V
+        group: V_UnSt
+        unit_of_value: normalized PRP (no unit)
+      Ventricular ST:
+        item: F4D_V
+        group: V_St
+        unit_of_value: normalized PRP (no unit)
+    note: Vector scatter of normalized PRP (post-rest force / force at the last pacing frequency) per tissue with mean ± SD
+      lines (spread not named in the 4D legend; avg ± stdev is stated for 4B-C). Tick labels are outlined glyphs, so the axis is
+      calibrated from the axis's six tick rects taken as 0-5 bottom to top. The atrial columns (Atrial UnST, Atrial ST) are
+      not read because no item of the record compares them. Items F4D_prp_6Hz and F4D_prp_1Hz compare absolute post-rest force
+      with force at 6 Hz or 1 Hz; neither force is plotted (the Ventricular ST points are their ratio to the last pacing
+      frequency), so no group of theirs is linked.
+  F7GI:
+    file: journal_version.pdf
+    page: 11
+    crop: [180.0, 350.0, 560.0, 418.0]
+    script: figures/F7GI.py
+    unit: F7GI
+    kind: raster
+    groups:
+      G Atrial End vs Mid:
+        item: F7GI_amp_mid_atr
+        group: atr
+        unit_of_value: mV
+      G Mid Region:
+        item: F7GI_amp_mid_atr
+        group: mid
+        unit_of_value: mV
+      G Atrial End vs Ventricular:
+        item: F7GI_amp_ven_atr
+        group: atr
+        unit_of_value: mV
+      G Ventricular End:
+        item: F7GI_amp_ven_atr
+        group: ven
+        unit_of_value: mV
+      H Atrial End vs Mid:
+        item: F7GI_apd30_mid_atr
+        group: atr
+        unit_of_value: ms
+      H Mid Region:
+        item: F7GI_apd30_mid_atr
+        group: mid
+        unit_of_value: ms
+      H Atrial End vs Ventricular:
+        item: F7GI_apd30_ven_atr
+        group: atr
+        unit_of_value: ms
+      H Ventricular End:
+        item: F7GI_apd30_ven_atr
+        group: ven
+        unit_of_value: ms
+      I Atrial End vs Mid:
+        item: F7GI_ratio_mid_atr
+        group: atr
+        unit_of_value: APD30/90 (no unit)
+      I Mid Region:
+        item: F7GI_ratio_mid_atr
+        group: mid
+        unit_of_value: APD30/90 (no unit)
+      I Atrial End vs Ventricular:
+        item: F7GI_ratio_ven_atr
+        group: atr
+        unit_of_value: APD30/90 (no unit)
+      I Ventricular End:
+        item: F7GI_ratio_ven_atr
+        group: ven
+        unit_of_value: APD30/90 (no unit)
+    note: Raster scatter (the page is one JPEG, about 300 dpi) of AP amplitude (7G), APD30 (7H) and APD30/90 (7I) per cell with mean ± SEM lines (avg±SEM, n≥3 in the legend). Markers (about 1 pt) touch each other and the mean and SEM lines in every column (atrial APD30 is one merged blob), so no point is counted or read and each group gives its mean and upper SEM end only (countable false). Tick labels are part of the image, so each y axis is calibrated from its tick marks taken bottom to top as the printed labels. The atrial bar is returned twice, once per item (vs mid, vs ventricular).
+no_points:
+  F6F: 'Raster bar chart (journal_version.pdf p. 10): active force (µN) after 6 weeks for Non-Affected A, B, C and Affected
+    D, E, F as filled black bars with upper error bars (spread and n not named in the 6F legend); significance lines only; no individual
+    points. No table or released data file gives these values; the Results cite Figures 6F and 6G with no number.'
+  F4BC: 'Bar charts (journal_version.pdf p. 8): normalized force (to 1 Hz) at 1, 2 and 3 Hz for unstimulated and stimulated atrial (4B)
+    and ventricular (4C) biowires as avg ± stdev bars (n ≥ 7 atrial, n ≥ 10 ventricular); significance lines only; no individual points.
+    No table or released data file gives these values.'
+  S2BC: 'Raster bar charts (journal_version.pdf p. 27): ET (V/cm) and MCR (Hz) bars for unstimulated and stimulated atrial and ventricular
+    tissues as mean ± stdev error bars (n ≥ 8); the day-7 reference is a red dashed line per chamber, not plotted points; no individual
+    points.'
+  F1F: 'Raster bar chart (journal_version.pdf p. 4): Biowire Chip and PDMS bars with avg ± stdev error bars at 6 h, 24 h, 48 h and 1 week (n =
+    3); controls only as shaded dashed areas; no individual points.'
+  S3: 'Vector heat maps and network graphs (journal_version.pdf p. 28). S3B (the HDL item) shows row-scaled expression (colour bar -1.5 to 1.5,
+    no unit) of 28 HDL-metabolism genes for samples VSt1-3 and VUnSt1-4: per-gene z-scores, not replicate values of the gene-set measure, so pooled
+    cells would give no valid points for the item''s (gene-set) test; raw counts are in GEO GSE114976, not in the paper folder. S3A is a heat
+    map of the same kind; S3C-S3D are GO enrichment networks with no axis.'
+  F4GM: 'Bar charts (journal_version.pdf p. 8): 4I AP amplitude (mV), 4J MDP (mV), 4K dV/dt (mV/ms), 4L APD30/50/90 (ms; axis printed
+    "APD(mV)") and 4M APD30/90 for atrial and ventricular, unstimulated and stimulated tissues as avg ± stdev bars (n ≥ 3); significance
+    lines only; no individual points. 4G-4H are one representative AP trace per group. No table or released data file gives these values;
+    the Results print only the APD30/APD90 ratio (0.45 ± 0.04 ventricular, 0.14 ± 0.04 atrial, conditioning not named).'
+  S4BC: 'Vector bar charts (NIHMS1519152-supplement-4.pdf p. 1; same figure as journal_version.pdf Fig. S4): S4B active force (µN) and
+    S4C passive tension (µN) at 1, 2 and 3 Hz for batches 1-4 as filled bars with upper error bars (mean ± stdev, n ≥ 4 tissues per
+    experiment); S4B significance lines only; no individual points. No table or released data file gives these values.'
+  S4DF: 'Vector bar charts (NIHMS1519152-supplement-4.pdf p. 1; same figure as journal_version.pdf Fig. S4): S4D PRP (µN), S4E ET (V/cm)
+    and S4F MCR (Hz) for batches 1-4 as filled bars with upper and lower error bars (mean ± stdev, n ≥ 4 tissues per experiment); no
+    individual points. No table or released data file gives these values.'
+  S4GJ: 'Vector bar charts (NIHMS1519152-supplement-4.pdf p. 1; same figure as journal_version.pdf Fig. S4), HES2 ventricular
+    tissues: S4G active force (µN) and S4H normalized force (no unit) at 1, 2 and 3 Hz, S4I ET (V/cm) and S4J MCR (Hz) before
+    and after stimulation, as filled bars with error bars (mean ± stdev, n ≥ 3); significance lines only; no individual points.
+    No table or released data file gives these values.'
+  S4KN: 'Vector bar charts (NIHMS1519152-supplement-4.pdf p. 1; same figure as journal_version.pdf Fig. S4), HES3 ventricular
+    tissues: S4K active force (µN) and S4L normalized force (no unit) at 1, 2 and 3 Hz, S4M ET (V/cm) and S4N MCR (Hz) before
+    and after stimulation, as filled bars with error bars (mean ± stdev, n ≥ 3); significance lines only; no individual points.
+    No table or released data file gives these values.'
+  S5AD: 'Vector bar charts (NIHMS1519152-supplement-5.pdf p. 1): S5B MDP (mV), S5C dV/dt (mV/ms) and S5D APD30/50/90 (ms) for
+    HES3 (31), BJ (30) and ICELL (24) cells as filled bars with SEM error bars (mean ± SEM, n ≥ 3 tissues); significance lines
+    only; no individual points. S5A is one representative AP trace per line. No table or released data file gives these values;
+    the Results print only dV/dt for HES3 (25.3 ± 14.0) and BJ1D (108.8 ± 19.6), unit printed "mV/s".'
+  S5EI: 'Vector bar charts (NIHMS1519152-supplement-5.pdf p. 1), BJ1D ventricular tissues with verapamil 0, 0.1, 1, 10 µM and
+    washout: S5F amplitude (mV), S5G MDP (mV), S5H dVm/dt (mV/ms) and S5I APD30/50/90 (ms) as filled bars with error bars (mean ±
+    SEM, n = 3 tissues, cells 22/16/21/20/15); significance lines only; no individual points. S5E is one representative AP trace per
+    concentration. No table or released data file gives these values.'
+  S5JN: 'Vector bar charts (NIHMS1519152-supplement-5.pdf p. 1), BJ1D ventricular tissues with dofetilide 0, 10, 100, 1000 nM
+    and washout: S5K amplitude (mV), S5L MDP (mV), S5M dVm/dt (mV/ms) and S5N APD30/50/90 (ms) as filled bars with error bars
+    (mean ± SEM, n = 3 tissues, cells 18/16/8/16/4); significance lines only; no individual points. S5J is one representative AP
+    trace per concentration. No table or released data file gives these values.'
+  S7AH: 'Vector bar charts (NIHMS1519152-supplement-7.pdf p. 1; Fig. S7 of journal_version.pdf), atrial (S7B-S7D) and
+    ventricular (S7F-S7H) tissues at carbachol 0 µM, 1 µM and washout: MDP (mV), dVm/dt (mV/ms) and APD30/50/90 (ms) as
+    filled bars (black, dark grey, light grey) with error bars (mean ± stdev, n ≥ 3); significance lines only; no individual
+    points. S7A and S7E are one representative AP trace per condition. No table or released data file gives these values; the
+    Results say only that carbachol "abbreviated APDs in atrial biowires without affecting these parameters in ventricular
+    tissues".'
+  S6: 'Vector bar charts (NIHMS1519152-supplement-6.pdf p. 1; Fig. S6 of journal_version.pdf p. 33), atrial tissues from MSC-IPSC1
+    (17 cells) and Hes3 (29 cells; 28 for APD): S6C amplitude (mV), S6D MDP (mV), S6E dV/dt (mV/ms) and S6F APD30/50/90 (ms)
+    as open (MSC-IPSC1) and grey (Hes3) bars with upper error bars (mean ± SEM, n ≥ 4 tissues); significance lines only; no
+    individual points. S6A-S6B are one representative AP trace per line. No table or released data file gives these values; the
+    Results say only that the two lines "produced relatively similar electrical properties".'
+  S7IP: 'Vector bar charts (NIHMS1519152-supplement-7.pdf p. 1; Fig. S7 of journal_version.pdf), atrial (S7J-S7L) and
+    ventricular (S7N-S7P) tissues at 4AP 0 µM, 25 µM, 50 µM and washout: MDP (mV), dVm/dt (mV/ms) and APD30/50/90 (ms) as
+    filled bars (black, dark grey, light grey) and an open washout bar, with error bars (mean ± stdev, n ≥ 3); significance
+    lines only; no individual points. S7I and S7M are one representative AP trace per condition. No table or released data
+    file gives these values; the Results say only that 25 µM 4AP "increased AP amplitudes and prolonged APD30 in the atrial
+    biowires, without measurable effects on ventricular tissues".'

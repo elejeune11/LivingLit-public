@@ -1,0 +1,31 @@
+# Written by code from changes.yaml (version 5); never edited.
+formula: cumulative_variance_explained_two
+kind: definition
+statement: The share of total variance explained by two principal components of one PCA is the sum of the shares explained
+  by each.
+equations:
+- c = p1 + p2
+variables:
+  c: dimensionless
+  p1: dimensionless
+  p2: dimensionless
+does_not_apply: shares from different PCAs (different samples or gene sets), or a component counted twice
+tests:
+- given:
+    p1: 0.61
+    p2: 0.12
+  expect:
+    c: 0.73
+- given:
+    p1: 0.5
+    p2: 0.25
+  expect:
+    c: 0.75
+- given:
+    p1: 0.61
+    p2: 0.61
+  does_not_apply: 'PC1 counted twice: 1.22 of the variance is impossible'
+cites:
+  text: 'Jolliffe, I. T. Principal Component Analysis, 2nd ed. Springer (2002), Section 6.1.1: cumulative percentage of total
+    variation t_m = 100 * sum_{k<=m} l_k / sum_k l_k'
+  url: https://doi.org/10.1007/b98835

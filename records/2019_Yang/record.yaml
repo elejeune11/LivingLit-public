@@ -1,0 +1,5757 @@
+id: 2019_Yang
+field_set: 3
+source:
+  title: Fatty Acids Enhance the Maturation of Cardiomyocytes Derived from Human Pluripotent Stem Cells
+  doi: 10.1016/j.stemcr.2019.08.013
+  year: '2019'
+  first_author: Xiulan Yang
+  last_author: Charles E. Murry
+  lab: Murry lab, University of Washington
+  journal: Stem Cell Reports
+  files:
+  - main.pdf
+  - mmc1.pdf
+  missing:
+  - GEO GSE124057 (raw RNA-sequencing data; Fig. 6A–6C rest on it)
+  not_used:
+  - file: mmc2.pdf
+    why: the main article and the Supplemental Information (mmc1.pdf) combined in one PDF; no content beyond main.pdf and
+      mmc1.pdf
+default_context:
+  purification: not stated
+  stromal_cell: not stated
+  endothelial_cell: not stated
+  composition: not stated
+  maturation_strategy: not stated
+  disease_model: not applicable
+  day_of_measurement: not stated
+  culture_calcium_mM: not stated
+  incubator_atmosphere: not stated
+units:
+  S1:
+    where: Fig. S1
+    title: House-made palmitate-albumin complex is endotoxin-free
+    context:
+      cell_line: HEK 293
+      number_of_lines: not stated
+      differentiation_factors: not applicable
+      hipsc_medium: not applicable
+      hipsc_coating: not stated
+      wnt_activation_days: not applicable
+      wnt_inhibition_days: not applicable
+      insulin_day: not applicable
+      confluency: not applicable
+      purity_method: not applicable
+      purity: not applicable
+      cm_medium: not applicable
+      supplements: not applicable
+      replating_coating: not applicable
+      platform: 96-well plates
+      substrate: not applicable
+      cell_types: not stated
+      cm_day_at_formation: not applicable
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: lysed
+      measurement_calcium_mM: not applicable
+      mechanical_load: not applicable
+      transgene: fire-fly luciferase + Renilla luciferase + human HATLR4 + MD-2 + mCD14
+      donor_age: not stated
+      species: human
+      time_point: 4 hours
+      measurement_medium: not applicable
+      seeding_density: 4 × 10^4 cells per well
+      dissociation_reagent: not applicable
+    groups:
+      medium:
+        label: Medium
+        context:
+          treatment: none
+      lps_001:
+        label: 0.01 ng/ml LPS
+        context:
+          treatment:
+            value: LPS
+            qualifiers:
+              concentration: 0.01 ng/ml
+      lps_01:
+        label: 0.1 ng/ml LPS
+        context:
+          treatment:
+            value: LPS
+            qualifiers:
+              concentration: 0.1 ng/ml
+      lps_1:
+        label: 1 ng/ml LPS
+        context:
+          treatment:
+            value: LPS
+            qualifiers:
+              concentration: 1 ng/ml
+      palm_alb:
+        label: palmitate-albumin complex
+        context:
+          treatment: palmitate-albumin complexes
+    other_conditions:
+    - text: HEK293 cells grown in DMEM 10%FBS
+      anchor:
+        quote: HEK293 cells grown in DMEM 10%FBS were plated in 96-well plates
+        where: Supplemental Experimental Procedures 1
+        file: mmc1.pdf
+  S2:
+    where: Fig. S2
+    title: Fatty acids supplement does not lead to cell toxicity
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id001
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id001
+      insulin_day: *id001
+      confluency: *id001
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: not stated
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point:
+        value: two weeks
+        suspected_error:
+          what: the legend and Supplemental Results say two weeks; the Supplemental Experimental Procedures say two days
+          why: '''The hPSC-CMs were treated with fatty acids for two days and the lipid toxicity was determined'' (Supplemental
+            Experimental Procedures 2)'
+      measurement_medium: not stated
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+      dead_only:
+        label: Dead Only
+        context:
+          treatment: not stated
+        other_conditions:
+        - text: 60ºC water bath for half an hour
+          anchor:
+            quote: The control dead cells were obtained by putting the cells into 60ºC water bath for half an hour
+            where: Supplemental Experimental Procedures 2
+            file: mmc1.pdf
+  S3a:
+    where: Fig. S3A; Results (first section)
+    title: Cellular fatty acids uptake with or without carnitine
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id002
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id002
+      insulin_day: *id002
+      confluency: *id002
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      treatment:
+        value: palmitate-albumin + oleic acid-albumin + linoleic acid-albumin
+        qualifiers:
+          palmitate-albumin: 105 µM
+          oleic acid-albumin: 81 µM
+          linoleic acid-albumin: 45 µM
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: medium
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 days
+      measurement_medium: not stated
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      with_carnitine:
+        label: with carnitine
+        context:
+          supplements:
+            value: carnitine
+            qualifiers:
+              concentration: 250 µM
+      without_carnitine:
+        label: without carnitine
+        context:
+          supplements: none
+  S3b:
+    where: Fig. S3B; Results (first section)
+    title: Intracellular fatty acid content with and without FA treatment
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id003
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id003
+      insulin_day: *id003
+      confluency: *id003
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: 10 cm2 plates
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: homogenized
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium: not stated
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  TXT1:
+    where: Results (first section); Discussion
+    title: Fatty acid uptake in cardiomyocytes from IMR90, RUES2 and WTC-11 lines
+    context:
+      number_of_lines: not stated
+      hipsc_coating: not stated
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 250 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      treatment:
+        value: palmitate-albumin + oleic acid-albumin + linoleic acid-albumin
+        qualifiers:
+          palmitate-albumin: 105 µM
+          oleic acid-albumin: 81 µM
+          linoleic acid-albumin: 45 µM
+      temperature: not stated
+      pacing: not stated
+      preparation: medium
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 days
+      measurement_medium: not stated
+      seeding_density: not stated
+    groups:
+      imr90:
+        label: IMR90 hiPSC-CMs
+        context:
+          cell_line: IMR90
+          differentiation_factors:
+            value: activin A + BMP4 + CHIR 99021 + Xav 939
+            anchor:
+              quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+                followed by the Wnt antagonist Xav 939
+              where: Experimental Procedures, Cell Culture
+            note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+          hipsc_medium:
+            value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+            qualifiers:
+              basic fibroblast growth factor: 5 ng/mL
+          wnt_activation_days: &id004
+            by_reference:
+              citation: hofsteen2016
+              anchor:
+                quote: reported directed differentiation method that involves the serial application of activin A and bone
+                  morphogenetic protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+                where: Experimental Procedures, Cell Culture
+          wnt_inhibition_days: *id004
+          insulin_day: *id004
+          confluency: *id004
+          cm_day_at_formation: 20 days
+          genotype: not stated
+          dissociation_reagent:
+            value: trypsin-EDTA
+            qualifiers:
+              concentration: 0.025%
+      rues2:
+        label: RUES2 hESC-CMs
+        context:
+          cell_line: RUES2
+          differentiation_factors: not stated
+          hipsc_medium: mTeSR
+          wnt_activation_days: not stated
+          wnt_inhibition_days: not stated
+          insulin_day: not stated
+          confluency: not stated
+          cm_day_at_formation: not stated
+          genotype: not stated
+          dissociation_reagent: not stated
+      wtc11:
+        label: WTC-11 hiPSC-CMs
+        context:
+          cell_line: WTC-11
+          differentiation_factors: not stated
+          hipsc_medium: mTeSR
+          wnt_activation_days: not stated
+          wnt_inhibition_days: not stated
+          insulin_day: not stated
+          confluency: not stated
+          cm_day_at_formation: not stated
+          genotype: healthy control line
+          dissociation_reagent: not stated
+    other_conditions:
+    - text: differentiation protocols similar to those for IMR90
+      anchor:
+        quote: differentiation protocols similar to those for IMR90 were used to obtain cardiomyocytes from these two cell
+          lines
+        where: Experimental Procedures, Cell Culture
+  TXT2:
+    where: Results (first section)
+    title: Fatty acid uptake after prolonged feeding
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id005
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id005
+      insulin_day: *id005
+      confluency: *id005
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 250 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      treatment:
+        value: palmitate-albumin + oleic acid-albumin + linoleic acid-albumin
+        qualifiers:
+          palmitate-albumin: 105 µM
+          oleic acid-albumin: 81 µM
+          linoleic acid-albumin: 45 µM
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: medium
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      measurement_medium: not stated
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      feed_2d:
+        label: after 2 days of feeding
+        context:
+          time_point: 2 days
+      feed_2wk:
+        label: after 2 weeks of feeding
+        context:
+          time_point: 2 weeks
+  F1:
+    where: Fig. 1A–1E
+    title: Fatty Acid Treatment Leads to hPSC-CM Morphological and Molecular Changes
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id006
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id006
+      insulin_day: *id006
+      confluency: *id006
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FAs
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  S4a:
+    where: Fig. S4A
+    title: Fatty acids treatment leads to hypertrophy of cardiomyocytes-derived from RUES2 embryonic stem line
+    context:
+      cell_line: RUES2
+      number_of_lines: not stated
+      differentiation_factors: not stated
+      hipsc_medium: mTeSR
+      hipsc_coating: not stated
+      wnt_activation_days: not stated
+      wnt_inhibition_days: not stated
+      insulin_day: not stated
+      confluency: not stated
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: not stated
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: fixed
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent: not stated
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FAs
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+    other_conditions:
+    - text: Methods are similar with the methods with cardiomyocytes-derived from iMR90 cells
+      anchor:
+        quote: Methods are similar with the methods with cardiomyocytes-derived from iMR90 cells
+        where: Supplemental Experimental Procedures 4
+        file: mmc1.pdf
+  F2:
+    where: Fig. 2A–2D
+    title: Fatty Acid-Treated hPSC-CMs Exhibit Improved Calcium Transient Kinetics
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id007
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id007
+      insulin_day: *id007
+      confluency: *id007
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: fibronectin
+      platform: glass slides
+      substrate: glass
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: 37 °C
+      pacing:
+        value: electrical stimulation
+        qualifiers:
+          frequency: 1 Hz
+      preparation: not stated
+      measurement_calcium_mM: 0.6 mM
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium: Tyrode's solution
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  F3:
+    where: Fig. 3A–3C
+    title: Fatty Acid Treatment Significantly Increases hPSC-CM Contractile Force
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id008
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id008
+      insulin_day: *id008
+      confluency: *id008
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating:
+        value: mouse laminin
+        qualifiers:
+          concentration: 50 µg/mL
+      platform: silicone microposts
+      substrate: PDMS
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: 37 °C
+      pacing: not stated
+      preparation: single cardiomyocytes
+      measurement_calcium_mM: not stated
+      mechanical_load:
+        value: not stated
+        qualifiers:
+          post stiffness: 38.4 nN/µm
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: One week after fatty acid treatment
+      measurement_medium:
+        value: HEPES-containing medium
+        qualifiers:
+          HEPES: 15 mM
+      seeding_density: 250,000/cm2
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FAs
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  S4b:
+    where: Fig. S4B
+    title: Fatty acids treatment significantly increases the contractile force of cardiomyocytes-derived from RUES2 embryonic
+      stem line
+    context:
+      cell_line: RUES2
+      number_of_lines: not stated
+      differentiation_factors: not stated
+      hipsc_medium: mTeSR
+      hipsc_coating: not stated
+      wnt_activation_days: not stated
+      wnt_inhibition_days: not stated
+      insulin_day: not stated
+      confluency: not stated
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating:
+        value: mouse laminin
+        qualifiers:
+          concentration: 50 µg/mL
+      platform: silicone microposts
+      substrate: PDMS
+      cell_types: cardiomyocytes
+      cm_day_at_formation: not stated
+      genotype: not stated
+      temperature: 37 °C
+      pacing: not stated
+      preparation: single cardiomyocytes
+      measurement_calcium_mM: not stated
+      mechanical_load:
+        value: not stated
+        qualifiers:
+          post stiffness: 38.4 nN/µm
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: One week after fatty acid treatment
+      measurement_medium:
+        value: HEPES-containing medium
+        qualifiers:
+          HEPES: 15 mM
+      seeding_density: 250,000/cm2
+      dissociation_reagent: not stated
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FAs
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+    other_conditions:
+    - text: Methods are similar with the methods with cardiomyocytes-derived from iMR90 cells
+      anchor:
+        quote: Methods are similar with the methods with cardiomyocytes-derived from iMR90 cells
+        where: Supplemental Experimental Procedures 4
+        file: mmc1.pdf
+  F4:
+    where: Fig. 4A–4C
+    title: Fatty Acid Treatment Improves Cardiomyocyte Action Potential Maximum Upstroke Velocity and Increases Cardiomyocyte
+      Membrane Capacitance
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id009
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id009
+      insulin_day: *id009
+      confluency: *id009
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: fibronectin
+      platform: glass coverslips
+      substrate: glass
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: 36 °C ± 1 °C
+      pacing: spontaneous
+      preparation: not stated
+      measurement_calcium_mM: 1 mM
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium:
+        value: bath solution
+        qualifiers:
+          NaCl: 136 mM
+          KCl: 4 mM
+          MgCl2: 2 mM
+          HEPES: 10 mM
+          glucose: 10 mM
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+    other_conditions: &id011
+    - text: replated at low density
+      anchor:
+        quote: replated at low density onto fibronectin-coated glass coverslips
+        where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+  ST2:
+    where: Table S2
+    title: Electrophysiological parameters for control and FA-treated IMR90-CMs
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id010
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id010
+      insulin_day: *id010
+      confluency: *id010
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: fibronectin
+      platform: glass coverslips
+      substrate: glass
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: 36 °C ± 1 °C
+      pacing: spontaneous
+      preparation: not stated
+      measurement_calcium_mM: 1 mM
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium:
+        value: bath solution
+        qualifiers:
+          NaCl: 136 mM
+          KCl: 4 mM
+          MgCl2: 2 mM
+          HEPES: 10 mM
+          glucose: 10 mM
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA-treated
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+    other_conditions: *id011
+  F5:
+    where: Fig. 5A–5B
+    title: The Effect of Fatty Acids on Mitochondrial Function
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id012
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id012
+      insulin_day: *id012
+      confluency: *id012
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating:
+        value: gelatin
+        qualifiers:
+          concentration: 0.1%
+      platform: Seahorse plates
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: around 20 days
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: not stated
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: 2 weeks
+      measurement_medium:
+        value: unbuffered DMEM
+        qualifiers:
+          glutamine: 2 mM
+      seeding_density: 30,000 per XF96 well
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+    other_conditions:
+    - text: without fatty acids 1 h before the assay and for the duration of the measurement
+      anchor:
+        quote: supplemented with 2 mM glutamine) without fatty acids 1 h before the assay and for the duration of the measurement
+        where: Experimental Procedures, Mitochondria Functional Assay
+    - text: glucose at 25 mM, oligomycin at 2.5 µM, FCCP at 1 µM, rotenone at 2.5 µM, and antimycin A at 2.5 µM
+      anchor:
+        quote: final concentrations of glucose at 25 mM, oligomycin at 2.5 µM, FCCP at 1 µM, rotenone at 2.5 µM, and antimycin
+          A at 2.5 µM
+        where: Experimental Procedures, Mitochondria Functional Assay
+  F6abc:
+    where: Fig. 6A–6C
+    title: Genome-wide Effects of Fatty Acid Treatment Assessed by RNA Sequencing
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id013
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id013
+      insulin_day: *id013
+      confluency: *id013
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: RNA
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: not stated
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  F6d:
+    where: Fig. 6D
+    title: qPCR verified some of the candidate genes in RNA sequencing
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id014
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id014
+      insulin_day: *id014
+      confluency: *id014
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: RNA
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: not stated
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  S5a:
+    where: Fig. S5A
+    title: Representative flow cytometry analysis for a cardiac differentiation run
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id015
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id015
+      insulin_day: *id015
+      confluency: *id015
+      purity_method: flow cytometry
+      purity: not applicable
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      treatment: not applicable
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: not stated
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: not applicable
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      run:
+        label: representative differentiation run
+        context: {}
+  S5b:
+    where: Fig. S5B
+    title: The effect of cardiomyocyte purity on gene expression levels
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id016
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id016
+      insulin_day: *id016
+      confluency: *id016
+      purity_method: flow cytometry
+      purity: over 95%
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: RNA
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: not stated
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment:
+            value: fatty acid-free albumin
+            qualifiers:
+              concentration: 50 µM
+      fa:
+        label: FA
+        context:
+          treatment:
+            value: palmitate-BSA + oleate-BSA + linoleate-BSA
+            qualifiers:
+              palmitate-BSA: 52.5 µM
+              oleate-BSA: 40.5 µM
+              linoleate-BSA: 22.5 µM
+  F7:
+    where: Fig. 7
+    title: Fatty Acid Treatment Activates Multiple Intracellular Signal Pathways
+    context:
+      cell_line: IMR90
+      number_of_lines: not stated
+      differentiation_factors:
+        value: activin A + BMP4 + CHIR 99021 + Xav 939
+        anchor:
+          quote: The cultures were also supplemented with the Wnt agonist CHIR 99021 in the early stages of differentiation
+            followed by the Wnt antagonist Xav 939
+          where: Experimental Procedures, Cell Culture
+        note: activin A and BMP4 are named in the preceding sentence (Hofsteen et al., 2016)
+      hipsc_medium:
+        value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+        qualifiers:
+          basic fibroblast growth factor: 5 ng/mL
+      hipsc_coating: not stated
+      wnt_activation_days: &id017
+        by_reference:
+          citation: hofsteen2016
+          anchor:
+            quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+              protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+            where: Experimental Procedures, Cell Culture
+      wnt_inhibition_days: *id017
+      insulin_day: *id017
+      confluency: *id017
+      purity_method: flow cytometry
+      purity: '>80%'
+      cm_medium:
+        value: RPMI-B27-insulin
+        qualifiers:
+          glucose: 11 mM
+      supplements:
+        value: carnitine
+        qualifiers:
+          concentration: 120 µM
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: 20 days
+      genotype: not stated
+      temperature: not applicable
+      pacing: not applicable
+      preparation: total protein
+      measurement_calcium_mM: not applicable
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      measurement_medium: not applicable
+      seeding_density: not stated
+      dissociation_reagent:
+        value: trypsin-EDTA
+        qualifiers:
+          concentration: 0.025%
+    groups:
+      control:
+        label: CNTL
+        context:
+          treatment: none
+          time_point: not applicable
+      fa_15min:
+        label: 15' FA
+        context:
+          treatment: fatty acid
+          time_point: 15 min
+      fa_30min:
+        label: 30' FA
+        context:
+          treatment: fatty acid
+          time_point: 30 min
+  TXT3:
+    where: Discussion (pilot studies, data not shown)
+    title: Python fatty acids in neonatal rat cardiomyocytes
+    context:
+      cell_line: not applicable
+      number_of_lines: not applicable
+      differentiation_factors: not applicable
+      hipsc_medium: not applicable
+      hipsc_coating: not applicable
+      wnt_activation_days: not applicable
+      wnt_inhibition_days: not applicable
+      insulin_day: not applicable
+      confluency: not applicable
+      purity_method: not stated
+      purity: not stated
+      cm_medium: not stated
+      supplements: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: not applicable
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: not stated
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: neonatal
+      species: rat
+      time_point: not stated
+      measurement_medium: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+    groups:
+      control:
+        label: untreated (implied)
+        context:
+          treatment: not stated
+      python_fa:
+        label: myristate, palmitate and palmitoleate
+        context:
+          treatment: myristate + palmitate + palmitoleate
+  TXT4:
+    where: Discussion
+    title: Python fatty acid cocktail in hPSC-CMs
+    context:
+      cell_line: not stated
+      number_of_lines: not stated
+      differentiation_factors: not stated
+      hipsc_medium: not stated
+      hipsc_coating: not stated
+      wnt_activation_days: not stated
+      wnt_inhibition_days: not stated
+      insulin_day: not stated
+      confluency: not stated
+      purity_method: not stated
+      purity: not stated
+      cm_medium: not stated
+      supplements: not stated
+      replating_coating: not stated
+      platform: not stated
+      substrate: not stated
+      cell_types: cardiomyocytes
+      cm_day_at_formation: not stated
+      genotype: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: not stated
+      measurement_calcium_mM: not stated
+      mechanical_load: not stated
+      transgene: not stated
+      donor_age: not stated
+      species: human
+      time_point: not stated
+      measurement_medium: not stated
+      seeding_density: not stated
+      dissociation_reagent: not stated
+    groups:
+      control:
+        label: untreated (implied)
+        context:
+          treatment: not stated
+      python_fa:
+        label: myristate, palmitate and palmitoleate
+        context:
+          treatment: myristate + palmitate + palmitoleate
+evidence:
+  S1_lps_01:
+    unit: S1
+    measure: relative NF-κB activity
+    finding: 0.1 ng/ml LPS raised NF-κB activity above medium only (asterisk)
+    method: HEK293 TLR4 activation assay; dual luciferase reporter
+    software: not stated
+    definition: ratio of NF-κB-dependent fire-fly luciferase activity to β-Actin promoter-dependent Renilla luciferase activity
+    compares:
+    - lps_01
+    - medium
+    n: &id018
+      printed: The assay was performed three times on three different batches of palmitate-albumin complex
+      counts: assays (batches of palmitate-albumin complex)
+    stats:
+      test: Student's t test (Methods)
+      p: '*P<0.05'
+    anchor: &id019
+      quote: '* P<0.05 vs medium only'
+      where: Fig. S1 legend
+      file: mmc1.pdf
+  S1_lps_1:
+    unit: S1
+    measure: relative NF-κB activity
+    finding: 1 ng/ml LPS raised NF-κB activity above medium only (asterisk)
+    method: HEK293 TLR4 activation assay; dual luciferase reporter
+    software: not stated
+    definition: ratio of NF-κB-dependent fire-fly luciferase activity to β-Actin promoter-dependent Renilla luciferase activity
+    compares:
+    - lps_1
+    - medium
+    n: *id018
+    stats:
+      test: Student's t test (Methods)
+      p: '*P<0.05'
+    anchor: *id019
+  S1_lps_001:
+    unit: S1
+    measure: relative NF-κB activity
+    finding: 0.01 ng/ml LPS bar carries no asterisk
+    method: HEK293 TLR4 activation assay; dual luciferase reporter
+    software: not stated
+    definition: ratio of NF-κB-dependent fire-fly luciferase activity to β-Actin promoter-dependent Renilla luciferase activity
+    compares:
+    - lps_001
+    - medium
+    n: *id018
+    stats:
+      test: Student's t test (Methods)
+      p: not stated
+    note: no mark of significance over this bar; the legend states only the asterisk threshold
+    anchor:
+      quote: S1
+      where: Fig. S1
+      file: mmc1.pdf
+      kind: unit
+  S1_palm:
+    unit: S1
+    measure: relative NF-κB activity
+    finding: no significant endotoxin activity with the palmitate-albumin complexes
+    method: HEK293 TLR4 activation assay; dual luciferase reporter
+    software: not stated
+    definition: ratio of NF-κB-dependent fire-fly luciferase activity to β-Actin promoter-dependent Renilla luciferase activity
+    compares:
+    - palm_alb
+    - medium
+    n: *id018
+    stats:
+      test: Student's t test (Methods)
+      p: not significant
+    stated_direction:
+      direction: none
+      anchor:
+        quote: No significant endotoxin activity was observed in the medium containing palmitate-albumin complexes compared
+          with medium only
+        where: Fig. S1 legend
+        file: mmc1.pdf
+    anchor:
+      quote: No significant endotoxin activity was observed in the medium containing palmitate-albumin complexes compared
+        with medium only
+      where: Fig. S1 legend
+      file: mmc1.pdf
+  S2_death:
+    unit: S2
+    measure: cell death
+    finding: no difference in cell death between control and fatty acid-treated hPSC-CMs
+    method: live/dead fixable dead cell stain kit (Invitrogen), flow cytometry
+    software: not stated
+    compares: &id020
+    - fa
+    - control
+    n: &id021
+      printed: The experiments were performed with cardiomyocytes from three different cardiomyocyte differentiation runs
+      counts: differentiation runs
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor:
+        quote: Live-dead assay showed there was no difference in cell death between control and fatty acids-treated hPSC-CMs
+        where: Fig. S2 legend
+        file: mmc1.pdf
+    anchor:
+      quote: Live-dead assay showed there was no difference in cell death between control and fatty acids-treated hPSC-CMs
+      where: Fig. S2 legend
+      file: mmc1.pdf
+  S2_cellnumber:
+    unit: S2
+    measure: cell number
+    finding: similar cell numbers in fatty acid-treated and untreated groups
+    compares: *id020
+    n: *id021
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor:
+        quote: similar cell numbers were obtained from the fatty acids treated and untreated groups
+        where: Supplemental Results 2
+        file: mmc1.pdf
+    anchor:
+      quote: similar cell numbers were obtained from the fatty acids treated and untreated groups
+      where: Supplemental Results 2
+      file: mmc1.pdf
+  S3a_uptake:
+    unit: S3a
+    measure: fatty acid uptake
+    finding: removing carnitine reduced fatty acid uptake by nearly 50%
+    method: nonesterified fatty acids in the medium before and 48 h after treatment, HR Series NEFA-HR kit (Wako)
+    software: not stated
+    compares:
+    - without_carnitine
+    - with_carnitine
+    n:
+      printed: Experiments were performed with cardiomyocytes from three different differentiation runs
+      counts: differentiation runs
+    values:
+      uptake_without_text:
+        printed: '31'
+        unit: µM
+        kind: mean
+        group: without_carnitine
+        spread: SEM
+        spread_source: methods
+      uptake_without_sem_text:
+        printed: '4'
+        unit: µM
+        kind: sem
+        group: without_carnitine
+        spread: none
+      uptake_with_text:
+        printed: '57'
+        unit: µM
+        kind: mean
+        group: with_carnitine
+        spread: SEM
+        spread_source: methods
+      uptake_with_sem_text:
+        printed: '7'
+        unit: µM
+        kind: sem
+        group: with_carnitine
+        spread: none
+      uptake_without_supptext:
+        printed: '31'
+        unit: µM
+        kind: mean
+        group: without_carnitine
+        spread: SEM
+        spread_source: legend
+      uptake_without_sem_supptext:
+        printed: '4'
+        unit: µM
+        kind: sem
+        group: without_carnitine
+        spread: none
+      uptake_with_supptext:
+        printed: '57'
+        unit: µM
+        kind: mean
+        group: with_carnitine
+        spread: SEM
+        spread_source: legend
+      uptake_with_sem_supptext:
+        printed: '7'
+        unit: µM
+        kind: sem
+        group: with_carnitine
+        spread: none
+      uptake_reduction_text:
+        printed: nearly 50%
+        unit: '%'
+        kind: percent
+        between:
+        - without_carnitine
+        - with_carnitine
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: '* P< 0.05'
+      p_values: []
+    note: uptake is per one million cells ('one million cells take up 57 ± 7 µM'); the supplement's text prints the same values
+      (Supplemental Results 3)
+    anchor:
+      quote: Removing carnitine reduced fatty acid uptake by nearly 50%, 31 ± 4 µM versus 57 ± 7 µM (Figure S3A)
+      where: Results, hPSC-CM Take Up Fatty Acids
+  S3b_content:
+    unit: S3b
+    measure: intracellular fatty acid content
+    finding: intracellular fatty acid content increased by 46% after 2 weeks of fatty acid treatment
+    method: lipids extracted with 2:1 chloroform/methanol; WAKO NEFA-HR assay; normalized to protein concentration
+    software: not stated
+    compares: *id020
+    n:
+      printed: n = 3 biological replicates
+      counts: biological replicates
+    values:
+      content_cntl_text:
+        printed: 6,118
+        unit: nmol NEFA/g protein
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      content_cntl_sem_text:
+        printed: '461'
+        unit: nmol NEFA/g protein
+        kind: sem
+        group: control
+        spread: none
+      content_fa_text:
+        printed: 8,933
+        unit: nmol NEFA/g protein
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      content_fa_sem_text:
+        printed: '488'
+        unit: nmol NEFA/g protein
+        kind: sem
+        group: fa
+        spread: none
+      content_cntl_supptext:
+        printed: '6118'
+        unit: nmol NEFA/g protein
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      content_cntl_sem_supptext:
+        printed: '461'
+        unit: nmol NEFA/g protein
+        kind: sem
+        group: control
+        spread: none
+      content_fa_supptext:
+        printed: '8933'
+        unit: nmol NEFA/g protein
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      content_fa_sem_supptext:
+        printed: '488'
+        unit: nmol NEFA/g protein
+        kind: sem
+        group: fa
+        spread: none
+      content_increase_text:
+        printed: 46%
+        unit: '%'
+        kind: percent
+        between: *id020
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.05
+      p_values:
+      - p: P <0.05
+        anchor:
+          quote: FA content is significantly increased after FA treatment
+          where: Supplemental Results 3
+          file: mmc1.pdf
+      - p: '* P< 0.05'
+        anchor:
+          quote: three different differentiation runs, * P< 0.05 between groups
+          where: Fig. S3 legend
+          file: mmc1.pdf
+    anchor:
+      quote: intracellular fatty acid content was increased by 46% (6,118 ± 461 nmol nonesterified fatty acid [NEFA]/g protein
+        in control versus 8,933 ± 488 nmol NEFA/g protein
+      where: Results, hPSC-CM Take Up Fatty Acids
+  TXT1_imr90:
+    unit: TXT1
+    measure: fatty acid uptake
+    finding: one million IMR90-derived cardiomyocytes take up 57 ± 7 µM of the 231 µM provided in 2 days
+    method: nonesterified fatty acids in the medium before and 48 h after treatment, HR Series NEFA-HR kit (Wako)
+    software: not stated
+    groups:
+    - imr90
+    values:
+      uptake_imr90_text:
+        printed: '57'
+        unit: µM
+        kind: mean
+        group: imr90
+        spread: SEM
+        spread_source: methods
+      uptake_imr90_sem_text:
+        printed: '7'
+        unit: µM
+        kind: sem
+        group: imr90
+        spread: none
+    anchor:
+      quote: We found that one million cells take up 57 ± 7 µM of the provided 231 µM fatty acids after two days of feeding
+      where: Results, hPSC-CM Take Up Fatty Acids
+  TXT1_wtc11:
+    unit: TXT1
+    measure: fatty acid uptake
+    finding: one million WTC-11-derived cardiomyocytes take up 50 ± 7 µM fatty acid in 2 days
+    method: nonesterified fatty acids in the medium before and 48 h after treatment, HR Series NEFA-HR kit (Wako)
+    software: not stated
+    groups:
+    - wtc11
+    values:
+      uptake_wtc11_text:
+        printed: '50'
+        unit: µM
+        kind: mean
+        group: wtc11
+        spread: SEM
+        spread_source: methods
+      uptake_wtc11_sem_text:
+        printed: '7'
+        unit: µM
+        kind: sem
+        group: wtc11
+        spread: none
+    anchor:
+      quote: After 2 days of feeding, one million WTC-11-derived cardiomyocytes take up 50 ± 7 µM fatty acid
+      where: Discussion
+  TXT1_rues2_vs_imr90:
+    unit: TXT1
+    measure: fatty acid uptake
+    finding: similar uptake in RUES2-derived cardiomyocytes
+    method: nonesterified fatty acids in the medium before and 48 h after treatment, HR Series NEFA-HR kit (Wako)
+    software: not stated
+    compares:
+    - rues2
+    - imr90
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor:
+        quote: Similar fatty acid uptake amounts were found with cardiomyocytes derived from RUES2 human embryonic stem cells
+          and WTC hiPSCs
+        where: Results, hPSC-CM Take Up Fatty Acids
+    note: no value printed for RUES2; WTC-11 has its own printed value (TXT1_wtc11)
+    anchor:
+      quote: Similar fatty acid uptake amounts were found with cardiomyocytes derived from RUES2 human embryonic stem cells
+        and WTC hiPSCs
+      where: Results, hPSC-CM Take Up Fatty Acids
+  TXT2_uptake:
+    unit: TXT2
+    measure: fatty acid uptake rate
+    finding: after 2 weeks of feeding the rate of fatty acid uptake was unchanged
+    method: nonesterified fatty acids in the medium before and 48 h after treatment, HR Series NEFA-HR kit (Wako)
+    software: not stated
+    compares:
+    - feed_2wk
+    - feed_2d
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor:
+        quote: after 2 weeks of feeding, the rate of fatty acid uptake was unchanged
+        where: Results, hPSC-CM Take Up Fatty Acids
+    anchor:
+      quote: after 2 weeks of feeding, the rate of fatty acid uptake was unchanged
+      where: Results, hPSC-CM Take Up Fatty Acids
+  F1_area:
+    unit: F1
+    measure: cell area
+    finding: fatty acid treatment for 2 weeks increased cell area by 59%
+    method: α-actinin antibody and phalloidin staining; Zeiss AxioObserver fluorescence imaging
+    software: NIS Elements
+    compares: *id020
+    n: &id022
+      printed: n > 150 from three different cardiomyocyte differentiation runs
+      counts: cells
+    values:
+      area_cntl_text:
+        printed: 1,326
+        unit: µm²
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      area_cntl_sem_text:
+        printed: '63'
+        unit: µm²
+        kind: sem
+        group: control
+        spread: none
+      area_fa_text:
+        printed: 2,104
+        unit: µm²
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      area_fa_sem_text:
+        printed: '105'
+        unit: µm²
+        kind: sem
+        group: fa
+        spread: none
+      area_increase_text:
+        printed: 59%
+        unit: '%'
+        kind: percent
+        between: *id020
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.001
+      p_values:
+      - &id023
+        p: '*p < 0.05'
+        anchor:
+          quote: Data are presented as mean ± SEM. *p < 0.05. See also Figure S4.
+          where: Fig. 1 legend
+    anchor:
+      quote: Fatty acid treatment for 2 weeks increased cell area by 59% (1,326 ± 63 µm2 versus 2,104 ± 105 µm2, p < 0.001)
+      where: Results, Structural Maturation
+  F1_circularity:
+    unit: F1
+    measure: circularity index
+    finding: fatty acid treatment modestly decreased circularity index
+    method: α-actinin antibody and phalloidin staining; Zeiss AxioObserver fluorescence imaging
+    software: NIS Elements
+    compares: *id020
+    n: *id022
+    values:
+      circ_cntl_text:
+        printed: '0.63'
+        unit: dimensionless
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      circ_cntl_sem_text:
+        printed: '0.01'
+        unit: dimensionless
+        kind: sem
+        group: control
+        spread: none
+      circ_fa_text:
+        printed: '0.58'
+        unit: dimensionless
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      circ_fa_sem_text:
+        printed: '0.01'
+        unit: dimensionless
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.001
+      p_values:
+      - *id023
+    anchor:
+      quote: modestly decreased circularity index (0.63 ± 0.01 versus 0.58 ± 0.01, p < 0.001)
+      where: Results, Structural Maturation
+  F1_sarcomere:
+    unit: F1
+    measure: sarcomere length
+    finding: sarcomere length increased from 1.73 to 1.80 µm
+    method: α-actinin antibody and phalloidin staining; Zeiss AxioObserver fluorescence imaging
+    software: NIS Elements
+    definition: myofibrils with at least ten continuous well-recognized α-actinin-positive bands; length divided by the number
+      of sarcomeres
+    compares: *id020
+    n: *id022
+    values:
+      sl_cntl_text:
+        printed: '1.73'
+        unit: µm
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      sl_cntl_sem_text:
+        printed: '0.02'
+        unit: µm
+        kind: sem
+        group: control
+        spread: none
+      sl_fa_text:
+        printed: '1.80'
+        unit: µm
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      sl_fa_sem_text:
+        printed: '0.02'
+        unit: µm
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.005
+      p_values:
+      - *id023
+    anchor:
+      quote: Sarcomere length increased significantly from 1.73 ± 0.02 µm in control hPSC-CMs to 1.80 ± 0.02 µm after fatty
+        acid treatment (p < 0.005)
+      where: Results, Structural Maturation
+  S4a_area:
+    unit: S4a
+    measure: cell area
+    finding: fatty acids induced hypertrophy of RUES2-derived cardiomyocytes
+    method: α-actinin antibody and phalloidin staining; Zeiss AxioObserver fluorescence imaging
+    software: NIS Elements
+    compares: *id020
+    n:
+      printed: n>170 from 3 different cardiomyocyte differentiation runs
+      counts: cells
+    values:
+      area_cntl_supptext:
+        printed: '1071'
+        unit: µm²
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      area_cntl_sem_supptext:
+        printed: '102'
+        unit: µm²
+        kind: sem
+        group: control
+        spread: none
+      area_fa_supptext:
+        printed: '1430'
+        unit: µm²
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      area_fa_sem_supptext:
+        printed: '119'
+        unit: µm²
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: P<0.05
+      p_values:
+      - p: '* P<0.05'
+        anchor:
+          quote: n>170 from 3 different cardiomyocyte differentiation runs. Data are represented as mean ± SEM. * P<0.05.
+          where: Fig. S4 legend
+          file: mmc1.pdf
+    anchor:
+      quote: treatment induced cellular hypertrophy (1071 ± 102 μm 2 for control cells vs. 1430 ± 119 μm 2 after fatty acids
+        treatment, P<0.05, Figure S4A)
+      where: Supplemental Results 4
+      file: mmc1.pdf
+  F2_amplitude:
+    unit: F2
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude higher after fatty acid treatment
+    method: Fura-2 AM ratiometric imaging (F340/F380), Ionoptix Stepper Switch system, photomultiplier tube, 1 Hz stimulation
+    software: not stated
+    definition: &id024
+      citation: korte2011
+      anchor:
+        quote: Intracellular calcium content was measured using the ratiometric indicator dye Fura-2 AM as described previously
+          (Korte et al., 2011)
+        where: Experimental Procedures, Calcium Imaging
+    compares: *id020
+    n: &id025
+      printed: n = 10–16 cells from three separate cardiomyocyte differentiation runs
+      counts: cells
+    values:
+      cntl_text:
+        printed: '0.16'
+        unit: F/F0
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      cntl_sem_text:
+        printed: '0.01'
+        unit: F/F0
+        kind: sem
+        group: control
+        spread: none
+      fa_text:
+        printed: '0.24'
+        unit: F/F0
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      fa_sem_text:
+        printed: '0.02'
+        unit: F/F0
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.005
+      p_values:
+      - &id026
+        p: '*p < 0.05'
+        anchor:
+          quote: F/F0 is the ratio of F340/F380. *p < 0.05 versus control hPSC-CMs.
+          where: Fig. 2 legend
+    anchor:
+      quote: significant increase in calcium peak transient amplitude (0.16 ± 0.01 versus 0.24 ± 0.02 F/F0, p < 0.005, Figure
+        2B)
+      where: Results, Calcium Transient Kinetics
+  F2_upstroke:
+    unit: F2
+    measure: calcium transient maximal upstroke velocity
+    finding: Vmax upstroke faster after fatty acid treatment
+    method: Fura-2 AM ratiometric imaging (F340/F380), Ionoptix Stepper Switch system, photomultiplier tube, 1 Hz stimulation
+    software: not stated
+    definition: *id024
+    compares: *id020
+    n: *id025
+    values:
+      cntl_text:
+        printed: '2.91'
+        unit: F/F0/s
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      cntl_sem_text:
+        printed: '0.39'
+        unit: F/F0/s
+        kind: sem
+        group: control
+        spread: none
+      fa_text:
+        printed: '5.21'
+        unit: F/F0/s
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      fa_sem_text:
+        printed: '0.65'
+        unit: F/F0/s
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.005
+      p_values:
+      - *id026
+    anchor:
+      quote: Vmax upstroke was faster (2.91 ± 0.39 versus 5.21 ± 0.65 F/F0/s, p < 0.005, Figure 2C)
+      where: Results, Calcium Transient Kinetics
+  F2_decay:
+    unit: F2
+    measure: calcium transient decay velocity
+    finding: calcium transient decay velocity higher after fatty acid treatment
+    method: Fura-2 AM ratiometric imaging (F340/F380), Ionoptix Stepper Switch system, photomultiplier tube, 1 Hz stimulation
+    software: not stated
+    definition: *id024
+    compares: *id020
+    n: *id025
+    values:
+      cntl_text:
+        printed: '0.80'
+        unit: F/F0/s
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      cntl_sem_text:
+        printed: '0.05'
+        unit: F/F0/s
+        kind: sem
+        group: control
+        spread: none
+      fa_text:
+        printed: '1.13'
+        unit: F/F0/s
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      fa_sem_text:
+        printed: '0.09'
+        unit: F/F0/s
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.005
+      p_values:
+      - *id026
+    anchor:
+      quote: the calcium transient decay velocity (0.80 ± 0.05 versus 1.13 ± 0.09 F/F0/s, p < 0.005, Figure 2D)
+      where: Results, Calcium Transient Kinetics
+  F3_force:
+    unit: F3
+    measure: twitch force
+    finding: fatty acid-treated cells generated higher twitch force
+    method: micropost deflection by high-speed video microscopy (100–150 frames/s), phase contrast, Nikon Ti-E
+    software: custom-written MATLAB code
+    definition: deflection of the posts multiplied by the bending stiffness of the microposts (F = kδ), summed over the posts
+      beneath the cell
+    compares: *id020
+    n: &id027
+      printed: n = 91 for control hPSC-CMs and n = 91 for fatty acid-treated hPSC-CMs from four different cardiomyocyte differentiation
+        runs
+      counts: cells
+      per_group:
+        control: '91'
+        fa: '91'
+    values:
+      force_cntl_text:
+        printed: '10.1'
+        unit: nN/cell
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      force_cntl_sem_text:
+        printed: '0.5'
+        unit: nN/cell
+        kind: sem
+        group: control
+        spread: none
+      force_fa_text:
+        printed: '13.4'
+        unit: nN/cell
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      force_fa_sem_text:
+        printed: '0.8'
+        unit: nN/cell
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.0001
+      p_values:
+      - &id028
+        p: '*p < 0.05'
+        anchor:
+          quote: Data are presented as mean ± SEM. *p < 0.05 versus control hPSC-CMs. See also Figure S4.
+          where: Fig. 3 legend
+    anchor:
+      quote: Control cells exhibited a twitch force of 10.1 ± 0.5 nN/cell. Fatty acid-treated cells showed a significantly
+        higher twitch force of 13.4 ± 0.8 nN/cell (p < 0.0001)
+      where: Results, Contractile Force
+  F3_area:
+    unit: F3
+    measure: cell area
+    finding: cardiomyocyte area on microposts increased after fatty acid treatment
+    method: phase-contrast imaging on microposts
+    software: not stated
+    compares: *id020
+    n: *id027
+    values:
+      area_cntl_text:
+        printed: '202.6'
+        unit: µm²
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      area_cntl_sem_text:
+        printed: '4.1'
+        unit: µm²
+        kind: sem
+        group: control
+        spread: none
+      area_fa_text:
+        printed: '238.8'
+        unit: µm²
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      area_fa_sem_text:
+        printed: '6.6'
+        unit: µm²
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p < 0.0001
+      p_values:
+      - *id028
+    anchor:
+      quote: (202.6 ± 4.1 µm2 for control cells versus 238.8 ± 6.6 µm2 after treatment, p < 0.0001)
+      where: Results, Contractile Force
+  S4b_force:
+    unit: S4b
+    measure: twitch force
+    finding: fatty acids increased the twitch force of RUES2-derived cardiomyocytes
+    method: micropost deflection by high-speed video microscopy (100–150 frames/s), phase contrast, Nikon Ti-E
+    software: custom-written MATLAB code
+    definition: deflection of the posts multiplied by the bending stiffness of the microposts (F = kδ), summed over the posts
+      beneath the cell
+    compares: *id020
+    n:
+      printed: n = 26 for control hPSC-CMs and n = 28 for fatty acid-treated hPSC-CMs from 3 different cardiomyocyte differentiation
+        runs
+      counts: cells
+      per_group:
+        control: '26'
+        fa: '28'
+    values:
+      force_cntl_supptext:
+        printed: '15.31'
+        unit: nN/cell
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      force_cntl_sem_supptext:
+        printed: '1.29'
+        unit: nN/cell
+        kind: sem
+        group: control
+        spread: none
+      force_fa_supptext:
+        printed: '22.33'
+        unit: nN/cell
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      force_fa_sem_supptext:
+        printed: '2.33'
+        unit: nN/cell
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: P<0.05
+      p_values:
+      - p: '* P<0.05 vs. control hPSC-CMs'
+        anchor:
+          quote: 28 for fatty acid-treated hPSC-CMs from 3 different cardiomyocyte differentiation runs. Data are represented
+            as mean ± SEM. * P<0.05 vs. control hPSC-CMs.
+          where: Fig. S4 legend
+          file: mmc1.pdf
+    anchor:
+      quote: (15.31 ± 1.29 nN/cell for control cells, n=26, vs. 22.33 ± 2.33 nN/cell after fatty acids treatment, n=28, P<0.05,
+        Figure S4B)
+      where: Supplemental Results 4
+      file: mmc1.pdf
+  F4_dvdt:
+    unit: F4
+    measure: action potential maximum upstroke velocity
+    finding: dV/dtmax increased by 57% after fatty acid treatment
+    method: whole-cell current clamp, Axopatch 200B, spontaneous action potentials
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n:
+      printed: n = 24 for control group and n = 25 for fatty acid-treated group
+      counts: cells
+      per_group:
+        control: '24'
+        fa: '25'
+    values:
+      dvdt_cntl_text:
+        printed: '23.5'
+        unit: V/s
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      dvdt_cntl_sem_text:
+        printed: '1.8'
+        unit: V/s
+        kind: sem
+        group: control
+        spread: none
+      dvdt_fa_text:
+        printed: '37.0'
+        unit: V/s
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      dvdt_fa_sem_text:
+        printed: '5.7'
+        unit: V/s
+        kind: sem
+        group: fa
+        spread: none
+      dvdt_cntl_table:
+        printed: '23.55'
+        unit: V/sec
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      dvdt_cntl_sem_table:
+        printed: '1.80'
+        unit: V/sec
+        kind: sem
+        group: control
+        spread: none
+      dvdt_fa_table:
+        printed: '37.01'
+        unit: V/sec
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      dvdt_fa_sem_table:
+        printed: '5.74'
+        unit: V/sec
+        kind: sem
+        group: fa
+        spread: none
+      dvdt_increase_text:
+        printed: 57%
+        unit: '%'
+        kind: percent
+        between: *id020
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p = 0.03
+      p_values:
+      - &id029
+        p: '*p < 0.05'
+        anchor:
+          quote: n = 24 for control group and n = 25 for fatty acid-treated group. *p < 0.05 versus control hPSC-CMs.
+          where: Fig. 4 legend
+      - &id030
+        p: '*P<0.05'
+        anchor:
+          quote: '*P<0.05 between control and FA-treated IMR90-CMs'
+          where: Table S2 footnote
+          file: mmc1.pdf
+    note: table values (Table S2) recorded here with suffix _table; the table's rows without a figure panel are items of unit
+      ST2
+    anchor:
+      quote: Fatty acids increase action potential maximum upstroke velocity, dV/dtmax, by 57% (23.5 ± 1.8 V/s in control
+        [n = 24] versus 37.0 ± 5.7 V/s after treatment [n = 25],
+      where: Results, Action Potential Upstroke Velocity
+  F4_capacitance:
+    unit: F4
+    measure: membrane capacitance
+    finding: membrane capacitance increased by 24% after fatty acid treatment
+    method: ±10 mV pulse from a holding potential, whole-cell recording
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n:
+      printed: n = 14 (control), n = 15 (fatty acid-treated)
+      counts: cells
+      per_group:
+        control: '14'
+        fa: '15'
+    values:
+      cm_cntl_text:
+        printed: '59.6'
+        unit: pF
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: legend
+      cm_cntl_sem_text:
+        printed: '4.7'
+        unit: pF
+        kind: sem
+        group: control
+        spread: none
+      cm_fa_text:
+        printed: '73.7'
+        unit: pF
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: legend
+      cm_fa_sem_text:
+        printed: '4.6'
+        unit: pF
+        kind: sem
+        group: fa
+        spread: none
+      cm_cntl_table:
+        printed: '59.56'
+        unit: pF
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      cm_cntl_sem_table:
+        printed: '4.69'
+        unit: pF
+        kind: sem
+        group: control
+        spread: none
+      cm_fa_table:
+        printed: '73.73'
+        unit: pF
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      cm_fa_sem_table:
+        printed: '4.60'
+        unit: pF
+        kind: sem
+        group: fa
+        spread: none
+      cm_increase_text:
+        printed: 24%
+        unit: '%'
+        kind: percent
+        between: *id020
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: p = 0.04
+      p_values:
+      - *id029
+      - *id030
+    suspected_error:
+      what: the Fig. 4 legend gives n = 24 (control) and n = 25 (FA) for the whole figure, including the capacitance panel
+        (C)
+      why: the text and Table S2 give n = 14 and n = 15 for membrane capacitance
+    anchor:
+      quote: cell surface area is significantly increased (59.6 ± 4.7 pF in control [n = 14] versus 73.7 ± 4.6 pF [n = 15]
+        after fatty acid treatment, p = 0.04
+      where: Results, Membrane Capacitance
+  ST2_rate:
+    unit: ST2
+    measure: spontaneous beating rate
+    finding: 'spontaneous beating rate: no asterisk in Table S2; the text says fatty acid treatment does not affect it'
+    method: whole-cell current clamp, Axopatch 200B, spontaneous action potentials
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n: &id031
+      printed: N 24 / 25 (cell number, from 3 different directed differentiation runs)
+      counts: cells
+      per_group:
+        control: '24'
+        fa: '25'
+    values:
+      cntl_table:
+        printed: '124.45'
+        unit: bpm
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      cntl_sem_table:
+        printed: '16.55'
+        unit: bpm
+        kind: sem
+        group: control
+        spread: none
+      fa_table:
+        printed: '115.24'
+        unit: bpm
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      fa_sem_table:
+        printed: '13.20'
+        unit: bpm
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: not stated
+    note: 'no asterisk on this row; Results: ''Fatty acid treatment does not affect'' it (Table S2)'
+    anchor:
+      quote: 124.45 ± 16.55
+      where: Table S2, row Beating rate(bpm)
+      file: mmc1.pdf
+      kind: table cell
+  ST2_mdp:
+    unit: ST2
+    measure: maximum diastolic potential
+    finding: 'maximum diastolic potential: no asterisk in Table S2; the text says fatty acid treatment does not affect it'
+    method: whole-cell current clamp, Axopatch 200B, spontaneous action potentials
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n: *id031
+    values:
+      cntl_table:
+        printed: '-58.28'
+        unit: mV
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      cntl_sem_table:
+        printed: '1.51'
+        unit: mV
+        kind: sem
+        group: control
+        spread: none
+      fa_table:
+        printed: '-58.84'
+        unit: mV
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      fa_sem_table:
+        printed: '1.99'
+        unit: mV
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: not stated
+    note: 'no asterisk on this row; Results: ''Fatty acid treatment does not affect'' it (Table S2)'
+    anchor:
+      quote: -58.28 ± 1.51
+      where: Table S2, row MDP(mV)
+      file: mmc1.pdf
+      kind: table cell
+  ST2_apa:
+    unit: ST2
+    measure: action potential amplitude
+    finding: 'action potential amplitude: no asterisk in Table S2; the text says fatty acid treatment does not affect it'
+    method: whole-cell current clamp, Axopatch 200B, spontaneous action potentials
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n: *id031
+    values:
+      cntl_table:
+        printed: '88.23'
+        unit: mV
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      cntl_sem_table:
+        printed: '3.06'
+        unit: mV
+        kind: sem
+        group: control
+        spread: none
+      fa_table:
+        printed: '90.69'
+        unit: mV
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      fa_sem_table:
+        printed: '3.75'
+        unit: mV
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: not stated
+    note: 'no asterisk on this row; Results: ''Fatty acid treatment does not affect'' it (Table S2)'
+    anchor:
+      quote: 88.23 ± 3.06
+      where: Table S2, row APA(mV)
+      file: mmc1.pdf
+      kind: table cell
+  ST2_apd50:
+    unit: ST2
+    measure: action potential duration at 50% repolarization
+    finding: 'action potential duration at 50% repolarization: no asterisk in Table S2; the text says fatty acid treatment
+      does not affect it'
+    method: whole-cell current clamp, Axopatch 200B, spontaneous action potentials
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n: *id031
+    values:
+      cntl_table:
+        printed: '255.61'
+        unit: ms
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      cntl_sem_table:
+        printed: '41.49'
+        unit: ms
+        kind: sem
+        group: control
+        spread: none
+      fa_table:
+        printed: '281.86'
+        unit: ms
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      fa_sem_table:
+        printed: '35.21'
+        unit: ms
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: not stated
+    note: 'no asterisk on this row; Results: ''Fatty acid treatment does not affect'' it (Table S2)'
+    anchor:
+      quote: 255.61 ± 41.49
+      where: Table S2, row APD50 (ms)
+      file: mmc1.pdf
+      kind: table cell
+  ST2_apd90:
+    unit: ST2
+    measure: action potential duration at 90% repolarization
+    finding: 'action potential duration at 90% repolarization: no asterisk in Table S2; the text says fatty acid treatment
+      does not affect it'
+    method: whole-cell current clamp, Axopatch 200B, spontaneous action potentials
+    software: Clampex 10.3; Clampfit 10.3
+    compares: *id020
+    n: *id031
+    values:
+      cntl_table:
+        printed: '316.33'
+        unit: ms
+        kind: mean
+        group: control
+        spread: SEM
+        spread_source: methods
+      cntl_sem_table:
+        printed: '46.71'
+        unit: ms
+        kind: sem
+        group: control
+        spread: none
+      fa_table:
+        printed: '343.33'
+        unit: ms
+        kind: mean
+        group: fa
+        spread: SEM
+        spread_source: methods
+      fa_sem_table:
+        printed: '35.52'
+        unit: ms
+        kind: sem
+        group: fa
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: not stated
+    note: 'no asterisk on this row; Results: ''Fatty acid treatment does not affect'' it (Table S2)'
+    anchor:
+      quote: 316.33 ± 46.71
+      where: Table S2, row APD90 (ms)
+      file: mmc1.pdf
+      kind: table cell
+  F5_respiration:
+    unit: F5
+    measure: maximal mitochondrial respiratory capacity
+    finding: maximal respiratory capacity after FCCP enhanced by ~38% after fatty acid treatment
+    method: Seahorse XF96 extracellular flux analyzer; OCR normalized to cell number (Hoechst 33342); fatty acid-treated/untreated
+      ratio per run
+    software: not stated
+    definition: difference between FCCP and baseline OCR values (respiratory reserve capacity)
+    compares: *id020
+    n:
+      printed: n = 6
+      counts: differentiation runs
+    values:
+      maxresp_increase_text:
+        printed: ~38%
+        unit: '%'
+        kind: percent
+        between: *id020
+        spread: none
+    stats:
+      test: Student's t test (Methods)
+      p: '*p < 0.05'
+      p_values: []
+    suspected_error:
+      what: 'the measure is named respiratory reserve capacity (title, Methods: FCCP minus baseline) and maximal respiratory
+        capacity (text, y axis)'
+      why: reserve capacity and maximal capacity are different quantities; which one Fig. 5B plots is unclear
+    anchor:
+      quote: The maximal mitochondrial respiratory capacity after the FCCP treatment was enhanced by ~38% after fatty acid
+        treatment.
+      where: Results, Mitochondrial Respiratory Reserve Capacity
+  F6_degs:
+    unit: F6abc
+    measure: differentially expressed genes
+    finding: 61 differentially expressed genes after fatty acid treatment
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    values:
+      degs_text:
+        printed: '61'
+        unit: genes
+        kind: count
+        between: *id020
+        spread: none
+    stats:
+      test: DESeq
+      p: not stated
+    anchor:
+      quote: We found 61 differentially expressed genes, as shown in the volcano plot in Figure 6A.
+      where: Results, β-Oxidation genes
+  F6_go_up:
+    unit: F6abc
+    measure: GO enrichment of upregulated genes
+    finding: upregulated genes enriched for fatty acid and lipid oxidation
+    method: topGO GO enrichment
+    software: topGO
+    compares: *id020
+    stats:
+      test: Fisher's exact test
+      p: not stated
+    anchor:
+      quote: The upregulated genes are enriched for fatty acid and lipid oxidation (Figure 6B)
+      where: Results, β-Oxidation genes
+  F6_go_down:
+    unit: F6abc
+    measure: GO enrichment of downregulated genes
+    finding: downregulated genes enriched in lipid biosynthesis
+    method: topGO GO enrichment
+    software: topGO
+    compares: *id020
+    stats:
+      test: Fisher's exact test
+      p: not stated
+    anchor:
+      quote: the downregulated genes are enriched in lipid biosynthesis (Figure 6C)
+      where: Results, β-Oxidation genes
+  F6_SCD:
+    unit: F6abc
+    measure: SCD mRNA
+    finding: SCD downregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: stearoyl-coenzyme A (CoA) desaturase (SCD) and fatty acid desaturase 2 (FADS2) are downregulated after fatty
+          acid treatment
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: stearoyl-coenzyme A (CoA) desaturase (SCD) and fatty acid desaturase 2 (FADS2) are downregulated after fatty
+        acid treatment
+      where: Results, β-Oxidation genes
+  F6_FADS2:
+    unit: F6abc
+    measure: FADS2 mRNA
+    finding: FADS2 downregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: stearoyl-coenzyme A (CoA) desaturase (SCD) and fatty acid desaturase 2 (FADS2) are downregulated after fatty
+          acid treatment
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: stearoyl-coenzyme A (CoA) desaturase (SCD) and fatty acid desaturase 2 (FADS2) are downregulated after fatty
+        acid treatment
+      where: Results, β-Oxidation genes
+  F6_SREBF1:
+    unit: F6abc
+    measure: SREBF1 mRNA
+    finding: SREBF1 downregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: significant, threshold not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: Its expression is also significantly suppressed
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: Its expression is also significantly suppressed
+      where: Results, β-Oxidation genes
+  F6_CD36:
+    unit: F6abc
+    measure: CD36 mRNA
+    finding: CD36 upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: significant, threshold not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: the genes involved in fatty acid oxidation are significantly upregulated, such as CD36
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: the genes involved in fatty acid oxidation are significantly upregulated, such as CD36
+      where: Results, β-Oxidation genes
+  F6_CPT1A:
+    unit: F6abc
+    measure: CPT-1A mRNA
+    finding: CPT-1A upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Also upregulated is carnitine palmitoyltransferase 1A (CPT-1A)
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: Also upregulated is carnitine palmitoyltransferase 1A (CPT-1A)
+      where: Results, β-Oxidation genes
+    suspected_error:
+      what: Results name CPT-1A as upregulated in RNA-seq; the Discussion names CPT-1B ('the mRNA level of CD36, CPT-1B, and
+        PDK4')
+      why: Table S1 also glosses CPT1B as 'Carnitine palmitoyltransferase 1A'; the isoform is unclear
+  F6_SLC25A20:
+    unit: F6abc
+    measure: SLC25A20 mRNA
+    finding: SLC25A20 upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: sion of SLC25A20, another cytosolic-mitochondrial fatty acid transporter, is also enhanced
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: sion of SLC25A20, another cytosolic-mitochondrial fatty acid transporter, is also enhanced
+      where: Results, β-Oxidation genes
+  F6_ACADVL:
+    unit: F6abc
+    measure: ACADVL mRNA
+    finding: ACADVL upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: significant, threshold not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: and acetyl-CoA acyltransferase 2 [ACAA2]) are also significantly upregulated after fatty acid feeding
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: and acetyl-CoA acyltransferase 2 [ACAA2]) are also significantly upregulated after fatty acid feeding
+      where: Results, β-Oxidation genes
+  F6_ECH1:
+    unit: F6abc
+    measure: ECH1 mRNA
+    finding: ECH1 upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: significant, threshold not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: and acetyl-CoA acyltransferase 2 [ACAA2]) are also significantly upregulated after fatty acid feeding
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: and acetyl-CoA acyltransferase 2 [ACAA2]) are also significantly upregulated after fatty acid feeding
+      where: Results, β-Oxidation genes
+  F6_ACAA2:
+    unit: F6abc
+    measure: ACAA2 mRNA
+    finding: ACAA2 upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: significant, threshold not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: and acetyl-CoA acyltransferase 2 [ACAA2]) are also significantly upregulated after fatty acid feeding
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: and acetyl-CoA acyltransferase 2 [ACAA2]) are also significantly upregulated after fatty acid feeding
+      where: Results, β-Oxidation genes
+  F6_PDK4:
+    unit: F6abc
+    measure: PDK4 mRNA
+    finding: PDK4 upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: The expression of pyruvate dehydrogenase kinase 4 (PDK4), which inhibits glucose and lactate metabolism, was
+          upregulated
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: The expression of pyruvate dehydrogenase kinase 4 (PDK4), which inhibits glucose and lactate metabolism, was
+        upregulated
+      where: Results, β-Oxidation genes
+  F6_ETFDH:
+    unit: F6abc
+    measure: ETFDH mRNA
+    finding: ETFDH upregulated after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: has higher expression level in fatty acid-treated samples
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: has higher expression level in fatty acid-treated samples
+      where: Results, β-Oxidation genes
+  F6_myofibril:
+    unit: F6abc
+    measure: myofibril gene mRNA
+    finding: myofibril gene not increased after fatty acid treatment (RNA-seq)
+    method: RNA-seq (TruSeq, Illumina); TopHat 2.0.13, htseq-count, DESeq
+    software: TopHat 2.0.13; htseq-count; DESeq; topGO
+    compares: *id020
+    stats:
+      test: DESeq
+      p: not stated
+    stated_direction:
+      direction: none
+      anchor:
+        quote: this was not accompanied by an increase in mRNA transcripts for myofibril genes
+        where: Discussion
+    anchor:
+      quote: this was not accompanied by an increase in mRNA transcripts for myofibril genes
+      where: Discussion
+  F6d_CD36:
+    unit: F6d
+    measure: CD36 mRNA
+    finding: CD36 transcript level relative to control differs after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    stats:
+      test: Student's t test (Methods)
+      p: '*p < 0.05'
+    anchor:
+      quote: (D) qPCR verified some of the candidate genes in RNA sequencing that involved fatty acid transportation
+      where: Fig. 6 legend
+  S5b_CD36:
+    unit: S5b
+    measure: CD36 mRNA
+    finding: CD36 transcript level in high-purity cardiomyocytes after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    n:
+      printed: The experiments were performed three times with cardiomyocytes from three different differentiation runs
+      counts: differentiation runs
+    stats:
+      test: Student's t test (Methods)
+      p: '* P<0.05'
+    anchor:
+      quote: B shows Q-PCR assay after treating the high purity cardiomyocytes with fatty acids
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  F6d_CPT1B:
+    unit: F6d
+    measure: CPT1B mRNA
+    finding: CPT1B transcript level relative to control differs after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    stats:
+      test: Student's t test (Methods)
+      p: '*p < 0.05'
+    anchor:
+      quote: (D) qPCR verified some of the candidate genes in RNA sequencing that involved fatty acid transportation
+      where: Fig. 6 legend
+  S5b_CPT1B:
+    unit: S5b
+    measure: CPT1B mRNA
+    finding: CPT1B transcript level in high-purity cardiomyocytes after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    n:
+      printed: The experiments were performed three times with cardiomyocytes from three different differentiation runs
+      counts: differentiation runs
+    stats:
+      test: Student's t test (Methods)
+      p: '* P<0.05'
+    anchor:
+      quote: B shows Q-PCR assay after treating the high purity cardiomyocytes with fatty acids
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  F6d_PDK4:
+    unit: F6d
+    measure: PDK4 mRNA
+    finding: PDK4 transcript level relative to control differs after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    stats:
+      test: Student's t test (Methods)
+      p: '*p < 0.05'
+    anchor:
+      quote: (D) qPCR verified some of the candidate genes in RNA sequencing that involved fatty acid transportation
+      where: Fig. 6 legend
+  S5b_PDK4:
+    unit: S5b
+    measure: PDK4 mRNA
+    finding: PDK4 transcript level in high-purity cardiomyocytes after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    n:
+      printed: The experiments were performed three times with cardiomyocytes from three different differentiation runs
+      counts: differentiation runs
+    stats:
+      test: Student's t test (Methods)
+      p: '* P<0.05'
+    anchor:
+      quote: B shows Q-PCR assay after treating the high purity cardiomyocytes with fatty acids
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  F6d_GluT4:
+    unit: F6d
+    measure: GluT4 mRNA
+    finding: GluT4 transcript level relative to control differs after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    stats:
+      test: Student's t test (Methods)
+      p: '*p < 0.05'
+    stated_direction:
+      direction: down
+      anchor:
+        quote: accompanied by a decrease in transcripts for glucose metabolism, such as glucose transporter 4 (SLC2A4) and
+          hexokinase 2 (HK2; Figure 6D)
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: (D) qPCR verified some of the candidate genes in RNA sequencing that involved fatty acid transportation
+      where: Fig. 6 legend
+  S5b_GluT4:
+    unit: S5b
+    measure: GluT4 mRNA
+    finding: GluT4 transcript level in high-purity cardiomyocytes after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    n:
+      printed: The experiments were performed three times with cardiomyocytes from three different differentiation runs
+      counts: differentiation runs
+    stats:
+      test: Student's t test (Methods)
+      p: '* P<0.05'
+    anchor:
+      quote: B shows Q-PCR assay after treating the high purity cardiomyocytes with fatty acids
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  F6d_HK2:
+    unit: F6d
+    measure: HK2 mRNA
+    finding: HK2 transcript level relative to control differs after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    stats:
+      test: Student's t test (Methods)
+      p: '*p < 0.05'
+    stated_direction:
+      direction: down
+      anchor:
+        quote: accompanied by a decrease in transcripts for glucose metabolism, such as glucose transporter 4 (SLC2A4) and
+          hexokinase 2 (HK2; Figure 6D)
+        where: Results, β-Oxidation genes
+    anchor:
+      quote: (D) qPCR verified some of the candidate genes in RNA sequencing that involved fatty acid transportation
+      where: Fig. 6 legend
+  S5b_HK2:
+    unit: S5b
+    measure: HK2 mRNA
+    finding: HK2 transcript level in high-purity cardiomyocytes after fatty acid treatment (asterisk)
+    method: qRT-PCR, SYBR Green, ABI 7900HT; normalized to HPRT
+    software: not stated
+    compares: *id020
+    n:
+      printed: The experiments were performed three times with cardiomyocytes from three different differentiation runs
+      counts: differentiation runs
+    stats:
+      test: Student's t test (Methods)
+      p: '* P<0.05'
+    anchor:
+      quote: B shows Q-PCR assay after treating the high purity cardiomyocytes with fatty acids
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  S5a_purity:
+    unit: S5a
+    measure: cardiac troponin T-positive cells
+    finding: a representative run had 98% cardiomyocyte purity
+    method: flow cytometry, cTnT PE against isotype control
+    software: not stated
+    groups:
+    - run
+    values:
+      purity_legend:
+        printed: 98%
+        unit: '%'
+        kind: percent
+        group: run
+        spread: none
+    anchor:
+      quote: a cardiac differentiation run which has a cardiomyocyte purity of 98%
+      where: Fig. S5 legend
+      file: mmc1.pdf
+  F7_AMPK_15:
+    unit: F7
+    measure: phospho-AMPK (Thr172)
+    finding: phospho-AMPK (Thr172) up 15 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_15min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: after fatty acid treatment, we found that AMPK Thr172 phosphorylation is upregulated markedly
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: after fatty acid treatment, we found that AMPK Thr172 phosphorylation is upregulated markedly
+      where: Results, Intracellular Signaling Pathways
+  F7_AMPK_30:
+    unit: F7
+    measure: phospho-AMPK (Thr172)
+    finding: phospho-AMPK (Thr172) up 30 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_30min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: after fatty acid treatment, we found that AMPK Thr172 phosphorylation is upregulated markedly
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: after fatty acid treatment, we found that AMPK Thr172 phosphorylation is upregulated markedly
+      where: Results, Intracellular Signaling Pathways
+  F7_ACC_15:
+    unit: F7
+    measure: phospho-ACC
+    finding: phospho-ACC up 15 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_15min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: After fatty acid treatment, the phos- pho-ACC level also was upregulated
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: After fatty acid treatment, the phos- pho-ACC level also was upregulated
+      where: Results, Intracellular Signaling Pathways
+  F7_ACC_30:
+    unit: F7
+    measure: phospho-ACC
+    finding: phospho-ACC up 30 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_30min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: After fatty acid treatment, the phos- pho-ACC level also was upregulated
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: After fatty acid treatment, the phos- pho-ACC level also was upregulated
+      where: Results, Intracellular Signaling Pathways
+  F7_Akt_15:
+    unit: F7
+    measure: phospho-Akt (Ser473)
+    finding: phospho-Akt (Ser473) down 15 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_15min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: was decreased by fatty acid treatment
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: was decreased by fatty acid treatment
+      where: Results, Intracellular Signaling Pathways
+  F7_Akt_30:
+    unit: F7
+    measure: phospho-Akt (Ser473)
+    finding: phospho-Akt (Ser473) down 30 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_30min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: was decreased by fatty acid treatment
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: was decreased by fatty acid treatment
+      where: Results, Intracellular Signaling Pathways
+  F7_ERK_15:
+    unit: F7
+    measure: phospho-ERK
+    finding: phospho-ERK up 15 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_15min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+      where: Results, Intracellular Signaling Pathways
+  F7_ERK_30:
+    unit: F7
+    measure: phospho-ERK
+    finding: phospho-ERK up 30 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_30min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+      where: Results, Intracellular Signaling Pathways
+  F7_p38_15:
+    unit: F7
+    measure: phospho-p38 MAPK
+    finding: phospho-p38 MAPK up 15 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_15min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+      where: Results, Intracellular Signaling Pathways
+  F7_p38_30:
+    unit: F7
+    measure: phospho-p38 MAPK
+    finding: phospho-p38 MAPK up 30 min after fatty acid treatment (blot, no statistics)
+    method: western blot, equal protein loading checked by Ponceau S; GAPDH shown
+    software: not stated
+    compares:
+    - fa_30min
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+        where: Results, Intracellular Signaling Pathways
+    anchor:
+      quote: found that phospho-ERK and phospho-p38 MAPK levels were upregulated by acute FFA treatment
+      where: Results, Intracellular Signaling Pathways
+  TXT3_MYH6:
+    unit: TXT3
+    measure: MYH6 mRNA
+    finding: python fatty acids increased MYH6 in neonatal rat cardiomyocytes (data not shown)
+    compares:
+    - python_fa
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: including increased MYH6, and decreased MYH7 and NPPA (data not shown)
+        where: Discussion
+    anchor:
+      quote: including increased MYH6, and decreased MYH7 and NPPA (data not shown)
+      where: Discussion
+  TXT3_MYH7:
+    unit: TXT3
+    measure: MYH7 mRNA
+    finding: python fatty acids decreased MYH7 in neonatal rat cardiomyocytes (data not shown)
+    compares:
+    - python_fa
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: including increased MYH6, and decreased MYH7 and NPPA (data not shown)
+        where: Discussion
+    anchor:
+      quote: including increased MYH6, and decreased MYH7 and NPPA (data not shown)
+      where: Discussion
+  TXT3_NPPA:
+    unit: TXT3
+    measure: NPPA mRNA
+    finding: python fatty acids decreased NPPA in neonatal rat cardiomyocytes (data not shown)
+    compares:
+    - python_fa
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    stated_direction:
+      direction: down
+      anchor:
+        quote: including increased MYH6, and decreased MYH7 and NPPA (data not shown)
+        where: Discussion
+    anchor:
+      quote: including increased MYH6, and decreased MYH7 and NPPA (data not shown)
+      where: Discussion
+  TXT4_genes:
+    unit: TXT4
+    measure: MYH6, MYH7 and NPPA mRNA
+    finding: the python fatty acid cocktail did not produce the same gene-expression changes in hPSC-CMs
+    compares:
+    - python_fa
+    - control
+    stats:
+      test: not stated
+      p: not stated
+    note: no direction stated per gene; no data shown
+    anchor:
+      quote: treating the hPSC-CMs with this fatty acid cocktail does not lead to the same gene-expression changes
+      where: Discussion
+claims:
+  c_abs_hypertrophy:
+    kind: stated
+    quote: Fatty acid treatment induces cardiomyocyte hypertrophy
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: induces
+    rests_on:
+    - F1_area
+    - F3_area
+    - S4a_area
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: 'replication: tests on cells, not differentiation runs'
+  c_abs_force:
+    kind: stated
+    quote: significantly increases cardiomyocyte force production
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F3_force
+    - S4b_force
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_calcium:
+    kind: stated
+    quote: The improvement in force generation is accompanied by enhanced calcium transient peak height and kinetics
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_ap:
+    kind: stated
+    quote: by increased action potential upstroke velocity and membrane capacitance
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F4_dvdt
+    - F4_capacitance
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_mito:
+    kind: stated
+    quote: Fatty acids also enhance mitochondrial respiratory reserve capacity
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F5_respiration
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: 'comparison overstated: the printed result is maximal respiratory capacity; what Fig. 5B plots is unclear'
+  c_abs_rnaseq_up:
+    kind: stated
+    quote: RNA sequencing showed that fatty acid treatment upregulates genes involved in fatty acid b-oxidation
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F6_CD36
+    - F6_CPT1A
+    - F6_SLC25A20
+    - F6_ACADVL
+    - F6_ECH1
+    - F6_ACAA2
+    - F6_PDK4
+    - F6_ETFDH
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: 'support: most genes have no printed P; n of RNA-seq not stated'
+  c_abs_rnaseq_down:
+    kind: stated
+    quote: and downregulates genes in lipid synthesis
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F6_SCD
+    - F6_FADS2
+    - F6_SREBF1
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  c_abs_kinases:
+    kind: stated
+    quote: Signal pathway analyses reveal that fatty acid treatment results in phosphorylation and activation of multiple
+      intracellular kinases
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: reveal ... activation
+    rests_on:
+    - F7_AMPK_15
+    - F7_AMPK_30
+    - F7_ACC_15
+    - F7_ACC_30
+    - F7_Akt_15
+    - F7_Akt_30
+    - F7_ERK_15
+    - F7_ERK_30
+    - F7_p38_15
+    - F7_p38_30
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: single blots without statistics or n; activation inferred from phosphorylation; Akt phosphorylation decreased
+  c_abs_thus_hyp:
+    kind: stated
+    quote: Thus, fatty acids increase human cardiomyocyte hypertrophy, force generation, calcium dynamics, action potential
+      up- stroke velocity, and oxidative capacity
+    where: Summary
+    scope: human cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F3_area
+    - S4a_area
+    asserts_direction: up
+    restates: c_abs_hypertrophy
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_thus_force:
+    kind: stated
+    quote: Thus, fatty acids increase human cardiomyocyte hypertrophy, force generation, calcium dynamics, action potential
+      up- stroke velocity, and oxidative capacity
+    where: Summary
+    scope: human cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F3_force
+    - S4b_force
+    asserts_direction: up
+    restates: c_abs_force
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_thus_ca:
+    kind: stated
+    quote: Thus, fatty acids increase human cardiomyocyte hypertrophy, force generation, calcium dynamics, action potential
+      up- stroke velocity, and oxidative capacity
+    where: Summary
+    scope: human cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    asserts_direction: up
+    restates: c_abs_calcium
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_thus_ap:
+    kind: stated
+    quote: Thus, fatty acids increase human cardiomyocyte hypertrophy, force generation, calcium dynamics, action potential
+      up- stroke velocity, and oxidative capacity
+    where: Summary
+    scope: human cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F4_dvdt
+    asserts_direction: up
+    restates: c_abs_ap
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_abs_thus_ox:
+    kind: stated
+    quote: Thus, fatty acids increase human cardiomyocyte hypertrophy, force generation, calcium dynamics, action potential
+      up- stroke velocity, and oxidative capacity
+    where: Summary
+    scope: human cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F5_respiration
+    asserts_direction: up
+    restates: c_abs_mito
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  c_abs_facilitate:
+    kind: stated
+    quote: This enhanced maturation should facilitate hPSC-CM usage for cell therapy, disease modeling, and drug/toxicity
+      screens
+    where: Summary
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: cannot judge
+      scope: cannot judge
+      replication: cannot judge
+      strength: cannot judge
+      presence: cannot judge
+    note: a prospect; nothing in the source tests it
+  c_uptake_carnitine_title:
+    kind: stated
+    quote: hPSC-CM Take Up Fatty Acids in a Carnitine-Dependent Manner
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S3a_uptake
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: condition without carnitine against reference with carnitine
+  c_uptake_capacity:
+    kind: stated
+    quote: indicating a substan- tial capacity for metabolism
+    where: Results, hPSC-CM Take Up Fatty Acids
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - TXT1_imr90
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: uptake from the medium is measured, not metabolism
+  c_uptake_general:
+    kind: stated
+    quote: suggesting that the capacity for fatty acid metabolism is a gen- eral property of hPSC-CMs
+    where: Results, hPSC-CM Take Up Fatty Acids
+    scope: hPSC-CMs (three lines)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - TXT1_imr90
+    - TXT1_wtc11
+    - TXT1_rues2_vs_imr90
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: three lines; RUES2 value not shown; uptake, not metabolism
+  c_carnitine_vital:
+    kind: stated
+    quote: indicating this amino acid is vital to fatty acid metabolism in hPSC-CMs
+    where: Results, hPSC-CM Take Up Fatty Acids
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: vital
+    rests_on:
+    - S3a_uptake
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: uptake fell by about half, not abolished; uptake not metabolism
+  c_content:
+    kind: stated
+    quote: intracellular fatty acid content was increased by 46%
+    where: Results, hPSC-CM Take Up Fatty Acids
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S3b_content
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  c_struct_title:
+    kind: stated
+    quote: Fatty Acid Supplementation Enhances Structural Maturation
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F1_circularity
+    - F1_sarcomere
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: direction mixed across items (circularity down); judged as maturation
+  c_struct_phenotype:
+    kind: stated
+    quote: This corre- sponds to a more mature cardiomyocyte phenotype with bigger cells and anisotropy
+    where: Results, Structural Maturation
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F1_circularity
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_rues2_general:
+    kind: stated
+    quote: indicating that this is a general prop- erty of hPSC-CMs
+    where: Results, Structural Maturation
+    scope: hPSC-CMs
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S4a_area
+    - F1_area
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: two lines tested for cell size
+  c_ca_title:
+    kind: stated
+    quote: Fatty Acid Supplementation Enhances Calcium Transient Kinetics
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_ca_fig_title:
+    kind: stated
+    quote: Fatty Acid-Treated hPSC-CMs Exhibit Improved Calcium Transient Ki- netics
+    where: Fig. 2 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    asserts_direction: up
+    restates: c_ca_title
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_force_title:
+    kind: stated
+    quote: Fatty Acids Improve Contractile Force
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F3_force
+    - S4b_force
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_force_fig_title:
+    kind: stated
+    quote: Fatty Acid Treatment Significantly Increases hPSC-CM Contractile Force
+    where: Fig. 3 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F3_force
+    asserts_direction: up
+    restates: c_force_title
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_post_area:
+    kind: stated
+    quote: cardiomyocyte sizes were significantly increased after fatty acid treatment on the microposts
+    where: Results, Contractile Force
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F3_area
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_rues2_force:
+    kind: stated
+    quote: The con- tractile force assay was performed in cardiomyocytes derived from RUES2 embryonic stem cells, and similar
+      re- sults were acquired
+    where: Results, Contractile Force
+    scope: RUES2-derived cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S4b_force
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_ap_title:
+    kind: stated
+    quote: Fatty Acids Improve Action Potential Upstroke Velocity and Increase Membrane Capacitance
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F4_dvdt
+    - F4_capacitance
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_ap_fig_title:
+    kind: stated
+    quote: Fatty Acid Treatment Improves Cardiomyocyte Action Potential Maximum Upstroke Velocity and Increases Car- diomyocyte
+      Membrane Capacitance
+    where: Fig. 4 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F4_dvdt
+    - F4_capacitance
+    asserts_direction: up
+    restates: c_ap_title
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_cm_area:
+    kind: stated
+    quote: indicating that cell surface area is significantly increased
+    where: Results, Membrane Capacitance
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F4_capacitance
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_ap_unaffected:
+    kind: stated
+    quote: Fatty acid treatment does not affect spontaneous beating rate, maximal diastolic potential, action potential amplitude
+    where: Results, Membrane Capacitance
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - ST2_rate
+    - ST2_mdp
+    - ST2_apa
+    - ST2_apd50
+    - ST2_apd90
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: no P printed for these rows; absence of an asterisk only
+  c_mito:
+    kind: stated
+    quote: The maximal mitochondrial respi- ratory capacity after the FCCP treatment was enhanced by ~38% after fatty acid
+      treatment
+    where: Results, Mitochondrial Respiratory Reserve Capacity
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F5_respiration
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  c_rnaseq_title:
+    kind: stated
+    quote: Fatty Acids Activate Genes Involved in b-Oxidation and Suppress Genes Involved in Lipid Synthesis
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F6_CD36
+    - F6_CPT1A
+    - F6_SLC25A20
+    - F6_ACADVL
+    - F6_ECH1
+    - F6_ACAA2
+    - F6_PDK4
+    - F6_ETFDH
+    - F6_SCD
+    - F6_FADS2
+    - F6_SREBF1
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: direction mixed across items by design (up and down sets)
+  c_denovo:
+    kind: stated
+    quote: suggesting that cells are shutting down de novo synthesis when external fatty acid is abundant
+    where: Results, β-Oxidation genes
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F6_SREBF1
+    - F6_SCD
+    - F6_FADS2
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: mRNA of lipogenic genes; synthesis itself not measured
+  c_glucose_genes:
+    kind: stated
+    quote: The increase in transcripts for fatty acid metabolism was accompanied by a decrease in transcripts for glucose
+      meta- bolism
+    where: Results, β-Oxidation genes
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F6d_GluT4
+    - F6d_HK2
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: qPCR n not stated
+  c_purity:
+    kind: stated
+    quote: indicating that these gene- expression changes reflected cardiomyocytes and not the nonmyocytes
+    where: Results, β-Oxidation genes
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S5b_CD36
+    - S5b_CPT1B
+    - S5b_PDK4
+    - S5b_GluT4
+    - S5b_HK2
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: high-purity runs reduce, not exclude, a non-myocyte contribution
+  c_signal_title:
+    kind: stated
+    quote: Fatty Acids Activate Multiple Intracellular Signaling Pathways
+    where: Results, section title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F7_AMPK_15
+    - F7_AMPK_30
+    - F7_ACC_15
+    - F7_ACC_30
+    - F7_Akt_15
+    - F7_Akt_30
+    - F7_ERK_15
+    - F7_ERK_30
+    - F7_p38_15
+    - F7_p38_30
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  c_signal_fig_title:
+    kind: stated
+    quote: Fatty Acid Treatment Activates Multiple Intracellular Signal Pathways
+    where: Fig. 7 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F7_AMPK_15
+    - F7_AMPK_30
+    - F7_ACC_15
+    - F7_ACC_30
+    - F7_Akt_15
+    - F7_Akt_30
+    - F7_ERK_15
+    - F7_ERK_30
+    - F7_p38_15
+    - F7_p38_30
+    restates: c_signal_title
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  c_ampk:
+    kind: stated
+    quote: we found that AMPK Thr172 phosphorylation is upregulated markedly
+    where: Results, Intracellular Signaling Pathways
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F7_AMPK_15
+    - F7_AMPK_30
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: one blot, no quantification or statistics
+  c_fig1_title:
+    kind: stated
+    quote: Fatty Acid Treatment Leads to hPSC-CM Morphological and Molecular Changes
+    where: Fig. 1 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F1_circularity
+    - F1_sarcomere
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: does not follow
+      presence: follows
+    note: 'presence: Fig. 1 shows no molecular measure'
+  c_endotoxin:
+    kind: stated
+    quote: House-made palmitate-albumin complex is endotoxin-free
+    where: Fig. S1 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S1_palm
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: no significant NF-κB activity is not proof of absence; P for this pair not printed
+  c_toxicity:
+    kind: stated
+    quote: Fatty acids supplement does not lead to cell toxicity
+    where: Fig. S2 title
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S2_death
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: one representative histogram shown; no statistic; time point inconsistent (two days or two weeks)
+  c_no_cytotox:
+    kind: stated
+    quote: Since no lipid cytotoxicity was observed in this study
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S2_death
+    asserts_direction: none
+    restates: c_toxicity
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  c_myofibril:
+    kind: stated
+    quote: fatty acid treatment clearly promoted hyper- trophic growth and increased myofibril content (Figure 1)
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: clearly
+    rests_on:
+    - F1_area
+    - F1_sarcomere
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: does not follow
+      presence: does not follow
+    note: myofibril content was not measured; Fig. 1 shows cell area, circularity, sarcomere length
+  c_no_myofibril_mrna:
+    kind: stated
+    quote: this was not accompanied by an in- crease in mRNA transcripts for myofibril genes
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F6_myofibril
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: cannot judge
+    note: no gene list or values shown
+  c_ca_underlie:
+    kind: stated
+    quote: demonstrating that enhanced cal- cium dynamics likely underlie at least part of this boost in contractility (Figure
+      4)
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: demonstrating ... underlie
+    rests_on:
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    - F3_force
+    - S4b_force
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: overstated
+      strength: overstated
+      presence: follows
+    note: calcium and force measured in separate cells and platforms; no test links them; Fig. 4 shows action potentials
+  c_ca_underlie2:
+    kind: stated
+    quote: whereby we identified that increased calcium dynamics underlie increases in contractility
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    - F3_force
+    - S4b_force
+    restates: c_ca_underlie
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: overstated
+      strength: overstated
+      presence: follows
+  c_erk_ligands:
+    kind: stated
+    quote: fatty acids also lead to ERK and p38-MAPK phosphorylation
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F7_ERK_15
+    - F7_ERK_30
+    - F7_p38_15
+    - F7_p38_30
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  c_three_lines:
+    kind: stated
+    quote: we observed similar maturation effects in cardiomyo- cytes derived from three different hPSC lines
+    where: Discussion
+    scope: three hPSC lines
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F3_area
+    - S4a_area
+    - F3_force
+    - S4b_force
+    - TXT1_wtc11
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: overstated
+      strength: overstated
+      presence: follows
+    note: WTC-11 was tested for uptake only, not for any maturation measure
+  c_ips_es:
+    kind: stated
+    quote: Thus, fatty acids regulate cardiac maturation in both human iPSC- and em- bryonic stem cell-derived cardiomyocytes
+    where: Discussion
+    scope: iPSC- and ESC-derived cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F3_area
+    - S4a_area
+    - F3_force
+    - S4b_force
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: overstated
+      presence: follows
+  c_carnitine_need:
+    kind: stated
+    quote: demonstrated the need for carnitine to promote maximal cellular fatty acid uptake
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S3a_uptake
+    asserts_direction: down
+    restates: c_uptake_carnitine_title
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  c_content2:
+    kind: stated
+    quote: showed increased fatty acid content in hPSC-CMs
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - S3b_content
+    asserts_direction: up
+    restates: c_content
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  c_driver:
+    kind: stated
+    quote: these studies provide strong evidence that the metabolic switch from glucose to fatty acids is a driver of hPSC-CM
+      maturation
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: strong evidence ... driver
+    rests_on:
+    - F1_area
+    - F3_area
+    - S4a_area
+    - F3_force
+    - S4b_force
+    - F2_amplitude
+    - F2_upstroke
+    - F2_decay
+    - F4_dvdt
+    - F4_capacitance
+    - F5_respiration
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: overstated
+      replication: overstated
+      strength: overstated
+      presence: follows
+    note: glucose stayed at 11 mM in both groups; no switch away from glucose was imposed or measured; substrate use not measured
+  c_specificity:
+    kind: stated
+    quote: The specificity of the fatty acids suggests a role beyond metabolic flux in mediating hyper- trophic growth
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - TXT4_genes
+    - F1_area
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: does not follow
+    note: the python cocktail was tested on gene expression, not hypertrophy, and no data are shown
+  c_pilot_rat:
+    kind: stated
+    quote: In pilot studies, we verified that these fatty acids caused the expected changes in gene expression in neonatal
+      rat cardiomyo- cytes
+    where: Discussion
+    scope: neonatal rat cardiomyocytes
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - TXT3_MYH6
+    - TXT3_MYH7
+    - TXT3_NPPA
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: does not follow
+    note: data not shown
+  c_pilot_human:
+    kind: stated
+    quote: treating the hPSC-CMs with this fatty acid cocktail does not lead to the same gene-expression changes
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - TXT4_genes
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: does not follow
+    note: data not shown
+  c_pao_hypertrophy:
+    kind: stated
+    quote: found that palmitate, oleate, and linoleate could induce hPSC-CM hypertrophy
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on:
+    - F1_area
+    - F3_area
+    - S4a_area
+    asserts_direction: up
+    restates: c_abs_hypertrophy
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  c_still_immature:
+    kind: attributed
+    quote: these cells are still immature compared with adult cardiomyocytes (Yang et al., 2014a)
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - yang2014a
+    judgement: null
+  c_unique:
+    kind: literature
+    quote: Our current study reinforces these findings and is unique in that we used a developmentally related, albumin-bound,
+      fatty acids cocktail
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    judgement: null
+  a_makinde:
+    kind: attributed
+    quote: whereas in human infants the serum fatty acid concentration is 300 µM (Makinde et al., 1998)
+    where: Introduction
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - makinde1998
+    judgement: null
+  a_brewer:
+    kind: attributed
+    quote: there is <10 µM total lipids (which includes 3.5 µM oleic acid, 3.5 µM linolenic acid, and 0.2 µM lipoic acid [Brewer
+      and Cotman, 1989])
+    where: Introduction
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - brewer1989
+    judgement: null
+  a_karimata:
+    kind: attributed
+    quote: cultured fetal and neonatal rat cardiomyocytes contain lower fatty acid con- tents (saturated, monounsaturated,
+      and polyunsaturated) than native myocardium
+    where: Introduction
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - karimata2013
+    judgement: null
+  a_riquelme:
+    kind: attributed
+    quote: Riquelme et al. (2011) showed that fatty acids stimulate the postprandial growth of the python heart
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - riquelme2011
+    judgement: null
+  a_miller:
+    kind: attributed
+    quote: treating neonatal rat cardiomyo- cytes with lipotoxic levels of palmitate (0.5 mM) for 18 h increased phosphorylation
+      of ERK and p38
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - miller2005
+    judgement: null
+  a_guarner:
+    kind: attributed
+    quote: low doses of fatty acids (sodium palmitate at 0.12 mM) increased ventricular developed pressure
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - guarner2002
+    judgement: null
+  a_mills:
+    kind: attributed
+    quote: The screen revealed that a switch to fatty acid metabolism is a central driver for cardiac matura- tion
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - mills2017
+    judgement: null
+  a_correia:
+    kind: literature
+    quote: These authors did not indicate that their fatty acids were loaded onto albumin, and this may explain why lipotoxic-
+      ity was observed in their experiments
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - correia2017
+    judgement: null
+  a_hu:
+    kind: attributed
+    quote: found no functional benefits when culturing cells in the medium containing fatty acids in the presence of high
+      glucose for 1 week
+    where: Discussion
+    scope: hPSC-CMs (IMR90)
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - hu2018
+    judgement: null
+citations:
+  hofsteen2016:
+    label: Hofsteen et al., 2016
+    text: Hofsteen P et al. Quantitative proteomics identify DAB2 as a cardiac developmental regulator. PNAS 113, 1002–1007
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: reported directed differentiation method that involves the serial application of activin A and bone morphogenetic
+        protein 4 (BMP4) under serum-free, monolayer culture conditions (Hofsteen et al., 2016)
+      where: Experimental Procedures, Cell Culture
+  makinde1998:
+    label: Makinde et al., 1998
+    text: Makinde AO, Kantor PF, Lopaschuk GD. Maturation of fatty acid and carbohydrate metabolism in the newborn heart.
+      Mol Cell Biochem 188, 49–56
+    year: '1998'
+    purpose:
+    - borrows_value
+    - attributes_finding
+    anchor:
+      quote: The total concentration of fatty acids in human newborn infants was estimated at 300 µM (Makinde et al., 1998).
+      where: Results, hPSC-CM Take Up Fatty Acids
+  hardell1980:
+    label: Hardell and Walldius, 1980
+    text: Hardell LI, Walldius G. Fatty acid composition of human serum lipids at birth. Ups J Med Sci 85, 45–58
+    year: '1980'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: We therefore designed a cocktail based on breastfed human infant serum (Hardell and Walldius, 1980)
+      where: Discussion
+  gibson1981:
+    label: Gibson and Kneebone, 1981
+    text: Gibson RA, Kneebone GM. Fatty acid composition of human colostrum and mature breast milk. Am J Clin Nutr 34, 252–257
+    year: '1981'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: and breast milk (Gibson and Kneebone, 1981)
+      where: Discussion
+  brewer1989:
+    label: Brewer and Cotman, 1989
+    text: Brewer GJ, Cotman CW. Survival and growth of hippocampal neurons in defined medium at low density. Brain Res 494,
+      65–74
+    year: '1989'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: there is <10 µM total lipids (which includes 3.5 µM oleic acid, 3.5 µM linolenic acid, and 0.2 µM lipoic acid
+        [Brewer and Cotman, 1989])
+      where: Introduction
+  bakrania2016:
+    label: Bakrania et al., 2016
+    text: Bakrania B, Granger JP, Harmancey R. Methods for the determination of rates of glucose and fatty acid oxidation
+      in the isolated working rat heart. J Vis Exp 115
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Krebs-Henseleit buffer (KHB) with modifications as described previously (Bakrania et al., 2016)
+      where: Experimental Procedures, Making Palmitate-Albumin Complexes
+    doi: 10.3791/54497
+  kanno2004:
+    label: Kanno et al., 2004
+    text: Kanno S et al. Nitric oxide facilitates cardiomyogenesis in mouse embryonic stem cells. PNAS 101, 12277–12281
+    year: '2004'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: was determined using the HR Series NEFA-HR (Kanno et al., 2004) kit from Wako Life Sciences
+      where: Experimental Procedures, Fatty Acid Concentration Measurements
+  yu2007:
+    label: Yu et al., 2007
+    text: Yu J et al. Induced pluripotent stem cell lines derived from human somatic cells. Science 318, 1917–1920
+    year: '2007'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: originally derived from lung fibroblasts (Yu et al., 2007)
+      where: Experimental Procedures, Cell Culture
+  miyaoka2014:
+    label: Miyaoka et al., 2014
+    text: Miyaoka Y et al. Isolation of single-base genome-edited human iPS cells without antibiotic selection. Nat Methods
+      11, 291–293
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: hiPS cell line, WTC-11 (Miyaoka et al., 2014)
+      where: Experimental Procedures, Cell Culture
+  tan2003:
+    label: Tan et al., 2003
+    text: 'Tan JL et al. Cells lying on a bed of microneedles: an approach to isolate mechanical force. PNAS 100, 1484–1489'
+    year: '2003'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: from a silicon wafer with patterned SU8 fea- tures as previously described (Tan et al., 2003)
+      where: Experimental Procedures, Contractile Force Measurement
+  rodriguez2014:
+    label: Rodriguez et al., 2014
+    text: Rodriguez ML et al. Measuring the contractile forces of human induced pluripotent stem cell-derived cardiomyocytes
+      with arrays of microposts. J Biomech Eng 136, 051005
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: using high-speed video microscopy as previously described (Rodriguez et al., 2014)
+      where: Experimental Procedures, Contractile Force Measurement
+  sniadecki2007:
+    label: Sniadecki and Chen, 2007
+    text: Sniadecki NJ, Chen CS. Microfabricated silicone elastomeric post arrays for measuring traction forces of adherent
+      cells. Methods Cell Biol
+    year: '2007'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: blocked with 0.2% Pluronic F-127 (in PBS) (Sniadecki and Chen, 2007)
+      where: Experimental Procedures, Contractile Force Measurement
+  korte2011:
+    label: Korte et al., 2011
+    text: Korte FS et al. Upregulation of cardiomyocyte ribonucleotide reductase increases intracellular 2 deoxy-ATP, contractility,
+      and relaxation. J Mol Cell Cardiol 51, 894–901
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Intracellular calcium content was measured using the ratiometric indicator dye Fura-2 AM as described previously
+        (Korte et al., 2011)
+      where: Experimental Procedures, Calcium Imaging
+  yang2014b:
+    label: Yang et al., 2014b
+    text: Yang X et al. Tri-iodo-l-thyronine promotes the maturation of human cardiomyocytes-derived from induced pluripotent
+      stem cells. J Mol Cell Cardiol 72, 296–304
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: The Seahorse XF 96 extracellular flux analyzer was used to characterize mitochondrial function as previously
+        reported (Yang et al., 2014b)
+      where: Results, Mitochondrial Respiratory Reserve Capacity
+  trapnell2009:
+    label: Trapnell et al., 2009
+    text: 'Trapnell C, Pachter L, Salzberg SL. TopHat: discovering splice junctions with RNA-Seq. Bioinformatics 25, 1105–1111'
+    year: '2009'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: aligned to Ensembl GRCh37 using TopHat (Trapnell et al., 2009) (version 2.0.13)
+      where: Experimental Procedures, mRNA-Sequencing Analysis
+  anders2015:
+    label: Anders et al., 2015
+    text: Anders S, Pyl PT, Huber W. HTSeq—a Python framework to work with high-throughput sequencing data. Bioinformatics
+      31, 166–169
+    year: '2015'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: quantified using htseq-count (Anders et al., 2015)
+      where: Experimental Procedures, mRNA-Sequencing Analysis
+  anders2010:
+    label: Anders and Huber, 2010
+    text: Anders S, Huber W. Differential expression analysis for sequence count data. Genome Biol 11, R106
+    year: '2010'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: analysis was performed using DESeq (Anders and Huber, 2010)
+      where: Experimental Procedures, mRNA-Sequencing Analysis
+  alexa2006:
+    label: Alexa et al., 2006
+    text: Alexa A, Rahnenfuhrer J, Lengauer T. Improved scoring of functional groups from gene expression data by decorrelating
+      GO graph structure. Bioinformatics 22, 1600–1607
+    year: '2006'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: topGO R package (Alexa et al., 2006)
+      where: Experimental Procedures, mRNA-Sequencing Analysis
+  coats2011:
+    label: Coats et al., 2011
+    text: Coats SR et al. The lipid A phosphate position determines differential host Toll-like receptor 4 responses. Infect
+      Immun 79, 203–210
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Receptor (TLR4) activation assays(Coats et al., 2011)
+      where: Supplemental Experimental Procedures 1
+      file: mmc1.pdf
+  wolf2011:
+    label: Wolf et al., 2011
+    text: Wolf A et al. Hexokinase 2 is a key mediator of aerobic glycolysis and promotes tumor growth in human glioblastoma
+      multiforme. J Exp Med 208, 313–326
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: HK2(Wolf et
+      where: Table S1
+      file: mmc1.pdf
+  yang2014a:
+    label: Yang et al., 2014a
+    text: 'Yang X, Pabon L, Murry CE. Engineering adolescence: maturation of human pluripotent stem cell-derived cardiomyocytes.
+      Circ Res 114, 511–523'
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: these cells are still immature compared with adult cardiomyocytes (Yang et al., 2014a)
+      where: Discussion
+  karimata2013:
+    label: Karimata et al., 2013
+    text: Karimata T et al. Fatty acid composition in fetal, neonatal, and cultured cardiomyocytes in rats. In Vitro Cell
+      Dev Biol Anim 49, 798–804
+    year: '2013'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: than native myocardium at comparable developmental stages (Karimata et al., 2013)
+      where: Introduction
+  riquelme2011:
+    label: Riquelme et al., 2011
+    text: Riquelme CA et al. Fatty acids identified in the Burmese python promote beneficial cardiac growth. Science 334,
+      528–531
+    year: '2011'
+    purpose:
+    - attributes_finding
+    - borrows_method
+    anchor:
+      quote: Riquelme et al. (2011) showed that fatty acids stimulate the postprandial growth of the python heart
+      where: Discussion
+  miller2005:
+    label: Miller et al., 2005
+    text: Miller TA et al. Oleate prevents palmitate-induced cytotoxic stress in cardiac myocytes. BBRC 336, 309–315
+    year: '2005'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: A previous report (Miller et al., 2005) indicated that treating neonatal rat cardiomyo- cytes with lipotoxic
+        levels of palmitate
+      where: Discussion
+  guarner2002:
+    label: Guarner et al., 2002
+    text: Guarner V, Contreras K, Carbo R. Effect of glucose and fatty acid availability on neonatal and adult heart contractility.
+      Biol Neonate 82, 39–45
+    year: '2002'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: from 0.3 to 1.5 mM) decreased pressure development (Guarner et al., 2002)
+      where: Discussion
+  mills2017:
+    label: Mills et al., 2017
+    text: Mills RJ et al. Functional screening in human cardiac organoids reveals a metabolic mechanism for cardiomyocyte
+      cell cycle arrest. PNAS 114, E8372–E8381
+    year: '2017'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Mills et al. (2017) used engineered heart tissues in a 96-well device
+      where: Discussion
+  correia2017:
+    label: Correia et al., 2017
+    text: Correia C et al. Distinct carbon sources affect structural and functional maturation of cardiomyocytes derived from
+      human pluripotent stem cells. Sci Rep 7, 8590
+    year: '2017'
+    purpose:
+    - attributes_finding
+    - contrasts
+    anchor:
+      quote: Correia et al. (2017) reported that shifting medium from glucose-containing to glucose-free
+      where: Discussion
+  hu2018:
+    label: Hu et al., 2018
+    text: Hu D et al. Metabolic maturation of human pluripotent stem cell-derived cardiomyocytes by inhibition of HIF1alpha
+      and LDHA. Circ Res 123, 1066–1079
+    year: '2018'
+    purpose:
+    - attributes_finding
+    - contrasts
+    anchor:
+      quote: Most recently, Hu et al. (2018) cultured cells in medium containing 100 µM oleate and 50 µM palmitate
+      where: Discussion
+cross_references:
+- cited: Figure 4A
+  shows: representative action potential traces; the dV/dtmax statistics are in Fig. 4B
+  anchor:
+    quote: 37.0 ± 5.7 V/s after treatment [n = 25], p = 0.03, Figure 4A)
+    where: Results, Action Potential Upstroke Velocity
+- cited: Figure 4B
+  shows: action potential maximum upstroke velocity; membrane capacitance is in Fig. 4C
+  anchor:
+    quote: 73.7 ± 4.6 pF [n = 15] after fatty acid treatment, p = 0.04, Figure 4B)
+    where: Results, Membrane Capacitance
+- cited: Figure 4
+  shows: action potentials and membrane capacitance; calcium dynamics are in Fig. 2
+  anchor:
+    quote: likely underlie at least part of this boost in contractility (Figure 4)
+    where: Discussion
+- cited: session 2.2, 2.4, 2.5, and 2.8 in the main text
+  shows: the main text has no numbered sections
+  anchor:
+    quote: session 2.2, 2.4, 2.5, and 2.8 in the main text for details
+    where: Supplemental Experimental Procedures 4
+    file: mmc1.pdf
+- cited: Results 2.1
+  shows: the main text's Results have no numbered sections
+  anchor:
+    quote: House-made palmitate-albumin complex is endotoxin-free, related to Results 2.1
+    where: Fig. S1 legend
+    file: mmc1.pdf
+context_anchors:
+- field: cell_line
+  value: IMR90
+  anchor:
+    quote: Undifferentiated human IMR90-induced pluripotent stem cells
+    where: Experimental Procedures, Cell Culture
+- field: cell_line
+  value: RUES2
+  anchor:
+    quote: an embryonic stem cell line, RUES2 (Rockefel- ler University, New York, NY)
+    where: Experimental Procedures, Cell Culture
+- field: cell_line
+  value: WTC-11
+  anchor:
+    quote: another hiPS cell line, WTC-11 (Miyaoka et al., 2014)
+    where: Experimental Procedures, Cell Culture
+- field: cell_line
+  value: HEK 293
+  anchor:
+    quote: HEK 293 cells were treated with medium only
+    where: Fig. S1 legend
+    file: mmc1.pdf
+- field: species
+  value: human
+  anchor:
+    quote: Undifferentiated human IMR90-induced pluripotent stem cells
+    where: Experimental Procedures, Cell Culture
+- field: species
+  value: rat
+  anchor:
+    quote: the expected changes in gene expression in neonatal rat cardiomyocytes
+    where: Discussion
+- field: hipsc_medium
+  value: mouse embryonic fibroblast-conditioned medium + basic fibroblast growth factor
+  anchor:
+    quote: expanded using mouse embryonic fibroblast-conditioned medium supple- mented with 5 ng/mL basic fibroblast growth
+      factor
+    where: Experimental Procedures, Cell Culture
+- field: hipsc_medium.basic fibroblast growth factor
+  value: 5 ng/mL
+  anchor:
+    quote: expanded using mouse embryonic fibroblast-conditioned medium supple- mented with 5 ng/mL basic fibroblast growth
+      factor
+    where: Experimental Procedures, Cell Culture
+- field: hipsc_medium
+  value: mTeSR
+  anchor:
+    quote: RUES2 and WTC-11 undiffer- entiated cells were cultured with mTeSR medium
+    where: Experimental Procedures, Cell Culture
+- field: purity_method
+  value: flow cytometry
+  anchor:
+    quote: containing >80% cardiac troponin T-positive cardiomyocytes (by flow cytometry)
+    where: Experimental Procedures, Cell Culture
+- field: purity
+  value: '>80%'
+  anchor:
+    quote: Only cell preparations containing >80% cardiac troponin T-positive cardiomyocytes were used for the current study
+    where: Experimental Procedures, Cell Culture
+- field: purity
+  value: over 95%
+  anchor:
+    quote: high-purity car- diomyocytes (over 95% positive cardiac troponin T)
+    where: Results, β-Oxidation genes
+- field: cm_medium
+  value: RPMI-B27-insulin
+  anchor:
+    quote: fatty acid-albu- min complexes in RPMI-B27-insulin medium for 2 weeks
+    where: Experimental Procedures, Cell Culture
+- field: cm_medium.glucose
+  value: 11 mM
+  anchor:
+    quote: glucose was maintained at its normal media levels (11 mM)
+    where: Experimental Procedures, Cell Culture
+- field: supplements
+  value: carnitine
+  anchor:
+    quote: L-Carnitine was added to the medium at 120 µM
+    where: Experimental Procedures, Cell Culture
+- field: supplements.concentration
+  value: 120 µM
+  anchor:
+    quote: L-Carnitine was added to the medium at 120 µM
+    where: Experimental Procedures, Cell Culture
+- field: supplements.concentration
+  value: 250 µM
+  anchor:
+    quote: These fatty acids were supplemented with 250 µM carnitine
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: cell_types
+  value: cardiomyocytes
+  anchor:
+    quote: Cardiomyocytes derived from an embryonic stem cell line, RUES2
+    where: Discussion
+- field: cm_day_at_formation
+  value: 20 days
+  anchor:
+    quote: After 20 days of in vitro differenti- ation, the cells were dispersed using 0.025% trypsin-EDTA and replated
+    where: Experimental Procedures, Cell Culture
+- field: cm_day_at_formation
+  value: around 20 days
+  anchor:
+    quote: At around 20 days after differentiation, the cardiomyo- cytes were seeded onto the plates
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: dissociation_reagent
+  value: trypsin-EDTA
+  anchor:
+    quote: the cells were dispersed using 0.025% trypsin-EDTA and replated
+    where: Experimental Procedures, Cell Culture
+- field: dissociation_reagent.concentration
+  value: 0.025%
+  anchor:
+    quote: the cells were dispersed using 0.025% trypsin-EDTA and replated
+    where: Experimental Procedures, Cell Culture
+- field: time_point
+  value: 2 weeks
+  anchor:
+    quote: Fatty acid treatment for 2 weeks increased cell area by 59%
+    where: Results, Structural Maturation
+- field: time_point
+  value: two weeks
+  anchor:
+    quote: no difference in cell death between control and fatty acids-treated hPSC-CMs, two weeks after treatment
+    where: Fig. S2 legend
+    file: mmc1.pdf
+- field: time_point
+  value: 2 days
+  anchor:
+    quote: the medium before and after 2 days of treatment
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: time_point
+  value: One week after fatty acid treatment
+  anchor:
+    quote: One week after fatty acid treatment, individual cardiomyocyte twitch forces were recorded
+    where: Experimental Procedures, Contractile Force Measurement
+- field: time_point
+  value: 15 min
+  anchor:
+    quote: cardiomyocytes after 15 and 30 min of fatty acid treatment
+    where: Experimental Procedures, Western Blotting
+- field: time_point
+  value: 30 min
+  anchor:
+    quote: cardiomyocytes after 15 and 30 min of fatty acid treatment
+    where: Experimental Procedures, Western Blotting
+- field: time_point
+  value: 4 hours
+  anchor:
+    quote: each in triplicate, for 4 hours at 37ºC
+    where: Supplemental Experimental Procedures 1
+    file: mmc1.pdf
+- field: treatment
+  value: palmitate-BSA + oleate-BSA + linoleate-BSA
+  anchor:
+    quote: half dosage (52.5 µM palmitate-BSA, 40.5 µM oleate-BSA, and 22.5 µM linoleate-BSA)
+    where: Experimental Procedures, Cell Culture
+- field: treatment.palmitate-BSA
+  value: 52.5 µM
+  anchor:
+    quote: half dosage (52.5 µM palmitate-BSA, 40.5 µM oleate-BSA, and 22.5 µM linoleate-BSA)
+    where: Experimental Procedures, Cell Culture
+- field: treatment.oleate-BSA
+  value: 40.5 µM
+  anchor:
+    quote: half dosage (52.5 µM palmitate-BSA, 40.5 µM oleate-BSA, and 22.5 µM linoleate-BSA)
+    where: Experimental Procedures, Cell Culture
+- field: treatment.linoleate-BSA
+  value: 22.5 µM
+  anchor:
+    quote: half dosage (52.5 µM palmitate-BSA, 40.5 µM oleate-BSA, and 22.5 µM linoleate-BSA)
+    where: Experimental Procedures, Cell Culture
+- field: treatment
+  value: fatty acid-free albumin
+  anchor:
+    quote: supplemented with 50 µM fatty acid-free albumin and 120 µM carnitine
+    where: Experimental Procedures, Cell Culture
+- field: treatment.concentration
+  value: 50 µM
+  anchor:
+    quote: supplemented with 50 µM fatty acid-free albumin and 120 µM carnitine
+    where: Experimental Procedures, Cell Culture
+- field: treatment
+  value: palmitate-albumin + oleic acid-albumin + linoleic acid-albumin
+  anchor:
+    quote: treated the hPSC-CMs with 105 µM palmitate-albumin, 81 µM oleic acid-albumin, and 45 µM linoleic acid-albumin complexes
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: treatment.palmitate-albumin
+  value: 105 µM
+  anchor:
+    quote: treated the hPSC-CMs with 105 µM palmitate-albumin, 81 µM oleic acid-albumin, and 45 µM linoleic acid-albumin complexes
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: treatment.oleic acid-albumin
+  value: 81 µM
+  anchor:
+    quote: treated the hPSC-CMs with 105 µM palmitate-albumin, 81 µM oleic acid-albumin, and 45 µM linoleic acid-albumin complexes
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: treatment.linoleic acid-albumin
+  value: 45 µM
+  anchor:
+    quote: treated the hPSC-CMs with 105 µM palmitate-albumin, 81 µM oleic acid-albumin, and 45 µM linoleic acid-albumin complexes
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: treatment
+  value: LPS
+  anchor:
+    quote: medium containing 0.01 ng/ml, 0.1 ng/ml, 1 ng/ml LPS
+    where: Fig. S1 legend
+    file: mmc1.pdf
+- field: treatment.concentration
+  value: 0.01 ng/ml
+  anchor:
+    quote: medium containing 0.01 ng/ml, 0.1 ng/ml, 1 ng/ml LPS
+    where: Fig. S1 legend
+    file: mmc1.pdf
+- field: treatment.concentration
+  value: 0.1 ng/ml
+  anchor:
+    quote: medium containing 0.01 ng/ml, 0.1 ng/ml, 1 ng/ml LPS
+    where: Fig. S1 legend
+    file: mmc1.pdf
+- field: treatment.concentration
+  value: 1 ng/ml
+  anchor:
+    quote: medium containing 0.01 ng/ml, 0.1 ng/ml, 1 ng/ml LPS
+    where: Fig. S1 legend
+    file: mmc1.pdf
+- field: treatment
+  value: palmitate-albumin complexes
+  anchor:
+    quote: or the self- made palmitate-albumin complexes
+    where: Fig. S1 legend
+    file: mmc1.pdf
+- field: treatment
+  value: fatty acid
+  anchor:
+    quote: cardiomyocytes after 15 and 30 min of fatty acid treatment
+    where: Experimental Procedures, Western Blotting
+- field: treatment
+  value: myristate + palmitate + palmitoleate
+  anchor:
+    quote: (myristate C14:0, palmitate C16:0, and palmitoleate C16:1)
+    where: Discussion
+- field: transgene
+  value: fire-fly luciferase + Renilla luciferase + human HATLR4 + MD-2 + mCD14
+  anchor:
+    quote: plasmids bearing fire-fly luciferase, Renilla luciferase, human HATLR4, MD-2 (lymphocyte antigen 96), and mCD14
+    where: Supplemental Experimental Procedures 1
+    file: mmc1.pdf
+- field: seeding_density
+  value: 4 × 10^4 cells per well
+  anchor:
+    quote: plated in 96-well plates at a density of 4 x 104 cells per well
+    where: Supplemental Experimental Procedures 1
+    file: mmc1.pdf
+- field: platform
+  value: 96-well plates
+  anchor:
+    quote: plated in 96-well plates at a density of 4 x 104 cells per well
+    where: Supplemental Experimental Procedures 1
+    file: mmc1.pdf
+- field: preparation
+  value: lysed
+  anchor:
+    quote: lysed with 50 µl of passive lysis buffer
+    where: Supplemental Experimental Procedures 1
+    file: mmc1.pdf
+- field: platform
+  value: 10 cm2 plates
+  anchor:
+    quote: cardiomyo- cytes were grown in 10 cm2 plates
+    where: Experimental Procedures, Fatty Acid Concentration Measurements
+- field: preparation
+  value: homogenized
+  anchor:
+    quote: collected in PBS, and homogenized at 4°C with Bullet Blender
+    where: Experimental Procedures, Fatty Acid Concentration Measurements
+- field: preparation
+  value: medium
+  anchor:
+    quote: quantifying the nonesterified fatty acids in the medium
+    where: Results, hPSC-CM Take Up Fatty Acids
+- field: preparation
+  value: fixed
+  anchor:
+    quote: Cells were fixed in 4% paraformaldehyde for 15 min
+    where: Experimental Procedures, Immunocytochemistry
+- field: replating_coating
+  value: fibronectin
+  anchor:
+    quote: cardiomyocytes were replated onto fibro- nectin-coated glass slides
+    where: Experimental Procedures, Calcium Imaging
+- field: platform
+  value: glass slides
+  anchor:
+    quote: cardiomyocytes were replated onto fibro- nectin-coated glass slides
+    where: Experimental Procedures, Calcium Imaging
+- field: substrate
+  value: glass
+  anchor:
+    quote: cardiomyocytes were replated onto fibro- nectin-coated glass slides
+    where: Experimental Procedures, Calcium Imaging
+- field: temperature
+  value: 37 °C
+  anchor:
+    quote: The experiments were done at 37°C with Tyrode's solution containing 0.6 mM calcium chloride
+    where: Experimental Procedures, Calcium Imaging
+- field: measurement_medium
+  value: Tyrode's solution
+  anchor:
+    quote: The experiments were done at 37°C with Tyrode's solution containing 0.6 mM calcium chloride
+    where: Experimental Procedures, Calcium Imaging
+- field: measurement_calcium_mM
+  value: 0.6 mM
+  anchor:
+    quote: The experiments were done at 37°C with Tyrode's solution containing 0.6 mM calcium chloride
+    where: Experimental Procedures, Calcium Imaging
+- field: pacing
+  value: electrical stimulation
+  anchor:
+    quote: under 1-Hz electrical stimulation
+    where: Results, Calcium Transient Kinetics
+- field: pacing.frequency
+  value: 1 Hz
+  anchor:
+    quote: were stimulated at 1 Hz
+    where: Fig. 2 legend
+- field: platform
+  value: silicone microposts
+  anchor:
+    quote: Arrays of silicone microposts were fabricated by casting polydime- thylsiloxane (PDMS)
+    where: Experimental Procedures, Contractile Force Measurement
+- field: substrate
+  value: PDMS
+  anchor:
+    quote: Arrays of silicone microposts were fabricated by casting polydime- thylsiloxane (PDMS)
+    where: Experimental Procedures, Contractile Force Measurement
+- field: replating_coating
+  value: mouse laminin
+  anchor:
+    quote: we stamped the tips of these microposts with 50 µg/mL of mouse laminin
+    where: Experimental Procedures, Contractile Force Measurement
+- field: replating_coating.concentration
+  value: 50 µg/mL
+  anchor:
+    quote: we stamped the tips of these microposts with 50 µg/mL of mouse laminin
+    where: Experimental Procedures, Contractile Force Measurement
+- field: seeding_density
+  value: 250,000/cm2
+  anchor:
+    quote: seeded onto the arrays at a density of 250,000/cm2
+    where: Experimental Procedures, Contractile Force Measurement
+- field: mechanical_load.post stiffness
+  value: 38.4 nN/µm
+  anchor:
+    quote: k is the post's bending stiffness (38.4 nN/µm)
+    where: Experimental Procedures, Contractile Force Measurement
+- field: measurement_medium
+  value: HEPES-containing medium
+  anchor:
+    quote: performed in a live cell chamber at 37°C with 15 mM HEPES-containing medium
+    where: Experimental Procedures, Contractile Force Measurement
+- field: measurement_medium.HEPES
+  value: 15 mM
+  anchor:
+    quote: performed in a live cell chamber at 37°C with 15 mM HEPES-containing medium
+    where: Experimental Procedures, Contractile Force Measurement
+- field: preparation
+  value: single cardiomyocytes
+  anchor:
+    quote: Only the contractile forces of single cardi- omyocytes
+    where: Experimental Procedures, Contractile Force Measurement
+- field: platform
+  value: glass coverslips
+  anchor:
+    quote: replated at low density onto fibronectin-coated glass coverslips
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: temperature
+  value: 36 °C ± 1 °C
+  anchor:
+    quote: Temperature was maintained at 36°C ± 1°C
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: pacing
+  value: spontaneous
+  anchor:
+    quote: the spontaneously generated action potentials were re- corded
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_medium
+  value: bath solution
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_medium.NaCl
+  value: 136 mM
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_medium.KCl
+  value: 4 mM
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_medium.MgCl2
+  value: 2 mM
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_medium.HEPES
+  value: 10 mM
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_medium.glucose
+  value: 10 mM
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: measurement_calcium_mM
+  value: 1 mM
+  anchor:
+    quote: The bath solution for recordings contained 136 mM NaCl, 4 mM KCl, 1 mM CaCl2, 2 mM MgCl2, 10 mM HEPES, and 10 mM
+      glucose
+    where: Experimental Procedures, Whole-Cell Current-Clamp Recording
+- field: platform
+  value: Seahorse plates
+  anchor:
+    quote: The cells were treated with fatty acids for 2 weeks in the Seahorse plates before the assay
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: replating_coating
+  value: gelatin
+  anchor:
+    quote: The plates were pretreated with 0.1% gelatin
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: replating_coating.concentration
+  value: 0.1%
+  anchor:
+    quote: The plates were pretreated with 0.1% gelatin
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: seeding_density
+  value: 30,000 per XF96 well
+  anchor:
+    quote: seeded onto the plates with a density of 30,000 per XF96 well
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: measurement_medium
+  value: unbuffered DMEM
+  anchor:
+    quote: base medium (unbuffered DMEM, Sigma D5030, supplemented with 2 mM glutamine)
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: measurement_medium.glutamine
+  value: 2 mM
+  anchor:
+    quote: base medium (unbuffered DMEM, Sigma D5030, supplemented with 2 mM glutamine)
+    where: Experimental Procedures, Mitochondria Functional Assay
+- field: preparation
+  value: RNA
+  anchor:
+    quote: Total RNA was isolated using the Qiagen RNeasy kit
+    where: Experimental Procedures, qRT-PCR
+- field: preparation
+  value: total protein
+  anchor:
+    quote: Total protein was acquired from control cardiomyocytes
+    where: Experimental Procedures, Western Blotting

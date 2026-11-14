@@ -1,0 +1,1526 @@
+record: 2022_Ronaldson-Bouchard
+vocabulary_version: 40
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+- add_synonym:
+    id: CL:0000134
+    text: MSC
+    anchor: MSC, mesenchymal stem cell
+- add_synonym:
+    id: CL:0002551
+    text: NHDF
+    anchor: NHDF, normal human dermal fibroblasts
+- add_synonym:
+    id: CL:0000057
+    text: human fibroblasts
+    anchor: were formed from aggregates of hiPSC-derived hepatocytes and supporting human fibroblasts encapsulated in fibrin
+      matrix
+- adopt:
+    field: cell_types
+    id: CL:0000312
+    label: keratinocyte
+    lookup: livinglit lookup cl keratinocyte (exact); the paper names human keratinocytes seeded onto the dermal matrix, no
+      epidermal subtype
+    synonyms:
+    - text: human keratinocytes
+      anchor: seeding human dermal fibroblasts into collagen matrix, adding human keratinocytes
+- adopt:
+    field: cell_types
+    id: CL:0000062
+    label: osteoblast
+    lookup: livinglit lookup cl osteoblast (exact)
+    synonyms:
+    - text: osteoblasts
+      anchor: suggesting that osteoblasts are more sensitive to doxorubicin than osteoclasts
+- adopt:
+    field: cell_types
+    id: CL:0000092
+    label: osteoclast
+    lookup: livinglit lookup cl osteoclast (exact); mono- or multinuclear not stated
+    synonyms:
+    - text: osteoclasts
+      anchor: suggesting that osteoblasts are more sensitive to doxorubicin than osteoclasts
+- adopt:
+    field: cell_types
+    id: CL:0000182
+    label: hepatocyte
+    lookup: livinglit lookup cl hepatocyte (exact); CL has no iPSC-derived hepatocyte class, the source is the line
+    synonyms:
+    - text: hiPSC-derived hepatocytes
+      anchor: were formed from aggregates of hiPSC-derived hepatocytes and supporting human fibroblasts
+- adopt:
+    field: cell_types
+    id: CL:0001054
+    label: CD14-positive monocyte
+    lookup: livinglit lookup cl 'CD14-positive monocyte' (exact)
+    synonyms:
+    - text: CD14+ monocytes
+      anchor: primary CD14+ monocytes were seeded into the osteoblastic bone
+- adopt:
+    field: treatment
+    id: CHEBI:2896
+    label: astemizole
+    lookup: livinglit lookup chebi astemizole (exact); the paper's spelling 'astemizol' is printed only in a figure image,
+      so no synonym
+- adopt_own:
+    field: treatment
+    id: treatment:cryoinjury
+    label: cryoinjury
+    definition: Local freezing injury of a tissue by brief contact with a cold object such as dry ice.
+    scope: A physical injury made to a tissue; not a compound, a gene transfer or an implantation.
+    lookup: 'livinglit lookup chebi cryoinjury: no hit; an injury, not a chemical entity'
+    synonyms:
+    - text: cryoinjury
+      anchor: evidence.F3l_ctni.anchor
+- add_synonym:
+    id: supplements:b27
+    text: B-27 supplement
+    anchor: cardiac medium was added (RPMI 1640; Thermo Fisher, 11875-093; B-27 supplement
+- add_term:
+    field: platform
+    id: platform:porous_mesh_insert
+    label: porous mesh insert
+    parent: platform:culture_2d
+    definition: An insert holding a porous mesh on which cell layers (such as an endothelial barrier) grow, separating two
+      compartments.
+    scope: Cell layers on a porous mesh between two compartments; not a flat layer on the well bottom (monolayer), not a migration
+      assay (Boyden chamber), not micropatterned islands and not a micropost array.
+    synonyms:
+    - text: mesh insert
+      anchor: Underneath each tissue chamber is an elastic mesh insert
+- set_scope:
+    id: platform:boyden_chamber
+    scope: Cells on a porous membrane insert for a migration assay; not a flat monolayer on the well bottom, not micropatterned
+      islands, not a micropost array, and not a mesh insert carrying a barrier layer between compartments (porous mesh insert).
+- add_term:
+    field: platform
+    id: platform:multi_tissue_chip
+    label: multi-tissue chip
+    parent: platform:engineered_3d
+    definition: A perfused device in which engineered tissues sit in separate chambers connected by a circulating medium.
+    scope: Engineered tissues held in chambers of a device linked by circulating medium; the number of tissues is the qualifier
+      configuration; not a single construct format (strip, ring, patch, tissue between pillars, anchors or wires) and not
+      a one-tissue microfluidic microchamber (microfluidic cardiac MPS).
+    qualifiers:
+      configuration:
+        dimension: text
+- add_term:
+    field: platform
+    id: platform:barrier_separated_tissue_chip
+    label: multi-tissue chip with endothelial barriers
+    parent: platform:multi_tissue_chip
+    definition: A multi-tissue chip in which each tissue chamber is separated from the circulating medium by an endothelial
+      barrier.
+    scope: Tissues linked through endothelial barriers, each in its own medium; not the same chip without barriers, where
+      tissues share the medium (multi-tissue chip with shared medium).
+    synonyms:
+    - text: Multi-organ tissue chip
+      anchor: The maintenance of matured tissues in the Multi-organ tissue chip was compared to that of the Mixed tissue chip
+- add_term:
+    field: platform
+    id: platform:shared_medium_tissue_chip
+    label: multi-tissue chip with shared medium
+    parent: platform:multi_tissue_chip
+    definition: A multi-tissue chip without endothelial barriers, in which all tissues share one common medium.
+    scope: Tissues linked through a common medium with no barrier; not a chip whose chambers are separated by endothelial
+      barriers (multi-tissue chip with endothelial barriers).
+    synonyms:
+    - text: Mixed tissue chip
+      anchor: The maintenance of matured tissues in the Multi-organ tissue chip was compared to that of the Mixed tissue chip
+- set_scope:
+    id: platform:microfluidic_cardiac_mps
+    scope: A microtissue formed by loading cells into a fluid-fed microchamber with posts; not a hydrogel tissue cast between
+      two pillars in a well, a strip, a ring, a patch, a tissue between anchors or wires, and not several tissues in chambers
+      linked by circulating medium (multi-tissue chip).
+- add_term:
+    field: platform
+    id: platform:single_tissue_culture
+    label: tissue cultured on its own
+    parent: null
+    definition: A tissue or cell population cultured individually, not connected to other tissues, named as the comparison
+      for multi-tissue chips; its format is not stated.
+    scope: Culture alone, as the comparison for tissues linked in a multi-tissue chip, with no format stated; not a named
+      2D format, 3D engineered format, aggregate or native tissue, and not a cell-free blank.
+- add_term:
+    field: substrate
+    id: substrate:nylon_mesh
+    label: porous nylon mesh
+    parent: null
+    definition: A porous nylon mesh used as a substrate for cell layers; pore size and coating are qualifiers.
+    scope: A porous synthetic mesh; not a hydrogel, glass, PDMS, polyacrylamide, a culture plate, a protein coating or a decellularized
+      matrix.
+    qualifiers:
+      pore_size:
+        dimension: length
+      coating:
+        dimension: text
+    synonyms:
+    - text: porous nylon mesh
+      anchor: Each chamber has an insert with a porous nylon mesh serving as a substrate for the endothelial layer
+- add_term:
+    field: substrate
+    id: substrate:decellularized_bone
+    label: decellularized bone
+    parent: null
+    definition: Bone tissue with its cells removed, used as a scaffold for cells.
+    scope: A decellularized bone scaffold; not decellularized myocardium, not a hydrogel and not a synthetic material.
+    synonyms:
+    - text: decellularized bone scaffolds
+      anchor: mesenchymal stromal cells (MSC) into decellularized bone scaffolds
+- set_scope:
+    id: substrate:decellularized_myocardium
+    scope: Decellularized heart muscle as a scaffold; not decellularized bone, not a hydrogel and not a synthetic material.
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:fluid_shear_stress
+    label: fluid shear stress
+    parent: null
+    definition: Shear stress applied to cells by flowing medium during culture; its size is the qualifier shear_stress.
+    scope: Load from flowing medium on a cell layer (the size, zero included, is a qualifier); not an elastic, isometric or
+      strip load on a tissue, not free shortening (unloaded) and not cyclic stretch.
+    qualifiers:
+      shear_stress:
+        dimension: stress
+    synonyms:
+    - text: shear stress
+      anchor: 'To optimize the hydrodynamic shear stress, we tested three different conditions: zero stress'
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:shear_stress_conditioning
+    label: shear stress conditioning
+    parent: maturation_strategy:dynamic_culture
+    definition: Exposure of a cell layer, such as an endothelial barrier, to flow whose shear stress is raised step by step
+      during culture.
+    scope: A stepwise rise of flow shear on a cell layer to mature it; the general case of moving medium around a construct
+      is the parent (dynamic culture).
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:air_liquid_interface
+    label: air–liquid interface culture
+    parent: null
+    definition: Culture with the upper surface of a tissue exposed to air and the lower surface fed by medium, used to stratify
+      epidermis.
+    scope: Lifting a tissue to the air to mature it; not electrical stimulation, mechanical loading, a maturation medium,
+      dynamic or static culture, gene overexpression, prolonged culture, a standard medium control, osteogenic induction or
+      co-culture.
+    synonyms:
+    - text: air–liquid interface
+      anchor: adding human keratinocytes, and by cultivation at the air–liquid interface for 3 weeks
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:osteogenic_induction
+    label: osteogenic induction
+    parent: null
+    definition: Culture in an osteogenic medium that drives stromal cells towards osteoblasts.
+    scope: A medium-driven osteoblastic differentiation of stromal cells; not a cardiomyocyte maturation medium, not electrical
+      or mechanical stimulation, not air–liquid interface culture and not co-culture.
+    synonyms:
+    - text: osteogenic differentiation
+      anchor: The following day, osteogenic differentiation was initiated by changing to osteogenic medium
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:co_culture
+    label: co-culture
+    parent: null
+    definition: Culture of the main cell type together with supporting cells of another type, intended to improve their function.
+    scope: Supporting cells added to the main cells (their identity goes to cell_types or stromal_cell); not a medium, not
+      electrical or mechanical stimulation, not air–liquid interface culture and not osteogenic induction.
+- add_term:
+    field: preparation
+    id: preparation:circulating_perfusate
+    label: circulating perfusate
+    parent: preparation:collected_medium
+    definition: Medium collected from the circulation shared by the tissues of a perfused device, not from one tissue's chamber.
+    scope: The common circulating medium of a perfused device; the general case of medium taken off one culture is the parent
+      (collected culture medium).
+    synonyms:
+    - text: perfusate
+      anchor: In vitro biomarkers of doxorubicin cardiomyopathy in perfusate of multi-tissue chips
+- add_synonym:
+    id: preparation:collected_medium
+    text: supernatant
+    anchor: At 72 h, the supernatant was collected
+- add_term:
+    field: transgene
+    id: transgene:cd63_gfp_fusion
+    label: CD63-GFP exosome reporter
+    parent: transgene:fluorescent_fusion_protein
+    definition: A construct expressing the exosome marker CD63 fused to GFP, which labels the exosomes the cells secrete.
+    scope: A CD63 fusion that labels secreted exosomes; not an N-cadherin, α-actinin-2, connexin-43 or SERCA2 fusion.
+    synonyms:
+    - text: pCT-CD63-GFP exosome Cyto-Tracer
+      anchor: HiPSC-derived CM were transfected with a pCT-CD63-GFP exosome Cyto-Tracer
+- add_term:
+    field: measure
+    id: measure:transepithelial_electrical_resistance
+    label: transepithelial electrical resistance
+    parent: null
+    dimension: resistance_area
+    definition: Electrical resistance across a cell barrier times its area (qualifier barrier says which barrier).
+    scope: Resistance across a cell barrier per area; not a tissue's bulk resistivity (tissue resistivity) and not a tracer's
+      permeability (barrier permeability).
+    qualifiers:
+      barrier:
+        dimension: text
+    synonyms:
+    - text: TEER
+      anchor: transepithelial/transedothelial electrical resistance (TEER)
+- add_term:
+    field: measure
+    id: measure:barrier_permeability
+    label: barrier permeability to a tracer
+    parent: null
+    dimension: velocity
+    definition: Permeability coefficient of a cell barrier to a stated tracer (qualifier tracer), from the tracer passing
+      it per area and time.
+    scope: Tracer flux across a barrier as a permeability; not the electrical resistance of the barrier, not a tracer's concentration
+      in a compartment and not its share of the total.
+    qualifiers:
+      tracer:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:tracer_concentration
+    label: tracer concentration
+    parent: null
+    dimension: concentration
+    definition: Concentration of a stated tracer (qualifier tracer) in a compartment of a culture device, followed over time.
+    scope: A tracer added to follow transport or uptake in a device; not a compound left in solution to test material uptake
+      (compound concentration remaining in solution), not a medium's formulation, not a drug or metabolite in conditioned
+      medium, and not a share of the total.
+    qualifiers:
+      tracer:
+        dimension: text
+      compartment:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:tracer_compartment_fraction
+    label: share of a tracer in a compartment
+    parent: null
+    dimension: dimensionless
+    definition: Per cent of the total amount of a stated tracer (qualifier tracer) found in each compartment of a device.
+    scope: The distribution of a tracer between compartments; not its concentration and not a barrier's permeability.
+    qualifiers:
+      tracer:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:whole_tissue_fluorescence
+    label: whole-tissue fluorescence signal
+    parent: null
+    dimension: radiant_efficiency
+    definition: Fluorescence of a stated label (qualifier label) over a whole tissue, imaged macroscopically as radiant efficiency
+      or similar.
+    scope: Macroscopic imaging of a label in whole tissues; not immunostaining intensity in a region (protein fluorescence
+      intensity), not a recorded fluorescence transient and not a stained area.
+    qualifiers:
+      label:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:cells_per_tissue_area
+    label: cells per tissue area
+    parent: null
+    dimension: number_per_area
+    definition: Number of cells of a stated type (qualifier cell_type) per unit area of tissue.
+    scope: Cells of one type per area of tissue; not cells per microscope field, not cells in a whole construct and not vessels
+      per area.
+    qualifiers:
+      cell_type:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:enzyme_activity
+    label: enzyme activity
+    parent: null
+    dimension: enzyme_activity
+    definition: Activity of a stated enzyme (qualifier enzyme) in a sample or medium, by a kinetic or colorimetric assay.
+    scope: Catalytic activity of one enzyme; not the amount of a protein (protein level, secreted or released protein level).
+    qualifiers:
+      enzyme:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:bone_volume
+    label: bone volume
+    parent: null
+    dimension: volume
+    definition: Volume of mineralised bone in a scaffold or tissue, by micro-computed tomography.
+    scope: Mineralised volume within a bone construct; not the volume of a whole engineered tissue (tissue volume) and not
+      cell or nuclear volume.
+- add_term:
+    field: measure
+    id: measure:protein_subset_count
+    label: number of proteins meeting a criterion
+    parent: measure:identified_protein_count
+    dimension: dimensionless
+    definition: Count of the proteins of a proteome that meet a stated criterion (qualifier criterion), such as highly expressed
+      only in one tissue.
+    scope: A count of a selected subset of proteins; the count of all proteins identified is the parent.
+    qualifiers:
+      criterion:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:proteome_overlap
+    label: proteome overlap with a reference
+    parent: null
+    dimension: dimensionless
+    definition: Per cent of the proteins detected in a sample that are also detected in a stated reference tissue (qualifier
+      reference).
+    scope: Shared presence of proteins with a reference; not agreement of their expression levels (expression level agreement)
+      and not a correlation coefficient of profiles.
+    qualifiers:
+      reference:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:expression_level_agreement
+    label: expression level agreement with a reference
+    parent: null
+    dimension: dimensionless
+    definition: Per cent of the proteins shared with a stated reference (qualifier reference) whose expression level class
+      (low, medium, high) matches the reference.
+    scope: Agreement of binned expression levels of shared proteins; not shared presence (proteome overlap) and not a correlation
+      coefficient (correlation of expression profiles).
+    qualifiers:
+      reference:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:annotation_fold_enrichment
+    label: annotation fold enrichment
+    parent: null
+    dimension: dimensionless
+    definition: Ratio of the observed to the expected number of members of a stated annotation (qualifier annotation) in a
+      gene or protein set (qualifier gene_set).
+    scope: Over-representation as a ratio; not its p-value (functional enrichment p-value), not a ranked-list enrichment score
+      (normalized enrichment score) and not a count.
+    qualifiers:
+      annotation:
+        dimension: text
+      gene_set:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:mirna_expression
+    label: microRNA expression
+    parent: measure:gene_expression
+    dimension: dimensionless
+    definition: Relative level of one stated microRNA (qualifier gene), as a fold change against a reference.
+    scope: Level of a microRNA; mRNA of a protein-coding gene is the parent (gene expression); not allele-specific expression.
+- set_scope:
+    id: measure:allele_specific_expression
+    scope: Expression of one allele of a gene against the other; not total mRNA of the gene (the parent) and not a microRNA
+      level (microRNA expression).
+- add_term:
+    field: measure
+    id: measure:clinical_concordance
+    label: concordance with clinical data
+    parent: null
+    dimension: dimensionless
+    definition: Share of a stated set of biomarkers whose change in a model agrees in direction with a clinical study (qualifier
+      basis says what was compared).
+    scope: Agreement of a model's biomarker changes with patients' data; not a correlation of expression profiles and not
+      a distance in principal component space.
+    qualifiers:
+      basis:
+        dimension: text
+      biomarker_set:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:biomarker_specificity
+    label: biomarker specificity against clinical data
+    parent: measure:clinical_concordance
+    dimension: dimensionless
+    definition: True negatives over true negatives plus false positives, for biomarker changes in a model scored against a
+      clinical study.
+    scope: Specificity of a model's biomarker calls; the share of biomarkers that agree is the parent (concordance with clinical
+      data).
+- add_synonym:
+    id: measure:contraction_frequency
+    text: beat frequency
+    anchor: The resulting traces were used to determine the beat frequency and plot it
+- standing_key:
+    measure: measure:transepithelial_electrical_resistance
+    value:
+      must_match:
+      - platform@1
+      - measure.barrier
+      - endothelial_cell
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.barrier
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:barrier_permeability
+    value:
+      must_match:
+      - platform@1
+      - measure.tracer
+      - substrate
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.tracer
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:tracer_concentration
+    value:
+      must_match:
+      - platform
+      - measure.tracer
+      - measure.compartment
+      - time_point
+      - treatment
+      may_vary: []
+    direction:
+      must_match:
+      - contrast
+      - measure.tracer
+      may_vary:
+      - time_point
+- standing_key:
+    measure: measure:tracer_compartment_fraction
+    value:
+      must_match:
+      - platform
+      - measure.tracer
+      - time_point
+      - treatment
+      may_vary: []
+    direction:
+      must_match:
+      - contrast
+      - measure.tracer
+      may_vary:
+      - time_point
+- standing_key:
+    measure: measure:whole_tissue_fluorescence
+    value:
+      must_match:
+      - platform@1
+      - measure.label
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.label
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:cells_per_tissue_area
+    value:
+      must_match:
+      - platform@1
+      - measure.cell_type
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.cell_type
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:enzyme_activity
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.enzyme
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.enzyme
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:bone_volume
+    value:
+      must_match:
+      - platform@1
+      - substrate
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:protein_subset_count
+    value:
+      must_match:
+      - measure.criterion
+      - platform@1
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.criterion
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:proteome_overlap
+    value:
+      must_match:
+      - measure.reference
+      - platform@1
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.reference
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:expression_level_agreement
+    value:
+      must_match:
+      - measure.reference
+      - platform@1
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.reference
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:annotation_fold_enrichment
+    value:
+      must_match:
+      - measure.annotation
+      - measure.gene_set
+      - platform@1
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.annotation
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:mirna_expression
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.gene
+      - measure.expressed_as
+      - measure.normalised_to
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.gene
+      - preparation
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:clinical_concordance
+    value:
+      must_match:
+      - measure.basis
+      - measure.biomarker_set
+      - treatment
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.basis
+      may_vary:
+      - cell_line
+- standing_key:
+    measure: measure:biomarker_specificity
+    value:
+      must_match:
+      - measure.basis
+      - measure.biomarker_set
+      - treatment
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+mappings:
+- field: maturation_strategy
+  stated: ramping of shear stress
+  terms:
+  - maturation_strategy:shear_stress_conditioning
+  note: the paper's words are 'a slow ramping of the applied shear stress', so no synonym
+- field: mechanical_load
+  stated: zero stress
+  terms:
+  - mechanical_load:fluid_shear_stress
+  qualifiers:
+    shear_stress: zero
+  note: 'the static arm of ''zero stress, 1.88 and 6.27 dynes cm−2'': the same load at size zero'
+- field: maturation_strategy
+  stated: electromechanical stimulation
+  terms:
+  - maturation_strategy:intensity_training
+  note: the record's qualifiers (2 to 6 Hz, 0.33 Hz per day) make it a frequency ramp; the words alone are broader than intensity
+    training, so no synonym
+- field: maturation_strategy
+  stated: 3D co-culture
+  terms:
+  - maturation_strategy:co_culture
+  split:
+  - words: 3D
+    field: platform
+  note: '''3D'' is the construct format; in unit ED3e it also contradicts the group platform ''2D monolayer'' (see log)'
+- field: platform
+  stated: Isolated
+  terms:
+  - platform:single_tissue_culture
+  note: '''tissues cultured individually, with and without endothelial barriers''; no synonym, the bare word is too generic'
+- field: platform
+  stated: 3D tissue
+  terms:
+  - platform:engineered_3d
+  note: not printed in the text (figure label), so no synonym
+- field: platform
+  stated: Static with Mesh
+  terms:
+  - platform:porous_mesh_insert
+  split:
+  - words: Static
+    field: maturation_strategy
+- field: platform
+  stated: Static with EC Barrier
+  terms:
+  - platform:porous_mesh_insert
+  split:
+  - words: Static
+    field: maturation_strategy
+  - words: EC Barrier
+    field: endothelial_cell
+- field: platform
+  stated: Perfused with Mesh (no barrier)
+  terms:
+  - platform:porous_mesh_insert
+  split:
+  - words: Perfused
+    field: maturation_strategy
+  - words: no barrier
+    field: endothelial_cell
+- field: platform
+  stated: Perfused with EC Barrier
+  terms:
+  - platform:porous_mesh_insert
+  split:
+  - words: Perfused
+    field: maturation_strategy
+  - words: EC Barrier
+    field: endothelial_cell
+- field: donor_age
+  stated: paediatric
+  flag:
+    kind: not a context
+    note: donor_age is a quantity with the states fetal, neonatal, newborn, infant, young and adult; 'paediatric' is neither
+      a number nor a declared state and spans several of them; the reader should give the clinical cohort's printed ages or
+      leave the field not stated
+- field: treatment
+  stated: astemizol
+  terms:
+  - CHEBI:2896
+  note: paper's spelling of astemizole, printed only in a figure
+- field: measure
+  stated: vascular barrier TEER (unit area resistance)
+  terms:
+  - measure:transepithelial_electrical_resistance
+  qualifiers:
+    barrier: vascular endothelial barrier
+- field: measure
+  stated: skin unit area resistance (TEER)
+  terms:
+  - measure:transepithelial_electrical_resistance
+  qualifiers:
+    barrier: skin
+- field: measure
+  stated: fraction of cTnT+ CD63-GFP+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: cTnT+ CD63-GFP+
+- field: measure
+  stated: average radiant efficiency of CD63-GFP
+  terms:
+  - measure:whole_tissue_fluorescence
+  qualifiers:
+    label: CD63-GFP
+- field: measure
+  stated: average radiant efficiency of labelled monocytes
+  terms:
+  - measure:whole_tissue_fluorescence
+  qualifiers:
+    label: labelled monocytes
+- field: measure
+  stated: relative fluorescence intensity of labelled monocytes
+  terms:
+  - measure:whole_tissue_fluorescence
+  qualifiers:
+    label: labelled monocytes
+    expressed_as: normalised
+  note: IVIS radiant efficiency as in Fig. 3i; 'relative' with no reference printed, so normalised_to is left out
+- field: measure
+  stated: cardiac troponin I concentration
+  terms:
+  - measure:released_protein_level
+  qualifiers:
+    protein: cardiac troponin I
+- field: measure
+  stated: cardiac troponin concentration
+  terms:
+  - measure:released_protein_level
+  qualifiers:
+    protein: cardiac troponin I
+  note: assayed with the cardiac troponin I ELISA (Methods)
+- field: measure
+  stated: monocytes per mm2 tissue
+  terms:
+  - measure:cells_per_tissue_area
+  qualifiers:
+    cell_type: monocytes
+- field: measure
+  stated: contractile movement (no. pixels)
+  terms:
+  - measure:contraction_motion_amplitude
+  qualifiers:
+    metric: number of moving pixels
+- field: measure
+  stated: albumin concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: albumin
+- field: measure
+  stated: TRAP activity
+  terms:
+  - measure:enzyme_activity
+  qualifiers:
+    enzyme: TRAP
+- field: measure
+  stated: TRAP activity (% of control)
+  terms:
+  - measure:enzyme_activity
+  qualifiers:
+    enzyme: TRAP
+    expressed_as: normalised
+    normalised_to: negative control
+- field: measure
+  stated: force
+  terms:
+  - measure:twitch_force
+  note: force of contraction at rising calcium; 'force' alone is too broad for a synonym
+- field: measure
+  stated: 3 kDa FITC-dextran permeability
+  terms:
+  - measure:barrier_permeability
+  qualifiers:
+    tracer: 3 kDa FITC-dextran
+- field: measure
+  stated: 3 kDa FITC-dextran, relative % of total in reservoir and compartments
+  terms:
+  - measure:tracer_compartment_fraction
+  qualifiers:
+    tracer: 3 kDa FITC-dextran
+- field: measure
+  stated: 70 kDa FITC-dextran permeability
+  terms:
+  - measure:barrier_permeability
+  qualifiers:
+    tracer: 70 kDa FITC-dextran
+- field: measure
+  stated: 70 kDa FITC-dextran, relative % of total in reservoir and compartments
+  terms:
+  - measure:tracer_compartment_fraction
+  qualifiers:
+    tracer: 70 kDa FITC-dextran
+- field: measure
+  stated: fraction of CD14+ ITGAM+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: CD14+ ITGAM+
+- field: measure
+  stated: fraction of live cells
+  terms:
+  - measure:cell_viability
+- field: measure
+  stated: fraction of CD14+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: CD14+
+- field: measure
+  stated: fraction of CD11b+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: CD11b+
+- field: measure
+  stated: live cells (percentage of CD14+)
+  terms:
+  - measure:cell_viability
+  qualifiers:
+    cell_type: CD14+ cells
+- field: measure
+  stated: classical monocytes (CD16−CD14+), % parent population
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: CD16−CD14+
+    population: parent population
+- field: measure
+  stated: intermediate monocytes (CD16+CD14+), % parent population
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: CD16+CD14+
+    population: parent population
+- field: measure
+  stated: non-classical monocytes (CD16+CD14−), % parent population
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: CD16+CD14−
+    population: parent population
+- field: measure
+  stated: cytokine concentrations (65-plex panel)
+  flag:
+    kind: several measures
+    note: 'a 65-cytokine panel shown as one heatmap: one measure per cytokine; the reader should split it or keep the five
+      cytokines read singly'
+- field: measure
+  stated: IFN alpha concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: IFN alpha
+- field: measure
+  stated: IL-1 alpha concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: IL-1 alpha
+- field: measure
+  stated: IL-2 concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: IL-2
+- field: measure
+  stated: GM-CSF concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: GM-CSF
+- field: measure
+  stated: IL-6 concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: IL-6
+- field: measure
+  stated: number of proteins detected
+  terms:
+  - measure:identified_protein_count
+- field: measure
+  stated: highly expressed proteins found only in heart
+  terms:
+  - measure:protein_subset_count
+  qualifiers:
+    criterion: highly expressed only in heart
+- field: measure
+  stated: highly expressed proteins found only in liver
+  terms:
+  - measure:protein_subset_count
+  qualifiers:
+    criterion: highly expressed only in liver
+- field: measure
+  stated: highly expressed proteins found only in skin
+  terms:
+  - measure:protein_subset_count
+  qualifiers:
+    criterion: highly expressed only in skin
+- field: measure
+  stated: highly expressed proteins found only in bone
+  terms:
+  - measure:protein_subset_count
+  qualifiers:
+    criterion: highly expressed only in bone
+- field: measure
+  stated: overlap of expressed proteins with adult tissue
+  terms:
+  - measure:proteome_overlap
+  qualifiers:
+    reference: adult tissue (Human Protein Atlas)
+- field: measure
+  stated: correlation of expression level with adult tissue
+  terms:
+  - measure:expression_level_agreement
+  qualifiers:
+    reference: adult tissue (Human Protein Atlas)
+  note: the values are per cent of shared proteins in the same tertile, not a correlation coefficient
+- field: measure
+  stated: fold enrichment of cardiac GO cellular components
+  terms:
+  - measure:annotation_fold_enrichment
+  qualifiers:
+    annotation: GO cellular component (cardiac terms)
+    gene_set: highly expressed proteins
+- field: measure
+  stated: doxorubicin concentration
+  terms:
+  - measure:spent_medium_concentration
+  qualifiers:
+    component: doxorubicin
+- field: measure
+  stated: doxorubicinol concentration
+  terms:
+  - measure:spent_medium_concentration
+  qualifiers:
+    component: doxorubicinol
+- field: measure
+  stated: FITC-dextran concentration
+  terms:
+  - measure:tracer_concentration
+  qualifiers:
+    tracer: 3 kDa FITC-dextran
+  note: used for the mesh-insert absorption test, the transwell and the chip chambers (S7); compartments are groups
+- field: measure
+  stated: urea concentration
+  terms:
+  - measure:spent_medium_concentration
+  qualifiers:
+    component: urea
+- field: measure
+  stated: bone sialoprotein concentration
+  terms:
+  - measure:secreted_protein_level
+  qualifiers:
+    protein: bone sialoprotein
+- field: measure
+  stated: miR-1 expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: miR-1
+- field: measure
+  stated: similarity of miRNA fold-change cluster to clinical data (PCA)
+  terms:
+  - measure:pca_centroid_distance
+  qualifiers:
+    gene_set: clinically relevant miRNAs
+  note: only a P is printed and the test is not stated; read as closeness of clusters in principal component space
+- field: measure
+  stated: miRNAs with fold change consistent with the clinical study
+  terms:
+  - measure:clinical_concordance
+  qualifiers:
+    basis: fold change
+    biomarker_set: seven prioritised miRNAs
+- field: measure
+  stated: paediatric miRNAs with activity consistent with the clinical study
+  terms:
+  - measure:clinical_concordance
+  qualifiers:
+    basis: miRNA activity (GSEA of targets)
+    biomarker_set: 17 paediatric clinical miRNAs
+- field: measure
+  stated: specificity of miRNA biomarker changes against clinical data
+  terms:
+  - measure:biomarker_specificity
+- field: measure
+  stated: hsa-miR-143-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-143-3p
+- field: measure
+  stated: hsa-miR-199a-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-199a-5p
+- field: measure
+  stated: hsa-miR-107-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-107-5p
+- field: measure
+  stated: hsa-miR-320a expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-320a
+- field: measure
+  stated: hsa-miR-103a-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-103a-3p
+- field: measure
+  stated: hsa-miR-145-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-145-5p
+- field: measure
+  stated: hsa-miR-181a-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-181a-5p
+- field: measure
+  stated: hsa-miR-100-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-100-5p
+- field: measure
+  stated: hsa-miR-499a-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-499a-5p
+- field: measure
+  stated: hsa-miR-146a-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-146a-5p
+- field: measure
+  stated: hsa-miR-210-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-210-3p
+- field: measure
+  stated: hsa-miR-92a-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-92a-3p
+- field: measure
+  stated: hsa-miR-342-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-342-3p
+- field: measure
+  stated: hsa-miR-142-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-142-3p
+- field: measure
+  stated: hsa-miR-150-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-150-5p
+- field: measure
+  stated: hsa-miR-29c-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-29c-3p
+- field: measure
+  stated: hsa-miR-486-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-486-5p
+- field: measure
+  stated: hsa-miR-4638-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-4638-3p
+- field: measure
+  stated: hsa-miR-5096 expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-5096
+- field: measure
+  stated: hsa-miR-4763-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-4763-5p
+- field: measure
+  stated: hsa-miR-1273g-3p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-1273g-3p
+- field: measure
+  stated: hsa-miR-4726-5p expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-4726-5p
+- field: measure
+  stated: hsa-miR-1273a expression
+  terms:
+  - measure:mirna_expression
+  qualifiers:
+    gene: hsa-miR-1273a
+- field: measure
+  stated: MYL2 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+- field: measure
+  stated: MYH7 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH7
+- field: measure
+  stated: DHRS2 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: DHRS2
+- field: measure
+  stated: ANKRD1 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ANKRD1
+- field: measure
+  stated: DPP3P2 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: DPP3P2
+- field: measure
+  stated: FGF12 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: FGF12
+- field: measure
+  stated: LMOD3 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: LMOD3
+- field: measure
+  stated: NRAP expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: NRAP
+- field: measure
+  stated: PDE1C expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PDE1C
+- field: measure
+  stated: C1QB expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: C1QB
+- field: measure
+  stated: C1QC expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: C1QC
+- field: measure
+  stated: SERPINB12 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SERPINB12
+- field: measure
+  stated: SASH3 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SASH3
+- field: measure
+  stated: FOLR2 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: FOLR2
+- field: measure
+  stated: CALML5 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CALML5
+- field: measure
+  stated: CD53 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CD53
+- field: measure
+  stated: HALLMARK_MYOGENESIS gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: HALLMARK_MYOGENESIS
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: HALLMARK_OXIDATIVE_PHOSPHORYLATION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: HALLMARK_OXIDATIVE_PHOSPHORYLATION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: HALLMARK_FATTY_ACID_METABOLISM gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: HALLMARK_FATTY_ACID_METABOLISM
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: WP_STRIATED_MUSCLE_CONTRACTION_PATHWAY gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: WP_STRIATED_MUSCLE_CONTRACTION_PATHWAY
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: WP_MYOMETRIAL_RELAXATION_AND_CONTRACTION_PATHWAYS gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: WP_MYOMETRIAL_RELAXATION_AND_CONTRACTION_PATHWAYS
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: WP_CALCIUM_REGULATION_IN_THE_CARDIAC_CELL gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: WP_CALCIUM_REGULATION_IN_THE_CARDIAC_CELL
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_CONTRACTION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_CONTRACTION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_SYSTEM_PROCESS gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_SYSTEM_PROCESS
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_STRIATED_MUSCLE_CONTRACTION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_STRIATED_MUSCLE_CONTRACTION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_HEART_PROCESS gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_HEART_PROCESS
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_STRUCTURE_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_STRUCTURE_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_CARDIAC_MUSCLE_CONTRACTION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_CARDIAC_MUSCLE_CONTRACTION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_REGULATION_OF_HEART_CONTRACTION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_REGULATION_OF_HEART_CONTRACTION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_TISSUE_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_TISSUE_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_CELL_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_CELL_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_CARDIAC_MUSCLE_TISSUE_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_CARDIAC_MUSCLE_TISSUE_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_STRIATED_MUSCLE_CELL_DIFFERENTIATION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_STRIATED_MUSCLE_CELL_DIFFERENTIATION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_CELL_DIFFERENTIATION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_CELL_DIFFERENTIATION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_ACTIN_MEDIATED_CELL_CONTRACTION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_ACTIN_MEDIATED_CELL_CONTRACTION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_REGULATION_OF_BLOOD_CIRCULATION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_REGULATION_OF_BLOOD_CIRCULATION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_STRIATED_MUSCLE_CELL_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_STRIATED_MUSCLE_CELL_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MYOFIBRE_ASSEMBLY gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MYOFIBRE_ASSEMBLY
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_MUSCLE_ORGAN_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_MUSCLE_ORGAN_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_REGULATION_OF_MUSCLE_SYSTEM_PROCESS gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_REGULATION_OF_MUSCLE_SYSTEM_PROCESS
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_CARDIAC_CELL_DEVELOPMENT gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_CARDIAC_CELL_DEVELOPMENT
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: GOBP_REGULATION_OF_MUSCLE_CONTRACTION gene set enrichment
+  terms:
+  - measure:normalized_enrichment_score
+  qualifiers:
+    annotation: GOBP_REGULATION_OF_MUSCLE_CONTRACTION
+    ranking: matured versus control, DESeq2
+- field: measure
+  stated: EC50 of beat frequency
+  terms:
+  - measure:ec50
+  qualifiers:
+    response: beat frequency

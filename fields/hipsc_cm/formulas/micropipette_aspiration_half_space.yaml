@@ -1,0 +1,49 @@
+# Written by code from changes.yaml (version 18); never edited.
+formula: micropipette_aspiration_half_space
+kind: model
+statement: Aspirating a homogeneous, incompressible, linear elastic half-space into a micropipette of inner radius a under
+  a pressure difference dp draws in a length L, giving E = 3*a*dp*Phi/(2*pi*L), with Phi a wall function of the pipette geometry
+  (about 2.0-2.1).
+equations:
+- E = 3*a*dp*Phi/(2*pi*L)
+variables:
+  E: modulus
+  a: length
+  dp: pressure
+  Phi: dimensionless
+  L: length
+assumes:
+- homogeneous isotropic linear elastic material
+- incompressible material
+- half-space (sample much larger than the pipette radius)
+- small aspirated length (L small relative to a)
+- equilibrium (elastic) deformation
+does_not_apply: a sample comparable in size to the pipette or a thin layer (not a half-space), a large aspirated length, or
+  a viscoelastic creep reading taken before equilibrium
+tests:
+- given:
+    a: 1.0
+    dp: 1.0
+    Phi: 2.1
+    L: 1.0
+  expect:
+    E: 1.0026761414789407
+- given:
+    a: 3.75e-05
+    dp: 3900.0
+    Phi: 2.1
+    L: 5.0e-05
+  expect:
+    E: 2932.82771382
+- given:
+    a: 3.75e-05
+    dp: 3900.0
+    Phi: 2.1
+    L: 0.0002
+  does_not_apply: 'aspirated length several times the pipette radius: outside the small-deformation half-space solution'
+cites:
+  text: Theret, D. P., Levesque, M. J., Sato, M., Nerem, R. M. & Wheeler, L. T. The application of a homogeneous half-space
+    model in the analysis of endothelial cell micropipette measurements. J. Biomech. Eng. 110, 190-199 (1988)
+  anchor:
+    quote: Under the homogeneous half-space model assumptions
+    where: Methods, Mechanical testing using micropipette aspiration

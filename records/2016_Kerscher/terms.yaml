@@ -1,0 +1,217 @@
+record: 2016_Kerscher
+vocabulary_version: 63
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---- cell_line
+- adopt:
+    field: cell_line
+    id: CVCL_C434
+    label: IPS(IMR90)-1
+    lookup: "livinglit lookup cellosaurus 'IMR90-1' (exact synonym of CVCL_C434; the paper names it IMR-90 Clone 1, from WiCell)"
+    synonyms:
+    - {text: IMR90-1, anchor: "For 2D monolayer differentiation of hiPSCs (IMR90-1 hiPSC line)"}
+- add_synonym:
+    id: CVCL_K054
+    text: 19-9-11
+    anchor: "initiating consistently on day 6 for the cluster 19-9-11 hiPSC line"
+# ---- treatment
+- adopt:
+    field: treatment
+    id: CHEBI:8499
+    label: propranolol
+    lookup: "livinglit lookup chebi propranolol (exact label; the racemate, as the paper does not name an enantiomer)"
+# ---- platform: cell-laden hydrogel formats of this paper
+- add_term:
+    field: platform
+    id: platform:hydrogel_microisland
+    label: hydrogel microisland
+    parent: platform:engineered_3d
+    definition: A thin disc of cell-laden hydrogel crosslinked in a mould and bonded to a glass surface, cultured attached to it.
+    scope: Use for surface-bound hydrogel discs; free-floating hydrogel slabs are hydrogel macrotissue and suspended hydrogel spheres hydrogel microsphere, and tissues held between posts, wires, anchors or a frame, or a cast patch whose anchoring is not stated, have their own terms.
+    qualifiers: {thickness: {dimension: length}, diameter: {dimension: length}}
+    synonyms:
+    - {text: microisland, anchor: "microisland tissues were fabricated and immobilized on"}
+- add_term:
+    field: platform
+    id: platform:hydrogel_macrotissue
+    label: hydrogel macrotissue
+    parent: platform:engineered_3d
+    definition: A millimetre- to centimetre-scale slab of cell-laden hydrogel cultured free in suspension.
+    scope: Use for large free-floating hydrogel constructs; surface-bound discs are hydrogel microisland, sub-millimetre suspended spheres hydrogel microsphere, and scaffold-free aggregates (organoid aggregate macrotissue) are under cell aggregate.
+    qualifiers: {thickness: {dimension: length}, width: {dimension: length}, length: {dimension: length}}
+    synonyms:
+    - {text: macrotissue, anchor: "tested geometries included macrotissues"}
+- add_term:
+    field: platform
+    id: platform:hydrogel_microsphere
+    label: hydrogel microsphere
+    parent: platform:engineered_3d
+    definition: A sub-millimetre sphere of cell-laden hydrogel cultured in suspension.
+    scope: Use for cells encapsulated in a hydrogel sphere; scaffold-free spheroids and aggregates are cell aggregate, surface-bound discs hydrogel microisland and large free-floating slabs hydrogel macrotissue.
+    qualifiers: {diameter: {dimension: length}}
+    synonyms:
+    - {text: microsphere, anchor: "suspension culture of 3D-dhECT microspheres"}
+# ---- substrate
+- add_term:
+    field: substrate
+    id: substrate:peg_fibrinogen
+    label: PEG-fibrinogen
+    parent: substrate:hydrogel
+    definition: A photocrosslinked hydrogel of fibrinogen conjugated to poly(ethylene glycol) diacrylate.
+    scope: Use for PEG-fibrinogen; plain fibrin gels and PEGylated fibrin clotted with thrombin are under fibrin hydrogel, and not Matrigel, Geltrex, collagen or ECM gels.
+- add_term:
+    field: substrate
+    id: substrate:pegylated_fibrin
+    label: PEGylated fibrin hydrogel
+    parent: substrate:fibrin_hydrogel
+    definition: A fibrin gel made from fibrinogen reacted with a PEG crosslinker and clotted with thrombin.
+    scope: Use when the fibrin is PEGylated; plain fibrin stays on fibrin hydrogel, and PEG-diacrylate-fibrinogen photogels are PEG-fibrinogen.
+- add_term:
+    field: substrate
+    id: substrate:basement_membrane_proteins
+    label: basement membrane proteins, product not named
+    parent: substrate:hydrogel
+    definition: A gel or gel component of basement membrane proteins whose product or source is not named.
+    scope: Use only when no product is named; Matrigel and Geltrex when named, and not collagen I, fibrin, PEG-fibrinogen or decellularized cardiac ECM gels.
+- add_term:
+    field: substrate
+    id: substrate:pa_rgds
+    label: PA-RGDS
+    parent: substrate:hydrogel
+    definition: A self-assembling peptide amphiphile gel presenting the RGDS adhesion motif.
+    scope: Use for peptide amphiphile gels; not protein gels (fibrin, collagen, Matrigel, Geltrex, PEG-fibrinogen) or polysaccharide gels (alginate, agarose).
+- add_term:
+    field: substrate
+    id: substrate:alginate_hydrogel
+    label: alginate hydrogel
+    parent: substrate:hydrogel
+    definition: A hydrogel of alginate, usually crosslinked with divalent cations.
+    scope: Use for alginate gels; agarose gels are agarose hydrogel, and not protein or peptide gels (fibrin, collagen, Matrigel, Geltrex, PEG-fibrinogen, PA-RGDS).
+- add_term:
+    field: substrate
+    id: substrate:agarose_hydrogel
+    label: agarose hydrogel
+    parent: substrate:hydrogel
+    definition: A thermally gelled hydrogel of agarose.
+    scope: Use for agarose gels; alginate gels are alginate hydrogel, and not protein or peptide gels (fibrin, collagen, Matrigel, Geltrex, PEG-fibrinogen, PA-RGDS).
+# ---- pacing, preparation
+- add_synonym:
+    id: pacing:electrical_pacing
+    text: exogenous pacing
+    anchor: "between exogenous pacing and cell response"
+- add_synonym:
+    id: preparation:intact_tissue
+    text: whole tissues
+    anchor: "was administered to whole tissues, which caused"
+# ---- measures
+- add_synonym:
+    id: measure:contraction_frequency
+    text: frequency of spontaneous contraction
+    anchor: "the frequency of spontaneous contraction increased by 1.2-fold"
+- add_qualifier:
+    id: measure:cell_number
+    name: proxy
+    dimension: text
+- add_term:
+    field: measure
+    id: measure:sarcomeric_feature_ratio
+    label: ratio of counts of two sarcomeric features
+    definition: The number of one sarcomeric feature (I-bands, H-zones) divided by the number of another (Z-lines, sarcomeres) counted on the same images.
+    scope: Use for count ratios between two kinds of sarcomeric feature, named in the qualifier features; bands per sarcomere go to sarcomeric bands per sarcomere, and lengths or widths of bands to their own length measures.
+    dimension: dimensionless
+    qualifiers: {features: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:dissociation_into_single_cells
+    label: dissociation into single cells
+    definition: Whether a tissue construct could be dissociated into individual cells.
+    scope: Use for the outcome of dissociating a construct; counts or viability of the dissociated cells go to cell number or cell viability.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:longest_culture_duration
+    label: longest culture duration
+    definition: The longest time a construct or its cells were kept in culture.
+    scope: Use for how long cultures were maintained; days of differentiation at which other measures were made go to day_of_measurement, and onset times to their own measures.
+    dimension: time
+- standing_key:
+    measure: measure:sarcomeric_feature_ratio
+    value: {must_match: [platform@1, preparation, measure.features], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.features], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:dissociation_into_single_cells
+    value: {must_match: [platform@1], may_vary: [cell_line, substrate]}
+    direction: {must_match: [contrast], may_vary: [cell_line, substrate]}
+- standing_key:
+    measure: measure:longest_culture_duration
+    value: {must_match: [platform@1, species], may_vary: [cell_line, substrate]}
+    direction: {must_match: [contrast], may_vary: [cell_line, substrate]}
+mappings:
+# ---- context
+- {field: cm_medium, stated: RPMI/B27, terms: [cm_medium:rpmi_1640], split: [{words: B27, field: supplements}]}
+- {field: species, stated: murine, terms: [species:mouse], note: "Table S1 is an image (supplement-15.tif), so no synonym can be anchored"}
+- {field: substrate, stated: PEGylated fibrin hydrogels, terms: ["substrate:pegylated_fibrin"], note: "Table S1 image; no synonym anchored"}
+- {field: substrate, stated: Type I collagen plus basement membrane proteins, terms: [substrate:collagen_hydrogel, substrate:basement_membrane_proteins]}
+- {field: substrate, stated: alginate hydrogel core microcapsules, terms: [substrate:alginate_hydrogel], split: [{words: core microcapsules, field: platform}]}
+- {field: substrate, stated: agarose hydrogel microcapsules, terms: [substrate:agarose_hydrogel], split: [{words: microcapsules, field: platform}]}
+# ---- measures
+- {field: measure, stated: hiPSC viability, terms: [measure:cell_viability], qualifiers: {cell_type: hiPSCs}}
+- {field: measure, stated: hiPSC distribution in the hydrogel, terms: [measure:cell_spatial_distribution], qualifiers: {population: hiPSCs}}
+- {field: measure, stated: tissue growth pattern, terms: [measure:tissue_morphology], qualifiers: {feature: growth pattern}}
+- {field: measure, stated: location of proliferating cells, terms: [measure:cell_spatial_distribution], qualifiers: {population: proliferating cells}}
+- {field: measure, stated: tissue homogeneity, terms: [measure:histological_organisation], qualifiers: {feature: homogeneity}}
+- {field: measure, stated: lateral surface area increase, terms: [measure:tissue_projected_area], qualifiers: {expressed_as: "% change"}, note: "normalised to day 0 tissue surface area; the values carry normalised_to"}
+- {field: measure, stated: proliferating cells (PCNA), terms: [measure:marker_positive_cells], qualifiers: {marker: PCNA}}
+- {field: measure, stated: tissue density, terms: [measure:histological_organisation], qualifiers: {feature: tissue density}}
+- {field: measure, stated: day of contraction initiation, terms: [measure:beating_onset_time], qualifiers: {reference: start of cardiac differentiation (day 0)}}
+- {field: measure, stated: uniformity of contraction, terms: [measure:beating_synchrony]}
+- {field: measure, stated: uniform contraction, terms: [measure:beating_synchrony]}
+- {field: measure, stated: contractility (change in transmitted light intensity), terms: [measure:contraction_motion_trace], qualifiers: {metric: change in transmitted light intensity}}
+- {field: measure, stated: cTnT positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT}}
+- {field: measure, stated: Ki67 positive cTnT positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67, population: cTnT positive cells}}
+- {field: measure, stated: Ki67 positive cells among the remaining cells, terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67, population: cTnT negative cells}}
+- field: measure
+  stated: cTnT and Ki67 flow cytometry quadrants (representative)
+  flag: {kind: several measures, note: "four quadrant percentages (cTnT+/Ki67-, cTnT+/Ki67+, cTnT-/Ki67+, cTnT-/Ki67-) are four marker-positive fractions; one item per quadrant, or drop the representative plot"}
+- field: measure
+  stated: cTnT and P4HB flow cytometry quadrants (representative)
+  flag: {kind: several measures, note: "four quadrant percentages of cTnT and P4HB are four marker-positive fractions; one item per quadrant, or drop the representative plot"}
+- {field: measure, stated: cTnT and Ki67 immunofluorescence, terms: [measure:protein_staining], qualifiers: {protein: cTnT and Ki67}}
+- {field: measure, stated: P4HB positive cells (fibroblasts), terms: [measure:marker_positive_cells], qualifiers: {marker: P4HB}}
+- {field: measure, stated: Oct4 expression, terms: [measure:gene_expression], qualifiers: {gene: Oct4, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: MLC2v expression, terms: [measure:gene_expression], qualifiers: {gene: MLC2v, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: bMHC expression, terms: [measure:gene_expression], qualifiers: {gene: bMHC, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: Cx43 expression, terms: [measure:gene_expression], qualifiers: {gene: Cx43, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: aMHC expression, terms: [measure:gene_expression], qualifiers: {gene: aMHC, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: "calcium transient duration, time to baseline 50%", terms: [measure:calcium_transient_duration], qualifiers: {level: 50% time to baseline}}
+- {field: measure, stated: "calcium transient duration, time to baseline 80%", terms: [measure:calcium_transient_duration], qualifiers: {level: 80% time to baseline}}
+- {field: measure, stated: "spontaneous calcium transient duration, time to baseline 50%", terms: [measure:calcium_transient_duration], qualifiers: {level: 50% time to baseline}, note: "spontaneous is the pacing context (none), not the measure"}
+- {field: measure, stated: "spontaneous calcium transient duration, time to baseline 80%", terms: [measure:calcium_transient_duration], qualifiers: {level: 80% time to baseline}, note: "spontaneous is the pacing context (none), not the measure"}
+- {field: measure, stated: normalized frequency of contraction, terms: [measure:contraction_frequency], qualifiers: {expressed_as: normalised}, note: "what it is normalised to is not stated"}
+- {field: measure, stated: response to exogenous pacing (field potential), terms: [measure:pacing_entrainment]}
+- {field: measure, stated: sarcomere definition and alignment (aSA immunofluorescence), terms: [measure:sarcomere_organisation], qualifiers: {aspect: definition and alignment}}
+- {field: measure, stated: cell alignment, terms: [measure:tissue_anisotropy]}
+- {field: measure, stated: sarcomere alignment and definition (2D FFT), terms: [measure:fourier_spectrum_profile]}
+- {field: measure, stated: cell circularity, terms: [measure:cell_circularity]}
+- {field: measure, stated: Caveolin 3 staining, terms: [measure:protein_staining], qualifiers: {protein: Caveolin 3}}
+- field: measure
+  stated: sarcomere alignment and nuclear size
+  flag: {kind: several measures, note: "sarcomere alignment and nuclear size/shape are two measures; split into two items"}
+- {field: measure, stated: Cx43 localisation, terms: [measure:protein_staining], qualifiers: {protein: Cx43}}
+- {field: measure, stated: ultrastructure (TEM), terms: [measure:ultrastructure]}
+- {field: measure, stated: T-tubules (TEM), terms: [measure:t_tubules]}
+- field: measure
+  stated: morphology and Caveolin 3 staining
+  flag: {kind: several measures, note: "cell morphology (elongated) and Caveolin 3 staining are two measures; split into two items"}
+- field: measure
+  stated: CM phenotype in tissue outgrowth
+  flag: {kind: several measures, note: "the finding reports sarcomere definition and Cx43 pattern (punctate); one item each"}
+- {field: measure, stated: H-zone to sarcomere ratio, terms: [measure:sarcomere_band_count], qualifiers: {band: H-zone}}
+- {field: measure, stated: I-band to Z-line ratio, terms: [measure:sarcomeric_feature_ratio], qualifiers: {features: I-bands per Z-line}}
+- field: measure
+  stated: macrotissue dimensions
+  flag: {kind: several measures, note: "thickness (800-900 µm), width (> 2 mm) and length are separate measures (tissue_thickness, tissue_width, tissue_length)"}
+- {field: measure, stated: microsphere diameter, terms: [measure:tissue_width], note: "diameter of a spherical construct"}
+- {field: measure, stated: dissociation into single CMs, terms: [measure:dissociation_into_single_cells]}
+- {field: measure, stated: cell number (darkening) over time, terms: [measure:cell_number], qualifiers: {proxy: darkening in phase contrast images}}
+- {field: measure, stated: longest time reported for encapsulated cells, terms: [measure:longest_culture_duration]}

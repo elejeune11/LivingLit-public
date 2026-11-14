@@ -1,0 +1,306 @@
+record: 2016_Ruan
+vocabulary_version: 12
+agent:
+  model: llm
+  instructions: terms_v3
+edits:
+# ---------------------------------------------------------------- context fields
+- add_synonym:
+    id: cell_line:imr90_ipsc
+    text: IMR90-iPSC
+    anchor: Human cardiomyocytes were generated from the IMR90-iPSC line
+- adopt:
+    field: differentiation_factors
+    id: CHEBI:62878
+    label: XAV939
+    lookup: "lookup chebi 'XAV939', 'XAV-939', 'Xav 939': exact label XAV939 (CHEBI:62878); check-id not obsolete"
+    synonyms:
+    - text: Xav 939
+      anchor: same medium supplemented with 1 µM Xav 939
+- add_synonym:
+    id: CHEBI:91091
+    text: Chiron 9902
+    anchor: medium supplemented with 1 µM Chiron 9902
+- add_term:
+    field: hipsc_medium
+    id: hipsc_medium:mef_conditioned_medium
+    label: MEF-conditioned medium
+    parent: null
+    definition: Pluripotent stem cell medium conditioned by mouse embryonic fibroblasts before use on feeder-free hiPSCs.
+    scope: Medium conditioned by mouse embryonic fibroblasts; not a defined medium such as mTeSR1, FTDA or Essential 8.
+    synonyms:
+    - text: mouse embryonic fibroblast-conditioned medium
+      anchor: mouse embryonic fibroblast-conditioned medium with 5 ng/mL basic fibroblast growth
+- add_qualifier:
+    id: supplements:b27
+    name: insulin
+    dimension: text
+- add_synonym:
+    id: CL:0000746
+    text: hiPSC-derived cardiomyocytes
+    anchor: To make engineered heart tissue constructs, hiPSC-derived cardiomyocytes were trypsinized into single cells
+- add_synonym:
+    id: CL:0000746
+    text: human stem cell-derived cardiomyocytes
+    anchor: neonatal rat ventricular myocytes (0.4–4.6 mN/mm2) or human stem cell-derived cardiomyocytes
+- adopt:
+    field: cell_types
+    id: CL:2000046
+    label: ventricular cardiac muscle cell
+    lookup: "lookup cl 'ventricular cardiac muscle cell' (exact, CL:2000046) and 'neonatal' (only CL:0002495 fetal cardiomyocyte, not ventricular); CL has no species- or age-specific ventricular myocyte"
+- add_synonym:
+    id: substrate:collagen_hydrogel
+    text: collagen type I
+    anchor: Cardiac tissue constructs were generated using collagen type I
+- add_term:
+    field: substrate
+    id: substrate:geltrex
+    label: Geltrex
+    parent: substrate:hydrogel
+    definition: A hydrogel of Geltrex, a reduced-growth-factor mouse basement-membrane extract.
+    scope: Geltrex as the gel or a gel component; not Matrigel, fibrin or collagen I.
+    synonyms: []
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:unloaded
+    label: unloaded
+    parent: null
+    definition: Culture in which the tissue bears no external load because it is free at one or both ends, so it can shorten freely.
+    scope: No load (free-floating, or one end cut free); not an elastic load (auxotonic), not fixed length (isometric), not a strip load whose regime is not stated, and not externally applied cyclic stretch.
+    synonyms:
+    - text: no stress
+      anchor: whereas no stress (NS) conditions were achieved with one end of the construct cut free of the nylon tab
+- add_synonym:
+    id: mechanical_load:isometric
+    text: static stress
+    anchor: Static stress (SS) conditioning was achieved by maintaining constructs at a fixed static length
+- add_synonym:
+    id: maturation_strategy:electrical_stimulation
+    text: electric stimulation
+    anchor: subjected to a second week of electric stimulation with 2 Hz
+- add_synonym:
+    id: CHEBI:4480
+    text: 2,3-butanedione monoxime
+    anchor: with 2,3-butanedione monoxime (30 mM)
+# ---------------------------------------------------------------- measures
+- add_term:
+    field: measure
+    id: measure:cell_viability
+    label: cell viability
+    parent: null
+    definition: Fraction of cells alive at a stated time, by a live/dead stain or similar assay.
+    scope: Share of living cells; not the fraction of cells positive for a lineage marker (marker-positive cells).
+    dimension: dimensionless
+    synonyms: []
+- add_term:
+    field: measure
+    id: measure:inverse_angle_dispersion
+    label: inverse angle dispersion
+    parent: null
+    definition: Alignment of a stated structure (qualifier structure) as the reciprocal of the dispersion (standard deviation) of its angles in an image.
+    scope: Reciprocal of an angle dispersion; not an orientational order parameter (actin or sarcomere) and not the angle histogram itself (orientation distribution).
+    dimension: dimensionless
+    qualifiers:
+      structure: {dimension: text}
+    synonyms: []
+- add_term:
+    field: measure
+    id: measure:tissue_area_fraction
+    label: tissue area fraction
+    parent: null
+    definition: Fraction of a tissue section's area occupied by a stated component (qualifier component), such as cells or muscle.
+    scope: Share of a tissue section occupied by one component; not the absolute tissue cross-sectional area and not the mitochondrial area fraction within cells.
+    dimension: dimensionless
+    qualifiers:
+      component: {dimension: text}
+    synonyms: []
+- add_term:
+    field: measure
+    id: measure:twitch_stress_strain_slope
+    label: slope of twitch stress against strain
+    parent: measure:frank_starling_response
+    definition: Slope of isometric twitch stress against the tissue's strain (length step over slack length), the active force development per unit stretch.
+    scope: The length dependence of twitch stress as one slope in stress units; not twitch stress at one length (twitch stress) and not passive stiffness (elastic modulus).
+    dimension: stress
+    synonyms: []
+- add_synonym:
+    id: measure:twitch_force
+    text: twitch force amplitude
+    anchor: The L-type calcium channel inhibitor verapamil reduced the twitch force amplitude
+- add_synonym:
+    id: measure:contraction_frequency
+    text: contraction rate
+    anchor: evidence.S5DE_bayk_rate.anchor
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:cell_viability
+    value: {must_match: [platform@1, preparation, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:inverse_angle_dispersion
+    value: {must_match: [platform@1, preparation, measure.structure], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_area_fraction
+    value: {must_match: [platform@1, preparation, measure.component], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.component], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:twitch_stress_strain_slope
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_viability
+    value:
+      must_match: [platform@1, preparation, day_of_measurement, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:inverse_angle_dispersion
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_area_fraction
+    value:
+      must_match: [platform@1, preparation, measure.component, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.component]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:twitch_stress_strain_slope
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: purity_method
+  stated: flow cytometry for cardiac troponin T
+  terms: [purity_method:flow_cytometry]
+  qualifiers: {marker: cardiac troponin T}
+- field: supplements
+  stated: B27 supplement containing insulin
+  terms: [supplements:b27]
+  qualifiers: {insulin: containing insulin}
+  note: The paper contrasts B27 'without insulin' (differentiation) and 'standard B27 supplement containing insulin' (constructs); insulin is a qualifier of B27, not a separate supplement.
+- field: cell_types
+  stated: neonatal rat ventricular myocytes
+  terms: [CL:2000046]
+  no_ontology_term: neonatal rat ventricular myocyte (CL has no species- or age-specific ventricular cardiomyocyte)
+  note: Literature benchmark group; species (rat) and age (neonatal) are lost in CL and no context field holds species.
+- field: maturation_strategy
+  stated: electric stimulation
+  terms: [maturation_strategy:constant_stimulation]
+  note: "One fixed frequency (2 Hz, 5 V/cm, 5 ms) during the second week; the record carries the frequency qualifier. The synonym added goes on the broader electrical stimulation term, as the paper's words do not name the regime."
+- field: platform
+  stated: native tissue
+  terms: [platform:native_tissue]
+  note: The record's wording for rat heart, rat neonatal myocardium, human adult ventricular strips and newborn/infant strips (the paper prints 'native myocardium'); not anchored, so no synonym.
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: cardiac troponin T positive portion
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cardiac troponin T}
+- field: measure
+  stated: cell alignment
+  terms: [measure:inverse_angle_dispersion]
+  qualifiers: {structure: cell edges}
+  note: Defined as the inverse of the standard deviation of cell edge angles (Fig. 2A axis '1/angle dispersion').
+- field: measure
+  stated: collagen alignment
+  terms: [measure:inverse_angle_dispersion]
+  qualifiers: {structure: collagen fibres}
+  note: Birefringence of collagen fibres by polarised microscopy; Supplement Fig. 3A axis '1/angle dispersion'.
+- field: measure
+  stated: tensile stiffness
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: engineered construct}
+  note: Slope of the passive stress-strain relationship, in kPa. No synonym; 'tensile stiffness' may be a structural stiffness (N/m) elsewhere. Key checkpoint re-map; the same text covers the cell-free collagen constructs (group collagen, cell_types none) and the hiPSC-CM constructs (NS, SS, SE), so the specimen is the engineered construct, not tissue; cell_types (now in the elastic_modulus value key) tells the two apart.
+- field: measure
+  stated: passive stiffness
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: tissue}
+  note: Rat neonatal myocardium benchmark in kPa; the paper uses 'passive' and 'tensile stiffness' for the same slope. No synonym, for the same reason.
+- field: measure
+  stated: cell volume fraction
+  terms: [measure:tissue_area_fraction]
+  qualifiers: {component: cells (Fast Green-positive area)}
+  note: "'percentage cell area within the construct': Fast Green-positive area over total construct area, despite the word volume."
+- field: measure
+  stated: bona fide muscle cross-sectional area
+  terms: [measure:tissue_area_fraction]
+  qualifiers: {component: muscle (α-actinin-positive area)}
+  note: Printed in % (21.0 %, 23.13 %, 28.60 %), so it is the α-actinin-positive share of the cross-section, not an absolute area.
+- field: measure
+  stated: cardiomyocyte size
+  terms: [measure:cell_area]
+  note: MYH7-positive area divided by the number of positive cells, in µm². No synonym, as 'cardiomyocyte size' is broader than area (volume or length elsewhere).
+- field: measure
+  stated: isometric twitch force amplitude
+  terms: [measure:twitch_stress]
+  qualifiers: {normalised_to: construct cross-sectional area}
+  note: Plotted in mN/mm2, normalised to the construct cross-section assuming circular geometry, so twitch stress.
+- field: measure
+  stated: contractility
+  terms: [measure:twitch_stress_strain_slope]
+  note: Defined by the paper as the slope of the twitch force-strain curve (mN/mm2). No synonym; 'contractility' is generic.
+- field: measure
+  stated: force production
+  terms: [measure:twitch_stress]
+  note: Literature ranges in mN/mm2.
+- field: measure
+  stated: active force
+  terms: [measure:twitch_stress]
+  note: Human adult ventricular strip benchmark in mN/mm2.
+- field: measure
+  stated: twitch force normalized with the cell-based cross-sectional area
+  terms: [measure:twitch_stress]
+  qualifiers: {normalised_to: α-actinin-positive (cell-based) cross-sectional area}
+- field: measure
+  stated: active force production
+  terms: [measure:twitch_stress]
+  note: Newborn and infant strip benchmarks in mN/mm2 at 2 Hz pacing.
+- field: measure
+  stated: SERCA2 expression
+  terms: [measure:protein_level]
+  qualifiers: {protein: SERCA2, normalised_to: GAPDH, expressed_as: normalised}
+  note: Western blot band intensity normalised to GAPDH.
+- field: measure
+  stated: RYR2 expression
+  terms: [measure:protein_level]
+  qualifiers: {protein: RYR2, normalised_to: GAPDH, expressed_as: normalised}
+  note: Western blot band intensity normalised to GAPDH.
+- field: measure
+  stated: SERCA2 expression (standardized)
+  terms: [measure:protein_level]
+  qualifiers: {protein: SERCA2, normalised_to: "GAPDH, then log-transformed, mean-centred and autoscaled", expressed_as: normalised}
+  note: The standardization is in normalised_to so that value keys do not compare it with the unstandardized ratios.
+- field: measure
+  stated: RYR2 expression (standardized)
+  terms: [measure:protein_level]
+  qualifiers: {protein: RYR2, normalised_to: "GAPDH, then log-transformed, mean-centred and autoscaled", expressed_as: normalised}
+  note: The standardization is in normalised_to so that value keys do not compare it with the unstandardized ratios.
+- field: measure
+  stated: normalized twitch force amplitude
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: fold, normalised_to: twitch force amplitude at 2 Hz pacing}
+- field: measure
+  stated: spontaneous twitch force
+  terms: [measure:twitch_force]
+  note: Supplement force traces in mN; 'spontaneous' is the pacing context, so no synonym.
+- field: measure
+  stated: spontaneous contraction rate
+  terms: [measure:contraction_frequency]
+  note: Not printed in these words ('increases rate markedly'), so no synonym; spontaneous is the pacing context.
+- field: measure
+  stated: twitch amplitude
+  terms: [measure:twitch_force]
+  note: Supplement Fig. 5A force traces; no synonym, as 'twitch amplitude' may mean shortening elsewhere.

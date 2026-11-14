@@ -1,0 +1,645 @@
+record: 2020_Huang
+vocabulary_version: 36
+agent: {model: llm, instructions: terms_v4}
+edits:
+- adopt_own:
+    field: differentiation_factors
+    id: differentiation_factors:iwr_1
+    label: IWR-1
+    definition: The small-molecule Wnt pathway inhibitor IWR-1, named without its endo or exo isomer.
+    scope: IWR-1 (a tankyrase-dependent Wnt inhibitor); not IWP4 (a Porcupine inhibitor), DS-07, Wnt3a (a Wnt activator) or VEGF.
+    lookup: "livinglit lookup chebi 'IWR-1' and 'IWR': the pinned ChEBI has only IWR-1-endo (CHEBI:62882) and IWR-1-exo (CHEBI:62883), no parent IWR-1; the paper does not state the isomer"
+- adopt:
+    field: cell_types
+    id: CL:0002618
+    label: endothelial cell of umbilical vein
+    lookup: "livinglit lookup cl 'umbilical' and 'vein endothelial cell'; HUVEC itself gives no hit"
+    synonyms:
+    - {text: HUVECs, anchor: human umbilical vein endothelial cells (HUVECs)}
+- adopt:
+    field: endothelial_cell
+    id: CL:0002618
+    label: endothelial cell of umbilical vein
+    lookup: "livinglit lookup cl 'umbilical'; the same id as in cell_types"
+- add_synonym:
+    id: CL:2000066
+    text: human adult ventricular cardiac fibroblasts
+    anchor: human adult ventricular cardiac fibroblasts (FB) (6310, ScienCell)
+- add_term:
+    field: replating_coating
+    id: replating_coating:geltrex
+    label: Geltrex
+    parent: null
+    definition: Geltrex, a reduced-growth-factor basement-membrane matrix, coated on a surface before cells are replated.
+    scope: Geltrex coating; not Matrigel (a basement-membrane extract sold under another name), fibronectin, gelatin or vitronectin.
+- add_synonym:
+    id: substrate:glass
+    text: glass slides
+    anchor: cells were replated on glass slides pretreated with Geltrex
+- add_synonym:
+    id: substrate:collagen_hydrogel
+    text: type I collagen
+    anchor: rat tail type I collagen (2.25 mg/mL)
+- add_synonym:
+    id: platform:monolayer
+    text: monolayers
+    anchor: Protein isolation was carried out on CM monolayers
+- add_synonym:
+    id: mechanical_load:load_regime_not_stated
+    text: axial mechanical load
+    anchor: aligned along the direction of axial mechanical load
+- add_qualifier:
+    id: maturation_strategy:maturation_medium
+    name: components
+    dimension: text
+- add_synonym:
+    id: measure:diastolic_stress
+    text: static stress
+    anchor: Static stress and dynamic stress over 30 days in culture
+- add_synonym:
+    id: measure:twitch_stress
+    text: dynamic stress
+    anchor: Static stress and dynamic stress over 30 days in culture
+- add_synonym:
+    id: measure:twitch_duration
+    text: total contraction-relaxation duration
+    anchor: (G) Total contraction–relaxation duration
+- add_term:
+    field: measure
+    id: measure:capture_onset_time
+    label: onset of electrical capture
+    parent: null
+    dimension: time
+    definition: The earliest time at which cells or tissues can be electrically paced with capture, counted from a stated reference event (qualifier reference).
+    scope: When pacing first captures; not the highest frequency still captured (maximum capture rate), not one-to-one following at a stated frequency (entrainment to pacing) and not the onset of spontaneous beating.
+    qualifiers:
+      reference: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:beating_cessation_time
+    label: time to cessation of beating
+    parent: null
+    dimension: time
+    definition: Time after which cells or tissues stop beating spontaneously, counted from a stated reference event (qualifier reference).
+    scope: When beating stops; not when it starts (onset of spontaneous beating) and not whether beating is present at one time (presence of beating).
+    qualifiers:
+      reference: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:peak_calcium_signal
+    label: peak calcium indicator signal
+    parent: null
+    dimension: dimensionless
+    definition: Level of a calcium indicator's signal at the peak of the transient (qualifier indicator), a readout of systolic cytosolic calcium, raw or calibrated to a concentration.
+    scope: The absolute level at the peak; not the level between transients (resting calcium indicator signal), not the rise from baseline to peak (calcium transient amplitude) and not a raw fluorescence peak compared across signal sources.
+    qualifiers:
+      indicator: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:gated_cell_event_fraction
+    label: fraction of events gated as cells
+    parent: null
+    dimension: dimensionless
+    definition: Share of flow cytometry events that fall inside the scatter gate drawn for intact cells.
+    scope: A scatter-gate share of all events, before any marker; not the fraction of cells positive for a marker (marker-positive cells).
+- add_term:
+    field: measure
+    id: measure:anchor_detachment
+    label: detachment from anchors
+    parent: null
+    dimension: dimensionless
+    definition: Whether engineered tissues pull off their pillars or anchors, or the share that do, within a stated period.
+    scope: Tissues coming loose from their anchors; not tissues breaking (tissue breakage) and not failure to compact (tissue condensation).
+- standing_key:
+    measure: measure:capture_onset_time
+    value: {must_match: [platform@1, preparation, measure.reference, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.reference], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:beating_cessation_time
+    value: {must_match: [platform@1, measure.reference, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.reference], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:peak_calcium_signal
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.indicator, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.indicator], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:gated_cell_event_fraction
+    value: {must_match: [platform@1, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:anchor_detachment
+    value: {must_match: [platform@1, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line]}
+mappings:
+- field: platform
+  stated: single-cell culture
+  terms: [platform:culture_2d]
+  qualifiers: {cell_contact: single cells}
+  note: Cells replated sparsely (1–2 × 10^4 cells/cm2) on Geltrex-coated glass, not micropatterned; no term for sparse single-cell culture, so 2D culture with cell_contact.
+- field: platform
+  stated: 3D cardiac microtissues
+  terms: [platform:microfabricated_tissue_gauge]
+  note: The paper's CMTs are formed in its μTUG device arrays (Methods 2.2, a pair of flexible pillars per microwell). "3D cardiac microtissues" is generic across labs, so no synonym is added.
+- field: substrate
+  stated: plastic culture dishes
+  terms: [substrate:culture_plate]
+  qualifiers: {format: culture dishes}
+  note: Tissue-culture plastic named as dishes, not a multi-well plate; no synonym added.
+- field: preparation
+  stated: RNA extracted
+  terms: [preparation:rna_extract]
+- field: transgene
+  stated: GCaMP6f lentivirus
+  terms: [transgene:gcamp6f]
+  qualifiers: {vector: lentivirus}
+- field: maturation_strategy
+  stated: TDI
+  terms: [maturation_strategy:maturation_medium]
+  qualifiers: {components: T3 + dexamethasone + IGF-1}
+  note: Hormone-only maturation medium stays on the parent (scope of metabolic maturation medium); the record's qualifiers hold the doses.
+- field: measure
+  stated: sarcomeric alignment
+  terms: [measure:sarcomere_organisation]
+  note: Qualitative, by eye from α-actinin and troponin I immunostaining of single cells.
+- field: measure
+  stated: GJA1 localization at cell ends
+  terms: [measure:protein_staining]
+  qualifiers: {protein: GJA1, region: cell ends}
+- field: measure
+  stated: CMT width at the center
+  terms: [measure:tissue_width]
+  qualifiers: {portion: center}
+- field: measure
+  stated: cellular alignment
+  terms: [measure:tissue_anisotropy]
+  note: Qualitative alignment of cells in CMTs from α-actinin immunostaining.
+- field: measure
+  stated: length to width ratio
+  terms: [measure:cell_aspect_ratio]
+  qualifiers: {cell_type: hiPSC-CMs}
+  note: No synonym, because the paper also uses the phrase for whole tissues.
+- field: measure
+  stated: H-band presence
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: H-bands}
+- field: measure
+  stated: mitochondrial density
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: mitochondrial density}
+  note: Graded by eye from TEM; not a measured mitochondrial area fraction.
+- field: measure
+  stated: SR terminal cisternae
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: SR terminal cisternae}
+- field: measure
+  stated: T-tubule-like structures near Z-lines
+  terms: [measure:t_tubules]
+- field: measure
+  stated: intercalated discs
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: intercalated discs}
+- field: measure
+  stated: T-tubule-like structures (CAV3 immunostaining)
+  terms: [measure:t_tubules]
+  note: CAV3 immunostaining is the method, not part of the measure.
+- field: measure
+  stated: TNNT2+ fraction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TNNT2}
+- field: measure
+  stated: CD90+ fraction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: CD90}
+- field: measure
+  stated: TNNT2+ MYL7+ fraction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TNNT2+ MYL7+}
+- field: measure
+  stated: TNNT2+ MYL2+ fraction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TNNT2+ MYL2+}
+- field: measure
+  stated: earliest day of electrical capture
+  terms: [measure:capture_onset_time]
+  note: TXT1 counts from differentiation, TXT2 from CMT formation; the values carry their own reference, so it is left out here.
+- field: measure
+  stated: maximum pacing rate with 1:1 capture
+  terms: [measure:maximum_capture_rate]
+- field: measure
+  stated: APD30
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD30}
+- field: measure
+  stated: APD80
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD80}
+- field: measure
+  stated: diastolic Ca2+
+  terms: [measure:resting_calcium_signal]
+  qualifiers: {indicator: Indo-1}
+  note: Indo-1 405/485 nm ratio, printed in nM.
+- field: measure
+  stated: calcium transient amplitude
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: absolute}
+  note: Code matches the wording; stored for the qualifier, because these Indo-1 amplitudes are printed in nM, not as ΔF/F0 or F/F0.
+- field: measure
+  stated: peak Ca2+
+  terms: [measure:peak_calcium_signal]
+  qualifiers: {indicator: Indo-1}
+- field: measure
+  stated: time to 50% peak
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: 50% peak}
+  note: Used for both the Indo-1 (Table S3) and GCaMP6f (Table S4) transients.
+- field: measure
+  stated: time to 50% decay
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 50% decay}
+- field: measure
+  stated: calcium transient peak amplitude
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: '% change'}
+  note: GCaMP6f ΔF/F0.
+- field: measure
+  stated: peak dynamic force
+  terms: [measure:twitch_stress]
+  note: Printed in mN/mm2, so a stress despite the word force; the peak over the culture time course.
+- field: measure
+  stated: fraction of CMTs with organized spontaneous contractions
+  terms: [measure:beating_presence]
+  qualifiers: {mode: organized spontaneous contractions over the entire length}
+  note: The share of CMTs whose beating was organised over their length (10% after 3 days).
+- field: measure
+  stated: twitch amplitude
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: '% of baseline', normalised_to: value at 1 Hz}
+  note: Fig. 5D force relative to 1 Hz pacing; no synonym, because "twitch amplitude" may be a displacement elsewhere.
+- field: measure
+  stated: maximal speed of contraction (+dF/dt)
+  terms: [measure:max_force_rise_rate]
+- field: measure
+  stated: maximal speed of relaxation (-dF/dt)
+  terms: [measure:max_force_decay_rate]
+- field: measure
+  stated: time from stimulation to peak tension
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: from electrical stimulation}
+- field: measure
+  stated: time from peak tension to 50% relaxation (RT50)
+  terms: [measure:relaxation_time]
+  qualifiers: {level: RT50}
+- field: measure
+  stated: relaxation time from peak tension to baseline
+  terms: [measure:relaxation_time]
+  qualifiers: {level: peak to baseline}
+- field: measure
+  stated: isoproterenol EC50 for twitch force
+  terms: [measure:ec50]
+  qualifiers: {response: twitch force, agonist: isoproterenol}
+- field: measure
+  stated: tissue compaction
+  terms: [measure:tissue_condensation]
+- field: measure
+  stated: functional performance
+  flag: {kind: several measures, note: "'reduced functional performance' names no one measure (force, beating and others); the record reader should name the measure or measures the paper means, or drop the item."}
+- field: measure
+  stated: time to cessation of spontaneous beating
+  terms: [measure:beating_cessation_time]
+- field: measure
+  stated: detachment from pillars during compaction
+  terms: [measure:anchor_detachment]
+- field: measure
+  stated: TNNT2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNT2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: MYH7 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH7
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: MYH6 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH6
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: GJA1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: GJA1
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: ACTN2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ACTN2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: MYL2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: JPH2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: JPH2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: BIN1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: BIN1
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: CAMK2D mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CAMK2D
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: PRKACA mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PRKACA
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: PPARGC1A mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PPARGC1A
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: PPARG mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PPARG
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: PPARA mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PPARA
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: ATP2A2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ATP2A2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: RYR2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RYR2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: SLC8A1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SLC8A1
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: PLN mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PLN
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: CACNA1C mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1C
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: CACNA1G mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1G
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: CACNA1H mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1H
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: SCN5A mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN5A
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: SCN1B mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN1B
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: KCNJ2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+    expressed_as: fold
+    normalised_to: 18S rRNA and untreated controls
+- field: measure
+  stated: GJA1 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: GJA1
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: MYH6 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: MYH6
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: MYH7 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: MYH7
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: ATP2A2 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ATP2A2
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: SLC8A1 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: SLC8A1
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: PLN protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PLN
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: PPARGC1A protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PPARGC1A
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: PPARA protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PPARA
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: PPARG protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PPARG
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: PTEN protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: PTEN
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: TNNI1 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNI1
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: TNNI3 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNI3
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: TNNT2 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNT2
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: ADRB1 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ADRB1
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: ADRB2 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: ADRB2
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: CHRM2 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: CHRM2
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: CHRM3 protein level
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: CHRM3
+    expressed_as: fold
+    normalised_to: Coomassie Blue stained membrane and untreated controls
+- field: measure
+  stated: p-AKT/T-AKT phosphorylation ratio
+  terms:
+  - measure:phosphorylated_protein_fraction
+  qualifiers:
+    protein: AKT
+    normalised_to: total AKT
+- field: measure
+  stated: p-MTOR/T-MTOR phosphorylation ratio
+  terms:
+  - measure:phosphorylated_protein_fraction
+  qualifiers:
+    protein: MTOR
+    normalised_to: total MTOR

@@ -1,0 +1,507 @@
+record: 2022_Huebsch
+vocabulary_version: 69
+agent: {model: llm, instructions: terms_v4}
+
+edits:
+  # ---------------------------------------------------------------- adopted fields
+  - adopt:
+      field: differentiation_factors
+      id: CHEBI:125649
+      label: IWP-2
+      lookup: "livinglit lookup chebi 'IWP-2': exact label match"
+  - adopt:
+      field: supplements
+      id: CHEBI:29073
+      label: L-ascorbic acid
+      lookup: "livinglit lookup chebi 'L-ascorbic acid': exact label match; kept apart from ascorbic acid (CHEBI:22652) and L-ascorbic acid 2-phosphate"
+  - adopt:
+      field: treatment
+      id: CHEBI:51141
+      label: alfuzosin
+      lookup: "livinglit lookup chebi 'alfuzosin': exact label match (the hydrochloride salt is CHEBI:32286; the paper names the drug only)"
+  - adopt:
+      field: cell_line
+      id: CVCL_V192
+      label: G15.AO
+      lookup: "livinglit lookup cellosaurus 'G15.AO': exact label match"
+  - adopt:
+      field: cell_line
+      id: CVCL_A5GC
+      label: SCVI-273
+      lookup: "livinglit lookup cellosaurus 'SCVI273': exact synonym match of SCVI-273"
+      synonyms:
+        - {text: SCVI273, anchor: "The third cell line, SCVI273, was generated from a healthy 43-year-old Asian female"}
+  - adopt_own:
+      field: cell_line
+      id: cell_line:scvi20
+      label: SCVI20
+      definition: "The Stanford Cardiovascular Biobank hiPSC line 20, from a healthy 77-year-old male donor."
+      scope: "The SCVI20 line of the Stanford Cardiovascular Biobank; not SCVI-202, SCVI-2020 or other SCVI lines."
+      lookup: "livinglit lookup cellosaurus 'SCVI20' and 'SCVI-20': no entry; nearest hits SCVI-202 (CVCL_C6UA) and SCVI-2020 (CVCL_C1SA) are different lines"
+  - add_synonym:
+      id: CVCL_Y803
+      text: WTC
+      anchor: "Wild Type C (WTC) human hiPSC harboring a single-copy of CAG-driven GCaMP6f"
+  - add_synonym:
+      id: CL:0000499
+      field: cell_types
+      text: hiPSC-SC
+      anchor: "We then prepared a cocktail of 80% hiPSC-CM and 20% hiPSC-SC"
+  - add_synonym:
+      id: CL:0000499
+      field: stromal_cell
+      text: hiPSC-derived stromal cells
+      anchor: "These hiPSC-derived stromal cells (hiPSC-SC) have a similar lineage to cardiomyocytes"
+  - add_synonym:
+      id: measure:inter_beat_interval
+      text: beating interval
+      anchor: "reducing beating interval, without a concurrent loss of beating prevalence"
+  # ---------------------------------------------------------------- own context fields
+  - add_synonym:
+      id: hipsc_medium:essential_8
+      text: Essential 8 Medium
+      anchor: "plated on hESC-Qualified Matrix (Corning; Corning, NY) in Essential 8 Medium"
+  - add_term:
+      field: hipsc_coating
+      id: hipsc_coating:hesc_qualified_matrigel
+      label: hESC-qualified Matrigel
+      parent: hipsc_coating:matrigel
+      definition: "Corning's Matrigel lot-qualified for human embryonic stem cell culture."
+      scope: "The hESC-qualified Matrigel product; not growth-factor-reduced Matrigel."
+      synonyms:
+        - {text: hESC-Qualified Matrix, anchor: "frozen stocks of pluripotent cells were thawed and plated on hESC-Qualified Matrix (Corning"}
+  - set_scope:
+      id: hipsc_coating:gfr_matrigel
+      scope: "Matrigel sold with reduced growth-factor content; not hESC-qualified Matrigel."
+  - add_synonym:
+      id: purification:metabolic_selection
+      text: lactate treatment
+      anchor: "Characterization of the purity of iPSC-CM obtained by lactate treatment of cryopreserved iPSC-cardiomyocyte differentiation"
+  - add_qualifier: {id: dissociation_reagent:trypsin, name: concentration, dimension: text}
+  - add_qualifier: {id: transgene:calcium_indicator, name: promoter, dimension: text}
+  - add_qualifier: {id: transgene:calcium_indicator, name: locus, dimension: text}
+  - add_synonym:
+      id: substrate:pdms
+      text: Polydimethylsiloxane
+      anchor: "The cardiac MPS is formed by replica molding Polydimethylsiloxane (PDMS"
+  - add_term:
+      field: platform
+      id: platform:microfluidic_cardiac_mps
+      label: microfluidic cardiac microphysiological system
+      parent: platform:engineered_3d
+      definition: "A PDMS microfluidic chip in which cardiomyocytes self-assemble into a microtissue inside a narrow culture chamber held by anchoring posts, fed through side media channels."
+      scope: "A microtissue formed by loading cells into a fluid-fed microchamber with posts; not a hydrogel tissue cast between two pillars in a well, a strip, a ring, a patch, a tissue between anchors or wires."
+  - add_term:
+      field: preparation
+      id: preparation:tissue_slice
+      label: tissue slice
+      parent: preparation:intact_tissue
+      definition: "A thin slice cut from heart tissue and kept alive in culture (organotypic slice) for measurement."
+      scope: "A living slice of heart tissue; not an engineered tissue measured in an animal (implanted tissue) or a whole perfused heart."
+      synonyms:
+        - {text: organotypic slice culture, anchor: "Organotypic slice culture from human adult ventricular myocardium"}
+  - add_synonym:
+      id: preparation:lysate
+      text: lysis buffer
+      anchor: "pooled with up to six other microtissues in lysis buffer"
+  - add_synonym:
+      id: preparation:dissociated_cells
+      text: singularized
+      anchor: "Cells were washed twice in PBS and singularized with 0.25% trypsin/EDTA."
+  - add_synonym:
+      id: maturation_strategy:metabolic_maturation_medium
+      text: fatty-acid media
+      anchor: "MPS were incubated with different fatty-acid media for ten days"
+  - add_term:
+      field: maturation_strategy
+      id: maturation_strategy:standard_medium_control
+      label: standard medium control
+      definition: "The source's usual culture medium, named as the control arm against which a maturation strategy is compared, with no maturation intervention."
+      scope: "The control medium of a maturation comparison (qualifier called: what the paper calls it); not a maturation medium, and not static culture, the control of dynamic culture."
+      qualifiers:
+        called: {dimension: text}
+  - add_synonym:
+      id: measurement_medium:tyrode_solution
+      text: "Tyrode's saline"
+      anchor: "For testing inotropic responsiveness to extracellular calcium concentration, Tyrode’s saline"
+  # ---------------------------------------------------------------- measures
+  - add_term:
+      field: measure
+      id: measure:beating_prevalence
+      label: beating prevalence
+      definition: "Share of a tissue's area that shows substantial contractile motion."
+      scope: "The fraction of one tissue that beats; not whether tissues beat at all (presence of beating), not the share of constructs beating in synchrony, and not a beat rate."
+      dimension: dimensionless
+      synonyms:
+        - {text: beating prevalence, anchor: "a high level of beating prevalence during pacing (defined as the percent of the tissue with"}
+        - {text: prevalence of beating, anchor: "as the prevalence of beating in these samples (M2) was"}
+  - add_term:
+      field: measure
+      id: measure:contraction_axis_fraction
+      label: fraction of contraction along the tissue axis
+      definition: "Share of a tissue's contractile motion that lies along its long axis, from motion tracking."
+      scope: "Direction of contraction motion within one tissue; not structural anisotropy, not an orientation distribution of structures, and not contraction amplitude."
+      dimension: dimensionless
+  - add_term:
+      field: measure
+      id: measure:rate_corrected_apd
+      label: beat-rate corrected action potential duration
+      parent: measure:action_potential_duration
+      definition: "Action potential duration at a stated level of repolarisation corrected for beat rate by a formula (such as Fridericia's)."
+      scope: "A rate-corrected duration (cAPD); uncorrected durations stay on the parent."
+      dimension: time
+  - add_term:
+      field: measure
+      id: measure:action_potential_rise_time
+      label: action potential rise time
+      parent: measure:action_potential
+      definition: "Time the action potential takes to rise from a stated level above baseline to its peak (qualifier level)."
+      scope: "A time of the upstroke; not the upstroke velocity (a slope), the amplitude, the peak potential, a duration or a ratio of durations."
+      dimension: time
+      qualifiers:
+        level: {dimension: text}
+  - add_term:
+      field: measure
+      id: measure:rate_corrected_calcium_fwhm
+      label: beat-rate corrected calcium transient FWHM
+      parent: measure:calcium_transient_fwhm
+      definition: "Full width at half maximum of the calcium transient corrected for beat rate by a formula."
+      scope: "A rate-corrected FWHM; uncorrected widths stay on the parent."
+      dimension: time
+  - add_term:
+      field: measure
+      id: measure:rate_corrected_calcium_decay_time
+      label: beat-rate corrected calcium transient decay time
+      parent: measure:calcium_transient_decay_time
+      definition: "Time for the calcium transient to decay to a stated level, corrected for beat rate by a formula."
+      scope: "A rate-corrected decay time (such as cτ75); not uncorrected decay times, not the relative decay time and not a fitted decay time constant."
+      dimension: time
+  - add_qualifier: {id: measure:calcium_transient_rise_rate, name: statistic, dimension: text}
+  - add_qualifier: {id: measure:ic50, name: response, dimension: text}
+  - add_term:
+      field: measure
+      id: measure:twitch_stress_calcium_slope
+      label: slope of twitch stress against extracellular calcium
+      definition: "Initial (linear) slope of twitch stress plotted against extracellular calcium concentration."
+      scope: "Stress per unit extracellular calcium from a calcium-force curve; not an EC50 of that curve, not the force-calcium amplitude relation across conditions, and not a slope against strain."
+      dimension: stress_per_concentration
+  - add_term:
+      field: measure
+      id: measure:safety_margin
+      label: safety margin
+      definition: "A drug's in vitro IC50 or EC50 divided by its effective therapeutic plasma concentration (qualifier based_on: the readout the potency came from)."
+      scope: "A ratio of potency to therapeutic exposure; not the IC50 or EC50 itself."
+      dimension: dimensionless
+      qualifiers:
+        based_on: {dimension: text}
+  - add_synonym:
+      id: measure:spare_respiratory_capacity
+      text: reserve OCR
+      anchor: "Quantification of reserve OCR (change in OCR from baseline with FCCP treatment)"
+  - add_term:
+      field: measure
+      id: measure:atp_capacity
+      label: total ATP capacity
+      parent: measure:oxygen_consumption_rate
+      definition: "Total capacity for ATP production estimated from oxygen consumption measurements, as a source names it without giving its calculation."
+      scope: "The named total ATP capacity; not maximal respiration, spare capacity, oligomycin-sensitive (ATP-linked) respiration or proton leak."
+      dimension: amount_rate
+      synonyms:
+        - {text: ATP capacity, anchor: "and total ATP capacity indicate a shift toward"}
+  - add_term:
+      field: measure
+      id: measure:sarcomere_power_score
+      label: sarcomere Fourier power score
+      definition: "A score of sarcomeric order computed from the Fourier power spectrum of sarcomere (α-actinin) images."
+      scope: "An FFT-based order score whose formula the source cites but does not give; not the sarcomere alignment index (first-order peak area over total), not the whole spectrum profile and not a graded appearance."
+      dimension: dimensionless
+  # ---------------------------------------------------------------- standing keys
+  - standing_key:
+      measure: measure:beating_prevalence
+      value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:contraction_axis_fraction
+      value: {must_match: [platform@1, preparation, pacing, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:rate_corrected_apd
+      value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:action_potential_rise_time
+      value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:rate_corrected_calcium_fwhm
+      value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:rate_corrected_calcium_decay_time
+      value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:twitch_stress_calcium_slope
+      value: {must_match: [platform@1, preparation, pacing, temperature, mechanical_load, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:safety_margin
+      value: {must_match: [platform@1, preparation, pacing, measure.based_on, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast, measure.based_on, treatment], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:atp_capacity
+      value: {must_match: [platform@1, preparation, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+  - standing_key:
+      measure: measure:sarcomere_power_score
+      value: {must_match: [platform@1, preparation, method, treatment, genotype, disease_model], may_vary: [cell_line]}
+      direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+
+mappings:
+  # ---------------------------------------------------------------- context
+  - field: purity_method
+    stated: flow cytometry for Cardiac Troponin T
+    terms: [purity_method:flow_cytometry]
+    qualifiers: {marker: Cardiac Troponin T}
+  - field: cm_medium
+    stated: glucose free RPMI
+    terms: [cm_medium:rpmi_1640]
+    qualifiers: {glucose: glucose free}
+  - field: dissociation_reagent
+    stated: 0.25% trypsin
+    terms: [dissociation_reagent:trypsin]
+    qualifiers: {concentration: 0.25%}
+  - field: transgene
+    stated: CAG-driven GCaMP6f
+    terms: [transgene:gcamp6f]
+    qualifiers: {promoter: CAG}
+  - field: platform
+    stated: cardiac MPS
+    terms: [platform:microfluidic_cardiac_mps]
+    note: "no synonym: 'cardiac MPS' is broader than this chip format and would match other microphysiological systems"
+  - field: mechanical_load
+    stated: contract against PDMS posts
+    terms: [mechanical_load:auxotonic]
+    qualifiers: {posts: PDMS posts}
+  - field: preparation
+    stated: live
+    flag: {kind: not a context, note: "'live' is written for both MPS microtissues (intact tissue) and 2D monolayers (live cells) in this paper; the word does not say which preparation, and the vocabulary cannot read it from the platform field. Write the preparation per group (e.g. intact tissue for MPS, live cells for monolayers)."}
+  - field: pacing
+    stated: 1 Hz
+    terms: [pacing:field_stimulation]
+    qualifiers: {frequency: 1 Hz}
+    note: "methods: field stimulator, bipolar pulses at 1Hz (ION OPTIX Myopacer Field Stimulator)"
+  - field: maturation_strategy
+    stated: standard media
+    terms: [maturation_strategy:standard_medium_control]
+    qualifiers: {called: standard media}
+  - field: maturation_strategy
+    stated: glucose-free media
+    terms: [maturation_strategy:metabolic_maturation_medium]
+    note: "Media 7-9 of the L9 screen: glucose-free with fatty acids and galactose; no synonym, since 'glucose-free media' is also a purification medium wording"
+  - field: maturation_strategy
+    stated: modulating palmitate and albumin in MM
+    terms: [maturation_strategy:metabolic_maturation_medium]
+    note: "M1-M4: variants of the Maturation Media with palmitate and BSA levels changed; composition is in the record's qualifiers"
+  - field: measurement_medium
+    stated: RPMI-C without phenol red
+    terms: [measurement_medium:culture_medium]
+    qualifiers: {medium: RPMI-C without phenol red}
+  - field: measurement_medium
+    stated: RPMI 1640 supplement with insulin
+    terms: [measurement_medium:culture_medium]
+    qualifiers: {medium: RPMI 1640 supplement with insulin}
+  - field: day_of_measurement
+    stated: immediately after lactate treatment
+    flag: {kind: not a context, note: "day_of_measurement is a quantity; this is a moment relative to purification, neither a number nor a declared state. The companion groups read 'six days' and '180 days' (after purification, not days of culture); re-read as days after purification or as time_point."}
+  # ---------------------------------------------------------------- measures
+  - field: measure
+    stated: fraction of contraction along the longitudinal axis
+    terms: [measure:contraction_axis_fraction]
+  - field: measure
+    stated: GCaMP maximum
+    terms: [measure:peak_calcium_signal]
+    qualifiers: {indicator: GCaMP6f}
+  - field: measure
+    stated: GCaMP FWHMc
+    terms: [measure:rate_corrected_calcium_fwhm]
+  - field: measure
+    stated: beat-rate corrected 80% action potential duration (cAPD80)
+    terms: [measure:rate_corrected_apd]
+    qualifiers: {level: APD80}
+  - field: measure
+    stated: 80% action potential duration (APD80)
+    terms: [measure:action_potential_duration]
+    qualifiers: {level: APD80}
+  - field: measure
+    stated: background normalized calcium amplitude (ΔF/F0)
+    terms: [measure:calcium_transient_amplitude]
+    qualifiers: {expressed_as: "% change"}
+  - field: measure
+    stated: background corrected calcium amplitude (F/F0)
+    terms: [measure:calcium_transient_amplitude]
+    qualifiers: {expressed_as: fold}
+  - field: measure
+    stated: maximum Ca2+ upstroke velocity
+    terms: [measure:calcium_transient_rise_rate]
+    qualifiers: {statistic: maximum}
+  - field: measure
+    stated: MitoTracker Red intensity
+    terms: [measure:mitochondrial_membrane_potential]
+    note: "the paper: 'Mitochondrial inner transmembrane potential, as measured with MitoTracker Red'; no synonym, as other sources use MitoTracker for mitochondrial mass"
+  - field: measure
+    stated: EC50 of peak twitch stress for extracellular calcium
+    terms: [measure:ec50]
+    qualifiers: {response: peak twitch stress, compound: extracellular calcium}
+  - field: measure
+    stated: initial slope of the calcium–force response curve
+    terms: [measure:twitch_stress_calcium_slope]
+  - field: measure
+    stated: EC50 of normalized force for isoproterenol
+    terms: [measure:ec50]
+    qualifiers: {response: normalized force, compound: isoproterenol}
+  - field: measure
+    stated: EC50 of normalized beat rate for isoproterenol
+    terms: [measure:ec50]
+    qualifiers: {response: normalized beat rate, compound: isoproterenol}
+  - field: measure
+    stated: expression of ion channel and sarcomere transcripts relative to GAPDH
+    flag: {kind: several measures, note: "a panel of many genes in one value; gene expression compares only for one gene. Each gene is its own item."}
+  - field: measure
+    stated: CACNB2 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: CACNB2, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: HCN4 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: HCN4, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: SLN expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: SLN, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: HCN2 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: HCN2, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: KCNIP2 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: KCNIP2, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: MYH7 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: MYH7, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: MYL2 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: MYL2, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: KCND2 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: KCND2, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: ALDH1A1 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: ALDH1A1, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: KCNJ2 expression relative to GAPDH
+    terms: [measure:gene_expression]
+    qualifiers: {gene: KCNJ2, normalised_to: GAPDH, expressed_as: normalised}
+  - field: measure
+    stated: CACNB1 and SLN expression relative to GAPDH
+    flag: {kind: several measures, note: "two genes in one value; gene expression compares only for one gene. Split into a CACNB1 item and an SLN item."}
+  - field: measure
+    stated: IC50 of beating prevalence for verapamil
+    terms: [measure:ic50]
+    qualifiers: {response: beating prevalence}
+  - field: measure
+    stated: IC50 of beating prevalence for alfuzosin
+    terms: [measure:ic50]
+    qualifiers: {response: beating prevalence}
+  - field: measure
+    stated: safety margin based on prevalence
+    terms: [measure:safety_margin]
+    qualifiers: {based_on: beating prevalence}
+  - field: measure
+    stated: safety margin based on cAPD80
+    terms: [measure:safety_margin]
+    qualifiers: {based_on: cAPD80}
+  - field: measure
+    stated: safety margin based on APD80
+    terms: [measure:safety_margin]
+    qualifiers: {based_on: APD80}
+  - field: measure
+    stated: EC50 of cAPD80 for alfuzosin
+    terms: [measure:ec50]
+    qualifiers: {response: cAPD80, compound: alfuzosin}
+  - field: measure
+    stated: EC50 of APD80 for flecainide
+    terms: [measure:ec50]
+    qualifiers: {response: APD80, compound: flecainide}
+  - field: measure
+    stated: EC50 of APD80 for alfuzosin
+    terms: [measure:ec50]
+    qualifiers: {response: APD80, compound: alfuzosin}
+  - field: measure
+    stated: action potential time from 20% above baseline to peak (Upstroke80)
+    terms: [measure:action_potential_rise_time]
+    qualifiers: {level: Upstroke80}
+  - field: measure
+    stated: variability in cAPD80
+    terms: [measure:between_sample_variability]
+    qualifiers: {of_measure: cAPD80}
+  - field: measure
+    stated: variability in spontaneous beat rate
+    terms: [measure:between_sample_variability]
+    qualifiers: {of_measure: spontaneous beat rate}
+  - field: measure
+    stated: sarcomere power score
+    terms: [measure:sarcomere_power_score]
+  - field: measure
+    stated: MYH7 protein expression
+    terms: [measure:protein_fluorescence_intensity]
+    qualifiers: {protein: MYH7}
+  - field: measure
+    stated: MLC-2v protein expression
+    terms: [measure:protein_fluorescence_intensity]
+    qualifiers: {protein: MLC-2v}
+  - field: measure
+    stated: GAPDH protein expression as raw fluorescence intensity
+    terms: [measure:protein_fluorescence_intensity]
+    qualifiers: {protein: GAPDH, expressed_as: absolute}
+  - field: measure
+    stated: pixel-wise ratio of intensity of GAPDH / ACTN2
+    terms: [measure:protein_fluorescence_intensity]
+    qualifiers: {protein: GAPDH, expressed_as: normalised, normalised_to: ACTN2}
+  - field: measure
+    stated: normalized beat rate
+    terms: [measure:contraction_frequency]
+    qualifiers: {expressed_as: normalised}
+  - field: measure
+    stated: normalized F/F0
+    terms: [measure:calcium_transient_amplitude]
+    qualifiers: {expressed_as: normalised}
+  - field: measure
+    stated: normalized beat-rate corrected decay time (cτ75)
+    terms: [measure:rate_corrected_calcium_decay_time]
+    qualifiers: {level: τ75, expressed_as: normalised}
+  - field: measure
+    stated: normalized upstroke duration of the calcium transient
+    terms: [measure:calcium_transient_rise_time]
+    qualifiers: {expressed_as: normalised}
+  - field: measure
+    stated: normalized Ca2+ upstroke time
+    terms: [measure:calcium_transient_rise_time]
+    qualifiers: {expressed_as: normalised, normalised_to: the same MPS treated with vehicle}
+  - field: measure
+    stated: normalized Ca2+ τ75
+    terms: [measure:calcium_transient_decay_time]
+    qualifiers: {level: τ75, expressed_as: normalised, normalised_to: the same MPS treated with vehicle}
+  - field: measure
+    stated: normalized Ca2+ amplitude
+    terms: [measure:calcium_transient_amplitude]
+    qualifiers: {expressed_as: normalised, normalised_to: the same MPS treated with vehicle}
+  - field: measure
+    stated: percentage of cTnT positive cells
+    terms: [measure:marker_positive_cells]
+    qualifiers: {marker: cTnT}

@@ -1,0 +1,591 @@
+record: 2018_Gao
+vocabulary_version: 35
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context: own and adopted terms, synonyms
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhang_hcipsc
+    label: hciPSC (cardiac-lineage hiPSC line of the Zhang lab, unnamed)
+    definition: GFP-expressing hiPSC line reprogrammed with Sendai virus from left-atrial fibroblasts of an adult male, which the source calls hciPSC.
+    lookup: "cellosaurus 'hciPSC' and 'cardiac fibroblast': no matching line (only IM-HCF, an immortalised fibroblast line, and TVGHi008-A, a patient line)"
+    scope: The Zhang lab's cardiac-fibroblast-derived GFP line called hciPSC; not any other unnamed or in-house line.
+    synonyms:
+    - {text: hciPSC, anchor: were differentiated from hciPSCs}
+- add_term:
+    field: hipsc_medium
+    id: hipsc_medium:growth_medium_not_named
+    label: hiPSC growth medium, formulation not named
+    parent: null
+    definition: A medium for undifferentiated hiPSCs that the source names only as growth medium, without its formulation.
+    scope: An unnamed hiPSC maintenance medium; not a named medium such as mTeSR1, FTDA, Essential 8, StemFlex or MEF-conditioned medium.
+    synonyms:
+    - {text: hiPSC growth medium, anchor: maintained with hiPSC growth medium in Matrigel-coated plate}
+- add_synonym: {id: hipsc_coating:matrigel, text: Matrigel-coated plate, anchor: maintained with hiPSC growth medium in Matrigel-coated plate}
+- add_synonym: {id: preparation:dissociated_cells, text: resuspended as single cells, anchor: 'For flow cytometry analyses, cells were trypsinized, resuspended as single cells'}
+- add_synonym: {id: dissociation_reagent:trypsin, text: trypsinized, anchor: 'For flow cytometry analyses, cells were trypsinized, resuspended as single cells'}
+- add_term:
+    field: purification
+    id: purification:immunomagnetic_selection
+    label: immunomagnetic selection
+    parent: null
+    definition: Enrichment of cells carrying a surface marker (qualifier marker) by binding them to antibody-coated magnetic particles.
+    scope: Selection by a surface marker on magnetic particles; not fluorescence-activated cell sorting, not selection by energy substrate (metabolic selection), not a genetically encoded marker (genetic selection) and not density gradient separation.
+    qualifiers: {marker: {dimension: text}}
+    synonyms:
+    - {text: magnetic nanoparticle selection, anchor: were collected via magnetic nanoparticle selection for CD34 expression}
+- add_term:
+    field: purification
+    id: purification:facs
+    label: fluorescence-activated cell sorting
+    parent: null
+    definition: Enrichment of cells by sorting them one by one on fluorescent antibody labels in a flow cytometer.
+    scope: Cell-by-cell sorting on fluorescent labels; not bulk selection on magnetic particles (immunomagnetic selection), not selection by energy substrate (metabolic selection), not a genetically encoded marker (genetic selection) and not density gradient separation.
+    qualifiers: {marker: {dimension: text}}
+- adopt:
+    field: cell_types
+    id: CL:0000192
+    label: smooth muscle cell
+    lookup: "cl 'smooth muscle cell': exact label; the paper's hiPSC-SMCs are differentiated from CD34+ vascular progenitors"
+    synonyms:
+    - {text: hiPSC-SMCs, anchor: hiPSC-SMCs were incubated with mouse anti-α-smooth muscle actin}
+    - {text: smooth muscle cells, anchor: hiPSCs were differentiated into endothelial cells (ECs) and smooth muscle cells (SMCs)}
+- add_synonym: {id: CL:0000115, field: cell_types, text: hiPSC-ECs, anchor: 'then, the hiPSC-ECs were purified and enriched'}
+- adopt:
+    field: endothelial_cell
+    id: CL:0000115
+    label: endothelial cell
+    lookup: "cl 'endothelial cell': exact label, already adopted for cell_types; the paper's hiPSC-ECs are CD31+ VE-cadherin+ cells sorted after differentiation"
+    synonyms:
+    - {text: hiPSC-ECs, anchor: 'then, the hiPSC-ECs were purified and enriched'}
+- add_synonym: {id: substrate:fibronectin, text: fibronectin-coated plates, anchor: culturing the hiPSC-VPCs on fibronectin-coated plates with EGM 2-MV medium}
+- add_synonym: {id: replating_coating:fibronectin, text: fibronectin-coated plates, anchor: culturing the hiPSC-VPCs on fibronectin-coated plates with EGM 2-MV medium}
+- add_term:
+    field: platform
+    id: platform:cast_patch
+    label: cast tissue patch, anchoring not stated
+    parent: platform:engineered_3d
+    definition: A flat engineered tissue sheet cast from cells in a hydrogel in a mould and cultured in a dish, with no frame, poles or anchors stated.
+    scope: A flat sheet whose holding is not stated; not a sheet anchored at its edges by a frame (frame-anchored patch), not a sheet on flexible poles, not a ring, and not a linear tissue between pillars, anchors or wires or around a strip.
+- add_term:
+    field: platform
+    id: platform:boyden_chamber
+    label: Boyden chamber
+    parent: platform:culture_2d
+    definition: A two-compartment well in which cells are seeded on a porous membrane and counted after migrating through it toward the lower compartment.
+    scope: Cells on a porous membrane insert for a migration assay; not a flat monolayer on the well bottom, not micropatterned islands and not a micropost array.
+    synonyms:
+    - {text: Boyden chamber, anchor: Migration was evaluated via the Boyden-chamber assay}
+- add_synonym: {id: maturation_strategy:dynamic_culture, text: dynamic rocking platform, anchor: culturing the construct on a dynamic (rocking) platform}
+- add_synonym: {id: maturation_strategy:static_culture, text: static culture condition, anchor: 'on a fixed platform (i.e., the static culture condition)'}
+- add_synonym: {id: preparation:lysate, text: protein extracts, anchor: Protein extracts were run on 10% SDS-PAGE gels}
+- add_synonym: {id: preparation:live_cells, text: cultured cells, anchor: the number of exosomes taken up by the cultured cells increased substantially}
+- add_qualifier: {id: preparation:fixed, name: fixative, dimension: text}
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:hbss
+    label: Hank's balanced salt solution
+    parent: null
+    definition: Hank's balanced salt solution used as the bath or perfusate during the measurement.
+    scope: A bath named Hank's balanced salt solution; not Tyrode's or Krebs solution, not a named extracellular solution, not an assay or imaging medium, not a serum-free medium and not the cells' culture medium.
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:serum_free_dmem
+    label: serum-free DMEM
+    parent: null
+    definition: DMEM without serum used as the medium during the measurement or exposure.
+    scope: Serum-free medium whose base is stated as DMEM; not a serum-free medium of unstated base, not a named assay or imaging medium, not a physiological salt solution (Tyrode's, Krebs, Hank's, extracellular solution) and not the cells' culture medium.
+    synonyms:
+    - {text: serum-free DMEM medium, anchor: cultured under hypoxic conditions for 48 h in serum-free DMEM medium}
+- add_term:
+    field: species
+    id: species:rabbit
+    label: rabbit
+    parent: null
+    definition: Oryctolagus cuniculus.
+    scope: Rabbit cells, tissue or hearts; not human, rat or pig.
+    xref: [NCBITaxon:9986]
+- add_term:
+    field: species
+    id: species:pig
+    label: pig
+    parent: null
+    definition: Sus scrofa (domestic pig).
+    scope: Pig (swine) cells, tissue or hearts; not human, rat or rabbit.
+    xref: [NCBITaxon:9823]
+    synonyms:
+    - {text: swine, anchor: Experiments were performed with female Yorkshire swine}
+- set_scope: {id: species:human, scope: 'Human cells or tissue; not rat, rabbit, pig or other animals.'}
+- set_scope: {id: species:rat, scope: 'Rat cells, tissue or hearts; not human, rabbit or pig.'}
+- adopt_own:
+    field: supplements
+    id: supplements:egm_2mv
+    label: EGM-2MV endothelial growth medium kit
+    definition: Lonza's EGM-2MV microvascular endothelial growth medium, a basal medium sold with its serum and growth-factor supplements.
+    lookup: "chebi 'EGM-2MV' and 'endothelial growth medium': not in ChEBI (a commercial medium kit, not a chemical entity)"
+    scope: The whole EGM-2MV kit named as one addition; not a single serum (fetal bovine serum, horse serum), not B27 or another defined supplement, and not a single growth factor such as VEGF.
+- adopt_own:
+    field: treatment
+    id: treatment:pbs
+    label: phosphate-buffered saline
+    definition: Phosphate-buffered saline given as the vehicle control for an added material.
+    lookup: "chebi 'phosphate-buffered saline', 'phosphate buffered saline', 'PBS', 'saline': no ChEBI entity for the buffer"
+    scope: The buffer given as a vehicle; not DMSO and not any active compound.
+    synonyms:
+    - {text: PBS, anchor: treated with PBS or with exosomes collected from monolayer cultures of ECs}
+- adopt_own:
+    field: treatment
+    id: treatment:exosomes
+    label: exosomes
+    definition: Extracellular vesicles collected from conditioned medium and added to cultured cells, with the cells or construct that secreted them as the qualifier source.
+    lookup: "chebi 'exosome': no ChEBI entity (a vesicle fraction, not a chemical entity)"
+    scope: Secreted vesicles added as an exposure; the secreting cells are the qualifier source; not a single protein, a drug or a vehicle.
+    qualifiers: {source: {dimension: text}}
+- adopt:
+    field: treatment
+    id: CHEBI:231549
+    label: GW4869
+    lookup: "chebi 'GW4869': exact label; used as an inhibitor of exosome release"
+- adopt:
+    field: treatment
+    id: CHEBI:758841
+    label: annexin a5
+    lookup: "chebi 'annexin': annexin a5 is the ChEBI entry for the protein the paper calls annexin V (exosome-internalisation inhibitor)"
+    synonyms:
+    - {text: annexin V, 'anchor': 'an exosome-internalization inhibitor (annexin V, 2 μg/mL)'}
+- add_qualifier: {id: treatment:ect_implantation, name: number_of_constructs, dimension: dimensionless}
+- adopt_own:
+    field: treatment
+    id: treatment:cell_free_patch_implantation
+    label: cell-free patch implantation
+    definition: Surgical placement on the heart of a patch of the same matrix as an engineered tissue but without cells, as a control for implanting the tissue.
+    lookup: "chebi 'fibrin patch': no ChEBI entity (a surgical procedure)"
+    scope: Implanting a matrix without cells; not implanting an engineered cardiac tissue with cells (engineered cardiac tissue implantation).
+    qualifiers: {number_of_constructs: {dimension: dimensionless}}
+# ---------------------------------------------------------------- measures: synonyms and qualifiers on existing terms
+- add_synonym: {id: measure:twitch_force, text: twitch force generation, anchor: 'conductive velocity, calcium transients, micro-impedence, and twitch force generation'}
+- add_synonym: {id: measure:passive_force, text: passive force, anchor: (H) active and passive force generation was}
+- add_synonym: {id: measure:ejection_fraction, text: left ventricular ejection fraction, anchor: (C) left ventricular ejection fractions (LVEF)}
+- add_qualifier: {id: measure:cell_cross_sectional_area, name: region, dimension: text}
+- add_qualifier: {id: measure:protein_level, name: region, dimension: text}
+# ---------------------------------------------------------------- measures: new terms
+- add_term:
+    field: measure
+    id: measure:shortest_captured_cycle_length
+    label: shortest captured pacing cycle length
+    parent: measure:maximum_capture_rate
+    dimension: time
+    definition: The shortest pacing cycle length at which a tissue still follows each stimulus one-to-one, the reciprocal of the maximum capture rate.
+    scope: The capture limit as a cycle length (time); the parent states it as a frequency.
+- add_term:
+    field: measure
+    id: measure:tissue_resistivity
+    label: tissue resistivity
+    parent: null
+    dimension: resistivity
+    definition: The real part of a tissue's microscopic composite impedance at a stated stimulation frequency (qualifier frequency).
+    scope: The resistive (real) component of tissue impedance; not the reactive (imaginary) component (tissue reactivity) and not conduction velocity.
+    qualifiers: {frequency: {dimension: frequency}}
+- add_term:
+    field: measure
+    id: measure:tissue_reactivity
+    label: tissue reactivity
+    parent: null
+    dimension: resistivity
+    definition: The imaginary part of a tissue's microscopic composite impedance at a stated stimulation frequency (qualifier frequency).
+    scope: The reactive (imaginary) component of tissue impedance; not the resistive component (tissue resistivity) and not cell capacitance.
+    qualifiers: {frequency: {dimension: frequency}}
+- add_term:
+    field: measure
+    id: measure:tube_formation
+    label: tube formation
+    parent: null
+    dimension: dimensionless
+    definition: Number of tube-like structures that endothelial cells form per microscope field on a gel in an in vitro angiogenesis assay.
+    scope: Tubes formed by endothelial cells in vitro; not vessels counted in tissue sections (vessel count density) and not cells migrating through a membrane (transwell migration).
+    synonyms:
+    - {text: EC tube formation, anchor: EC tube formation}
+- add_term:
+    field: measure
+    id: measure:transwell_migration
+    label: transwell migration
+    parent: null
+    dimension: dimensionless
+    definition: Number of cells per microscope field that migrate through a porous membrane in a Boyden or transwell chamber.
+    scope: Cells crossing a porous membrane; not tubes formed on a gel (tube formation) and not motion of structures within cells (structure motion).
+- add_term:
+    field: measure
+    id: measure:exosome_diameter
+    label: exosome diameter
+    parent: null
+    dimension: length
+    definition: Diameter of extracellular vesicles (exosomes) collected from conditioned medium, by particle tracking or electron microscopy.
+    scope: Size of secreted vesicles; not the diameter of tissues, tubular structures or embryoid bodies.
+- add_term:
+    field: measure
+    id: measure:engraftment_rate
+    label: engraftment rate
+    parent: measure:engraftment
+    dimension: dimensionless
+    definition: Number of donor cells found in the host heart divided by the number of cells implanted.
+    scope: A cell-count ratio of engrafted to delivered cells; not an area ratio of graft to infarct (engrafted area per infarct area) and not the fraction of animals with a graft (engraftment incidence).
+- add_term:
+    field: measure
+    id: measure:vessel_count_density
+    label: vessel count density
+    parent: null
+    dimension: number_per_area
+    definition: Number of vessel structures positive for a stated marker (qualifier marker) per area or per microscope field of a stated region (qualifier region) in tissue sections.
+    scope: A count of vessels per area or field; not the vessel area per implant area (blood vessel density) and not the share of vessels positive for a marker (marker-positive vessel fraction).
+    qualifiers: {marker: {dimension: text}, region: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:marker_positive_vessel_fraction
+    label: marker-positive vessel fraction
+    parent: null
+    dimension: dimensionless
+    definition: Fraction of vessels in a tissue section positive for a stated marker or markers (qualifier marker), such as a human-specific or reporter marker.
+    scope: A share of vessels; not a share of cells (marker-positive cells) and not a vessel count per area (vessel count density).
+    qualifiers: {marker: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:lv_end_diastolic_volume
+    label: left ventricular end-diastolic volume
+    parent: null
+    dimension: volume
+    definition: Volume of the left ventricular cavity at end diastole in vivo, from imaging.
+    scope: A cavity volume; not a cavity area in one imaging plane (left ventricular end diastolic area), not an ejected volume (stroke volume) and not a fraction (ejection fraction).
+- add_term:
+    field: measure
+    id: measure:infarct_size
+    label: infarct size
+    parent: null
+    dimension: dimensionless
+    definition: Size of a myocardial scar as a fraction of the left ventricle, such as scar surface area over total LV surface area from delayed-enhancement MRI.
+    scope: Scar extent relative to the ventricle; not engrafted area per infarct area and not a tissue area fraction of a section taken by cells.
+- add_term:
+    field: measure
+    id: measure:wall_thickening_fraction
+    label: systolic wall thickening fraction
+    parent: null
+    dimension: dimensionless
+    definition: Fractional increase in ventricular wall thickness from diastole to systole in a stated region (qualifier region), from imaging in vivo.
+    scope: Thickening of a heart wall segment in vivo; not fractional shortening of an engineered tissue (contractile shortening) and not ejection fraction.
+    qualifiers: {region: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:lv_systolic_pressure
+    label: left ventricular systolic pressure
+    parent: null
+    dimension: pressure
+    definition: Peak pressure in the left ventricle during systole, measured with a catheter in vivo.
+    scope: A chamber pressure in vivo; not wall stress (LV wall stress) and not the stress of an engineered tissue (twitch stress).
+- add_term:
+    field: measure
+    id: measure:lv_wall_stress
+    label: left ventricular wall stress
+    parent: null
+    dimension: stress
+    definition: Stress in the left ventricular wall of a stated region (qualifier region) at a stated phase of the cycle (qualifier phase), computed from chamber pressure, radius and wall thickness.
+    scope: Wall stress of a heart in vivo; not chamber pressure (left ventricular systolic pressure) and not the active or resting stress of an engineered tissue (twitch stress, diastolic stress).
+    qualifiers: {region: {dimension: text}, phase: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:lv_weight_body_weight_ratio
+    label: left ventricular weight to body weight ratio
+    parent: null
+    dimension: dimensionless
+    definition: Weight of the left ventricle at sacrifice divided by body weight.
+    scope: A post-mortem organ-to-body weight ratio; not a clinical mass index from imaging (left ventricular mass index).
+- add_term:
+    field: measure
+    id: measure:marker_positive_cells_per_field
+    label: marker-positive cells per field
+    parent: measure:cells_per_field
+    dimension: dimensionless
+    definition: Number of cells positive for a stated marker (qualifier marker) per microscope field in a stated region (qualifier region).
+    scope: A per-field count of marker-positive cells; the parent counts all cells per field.
+    qualifiers: {marker: {dimension: text}, region: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:protein_phosphorylation_level
+    label: total protein phosphorylation (Ptotal)
+    parent: measure:phosphorylated_protein_fraction
+    dimension: dimensionless
+    definition: Phosphate per molecule of a stated protein (qualifier protein), summed over its phosphorylated species weighted by their relative abundance in top-down mass spectrometry.
+    scope: Phosphates per molecule summed over species (can exceed one); the parent is the ratio of phosphorylated to total protein.
+# ---------------------------------------------------------------- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:shortest_captured_cycle_length
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_resistivity
+    value: {must_match: [platform@1, preparation, temperature, measure.frequency, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.frequency], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_reactivity
+    value: {must_match: [platform@1, preparation, temperature, measure.frequency, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.frequency], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tube_formation
+    value: {must_match: [platform@1, cell_types, day_of_measurement, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:transwell_migration
+    value: {must_match: [platform@1, cell_types, day_of_measurement, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:exosome_diameter
+    value: {must_match: [platform@1, cell_types, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:engraftment_rate
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:vessel_count_density
+    value: {must_match: [species, platform@1, measure.marker, measure.region, day_of_measurement, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.marker, measure.region], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:marker_positive_vessel_fraction
+    value: {must_match: [species, platform@1, measure.marker, day_of_measurement, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.marker], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lv_end_diastolic_volume
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:infarct_size
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:wall_thickening_fraction
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement, measure.region, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species, measure.region], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lv_systolic_pressure
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lv_wall_stress
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement, measure.region, measure.phase], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species, measure.region, measure.phase], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lv_weight_body_weight_ratio
+    value: {must_match: [species, disease_model, treatment, genotype, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:marker_positive_cells_per_field
+    value: {must_match: [platform@1, preparation, species, measure.marker, measure.region, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.marker], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_phosphorylation_level
+    value: {must_match: [platform@1, preparation, species, measure.protein, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: wnt_activation_days
+  stated: Forty-eight hours
+  flag: {kind: not a context, note: "Stand-in kind: this IS one context, the quantity 48 h printed in words, but code's quantity parser does not read the hyphenated number word 'Forty-eight' and no flag kind fits; either the parser learns hyphenated number words or the reader writes '48 hours'."}
+- field: purification
+  stated: glucose-depleted medium with lactate
+  terms: [purification:metabolic_selection]
+  note: "The paper prints 'glucose-depleted culture medium with abundant lactate', so this shortened wording cannot be anchored as a synonym."
+- field: purification
+  stated: magnetic nanoparticle selection for CD34
+  terms: [purification:immunomagnetic_selection]
+  qualifiers: {marker: CD34}
+- field: platform
+  stated: hCMP
+  terms: [platform:cast_patch]
+  note: "No synonym: 'hCMP' (human cardiac muscle patch) is used by the lab for other patch formats too, so it would be broader than this term."
+- field: mechanical_load
+  stated: rocking
+  flag: {kind: not a context, note: "Rocking (45 rpm) is the dynamic culture regime, already recorded in maturation_strategy ('dynamic rocking platform'); the paper states no mechanical load (anchoring, stretch or loading regime) for the free hCMP. Re-read mechanical_load."}
+- field: mechanical_load
+  stated: static
+  flag: {kind: not a context, note: "'Static' is the fixed-platform culture condition, already recorded in maturation_strategy ('static culture condition'); the paper states no mechanical load regime. Re-read mechanical_load."}
+- field: pacing
+  stated: pacing
+  terms: [pacing:electrical_pacing]
+  note: "The legends say 'in response electronic pacing'; no synonym, since bare 'pacing' would also cover optical pacing in other papers."
+- field: preparation
+  stated: hCMP in a chamber
+  terms: [preparation:intact_tissue]
+- field: time_point
+  stated: after incubation with BDM
+  flag: {kind: not a context, note: "Names the BDM exposure (already in treatment) but no time; time_point takes a time or the state baseline. Re-read for an incubation time, or write not stated."}
+- field: cm_medium
+  stated: RPMI1640+B27
+  terms: [cm_medium:rpmi_1640]
+  split: [{words: B27, field: supplements}]
+- field: platform
+  stated: 4-well chamber slides
+  terms: [platform:culture_2d]
+  note: a culture vessel; mapped to the broader 2D culture term (monolayer is not stated); no synonym, a vessel name could hold any format
+- field: preparation
+  stated: fixed with 4% PFA
+  terms: [preparation:fixed]
+  qualifiers: {fixative: 4% PFA}
+- field: treatment
+  stated: hCMP-secreted exosomes
+  terms: [treatment:exosomes]
+  qualifiers: {source: hCMP}
+- field: supplements
+  stated: EGM 2-MV medium
+  terms: [supplements:egm_2mv]
+  note: "A commercial EC medium kit (basal medium plus supplements); cm_medium is for cardiomyocyte media and is 'not applicable' here, so the kit has no medium field of its own."
+- field: platform
+  stated: 24-well tissue culture plate
+  terms: [platform:culture_2d]
+  note: a culture vessel holding cells on a Matrigel layer; mapped to the broader 2D culture term
+- field: preparation
+  stated: perfused hCMP
+  terms: [preparation:intact_tissue]
+- field: preparation
+  stated: ventricular epicardium
+  terms: [preparation:intact_tissue]
+  note: rabbit left-ventricular myocardium of a cited study, measured on the epicardium
+- field: platform
+  stated: 12-well plates
+  terms: [platform:culture_2d]
+  note: a culture vessel holding hiPSC-CMs on Matrigel; mapped to the broader 2D culture term
+- field: treatment
+  stated: hCMP-Exo + GW4869
+  terms: [treatment:exosomes, CHEBI:231549]
+  qualifiers: {source: hCMP}
+- field: treatment
+  stated: hCMP-Exo + annexin V
+  terms: [treatment:exosomes, CHEBI:758841]
+  qualifiers: {source: hCMP}
+- field: treatment
+  stated: EC-Exo
+  terms: [treatment:exosomes]
+  qualifiers: {source: monolayer culture of hiPSC-ECs}
+- field: treatment
+  stated: SMC-Exo
+  terms: [treatment:exosomes]
+  qualifiers: {source: monolayer culture of hiPSC-SMCs}
+- field: treatment
+  stated: CM-Exo
+  terms: [treatment:exosomes]
+  qualifiers: {source: monolayer culture of hiPSC-CMs}
+- field: treatment
+  stated: EC/SMC-Exo
+  terms: [treatment:exosomes]
+  qualifiers: {source: co-culture of hiPSC-ECs and hiPSC-SMCs}
+- field: treatment
+  stated: EC/SMC/CM-Exo
+  terms: [treatment:exosomes]
+  qualifiers: {source: 'co-culture of hiPSC-ECs, hiPSC-SMCs and hiPSC-CMs'}
+- field: treatment
+  stated: two hCMPs
+  terms: [treatment:ect_implantation]
+  qualifiers: {number_of_constructs: two}
+- field: treatment
+  stated: two open fibrin patches
+  terms: [treatment:cell_free_patch_implantation]
+  qualifiers: {number_of_constructs: two}
+# ---------------------------------------------------------------- measures
+- {field: measure, stated: percentage of hiPSC-CMs expressing cTnT, terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT, population: hiPSC-CMs}}
+- {field: measure, stated: percentage of hiPSC-SMCs expressing αSMA, terms: [measure:marker_positive_cells], qualifiers: {marker: αSMA, population: hiPSC-SMCs}}
+- {field: measure, stated: percentage of hiPSC-ECs expressing CD31, terms: [measure:marker_positive_cells], qualifiers: {marker: CD31, population: hiPSC-ECs}}
+- {field: measure, stated: percentage of hiPSC-ECs expressing VE-cadherin, terms: [measure:marker_positive_cells], qualifiers: {marker: VE-cadherin, population: hiPSC-ECs}}
+- field: measure
+  stated: percentage of hiPSC-ECs expressing CD31 and/or VE-cadherin
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: CD31 and/or VE-cadherin, population: hiPSC-ECs}
+  note: the marker combination is as printed in the author manuscript; the journal version reads 'CD31 and vascular endothelial cadherin' (the record's suspected_error)
+- {field: measure, stated: MLC2a mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MLC2a, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: MLC2v mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: MLC2v, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: βMHC mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: βMHC, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: LTCC mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: LTCC, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: PLB mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: PLB, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: NCX1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: NCX1, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: cTnT mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: cTnT, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: cTnI mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: cTnI, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: αMHC mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: αMHC, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: cActin1 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: cActin1, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: RYR2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: RYR2, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: Con43 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: Con43, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: SERCA2 mRNA expression, terms: [measure:gene_expression], qualifiers: {gene: SERCA2, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: cTnT protein level, terms: [measure:protein_level], qualifiers: {protein: cTnT, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: cTnI protein level, terms: [measure:protein_level], qualifiers: {protein: cTnI, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: SERCA2 protein level, terms: [measure:protein_level], qualifiers: {protein: SERCA2, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: RYR2 protein level, terms: [measure:protein_level], qualifiers: {protein: RYR2, normalised_to: GAPDH, expressed_as: normalised}}
+- field: measure
+  stated: spontaneous twitch force
+  terms: [measure:twitch_force]
+  note: "'spontaneous' is pacing context; unit S4 records pacing as 'pacing', which disagrees (see ambiguity log)"
+- {field: measure, stated: percentage of cardiomyocytes expressing Ki67, terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67, population: cardiomyocytes}}
+- {field: measure, stated: percentage of cardiomyocytes expressing PH3, terms: [measure:marker_positive_cells], qualifiers: {marker: PH3, population: cardiomyocytes}}
+- {field: measure, stated: percentage of cardiomyocytes expressing Aurora B, terms: [measure:marker_positive_cells], qualifiers: {marker: Aurora B, population: cardiomyocytes}}
+- {field: measure, stated: EC migration, terms: [measure:transwell_migration]}
+- {field: measure, stated: percentage of TUNEL-positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: TUNEL, population: cells in the hCMP}}
+- {field: measure, stated: percentage of p-MLKL-positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: p-MLKL, population: cells in the hCMP}}
+- {field: measure, stated: percentage of CD31-positive cells in the hCMP, terms: [measure:marker_positive_cells], qualifiers: {marker: CD31, population: cells in the hCMP}}
+- {field: measure, stated: percentage of αSMA-positive cells in the hCMP, terms: [measure:marker_positive_cells], qualifiers: {marker: αSMA, population: cells in the hCMP}}
+- {field: measure, stated: percentage of cTnI-positive cells in the hCMP, terms: [measure:marker_positive_cells], qualifiers: {marker: cTnI, population: cells in the hCMP}}
+- field: measure
+  stated: cycle lengths at which the hCMP could be paced
+  terms: [measure:shortest_captured_cycle_length]
+  note: the record holds both ends of the captured range (1000 ms and 450 ms); only the shorter end is the capture limit
+- {field: measure, stated: action potential duration at 50% repolarization, terms: [measure:action_potential_duration], qualifiers: {level: APD50}}
+- {field: measure, stated: action potential duration at 80% repolarization, terms: [measure:action_potential_duration], qualifiers: {level: APD80}}
+- {field: measure, stated: Ca2+ transient duration to 50% relaxation, terms: [measure:calcium_transient_duration], qualifiers: {level: CaTD50}}
+- {field: measure, stated: Ca2+ transient duration to 80% relaxation, terms: [measure:calcium_transient_duration], qualifiers: {level: CaTD80}}
+- {field: measure, stated: twitch force generation of the whole patch, terms: [measure:twitch_force]}
+- field: measure
+  stated: twitch force generation per cardiomyocyte
+  terms: [measure:twitch_force]
+  qualifiers: {normalised_to: number of cardiomyocytes}
+  note: values are printed both in nN/myocyte and as fold, so expressed_as is left to each value's unit
+- {field: measure, stated: LDH leakage, terms: [measure:released_protein_level], qualifiers: {protein: LDH, expressed_as: normalised, normalised_to: PBS-treated cells}}
+- {field: measure, stated: percentage of TUNEL-positive cardiomyocytes, terms: [measure:marker_positive_cells], qualifiers: {marker: TUNEL, population: cardiomyocytes}}
+- {field: measure, stated: vessel density of αSMA-positive structures in the hCMP, terms: [measure:vessel_count_density], qualifiers: {marker: αSMA, region: engrafted hCMP}}
+- {field: measure, stated: vessel density of CD31-positive structures in the hCMP, terms: [measure:vessel_count_density], qualifiers: {marker: CD31, region: engrafted hCMP}}
+- {field: measure, stated: 'percentage of vessels in the patch expressing GFP, hCalponin 1 or hCD31', terms: [measure:marker_positive_vessel_fraction], qualifiers: {marker: 'GFP, hCalponin 1 or hCD31'}}
+- {field: measure, stated: systolic thickening fraction in the border zone, terms: [measure:wall_thickening_fraction], qualifiers: {region: border zone}}
+- {field: measure, stated: systolic thickening fraction in the infarcted zone, terms: [measure:wall_thickening_fraction], qualifiers: {region: infarcted zone}}
+- {field: measure, stated: systolic thickening fraction in the remote zone, terms: [measure:wall_thickening_fraction], qualifiers: {region: remote zone}}
+- {field: measure, stated: end-systolic wall stress in the border zone, terms: [measure:lv_wall_stress], qualifiers: {region: border zone, phase: end-systolic}}
+- {field: measure, stated: end-systolic wall stress in the infarcted zone, terms: [measure:lv_wall_stress], qualifiers: {region: infarcted zone, phase: end-systolic}}
+- {field: measure, stated: end-systolic wall stress in the remote zone, terms: [measure:lv_wall_stress], qualifiers: {region: remote zone, phase: end-systolic}}
+- {field: measure, stated: LV weight to body weight ratio, terms: [measure:lv_weight_body_weight_ratio]}
+- {field: measure, stated: cardiomyocyte cross-sectional area in the border zone, terms: [measure:cell_cross_sectional_area], qualifiers: {region: border zone}}
+- {field: measure, stated: incidence of ventricular tachycardia or ventricular fibrillation, terms: [measure:arrhythmia_incidence], qualifiers: {outcome: ventricular tachycardia or ventricular fibrillation, counted: animals}}
+- {field: measure, stated: arrhythmogenicity in response to programmed electrical stimulation, terms: [measure:arrhythmia_incidence], qualifiers: {outcome: ventricular arrhythmia induced by programmed electrical stimulation, counted: animals}}
+- {field: measure, stated: vascular density in the border zone, terms: [measure:vessel_count_density], qualifiers: {marker: CD31, region: border zone}}
+- {field: measure, stated: arteriole density in the border zone, terms: [measure:vessel_count_density], qualifiers: {marker: CD31 and αSMA, region: border zone}}
+- {field: measure, stated: number of Ki67-positive cells per high-power field in the border zone, terms: [measure:marker_positive_cells_per_field], qualifiers: {marker: Ki67, region: border zone}}
+- {field: measure, stated: percentage of TUNEL-positive cells in the border zone, terms: [measure:marker_positive_cells], qualifiers: {marker: TUNEL, population: cells in the border zone}}
+- field: measure
+  stated: EPO protein level in the border zone
+  terms: [measure:protein_level]
+  qualifiers: {protein: EPO, region: border zone, normalised_to: GAPDH}
+  note: "expressed_as left to the values: the axis reads 'Target Protein/GAPDH (% of MI)' but the values run about 1 to 2.4"
+- field: measure
+  stated: HGF protein level in the border zone
+  terms: [measure:protein_level]
+  qualifiers: {protein: HGF, region: border zone, normalised_to: GAPDH}
+  note: "expressed_as left to the values (axis '% of MI', values about 1 to 2.4)"
+- field: measure
+  stated: Ang1 protein level in the border zone
+  terms: [measure:protein_level]
+  qualifiers: {protein: Ang1, region: border zone, normalised_to: GAPDH}
+  note: "expressed_as left to the values (axis '% of MI', values about 1 to 2.4)"
+- {field: measure, stated: cTnT phosphorylation (Ptotal), terms: [measure:protein_phosphorylation_level], qualifiers: {protein: cTnT}}
+- {field: measure, stated: MLC-2v phosphorylation (Ptotal), terms: [measure:protein_phosphorylation_level], qualifiers: {protein: MLC-2v}}
+- {field: measure, stated: αTpm phosphorylation (Ptotal), terms: [measure:protein_phosphorylation_level], qualifiers: {protein: αTpm}}
+- {field: measure, stated: βTpm phosphorylation (Ptotal), terms: [measure:protein_phosphorylation_level], qualifiers: {protein: βTpm}}
+- {field: measure, stated: cTnI phosphorylation (Ptotal), terms: [measure:protein_phosphorylation_level], qualifiers: {protein: cTnI}}
+- {field: measure, stated: ENH2 phosphorylation (Ptotal), terms: [measure:protein_phosphorylation_level], qualifiers: {protein: ENH2}}
+- field: measure
+  stated: coefficient of variation of total cTnI phosphorylation (PtotalCV%)
+  terms: [measure:between_sample_variability]
+  qualifiers: {of_measure: total cTnI phosphorylation (Ptotal), statistic: coefficient of variation}
+  note: replicates are seven injections of one sample (technical replicates)
+- field: measure
+  stated: number of animals
+  flag: {kind: not a context, note: "Supplemental Table 2 gives sample sizes per group (n), not a measured quantity of the animals; it belongs in each item's n."}

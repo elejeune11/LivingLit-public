@@ -1,0 +1,579 @@
+record: 2016_Ruan
+formula_library_version: 6
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  # ------------------------------------------------------------------ twitch and passive stress (Methods)
+  F4C_curve.csa:
+    item: F4C_curve
+    measure: cross-sectional area
+    formula: A = pi*d**2/4
+    anchor:
+      quote: calculated by measuring the diameter at nonstrained length and assuming circular cross-sectional geometry
+      where: Methods, Measurement of Contractile Function
+    library: {formula: circular_cross_section_area, vars: {A: A, d: d}}
+    inputs:
+      d: {not_stated: true, kind: per sample, note: diameter measured per construct at nonstrained length; not printed}
+    note: one area per construct, taken at the nonstrained length and used at every length step (nominal stress)
+  F4C_curve.stress:
+    item: F4C_curve
+    measure: twitch stress
+    formula: s = F/A
+    anchor:
+      quote: Force was normalized to the cross-sectional area of the preparation, calculated by measuring the diameter at nonstrained length
+      where: Methods, Measurement of Contractile Function
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: twitch force amplitude on 4 consecutive transients; absolute force not printed}
+      A: {derived: F4C_curve.csa, kind: per sample}
+    aggregation: not stated
+    note: the plotted group means (Fig. 4C) are the outputs; neither force nor area is printed, so nothing is rebuilt
+  F2B_SS_NS.passive_stress:
+    item: F2B_SS_NS
+    measure: passive stress
+    formula: s = F/A
+    anchor:
+      quote: Force was normalized to the cross-sectional area of the preparation, calculated by measuring the diameter at nonstrained length
+      where: Methods, Measurement of Contractile Function
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: passive tension after each 4% length step; not printed}
+      A: {derived: F4C_curve.csa, kind: per sample}
+    note: the same normalisation serves every F2B item (NS, SS, SE and the cell-free collagen constructs)
+  # ------------------------------------------------------------------ passive stiffness: slope of passive stress-strain
+  F2B_SS_NS.stiffness:
+    item: F2B_SS_NS
+    measure: tensile stiffness
+    formula: not stated
+    anchor:
+      quote: Tensile stiffness was estimated from the slope of passive stress‒strain relationship
+      where: Fig. 2 legend
+    no_formula: slope of a fitted stress-strain relationship; the fit (range, method) is not stated and the library has
+      no entry for a regression slope
+    inputs:
+      s: {derived: F2B_SS_NS.passive_stress, kind: per sample}
+      e: {not_stated: true, kind: per sample, note: strain from 4% length steps to 125% of slack length}
+    alternatives:
+      - {label: least-squares slope over the length steps, note: not stated}
+      - {label: secant from slack length to 125%, note: not stated}
+    aggregation: not stated
+  F2B_SE_SS.stiffness:
+    item: F2B_SE_SS
+    measure: tensile stiffness
+    formula: not stated
+    anchor:
+      quote: Tensile stiffness was estimated from the slope of passive stress‒strain relationship
+      where: Fig. 2 legend
+    no_formula: slope of a fitted stress-strain relationship; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F2B_SS_NS.passive_stress, kind: per sample}
+      e: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  F2B_SE_NS.stiffness:
+    item: F2B_SE_NS
+    measure: tensile stiffness
+    formula: not stated
+    anchor:
+      quote: Tensile stiffness was estimated from the slope of passive stress‒strain relationship
+      where: Fig. 2 legend
+    no_formula: slope of a fitted stress-strain relationship; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F2B_SS_NS.passive_stress, kind: per sample}
+      e: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  F2B_NS_collagen.stiffness:
+    item: F2B_NS_collagen
+    measure: tensile stiffness
+    formula: not stated
+    anchor:
+      quote: Tensile stiffness was estimated from the slope of passive stress‒strain relationship
+      where: Fig. 2 legend
+    no_formula: slope of a fitted stress-strain relationship; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F2B_SS_NS.passive_stress, kind: per sample}
+      e: {not_stated: true, kind: per sample, note: collagen slack length set where a 4% step first raised passive force}
+    aggregation: not stated
+  F2B_SS_collagen.stiffness:
+    item: F2B_SS_collagen
+    measure: tensile stiffness
+    formula: not stated
+    anchor:
+      quote: Tensile stiffness was estimated from the slope of passive stress‒strain relationship
+      where: Fig. 2 legend
+    no_formula: slope of a fitted stress-strain relationship; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F2B_SS_NS.passive_stress, kind: per sample}
+      e: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  F2B_SE_collagen.stiffness:
+    item: F2B_SE_collagen
+    measure: tensile stiffness
+    formula: not stated
+    anchor:
+      quote: Tensile stiffness was estimated from the slope of passive stress‒strain relationship
+      where: Fig. 2 legend
+    no_formula: slope of a fitted stress-strain relationship; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F2B_SS_NS.passive_stress, kind: per sample}
+      e: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  # ------------------------------------------------------------------ contractility: slope of twitch stress-strain
+  F4D_SS_NS.contractility:
+    item: F4D_SS_NS
+    measure: slope of twitch stress against strain
+    formula: not stated
+    anchor:
+      quote: Contractility is measured from the slope of the twitch force-strain curve, which is the active force development
+      where: Fig. 4 legend
+    no_formula: slope of a fitted twitch stress-strain curve; the fit is not stated and the library has no entry for a
+      regression slope
+    inputs:
+      s: {derived: F4C_curve.stress, kind: per sample}
+      e: {not_stated: true, kind: per sample, note: strain from 4% length steps to 125% of slack length}
+    alternatives:
+      - {label: least-squares slope over the length steps (through the slack point or not), note: not stated}
+      - {label: secant from slack length to 125%, note: not stated}
+    aggregation: not stated
+  F4D_SE_SS.contractility:
+    item: F4D_SE_SS
+    measure: slope of twitch stress against strain
+    formula: not stated
+    anchor:
+      quote: Contractility is measured from the slope of the twitch force-strain curve, which is the active force development
+      where: Fig. 4 legend
+    no_formula: slope of a fitted twitch stress-strain curve; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F4C_curve.stress, kind: per sample}
+      e: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  F4D_SE_NS.contractility:
+    item: F4D_SE_NS
+    measure: slope of twitch stress against strain
+    formula: not stated
+    anchor:
+      quote: Contractility is measured from the slope of the twitch force-strain curve, which is the active force development
+      where: Fig. 4 legend
+    no_formula: slope of a fitted twitch stress-strain curve; fit not stated; no library entry for a regression slope
+    inputs:
+      s: {derived: F4C_curve.stress, kind: per sample}
+      e: {not_stated: true, kind: per sample}
+    aggregation: not stated
+  # ------------------------------------------------------------------ twitch stress normalised with the cell-based area (Discussion)
+  TXT3_cellnorm.cellnorm_NS:
+    item: TXT3_cellnorm
+    group: NS
+    measure: twitch stress
+    formula: sc = s/f
+    anchor:
+      quote: the twitch forces normalized with the cell-based cross-sectional area at 125% stretch for NS, SS, and SE are 0.08, 0.83, 1.30 mN/mm2
+      where: Discussion
+    library: {formula: ratio_def, vars: {r: sc, a: s, b: f}}
+    inputs:
+      s: {reading: 'fig4c/NS #6', x: '126.1', kind: per sample, note: construct-area twitch stress at the last length step (125% of slack length)}
+      f: {value: TXT2_omnibus.values.actn_NS_results, part: mean, kind: per sample, note: α-actinin-positive share of the cross-section}
+    output: TXT3_cellnorm.values.cellnorm_NS
+    aggregation: of means
+    note: force/(f*A) = (F/A)/f; stress and area share come from different samples (mechanics vs histology), so only group
+      means can be combined
+  TXT3_cellnorm.cellnorm_SS:
+    item: TXT3_cellnorm
+    group: SS
+    measure: twitch stress
+    formula: sc = s/f
+    anchor:
+      quote: the twitch forces normalized with the cell-based cross-sectional area at 125% stretch for NS, SS, and SE are 0.08, 0.83, 1.30 mN/mm2
+      where: Discussion
+    library: {formula: ratio_def, vars: {r: sc, a: s, b: f}}
+    inputs:
+      s: {reading: 'fig4c/SS #6', x: '126.4', kind: per sample}
+      f: {value: TXT2_omnibus.values.actn_SS_results, part: mean, kind: per sample}
+    output: TXT3_cellnorm.values.cellnorm_SS
+    aggregation: of means
+  TXT3_cellnorm.cellnorm_SE:
+    item: TXT3_cellnorm
+    group: SE
+    measure: twitch stress
+    formula: sc = s/f
+    anchor:
+      quote: the twitch forces normalized with the cell-based cross-sectional area at 125% stretch for NS, SS, and SE are 0.08, 0.83, 1.30 mN/mm2
+      where: Discussion
+    library: {formula: ratio_def, vars: {r: sc, a: s, b: f}}
+    inputs:
+      s: {reading: 'fig4c/SE #6', x: '125.5', kind: per sample}
+      f: {value: TXT2_omnibus.values.actn_SE_results, part: mean, kind: per sample}
+    output: TXT3_cellnorm.values.cellnorm_SE
+    aggregation: of means
+  # ------------------------------------------------------------------ force-frequency: normalised to 2 Hz, % decrease 2 -> 3 Hz
+  F6A_curve.normalised:
+    item: F6A_curve
+    measure: normalized twitch force amplitude
+    formula: r = F/F2
+    anchor:
+      quote: the twitch amplitude at 2 Hz was used to normalize other pacing frequencies
+      where: Fig. 6 legend
+    library: {formula: ratio_def, vars: {r: r, a: F, b: F2}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: 'twitch amplitude at 2.5 or 3 Hz, 4 transients'}
+      F2: {not_stated: true, kind: per sample, note: twitch amplitude of the same construct at 2 Hz}
+    aggregation: not stated
+  F6A_curve.control_NS_2:
+    item: F6A_curve
+    group: NS_2
+    measure: normalized twitch force amplitude
+    formula: r2 = F2/F2
+    anchor:
+      quote: the twitch amplitude at 2 Hz was used to normalize other pacing frequencies
+      where: Fig. 6 legend
+    library: {formula: normalized_to_own_control, vars: {my: r2}}
+    inputs:
+      F2: {not_stated: true, kind: per sample}
+    note: the 2 Hz point is the normalising reference (1 by construction); its plotted marker is hidden under the SE square
+  F6A_curve.control_SS_2:
+    item: F6A_curve
+    group: SS_2
+    measure: normalized twitch force amplitude
+    formula: r2 = F2/F2
+    anchor:
+      quote: the twitch amplitude at 2 Hz was used to normalize other pacing frequencies
+      where: Fig. 6 legend
+    library: {formula: normalized_to_own_control, vars: {my: r2}}
+    inputs:
+      F2: {not_stated: true, kind: per sample}
+    note: the 2 Hz point is the normalising reference (1 by construction); its plotted marker is hidden under the SE square
+  F6A_NS.decrease:
+    item: F6A_NS
+    measure: twitch force amplitude
+    formula: d = (x0 - x)/x0
+    anchor:
+      quote: from 2 to 3 Hz, twitch amplitude significantly decreased by 43.19±0.01%
+      where: Results
+    library: {formula: relative_decrease, vars: {s: d, x: x, x0: x0}}
+    inputs:
+      x: {reading: 'fig6a/F6A_NS: NS_3', kind: per sample, note: amplitude at 3 Hz normalised to 2 Hz}
+      x0: {derived: F6A_curve.control_NS_2, kind: per sample}
+    output: F6A_NS.values.ffr_NS_dec
+    aggregation: not stated
+  F6A_SS.decrease:
+    item: F6A_SS
+    measure: twitch force amplitude
+    formula: d = (x0 - x)/x0
+    anchor:
+      quote: twitch amplitude showed a nonsignificant decrease of 16.8±0.03% from 2 to 3 Hz
+      where: Results
+    library: {formula: relative_decrease, vars: {s: d, x: x, x0: x0}}
+    inputs:
+      x: {reading: 'fig6a/F6A_SS: SS_3', kind: per sample}
+      x0: {derived: F6A_curve.control_SS_2, kind: per sample}
+    output: F6A_SS.values.ffr_SS_dec
+    aggregation: not stated
+  F6A_SE.decrease:
+    item: F6A_SE
+    measure: twitch force amplitude
+    formula: d = (x0 - x)/x0
+    anchor:
+      quote: The SE-conditioned tissues showed a 4.4±0.4% decrease in force production from 2 to 3 Hz
+      where: Results
+    library: {formula: relative_decrease, vars: {s: d, x: x, x0: x0}}
+    inputs:
+      x: {reading: 'fig6a/F6A_SE: SE_3', kind: per sample}
+      x0: {reading: 'fig6a/F6A_SE: SE_2', kind: per sample, note: 'plotted 2 Hz reference (1 by construction), read'}
+    output: F6A_SE.values.ffr_SE_dec
+    aggregation: not stated
+  # ------------------------------------------------------------------ fold changes and percentage increases (ratio of group means)
+  F2B_NS_collagen.fold:
+    item: F2B_NS_collagen
+    measure: tensile stiffness
+    formula: r = a/b
+    anchor:
+      quote: Addition of cells increased the stiffness ≈7-fold, SS conditioning by a further ≈20-fold, and SE conditioning by an additional ≈2-fold
+      where: Fig. 2 legend
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {value: F2B_NS_collagen.values.stiff_NS_legend, part: mean, kind: constant, note: 'NS points and mean lie in the x-axis line, not read'}
+      b: {value: F2B_NS_collagen.values.stiff_collagen_legend, part: mean, kind: constant, note: collagen points sit on the axis at reading resolution; printed mean used}
+    output: F2B_NS_collagen.values.stiff_fold_NS_collagen_legend
+  F2B_SS_NS.fold:
+    item: F2B_SS_NS
+    measure: tensile stiffness
+    formula: r = a/b
+    anchor:
+      quote: Addition of cells increased the stiffness ≈7-fold, SS conditioning by a further ≈20-fold, and SE conditioning by an additional ≈2-fold
+      where: Fig. 2 legend
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig2b/F2B_SS_NS: SS', kind: constant}
+      b: {value: F2B_SS_NS.values.stiff_NS_legend, part: mean, kind: constant, note: NS not readable}
+    output: F2B_SS_NS.values.stiff_fold_SS_NS_legend
+  F2B_SE_SS.fold:
+    item: F2B_SE_SS
+    measure: tensile stiffness
+    formula: r = a/b
+    anchor:
+      quote: Addition of cells increased the stiffness ≈7-fold, SS conditioning by a further ≈20-fold, and SE conditioning by an additional ≈2-fold
+      where: Fig. 2 legend
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig2b/F2B_SE_SS: SE', kind: constant}
+      b: {reading: 'fig2b/F2B_SE_SS: SS', kind: constant}
+    output: F2B_SE_SS.values.stiff_fold_SE_SS_legend
+  F4D_SS_NS.fold:
+    item: F4D_SS_NS
+    measure: slope of twitch stress against strain
+    formula: r = a/b
+    anchor:
+      quote: SS conditioning promotes the contractility 10-fold (0.63±0.10 mN/mm2)
+      where: Fig. 4 legend
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig4d/F4D_SS_NS: SS', kind: constant}
+      b: {reading: 'fig4d/F4D_SS_NS: NS', kind: constant}
+    output: F4D_SS_NS.values.contr_fold_SS_NS_legend
+  F4D_SE_SS.fold:
+    item: F4D_SE_SS
+    measure: slope of twitch stress against strain
+    formula: r = a/b
+    anchor:
+      quote: SE conditioning enhances force development another 2-fold (1.34±0.19 mN/mm2)
+      where: Fig. 4 legend
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig4d/F4D_SE_SS: SE', kind: constant}
+      b: {reading: 'fig4d/F4D_SE_SS: SS', kind: constant}
+    output: F4D_SE_SS.values.contr_fold_SE_SS_legend
+  F3_SS_NS.fold:
+    item: F3_SS_NS
+    measure: cardiomyocyte size
+    formula: r = a/b
+    anchor:
+      quote: early stage hiPSC-derived cardiomyocytes demonstrated a 1.5-fold increase in size
+      where: Discussion
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig3a/F3_SS_NS: SS', kind: constant}
+      b: {reading: 'fig3a/F3_SS_NS: NS', kind: constant}
+    output: F3_SS_NS.values.size_fold_SS_NS_discussion
+  F3_SS_NS.increase:
+    item: F3_SS_NS
+    measure: cardiomyocyte size
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: Cardiomyocyte size increased ≈50% from NS to SS constructs
+      where: Fig. 3 legend
+    library: {formula: relative_change, vars: {d: d, x: x, x0: x0}}
+    inputs:
+      x: {reading: 'fig3a/F3_SS_NS: SS', kind: constant}
+      x0: {reading: 'fig3a/F3_SS_NS: NS', kind: constant}
+    output: F3_SS_NS.values.size_pct_SS_NS_legend
+  F5B_SS_NS.fold:
+    item: F5B_SS_NS
+    measure: SERCA2 expression
+    formula: r = a/b
+    anchor:
+      quote: was upregulated 2-fold by SS conditioning (NS vs SS, P=0.0037)
+      where: Results
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig5b/F5B_SS_NS: SS', kind: constant}
+      b: {reading: 'fig5b/F5B_SS_NS: NS', kind: constant}
+    output: F5B_SS_NS.values.serca_fold_SS_NS_text
+  F5B_SE_NS.fold:
+    item: F5B_SE_NS
+    measure: SERCA2 expression
+    formula: r = a/b
+    anchor:
+      quote: SE also exhibited a 2.5-fold increase from NS conditioning
+      where: Results
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig5b/F5B_SE_NS: SE', kind: constant}
+      b: {reading: 'fig5b/F5B_SE_NS: NS', kind: constant}
+    output: F5B_SE_NS.values.serca_fold_SE_NS_text
+  F5C_SE_NS.fold:
+    item: F5C_SE_NS
+    measure: RYR2 expression
+    formula: r = a/b
+    anchor:
+      quote: expression in the SE group was also elevated by 1.5-fold from NS conditioning
+      where: Results
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 'fig5c/F5C_SE_NS: SE', kind: constant}
+      b: {reading: 'fig5c/F5C_SE_NS: NS', kind: constant}
+    output: F5C_SE_NS.values.ryr_fold_SE_NS_text
+  S6_ryr_SE_NS.fold:
+    item: S6_ryr_SE_NS
+    measure: RYR2 expression (standardized)
+    formula: r = a/b
+    anchor:
+      quote: significantly increases RYR2 by 1.8-fold (NS vs SE, p=0.0025)
+      where: Supplement Figure 6 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+    library: {formula: ratio_def, vars: {r: r, a: a, b: b}}
+    inputs:
+      a: {reading: 's6b/S6_ryr_SE_NS: SE', kind: constant}
+      b: {reading: 's6b/S6_ryr_SE_NS: NS', kind: constant}
+    output: S6_ryr_SE_NS.values.ryr_std_fold_SE_NS
+  # ------------------------------------------------------------------ per-sample definitions (histology, Western blots)
+  F2C_SS_NS.cvf:
+    item: F2C_SS_NS
+    measure: tissue area fraction
+    formula: f = Ag/At
+    anchor:
+      quote: The cell volume fraction (percentage cell area within the construct) was defined by the Fast Green-positive area divided by the total construct area
+      where: Methods, Histology
+    library: {formula: ratio_def, vars: {r: f, a: Ag, b: At}}
+    inputs:
+      Ag: {not_stated: true, kind: per sample, note: Fast Green-positive area after colour deconvolution}
+      At: {not_stated: true, kind: per sample, note: total construct area}
+    aggregation: not stated
+    note: serves F2C_SS_NS, F2C_SE_NS and F2C_SE_SS; Fig. 2C plots the same quantity as a fraction (0-0.8), the text as %
+  TXT2_omnibus.actn_fraction:
+    item: TXT2_omnibus
+    measure: tissue area fraction
+    formula: f = Aa/At
+    anchor:
+      quote: By analyzing the α-actinin-positive area within the cross-section of our constructs
+      where: Discussion
+    library: {formula: ratio_def, vars: {r: f, a: Aa, b: At}}
+    inputs:
+      Aa: {not_stated: true, kind: per sample, note: α-actinin-positive area in 100X cross-section images}
+      At: {not_stated: true, kind: per sample, note: 'cross-section area; the denominator is implied by the % unit, not stated'}
+    aggregation: not stated
+  F3_SS_NS.size:
+    item: F3_SS_NS
+    measure: cardiomyocyte size
+    formula: m = S/n
+    anchor:
+      quote: 400X MYH7-stained micrographs were analyzed by dividing the DAB-positive area by the number of DAB-positive cells
+      where: Methods, Histology
+    library: {formula: mean_def, vars: {m: m, S: S, n: n}}
+    inputs:
+      S: {not_stated: true, kind: per sample, note: DAB-positive area per micrograph}
+      n: {not_stated: true, kind: per sample, note: number of DAB-positive cells per micrograph}
+    aggregation: not stated
+    note: serves F3_SS_NS, F3_SE_NS and F3_SE_SS; what n=16/14/14 counts (micrographs or constructs) is not stated
+  F2A_SS_NS.alignment:
+    item: F2A_SS_NS
+    measure: inverse angle dispersion
+    formula: a = 1/sd
+    anchor:
+      quote: Alignment is defined by the inverse of the magnitude of angle dispersion (the standard deviation of cell edge angles)
+      where: Methods, Histology
+    library: {formula: reciprocal_def, vars: {r: a, b: sd}}
+    inputs:
+      sd: {not_stated: true, kind: per sample, note: SD of cell edge angles from a custom fiber orientation program (ref. 23)}
+    aggregation: not stated
+    note: serves the F2A items; the axis label '1/angle dispersion, %' leaves the angle unit and the % unexplained
+  S3_SS_NS.alignment:
+    item: S3_SS_NS
+    measure: inverse angle dispersion
+    formula: a = 1/sd
+    anchor:
+      quote: Alignment is defined by the inverse of the magnitude of angle dispersion (the standard deviation of cell edge angles)
+      where: Methods, Histology
+    library: {formula: reciprocal_def, vars: {r: a, b: sd}}
+    inputs:
+      sd: {not_stated: true, kind: per sample, note: angle dispersion of collagen birefringence (Rotopol); the definition is
+          written for cell edges and stated for 'cell/collagen alignment'}
+    aggregation: not stated
+  F5B_SS_NS.gapdh:
+    item: F5B_SS_NS
+    measure: SERCA2 expression
+    formula: r = b/g
+    anchor:
+      quote: For Western blots, all proteins were normalized to a GAPDH (glyceraldehyde-3-phosphate dehydrogenase) expression level
+      where: Methods, Western Blot
+    library: {formula: ratio_def, vars: {r: r, a: b, b: g}}
+    inputs:
+      b: {not_stated: true, kind: per sample, note: SERCA2 band intensity (ImageJ)}
+      g: {not_stated: true, kind: per sample, note: GAPDH band intensity of the same lane}
+    aggregation: not stated
+    note: serves the F5B and F5C items (RYR2 likewise)
+  S6_ryr_SE_NS.standardized:
+    item: S6_ryr_SE_NS
+    measure: RYR2 expression (standardized)
+    formula: not stated
+    anchor:
+      quote: band intensities were also standardized by logtransforming, mean-centering, and autoscaling
+      where: Results
+    no_formula: standardisation stated only by citation (ref. 42); goes on the completeness list
+    inputs:
+      r: {derived: F5B_SS_NS.gapdh, kind: per sample}
+      method: {by_reference: {citation: ref42, anchor: {quote: 'Western blot data were log-transformed, mean-centered, and then autoscaled as described previously', where: 'Methods, Statistical Analysis'}}}
+    note: serves the S6 items
+assumptions:
+  F4C_curve.csa:
+    model: circular_cross_section_area
+    assumptions:
+      circular cross-section:
+        reported: {statement: assuming circular cross-sectional geometry}
+      uniform diameter along the length:
+        reported: not stated
+bounds:
+  - {item: F2C_SS_NS, value: F2C_SS_NS.values.cvf_SS_text, formula: fraction_bounds}
+  - {item: F2C_SS_NS, value: F2C_SS_NS.values.cvf_NS_text, formula: fraction_bounds}
+  - {item: F2C_SE_NS, value: F2C_SE_NS.values.cvf_SE_text, formula: fraction_bounds}
+  - {item: TXT2_omnibus, value: TXT2_omnibus.values.actn_NS_results, formula: fraction_bounds}
+  - {item: TXT2_omnibus, value: TXT2_omnibus.values.actn_SS_results, formula: fraction_bounds}
+  - {item: TXT2_omnibus, value: TXT2_omnibus.values.actn_SE_results, formula: fraction_bounds}
+  - {item: TXT1_viability, value: TXT1_viability.values.viab_constructs_text, formula: fraction_bounds}
+  - {item: F1A_purity, value: F1A_purity.values.ctnt_input_methods, formula: fraction_bounds}
+  - {item: F6A_NS, value: F6A_NS.values.ffr_NS_dec, formula: fraction_bounds}
+  - {item: F6A_SS, value: F6A_SS.values.ffr_SS_dec, formula: fraction_bounds}
+  - {item: F6A_SE, value: F6A_SE.values.ffr_SE_dec, formula: fraction_bounds}
+proposals:
+  - formula: circular_cross_section_area
+    kind: model
+    statement: The cross-sectional area of a cylindrical specimen computed from one measured diameter, A = pi*d^2/4,
+      treating the section as a circle.
+    equations:
+      - A = pi*d**2/4
+    variables: {A: area, d: length}
+    assumes:
+      - circular cross-section
+      - uniform diameter along the length
+    does_not_apply: flattened, elliptical or rectangular sections (strips, sheets), or a diameter that varies along the specimen
+    tests:
+      - given: {d: 2.0}
+        expect: {A: 3.14159265}
+      - given: {d: 2.0}
+        does_not_apply: 'a square section of side 2 has area 4, not pi'
+    cites:
+      text: 'Gere JM, Goodno BJ. Mechanics of Materials (Cengage), Appendix: Properties of plane areas, circle (A = pi d^2/4)'
+      anchor:
+        quote: assuming circular cross-sectional geometry
+        where: Methods, Measurement of Contractile Function
+  - formula: reciprocal_def
+    kind: derived
+    statement: The reciprocal of a quantity is one divided by it (a ratio with numerator 1).
+    equations:
+      - r = 1/b
+    variables: {r: 1/D, b: D, a: dimensionless}
+    assumes:
+      - a = 1
+    uses:
+      - formula: ratio_def
+        subs: {r: r, a: a, b: b}
+    does_not_apply: a ratio with a numerator other than 1, or a reciprocal of a period read as a frequency in other units
+    tests:
+      - given: {b: 4.0}
+        expect: {r: 0.25}
+      - given: {b: 4.0}
+        does_not_apply: 'negative reciprocal or 1 - b is not the reciprocal'
+  - formula: fraction_bounds
+    kind: bound
+    statement: A fraction of a whole (a part divided by the whole it belongs to) lies between 0 and 1 (0 % and 100 %).
+    equations:
+      - f >= 0
+      - f <= 1
+    variables: {f: dimensionless}
+    does_not_apply: ratios of distinct quantities (fold changes, normalised values, % of baseline above 100 %)
+    tests:
+      - given: {f: 0.4}
+      - given: {f: 1.2}
+        does_not_apply: 'a fold change of 1.2 is not a fraction of a whole'
+    cites:
+      text: 'NIST Special Publication 811 (2008), Guide for the Use of the International System of Units (SI), section 7.10:
+        quantities of dimension one, such as mass fraction and volume fraction'
+      url: https://www.nist.gov/pml/special-publication-811

@@ -1,0 +1,444 @@
+record: 2019_Dwenger
+formula_library_version: 31
+agent: {model: llm, instructions: formulas_v3}
+
+derived:
+
+  # ---- stress chain (Force testing): area from the mean diameter, stress = force / area, sigma_A = sigma_max - preceding sigma_min
+  F4ch_sigma_a_cop_ctrl.area:
+    item: F4ch_sigma_a_cop_ctrl
+    measure: "cross-sectional area"
+    formula: "A = pi*d**2/4"
+    anchor: {quote: "used the mean diameter to calculate ECT cross-sectional area assuming a circular geometry", where: "Materials and methods, Force testing"}
+    library: {formula: circular_cross_section_area, vars: {A: A, d: d}}
+    inputs:
+      d: {not_stated: true, kind: "per sample", note: "mean of three diameter measurements per ECT at Lmax, from a digital image; no diameter is printed"}
+    note: "One area per ECT, shared by every stress item of the force test (F3, F4 c-h)."
+
+  F4ch_sigma_a_cop_ctrl.stress:
+    item: F4ch_sigma_a_cop_ctrl
+    measure: "stress"
+    formula: "sigma = F/A"
+    anchor: {quote: "We calculated stress (σ) as force divided by cross-sectional area.", where: "Materials and methods, Force testing"}
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: "per sample", note: "force trace (2 kHz), low-pass Gaussian filtered; no force is printed"}
+      A: {derived: F4ch_sigma_a_cop_ctrl.area, kind: "per sample"}
+
+  F4ch_sigma_a_cop_ctrl.active_cop:
+    item: F4ch_sigma_a_cop_ctrl
+    group: cop
+    measure: "mean active stress"
+    formula: "sA = smax - smin"
+    anchor: {quote: "calculated σA as the difference between each σmax and its preceding σmin", where: "Materials and methods, Force testing"}
+    library: {formula: difference_from_reference, vars: {d: sA, x: smax, x0: smin}}
+    inputs:
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample", note: "local maximum of each cycle"}
+      smin: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample", note: "the preceding local minimum"}
+    output: F4ch_sigma_a_cop_ctrl.values.sigma_a_cop
+    aggregation: "mean of per-sample"
+    note: "Per cycle, averaged per ECT at each pacing frequency, then over ECTs; the pacing frequency of the printed means is not stated."
+
+  F4ch_sigma_a_cop_ctrl.active_ctrl:
+    item: F4ch_sigma_a_cop_ctrl
+    group: ctrl
+    measure: "mean active stress"
+    formula: "sA = smax - smin"
+    anchor: {quote: "calculated σA as the difference between each σmax and its preceding σmin", where: "Materials and methods, Force testing"}
+    library: {formula: difference_from_reference, vars: {d: sA, x: smax, x0: smin}}
+    inputs:
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+      smin: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F4ch_sigma_a_cop_ctrl.values.sigma_a_ctrl
+    aggregation: "mean of per-sample"
+
+  F4ch_sigma_a_d28_ctrl.active_d28:
+    item: F4ch_sigma_a_d28_ctrl
+    group: d28
+    measure: "mean active stress"
+    formula: "sA = smax - smin"
+    anchor: {quote: "calculated σA as the difference between each σmax and its preceding σmin", where: "Materials and methods, Force testing"}
+    library: {formula: difference_from_reference, vars: {d: sA, x: smax, x0: smin}}
+    inputs:
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+      smin: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F4ch_sigma_a_d28_ctrl.values.sigma_a_d28
+    aggregation: "mean of per-sample"
+
+  F3_sigma_a.active_rep:
+    item: F3_sigma_a
+    group: rep
+    measure: "mean active stress"
+    formula: "sA = smax - smin"
+    anchor: {quote: "Active stress, σA, is the difference between σmax and σmin.", where: "Figure 3 legend"}
+    library: {formula: difference_from_reference, vars: {d: sA, x: smax, x0: smin}}
+    inputs:
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+      smin: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F3_sigma_a.values.sigma_a
+    aggregation: "mean of per-sample"
+    note: "One representative ECT at 4.5 Hz: the mean is over its cycles."
+
+  # ---- beat-to-beat hysteresis: |sigma_A(even) - sigma_A(preceding odd)| / overall mean sigma_A, averaged over cycles
+  F3_sigma_bb.sbb_rep:
+    item: F3_sigma_bb
+    group: rep
+    measure: "beat-to-beat hysteresis"
+    formula: "sbb = Abs(sa2 - sa1)/sam"
+    anchor: {quote: "we calculated the magnitude of the difference in σA divided by the overall mean σA", where: "Materials and methods, Force testing"}
+    library: {formula: absolute_difference_over_reference, vars: {r: sbb, a: sa2, b: sa1, m: sam}}
+    inputs:
+      sa2: {derived: F3_sigma_a.active_rep, kind: "per sample", note: "sigma_A of the even-numbered cycle"}
+      sa1: {derived: F3_sigma_a.active_rep, kind: "per sample", note: "sigma_A of the preceding odd-numbered cycle"}
+      sam: {value: F3_sigma_a.values.sigma_a, part: mean, kind: "constant", note: "overall mean sigma_A of the trace"}
+    output: F3_sigma_bb.values.sigma_bb
+    aggregation: "mean of per-sample"
+    alternatives:
+      - {label: "each successive pair (methods) rather than even-after-odd pairs (Figure 3 legend)", note: "the methods say 'for each pair of successive cycles'; the legend says even-numbered against the preceding odd-numbered cycle; same formula, different pairs"}
+
+  F4ch_sbb_cop_ctrl.sbb:
+    item: F4ch_sbb_cop_ctrl
+    measure: "beat-to-beat hysteresis"
+    formula: "sbb = Abs(sa2 - sa1)/sam"
+    anchor: {quote: "we calculated the magnitude of the difference in σA divided by the overall mean σA", where: "Materials and methods, Force testing"}
+    library: {formula: absolute_difference_over_reference, vars: {r: sbb, a: sa2, b: sa1, m: sam}}
+    inputs:
+      sa2: {derived: F4ch_sigma_a_cop_ctrl.active_cop, kind: "per sample"}
+      sa1: {derived: F4ch_sigma_a_cop_ctrl.active_cop, kind: "per sample"}
+      sam: {not_stated: true, kind: "per sample", note: "overall mean sigma_A of each ECT at each rate; not printed"}
+    aggregation: "mean of per-sample"
+    note: "No value is printed (curves in Figure 4(f), no readings); the derivation records the method only."
+
+  # ---- normalised systolic energy: stress-time integral per sigma_min-to-sigma_min cycle / (cycle time * sigma_max)
+  F3_energy.energy_rep:
+    item: F3_energy
+    group: rep
+    measure: "normalized systolic energy"
+    formula: "e = Sint/(Tc*smax)"
+    anchor: {quote: "We calculated the systolic stress-time integral for each σmin-to-σmin cycle, normalized to both time and σmax.", where: "Materials and methods, Force testing"}
+    library: {formula: normalized_time_integral, vars: {e: e, Si: Sint, T: Tc, m: smax}}
+    inputs:
+      Sint: {not_stated: true, kind: "per sample", note: "stress-time integral of one cycle"}
+      Tc: {not_stated: true, kind: "per sample", note: "duration of the sigma_min-to-sigma_min cycle (the 'time' it is normalised to is not named further)"}
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F3_energy.values.energy
+    aggregation: "mean of per-sample"
+    alternatives:
+      - {label: "normalised to time only", formula: "e = Sint/Tc"}
+
+  F4ch_energy_cop_ctrl.energy_cop:
+    item: F4ch_energy_cop_ctrl
+    group: cop
+    measure: "normalized systolic energy"
+    formula: "e = Sint/(Tc*smax)"
+    anchor: {quote: "We calculated the systolic stress-time integral for each σmin-to-σmin cycle, normalized to both time and σmax.", where: "Materials and methods, Force testing"}
+    library: {formula: normalized_time_integral, vars: {e: e, Si: Sint, T: Tc, m: smax}}
+    inputs:
+      Sint: {not_stated: true, kind: "per sample"}
+      Tc: {not_stated: true, kind: "per sample"}
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F4ch_energy_cop_ctrl.values.energy_cop
+    aggregation: "mean of per-sample"
+    alternatives:
+      - {label: "normalised to time only", formula: "e = Sint/Tc"}
+    note: "Printed in J/m3-s; the stated normalisation (time and sigma_max) makes the value dimensionless, as Figure 3 prints it."
+
+  F4ch_energy_cop_ctrl.energy_ctrl:
+    item: F4ch_energy_cop_ctrl
+    group: ctrl
+    measure: "normalized systolic energy"
+    formula: "e = Sint/(Tc*smax)"
+    anchor: {quote: "We calculated the systolic stress-time integral for each σmin-to-σmin cycle, normalized to both time and σmax.", where: "Materials and methods, Force testing"}
+    library: {formula: normalized_time_integral, vars: {e: e, Si: Sint, T: Tc, m: smax}}
+    inputs:
+      Sint: {not_stated: true, kind: "per sample"}
+      Tc: {not_stated: true, kind: "per sample"}
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F4ch_energy_cop_ctrl.values.energy_ctrl
+    aggregation: "mean of per-sample"
+    alternatives:
+      - {label: "normalised to time only", formula: "e = Sint/Tc"}
+
+  F4ch_energy_d28_cop.energy_d28:
+    item: F4ch_energy_d28_cop
+    group: d28
+    measure: "normalized systolic energy"
+    formula: "e = Sint/(Tc*smax)"
+    anchor: {quote: "We calculated the systolic stress-time integral for each σmin-to-σmin cycle, normalized to both time and σmax.", where: "Materials and methods, Force testing"}
+    library: {formula: normalized_time_integral, vars: {e: e, Si: Sint, T: Tc, m: smax}}
+    inputs:
+      Sint: {not_stated: true, kind: "per sample"}
+      Tc: {not_stated: true, kind: "per sample"}
+      smax: {derived: F4ch_sigma_a_cop_ctrl.stress, kind: "per sample"}
+    output: F4ch_energy_d28_cop.values.energy_d28
+    aggregation: "mean of per-sample"
+    alternatives:
+      - {label: "normalised to time only", formula: "e = Sint/Tc"}
+
+  # ---- the printed MCR increase after C-OP
+  F4ch_mcr_cop_ctrl.increase:
+    item: F4ch_mcr_cop_ctrl
+    measure: "maximum capture rate"
+    formula: "dmcr = mcr_cop - mcr_ctrl"
+    anchor: {quote: "The 1 Hz increase in MCR after C-OP is comparable to previous chronic ES studies", where: "Discussion"}
+    library: {formula: difference_from_reference, vars: {d: dmcr, x: mcr_cop, x0: mcr_ctrl}}
+    inputs:
+      mcr_cop: {value: F4ch_mcr_cop_ctrl.values.mcr_cop, part: mean, kind: "constant"}
+      mcr_ctrl: {value: F4ch_mcr_cop_ctrl.values.mcr_ctrl, part: mean, kind: "constant"}
+    output: F4ch_mcr_cop_ctrl.values.mcr_increase
+    aggregation: "of means"
+
+  # ---- cell fractions from segmented nuclei (paraffin sections)
+  F5_cm_fraction.cm_cop:
+    item: F5_cm_fraction
+    group: cop
+    measure: "cardiomyocyte fraction"
+    formula: "f = n_ctnt/n_nuc"
+    anchor: {quote: "We recorded the percent cTnT-positive, tdTomato-positive and double-positive nuclei.", where: "Materials and methods, Image acquisition and analyses"}
+    library: {formula: ratio_def, vars: {r: f, a: n_ctnt, b: n_nuc}}
+    inputs:
+      n_ctnt: {not_stated: true, kind: "per sample", note: "cTnT-positive nuclei"}
+      n_nuc: {not_stated: true, kind: "per sample", note: "all DAPI nuclei"}
+    output: F5_cm_fraction.values.cm_cop_results
+    aggregation: "not stated"
+    note: "cm_cop_text prints the same number."
+
+  F5_cm_fraction.cm_ctrl:
+    item: F5_cm_fraction
+    group: ctrl
+    measure: "cardiomyocyte fraction"
+    formula: "f = n_ctnt/n_nuc"
+    anchor: {quote: "We recorded the percent cTnT-positive, tdTomato-positive and double-positive nuclei.", where: "Materials and methods, Image acquisition and analyses"}
+    library: {formula: ratio_def, vars: {r: f, a: n_ctnt, b: n_nuc}}
+    inputs:
+      n_ctnt: {not_stated: true, kind: "per sample"}
+      n_nuc: {not_stated: true, kind: "per sample"}
+    output: F5_cm_fraction.values.cm_ctrl_results
+    aggregation: "not stated"
+
+  F5_transfected_cm.frac:
+    item: F5_transfected_cm
+    group: cop
+    measure: "fraction of cardiomyocytes transfected"
+    formula: "f = n_dbl/n_ctnt"
+    anchor: {quote: "20 ± 6% of CM were transfected", where: "Results, C-OP does not accelerate structural maturation"}
+    library: {formula: ratio_def, vars: {r: f, a: n_dbl, b: n_ctnt}}
+    inputs:
+      n_dbl: {not_stated: true, kind: "per sample", note: "cTnT and tdTomato double-positive nuclei"}
+      n_ctnt: {not_stated: true, kind: "per sample", note: "cTnT-positive nuclei"}
+    output: F5_transfected_cm.values.transfected_cm
+    aggregation: "not stated"
+
+  F5_transfected_are_cm.frac:
+    item: F5_transfected_are_cm
+    group: cop
+    measure: "fraction of transfected cells that are cardiomyocytes"
+    formula: "f = n_dbl/n_tdt"
+    anchor: {quote: "67 ± 14% of all transfected cells were CM", where: "Results, C-OP does not accelerate structural maturation"}
+    library: {formula: ratio_def, vars: {r: f, a: n_dbl, b: n_tdt}}
+    inputs:
+      n_dbl: {not_stated: true, kind: "per sample", note: "cTnT and tdTomato double-positive nuclei"}
+      n_tdt: {not_stated: true, kind: "per sample", note: "tdTomato-positive nuclei"}
+    output: F5_transfected_are_cm.values.transfected_are_cm
+    aggregation: "not stated"
+
+  F5_cm_fraction_rep.cm_ctrl:
+    item: F5_cm_fraction_rep
+    group: ctrl
+    measure: "cardiomyocyte fraction"
+    formula: "f = n_ctnt/n_nuc"
+    anchor: {quote: "We recorded the percent cTnT-positive, tdTomato-positive and double-positive nuclei.", where: "Materials and methods, Image acquisition and analyses"}
+    library: {formula: ratio_def, vars: {r: f, a: n_ctnt, b: n_nuc}}
+    inputs:
+      n_ctnt: {not_stated: true, kind: "per sample"}
+      n_nuc: {not_stated: true, kind: "per sample"}
+    output: F5_cm_fraction_rep.values.cm_rep_ctrl
+
+  F5_cm_fraction_rep.cm_cop:
+    item: F5_cm_fraction_rep
+    group: cop
+    measure: "cardiomyocyte fraction"
+    formula: "f = n_ctnt/n_nuc"
+    anchor: {quote: "We recorded the percent cTnT-positive, tdTomato-positive and double-positive nuclei.", where: "Materials and methods, Image acquisition and analyses"}
+    library: {formula: ratio_def, vars: {r: f, a: n_ctnt, b: n_nuc}}
+    inputs:
+      n_ctnt: {not_stated: true, kind: "per sample"}
+      n_nuc: {not_stated: true, kind: "per sample"}
+    output: F5_cm_fraction_rep.values.cm_rep_cop
+
+  F5_transfected_rep.frac:
+    item: F5_transfected_rep
+    group: cop
+    measure: "fraction of ChIEF-transfected cells"
+    formula: "f = n_tdt/n_nuc"
+    anchor: {quote: "We recorded the percent cTnT-positive, tdTomato-positive and double-positive nuclei.", where: "Materials and methods, Image acquisition and analyses"}
+    library: {formula: ratio_def, vars: {r: f, a: n_tdt, b: n_nuc}}
+    inputs:
+      n_tdt: {not_stated: true, kind: "per sample"}
+      n_nuc: {not_stated: true, kind: "per sample"}
+    output: F5_transfected_rep.values.transfected_rep
+
+  # ---- alignment: method stated only by citation
+  F5_alignment.kappa:
+    item: F5_alignment
+    measure: "alignment concentration"
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "kappa is computed from local orientation vectors by a method stated only by citation (ref 58)"
+    inputs:
+      method: {by_reference: {citation: r58, anchor: {quote: "We measured CM alignment from cTnT-stained wholemount 3D images based on our previous method", where: "Materials and methods, Image acquisition and analyses"}}, kind: "not stated"}
+
+  # ---- qPCR: relative expression by citation; KCND3 fold and MLC2v/MLC2a ratios as named operations
+  F6_KCND3.rel_expression: &qpcr
+    item: F6_KCND3
+    measure: "relative mRNA expression"
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "relative mRNA expression (18 S rRNA endogenous control) is computed by a qPCR method stated only by citation (ref 12)"
+    inputs:
+      method: {by_reference: {citation: r12, anchor: {quote: "We performed qPCR as described in our previous work", where: "Materials and methods, Real-time quantitative polymerase chain reaction"}}, kind: "not stated"}
+
+  F6_KCND3.fold:
+    item: F6_KCND3
+    measure: "KCND3 mRNA expression"
+    formula: "fc = x_cop/x_ctrl"
+    anchor: {quote: "was significantly upregulated twofold in D14C-OP ECTs", where: "Results, C-OP upregulates a potassium channel"}
+    library: {formula: ratio_def, vars: {r: fc, a: x_cop, b: x_ctrl}}
+    inputs:
+      x_cop: {derived: F6_KCND3.rel_expression, kind: "not stated", note: "relative KCND3 expression, C-OP (Figure 6(b) bar; no value printed, no reading)"}
+      x_ctrl: {derived: F6_KCND3.rel_expression, kind: "not stated", note: "relative KCND3 expression, D14 control"}
+    output: F6_KCND3.values.kcnd3_fold
+    aggregation: "not stated"
+    alternatives:
+      - {label: "2^-ddCt with the control as calibrator (method by citation)", formula: "fc = 2**(-ddct)"}
+
+  F6_MLC2v_MLC2a.ratio_cop:
+    item: F6_MLC2v_MLC2a
+    group: cop
+    measure: "MLC2v/MLC2a ratio"
+    formula: "r = x_v/x_a"
+    anchor: {quote: "The ratio of MLC2v and MLC2a, an indicator of ventricular phenotype development, was also similar.", where: "Results, C-OP upregulates a potassium channel"}
+    library: {formula: ratio_def, vars: {r: r, a: x_v, b: x_a}}
+    inputs:
+      x_v: {item: F6_MLC2v, kind: "not stated"}
+      x_a: {item: F6_MLC2a, kind: "not stated"}
+    aggregation: "not stated"
+    note: "No ratio is printed; values are bars in Figure 6 with no readings."
+
+  F6_MLC2v_MLC2a.ratio_ctrl:
+    item: F6_MLC2v_MLC2a
+    group: ctrl
+    measure: "MLC2v/MLC2a ratio"
+    formula: "r = x_v/x_a"
+    anchor: {quote: "The ratio of MLC2v and MLC2a, an indicator of ventricular phenotype development, was also similar.", where: "Results, C-OP upregulates a potassium channel"}
+    library: {formula: ratio_def, vars: {r: r, a: x_v, b: x_a}}
+    inputs:
+      x_v: {item: F6_MLC2v, kind: "not stated"}
+      x_a: {item: F6_MLC2a, kind: "not stated"}
+    aggregation: "not stated"
+
+  F7_MLC2v_MLC2a_d28.ratio:
+    item: F7_MLC2v_MLC2a_d28
+    group: d28
+    measure: "MLC2v/MLC2a ratio"
+    formula: "r = x_v/x_a"
+    anchor: {quote: "The MLC2v/MLC2a was increased in the D28 sample", where: "Figure 7 legend"}
+    library: {formula: ratio_def, vars: {r: r, a: x_v, b: x_a}}
+    inputs:
+      x_v: {not_stated: true, kind: "not stated", note: "Figure 7 has no MLC2v item of its own"}
+      x_a: {not_stated: true, kind: "not stated"}
+
+  F6_cTnT.rel_expression: {<<: *qpcr, item: F6_cTnT}
+  F6_SERCA2A.rel_expression: {<<: *qpcr, item: F6_SERCA2A}
+  F6_KCNJ2.rel_expression: {<<: *qpcr, item: F6_KCNJ2}
+  F6_MLC2v.rel_expression: {<<: *qpcr, item: F6_MLC2v}
+  F6_MLC2a.rel_expression: {<<: *qpcr, item: F6_MLC2a}
+  F6_RYR2.rel_expression: {<<: *qpcr, item: F6_RYR2}
+  F6_PLN.rel_expression: {<<: *qpcr, item: F6_PLN}
+  F6_CASQ2.rel_expression: {<<: *qpcr, item: F6_CASQ2}
+  F6_ASPH.rel_expression: {<<: *qpcr, item: F6_ASPH}
+  F6_SLC8A1.rel_expression: {<<: *qpcr, item: F6_SLC8A1}
+  F6_Cacna1C.rel_expression: {<<: *qpcr, item: F6_Cacna1C}
+  F6_Cacna1D.rel_expression: {<<: *qpcr, item: F6_Cacna1D}
+  F6_Cacna1G.rel_expression: {<<: *qpcr, item: F6_Cacna1G}
+  F6_SCN4A.rel_expression: {<<: *qpcr, item: F6_SCN4A}
+  F6_SCN5A.rel_expression: {<<: *qpcr, item: F6_SCN5A}
+  F6_KCNH2.rel_expression: {<<: *qpcr, item: F6_KCNH2}
+  F6_KCNJ12.rel_expression: {<<: *qpcr, item: F6_KCNJ12}
+  F6_GJA1.rel_expression: {<<: *qpcr, item: F6_GJA1}
+  F7_cTnT_cop.rel_expression: {<<: *qpcr, item: F7_cTnT_cop}
+  F7_RYR2_d28.rel_expression: {<<: *qpcr, item: F7_RYR2_d28}
+  F7_SERCA2A_d28.rel_expression: {<<: *qpcr, item: F7_SERCA2A_d28}
+  F7_PLN_d28.rel_expression: {<<: *qpcr, item: F7_PLN_d28}
+  F7_KCND3_cop.rel_expression: {<<: *qpcr, item: F7_KCND3_cop}
+  F7_KCND3_d28.rel_expression: {<<: *qpcr, item: F7_KCND3_d28}
+  F7_Cacna1D_d28.rel_expression: {<<: *qpcr, item: F7_Cacna1D_d28}
+  F7_SCN4A_d28.rel_expression: {<<: *qpcr, item: F7_SCN4A_d28}
+  F7_ltype_na_cop.rel_expression: {<<: *qpcr, item: F7_ltype_na_cop}
+  F7_ltype_na_d28.rel_expression: {<<: *qpcr, item: F7_ltype_na_d28}
+
+assumptions:
+  F4ch_sigma_a_cop_ctrl.area:
+    model: circular_cross_section_area
+    assumptions:
+      circular cross-section:
+        reported: {geometry: "used the mean diameter to calculate ECT cross-sectional area assuming a circular geometry"}
+      uniform diameter along the length:
+        reported: {diameter: "performed three measurements per ECT, then used the mean diameter"}
+
+bounds:
+  - {item: F5_cm_fraction, value: F5_cm_fraction.values.cm_cop_text, formula: fraction_bounds}
+  - {item: F5_cm_fraction, value: F5_cm_fraction.values.cm_ctrl_text, formula: fraction_bounds}
+  - {item: F5_cm_fraction, value: F5_cm_fraction.values.cm_cop_results, formula: fraction_bounds}
+  - {item: F5_cm_fraction, value: F5_cm_fraction.values.cm_ctrl_results, formula: fraction_bounds}
+  - {item: F5_transfected_cm, value: F5_transfected_cm.values.transfected_cm, formula: fraction_bounds}
+  - {item: F5_transfected_are_cm, value: F5_transfected_are_cm.values.transfected_are_cm, formula: fraction_bounds}
+  - {item: F5_cm_fraction_rep, value: F5_cm_fraction_rep.values.cm_rep_ctrl, formula: fraction_bounds}
+  - {item: F5_cm_fraction_rep, value: F5_cm_fraction_rep.values.cm_rep_cop, formula: fraction_bounds}
+  - {item: F5_transfected_rep, value: F5_transfected_rep.values.transfected_rep, formula: fraction_bounds}
+  - {item: TXT1_cm_percent, value: TXT1_cm_percent.values.cm_ctrl, formula: fraction_bounds}
+  - {item: TXT1_cm_percent, value: TXT1_cm_percent.values.cm_cop, formula: fraction_bounds}
+  - {item: TXT1_cm_percent, value: TXT1_cm_percent.values.cm_d28, formula: fraction_bounds}
+  - {item: TXT1_ec_percent, value: TXT1_ec_percent.values.ec_ctrl, formula: fraction_bounds}
+  - {item: TXT1_ec_percent, value: TXT1_ec_percent.values.ec_cop, formula: fraction_bounds}
+  - {item: TXT1_ec_percent, value: TXT1_ec_percent.values.ec_d28, formula: fraction_bounds}
+  - {item: TXT1_mc_percent, value: TXT1_mc_percent.values.mc_ctrl, formula: fraction_bounds}
+  - {item: TXT1_mc_percent, value: TXT1_mc_percent.values.mc_cop, formula: fraction_bounds}
+  - {item: TXT1_mc_percent, value: TXT1_mc_percent.values.mc_d28, formula: fraction_bounds}
+  - {item: TXT2_op_capture, value: TXT2_op_capture.values.capture, formula: fraction_bounds}
+
+proposals:
+  - formula: absolute_difference_over_reference
+    kind: derived
+    statement: The absolute difference of two like quantities divided by a reference of the same kind, |a - b|/m (e.g. the
+      beat-to-beat difference in active stress over the mean active stress), is a ratio of the absolute difference to the reference.
+    equations:
+      - "r = Abs(a - b)/m"
+    variables: {r: dimensionless, a: D, b: D, m: D, dn: D}
+    assumes:
+      - "dn = Abs(a - b)"
+    uses:
+      - {formula: ratio_def, subs: {r: r, a: dn, b: m}}
+    does_not_apply: a signed difference (a - b)/m, a difference over the sum of the two (|a - b|/(a + b)), or a mean of per-pair ratios compared with the ratio of means
+    tests:
+      - {given: {a: 3.0, b: 1.0, m: 4.0}, expect: {r: 0.5}}
+      - {given: {a: 1.0, b: 3.0, m: 4.0}, expect: {r: 0.5}}
+      - {given: {a: 1.0, b: 3.0, m: 4.0}, does_not_apply: "the signed form gives -0.5"}
+
+  - formula: normalized_time_integral
+    kind: derived
+    statement: A time integral of a quantity over an interval, normalised to the interval's duration and to a reference value
+      of the quantity (e.g. a systolic stress-time integral over cycle time and peak stress), is the integral divided by the
+      product of duration and reference; it is dimensionless.
+    equations:
+      - "e = Si/(T*m)"
+    variables: {e: dimensionless, Si: D*time, T: time, m: D, q: D*time}
+    assumes:
+      - "q = T*m"
+    uses:
+      - {formula: ratio_def, subs: {r: e, a: Si, b: q}}
+    does_not_apply: an integral normalised to time only (a time-averaged value, with the quantity's own dimension), or to the reference only
+    tests:
+      - {given: {Si: 6.0, T: 2.0, m: 3.0}, expect: {e: 1.0}}
+      - {given: {Si: 3.0, T: 2.0, m: 3.0}, expect: {e: 0.5}}
+      - {given: {Si: 6.0, T: 2.0, m: 3.0}, does_not_apply: "normalised to time only gives 3, not 1"}

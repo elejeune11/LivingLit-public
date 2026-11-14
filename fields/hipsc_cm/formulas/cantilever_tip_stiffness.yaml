@@ -1,0 +1,40 @@
+# Written by code from changes.yaml (version 4); never edited.
+formula: cantilever_tip_stiffness
+kind: model
+statement: The stiffness of a slender elastic cantilever loaded at its free end is three times its modulus times its second
+  moment of area over its length cubed.
+equations:
+- k = 3*E*I/L**3
+variables:
+  k: stiffness
+  E: modulus
+  I: second_moment
+  L: length
+assumes:
+- small deflection
+- linear elastic material
+- slender beam
+- point load at the free end
+does_not_apply: large deflections, a load applied away from the free end, or a short thick beam where shear deformation matters
+tests:
+- given:
+    E: 1.0
+    I: 1.0
+    L: 1.0
+  expect:
+    k: 3.0
+- given:
+    E: 200.0
+    I: 2.0
+    L: 2.0
+  expect:
+    k: 150.0
+- given:
+    E: 1.0
+    I: 1.0
+    L: 1.0
+  does_not_apply: 'load at mid-length of the cantilever: k = 24EI/L^3 (3EI/(L/2)^3), not 3EI/L^3'
+cites:
+  text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, concentrated
+    load at the free end)
+  quote: δB = PL^3/3EI

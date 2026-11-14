@@ -1,0 +1,1942 @@
+record: 2022_Strimaityte
+formula_library_version: 28
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F4i_TNNT2_icmf_rc.relative_expression:
+    item: F4i_TNNT2_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: TNNT2 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: TNNT2 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4i_TNNT2_icmf_ms.relative_expression:
+    item: F4i_TNNT2_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: TNNT2 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: TNNT2 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4j_MYH7_MYH6_icmf_rc.myh7_expression:
+    item: F4j_MYH7_MYH6_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: MYH7 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: MYH7 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4j_MYH7_MYH6_icmf_rc.myh6_expression:
+    item: F4j_MYH7_MYH6_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: MYH6 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: MYH6 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4j_MYH7_MYH6_icmf_rc.ratio:
+    item: F4j_MYH7_MYH6_icmf_rc
+    formula: r = a/b
+    anchor:
+      quote: Gene expression relative to GAPDH in the random cluster, micropatterned single, and iCMFs of sarcomere gene TNNT2
+        (i) and MYH7/MYH6 (j)
+      where: Fig. 4 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F4j_MYH7_MYH6_icmf_rc.myh7_expression
+        kind: per sample
+      b:
+        derived: F4j_MYH7_MYH6_icmf_rc.myh6_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of 2^-ΔCt values (no calibrator)
+      formula: r = 2^(-(dct7 - dct6))
+      note: differs from the ratio of 2^-ΔΔCt values by the calibrator's MYH7/MYH6 ratio, one constant factor
+    note: MYH7/MYH6 written as a ratio of the two genes' relative expressions; how the ratio was formed is not stated.
+  F4j_MYH7_MYH6_icmf_ms.myh7_expression:
+    item: F4j_MYH7_MYH6_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: MYH7 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: MYH7 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4j_MYH7_MYH6_icmf_ms.myh6_expression:
+    item: F4j_MYH7_MYH6_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: MYH6 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: MYH6 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4j_MYH7_MYH6_icmf_ms.ratio:
+    item: F4j_MYH7_MYH6_icmf_ms
+    formula: r = a/b
+    anchor:
+      quote: Gene expression relative to GAPDH in the random cluster, micropatterned single, and iCMFs of sarcomere gene TNNT2
+        (i) and MYH7/MYH6 (j)
+      where: Fig. 4 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F4j_MYH7_MYH6_icmf_ms.myh7_expression
+        kind: per sample
+      b:
+        derived: F4j_MYH7_MYH6_icmf_ms.myh6_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of 2^-ΔCt values (no calibrator)
+      formula: r = 2^(-(dct7 - dct6))
+      note: differs from the ratio of 2^-ΔΔCt values by the calibrator's MYH7/MYH6 ratio, one constant factor
+    note: MYH7/MYH6 written as a ratio of the two genes' relative expressions; how the ratio was formed is not stated.
+  F4k_GJA1_icmf_rc.relative_expression:
+    item: F4k_GJA1_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: GJA1 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: GJA1 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4k_GJA1_icmf_ms.relative_expression:
+    item: F4k_GJA1_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: GJA1 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: GJA1 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4l_CDH2_icmf_rc.relative_expression:
+    item: F4l_CDH2_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: CDH2 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: CDH2 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4l_CDH2_icmf_ms.relative_expression:
+    item: F4l_CDH2_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: CDH2 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: CDH2 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4m_RYR2_icmf_rc.relative_expression:
+    item: F4m_RYR2_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: RYR2 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: RYR2 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4m_RYR2_icmf_ms.relative_expression:
+    item: F4m_RYR2_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: RYR2 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: RYR2 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4n_CAV3_icmf_rc.relative_expression:
+    item: F4n_CAV3_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: CAV3 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: CAV3 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4n_CAV3_icmf_ms.relative_expression:
+    item: F4n_CAV3_icmf_ms
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: CAV3 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: CAV3 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F4o_BIN1_icmf_rc.relative_expression:
+    item: F4o_BIN1_icmf_rc
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Fold differences were normalized to GAPDH and calculated using the 2−ΔΔCt method.
+      where: Methods, RT-qPCR
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: BIN1 Ct minus GAPDH Ct, minus the calibrator's; no Ct values printed
+    aggregation: not stated
+    note: BIN1 relative to GAPDH. The calibrator group (the one set to 1) is not stated; values are plotted only (violins,
+      Fig. 4i–o).
+  F5e_variation_rc.variation_rc_0p5Hz:
+    item: F5e_variation_rc
+    group: rc_0p5Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5d_interval_rc
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '0.5'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+  F5e_variation_rc.variation_rc_1Hz:
+    item: F5e_variation_rc
+    group: rc_1Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5d_interval_rc
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '1'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+  F5e_variation_rc.variation_rc_2Hz:
+    item: F5e_variation_rc
+    group: rc_2Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5d_interval_rc
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '2'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+  F5e_variation_rc.variation_rc_3Hz:
+    item: F5e_variation_rc
+    group: rc_3Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5d_interval_rc
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '3'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+  F5e_variation_rc.variation_rc_5Hz:
+    item: F5e_variation_rc
+    group: rc_5Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5d_interval_rc
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '5'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5e_variation_rc.values.var_rc_5Hz_text
+  F5g_variation_icmf.variation_icmf_0p5Hz:
+    item: F5g_variation_icmf
+    group: icmf_0p5Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '0.5'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F5g_variation_icmf.variation_icmf_1Hz:
+    item: F5g_variation_icmf
+    group: icmf_1Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '1'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F5g_variation_icmf.variation_icmf_2Hz:
+    item: F5g_variation_icmf
+    group: icmf_2Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '2'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F5g_variation_icmf.variation_icmf_3Hz:
+    item: F5g_variation_icmf
+    group: icmf_3Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '3'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F5g_variation_icmf.variation_icmf_5Hz:
+    item: F5g_variation_icmf
+    group: icmf_5Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '5'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F5g_variation_icmf.variation_icmf_6Hz:
+    item: F5g_variation_icmf
+    group: icmf_6Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '6'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F5g_variation_icmf.variation_icmf_7Hz:
+    item: F5g_variation_icmf
+    group: icmf_7Hz
+    formula: d = (x - 1/f)/(1/f)
+    anchor:
+      quote: Relative percent variation between the measurement interval and the input frequency
+      where: Fig. 5 legend
+    library:
+      formula: relative_deviation_from_period
+      vars:
+        d: d
+        x: x
+        f: f
+    inputs:
+      x:
+        item: F5f_interval_icmf
+        kind: per sample
+        note: measured interval between adjacent calcium transient peaks (Fig. 5d/f bars; not read, no value printed)
+      f:
+        printed: '7'
+        unit: Hz
+        anchor:
+          quote: cells were paced continuously with an incrementing frequency (0.5, 1, 2, 3, 4, 5, 6, 7, 8 Hz)
+          where: Methods, Continuous Electrical Stimulation
+        kind: constant
+    aggregation: not stated
+    alternatives:
+    - label: absolute deviation
+      formula: d = Abs(x*f - 1)
+      note: the sign of the variation is not stated; the plotted values are all positive
+    note: The paper names the operation only; the reference is read as the period of the input frequency, 1/f.
+    output: F5g_variation_icmf.values.var_icmf_text
+  F3e_straight.share_rc:
+    item: F3e_straight
+    group: rc
+    formula: p = a/b
+    anchor:
+      quote: Out of the 80 random cluster cells measured, only about 39.5% had a straight shape wave
+      where: Results, Calcium Transient and T-Tubule Formation
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: constant
+        note: count of cells with a straight-line wavefront (Fig. 3e plots counts; not read)
+      b:
+        printed: '80'
+        unit: cells
+        anchor:
+          quote: Out of the 80 random cluster cells measured
+          where: Results, Calcium Transient and T-Tubule Formation
+        kind: constant
+    output: F3e_straight.values.straight_rc_text
+  F3e_straight.share_ms:
+    item: F3e_straight
+    group: ms
+    formula: p = a/b
+    anchor:
+      quote: the percentage of cells with straight calcium waveforms increased to 48.1%
+      where: Results, Calcium Transient and T-Tubule Formation
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: constant
+        note: count of cells with a straight-line wavefront (Fig. 3e plots counts; not read)
+      b:
+        not_stated: true
+        kind: constant
+        note: legend gives N = 80−85 cells per group only
+    output: F3e_straight.values.straight_ms_text
+  F3e_straight.share_icmf:
+    item: F3e_straight
+    group: icmf
+    formula: p = a/b
+    anchor:
+      quote: iCMFs had 69% of the cells showing a straight calcium wavefront
+      where: Results, Calcium Transient and T-Tubule Formation
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: constant
+        note: count of cells with a straight-line wavefront (Fig. 3e plots counts; not read)
+      b:
+        not_stated: true
+        kind: constant
+        note: legend gives N = 80−85 cells per group only
+    output: F3e_straight.values.straight_icmf_text
+  F6b_hom_d60_wt_d60.normalized_hom_d60:
+    item: F6b_hom_d60_wt_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction amplitude to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6a_het_d60_hom_d60
+        kind: per sample
+      x0:
+        item: F6a_d11_ns
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6b_hom_d60_wt_d60.normalized_wt_d60:
+    item: F6b_hom_d60_wt_d60
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction amplitude to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: contraction amplitude of group wt_d60 is plotted (Fig. 6) but in no item and not printed
+      x0:
+        item: F6a_d11_ns
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6b_het_d60_hom_d60.normalized_het_d60:
+    item: F6b_het_d60_hom_d60
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction amplitude to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6a_het_d60_hom_d60
+        kind: per sample
+      x0:
+        item: F6a_d11_ns
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6b_het_d60_hom_d60.normalized_hom_d60:
+    item: F6b_het_d60_hom_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction amplitude to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6a_het_d60_hom_d60
+        kind: per sample
+      x0:
+        item: F6a_d11_ns
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6b_het_d60_het_d11.normalized_het_d60:
+    item: F6b_het_d60_het_d11
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction amplitude to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6a_het_d60_hom_d60
+        kind: per sample
+      x0:
+        item: F6a_d11_ns
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6b_het_d60_het_d11.normalized_het_d11:
+    item: F6b_het_d60_het_d11
+    group: het_d11
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction amplitude to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6a_d11_ns
+        kind: per sample
+      x0:
+        item: F6a_d11_ns
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated. This is the day-11
+      group itself, so its normalized mean is 1 (normalized_to_own_control); the paper tests it against day 60 by Tukey HSD.
+  F6d_hom_d60_wt_d60.normalized_hom_d60:
+    item: F6d_hom_d60_wt_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction duration to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: contraction duration of group hom_d60 is plotted (Fig. 6) but in no item and not printed
+      x0:
+        item: F6c_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6d_hom_d60_wt_d60.normalized_wt_d60:
+    item: F6d_hom_d60_wt_d60
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction duration to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6c_wt_d60_wt_d11
+        kind: per sample
+      x0:
+        item: F6c_wt_d60_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6d_het_d60_hom_d60.normalized_het_d60:
+    item: F6d_het_d60_hom_d60
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction duration to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: contraction duration of group het_d60 is plotted (Fig. 6) but in no item and not printed
+      x0:
+        not_stated: true
+        kind: not stated
+        note: contraction duration of group het_d11 is plotted (Fig. 6) but in no item and not printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6d_het_d60_hom_d60.normalized_hom_d60:
+    item: F6d_het_d60_hom_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction duration to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: contraction duration of group hom_d60 is plotted (Fig. 6) but in no item and not printed
+      x0:
+        item: F6c_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6f_het_d60_hom_d60.normalized_het_d60:
+    item: F6f_het_d60_hom_d60
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction TTP to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6e_het_d60_het_d11
+        kind: per sample
+      x0:
+        item: F6e_het_d60_het_d11
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6f_het_d60_hom_d60.normalized_hom_d60:
+    item: F6f_het_d60_hom_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction TTP to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6e_het_d60_ns
+        kind: per sample
+      x0:
+        item: F6e_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6f_hom_d60_wt_d60.normalized_hom_d60:
+    item: F6f_hom_d60_wt_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction TTP to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6e_het_d60_ns
+        kind: per sample
+      x0:
+        item: F6e_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6f_hom_d60_wt_d60.normalized_wt_d60:
+    item: F6f_hom_d60_wt_d60
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction TTP to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6e_wt_d60_wt_d11
+        kind: per sample
+      x0:
+        item: F6e_wt_d60_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6h_hom_d60_wt_d60.normalized_hom_d60:
+    item: F6h_hom_d60_wt_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction relaxation time to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6g_d60_ns
+        kind: per sample
+      x0:
+        item: F6g_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6h_hom_d60_wt_d60.normalized_wt_d60:
+    item: F6h_hom_d60_wt_d60
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction relaxation time to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6g_wt_d60_wt_d11
+        kind: per sample
+      x0:
+        item: F6g_wt_d60_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6h_het_d60_hom_d60.normalized_het_d60:
+    item: F6h_het_d60_hom_d60
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction relaxation time to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6g_d60_ns
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: contraction relaxation time of group het_d11 is plotted (Fig. 6) but in no item and not printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6h_het_d60_hom_d60.normalized_hom_d60:
+    item: F6h_het_d60_hom_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction relaxation time to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6g_d60_ns
+        kind: per sample
+      x0:
+        item: F6g_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6h_hom_d60_hom_d11.normalized_hom_d60:
+    item: F6h_hom_d60_hom_d11
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction relaxation time to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6g_d60_ns
+        kind: per sample
+      x0:
+        item: F6g_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6h_hom_d60_hom_d11.normalized_hom_d11:
+    item: F6h_hom_d60_hom_d11
+    group: hom_d11
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction relaxation time to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6g_hom_d11_wt_d11
+        kind: per sample
+      x0:
+        item: F6g_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated. This is the day-11
+      group itself, so its normalized mean is 1 (normalized_to_own_control); the paper tests it against day 60 by Tukey HSD.
+  F6j_hom_d60_wt_d60.normalized_hom_d60:
+    item: F6j_hom_d60_wt_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_hom_d60_wt_d60.normalized_wt_d60:
+    item: F6j_hom_d60_wt_d60
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_het_d60_wt_d60.normalized_het_d60:
+    item: F6j_het_d60_wt_d60
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_het_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_het_d11_hom_d11
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_het_d60_wt_d60.normalized_wt_d60:
+    item: F6j_het_d60_wt_d60
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_het_d60_hom_d60.normalized_het_d60:
+    item: F6j_het_d60_hom_d60
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_het_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_het_d11_hom_d11
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_het_d60_hom_d60.normalized_hom_d60:
+    item: F6j_het_d60_hom_d60
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_wt_d60_wt_d11.normalized_wt_d60:
+    item: F6j_wt_d60_wt_d11
+    group: wt_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_wt_d60_wt_d11.normalized_wt_d11:
+    item: F6j_wt_d60_wt_d11
+    group: wt_d11
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d11_wt_d11
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group wt_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated. This is the day-11
+      group itself, so its normalized mean is 1 (normalized_to_own_control); the paper tests it against day 60 by Tukey HSD.
+  F6j_het_d60_het_d11.normalized_het_d60:
+    item: F6j_het_d60_het_d11
+    group: het_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_het_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_het_d11_hom_d11
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_het_d60_het_d11.normalized_het_d11:
+    item: F6j_het_d60_het_d11
+    group: het_d11
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_het_d11_hom_d11
+        kind: per sample
+      x0:
+        item: F6i_het_d11_hom_d11
+        kind: not stated
+        note: its value for group het_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated. This is the day-11
+      group itself, so its normalized mean is 1 (normalized_to_own_control); the paper tests it against day 60 by Tukey HSD.
+  F6j_hom_d60_hom_d11.normalized_hom_d60:
+    item: F6j_hom_d60_hom_d11
+    group: hom_d60
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d60_wt_d60
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated.
+  F6j_hom_d60_hom_d11.normalized_hom_d11:
+    item: F6j_hom_d60_hom_d11
+    group: hom_d11
+    formula: r = x/x0
+    anchor:
+      quote: normalized contraction speed to day 11 of each cell isotype
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: F6i_hom_d11_wt_d11
+        kind: per sample
+      x0:
+        item: F6i_hom_d11_wt_d11
+        kind: not stated
+        note: its value for group hom_d11 (the day-11 group of the same isotype); no value printed
+    aggregation: not stated
+    note: Whether each location is divided by the day-11 mean or the group means are divided is not stated. This is the day-11
+      group itself, so its normalized mean is 1 (normalized_to_own_control); the paper tests it against day 60 by Tukey HSD.
+  S6j_het_rc_hom_rc.normalized_het_rc:
+    item: S6j_het_rc_hom_rc
+    group: het_rc
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_het_rc_wt_rc
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_het_rc_hom_rc.normalized_hom_rc:
+    item: S6j_het_rc_hom_rc
+    group: hom_rc
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_hom_rc_wt_rc
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_het_rc_wt_rc.normalized_het_rc:
+    item: S6j_het_rc_wt_rc
+    group: het_rc
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_het_rc_wt_rc
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_het_rc_wt_rc.normalized_wt_rc:
+    item: S6j_het_rc_wt_rc
+    group: wt_rc
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_hom_rc_wt_rc
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_het_icmf_het_rc.normalized_het_icmf:
+    item: S6j_het_icmf_het_rc
+    group: het_icmf
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_het_icmf_hom_icmf
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_het_icmf_het_rc.normalized_het_rc:
+    item: S6j_het_icmf_het_rc
+    group: het_rc
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_het_rc_wt_rc
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_hom_icmf_hom_rc.normalized_hom_icmf:
+    item: S6j_hom_icmf_hom_rc
+    group: hom_icmf
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_hom_icmf_wt_icmf
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+  S6j_hom_icmf_hom_rc.normalized_hom_rc:
+    item: S6j_hom_icmf_hom_rc
+    group: hom_rc
+    formula: r = x/x0
+    anchor:
+      quote: Normalized contraction speed to day 11 of each cell isotype
+      where: Figure S6 legend
+      file: am2c07326_si_001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: x
+        b: x0
+    inputs:
+      x:
+        item: S6i_hom_rc_wt_rc
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: not stated
+        note: 'the legend''s reference, day 11 of each isotype, names no group: every Fig. S6 group is day 11'
+    aggregation: not stated
+    alternatives:
+    - label: normalized to the iCMF group of the same isotype
+      note: the record reader notes the iCMF bars sit at 1.0
+    - label: normalized to the random cluster of the same isotype
+    note: Fig. S6 legend repeats Fig. 6's wording; the reference group is ambiguous.
+assumptions:
+  F4i_TNNT2_icmf_rc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4i_TNNT2_icmf_ms.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4j_MYH7_MYH6_icmf_rc.myh7_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4j_MYH7_MYH6_icmf_rc.myh6_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4j_MYH7_MYH6_icmf_ms.myh7_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4j_MYH7_MYH6_icmf_ms.myh6_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4k_GJA1_icmf_rc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4k_GJA1_icmf_ms.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4l_CDH2_icmf_rc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4l_CDH2_icmf_ms.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4m_RYR2_icmf_rc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4m_RYR2_icmf_ms.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4n_CAV3_icmf_rc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4n_CAV3_icmf_ms.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4o_BIN1_icmf_rc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- item: F3e_straight
+  value: F3e_straight.values.straight_rc_text
+  formula: fraction_bounds
+- item: F3e_straight
+  value: F3e_straight.values.straight_ms_text
+  formula: fraction_bounds
+- item: F3e_straight
+  value: F3e_straight.values.straight_icmf_text
+  formula: fraction_bounds
+- item: F3e_straight
+  value: F3e_straight.values.straight_rc_figure
+  formula: fraction_bounds
+- item: F3e_straight
+  value: F3e_straight.values.straight_ms_figure
+  formula: fraction_bounds
+- item: F3e_straight
+  value: F3e_straight.values.straight_icmf_figure
+  formula: fraction_bounds
+- item: S4_purity
+  value: S4_purity.values.purity_legend
+  formula: fraction_bounds
+- item: S4_purity
+  value: S4_purity.values.purity_text
+  formula: fraction_bounds
+- item: S4_purity
+  value: S4_purity.values.purity_diff1_figure
+  formula: fraction_bounds
+- item: S4_purity
+  value: S4_purity.values.purity_diff2_figure
+  formula: fraction_bounds
+- item: S4_purity
+  value: S4_purity.values.purity_hipsc_legend
+  formula: fraction_bounds
+proposals:
+- formula: relative_deviation_from_period
+  kind: derived
+  statement: The relative deviation of a measured interval from the period of a stated frequency is the interval times the
+    frequency, minus one.
+  equations:
+  - d = x*f - 1
+  variables:
+    d: dimensionless
+    x: time
+    f: frequency
+    T: time
+  uses:
+  - formula: relative_change
+    subs:
+      d: d
+      x: x
+      x0: T
+  - formula: frequency_def
+    subs:
+      f: f
+      T: T
+  does_not_apply: a deviation stated in absolute value, or relative to the measured interval rather than the period
+  tests:
+  - given:
+      x: 0.55
+      f: 2.0
+    expect:
+      d: 0.1
+  - given:
+      x: 0.4
+      f: 5.0
+    expect:
+      d: 1.0
+  - given:
+      x: 0.45
+      f: 2.0
+    does_not_apply: 'absolute deviation: 0.1, not the signed -0.1'

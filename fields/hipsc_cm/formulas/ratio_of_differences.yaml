@@ -1,0 +1,45 @@
+# Written by code from changes.yaml (version 26); never edited.
+formula: ratio_of_differences
+kind: derived
+statement: A ratio of two differences, (x1 - x2)/(y1 - y2), e.g. an action potential shape metric (APD80-APD70)/(APD40-APD30).
+equations:
+- r = (x1 - x2)/(y1 - y2)
+variables:
+  r: D/D2
+  x1: D
+  x2: D
+  y1: D2
+  y2: D2
+  p: D
+  q: D2
+assumes:
+- p = x1 - x2
+- q = y1 - y2
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: p
+    b: q
+does_not_apply: a difference of ratios, or x1 - x2/(y1 - y2) without the numerator bracketed
+tests:
+- given:
+    x1: 5.0
+    x2: 3.0
+    y1: 4.0
+    y2: 3.0
+  expect:
+    r: 2.0
+- given:
+    x1: 300.0
+    x2: 280.0
+    y1: 150.0
+    y2: 140.0
+  expect:
+    r: 2.0
+- given:
+    x1: 5.0
+    x2: 3.0
+    y1: 4.0
+    y2: 3.0
+  does_not_apply: ratio of the first terms, 5/4 = 1.25, is not the ratio of the differences (2)

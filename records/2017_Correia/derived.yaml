@@ -1,0 +1,3421 @@
+record: 2017_Correia
+formula_library_version: 18
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1IK_FA.oa_pa_FAM_d0:
+    item: F1IK_FA
+    group: FAM_d0
+    measure: contribution of FA to labelled TCA cycle pools
+    formula: FA = OA + PA
+    anchor: &id001
+      quote: 18% of the labelled fraction of these metabolites came from [U-13C]PA and [U-13C]OA
+      where: Results
+    library:
+      formula: sum_of_parts
+      vars:
+        t: FA
+        a: OA
+        b: PA
+    inputs:
+      OA:
+        value: F1IK_OA.values.OA_FAM_d0_figure
+        kind: constant
+      PA:
+        value: F1IK_PA.values.PA_FAM_d0_figure
+        kind: constant
+    output: F1IK_FA.values.FA_FAM_d0_text
+  F1IK_FA.oa_pa_FAM_d10:
+    item: F1IK_FA
+    group: FAM_d10
+    measure: contribution of FA to labelled TCA cycle pools
+    formula: FA = OA + PA
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: FA
+        a: OA
+        b: PA
+    inputs:
+      OA:
+        value: F1IK_OA.values.OA_FAM_d10_figure
+        kind: constant
+      PA:
+        value: F1IK_PA.values.PA_FAM_d10_figure
+        kind: constant
+    output: F1IK_FA.values.FA_FAM_d10_text
+  F1IK_FA.oa_pa_GFAM_d0:
+    item: F1IK_FA
+    group: GFAM_d0
+    measure: contribution of FA to labelled TCA cycle pools
+    formula: FA = OA + PA
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: FA
+        a: OA
+        b: PA
+    inputs:
+      OA:
+        value: F1IK_OA.values.OA_GFAM_d0_figure
+        kind: constant
+      PA:
+        value: F1IK_PA.values.PA_GFAM_d0_figure
+        kind: constant
+    output: F1IK_FA.values.FA_GFAM_d0_text
+  F1IK_FA.oa_pa_GFAM_d20:
+    item: F1IK_FA
+    group: GFAM_d20
+    measure: contribution of FA to labelled TCA cycle pools
+    formula: FA = OA + PA
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: FA
+        a: OA
+        b: PA
+    inputs:
+      OA:
+        value: F1IK_OA.values.OA_GFAM_d20_figure
+        kind: constant
+      PA:
+        value: F1IK_PA.values.PA_GFAM_d20_figure
+        kind: constant
+    output: F1IK_FA.values.FA_GFAM_d20_text
+  F1IK_FA.oa_pa_LACMGFAM_d10:
+    item: F1IK_FA
+    group: LACMGFAM_d10
+    measure: contribution of FA to labelled TCA cycle pools
+    formula: FA = OA + PA
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: FA
+        a: OA
+        b: PA
+    inputs:
+      OA:
+        value: F1IK_OA.values.OA_LACMGFAM_d10_figure
+        kind: constant
+      PA:
+        value: F1IK_PA.values.PA_LACMGFAM_d10_figure
+        kind: constant
+    output: F1IK_FA.values.FA_LACMGFAM_text
+    note: the text prints one value, 'approximately 30%', over LACM&GFAM d10 and d20; each day's pie gives its own OA and
+      PA
+  F1IK_FA.oa_pa_LACMGFAM_d20:
+    item: F1IK_FA
+    group: LACMGFAM_d20
+    measure: contribution of FA to labelled TCA cycle pools
+    formula: FA = OA + PA
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: FA
+        a: OA
+        b: PA
+    inputs:
+      OA:
+        value: F1IK_OA.values.OA_LACMGFAM_d20_figure
+        kind: constant
+      PA:
+        value: F1IK_PA.values.PA_LACMGFAM_d20_figure
+        kind: constant
+    output: F1IK_FA.values.FA_LACMGFAM_text
+    note: the text prints one value, 'approximately 30%', over LACM&GFAM d10 and d20; each day's pie gives its own OA and
+      PA
+  F1IK_Gln.remaining_FAM_d0:
+    item: F1IK_Gln
+    group: FAM_d0
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: Gln = 1 - FA
+    anchor:
+      quote: the remaining 82% from [U-13C]Gln
+      where: Results
+    library:
+      formula: complement_fraction
+      vars:
+        c: Gln
+        f: FA
+    inputs:
+      FA:
+        value: F1IK_FA.values.FA_FAM_d0_text
+        kind: constant
+    output: F1IK_Gln.values.Gln_FAM_d0_figure
+    note: FAM's main substrates are Gln, OA and PA; contributions are normalised to their total
+    alternatives:
+    - label: FA rebuilt from the pie's OA + PA
+      note: derived F1IK_FA.oa_pa_FAM_d0
+  F1IK_Gln.remaining_FAM_d10:
+    item: F1IK_Gln
+    group: FAM_d10
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: Gln = 1 - FA
+    anchor: &id002
+      quote: normalized by the total incorporation provided by the main substrates present in the media
+      where: Methods
+    library:
+      formula: complement_fraction
+      vars:
+        c: Gln
+        f: FA
+    inputs:
+      FA:
+        value: F1IK_FA.values.FA_FAM_d10_text
+        kind: constant
+    output: F1IK_Gln.values.Gln_FAM_d10_figure
+    note: FAM's main substrates are Gln, OA and PA; contributions are normalised to their total
+    alternatives:
+    - label: FA rebuilt from the pie's OA + PA
+      note: derived F1IK_FA.oa_pa_FAM_d10
+  F1IK_Gln.gal_fa_GFAM_d0:
+    item: F1IK_Gln
+    group: GFAM_d0
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: S = Gal + FA
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: S
+        a: Gal
+        b: FA
+    inputs:
+      Gal:
+        value: F1IK_Gal.values.Gal_GFAM_d0_figure
+        kind: constant
+      FA:
+        value: F1IK_FA.values.FA_GFAM_d0_text
+        kind: constant
+    note: 'intermediate: the share of label from Gal and FA together (not printed)'
+  F1IK_Gln.remaining_GFAM_d0:
+    item: F1IK_Gln
+    group: GFAM_d0
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: Gln = 1 - S
+    anchor: *id002
+    library:
+      formula: complement_fraction
+      vars:
+        c: Gln
+        f: S
+    inputs:
+      S:
+        derived: F1IK_Gln.gal_fa_GFAM_d0
+        kind: constant
+    output: F1IK_Gln.values.Gln_GFAM_d0_figure
+    note: the pies show Gln, Gal, OA and PA as the main substrates; contributions are normalised to their total
+  F1IK_Gln.gal_fa_GFAM_d20:
+    item: F1IK_Gln
+    group: GFAM_d20
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: S = Gal + FA
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: S
+        a: Gal
+        b: FA
+    inputs:
+      Gal:
+        value: F1IK_Gal.values.Gal_GFAM_d20_figure
+        kind: constant
+      FA:
+        value: F1IK_FA.values.FA_GFAM_d20_text
+        kind: constant
+    note: 'intermediate: the share of label from Gal and FA together (not printed)'
+  F1IK_Gln.remaining_GFAM_d20:
+    item: F1IK_Gln
+    group: GFAM_d20
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: Gln = 1 - S
+    anchor: *id002
+    library:
+      formula: complement_fraction
+      vars:
+        c: Gln
+        f: S
+    inputs:
+      S:
+        derived: F1IK_Gln.gal_fa_GFAM_d20
+        kind: constant
+    output: F1IK_Gln.values.Gln_GFAM_d20_figure
+    note: the pies show Gln, Gal, OA and PA as the main substrates; contributions are normalised to their total
+  F1IK_Gln.gal_fa_LACMGFAM_d10:
+    item: F1IK_Gln
+    group: LACMGFAM_d10
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: S = Gal + FA
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: S
+        a: Gal
+        b: FA
+    inputs:
+      Gal:
+        value: F1IK_Gal.values.Gal_LACMGFAM_d10_figure
+        kind: constant
+      FA:
+        derived: F1IK_FA.oa_pa_LACMGFAM_d10
+        kind: constant
+    note: 'intermediate: the share of label from Gal and FA together (not printed)'
+  F1IK_Gln.remaining_LACMGFAM_d10:
+    item: F1IK_Gln
+    group: LACMGFAM_d10
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: Gln = 1 - S
+    anchor: *id002
+    library:
+      formula: complement_fraction
+      vars:
+        c: Gln
+        f: S
+    inputs:
+      S:
+        derived: F1IK_Gln.gal_fa_LACMGFAM_d10
+        kind: constant
+    output: F1IK_Gln.values.Gln_LACMGFAM_d10_figure
+    note: the pies show Gln, Gal, OA and PA as the main substrates; contributions are normalised to their total
+  F1IK_Gln.gal_fa_LACMGFAM_d20:
+    item: F1IK_Gln
+    group: LACMGFAM_d20
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: S = Gal + FA
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: S
+        a: Gal
+        b: FA
+    inputs:
+      Gal:
+        value: F1IK_Gal.values.Gal_LACMGFAM_d20_figure
+        kind: constant
+      FA:
+        derived: F1IK_FA.oa_pa_LACMGFAM_d20
+        kind: constant
+    note: 'intermediate: the share of label from Gal and FA together (not printed)'
+  F1IK_Gln.remaining_LACMGFAM_d20:
+    item: F1IK_Gln
+    group: LACMGFAM_d20
+    measure: contribution of [U-13C]glutamine to labelled TCA cycle pools
+    formula: Gln = 1 - S
+    anchor: *id002
+    library:
+      formula: complement_fraction
+      vars:
+        c: Gln
+        f: S
+    inputs:
+      S:
+        derived: F1IK_Gln.gal_fa_LACMGFAM_d20
+        kind: constant
+    output: F1IK_Gln.values.Gln_LACMGFAM_d20_figure
+    note: the pies show Gln, Gal, OA and PA as the main substrates; contributions are normalised to their total
+  F1FH_ratio_GFAM_d20_vs_GLCM_d20.ocr_ecar:
+    item: F1FH_ratio_GFAM_d20_vs_GLCM_d20
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis
+      where: Fig. 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: F1FH_OCR_GFAM_d20_vs_GLCM_d20
+        kind: per sample
+      ECAR:
+        item: F1FH_ECAR_GFAM_d20_vs_GLCM_d20
+        kind: per sample
+    aggregation: not stated
+  F1FH_ratio_LACMGFAM_d20_vs_GLCM_d20.ocr_ecar:
+    item: F1FH_ratio_LACMGFAM_d20_vs_GLCM_d20
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis
+      where: Fig. 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: F1FH_OCR_LACMGFAM_d20_vs_GLCM_d20
+        kind: per sample
+      ECAR:
+        item: F1FH_ECAR_LACMGFAM_d20_vs_GLCM_d20
+        kind: per sample
+    aggregation: not stated
+  F1FH_ratio_LACMGFAM_d20_vs_GFAM_d20.ocr_ecar:
+    item: F1FH_ratio_LACMGFAM_d20_vs_GFAM_d20
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis
+      where: Fig. 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: F1FH_OCR_LACMGFAM_d20_vs_GFAM_d20
+        kind: per sample
+      ECAR:
+        item: F1FH_ECAR_LACMGFAM_d20_vs_GFAM_d20
+        kind: per sample
+    aggregation: not stated
+  S7_ratio_iGFAM_vs_iGLCM.ocr_ecar:
+    item: S7_ratio_iGFAM_vs_iGLCM
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis for energy generation
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: S7_OCR_iGFAM_vs_iGLCM
+        kind: per sample
+      ECAR:
+        item: S7_ECAR_iGFAM_vs_iGLCM
+        kind: per sample
+    aggregation: not stated
+    note: the record labels S7 OCR and ECAR as fold changes; the legend does not say what they are normalised to
+  S7_ratio_eGFAM_vs_eGLCM.ocr_ecar:
+    item: S7_ratio_eGFAM_vs_eGLCM
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis for energy generation
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: S7_OCR_eGFAM_vs_eGLCM
+        kind: per sample
+      ECAR:
+        item: S7_ECAR_eGFAM_vs_eGLCM
+        kind: per sample
+    aggregation: not stated
+    note: the record labels S7 OCR and ECAR as fold changes; the legend does not say what they are normalised to
+  S7_ratio_eGLCM_vs_iGLCM.ocr_ecar:
+    item: S7_ratio_eGLCM_vs_iGLCM
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis for energy generation
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: S7_OCR_eGLCM_vs_iGLCM
+        kind: per sample
+      ECAR:
+        item: S7_ECAR_eGLCM_vs_iGLCM
+        kind: per sample
+    aggregation: not stated
+    note: the record labels S7 OCR and ECAR as fold changes; the legend does not say what they are normalised to
+  S7_ratio_eGFAM_vs_iGFAM.ocr_ecar:
+    item: S7_ratio_eGFAM_vs_iGFAM
+    measure: OCR/ECAR ratio
+    formula: R = OCR/ECAR
+    anchor:
+      quote: OCR/ECAR ratio reflecting the relative contribution of OXPHOS over glycolysis for energy generation
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: OCR
+        b: ECAR
+    inputs:
+      OCR:
+        item: S7_OCR_eGFAM_vs_iGFAM
+        kind: per sample
+      ECAR:
+        item: S7_ECAR_eGFAM_vs_iGFAM
+        kind: per sample
+    aggregation: not stated
+    note: the record labels S7 OCR and ECAR as fold changes; the legend does not say what they are normalised to
+  F6IL_ratio.apd_ratio:
+    item: F6IL_ratio
+    measure: APD50/APD90
+    formula: R = APD50/APD90
+    anchor:
+      quote: (J) AP duration at 50% (APD50) and 90% repolarization (APD90). (K) APD50/APD90
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: APD50
+        b: APD90
+    inputs:
+      APD50:
+        item: F6IL_APD50
+        kind: per sample
+      APD90:
+        item: F6IL_APD90
+        kind: per sample
+    aggregation: not stated
+  F1C_YLacGlc_GLCM_d10_vs_GLCM_d0.ylac_glc:
+    item: F1C_YLacGlc_GLCM_d10_vs_GLCM_d0
+    measure: ratio of Lac production to Glc consumption (YLac/Glc)
+    formula: Y = qLac/qGlc
+    anchor:
+      quote: Ratio of Lac production to Glc consumption (YLac/Glc)
+      where: Fig. 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: Y
+        a: qLac
+        b: qGlc
+    inputs:
+      qLac:
+        not_stated: true
+        kind: per sample
+        note: Lac production rate, Fig. 1B; not in the record
+      qGlc:
+        not_stated: true
+        kind: per sample
+        note: Glc consumption rate, Fig. 1B; not in the record
+    aggregation: not stated
+  F1C_YLacGlc_GLCM_d20_vs_GLCM_d10.ylac_glc:
+    item: F1C_YLacGlc_GLCM_d20_vs_GLCM_d10
+    measure: ratio of Lac production to Glc consumption (YLac/Glc)
+    formula: Y = qLac/qGlc
+    anchor:
+      quote: Ratio of Lac production to Glc consumption (YLac/Glc)
+      where: Fig. 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: Y
+        a: qLac
+        b: qGlc
+    inputs:
+      qLac:
+        not_stated: true
+        kind: per sample
+        note: Lac production rate, Fig. 1B; not in the record
+      qGlc:
+        not_stated: true
+        kind: per sample
+        note: Glc consumption rate, Fig. 1B; not in the record
+    aggregation: not stated
+  F1C_YLacGlc_GLCM_d20_vs_GLCM_d0.ylac_glc:
+    item: F1C_YLacGlc_GLCM_d20_vs_GLCM_d0
+    measure: ratio of Lac production to Glc consumption (YLac/Glc)
+    formula: Y = qLac/qGlc
+    anchor:
+      quote: Ratio of Lac production to Glc consumption (YLac/Glc)
+      where: Fig. 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: Y
+        a: qLac
+        b: qGlc
+    inputs:
+      qLac:
+        not_stated: true
+        kind: per sample
+        note: Lac production rate, Fig. 1B; not in the record
+      qGlc:
+        not_stated: true
+        kind: per sample
+        note: Glc consumption rate, Fig. 1B; not in the record
+    aggregation: not stated
+  F6_amp_GLCM_d20_vs_GLCM_d0.f_f0:
+    item: F6_amp_GLCM_d20_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: Calcium transient amplitude (F/F0)
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  F6_amp_GFAM_d20_vs_GLCM_d20.f_f0:
+    item: F6_amp_GFAM_d20_vs_GLCM_d20
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: Calcium transient amplitude (F/F0)
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  F6_amp_LACMGFAM_d20_vs_GFAM_d20.f_f0:
+    item: F6_amp_LACMGFAM_d20_vs_GFAM_d20
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: Calcium transient amplitude (F/F0)
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  F6_amp_GFAM_d20_vs_GLCM_d0.f_f0:
+    item: F6_amp_GFAM_d20_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: Calcium transient amplitude (F/F0)
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  F6_amp_LACMGFAM_d20_vs_GLCM_d20.f_f0:
+    item: F6_amp_LACMGFAM_d20_vs_GLCM_d20
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: Calcium transient amplitude (F/F0)
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  F6_amp_LACMGFAM_d20_vs_GLCM_d0.f_f0:
+    item: F6_amp_LACMGFAM_d20_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: Calcium transient amplitude (F/F0)
+      where: Fig. 6 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_GLCM_d10_vs_GLCM_d0.f_f0:
+    item: S8_amp_GLCM_d10_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_LACM_d10_vs_GLCM_d10.f_f0:
+    item: S8_amp_LACM_d10_vs_GLCM_d10
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_LACM_d10_vs_GFAM_d10.f_f0:
+    item: S8_amp_LACM_d10_vs_GFAM_d10
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_GFAM_d10_vs_FAM_d10.f_f0:
+    item: S8_amp_GFAM_d10_vs_FAM_d10
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_LACM_d10_vs_GLCM_d0.f_f0:
+    item: S8_amp_LACM_d10_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_LACM_d10_vs_FAM_d10.f_f0:
+    item: S8_amp_LACM_d10_vs_FAM_d10
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_GFAM_d10_vs_GLCM_d10.f_f0:
+    item: S8_amp_GFAM_d10_vs_GLCM_d10
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_FAM_d10_vs_GLCM_d10.f_f0:
+    item: S8_amp_FAM_d10_vs_GLCM_d10
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_GFAM_d10_vs_GLCM_d0.f_f0:
+    item: S8_amp_GFAM_d10_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  S8_amp_FAM_d10_vs_GLCM_d0.f_f0:
+    item: S8_amp_FAM_d10_vs_GLCM_d0
+    measure: calcium transient amplitude (F/F0)
+    formula: R = F/F0
+    anchor:
+      quote: 'F/F0: change of fluorescence signal over background florescence'
+      where: Fig. S8 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: F
+        b: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence per cell
+      F0:
+        not_stated: true
+        kind: per sample
+        note: background (resting) fluorescence per cell
+    aggregation: mean of per-sample
+  F2A_cellconc_FAM_d10_vs_GLCM_d0.pct_d0:
+    item: F2A_cellconc_FAM_d10_vs_GLCM_d0
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_FAM_d20_vs_GLCM_d20.pct_d0:
+    item: F2A_cellconc_FAM_d20_vs_GLCM_d20
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_GFAM_d20_vs_FAM_d20.pct_d0:
+    item: F2A_cellconc_GFAM_d20_vs_FAM_d20
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_LACMGFAM_d20_vs_GFAM_d20.pct_d0:
+    item: F2A_cellconc_LACMGFAM_d20_vs_GFAM_d20
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_GLCM_d20_vs_GLCM_d0.pct_d0:
+    item: F2A_cellconc_GLCM_d20_vs_GLCM_d0
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_GFAM_d20_vs_GLCM_d20.pct_d0:
+    item: F2A_cellconc_GFAM_d20_vs_GLCM_d20
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_LACMGFAM_d20_vs_FAM_d20.pct_d0:
+    item: F2A_cellconc_LACMGFAM_d20_vs_FAM_d20
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_LACMGFAM_d20_vs_GLCM_d20.pct_d0:
+    item: F2A_cellconc_LACMGFAM_d20_vs_GLCM_d20
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_GFAM_d20_vs_GLCM_d0.pct_d0:
+    item: F2A_cellconc_GFAM_d20_vs_GLCM_d0
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_LACMGFAM_d20_vs_GLCM_d0.pct_d0:
+    item: F2A_cellconc_LACMGFAM_d20_vs_GLCM_d0
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    aggregation: not stated
+  F2A_cellconc_FAM_d20_vs_GLCM_d0.pct_d0:
+    item: F2A_cellconc_FAM_d20_vs_GLCM_d0
+    measure: cell concentration relative to day 0
+    formula: P = X/X0
+    anchor:
+      quote: Percentage of cell concentration, in all conditions tested, in relation to day 0 (d0)
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: X
+        b: X0
+    inputs:
+      X:
+        not_stated: true
+        kind: constant
+        note: cell concentration (Trypan Blue), Fig. 2A bars not read
+      X0:
+        not_stated: true
+        kind: constant
+        note: day-0 cell concentration
+    output: F2A_cellconc_FAM_d20_vs_GLCM_d0.values.FAM_d20_text
+    aggregation: not stated
+  F2B_lipid_FAM_vs_GLCM.fold_glcm:
+    item: F2B_lipid_FAM_vs_GLCM
+    measure: lipid droplet content
+    formula: R = Fl/Fl0
+    anchor: &id003
+      quote: Fluorescence values were normalized for the values obtained in cells cultivated in GLCM
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence of the condition
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence in GLCM
+    output: F2B_lipid_FAM_vs_GLCM.values.FAM_text
+    aggregation: not stated
+  F2B_lipid_GFAM_vs_FAM.fold_glcm:
+    item: F2B_lipid_GFAM_vs_FAM
+    measure: lipid droplet content
+    formula: R = Fl/Fl0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence of the condition
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence in GLCM
+    aggregation: not stated
+    note: each bar is normalised to GLCM; a comparison between two non-GLCM media is between two normalised values
+  F2B_lipid_LACMGFAM_vs_GFAM.fold_glcm:
+    item: F2B_lipid_LACMGFAM_vs_GFAM
+    measure: lipid droplet content
+    formula: R = Fl/Fl0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence of the condition
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence in GLCM
+    aggregation: not stated
+    note: each bar is normalised to GLCM; a comparison between two non-GLCM media is between two normalised values
+  F2B_lipid_LACMGFAM_vs_FAM.fold_glcm:
+    item: F2B_lipid_LACMGFAM_vs_FAM
+    measure: lipid droplet content
+    formula: R = Fl/Fl0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence of the condition
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence in GLCM
+    aggregation: not stated
+    note: each bar is normalised to GLCM; a comparison between two non-GLCM media is between two normalised values
+  F2B_lipid_GFAM_vs_GLCM.fold_glcm:
+    item: F2B_lipid_GFAM_vs_GLCM
+    measure: lipid droplet content
+    formula: R = Fl/Fl0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence of the condition
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence in GLCM
+    aggregation: not stated
+  F2B_lipid_LACMGFAM_vs_GLCM.fold_glcm:
+    item: F2B_lipid_LACMGFAM_vs_GLCM
+    measure: lipid droplet content
+    formula: R = Fl/Fl0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence of the condition
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Nile Red fluorescence in GLCM
+    aggregation: not stated
+  F5C_mitopotential.fold_glcm:
+    item: F5C_mitopotential
+    measure: mitochondrial membrane potential (Mitoview fluorescence)
+    formula: R = Fl/Fl0
+    anchor:
+      quote: Fold increase in mitochondria potential assessed by the mitochondria specific dye Mitoview
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: Fl
+        b: Fl0
+    inputs:
+      Fl:
+        not_stated: true
+        kind: constant
+        note: Mitoview fluorescence in GFAM
+      Fl0:
+        not_stated: true
+        kind: constant
+        note: Mitoview fluorescence in GLCM
+    aggregation: not stated
+  F5B_binucleated.fold:
+    item: F5B_binucleated
+    measure: percentage of binucleated cells
+    formula: R = B/B0
+    anchor:
+      quote: significantly higher (1.6-fold) percentage of binucleated cells
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: B
+        b: B0
+    inputs:
+      B:
+        not_stated: true
+        kind: constant
+        note: percentage of binucleated cells in GFAM d20, Fig. 5B bar not read
+      B0:
+        not_stated: true
+        kind: constant
+        note: percentage of binucleated cells in GLCM d20, Fig. 5B bar not read
+    output: F5B_binucleated.values.fold_text
+    aggregation: of means
+  S7_binuc_eGFAM_vs_eGLCM.fold:
+    item: S7_binuc_eGFAM_vs_eGLCM
+    measure: percentage of binucleated cells
+    formula: R = B/B0
+    anchor:
+      quote: 1.6-fold increase in the percentage of binucleated cells
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: B
+        b: B0
+    inputs:
+      B:
+        not_stated: true
+        kind: constant
+        note: percentage of binucleated hESC-CMs in GFAM, Fig. S7E bar not read
+      B0:
+        not_stated: true
+        kind: constant
+        note: percentage of binucleated hESC-CMs in GLCM, Fig. S7E bar not read
+    output: S7_binuc_eGFAM_vs_eGLCM.values.fold_text
+    aggregation: of means
+  F4D_KCNJ2_GFAM.fold:
+    item: F4D_KCNJ2_GFAM
+    measure: KCNJ2 expression
+    formula: R = E1/E0
+    anchor:
+      quote: the 2-fold up-regulation of KCNJ2
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: E1
+        b: E0
+    inputs:
+      E1:
+        not_stated: true
+        kind: constant
+        note: KCNJ2 expression at day 20 (microarray, n = 2)
+      E0:
+        not_stated: true
+        kind: constant
+        note: KCNJ2 expression at day 0
+    output: F4D_KCNJ2_GFAM.values.KCNJ2_fold_text
+    aggregation: not stated
+    alternatives:
+    - label: fold change from log2 (variance-stabilised) intensities
+      formula: R = 2**(L1 - L0)
+      note: library ratio_from_log2_values; the arrays were variance-stabilised and quantile normalised (Methods)
+  F4D_KCNJ2_LACMGFAM.fold:
+    item: F4D_KCNJ2_LACMGFAM
+    measure: KCNJ2 expression
+    formula: R = E1/E0
+    anchor:
+      quote: the 2-fold up-regulation of KCNJ2
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: E1
+        b: E0
+    inputs:
+      E1:
+        not_stated: true
+        kind: constant
+        note: KCNJ2 expression at day 20 (microarray, n = 2)
+      E0:
+        not_stated: true
+        kind: constant
+        note: KCNJ2 expression at day 0
+    output: F4D_KCNJ2_LACMGFAM.values.KCNJ2_fold_text
+    aggregation: not stated
+    alternatives:
+    - label: fold change from log2 (variance-stabilised) intensities
+      formula: R = 2**(L1 - L0)
+      note: library ratio_from_log2_values; the arrays were variance-stabilised and quantile normalised (Methods)
+  F5GI_LW_GLCM_d10_vs_GLCM_d0.length_width:
+    item: F5GI_LW_GLCM_d10_vs_GLCM_d0
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_FAM_d10_vs_GLCM_d10.length_width:
+    item: F5GI_LW_FAM_d10_vs_GLCM_d10
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_GFAM_d10_vs_FAM_d10.length_width:
+    item: F5GI_LW_GFAM_d10_vs_FAM_d10
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_LACM_d10_vs_GFAM_d10.length_width:
+    item: F5GI_LW_LACM_d10_vs_GFAM_d10
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_GFAM_d10_vs_GLCM_d10.length_width:
+    item: F5GI_LW_GFAM_d10_vs_GLCM_d10
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_LACM_d10_vs_FAM_d10.length_width:
+    item: F5GI_LW_LACM_d10_vs_FAM_d10
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_LACM_d10_vs_GLCM_d10.length_width:
+    item: F5GI_LW_LACM_d10_vs_GLCM_d10
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_GLCM_d20_vs_GLCM_d0.length_width:
+    item: F5GI_LW_GLCM_d20_vs_GLCM_d0
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_GFAM_d20_vs_GLCM_d20.length_width:
+    item: F5GI_LW_GFAM_d20_vs_GLCM_d20
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    output: F5GI_LW_GFAM_d20_vs_GLCM_d20.values.LW_GFAM_d20_text
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_LACMGFAM_d20_vs_GFAM_d20.length_width:
+    item: F5GI_LW_LACMGFAM_d20_vs_GFAM_d20
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F5GI_LW_LACMGFAM_d20_vs_GLCM_d20.length_width:
+    item: F5GI_LW_LACMGFAM_d20_vs_GLCM_d20
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio (I)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  S7_LW_iGFAM_vs_iGLCM.length_width:
+    item: S7_LW_iGFAM_vs_iGLCM
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  S7_LW_eGFAM_vs_eGLCM.length_width:
+    item: S7_LW_eGFAM_vs_eGLCM
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  S7_LW_eGLCM_vs_iGLCM.length_width:
+    item: S7_LW_eGLCM_vs_iGLCM
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  S7_LW_eGFAM_vs_iGFAM.length_width:
+    item: S7_LW_eGFAM_vs_iGFAM
+    measure: length-to-width ratio
+    formula: LW = Lc/Wc
+    anchor:
+      quote: length-to-width ratio
+      where: Fig. S7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: LW
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length (ImageJ)
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width (ImageJ)
+    aggregation: mean of per-sample
+    note: ImageJ's standard plugin; whether length and width are the fitted ellipse's axes or the Feret dimensions is not
+      stated
+  F6_short_GLCM_d20_vs_GLCM_d0.shortening:
+    item: F6_short_GLCM_d20_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: &id004
+      quote: reflecting changes in the percentage of cell length. (F) Percentage of shortening
+      where: Fig. 6 legend
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  F6_short_GFAM_d20_vs_GLCM_d20.shortening:
+    item: F6_short_GFAM_d20_vs_GLCM_d20
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id004
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  F6_short_LACMGFAM_d20_vs_GFAM_d20.shortening:
+    item: F6_short_LACMGFAM_d20_vs_GFAM_d20
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id004
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  F6_short_GFAM_d20_vs_GLCM_d0.shortening:
+    item: F6_short_GFAM_d20_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id004
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  F6_short_LACMGFAM_d20_vs_GLCM_d20.shortening:
+    item: F6_short_LACMGFAM_d20_vs_GLCM_d20
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id004
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  F6_short_LACMGFAM_d20_vs_GLCM_d0.shortening:
+    item: F6_short_LACMGFAM_d20_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id004
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  F6_short_text.shortening_GLCM_d0:
+    item: F6_short_text
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: &id005
+      quote: greater fractional shortening (approximately 8.4% of resting length
+      where: Results
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+    group: GLCM_d0
+    output: F6_short_text.values.short_GLCM_d0_text
+  F6_short_text.shortening_GLCM_d20:
+    item: F6_short_text
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id005
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+    group: GLCM_d20
+    output: F6_short_text.values.short_GLCM_d20_text
+  F6_short_text.shortening_GFAM_d20:
+    item: F6_short_text
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id005
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+    group: GFAM_d20
+    output: F6_short_text.values.short_GFAM_LACMGFAM_text
+  F6_short_text.shortening_LACMGFAM_d20:
+    item: F6_short_text
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id005
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+    group: LACMGFAM_d20
+    output: F6_short_text.values.short_GFAM_LACMGFAM_text
+  S8_short_GLCM_d10_vs_GLCM_d0.shortening:
+    item: S8_short_GLCM_d10_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: &id006
+      quote: reflecting changes in the percentage of cell length. (F) Percentage of shortening
+      where: Fig. S8 legend
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_LACM_d10_vs_GLCM_d10.shortening:
+    item: S8_short_LACM_d10_vs_GLCM_d10
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_LACM_d10_vs_GFAM_d10.shortening:
+    item: S8_short_LACM_d10_vs_GFAM_d10
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_GFAM_d10_vs_FAM_d10.shortening:
+    item: S8_short_GFAM_d10_vs_FAM_d10
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_LACM_d10_vs_GLCM_d0.shortening:
+    item: S8_short_LACM_d10_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_LACM_d10_vs_FAM_d10.shortening:
+    item: S8_short_LACM_d10_vs_FAM_d10
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_GFAM_d10_vs_GLCM_d10.shortening:
+    item: S8_short_GFAM_d10_vs_GLCM_d10
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_FAM_d10_vs_GLCM_d10.shortening:
+    item: S8_short_FAM_d10_vs_GLCM_d10
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_GFAM_d10_vs_GLCM_d0.shortening:
+    item: S8_short_GFAM_d10_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  S8_short_FAM_d10_vs_GLCM_d0.shortening:
+    item: S8_short_FAM_d10_vs_GLCM_d0
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id006
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+  ST6_short.shortening_LACM_d10:
+    item: ST6_short
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id005
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+    group: LACM_d10
+    output: ST6_short.values.d10_table
+  ST6_short.shortening_LACMGFAM_d20:
+    item: ST6_short
+    measure: percentage of shortening
+    formula: S = (L0 - L)/L0
+    anchor: *id005
+    library:
+      formula: relative_decrease
+      vars:
+        s: S
+        x0: L0
+        x: L
+    inputs:
+      L0:
+        not_stated: true
+        kind: per sample
+        note: resting cell length (from the contraction curve)
+      L:
+        not_stated: true
+        kind: per sample
+        note: cell length at peak contraction
+    aggregation: mean of per-sample
+    group: LACMGFAM_d20
+    output: ST6_short.values.d20_table
+  F6_force_GLCM_d20_vs_GLCM_d0.force:
+    item: F6_force_GLCM_d20_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: &id007
+        printed: 5 kPa
+        unit: kPa
+        kind: constant
+        anchor:
+          quote: The Young’s modulus of PDMS substrates was 5 kPa for all experiments
+          where: Methods
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  F6_force_GFAM_d20_vs_GLCM_d20.force:
+    item: F6_force_GFAM_d20_vs_GLCM_d20
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  F6_force_LACMGFAM_d20_vs_GFAM_d20.force:
+    item: F6_force_LACMGFAM_d20_vs_GFAM_d20
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  F6_force_GFAM_d20_vs_GLCM_d0.force:
+    item: F6_force_GFAM_d20_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  F6_force_LACMGFAM_d20_vs_GLCM_d20.force:
+    item: F6_force_LACMGFAM_d20_vs_GLCM_d20
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  F6_force_LACMGFAM_d20_vs_GLCM_d0.force:
+    item: F6_force_LACMGFAM_d20_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  F6_force_text.force_GLCM_d0:
+    item: F6_force_text
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+    group: GLCM_d0
+    output: F6_force_text.values.force_GLCM_d0_text
+  F6_force_text.force_GLCM_d20:
+    item: F6_force_text
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+    group: GLCM_d20
+    output: F6_force_text.values.force_GLCM_d20_text
+  F6_force_text.force_GFAM_d20:
+    item: F6_force_text
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+    group: GFAM_d20
+    output: F6_force_text.values.force_GFAM_d20_text
+  F6_force_text.force_LACMGFAM_d20:
+    item: F6_force_text
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+    group: LACMGFAM_d20
+    output: F6_force_text.values.force_LACMGFAM_d20_text
+  S8_force_GLCM_d10_vs_GLCM_d0.force:
+    item: S8_force_GLCM_d10_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_LACM_d10_vs_GLCM_d10.force:
+    item: S8_force_LACM_d10_vs_GLCM_d10
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_LACM_d10_vs_GFAM_d10.force:
+    item: S8_force_LACM_d10_vs_GFAM_d10
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_GFAM_d10_vs_FAM_d10.force:
+    item: S8_force_GFAM_d10_vs_FAM_d10
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_LACM_d10_vs_GLCM_d0.force:
+    item: S8_force_LACM_d10_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_LACM_d10_vs_FAM_d10.force:
+    item: S8_force_LACM_d10_vs_FAM_d10
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_GFAM_d10_vs_GLCM_d10.force:
+    item: S8_force_GFAM_d10_vs_GLCM_d10
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_FAM_d10_vs_GLCM_d10.force:
+    item: S8_force_FAM_d10_vs_GLCM_d10
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_GFAM_d10_vs_GLCM_d0.force:
+    item: S8_force_GFAM_d10_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  S8_force_FAM_d10_vs_GLCM_d0.force:
+    item: S8_force_FAM_d10_vs_GLCM_d0
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+  ST6_force.force_LACM_d10:
+    item: ST6_force
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+    group: LACM_d10
+    output: ST6_force.values.d10_table
+  ST6_force.force_LACMGFAM_d20:
+    item: ST6_force
+    measure: maximum contractile force
+    formula: not stated
+    anchor: not stated
+    no_formula: 'method stated only by citation (Kijlstra et al. 2015, ref. 37): a MATLAB script (Kijlstra et al., ref. 37)
+      from the contraction curve, cell width, cell length and shortening, with the PDMS modulus (ref. 38); the formula is
+      not printed'
+    inputs:
+      method:
+        by_reference:
+          citation: ref37
+          anchor:
+            quote: Contractile kinetics and force generation by the CMs were analyzed using the method developed by Kijlstra
+            where: Methods
+        kind: not stated
+      E: *id007
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width (cm)
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length in the direction of contraction (cm)
+      dL:
+        not_stated: true
+        kind: per sample
+        note: cell shortening (cm)
+    output_unit: mN/mm2
+    group: LACMGFAM_d20
+    output: ST6_force.values.d20_table
+  F5GI_circ_GLCM_d10_vs_GLCM_d0.circularity:
+    item: F5GI_circ_GLCM_d10_vs_GLCM_d0
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_FAM_d10_vs_GLCM_d10.circularity:
+    item: F5GI_circ_FAM_d10_vs_GLCM_d10
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_GFAM_d10_vs_FAM_d10.circularity:
+    item: F5GI_circ_GFAM_d10_vs_FAM_d10
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_LACM_d10_vs_GFAM_d10.circularity:
+    item: F5GI_circ_LACM_d10_vs_GFAM_d10
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_GFAM_d10_vs_GLCM_d10.circularity:
+    item: F5GI_circ_GFAM_d10_vs_GLCM_d10
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_LACM_d10_vs_FAM_d10.circularity:
+    item: F5GI_circ_LACM_d10_vs_FAM_d10
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_LACM_d10_vs_GLCM_d10.circularity:
+    item: F5GI_circ_LACM_d10_vs_GLCM_d10
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_GLCM_d20_vs_GLCM_d0.circularity:
+    item: F5GI_circ_GLCM_d20_vs_GLCM_d0
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_GFAM_d20_vs_GLCM_d20.circularity:
+    item: F5GI_circ_GFAM_d20_vs_GLCM_d20
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_LACMGFAM_d20_vs_GFAM_d20.circularity:
+    item: F5GI_circ_LACMGFAM_d20_vs_GFAM_d20
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  F5GI_circ_LACMGFAM_d20_vs_GLCM_d20.circularity:
+    item: F5GI_circ_LACMGFAM_d20_vs_GLCM_d20
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  S7_circ_iGFAM_vs_iGLCM.circularity:
+    item: S7_circ_iGFAM_vs_iGLCM
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  S7_circ_eGFAM_vs_eGLCM.circularity:
+    item: S7_circ_eGFAM_vs_eGLCM
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  S7_circ_eGLCM_vs_iGLCM.circularity:
+    item: S7_circ_eGLCM_vs_iGLCM
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+  S7_circ_eGFAM_vs_iGFAM.circularity:
+    item: S7_circ_eGFAM_vs_iGFAM
+    measure: circularity index
+    formula: not stated
+    anchor:
+      quote: Cell area, circularity index and aspect ratio were determined in ImageJ software using standard analysis plugins
+      where: Methods
+    no_formula: the formula is not printed; ImageJ's standard plugin is named without its definition
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell area
+      Pc:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter
+    alternatives:
+    - label: ImageJ circularity (4π·area/perimeter²)
+      formula: C = 4*pi*Ac/Pc**2
+      note: not in the library; ImageJ documentation, not the paper
+    aggregation: mean of per-sample
+assumptions: {}
+bounds:
+- item: F1IK_FA
+  value: F1IK_FA.values.FA_FAM_d0_text
+  formula: fraction_bounds
+- item: F1IK_FA
+  value: F1IK_FA.values.FA_FAM_d10_text
+  formula: fraction_bounds
+- item: F1IK_FA
+  value: F1IK_FA.values.FA_GFAM_d0_text
+  formula: fraction_bounds
+- item: F1IK_FA
+  value: F1IK_FA.values.FA_GFAM_d20_text
+  formula: fraction_bounds
+- item: F1IK_FA
+  value: F1IK_FA.values.FA_LACMGFAM_text
+  formula: fraction_bounds
+- item: F1IK_OA
+  value: F1IK_OA.values.OA_FAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_OA
+  value: F1IK_OA.values.OA_FAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_OA
+  value: F1IK_OA.values.OA_GFAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_OA
+  value: F1IK_OA.values.OA_GFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_OA
+  value: F1IK_OA.values.OA_LACMGFAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_OA
+  value: F1IK_OA.values.OA_LACMGFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_PA
+  value: F1IK_PA.values.PA_FAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_PA
+  value: F1IK_PA.values.PA_FAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_PA
+  value: F1IK_PA.values.PA_GFAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_PA
+  value: F1IK_PA.values.PA_GFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_PA
+  value: F1IK_PA.values.PA_LACMGFAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_PA
+  value: F1IK_PA.values.PA_LACMGFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_FAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_FAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_GFAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_GFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_LACMGFAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_LACMGFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_FAM_d0_text
+  formula: fraction_bounds
+- item: F1IK_Gln
+  value: F1IK_Gln.values.Gln_GFAM_d0_text
+  formula: fraction_bounds
+- item: F1IK_Gal
+  value: F1IK_Gal.values.Gal_GFAM_d0_figure
+  formula: fraction_bounds
+- item: F1IK_Gal
+  value: F1IK_Gal.values.Gal_GFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_Gal
+  value: F1IK_Gal.values.Gal_LACMGFAM_d10_figure
+  formula: fraction_bounds
+- item: F1IK_Gal
+  value: F1IK_Gal.values.Gal_LACMGFAM_d20_figure
+  formula: fraction_bounds
+- item: F1IK_Gal
+  value: F1IK_Gal.values.Gal_GFAM_d0_text
+  formula: fraction_bounds
+- item: F1DE_M2_Lac
+  value: F1DE_M2_Lac.values.Lac_M2_d0_text
+  formula: fraction_bounds
+- item: F6_short_text
+  value: F6_short_text.values.short_GFAM_LACMGFAM_text
+  formula: fraction_bounds
+- item: F6_short_text
+  value: F6_short_text.values.short_GLCM_d0_text
+  formula: fraction_bounds
+- item: F6_short_text
+  value: F6_short_text.values.short_GLCM_d20_text
+  formula: fraction_bounds
+- item: ST6_short
+  value: ST6_short.values.d10_table
+  formula: fraction_bounds
+- item: ST6_short
+  value: ST6_short.values.d20_table
+  formula: fraction_bounds
+proposals: []

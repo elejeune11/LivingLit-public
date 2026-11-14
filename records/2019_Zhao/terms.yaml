@@ -1,0 +1,471 @@
+record: 2019_Zhao
+vocabulary_version: 68
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# --- platform -------------------------------------------------------------------------------------------
+- add_term:
+    field: platform
+    id: platform:tissue_between_wires
+    label: tissue suspended between two parallel wires
+    parent: platform:engineered_3d
+    definition: An engineered tissue formed in a microwell and suspended between two parallel flexible polymer wires
+      that it attaches to near its ends, so that each contraction bends the wires.
+    scope: A tissue held by two parallel wires crossing it; not a tissue between two upright pillars, not a tissue
+      cast around a single bending strip and not a linear tissue held by end anchors fixed to the vessel.
+- add_term:
+    field: platform
+    id: platform:biowire_ii
+    label: Biowire II
+    parent: platform:tissue_between_wires
+    definition: The Biowire II platform, in which tissues self-assemble in polystyrene microwells around two parallel
+      POMaC wires whose deflection reports passive tension and active force.
+    scope: The Biowire II device; other tissues suspended between two wires stay on the parent term.
+    synonyms:
+    - text: Biowires II
+      anchor: (called Biowires II) that are suspended in the microwell but physically attached to the POMaC wires
+- add_term:
+    field: platform
+    id: platform:cell_free_device_chip
+    label: cell-free device chip
+    definition: A piece of a culture device of fixed geometry, without cells, exposed to a compound to test how much
+      the device material takes up.
+    scope: A cell-free piece of a device tested as a material (the device and its material are qualifiers); not a
+      blank well or vessel without any device (cell-free control), and not a culture or tissue with cells.
+    qualifiers:
+      device: {dimension: text}
+      material: {dimension: text}
+# --- treatment, differentiation factors (ChEBI) -------------------------------------------------------
+- adopt: {field: treatment, id: 'CHEBI:52334', label: rhodamine B, lookup: "livinglit lookup chebi 'rhodamine B': exact label"}
+- adopt: {field: treatment, id: 'CHEBI:52672', label: rhodamine 6G, lookup: "livinglit lookup chebi 'rhodamine 6G': exact label"}
+- adopt: {field: treatment, id: 'CHEBI:101278', label: diltiazem, lookup: "livinglit lookup chebi diltiazem: exact label (the salt forms not used; the paper names the base compound)"}
+- adopt: {field: treatment, id: 'CHEBI:50693', label: milrinone, lookup: "livinglit lookup chebi milrinone: exact label"}
+- adopt: {field: treatment, id: 'CHEBI:6456', label: lidocaine, lookup: "livinglit lookup chebi lidocaine: exact label"}
+- adopt: {field: treatment, id: 'CHEBI:4681', label: dofetilide, lookup: "livinglit lookup chebi dofetilide: exact label"}
+- adopt: {field: treatment, id: 'CHEBI:34385', label: 4-aminopyridine, lookup: "livinglit lookup chebi 4-aminopyridine: exact label"}
+- adopt: {field: treatment, id: 'CHEBI:28790', label: serotonin, lookup: "livinglit lookup chebi serotonin: exact label (not the cation serotonin(1+))"}
+- adopt: {field: treatment, id: 'CHEBI:87681', label: ranolazine, lookup: "livinglit lookup chebi ranolazine: exact label (racemate; the paper names no enantiomer)"}
+- adopt: {field: differentiation_factors, id: 'CHEBI:15367', label: all-trans-retinoic acid, lookup: "livinglit lookup chebi 'all-trans-retinoic acid': exact label"}
+# --- cell types (CL) ------------------------------------------------------------------------------------
+- adopt:
+    field: cell_types
+    id: CL:0002129
+    label: regular atrial cardiac myocyte
+    lookup: "livinglit lookup cl 'atrial cardiac muscle cell': exact synonym of CL:0002129"
+    synonyms:
+    - text: atrial CMs
+      anchor: blockade of Na+ in atrial CMs (Figures 7M and 7N).
+- add_synonym:
+    id: CL:2000046
+    text: ventricular CMs
+    anchor: deadly unwanted side-effects on ventricular CMs which predispose to sudden cardiac death.
+# --- cell lines (Cellosaurus) -----------------------------------------------------------------------------
+- adopt_own:
+    field: cell_line
+    id: cell_line:bj1d
+    label: BJ1D
+    definition: The male hiPSC line the source calls BJ1D, cited to Nunes et al. 2013.
+    scope: The line named BJ1D; not the Cellosaurus BJ iPSC clones 1-3 or BJ1-iPS1/3, which the source does not name.
+    lookup: "Cellosaurus (livinglit lookup cellosaurus) searched 'BJ1D', 'BJ-1D', 'BJ1', 'BJ iPS': BJ iPSC clone 1-3
+      (CVCL_A4QM/N/P), BJ1-iPS1 (CVCL_C921) and BJ1-iPS3 exist; none is named BJ1D"
+- adopt:
+    field: cell_line
+    id: CVCL_C961
+    label: MSC-iPS1
+    lookup: "livinglit lookup cellosaurus 'MSC-iPS1' (after 'MSC-iPSC1' and 'MSC-iPSC' found only MSC-iPSC 74): exact
+      label; the source cites the line to Park et al. 2008, which derived MSC-iPS1"
+    synonyms:
+    - text: MSC-iPSC1
+      anchor: Predominantly atrial CMs were derived from HES3-NKX2-5eGFP/w hESCs and MSC-iPSC1(Park et al., 2008)
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhao_non_affected_a_ipsc
+    label: non-affected hypertensive donor A hiPSC line of the Zhao 2019 study (unnamed)
+    definition: The hiPSC line from the study's non-affected (no left ventricular hypertrophy) hypertensive female
+      donor A, derived and differentiated by Cellular Dynamics; no line name is printed.
+    scope: Donor A of this study; not the other donors' lines (B to F) and not a commercial iCell product.
+    lookup: "Cellosaurus has no entry; the key resources table names the line only 'Non-affected A' (FUJIFILM
+      Cellular Dynamics), with no catalogue id"
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhao_non_affected_b_ipsc
+    label: non-affected hypertensive donor B hiPSC line of the Zhao 2019 study (unnamed)
+    definition: The hiPSC line from the study's non-affected hypertensive female donor B, derived and differentiated
+      by Cellular Dynamics; no line name is printed.
+    scope: Donor B of this study; not the other donors' lines (A, C to F).
+    lookup: "Cellosaurus has no entry; the key resources table names the line only 'Non-affected B' (FUJIFILM
+      Cellular Dynamics), with no catalogue id"
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhao_non_affected_c_ipsc
+    label: non-affected hypertensive donor C hiPSC line of the Zhao 2019 study (unnamed)
+    definition: The hiPSC line from the study's non-affected hypertensive female donor C, derived and differentiated
+      by Cellular Dynamics; no line name is printed.
+    scope: Donor C of this study; not the other donors' lines (A, B, D to F).
+    lookup: "Cellosaurus has no entry; the key resources table names the line only 'Non-affected C' (FUJIFILM
+      Cellular Dynamics), with no catalogue id"
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhao_affected_d_ipsc
+    label: affected hypertensive donor D hiPSC line of the Zhao 2019 study (unnamed)
+    definition: The hiPSC line from the study's affected (hypertension with left ventricular hypertrophy) female
+      donor D, derived and differentiated by Cellular Dynamics; no line name is printed.
+    scope: Donor D of this study; not the other donors' lines (A to C, E, F).
+    lookup: "Cellosaurus has no entry; the key resources table names the line only 'Affected D' (FUJIFILM Cellular
+      Dynamics), with no catalogue id"
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhao_affected_e_ipsc
+    label: affected hypertensive donor E hiPSC line of the Zhao 2019 study (unnamed)
+    definition: The hiPSC line from the study's affected (hypertension with left ventricular hypertrophy) female
+      donor E, derived and differentiated by Cellular Dynamics; no line name is printed.
+    scope: Donor E of this study; not the other donors' lines (A to D, F).
+    lookup: "Cellosaurus has no entry; the key resources table names the line only 'Affected E' (FUJIFILM Cellular
+      Dynamics), with no catalogue id"
+- adopt_own:
+    field: cell_line
+    id: cell_line:zhao_affected_f_ipsc
+    label: affected hypertensive donor F hiPSC line of the Zhao 2019 study (unnamed)
+    definition: The hiPSC line from the study's affected (hypertension with left ventricular hypertrophy) male
+      donor F, derived and differentiated by Cellular Dynamics; no line name is printed.
+    scope: Donor F of this study; not the other donors' lines (A to E).
+    lookup: "Cellosaurus has no entry; the key resources table names the line only 'Affected F' (FUJIFILM Cellular
+      Dynamics), with no catalogue id"
+# --- disease model (MONDO) --------------------------------------------------------------------------------
+- adopt:
+    field: disease_model
+    id: MONDO:0005044
+    label: hypertensive disorder
+    lookup: "livinglit lookup mondo hypertension, then 'hypertensive disorder': exact label"
+    synonyms:
+    - text: hypertension
+      anchor: exhibiting left ventricular hypertrophy in response to a prolonged hypertension
+- adopt_own:
+    field: disease_model
+    id: disease_model:left_ventricular_hypertrophy
+    label: left ventricular hypertrophy
+    definition: Thickening of the left ventricular wall of a patient, here of hypertensive donors whose hiPSCs were
+      used.
+    scope: Hypertrophy diagnosed in the donor (patient-derived lines); not hypertrophy induced in vitro by drugs
+      (cardiac hypertrophy).
+    lookup: "MONDO (livinglit lookup mondo) searched 'left ventricular hypertrophy', 'ventricular hypertrophy',
+      'hypertrophy', 'left ventricular', 'cardiac hypertrophy': no class; hypertensive heart disease (MONDO:0001302)
+      is a different, broader disease"
+- set_scope:
+    id: disease_model:cardiac_hypertrophy
+    scope: Hypertrophy induced in vitro (by drugs such as endothelin-1); not left ventricular hypertrophy diagnosed
+      in a patient donor.
+# --- measurement medium ------------------------------------------------------------------------------------
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:culture_medium
+    label: culture medium as bath
+    definition: The cells' own culture medium used as the bath during the measurement.
+    scope: Culture medium kept during measurement; not a physiological salt solution (Tyrode's, Krebs or a named
+      extracellular solution).
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:krebs_solution
+    label: Krebs solution
+    definition: A Krebs physiological salt solution used as the bath during measurement.
+    scope: A bath named Krebs (or Krebs-Henseleit) solution; not Tyrode's solution, not a named extracellular
+      solution and not culture medium.
+# --- transgene, cell number qualifiers -----------------------------------------------------------------------
+- add_qualifier: {id: transgene:fluorescent_reporter, name: locus, dimension: text}
+- add_qualifier: {id: measure:cell_number, name: stage, dimension: text}
+# --- measures -------------------------------------------------------------------------------------------------
+- add_term:
+    field: measure
+    id: measure:solution_compound_concentration
+    label: compound concentration remaining in solution
+    dimension: concentration
+    definition: Concentration of a stated compound (qualifier compound) left in a solution after it was incubated with
+      a device or material, read by fluorescence or similar.
+    scope: Uptake of a compound by a device material, measured in the solution; not the formulation of a culture
+      medium (medium component concentration) and not a potency (IC50, EC50).
+    qualifiers:
+      compound: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:force_displacement_curve
+    label: force-displacement curve
+    dimension: force
+    definition: Force needed to displace a stated specimen (qualifier specimen) against its displacement, as a curve or
+      a fitted function.
+    scope: The calibration curve of a structure such as a wire or post; not a material's elastic modulus and not
+      the force a tissue generates.
+    qualifiers:
+      specimen: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:gene_set_expression
+    label: expression of a gene set
+    dimension: dimensionless
+    definition: Expression of a stated set of genes (qualifier gene_set) shown together, as a heatmap or profile.
+    scope: Several genes of a named set read together; not the fold change of one gene (gene expression) and not an
+      enrichment statistic of a set (functional enrichment p-value).
+    qualifiers:
+      gene_set: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:sarcomere_organisation
+    label: sarcomere organisation
+    dimension: categorical
+    definition: Qualitative appearance of sarcomere striation and myofibril alignment in immunostained light-microscopy
+      images.
+    scope: Graded by eye from immunostaining; not electron-microscopy ultrastructure, not a sarcomere order parameter
+      and not sarcomere length.
+- add_term:
+    field: measure
+    id: measure:tissue_width
+    label: tissue width
+    dimension: length
+    definition: Width (diameter) of an engineered tissue, or of a stated portion of it (qualifier portion), in images.
+    scope: Lateral extent of a tissue; not its length, its thickness or its cross-sectional area.
+    qualifiers:
+      portion: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:maximum_diastolic_potential
+    label: maximum diastolic potential
+    parent: measure:resting_membrane_potential
+    dimension: voltage
+    definition: The most negative membrane potential reached between action potentials.
+    scope: The most negative diastolic voltage of beating or paced cells; other diastolic voltages stay on the parent
+      term.
+    synonyms:
+    - text: maximum diastolic potential
+      anchor: (J) maximum diastolic potentials (MDP)
+    - text: minimum diastolic potential
+      anchor: By contrast, the minimum diastolic potential of the tissues
+- add_term:
+    field: measure
+    id: measure:action_potential_duration_ratio
+    label: ratio of action potential durations
+    parent: measure:action_potential
+    dimension: dimensionless
+    definition: The action potential duration at one level of repolarisation divided by that at another (qualifier
+      level, such as APD30/APD90).
+    scope: A ratio of two durations, a shape index; not a duration itself, an amplitude, a peak potential or an
+      upstroke velocity.
+- add_term:
+    field: measure
+    id: measure:ap_notch_fraction
+    label: fraction of cardiomyocytes with an action potential notch
+    dimension: dimensionless
+    definition: Share of recorded cardiomyocytes whose action potential shows an early repolarisation notch.
+    scope: Cells counted by one action potential feature; not a classification into atrial, ventricular or nodal
+      subtypes and not a share of marker-positive cells.
+- add_term:
+    field: measure
+    id: measure:compound_potency
+    label: compound potency, statistic not stated
+    dimension: categorical
+    definition: How strongly a compound acts at a given concentration, judged from a dose response without a stated
+      IC50 or EC50.
+    scope: Potency stated without its statistic; not an IC50 or EC50 value.
+- add_term:
+    field: measure
+    id: measure:lv_mass_index
+    label: left ventricular mass index
+    dimension: mass_index
+    definition: Left ventricular mass of a person indexed to body size (such as height to the power 2.7, lvmht27).
+    scope: A clinical index of a donor's heart; not tissue size or cell size in vitro.
+    synonyms:
+    - text: lvmht27
+      anchor: hypertrophy index (lvmht27) and ejection fraction (EF)
+- add_synonym:
+    id: measure:calcium_transient_amplitude
+    text: Ca2+ transient amplitude
+    anchor: (L) Change in Ca2+ transient amplitude in response to serotonin normalized to the baseline.
+# --- standing keys ----------------------------------------------------------------------------------------------
+- standing_key:
+    measure: measure:solution_compound_concentration
+    value: {must_match: [platform, temperature, time_point, treatment, measure.compound], may_vary: []}
+    direction: {must_match: [contrast, measure.compound], may_vary: [temperature, time_point]}
+- standing_key:
+    measure: measure:force_displacement_curve
+    value: {must_match: [platform, measure.specimen], may_vary: [day_of_measurement]}
+    direction: {must_match: [contrast, measure.specimen], may_vary: [platform]}
+- standing_key:
+    measure: measure:gene_set_expression
+    value: {must_match: [platform@1, preparation, measure.gene_set, measure.expressed_as, treatment, genotype,
+        disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.gene_set], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:sarcomere_organisation
+    value: {must_match: [platform@1, preparation, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_width
+    value: {must_match: [platform@2, measure.portion, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.portion], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:maximum_diastolic_potential
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [
+        cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:action_potential_duration_ratio
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, treatment,
+        genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:ap_notch_fraction
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [
+        cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:compound_potency
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, treatment], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lv_mass_index
+    value: {must_match: [species, disease_model], may_vary: [donor_age]}
+    direction: {must_match: [contrast], may_vary: [donor_age]}
+mappings:
+# --- platform ---
+- {field: platform, stated: Biowire II chip, terms: ['platform:cell_free_device_chip'], qualifiers: {device: Biowire II,
+    material: polystyrene microwell with POMaC wires}, note: "absorption-test chips cut from the Biowire II strip,
+    without cells (STAR Methods, Absorption Testing)"}
+- {field: platform, stated: PDMS chip, terms: ['platform:cell_free_device_chip'], qualifiers: {material: PDMS}, note: "chips
+    of the same geometry made of PDMS, without cells"}
+- {field: platform, stated: tissue culture well, terms: ['platform:cell_free_control'], note: "dye in tissue-culture-treated
+    wells with no chip, the control of the absorption test; no synonym, since 'tissue culture well' elsewhere holds cells"}
+# --- time and day ---
+- field: time_point
+  stated: half an hour
+  flag: {kind: not a context, note: "A quantity in words (30 min) that code cannot parse ('half' is not a number word);
+      a quantity field takes no terms, so it can only be flagged. Code should parse it, or the reader writes the
+      printed form and a note."}
+- field: time_point
+  stated: before cell cultivation
+  flag: {kind: not a context, note: "A named moment (wires before any culture), neither a number nor the declared state
+      'baseline'; the reader may restate it as a time or the field may gain a state."}
+- field: day_of_measurement
+  stated: end of cultivation
+  flag: {kind: not a context, note: "A named moment, not a day; the record elsewhere gives 6 weeks and 8 months of culture,
+      so the reader should give the day this unit's recordings were made, if stated."}
+# --- substrate, supplements, cells ---
+- {field: substrate, stated: collagen + Matrigel, terms: ['substrate:collagen_hydrogel', 'substrate:matrigel'],
+  qualifiers: {collagen_source: rat tail, collagen_concentration: 3.0mg/mL, matrigel_fraction: 15% (v/v)}, note: "the
+    key resources table names 'Type I Rat Tail Collagen'"}
+- {field: supplements, stated: fetal bovine serum + Penicillin-Streptomycin, terms: ['supplements:fetal_bovine_serum',
+    'CHEBI:17334', 'CHEBI:17076'], note: "Penicillin-Streptomycin is the two antibiotics penicillin and streptomycin"}
+- field: cell_line
+  stated: BJ1D + HES3
+  flag: {kind: several conditions, note: "Fig. 2G tissues were made from either HES3 or BJ1D CMs (each tissue from one
+      line), and the paper does not say which line was used for which compound; this names two conditions, not a
+      tissue made of both lines (as in the atrioventricular tissues, 'HES3 + BJ1D')."}
+- {field: cell_line, stated: Non-affected A, terms: ['cell_line:zhao_non_affected_a_ipsc']}
+- {field: cell_line, stated: Non-affected B, terms: ['cell_line:zhao_non_affected_b_ipsc']}
+- {field: cell_line, stated: Non-affected C, terms: ['cell_line:zhao_non_affected_c_ipsc']}
+- {field: cell_line, stated: Affected D, terms: ['cell_line:zhao_affected_d_ipsc']}
+- {field: cell_line, stated: Affected E, terms: ['cell_line:zhao_affected_e_ipsc']}
+- {field: cell_line, stated: Affected F, terms: ['cell_line:zhao_affected_f_ipsc']}
+- {field: transgene, stated: NKX2-5eGFP/w, terms: ['transgene:gfp'], qualifiers: {locus: NKX2-5}, note: "eGFP knocked
+    into one NKX2-5 allele of HES3"}
+- {field: maturation_strategy, stated: electrical conditioning, terms: ['maturation_strategy:intensity_training'],
+  note: "every protocol in the paper raises the stimulation frequency stepwise (weekly 1 Hz or daily 0.4 Hz); no
+    synonym, since 'electrical conditioning' elsewhere may be at one frequency"}
+- {field: mechanical_load, stated: elastic POMaC wires, terms: ['mechanical_load:auxotonic'], note: "tissue contraction
+    bends the elastic wires (Fig. 2E)"}
+- {field: preparation, stated: tissue, terms: ['preparation:intact_tissue'], note: "no synonym: 'tissue' alone could be
+    fixed tissue elsewhere"}
+- {field: measurement_medium, stated: media, terms: ['measurement_medium:culture_medium'], note: "'Compounds were diluted
+    in media'; no synonym, the word is generic"}
+- field: measurement_medium
+  stated: Kreb’s Solution or DMEM
+  flag: {kind: alternatives, note: "Two possible baths for one unit; the reader should say which recordings used which,
+      if the paper does."}
+# --- measures ---
+- {field: measure, stated: rhodamine B concentration, terms: ['measure:solution_compound_concentration'], qualifiers: {
+    compound: rhodamine B}}
+- {field: measure, stated: rhodamine 6G concentration, terms: ['measure:solution_compound_concentration'], qualifiers: {
+    compound: rhodamine 6G}}
+- {field: measure, stated: POMaC wire force-displacement curve, terms: ['measure:force_displacement_curve'], qualifiers: {
+    specimen: POMaC wire}}
+- {field: measure, stated: POMaC wire force-displacement polynomial fit, terms: ['measure:force_displacement_curve'],
+  qualifiers: {specimen: POMaC wire}, note: "the polynomial fit is the method, not part of the measure"}
+- {field: measure, stated: "Young's modulus of POMaC wires", terms: ['measure:elastic_modulus'], qualifiers: {specimen: POMaC
+    wire}}
+- {field: measure, stated: contractility, terms: ['measure:twitch_force'], note: "Fig. 2G force traces; no synonym,
+    'contractility' is generic"}
+- {field: measure, stated: electrical excitability, terms: ['measure:beating_presence'], note: "lidocaine 'inhibits tissue'
+    beating in paced force traces; nearest existing measure"}
+- {field: measure, stated: irregular beating, terms: ['measure:arrhythmia_incidence'], qualifiers: {outcome: irregular
+    beating}}
+- field: measure
+  stated: time to reach maximum stimulation rate
+  flag: {kind: not a context, note: "Fig. 3A shows the two conditioning protocols; how fast the top rate is reached is
+      the protocol's design (daily vs weekly steps), not something measured on the tissues."}
+- {field: measure, stated: principal components of gene expression, terms: ['measure:pca_variance_explained'], note: "values
+    are % of variance of PC1-PC3; the component is not one per wording, so no component qualifier"}
+- {field: measure, stated: 'atrial marker expression (NPPA, GJA5, KCNJ12, MYH6, MYL4)', terms: ['measure:gene_set_expression'],
+  qualifiers: {gene_set: 'atrial markers (NPPA, GJA5, KCNJ12, MYH6, MYL4)'}}
+- {field: measure, stated: enrichment for adult human ventricle genes, terms: ['measure:enrichment_p_value'], qualifiers: {
+    annotation: adult human ventricle genes}}
+- {field: measure, stated: enrichment for adult human atrial genes, terms: ['measure:enrichment_p_value'], qualifiers: {
+    annotation: adult human atrial genes}}
+- {field: measure, stated: ventricular maturation marker expression, terms: ['measure:gene_set_expression'], qualifiers: {
+    gene_set: ventricular maturation markers}}
+- {field: measure, stated: HDL metabolism gene expression, terms: ['measure:gene_set_expression'], qualifiers: {gene_set: HDL
+    metabolism genes}}
+- {field: measure, stated: gene ontology enrichment (biological process), terms: ['measure:enrichment_p_value'], qualifiers: {
+    annotation: GO biological process}}
+- {field: measure, stated: sarcomeric organization, terms: ['measure:sarcomere_organisation']}
+- {field: measure, stated: contractile protein density, terms: ['measure:myofibrillar_density'], note: "a qualitative
+    histology statement; myofibrillar density is the nearest measure"}
+- {field: measure, stated: normalized active force, terms: ['measure:twitch_force'], qualifiers: {expressed_as: normalised,
+    normalised_to: force at 1 Hz}, note: "'all measurements were normalized to the 1Hz baseline values' (FFR)"}
+- {field: measure, stated: normalized post-rest potentiation, terms: ['measure:post_rest_potentiation'], qualifiers: {
+    expressed_as: normalised, normalised_to: force at the last pacing frequency}}
+- {field: measure, stated: post-rest force, terms: ['measure:twitch_force'], qualifiers: {contraction_mode: first beat after
+    rest}}
+- {field: measure, stated: APD30, terms: ['measure:action_potential_duration'], qualifiers: {level: APD30}}
+- {field: measure, stated: APD50, terms: ['measure:action_potential_duration'], qualifiers: {level: APD50}}
+- {field: measure, stated: APD90, terms: ['measure:action_potential_duration'], qualifiers: {level: APD90}}
+- {field: measure, stated: APD30/APD90 ratio, terms: ['measure:action_potential_duration_ratio'], qualifiers: {level:
+    APD30/APD90}}
+- {field: measure, stated: active force per area, terms: ['measure:twitch_stress'], note: "mN/mm2; 'force per cross-sectional
+    area' in the Discussion"}
+- {field: measure, stated: active force per input CM, terms: ['measure:twitch_force'], qualifiers: {expressed_as: normalised,
+    normalised_to: input cardiomyocyte number}}
+- {field: measure, stated: input number of CMs, terms: ['measure:cell_number'], qualifiers: {cell_type: cardiomyocyte, stage:
+    seeded}}
+- {field: measure, stated: fraction of CMs with an AP notch, terms: ['measure:ap_notch_fraction']}
+- {field: measure, stated: nifedipine IC50 for force, terms: ['measure:ic50'], qualifiers: {target: force}}
+- {field: measure, stated: nifedipine IC50 for Ca2+ transients, terms: ['measure:ic50'], qualifiers: {target: Ca2+ transient
+    amplitude}}
+- {field: measure, stated: thapsigargin potency, terms: ['measure:compound_potency'], note: "'higher potency in the
+    ventricle' from dose responses; mapping to IC50 would invert the stated direction"}
+- field: measure
+  stated: time-to-peak of force and Ca2+
+  flag: {kind: several measures, note: "Time to peak of force and of the Ca2+ transient in one item; the reader should
+      split it into two items."}
+- field: measure
+  stated: decay time of force and Ca2+
+  flag: {kind: several measures, note: "Decay (relaxation) time of force and of the Ca2+ transient in one item; the
+      reader should split it into two items."}
+- {field: measure, stated: left ventricular hypertrophy index (lvmht27), terms: ['measure:lv_mass_index']}
+- {field: measure, stated: enrichment of cardiotoxicity and canonical pathway genes, terms: ['measure:enrichment_p_value'],
+  qualifiers: {annotation: IPA Tox cardiotoxicity and canonical pathways}}
+- {field: measure, stated: number of enriched pathways shared by both experiments, terms: ['measure:enriched_category_count'],
+  qualifiers: {annotation: IPA Tox pathways enriched in both experiments}}
+- {field: measure, stated: expression of cardiac hypertrophy genes, terms: ['measure:gene_set_expression'], qualifiers: {
+    gene_set: cardiac hypertrophy genes}}
+- {field: measure, stated: sarcomeric a-actinin intensity / DAPI, terms: ['measure:protein_fluorescence_intensity'],
+  qualifiers: {protein: sarcomeric α-actinin, expressed_as: normalised, normalised_to: DAPI intensity}}
+- {field: measure, stated: width of the transition zone, terms: ['measure:tissue_width'], qualifiers: {portion: transition
+    zone between the atrial and ventricular ends}}
+- {field: measure, stated: Ca2+ transient amplitude change, terms: ['measure:calcium_transient_amplitude'], qualifiers: {
+    expressed_as: normalised, normalised_to: baseline}}
+- {field: measure, stated: Ca2+ transient time to peak, terms: ['measure:calcium_transient_rise_time'], qualifiers: {level:
+    time to peak}}
+- {field: measure, stated: Ca2+ transient rising slope, terms: ['measure:calcium_transient_rise_rate']}
+- {field: measure, stated: Ca2+ transient time from peak, terms: ['measure:calcium_transient_decay_time'], note: "the level
+    the decay is timed to is not printed"}
+- {field: measure, stated: Ca2+ transient τ decay, terms: ['measure:calcium_transient_decay_constant']}
+- {field: measure, stated: conduction velocity relative to baseline, terms: ['measure:conduction_velocity'], qualifiers: {
+    expressed_as: normalised, normalised_to: baseline}}

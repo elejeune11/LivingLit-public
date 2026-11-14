@@ -1,0 +1,194 @@
+figures:
+  F2C:
+    file: journal_version.pdf
+    page: 6
+    crop:
+    - 420
+    - 95
+    - 525
+    - 190
+    script: figures/F2C.py
+    unit: F2C
+    kind: raster
+    groups:
+      Control (vs 10 nM):
+        item: F2C_t10
+        group: ctrl
+        unit_of_value: MFI (axis prints no unit)
+      10 nM Torin1:
+        item: F2C_t10
+        group: t10
+        unit_of_value: MFI (axis prints no unit)
+      Control (vs 200 nM):
+        item: F2C_t200
+        group: ctrl
+        unit_of_value: MFI (axis prints no unit)
+      200 nM Torin1:
+        item: F2C_t200
+        group: t200
+        unit_of_value: MFI (axis prints no unit)
+    note: Raster bars with individual points (n=3 per condition). Markers touch the bar-top and error-bar lines; thin lines
+      are removed by a morphological opening. Control and 10 nM give three separate markers each; the 200 nM triangles lie
+      under the error bar, its caps and the bar top and do not separate (bar only, countable false). The control points are
+      returned under two labels, one per item.
+  F2GH:
+    file: journal_version.pdf
+    page: 6
+    crop:
+    - 278
+    - 345
+    - 395
+    - 425
+    script: figures/F2GH.py
+    unit: F2GH
+    kind: raster
+    groups:
+      Control (DMSO):
+        item: F2H_sarc
+        group: ctrl
+        unit_of_value: µm
+      Torin1 (200 nM):
+        item: F2H_sarc
+        group: t200
+        unit_of_value: µm
+    note: Fig. 2H only (2G is images). Raster bars with individual points (legend n=13 and n=17 cells), but the markers do
+      not stand alone; the Torin1 squares merge with each other and the bar-top line, and the control circles touch the error
+      bar, its cap and the bar top. Bar only, countable false. The Torin1 error bar does not rise above the bar-top line,
+      so no error is read for it. The manuscript copy (nihms-1549573.pdf p. 20, ~300 dpi) shows the same overlaps.
+  F3C:
+    file: nihms-1549573.pdf
+    page: 22
+    crop:
+    - 176
+    - 236
+    - 284
+    - 308
+    script: figures/F3C.py
+    unit: F3C
+    kind: raster
+    groups:
+      Control:
+        item: F3C_mitotracker
+        group: ctrl
+        unit_of_value: MFI (axis prints no unit)
+      Torin1 (200 nM):
+        item: F3C_mitotracker
+        group: t200
+        unit_of_value: MFI (axis prints no unit)
+    note: Raster bars with individual points (n=3 per group). Read from the author manuscript copy (300 dpi image; the journal
+      page p. 8 holds the same figure at ~200 dpi). Markers touch the error-bar stems and caps; thin lines are removed by
+      a morphological opening, leaving three separate markers per group for disc sizes 11-17 px.
+  F3D:
+    file: nihms-1549573.pdf
+    page: 22
+    crop:
+    - 366
+    - 240
+    - 465
+    - 308
+    script: figures/F3D.py
+    unit: F3D
+    kind: raster
+    groups:
+      Control:
+        item: F3D_mtDNA
+        group: ctrl
+        unit_of_value: ratio normalized to control (axis prints no unit)
+      Torin1 (200 nM):
+        item: F3D_mtDNA
+        group: t200
+        unit_of_value: ratio normalized to control (axis prints no unit)
+    note: Raster bars with individual points (n=3 per group). Read from the author manuscript copy (300 dpi image; the journal
+      page p. 8 holds the same figure at ~200 dpi). Markers touch the error-bar stems and caps; thin lines are removed by
+      a morphological opening, leaving one blob per marker.
+  F4B:
+    file: nihms-1549573.pdf
+    page: 24
+    crop:
+    - 290
+    - 80
+    - 398
+    - 152
+    script: figures/F4B.py
+    unit: F4B
+    kind: raster
+    groups:
+      Control:
+        item: F4B_Kir21
+        group: ctrl
+        unit_of_value: MFI (axis prints no unit)
+      Torin1 (200 nM):
+        item: F4B_Kir21
+        group: t200
+        unit_of_value: MFI (axis prints no unit)
+    note: Raster bars with individual points (n=3 per group). Read from the author manuscript copy (300 dpi image; the journal
+      page p. 9 holds the same figure at ~200 dpi). One control circle sits on the bar-top line and two Torin1 squares touch
+      the upper error-bar cap; thin lines are removed by a morphological opening, leaving three separate markers per group
+      for disc sizes 11-17 px.
+  S2:
+    file: NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    page: 19
+    crop:
+    - 100
+    - 125
+    - 530
+    - 600
+    script: figures/S2.py
+    unit: S2
+    kind: vector
+    groups:
+      PPARGC1a Control (DMSO):
+        item: S2_PPARGC1a
+        group: ctrl
+        unit_of_value: relative mRNA expression (normalized to TBP)
+      PPARGC1a Torin1 (200 nM):
+        item: S2_PPARGC1a
+        group: t200
+        unit_of_value: relative mRNA expression (normalized to TBP)
+      TP53 Control (DMSO):
+        item: S2_TP53
+        group: ctrl
+        unit_of_value: relative mRNA expression (normalized to TBP)
+      TP53 Torin1 (200 nM):
+        item: S2_TP53
+        group: t200
+        unit_of_value: relative mRNA expression (normalized to TBP)
+    note: Panels C (PPARGC1a) and G (TP53) only, the item groups figures-needed lists. Vector bars with individual markers
+      (black circles for Control, black squares for Torin1), 6 per group in both panels against a printed N=6-12 per group.
+      Each panel is located from its title word; axis from the tick lines and their labels. Fetal and adult heart RNA bars
+      (single samples, no error bars) are not read.
+no_points:
+  F1C: 'first look (small model): Time-course means with error bars; markers are per time point, not per sample. (journal_version.pdf
+    p. 4)'
+  F1E: Bars (mean) with error bars only, control (DMSO) vs Torin1 200 nM for 14 genes on a broken y axis; no individual points
+    plotted. Raster figure (journal_version.pdf p. 4; same image in nihms-1549573.pdf p. 18). No table or released data gives
+    the values (supplement lists only primers).
+  F1FG: 'first look (small model): F is flow dot plots of single cells; G is bars with error bars (journal_version.pdf p. 4)'
+  F1HI: 'first look (small model): Panels H and I show bars with error bars only, no per-sample markers. (journal_version.pdf p.
+    4)'
+  F2A: 'first look (small model): Bar chart with mean and error bars; no per-sample markers (journal_version.pdf p. 6)'
+  F2I: 'first look (small model): Panel I shows bars with SEM error bars only; no individual dots. (journal_version.pdf p. 6)'
+  F3AB: 'first look (small model): Panels A-B show traces and bars with error bars; no per-sample markers. (journal_version.pdf
+    p. 8)'
+  F3F: 'first look (small model): Panel F shows bars with error bars only; no per-sample dots visible. (journal_version.pdf p. 8)'
+  F4A: 'first look (small model): Panel A shows mean bars with error bars only, no per-sample markers. (journal_version.pdf p. 9)'
+  F4C: 'first look (small model): Panel C shows bars with error bars only; no individual data markers visible. (journal_version.pdf
+    p. 9)'
+  F4DJ: Violin plots (outline with dashed median and dotted quartile lines) per group, control n=531 vs Torin1 n=315 cells;
+    no per-cell points. F, H, I and J show only a column of overlapping dots along the upper tails (not every cell, not separable);
+    G shows none. D is images, E a single representative trace. Raster (nihms-1549573.pdf p. 24; journal_version.pdf p. 9).
+    No table or released data gives the values.
+  F5B: 'first look (small model): Bars with error whiskers only; no per-sample markers visible at this resolution (journal_version.pdf
+    p. 10)'
+  F5CD: 'first look (small model): Panel D is bars with error bars only; panel C is a blot. (nihms-1549573.pdf p. 26)'
+  F6B: 'first look (small model): Grouped bars with error bars; no individual sample markers visible. (journal_version.pdf p. 11)'
+  F6CE: 'first look (small model): Panels D and E are bars with error bars; no per-sample markers visible. (journal_version.pdf
+    p. 11)'
+  S3: 'first look (small model): Bar charts with mean and error bars; no per-sample markers. (NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    p. 20)'
+  S4: 'first look (small model): Panels C and D are bars with error bars; no per-sample markers visible. (NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    p. 21)'
+  S5: 'first look (small model): Line traces and bar charts show means with error bars, no per-sample markers. (NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    p. 22)'
+  S7: 'first look (small model): Violin plots with quartile lines; no individual point markers visible. (NIHMS1549573-supplement-Supplemental_Publication_Material.pdf
+    p. 24)'

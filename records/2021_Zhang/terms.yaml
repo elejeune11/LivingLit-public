@@ -1,0 +1,811 @@
+record: 2021_Zhang
+vocabulary_version: 8
+agent:
+  model: llm
+  instructions: terms_v3
+edits:
+# ---------------------------------------------------------------- cell lines (Cellosaurus)
+- adopt:
+    field: cell_line
+    id: CVCL_IR31
+    label: WTC-mEGFP-DSP-cl65
+    lookup: searched 'WTC', 'WTC-11' and 'AICS-0017' in Cellosaurus 57.0; the paper names the line 'WTC (AICS-0017, Allen Institute)'
+      and AICS-0017 is WTC-mEGFP-DSP-cl65, a WTC-11 subclone carrying mEGFP-tagged desmoplakin (WTC-11 itself is CVCL_Y803)
+- adopt:
+    field: cell_line
+    id: CVCL_F182
+    label: GM23338
+    lookup: searched 'PGP1' and 'PGP-1' in Cellosaurus 57.0; PGP1 is listed as a synonym of GM23338 (Personal Genome Project iPSC)
+    synonyms:
+    - text: PGP1
+      anchor: PGP1 (Personal Genome Project)
+# ---------------------------------------------------------------- differentiation factors (ChEBI)
+- adopt:
+    field: differentiation_factors
+    id: CHEBI:91091
+    label: CHIR 99021
+    lookup: searched 'CHIR99021' and 'CHIR-99021' in ChEBI 257; exact match (the HCl salt CHEBI:747739 is not named by the paper)
+    synonyms:
+    - text: CHIR99021
+      anchor: 8 to 12 µM of CHIR99021 (Tocris) on day 0 for 24 hours
+- adopt_own:
+    field: differentiation_factors
+    id: differentiation_factors:iwp4
+    label: IWP4
+    definition: The Porcupine inhibitor IWP-4, used to inhibit Wnt signalling during cardiac differentiation.
+    scope: The small-molecule Wnt inhibitor IWP-4; not a growth factor such as VEGF.
+    lookup: searched 'IWP4', 'IWP-4' and 'IWP' in ChEBI 257; only IWP-2 (CHEBI:125649), no entry for IWP-4
+# ---------------------------------------------------------------- supplements (ChEBI and own)
+- set_scope:
+    id: differentiation_factors:vegf
+    scope: The growth factor VEGF; not a small-molecule Wnt modulator such as IWP-4.
+- adopt_own:
+    field: supplements
+    id: supplements:b27
+    label: B27
+    definition: The B-27 serum-free supplement, a defined mixture of hormones, proteins and lipids added to culture medium.
+    scope: The B-27 mixture (with or without insulin, said in a qualifier); not serum, amino-acid mixtures or imaging reagents.
+    lookup: searched 'B27' and 'B-27' in ChEBI 257; only 'peptide b27pd', no entry for the supplement mixture
+- adopt_own:
+    field: supplements
+    id: supplements:oxyfluo
+    label: OxyFluo
+    definition: The OxyFluo oxygen-scavenging reagent (Oxyrase) added to medium during live fluorescence imaging to limit photobleaching.
+    scope: An oxygen-scavenging imaging reagent; not a growth supplement such as B27, serum or amino acids.
+    lookup: searched 'OxyFluo', 'OxyFluor' and 'oxyrase' in ChEBI 257; no entry (a proprietary enzyme preparation)
+- adopt_own:
+    field: supplements
+    id: supplements:fetal_bovine_serum
+    label: fetal bovine serum
+    definition: Serum from bovine fetuses added to culture medium.
+    scope: Animal serum; not the defined B27 supplement, amino-acid mixtures or imaging reagents.
+    lookup: searched 'fetal bovine serum' and 'serum' in ChEBI 257; only specific serum proteins and antisera, no entry for serum as a supplement
+- adopt_own:
+    field: supplements
+    id: supplements:nonessential_amino_acids
+    label: nonessential amino acids
+    definition: The mixture of non-essential amino acids sold as a medium supplement.
+    scope: The non-essential amino acid mixture; not serum, B27 or imaging reagents.
+    lookup: searched 'non-essential', 'nonessential amino acids' and 'amino acid' in ChEBI 257; only the classes 'amino acid' (CHEBI:33709)
+      and 'amino acids', no entry for the non-essential amino acid mixture
+- adopt:
+    field: supplements
+    id: CHEBI:73788
+    label: Ala-Gln
+    lookup: searched 'GlutaMAX', 'L-alanyl-L-glutamine', 'alanyl-glutamine' (no hit) and 'Ala-Gln' in ChEBI 257; GlutaMAX is the
+      stabilised dipeptide L-alanyl-L-glutamine (Ala-Gln)
+    synonyms:
+    - text: GlutaMAX
+      anchor: 1% GlutaMAX (Thermo Fisher Scientific)
+- adopt:
+    field: supplements
+    id: CHEBI:75393
+    label: Y-27632
+    lookup: searched 'Y-27632' and 'Y27632' in ChEBI 257; exact match (the dihydrochloride CHEBI:232591 is not named)
+- adopt:
+    field: supplements
+    id: CHEBI:749537
+    label: aprotinin
+    lookup: searched 'aprotinin' in ChEBI 257; exact match
+# ---------------------------------------------------------------- cell types (CL)
+- add_synonym:
+    id: CL:0000746
+    text: iPSC-CMs
+    anchor: efficient differentiation of iPSCs into CMs (iPSC-CMs)
+- adopt:
+    field: stromal_cell
+    id: CL:0000134
+    label: mesenchymal stem cell
+    lookup: searched 'mesenchymal stem cell' and 'mesenchymal stromal' in CL; exact match
+    synonyms:
+    - text: human mesenchymal stem cells
+      anchor: consisting of 90% iPSC-CMs and 10% human mesenchymal stem cells
+- adopt:
+    field: cell_types
+    id: CL:0000134
+    label: mesenchymal stem cell
+    lookup: searched 'mesenchymal stem cell' in CL; exact match; the same id serves stromal_cell
+# ---------------------------------------------------------------- disease model (MONDO)
+- adopt:
+    field: disease_model
+    id: MONDO:0016587
+    label: arrhythmogenic right ventricular cardiomyopathy
+    lookup: searched 'arrhythmogenic cardiomyopathy', 'arrhythmogenic right ventricular cardiomyopathy', 'ARVC' and 'arrhythmogenic' in
+      MONDO; no class named arrhythmogenic cardiomyopathy (only syndromic forms and numbered ARVD subtypes); the paper says ACM was
+      previously called arrhythmogenic right ventricular cardiomyopathy/dysplasia
+# ---------------------------------------------------------------- genotype (own)
+- add_term:
+    field: genotype
+    id: genotype:wild_type
+    label: wild type
+    definition: Cells without an engineered or disease-causing variant in the gene a comparison varies.
+    scope: The unedited or healthy control genotype; not a line carrying a stated gene variant.
+- add_term:
+    field: genotype
+    id: genotype:gene_variant
+    label: gene variant
+    definition: Cells carrying a stated variant in a stated gene (gene, variant, consequence and zygosity are qualifiers).
+    scope: Any line carrying a named variant; the gene is a narrower term; not the wild-type control.
+    qualifiers:
+      gene: {dimension: text}
+      variant: {dimension: text}
+      consequence: {dimension: text}
+      zygosity: {dimension: text}
+- add_term:
+    field: genotype
+    id: genotype:pkp2_variant
+    label: PKP2 variant
+    parent: genotype:gene_variant
+    definition: Cells carrying a variant in PKP2, the gene encoding plakophilin-2.
+    scope: A variant in PKP2; the variant itself and its zygosity are qualifiers.
+# ---------------------------------------------------------------- purification, coatings, media (own)
+- add_term:
+    field: purification
+    id: purification:metabolic_selection
+    label: metabolic selection
+    definition: Enrichment of cardiomyocytes by culture in glucose-free medium with lactate, on which non-myocytes do not survive.
+    scope: Selection by energy substrate; the substrate and duration are qualifiers.
+    qualifiers:
+      substrate: {dimension: text}
+      duration: {dimension: time}
+- add_term:
+    field: replating_coating
+    id: replating_coating:fibronectin
+    label: fibronectin
+    definition: The extracellular-matrix glycoprotein fibronectin, coated on a surface before replating.
+    scope: Fibronectin coating; not Matrigel, a basement-membrane extract.
+    qualifiers:
+      concentration: {dimension: concentration}
+- set_scope:
+    id: replating_coating:matrigel
+    scope: Matrigel coating; not fibronectin, a single purified matrix protein.
+- add_term:
+    field: cm_medium
+    id: cm_medium:dmem
+    label: DMEM
+    definition: Dulbecco's modified Eagle's medium, a basal medium (its glucose level is the qualifier glucose).
+    scope: DMEM-based medium; not RPMI 1640 and not a medium named only as EHT medium.
+    qualifiers:
+      glucose: {dimension: text}
+# ---------------------------------------------------------------- substrate (own)
+- add_term:
+    field: substrate
+    id: substrate:matrigel
+    label: Matrigel
+    parent: substrate:hydrogel
+    definition: A hydrogel of Matrigel basement-membrane extract.
+    scope: Matrigel as the gel or a gel component; not fibrin.
+- set_scope:
+    id: substrate:fibrin_hydrogel
+    scope: Fibrin as the gel or a gel component; not Matrigel.
+- add_term:
+    field: substrate
+    id: substrate:glass
+    label: glass
+    definition: A glass coverslip or glass-bottom dish that cells sit on, usually coated with a matrix protein.
+    scope: Bare (coated) glass; not glass under a polymer layer, not a hydrogel or polyacrylamide gel.
+    qualifiers:
+      coating: {dimension: text}
+- add_term:
+    field: substrate
+    id: substrate:polyacrylamide
+    label: polyacrylamide
+    definition: A polyacrylamide gel of tunable stiffness that cells sit on, used for traction force microscopy.
+    scope: Polyacrylamide gels cells sit on (stiffness is a qualifier); not gels cells are embedded in, not glass or PDMS.
+    qualifiers:
+      stiffness: {dimension: stress}
+- add_term:
+    field: substrate
+    id: substrate:pdms
+    label: PDMS
+    definition: Polydimethylsiloxane, a silicone elastomer that cells sit on.
+    scope: PDMS surfaces cells sit on; not glass, polyacrylamide or a hydrogel.
+- add_term:
+    field: substrate
+    id: substrate:pdms_coated_glass
+    label: PDMS-coated glass
+    parent: substrate:pdms
+    definition: Glass spin-coated with a thin PDMS layer, the PDMS surface being what cells sit on.
+    scope: A thin PDMS layer on glass.
+    qualifiers:
+      coating: {dimension: text}
+# ---------------------------------------------------------------- preparation (own)
+- add_term:
+    field: preparation
+    id: preparation:live_cells
+    label: live cells
+    definition: Living cells measured in their culture, without dissociation from a tissue or fixation.
+    scope: Living cultured cells (2D or patterned); not intact 3D tissue, cells dissociated from a tissue, fixed samples or extracts.
+- add_term:
+    field: preparation
+    id: preparation:lysate
+    label: lysate
+    definition: Cells lysed for a molecular measurement (protein or RNA).
+    scope: A lysate whose extract the record does not narrow; not purified RNA (RNA extract), living or fixed samples.
+# ---------------------------------------------------------------- platform (own)
+- add_term:
+    field: platform
+    id: platform:micropatterned_culture
+    label: micropatterned culture
+    parent: platform:culture_2d
+    definition: Cells confined to printed matrix islands of defined shape on a flat surface.
+    scope: Cells on patterned islands (the island is a qualifier); not an unpatterned monolayer.
+    synonyms:
+    - text: micropatterned
+      anchor: we used substrates micropatterned with rectangular
+    qualifiers:
+      island: {dimension: text}
+- set_scope:
+    id: platform:monolayer
+    scope: An unpatterned layer of cells; not cells confined to micropatterned islands.
+- add_term:
+    field: platform
+    id: platform:micropatterned_single_cell
+    label: micropatterned single cell
+    parent: platform:micropatterned_culture
+    definition: One cell spread alone on a matrix island sized for a single cell.
+    scope: One cell per island; not an island holding several cells.
+- add_term:
+    field: platform
+    id: platform:micropatterned_cell_patch
+    label: micropatterned multicellular patch
+    parent: platform:micropatterned_culture
+    definition: A small group of cells spread together on one matrix island.
+    scope: Several cells per island; not a single cell per island.
+    synonyms:
+    - text: multicellular cardiac patch
+      anchor: allows around six to eight CMs to attach and form a multicellular cardiac patch
+# ---------------------------------------------------------------- measures (own)
+- add_synonym:
+    id: measure:twitch_force
+    text: peak systolic force
+    anchor: Quantification of peak systolic forces of CMTs
+- add_synonym:
+    id: measure:twitch_stress
+    text: peak systolic stress
+    anchor: Quantification of peak systolic stresses of CMTs
+- add_term:
+    field: measure
+    id: measure:protein_staining
+    label: protein staining
+    definition: Presence or pattern of immunostaining for a stated protein (qualifier protein) in a stated region (qualifier region).
+    scope: Qualitative staining of one protein; not its quantified fluorescence intensity, not protein level by blot.
+    dimension: categorical
+    qualifiers:
+      protein: {dimension: text}
+      region: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:protein_fluorescence_intensity
+    label: protein fluorescence intensity
+    definition: Mean fluorescence intensity of immunostaining for a stated protein (qualifier protein) within a stated region (qualifier region).
+    scope: Quantified staining of one protein in a region; not qualitative staining, not protein level by blot, not peaks of recorded fluorescence signals.
+    dimension: dimensionless
+    qualifiers:
+      protein: {dimension: text}
+      region: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:protein_level
+    label: protein level
+    definition: Amount of a stated protein (qualifier protein) in a sample, relative to a loading reference (qualifier normalised_to).
+    scope: Protein amount of a whole sample; not mRNA (gene expression) and not staining in a region.
+    dimension: dimensionless
+    qualifiers:
+      protein: {dimension: text}
+      normalised_to: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:traction_stress
+    label: traction stress
+    definition: Stress cells exert on the substrate they sit on, computed from substrate displacement (summary statistic and phase are qualifiers).
+    scope: Stress on a 2D substrate; not twitch stress of a tissue (force per cross-section).
+    dimension: stress
+    qualifiers:
+      statistic: {dimension: text}
+      phase: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:contractile_work
+    label: contractile work
+    definition: Mechanical work cells do on their substrate during a contraction, force times displacement summed over an area.
+    scope: Work (energy); not stress or force.
+    dimension: energy
+    synonyms:
+    - text: systolic work
+      anchor: Systolic work (pJ)
+- add_term:
+    field: measure
+    id: measure:fluorescence_recovery
+    label: fluorescence recovery after photobleaching
+    definition: Recovery of fluorescence of a tagged protein (qualifier protein) in a bleached region (qualifier region) over time.
+    scope: The recovery of a bleached fluorescent protein; parameters fitted to it are narrower terms; not peaks of recorded signals.
+    dimension: dimensionless
+    synonyms:
+    - text: FRAP
+      anchor: fluorescence recovery after photobleaching (FRAP)
+    qualifiers:
+      protein: {dimension: text}
+      region: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:mobile_fraction
+    label: mobile fraction
+    parent: measure:fluorescence_recovery
+    definition: Fraction of a tagged protein that is mobile, the plateau of its fluorescence recovery after photobleaching.
+    scope: The recovery plateau; not the recovery curve over time.
+    dimension: dimensionless
+    qualifiers:
+      protein: {dimension: text}
+      region: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:structure_motion
+    label: structure motion
+    definition: Movement of a labelled cellular structure (qualifier structure) tracked over a time-lapse recording.
+    scope: Motion of a structure over minutes to hours; its net, per-frame and random parts are narrower terms; not contraction.
+    dimension: length
+    qualifiers:
+      structure: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:net_displacement
+    label: net displacement
+    parent: measure:structure_motion
+    definition: Displacement of each tracked point between the first and last frame (vector sum), averaged over the structure.
+    scope: Total translation over the recording; not the mean per-frame displacement or the random (ramble) part.
+    dimension: length
+    qualifiers:
+      structure: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:mean_displacement_per_frame
+    label: mean displacement per frame
+    parent: measure:structure_motion
+    definition: Scalar average of the displacement of each tracked point per frame, averaged over the structure.
+    scope: Per-frame displacement magnitude; not net translation or the random (ramble) part.
+    dimension: length
+    qualifiers:
+      structure: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:ramble
+    label: ramble
+    parent: measure:structure_motion
+    definition: Random motion per frame, the summed scalar displacements minus the net translation, averaged over the structure.
+    scope: The random part of motion; not net translation or the mean per-frame displacement.
+    dimension: length
+    qualifiers:
+      structure: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:sarcomere_count
+    label: number of sarcomeres
+    definition: Number of sarcomeric z-discs detected in a cell or cell patch.
+    scope: A count of sarcomeres; not their length or alignment.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:sarcomere_order_parameter
+    label: sarcomere orientational order parameter
+    definition: Orientational order of sarcomeres relative to the local director, <3/2 cos²θ − 1/2>, at a neighbourhood radius (qualifier distance)
+      or summarised over radii (qualifier summary).
+    scope: Alignment of sarcomeres; not their number or length.
+    dimension: dimensionless
+    qualifiers:
+      distance: {dimension: length}
+      summary: {dimension: text}
+# ---------------------------------------------------------------- transgene (own; re-map v3)
+- add_term:
+    field: transgene
+    id: transgene:voltage_indicator
+    label: genetically encoded voltage indicator
+    definition: An introduced gene for a fluorescent protein whose signal changes with membrane voltage.
+    scope: A voltage-sensing reporter (Archon1 and similar); not a calcium indicator and not a fluorescent protein whose signal reports no cellular
+      variable.
+    synonyms:
+    - text: genetically encoded voltage indicator
+      anchor: Archon1, a genetically encoded voltage indicator
+    qualifiers:
+      vector: {dimension: text}
+      MOI: {dimension: text}
+- add_term:
+    field: transgene
+    id: transgene:archon1
+    label: Archon1
+    parent: transgene:voltage_indicator
+    definition: The genetically encoded voltage indicator Archon1, a fluorescent rhodopsin-based voltage sensor.
+    scope: Archon1 only; other voltage indicators are siblings to add when a paper names one.
+    synonyms:
+    - text: Archon1
+      anchor: Archon1, a genetically encoded voltage indicator
+- add_term:
+    field: transgene
+    id: transgene:cre_recombinase
+    label: Cre recombinase
+    definition: An introduced gene for Cre recombinase, used to switch on a Cre-dependent (floxed or FLEX) construct.
+    scope: The recombinase that activates another construct; not itself a reporter or an indicator.
+    synonyms:
+    - text: CMV-Cre
+      anchor: CMV-Cre AAV9 (Addgene)
+    qualifiers:
+      vector: {dimension: text}
+      MOI: {dimension: text}
+- add_term:
+    field: transgene
+    id: transgene:fluorescent_fusion_protein
+    label: fluorescent fusion protein
+    parent: transgene:fluorescent_reporter
+    definition: An introduced gene for a cellular protein fused to a fluorescent protein, used to follow where that protein is and how it moves
+      (the fluorescent protein is the qualifier fluorophore).
+    scope: A fluorescent protein fused to a named cellular protein (the protein is a narrower term); not a fluorescent protein expressed on its own.
+    qualifiers:
+      fluorophore: {dimension: text}
+- set_scope:
+    id: transgene:gfp
+    scope: GFP as a marker on its own; not GFP fused to a cellular protein (fluorescent fusion protein) and not a GFP-based calcium indicator such
+      as GCaMP.
+- add_term:
+    field: transgene
+    id: transgene:n_cadherin_fusion
+    label: N-cadherin fluorescent fusion
+    parent: transgene:fluorescent_fusion_protein
+    definition: N-cadherin fused to a fluorescent protein, marking adherens junctions.
+    scope: Tagged N-cadherin; not tagged α-actinin-2, which marks sarcomeric Z-discs.
+- add_term:
+    field: transgene
+    id: transgene:actinin2_fusion
+    label: α-actinin-2 fluorescent fusion
+    parent: transgene:fluorescent_fusion_protein
+    definition: α-actinin-2 fused to a fluorescent protein, marking sarcomeric Z-discs.
+    scope: Tagged α-actinin-2; not tagged N-cadherin, which marks adherens junctions.
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:protein_staining
+    value: {must_match: [platform@1, preparation, measure.protein, measure.region], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein, measure.region], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_fluorescence_intensity
+    value: {must_match: [platform@1, preparation, measure.protein, measure.region], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein, measure.region], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_level
+    value: {must_match: [platform@1, preparation, measure.protein, measure.normalised_to, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:traction_stress
+    value: {must_match: [platform, substrate, preparation, pacing, temperature, measure.statistic, measure.phase], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform, measure.statistic], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_work
+    value: {must_match: [platform, substrate, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:fluorescence_recovery
+    value: {must_match: [platform@1, preparation, temperature, measure.protein, measure.region], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mobile_fraction
+    value: {must_match: [platform@1, preparation, temperature, measure.protein], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:structure_motion
+    value: {must_match: [platform@1, preparation, measure.structure], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:net_displacement
+    value: {must_match: [platform@1, preparation, measure.structure], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mean_displacement_per_frame
+    value: {must_match: [platform@1, preparation, measure.structure], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:ramble
+    value: {must_match: [platform@1, preparation, measure.structure], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:sarcomere_count
+    value: {must_match: [platform, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform@2], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:sarcomere_order_parameter
+    value: {must_match: [platform, preparation, measure.distance, measure.summary], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform@2, measure.distance, measure.summary], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_staining
+    value:
+      must_match: [platform@1, preparation, measure.protein, measure.region, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein, measure.region]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:protein_fluorescence_intensity
+    value:
+      must_match: [platform@1, preparation, measure.protein, measure.region, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein, measure.region]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:protein_level
+    value:
+      must_match: [platform@1, preparation, measure.protein, measure.normalised_to, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:traction_stress
+    value:
+      must_match: [platform, substrate, preparation, pacing, temperature, measure.statistic, measure.phase, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, platform, measure.statistic, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contractile_work
+    value:
+      must_match: [platform, substrate, preparation, pacing, temperature, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, platform, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:fluorescence_recovery
+    value:
+      must_match: [platform@1, preparation, temperature, measure.protein, measure.region, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:mobile_fraction
+    value:
+      must_match: [platform@1, preparation, temperature, measure.protein, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:structure_motion
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:net_displacement
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:mean_displacement_per_frame
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:ramble
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:sarcomere_count
+    value:
+      must_match: [platform, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, platform@2]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:sarcomere_order_parameter
+    value:
+      must_match: [platform, preparation, measure.distance, measure.summary, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, platform@2, measure.distance, measure.summary]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: cell_line
+  stated: WTC
+  terms: [CVCL_IR31]
+  note: the paper names the line 'WTC (AICS-0017, Allen Institute)'; AICS-0017 (the record's identifier qualifier) is the WTC-11 subclone
+    WTC-mEGFP-DSP-cl65; 'WTC' alone is the parent line, so no synonym is added
+- field: disease_model
+  stated: arrhythmogenic cardiomyopathy
+  terms: [MONDO:0016587]
+  no_ontology_term: arrhythmogenic cardiomyopathy as a class covering right-, left-dominant and biventricular forms
+  note: the paper says ACM was previously called arrhythmogenic right ventricular cardiomyopathy/dysplasia; mapped to that class, no synonym
+    because ACM is now used more broadly
+- field: genotype
+  stated: PKP2 p.D109Afs*10
+  terms: [genotype:pkp2_variant]
+  qualifiers:
+    gene: PKP2
+    variant: p.D109Afs*10
+    consequence: truncating
+  note: consequence from 'predicting an early truncation of the protein (PKP2 p.D109Afs*10)'; zygosity is the record's own qualifier per group
+- field: platform
+  stated: cardiac microtissue
+  terms: [platform:tissue_between_pillars]
+  qualifiers:
+    posts: two PDMS micropillars with spherical caps
+  note: the paper's CMTs bridge two micropillars ('aligned tissues bridging two micropillars'); no synonym, since 'cardiac microtissue' also
+    names spheroids and other formats elsewhere
+- field: cm_medium
+  stated: high-glucose DMEM
+  terms: [cm_medium:dmem]
+  qualifiers:
+    glucose: high
+- field: supplements
+  stated: fetal bovine serum + penicillin-streptomycin + nonessential amino acids + GlutaMAX + Y-27632 + aprotinin
+  terms: [supplements:fetal_bovine_serum, CHEBI:17334, CHEBI:17076, supplements:nonessential_amino_acids, CHEBI:73788, CHEBI:75393, CHEBI:749537]
+  note: penicillin-streptomycin is one printed word for two compounds; Y-27632 is removed 2 days after seeding (record note)
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: sarcomeric α-actinin-2 staining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: α-actinin-2, region: sarcomeric}
+- field: measure
+  stated: PKP2 staining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: PKP2}
+- field: measure
+  stated: junctional αE-catenin staining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: αE-catenin, region: junctional}
+- field: measure
+  stated: PKP2 RNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PKP2, normalised_to: PSMB2, expressed_as: fold}
+  note: normalised_to from the item's method (PSMB2 housekeeping gene); 2^−ΔΔCT is a fold change against the WT average (the legend also
+    prints it as % of WT1)
+- field: measure
+  stated: PKP2 protein (Western blot)
+  terms: [measure:protein_level]
+  qualifiers: {protein: PKP2, normalised_to: GAPDH, expressed_as: normalised}
+  note: the method (Western blot) is not part of the measure; GAPDH loading control from the item's method
+- field: measure
+  stated: junctional PKP2 mean fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: PKP2, region: junctional}
+- field: measure
+  stated: junctional N-cadherin mean fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: N-cadherin, region: junctional}
+- field: measure
+  stated: junctional desmoplakin mean fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: desmoplakin, region: junctional}
+- field: measure
+  stated: junctional Cx43 mean fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: Cx43, region: junctional}
+- field: measure
+  stated: junctional αT-catenin mean fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: αT-catenin, region: junctional}
+- field: measure
+  stated: action potential trace (normalized Archon1 intensity)
+  terms: [measure:action_potential]
+  note: the waveform recorded optically as normalized Archon1 fluorescence, not in volts; the voltage indicator is method
+- field: measure
+  stated: APD30
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD30, expressed_as: absolute}
+  note: level as printed; the item's definition says 30% below the peak of the action potential curve; values in s
+- field: measure
+  stated: APD50
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD50, expressed_as: absolute}
+- field: measure
+  stated: APD80
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD80, expressed_as: absolute}
+- field: measure
+  stated: t50_contract
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: t50, expressed_as: absolute}
+  note: defined only graphically (Fig. 4B, t1 = t50_contract); whether it runs from onset to 50% or from 50% to peak is not stated
+- field: measure
+  stated: t80_contract
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: t80, expressed_as: absolute}
+  note: defined only graphically (Fig. 4B, t3 = t80_contract)
+- field: measure
+  stated: t50_relax
+  terms: [measure:relaxation_time]
+  qualifiers: {level: t50, expressed_as: absolute}
+  note: defined only graphically (Fig. 4B, t2 = t50_relax)
+- field: measure
+  stated: t80_relax
+  terms: [measure:relaxation_time]
+  qualifiers: {level: t80, expressed_as: absolute}
+  note: defined only graphically (Fig. 4B, t4 = t80_relax)
+- field: measure
+  stated: RMS systolic stress
+  terms: [measure:traction_stress]
+  qualifiers: {statistic: RMS, phase: peak systole}
+- field: measure
+  stated: junctional N-cadherin FRAP
+  terms: [measure:fluorescence_recovery]
+  qualifiers: {protein: N-cadherin, region: junctional}
+- field: measure
+  stated: N-cadherin mobile fraction
+  terms: [measure:mobile_fraction]
+  qualifiers: {protein: N-cadherin}
+- field: measure
+  stated: net displacement of junctional N-cadherin
+  terms: [measure:net_displacement]
+  qualifiers: {structure: junctional N-cadherin}
+- field: measure
+  stated: mean displacement per frame of junctional N-cadherin
+  terms: [measure:mean_displacement_per_frame]
+  qualifiers: {structure: junctional N-cadherin}
+- field: measure
+  stated: ramble of junctional N-cadherin
+  terms: [measure:ramble]
+  qualifiers: {structure: junctional N-cadherin}
+- field: measure
+  stated: net displacement of sarcomeric α-actinin-2
+  terms: [measure:net_displacement]
+  qualifiers: {structure: sarcomeric α-actinin-2}
+- field: measure
+  stated: mean displacement per frame of sarcomeric α-actinin-2
+  terms: [measure:mean_displacement_per_frame]
+  qualifiers: {structure: sarcomeric α-actinin-2}
+- field: measure
+  stated: ramble of sarcomeric α-actinin-2
+  terms: [measure:ramble]
+  qualifiers: {structure: sarcomeric α-actinin-2}
+- field: measure
+  stated: order parameter over distance
+  terms: [measure:sarcomere_order_parameter]
+  qualifiers: {summary: curve over neighbourhood radius}
+- field: measure
+  stated: order parameter at 50 µm
+  terms: [measure:sarcomere_order_parameter]
+  qualifiers: {distance: 50 µm}
+- field: measure
+  stated: order parameter plateau
+  terms: [measure:sarcomere_order_parameter]
+  qualifiers: {summary: fitted plateau}
+  note: plateau a0 of the exponential decay model fitted to the order parameter over distance
+# ---------------------------------------------------------------- re-map v3: transgene, mechanical load
+- field: mechanical_load
+  stated: micropillars
+  terms: [mechanical_load:auxotonic]
+  qualifiers:
+    posts: two PDMS micropillars with spherical caps
+  note: CMTs bridge two flexible micropillars whose deflection gives force (record qualifier pillar spring constant 2.68 µN/m), an elastic load;
+    no synonym, since micropillars stiff enough to prevent shortening would be isometric
+- field: transgene
+  stated: N-cadherin–mApple
+  terms: [transgene:n_cadherin_fusion]
+  qualifiers: {fluorophore: mApple}
+- field: transgene
+  stated: N-cadherin–EGFP
+  terms: [transgene:n_cadherin_fusion]
+  qualifiers: {fluorophore: EGFP}
+- field: transgene
+  stated: N-cadherin–mApple + EGFP–α-actinin-2
+  terms: [transgene:n_cadherin_fusion, transgene:actinin2_fusion]
+  qualifiers: {fluorophore: mApple (N-cadherin); EGFP (α-actinin-2)}
+  note: two fusions; one fluorophore qualifier per mapping, so it names both pairings
+- field: transgene
+  stated: N-cadherin–EGFP + mApple–α-actinin-2
+  terms: [transgene:n_cadherin_fusion, transgene:actinin2_fusion]
+  qualifiers: {fluorophore: EGFP (N-cadherin); mApple (α-actinin-2)}
+  note: two fusions; one fluorophore qualifier per mapping, so it names both pairings

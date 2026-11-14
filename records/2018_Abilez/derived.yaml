@@ -1,0 +1,404 @@
+record: 2018_Abilez
+formula_library_version: 23
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  # --- S9: Young's modulus from the linear region of the stress-strain relationship
+  S9F_stiffness.modulus_human:
+    item: S9F_stiffness
+    group: human
+    measure: Young's modulus
+    formula: E = sigma/eps
+    anchor:
+      quote: The linear relationship between stress and strain is the Young
+      where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+    library:
+      formula: linear_elastic_stress_strain
+      vars: {sigma: sigma, E: E, eps: eps}
+    inputs:
+      sigma: {not_stated: true, kind: per sample, note: 'stress in the linear region; cross-sectional area (stress = force/area) is never stated, and the S9A curve is not in the folder'}
+      eps: {not_stated: true, kind: per sample, note: 'strain in the linear region; the stretch step is printed as 15 mm (Methods), 15 μm (Results) and 15 m (S9 legend), and the gauge length is not stated'}
+    output: S9F_stiffness.values.E_human
+    aggregation: not stated
+    note: E is the slope of the linear region (S9A legend, "calculated from the linear region of the stress-strain relationship"),
+      not a single sigma/eps quotient; the formula is written as the model's ratio.
+  S9F_stiffness.modulus_rat:
+    item: S9F_stiffness
+    group: rat
+    measure: Young's modulus
+    formula: E = sigma/eps
+    anchor:
+      quote: The linear relationship between stress and strain is the Young
+      where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+    library:
+      formula: linear_elastic_stress_strain
+      vars: {sigma: sigma, E: E, eps: eps}
+    inputs:
+      sigma: {not_stated: true, kind: per sample, note: cross-sectional area never stated}
+      eps: {not_stated: true, kind: per sample, note: stretch step printed three ways; gauge length not stated}
+    output: S9F_stiffness.values.E_rat
+    aggregation: not stated
+  # --- S9: maximum active force = systolic - diastolic, averaged over the 10 highest
+  S9G_force.active_human:
+    item: S9G_force
+    group: human
+    measure: active (twitch) force
+    formula: Fa = Fs - Fd
+    anchor:
+      quote: which is the difference between systolic force and diastolic force
+      where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+    library:
+      formula: sum_of_parts
+      vars: {t: Fs, a: Fa, b: Fd}
+    inputs:
+      Fs: {not_stated: true, kind: per sample, note: systolic force per twitch (S9D/E traces not in the folder)}
+      Fd: {not_stated: true, kind: per sample, note: diastolic force per twitch}
+    note: One active force per twitch; feeds S9G_force.max_human. No printed value of its own.
+  S9G_force.max_human:
+    item: S9G_force
+    group: human
+    measure: maximum active force
+    formula: Fmax = S/n
+    anchor:
+      quote: is calculated by the average of the 10 highest active forces
+      where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+    library:
+      formula: mean_def
+      vars: {m: Fmax, S: S, n: n}
+    inputs:
+      S: {not_stated: true, kind: per sample, note: sum of the 10 highest per-twitch active forces from S9G_force.active_human}
+      n:
+        printed: '10'
+        unit: count
+        anchor:
+          quote: average of the 10 highest active forces
+          where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+        kind: constant
+    output: S9G_force.values.F_human
+    aggregation: not stated
+    note: Per EHM, then (presumably) averaged over EHMs; the number of EHMs per group is not stated.
+  S9G_force.active_rat:
+    item: S9G_force
+    group: rat
+    measure: active (twitch) force
+    formula: Fa = Fs - Fd
+    anchor:
+      quote: which is the difference between systolic force and diastolic force
+      where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+    library:
+      formula: sum_of_parts
+      vars: {t: Fs, a: Fa, b: Fd}
+    inputs:
+      Fs: {not_stated: true, kind: per sample}
+      Fd: {not_stated: true, kind: per sample}
+  S9G_force.max_rat:
+    item: S9G_force
+    group: rat
+    measure: maximum active force
+    formula: Fmax = S/n
+    anchor:
+      quote: is calculated by the average of the 10 highest active forces
+      where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+    library:
+      formula: mean_def
+      vars: {m: Fmax, S: S, n: n}
+    inputs:
+      S: {not_stated: true, kind: per sample, note: sum of the 10 highest per-twitch active forces from S9G_force.active_rat}
+      n:
+        printed: '10'
+        unit: count
+        anchor:
+          quote: average of the 10 highest active forces
+          where: Methods, EHM Stress-Strain Relationship and Elastic Modulus
+        kind: constant
+    output: S9G_force.values.F_rat
+    aggregation: not stated
+  # --- F7: qPCR relative expression and the printed folds
+  F7_fold_text.relative_expression:
+    item: F7_fold_text
+    measure: relative gene expression (2^-ΔΔCt)
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: normalized to the housekeeping genes GAPDH using the 2 power (−ΔΔCt) method
+      where: Methods, EHM Gene Expression
+    library:
+      formula: ddct_relative_expression
+      vars: {r: r, ddct: ddct}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: 'ΔΔCt against GAPDH and, per the Fig. 7B axis, against the iPSC calibrator; no Ct values printed'}
+    note: Relative expression per group in Fig. 7B (no readings; Fig. 7 has no per-sample markers). Feeds the folds below.
+  F7_fold_text.adrb1_fold:
+    item: F7_fold_text
+    measure: ADRB1 fold change, 3D versus 1D at day 50
+    formula: r = a/b
+    anchor:
+      quote: ADRB1 and CAV3 expression was significantly increased 3-fold and over 15-fold versus 1D culture at day 50
+      where: Results, EHM Gene Expression
+    library:
+      formula: ratio_def
+      vars: {r: r, a: a, b: b}
+    inputs:
+      a: {not_stated: true, kind: not stated, note: 'ADRB1 relative expression of the day-50 3D group (EHM- or EHM+ not named); 2^-ΔΔCt from F7_fold_text.relative_expression'}
+      b: {not_stated: true, kind: not stated, note: ADRB1 relative expression of day-50 monolayer (mono50)}
+    output: F7_fold_text.values.adrb1_fold
+    aggregation: not stated
+    alternatives:
+    - label: 3D = EHM- day 50 (ehmm50)
+      note: fold = ehmm50 / mono50
+    - label: 3D = EHM+ day 50 (ehmp50), after the 3:1 normalisation
+      note: fold = ehmp50 / mono50, ehmp50 already normalised by the CM:fibroblast ratio
+    - label: fold from mean ΔΔCt
+      formula: r = 2^(-(ddct_a - ddct_b))
+      note: 2 to the mean ΔΔCt difference rather than the ratio of mean relative expressions
+  F7_fold_text.cav3_fold:
+    item: F7_fold_text
+    measure: CAV3 fold change, 3D versus 1D at day 50
+    formula: r = a/b
+    anchor:
+      quote: ADRB1 and CAV3 expression was significantly increased 3-fold and over 15-fold versus 1D culture at day 50
+      where: Results, EHM Gene Expression
+    library:
+      formula: ratio_def
+      vars: {r: r, a: a, b: b}
+    inputs:
+      a: {not_stated: true, kind: not stated, note: CAV3 relative expression of the day-50 3D group (EHM- or EHM+ not named)}
+      b: {not_stated: true, kind: not stated, note: CAV3 relative expression of day-50 monolayer (mono50)}
+    output: F7_fold_text.values.cav3_fold
+    aggregation: not stated
+    alternatives:
+    - label: 3D = EHM- day 50 (ehmm50)
+      note: fold = ehmm50 / mono50
+    - label: 3D = EHM+ day 50 (ehmp50), after the 3:1 normalisation
+      note: fold = ehmp50 / mono50
+    - label: fold from mean ΔΔCt
+      formula: r = 2^(-(ddct_a - ddct_b))
+  F7_fold_text.ehmp_ratio_normalisation:
+    item: F7_fold_text
+    group: ehmp50
+    measure: EHM+ expression normalised by the CM:fibroblast ratio
+    formula: not stated
+    anchor:
+      quote: Gene expression in EHM+ samples were normalized by the ratio of cardiomyocytes to fibroblast (3:1)
+      where: Fig. 7 legend
+    no_formula: the legend names a normalisation by the 3:1 cardiomyocyte:fibroblast ratio but not its arithmetic (divide by
+      the CM fraction 3/4, multiply by 3, or other)
+    inputs:
+      r_raw: {not_stated: true, kind: per sample, note: 2^-ΔΔCt of the EHM+ sample before normalisation}
+      ratio: {not_stated: true, kind: constant, note: 'printed as 3:1; how it enters is not stated'}
+    alternatives:
+    - label: divide by CM fraction (3/4)
+      formula: rn = r_raw/(3/4)
+    - label: multiply by CM:FB ratio (3)
+      formula: rn = 3*r_raw
+    - label: divide by CM:FB ratio (3)
+      formula: rn = r_raw/3
+    note: Applies to every EHM+ group (ehmp25, ehmp30, ehmp50); written once on day 50 because the printed fold is at day 50.
+  # --- S10: length ratios
+  S10_unloaded_v_stretch.rel_len:
+    item: S10_unloaded_v_stretch
+    measure: relaxed EHM length as % of passive stretch length
+    formula: r = Lu/Ls
+    anchor:
+      quote: The relaxed EHM length is approximately 40% of the passive stretch length
+      where: Results, EHM Elastic Behavior
+    library:
+      formula: ratio_def
+      vars: {r: r, a: Lu, b: Ls}
+    inputs:
+      Lu: {not_stated: true, kind: per sample, note: length of released (unloaded) EHMs; S10C-D not in the folder}
+      Ls: {not_stated: true, kind: per sample, note: length under passive stretch (inter-post distance not stated for S10)}
+    output: S10_unloaded_v_stretch.values.rel_len
+    aggregation: not stated
+  S10_unloaded_v_stretch.len_decrease:
+    item: S10_unloaded_v_stretch
+    measure: detached EHM length relative to its original length
+    formula: r = Ld/L0
+    anchor:
+      quote: The length of the detached EHMs decreased to less than half of their original length
+      where: Results, EHM Elastic Behavior
+    library:
+      formula: ratio_def
+      vars: {r: r, a: Ld, b: L0}
+    inputs:
+      Ld: {not_stated: true, kind: per sample, note: length after release}
+      L0: {not_stated: true, kind: per sample, note: length before release (under stretch)}
+    output: S10_unloaded_v_stretch.values.len_decrease
+    aggregation: not stated
+    note: '"decreased to less than half of their original length" read as Ld/L0 < 1/2, not as (L0 - Ld)/L0 < 1/2.'
+    alternatives:
+    - label: decrease as a fraction (relative_decrease)
+      formula: r = (L0 - Ld)/L0
+      note: '"decreased to less than half" read as the size of the decrease'
+  S10_ctrl_v_stretch.rel_len:
+    item: S10_ctrl_v_stretch
+    measure: control EHM length relative to passive stretch length
+    formula: r = Lc/Ls
+    anchor:
+      quote: the length of Control EHM group was approximately half the length of the Passive Stretch EHM group
+      where: Supplemental Figure 10 legend
+      file: NIHMS926341-supplement-Supplemental.docx
+    library:
+      formula: ratio_def
+      vars: {r: r, a: Lc, b: Ls}
+    inputs:
+      Lc: {not_stated: true, kind: per sample, note: control (one-post) EHM length at day 6}
+      Ls: {not_stated: true, kind: per sample, note: passive-stretch EHM length at day 6}
+    output: S10_ctrl_v_stretch.values.rel_len
+    aggregation: not stated
+  # --- F3: compaction extent
+  F3F_compaction.compaction_9mm:
+    item: F3F_compaction
+    group: mm9
+    measure: extent of compaction
+    formula: not stated
+    anchor:
+      quote: all 9 mm-EHMs compacted 50% or more by day 2
+      where: Results, EHM Formation
+    no_formula: the paper does not say what was measured for compaction (length, width, area or volume) or how the percentage
+      was formed
+    inputs:
+      x0: {not_stated: true, kind: per sample, note: initial size}
+      x: {not_stated: true, kind: per sample, note: size at day 2}
+    output: F3F_compaction.values.compaction_9mm
+    alternatives:
+    - label: relative decrease in size (relative_decrease)
+      formula: c = (x0 - x)/x0
+    - label: size as a fraction of the initial size
+      formula: c = x/x0
+  # --- F6: calcium transient amplitude as f/f0
+  F6E_amp_7mm_text.amplitude:
+    item: F6E_amp_7mm_text
+    measure: calcium transient amplitude
+    formula: a = f/f0
+    anchor:
+      quote: five regions of interest (ROIs) were analyzed for changes in dye intensity f/f0
+      where: Supplemental Methods, EHM Calcium Imaging
+      file: NIHMS926341-supplement-Supplemental.docx
+    library:
+      formula: ratio_def
+      vars: {r: a, a: f, b: f0}
+    inputs:
+      f: {not_stated: true, kind: per sample, note: Fluo-4 intensity at the transient peak}
+      f0:
+        not_stated: true
+        kind: per sample
+        note: resting fluorescence at the first frame of each video ("with the resting fluorescence value f0 determined at
+          the first frame of each video"); no value printed
+    alternatives:
+    - label: background subtracted before the ratio
+      formula: a = (f - fb)/(f0 - fb)
+      note: '"Background intensity was subtracted from all values"; order relative to f/f0 not stated'
+    - label: plotted amplitude after normalising to zero
+      formula: a = f/f0 - 1
+      note: '"plots were normalized to zero" may shift the baseline to 0 (amplitude = ΔF/F0)'
+    note: No amplitude values are printed (Fig. 6E bars only, no readings); the derivation records the measure's definition.
+  # --- S3 and S5: percentages of cells
+  S3_ventricular.pct_text:
+    item: S3_ventricular
+    group: cm
+    measure: fraction of ventricular-like cells
+    formula: f = n/N
+    anchor:
+      quote: with ventricular-like cells being the predominant phenotype (57%)
+      where: Results, hPSC-CM Electrophysiology
+    library:
+      formula: ratio_def
+      vars: {r: f, a: n, b: N}
+    inputs:
+      n: {not_stated: true, kind: constant, note: ventricular-like cells among those patched}
+      N: {not_stated: true, kind: constant, note: total cells patched (not stated)}
+    output: S3_ventricular.values.pct_text
+  S3_atrial.pct:
+    item: S3_atrial
+    group: cm
+    measure: fraction of atrial-like cells
+    formula: f = n/N
+    anchor:
+      quote: along with atrial-like (24%) and nodal-like (19%)
+      where: Results, hPSC-CM Electrophysiology
+    library:
+      formula: ratio_def
+      vars: {r: f, a: n, b: N}
+    inputs:
+      n: {not_stated: true, kind: constant}
+      N: {not_stated: true, kind: constant}
+    output: S3_atrial.values.pct
+  S3_nodal.pct:
+    item: S3_nodal
+    group: cm
+    measure: fraction of nodal-like cells
+    formula: f = n/N
+    anchor:
+      quote: along with atrial-like (24%) and nodal-like (19%)
+      where: Results, hPSC-CM Electrophysiology
+    library:
+      formula: ratio_def
+      vars: {r: f, a: n, b: N}
+    inputs:
+      n: {not_stated: true, kind: constant}
+      N: {not_stated: true, kind: constant}
+    output: S3_nodal.values.pct
+  S5_tnt_hipsc.tnt_text:
+    item: S5_tnt_hipsc
+    group: hipsc
+    measure: troponin-T positive cells
+    formula: f = n/N
+    anchor:
+      quote: A representative differentiation of hiPSC-CM yielded 88%
+      where: Results, hPSC-CM Characterization
+    library:
+      formula: ratio_def
+      vars: {r: f, a: n, b: N}
+    inputs:
+      n: {not_stated: true, kind: constant, note: troponin-T positive events}
+      N: {not_stated: true, kind: constant, note: gated events}
+    output: S5_tnt_hipsc.values.tnt_text
+  S5_tnt_hesc.tnt_text:
+    item: S5_tnt_hesc
+    group: hesc
+    measure: troponin-T positive cells
+    formula: f = n/N
+    anchor:
+      quote: were 71% troponin-T positive
+      where: Results, EHM Generation
+    library:
+      formula: ratio_def
+      vars: {r: f, a: n, b: N}
+    inputs:
+      n: {not_stated: true, kind: constant}
+      N: {not_stated: true, kind: constant}
+    output: S5_tnt_hesc.values.tnt_text
+assumptions:
+  S9F_stiffness.modulus_human:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported: {linear_phase: The measurement occurs in the linear phase before the plateau phase begins}
+      small strain:
+        reported: not stated
+  S9F_stiffness.modulus_rat:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported: {linear_phase: The measurement occurs in the linear phase before the plateau phase begins}
+      small strain:
+        reported: not stated
+  F7_fold_text.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- {item: S3_ventricular, value: S3_ventricular.values.pct_text, formula: fraction_bounds}
+- {item: S3_ventricular, value: S3_ventricular.values.pct_legend, formula: fraction_bounds}
+- {item: S3_atrial, value: S3_atrial.values.pct, formula: fraction_bounds}
+- {item: S3_nodal, value: S3_nodal.values.pct, formula: fraction_bounds}
+- {item: S5_tnt_hipsc, value: S5_tnt_hipsc.values.tnt_text, formula: fraction_bounds}
+- {item: S5_tnt_hipsc, value: S5_tnt_hipsc.values.tnt_text2, formula: fraction_bounds}
+- {item: S5_tnt_hipsc, value: S5_tnt_hipsc.values.tnt_legend, formula: fraction_bounds}
+- {item: S5_tnt_hesc, value: S5_tnt_hesc.values.tnt_text, formula: fraction_bounds}
+- {item: S5_tnt_hesc, value: S5_tnt_hesc.values.tnt_text2, formula: fraction_bounds}
+- {item: F3F_compaction, value: F3F_compaction.values.compaction_9mm, formula: fraction_bounds}

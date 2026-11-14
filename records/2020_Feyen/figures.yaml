@@ -1,0 +1,437 @@
+figures:
+  s4a:
+    file: mmc1.pdf
+    page: 8
+    crop:
+    - 73.0
+    - 100.0
+    - 252.0
+    - 240.0
+    script: figures/s4a.py
+    unit: S4A
+    kind: raster
+    groups:
+      ik1_rpmi:
+        item: S4A_ik1
+        group: rpmi
+        unit_of_value: pA/pF
+      ik1_mm:
+        item: S4A_ik1
+        group: mm
+        unit_of_value: pA/pF
+      cap_rpmi:
+        item: S4A_capacitance
+        group: rpmi
+        unit_of_value: pF
+      cap_mm:
+        item: S4A_capacitance
+        group: mm
+        unit_of_value: pF
+    note: 'Fig. S4A dot plots (raster); markers overlap each other and the mean and error-bar lines, so no points (countable
+      false); mean lines and upper error-bar ends only (the legend does not say what the error bar is). Fig. S4B (IK1 density
+      vs capacitance, MM, item S4B_ik1_capacitance) is not read: 26 markers stand alone and 3 pairs overlap (32 markers, printed
+      n=32), so it is not countable under the raster rule.'
+  f4a:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 160.0
+    - 103.0
+    - 250.0
+    - 163.0
+    script: figures/f4a.py
+    unit: F4A
+    kind: raster
+    groups:
+      serca_rpmi:
+        item: F4A_serca
+        group: rpmi
+        unit_of_value: no axis title or unit printed
+      serca_mm:
+        item: F4A_serca
+        group: mm
+        unit_of_value: no axis title or unit printed
+      pln_rpmi:
+        item: F4A_pln
+        group: rpmi
+        unit_of_value: no axis title or unit printed
+      pln_mm:
+        item: F4A_pln
+        group: mm
+        unit_of_value: no axis title or unit printed
+      casq_rpmi:
+        item: F4A_casq
+        group: rpmi
+        unit_of_value: no axis title or unit printed
+      casq_mm:
+        item: F4A_casq
+        group: mm
+        unit_of_value: no axis title or unit printed
+      jph2_rpmi:
+        item: F4A_jph2
+        group: rpmi
+        unit_of_value: no axis title or unit printed
+      jph2_mm:
+        item: F4A_jph2
+        group: mm
+        unit_of_value: no axis title or unit printed
+    note: Fig. 4A bar chart (raster), mean +/- SEM with one dot per batch (n = 3). Dots overlap each other (SERCA2a and PLN
+      RPMI/B27) or sit on bar tops and error-bar caps (MM groups), so no points (countable false); bar means and upper SEM
+      ends only. The y axis has no printed title or unit (ticks 0-3; RPMI/B27 near 1, so presumably normalized to RPMI/B27).
+      The x label "CASLQ" is read as CASQ2.
+  f4c:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 388.0
+    - 100.0
+    - 556.0
+    - 168.0
+    script: figures/f4c.py
+    unit: F4C
+    kind: raster
+    groups:
+      serca_mm_sictr:
+        item: F4C_siserca_vs_sictr
+        group: mm_sictr
+        unit_of_value: CTD75-25 normalized
+      serca_mm_siserca:
+        item: F4C_siserca_vs_sictr
+        group: mm_siserca
+        unit_of_value: CTD75-25 normalized
+      rpmi_vs_mm_siserca:
+        item: F4C_siserca_vs_rpmi
+        group: mm_siserca
+        unit_of_value: CTD75-25 normalized
+      rpmi_vs_rpmi_siserca:
+        item: F4C_siserca_vs_rpmi
+        group: rpmi_siserca
+        unit_of_value: CTD75-25 normalized
+      pln_mm_sictr:
+        item: F4C_sipln_vs_sictr
+        group: mm_sictr
+        unit_of_value: CTD75-25 normalized
+      pln_mm_sipln:
+        item: F4C_sipln_vs_sictr
+        group: mm_sipln
+        unit_of_value: CTD75-25 normalized
+    note: Fig. 4C bar charts (raster), mean +/- SEM with one marker per well (n = 3 batches x 3 wells = 9). In every group
+      read, at least one marker touches the bar top, the mean line or an error-bar cap (black markers on black lines in MM
+      bars), so no points (countable false); bar means and upper SEM ends only. MM + siCtr is plotted in both the siSERCA2a
+      (left) and siPLN (right) charts, on different y scales; each item reads it from its own chart. MM + siSERCA2a is returned
+      under two labels, one per item. The y axis is "CTD75-25 normalized" with no reference stated.
+  f5c:
+    file: journal_version.pdf
+    page: 8
+    crop:
+    - 340.0
+    - 136.0
+    - 425.0
+    - 192.0
+    script: figures/f5c.py
+    unit: F5C
+    kind: raster
+    groups:
+      mm_wt:
+        item: F5C_fetal_ttn
+        group: mm_wt
+        unit_of_value: fold increase normalized to total TTN
+      mm_mut:
+        item: F5C_fetal_ttn
+        group: mm_mut
+        unit_of_value: fold increase normalized to total TTN
+    note: 'Fig. 5C bar chart (raster), mean +/- SEM with one black dot per batch (n = 3). Only the two maturation-media bars
+      are read (RBM20-WT and RBM20-R634Q). The dots are apart from each other but touch lines (MM WT dots sit on the mean/cap
+      band; the middle MM R634Q dot sits on the vertical error line); each is located from its column chords, which skip those
+      lines, and all 3 per group are found. MM R634Q: bar mean and upper SEM end. MM WT: mean and both caps merge into one
+      black band, so the mean is the band centre with the band as its interval and no error end is read.'
+  f5j:
+    file: journal_version.pdf
+    page: 8
+    crop:
+    - 440.0
+    - 270.0
+    - 537.0
+    - 309.0
+    script: figures/f5j.py
+    unit: F5J
+    kind: raster
+    groups:
+      lqt_mm:
+        item: F5J_lqt_vs_hd
+        group: mm_lqt
+        unit_of_value: ms
+      lqt_mm_media:
+        item: F5J_lqt_media
+        group: mm_lqt
+        unit_of_value: ms
+    note: 'Fig. 5J bar chart (raster), mean +/- SEM with one marker per well, circles and triangles = 2 batches; y axis "maximum
+      APD shortening" with no unit printed on the axis (the legend gives APD75 shortening in ms as change from untreated wells).
+      Only F1473C MM is read: 3 black triangles on the bar fill and 6 black circles below the bar stand alone (9 wells; legend
+      "2 batches, n = 3-6 wells each"); bar mean and upper SEM end (inside the bar). Returned under two labels, one per item.
+      Not read: HD1, HD2, HD3 (MM) and F1473C RPMI/B27, whose markers sit on the dotted zero line, the mean lines and the
+      caps and touch each other (not countable; no bar read). The record''s group mm_hd is three separate lines (HD1-HD3)
+      here, so even a reading would not be one group.'
+  s2b:
+    file: mmc1.pdf
+    page: 4
+    crop:
+    - 330.0
+    - 300.0
+    - 410.0
+    - 392.0
+    script: figures/s2b.py
+    unit: S2B
+    kind: raster
+    groups:
+      rpmi:
+        item: S2B_cTnT_mfi
+        group: rpmi
+        unit_of_value: no unit printed (axis "cTnT mean fluo. intensity")
+      mm:
+        item: S2B_cTnT_mfi
+        group: mm
+        unit_of_value: no unit printed (axis "cTnT mean fluo. intensity")
+    note: 'Fig. S2B right chart (raster, whole page is one image), bar mean +/- error bar with one filled circle per batch
+      (n = 4). All 4 circles per group found; they are apart from each other, but in each group one sits on the upper cap
+      and one on the vertical error line or lower cap (same colour as the circles), so the script opens the lines away (9
+      px disc) and centres each circle on its off-line chords. Point means (29.8k RPMI/B27, 87.8k MM) agree with the bar tops
+      (29.6k, 87.7k); bar-to-cap distances (6.2k, 8.3k) equal the SEM of the points (5.9k, 8.2k), matching the Methods (mean
+      +/- SEM). Y axis has no unit. The left chart (% cTnT positive cells, item S2B_purity) is not read: its values are printed
+      in the text.'
+  s2d:
+    file: mmc1.pdf
+    page: 4
+    crop:
+    - 318.0
+    - 418.8
+    - 412.0
+    - 545.0
+    script: figures/s2d.py
+    unit: S2D
+    kind: raster
+    groups:
+      rpmi:
+        item: S2D_atp
+        group: rpmi
+        unit_of_value: pmol/s*ml
+      mm:
+        item: S2D_atp
+        group: mm
+        unit_of_value: pmol/s*ml
+    note: 'Fig. S2D right chart (raster, whole page is one image), ATP Production pair only: bar mean +/- error bar with one
+      marker per batch (n = 4; RPMI/B27 grey squares, MM black circles). The markers are apart from each other but some sit
+      on error-bar lines (RPMI/B27: one square on the vertical line and lower cap; MM: one circle on the upper cap, one touching
+      it, two on the lower cap), so the script opens the lines away (9 px disc) and centres each marker on its blob and off-line
+      chords, as in s2b. The y axis has no tick marks; it is calibrated from the six tick-label centres. Axis unit printed
+      as "OCR (pmol/s*ml)" (the left time-course chart says pmol/min). Basal respiration, maximal respiration and proton leak
+      are not read: no record item rests on them.'
+  s6b:
+    file: mmc1.pdf
+    page: 12
+    crop:
+    - 330.0
+    - 118.0
+    - 408.0
+    - 208.0
+    script: figures/s6b.py
+    unit: S6B
+    kind: raster
+    groups:
+      rpmi:
+        item: S6B_scn5a
+        group: rpmi
+        unit_of_value: ratio adult/fetal isoform
+      mm:
+        item: S6B_scn5a
+        group: mm
+        unit_of_value: ratio adult/fetal isoform
+    note: 'Fig. S6B (raster, whole page is one image), bar mean +/- error bar with one filled circle per batch (n = 4, printed
+      n=4 batches). All 4 circles per group found; they are apart from each other, but some sit on error-bar lines of their
+      own colour (RPMI/B27: one on the vertical line, one on the lower cap; MM: one touching the upper cap, one on the vertical
+      line, one at each end of the lower cap), so the script opens the lines away (9 px disc) and centres each circle on its
+      off-line chords, as in s2b and s2d. Point means (5.42 RPMI/B27, 13.24 MM) agree with the bar tops (5.41, 13.24); bar-to-cap
+      distances (2.81, 1.72) equal the SD of the points (2.79, 1.74), not their SEM (1.39, 0.87), so the error bars here look
+      like SD, although the Methods say data are mean +/- SEM (the S6 legend does not say). Y axis calibrated from its five
+      tick marks; axis title "SCN5a expression (ratio adult/fetal isoform)".'
+  s6f:
+    file: mmc1.pdf
+    page: 12
+    crop:
+    - 190.0
+    - 320.0
+    - 268.0
+    - 398.0
+    script: figures/s6f.py
+    unit: S6F
+    kind: raster
+    groups:
+      rpmi:
+        item: S6F_gmax
+        group: rpmi
+        unit_of_value: nS
+      mm:
+        item: S6F_gmax
+        group: mm
+        unit_of_value: nS
+    note: 'Fig. S6F (raster, whole page is one image), bar mean +/- SEM (S6 legend) with one filled circle per cell; the legend
+      prints no n. 9 RPMI/B27 and 7 MM circles found, all apart from each other; some sit on error-bar lines of their own
+      colour (RPMI/B27: one on the vertical line at the bar top, one at each end of the lower cap, one touching the upper
+      cap; MM: one on the vertical line, one where it meets the lower cap, one touching the lower cap''s right end), so the
+      script opens the lines away (9 px disc) and centres each circle on its off-line chords, as in s6b. Point means (34.75
+      RPMI/B27, 50.85 MM) agree with the bar tops (34.75, 50.95); bar-to-cap distances (6.48, 14.02) equal the SEM of the
+      points (6.44, 13.99). Y axis calibrated from its four tick marks; axis title "Gmax (nS)"; x labels "RPMI -AbsG", "MM
+      -AbsG".'
+  s7c:
+    file: mmc1.pdf
+    page: 14
+    crop:
+    - 412.0
+    - 115.0
+    - 460.0
+    - 200.0
+    script: figures/s7c.py
+    unit: S7C
+    kind: raster
+    groups:
+      ctr:
+        item: S7C_mtdna
+        group: ctr
+        unit_of_value: mt-DNA ND1/g-actin (no unit printed)
+      mm:
+        item: S7C_mtdna
+        group: mm
+        unit_of_value: mt-DNA ND1/g-actin (no unit printed)
+    note: 'Fig. S7C left panel (raster, whole page is one image), bar mean +/- SEM (S7 legend) with one marker per EHT, shape
+      = batch; the legend prints no n. 10 ctr and 9 MM markers found, none touching another; some sit on error-bar lines of
+      their own colour (ctr: diamonds on the upper cap''s right end and the lower cap''s left end; MM: a diamond on the vertical
+      line, a circle on the lower cap), so those components are opened with a 9 px disc as in s6b/s6f. Point means (200.7
+      ctr, 267.0 MM) agree with the bar tops (200.7, 266.7); bar-to-cap distances (27.2, 46.6) are near the SEM of the points
+      (26.0, 46.2). Y axis calibrated from its five tick marks; axis title "mt-DNA ND1/g-actin". The right panel (ND2/g-actin)
+      is not read: the record has one item (S7C_mtdna) for ND1 and ND2, so its points would pool with ND1''s.'
+  s7f:
+    file: mmc1.pdf
+    page: 14
+    crop:
+    - 395.0
+    - 325.0
+    - 512.0
+    - 392.0
+    script: figures/s7f.py
+    unit: S7F
+    kind: raster
+    groups:
+      ctr_b1:
+        item: S7F_beatrate
+        group: ctr
+        unit_of_value: BPM
+      ctr_b2:
+        item: S7F_beatrate
+        group: ctr
+        unit_of_value: BPM
+      ctr_b3:
+        item: S7F_beatrate
+        group: ctr
+        unit_of_value: BPM
+      mm_b1:
+        item: S7F_beatrate
+        group: mm
+        unit_of_value: BPM
+      mm_b2:
+        item: S7F_beatrate
+        group: mm
+        unit_of_value: BPM
+      mm_b3:
+        item: S7F_beatrate
+        group: mm
+        unit_of_value: BPM
+    note: 'Fig. S7F (raster, whole page is one image ~406 dpi), bar mean +/- SEM (S7 legend) per batch (batch1-3, ctr and
+      MM each) with one marker per EHT (legend n=3-8 EHTs; circles, squares, triangles = batch); each batch bar is a label
+      mapped to the item''s ctr or mm group. Markers counted: ctr 3/8/7 (18), MM 3/6/5 (14), within the printed n=3-8. No
+      marker touches another; some sit on error-bar lines of their own colour (ctr b1 circle on the upper cap, ctr b2 square
+      on the vertical line, ctr b3 triangle on the lower cap, MM b2 square on the vertical line, MM b3 two triangles on the
+      caps), so those components are opened with a 7 px disc as in s7c. Point means agree with bar tops for circles and squares
+      (b1, b2: within 0.1 BPM) and SEMs of the points agree with bar-to-cap distances in every bar (e.g. MM b2 7.77 vs 7.79);
+      for triangles (b3) point means sit ~0.5 BPM below the bar top in both groups (ctr 42.05 vs 42.53, MM 26.52 vs 27.02),
+      suggesting the plotted value lies near or slightly above the triangle''s box middle rather than between box middle and
+      centroid as read. Y axis calibrated from its six tick marks.'
+  s7h:
+    file: mmc1.pdf
+    page: 14
+    crop:
+    - 450.0
+    - 432.0
+    - 530.0
+    - 522.0
+    script: figures/s7h.py
+    unit: S7H
+    kind: raster
+    groups:
+      ctr:
+        item: S7H_bmhc
+        group: ctr
+        unit_of_value: b-MHC/ cTNT and normalized to mean of control-EHTs per batch
+      mm:
+        item: S7H_bmhc
+        group: mm
+        unit_of_value: b-MHC/ cTNT and normalized to mean of control-EHTs per batch
+    note: 'Fig. S7H right panel only (b-MHC; raster, whole page is one image ~406 dpi, rendered at 600 dpi), bar mean +/-
+      SEM (S7 legend) with one circle per EHT; batches are pooled in one bar per group and all markers are circles, so batch
+      is not recoverable. Markers counted: ctr 5, MM 5; legend prints "3 batches, n=2-4 EHT each", and the S7G blot has 2+1+2
+      lanes per group, i.e. 5 per group. No marker touches another; three ctr and two MM circles sit on the error bar of their
+      own colour, so those components are opened with a 15 px disc (lines ~8-9 px, circles ~24 px). The left panel (a-MHC,
+      item S7H_amhc) is not listed by figures-needed and is not read.'
+no_points:
+  F5I: 'Raster bar chart (mean +/- SEM, image ~300 dpi) with one marker per well, but the markers do not stand alone, so it
+    is not readable under the raster rule: HD2 MM markers overlap each other in a chain along the bar top; HD1 MM markers
+    touch each other and the bar top; F1473C RPMI/B27 grey markers sit on the same-grey SEM caps and bar top; F1473C MM black
+    markers sit on the black error line, both caps and the mean line. Bars and error bars only for every compared group.'
+  F6C: 'Raster bar charts (mean +/- SEM, image ~300 dpi; journal_version.pdf p. 9) with one marker per EHT (circles, squares,
+    triangles = 3 batches), but the markers do not stand alone in any group read, so it is not readable under the raster rule:
+    force ctr grey markers sit on the same-grey mean line and SEM caps and touch each other; force MM black markers sit on
+    the black upper cap and vertical error line (one square at the mean); BPM ctr grey markers stack on the vertical error
+    line and caps (two squares touching near 60-70 BPM); BPM MM black circles and triangles sit on the upper cap and mean
+    line. Bars and error bars only for every compared group; no printed values in the text or supplement.'
+  F6D: 'Raster bar charts (mean +/- SEM, image ~300 dpi; journal_version.pdf p. 9, TTP80% panel ~x 405-465, y 235-310 pt)
+    with one marker per EHT (circles, squares, triangles = 3 batches), but the markers do not stand alone, so it is not readable
+    under the raster rule: control grey markers merge with the same-grey upper SEM cap (a circle and a triangle at ~0.152
+    s) and sit beside the vertical error line; MM black markers abut with no fill-level gap between them (two stacked circles
+    near 0.19 s; two stacked triangles near 0.147 s) and one triangle abuts the lower SEM cap (~0.168 s). MM shows 10 markers
+    (1 square, 4 circles, 5 triangles) against the printed n = 9. Bars and error bars only for both compared groups; no printed
+    values in the text or supplement.'
+  S5D: 'Raster bar chart (mmc1.pdf p. 10, whole figure one image ~400 dpi; Diastolic Calcium panel ~x 190-255, y 300-385 pt),
+    mean +/- error bar with one marker per cell (RPMI/B27 grey, MM black), but the markers do not stand alone, so it is not
+    readable under the raster rule: both groups are dense beeswarms (on the order of 90 markers each) whose markers touch
+    and overlap each other and sit on the same-colour error-bar lines and caps. Bars and error bars only for both compared
+    groups; no printed values for this panel in the text or supplement.'
+  F6B: 'first look (small model): Line plot of means with SEM error bars; no per-sample points. (nihms-1613944.pdf p. 30)'
+  S1D: 'first look (small model): Panel D shows means with error bars and connecting lines, no per-sample points (mmc1.pdf p. 2)'
+  S1F: 'first look (small model): Panel F shows connected mean markers with error bars, no individual points. (mmc1.pdf p. 2)'
+  S6A: 'first look (small model): Dose-response curves with mean markers and error bars; no per-sample dots. (mmc1.pdf p. 12)'
+  S6G: 'Raster bar chart (mmc1.pdf p. 12, whole page one image ~280 dpi; panel ~x 285-380, y 322-392 pt), mean +/- SEM (S6
+    legend) with one filled circle per cell (legend prints no n), but the markers do not stand alone, so it is not readable
+    under the raster rule: RPMI/B27 grey circles merge with each other in pairs and triplets (near 17 and 20 pF) and sit on
+    the same-grey mean line and SEM caps in a dense band near 5-13 pF; MM black circles touch in vertical pairs (below the
+    lower cap, and two between the caps) and sit on the black upper and lower caps. Bars and error bars only for both compared
+    groups; no printed values in the text or supplement.'
+  S7A: 'first look (small model): Time-course line plots with mean markers and SEM error bars only (mmc1.pdf p. 14)'
+  S7E: 'Raster bar chart (mmc1.pdf p. 14, whole page one image ~400 dpi; panel ~x 380-520, y 228-302 pt), mean +/- error bar
+    per batch (batch1-3, ctr and MM each) with one marker per EHT (legend n=3-8 EHTs), but the markers do not stand alone
+    in every batch, so neither pooled group (ctr, mm) is readable under the raster rule: batch1 MM black circles sit on the
+    black mean line and upper cap and touch the bar top; batch3 ctr grey triangles overlap each other in a chain on the same-grey
+    mean line and caps; batch3 MM black triangles sit on the black caps and touch each other; batch2 ctr grey squares sit
+    on the same-grey vertical error line and lower cap. Only batch2 MM (6 black squares) stands mostly alone, one square on
+    the black error line. Bars and error bars only; no printed values in the text or supplement.'
+  S4A: 'Fig. S4B (mmc1.pdf p. 8, raster; the only S4A-unit panel still needed, item S4B_ik1_capacitance/mm) is a scatter of
+    IK1 density against capacitance, one black marker per MM cell (printed n=32) with a regression line and printed slope=0.00+/-0.03,
+    r=0.023, p=0.902, but the markers do not all stand alone: lone markers are ~54 px2 at 300 dpi and several blobs are merged
+    pairs (~97-106 px2), so it is not readable under the raster rule. A regression line and printed fit statistics only; no
+    points. The S4A dot plots are already read as bars only (figures/s4a.py).'
+  F5J: 'Fig. 5J (journal_version.pdf p. 8, raster ~300 dpi; the nihms copy embeds its figure at about the same resolution). The
+    F1473C MM bar is already read with its 9 points (figures/f5j.py, group mm_lqt). The groups still needed are not readable
+    under the raster rule. RPMI/B27 F1473C (rpmi_lqt): the bar spans 0 to roughly -70 ms (about 10 px). Its grey markers (darkness ~130) sit
+    in a bar fill ~75 and touch the bar border, the dotted zero line (two of them at its lower edge) and the bar-bottom line.
+    Only 2 triangles are visible, below the bar, against the legend''s n = 3-6 wells per batch, so at least one marker is
+    hidden. HD1, HD2 and HD3 MM (mm_hd): values near 0, and the black markers merge with the black dots of the dotted zero
+    line and with each other in one dark band. mm_hd is also three bars (HD1-HD3) in the figure, not one group. Bars and
+    error bars only for these groups; no values are printed in the text or the supplement.'

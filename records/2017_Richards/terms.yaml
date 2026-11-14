@@ -1,0 +1,329 @@
+record: 2017_Richards
+vocabulary_version: 46
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- platform
+- add_synonym:
+    id: platform:cell_aggregate
+    text: spherical microtissue
+    anchor: to facilitate the formation of spherical microtissues
+- add_qualifier: {id: platform:cell_aggregate, name: mold, dimension: text}
+- add_term:
+    field: platform
+    id: platform:organoid_macrotissue
+    label: organoid aggregate macrotissue
+    parent: platform:cell_aggregate
+    definition: A larger scaffold-free tissue formed by placing several preformed spheroids or organoids together so that they fuse.
+    scope: Several aggregates fused into one tissue; a single spheroid or organoid stays on the parent term.
+    qualifiers: {number_of_aggregates: {dimension: text}}
+    synonyms:
+    - {text: organoid aggregate macrotissues, anchor: Organoid aggregate macrotissues were embedded in OCT}
+# ---------------------------------------------------------------- cells
+- add_synonym:
+    id: cell_line:icell_cardiomyocytes
+    text: iCell Cardiomyocytes
+    anchor: (hiPSC-CMs) (iCell Cardiomyocytes, Cellular Dynamics International-CDI
+- add_synonym:
+    id: CL:2000066
+    text: cFBs
+    anchor: human ventricular cardiac fibroblasts (cFBs)
+- adopt:
+    field: stromal_cell
+    id: CL:0002570
+    label: mesenchymal stem cell of adipose tissue
+    lookup: already adopted in cell_types for hADSCs; check-id CL:0002570 (CL 2026-06-08), second field stromal_cell because the reader records hADSCs as the added stromal cells
+- adopt:
+    field: endothelial_cell
+    id: CL:2000072
+    label: adipose microvascular endothelial cell
+    lookup: lookup cl "microvascular endothelial cell" listed CL:2000072 adipose microvascular endothelial cell, matching human adipose-derived microvascular endothelial cells
+    synonyms:
+    - {text: HAMECs, anchor: microvascular endothelial cells (HAMECs)}
+# ---------------------------------------------------------------- preparation, media
+- add_synonym:
+    id: preparation:intact_tissue
+    text: whole spheroid
+    anchor: the videos of the calcium transient of whole spheroids
+- add_synonym:
+    id: preparation:rna_extract
+    text: RNA isolation
+    anchor: 10 spheroids were used for RNA isolation
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:calcium_kit_buffer
+    label: calcium indicator kit buffer
+    parent: measurement_medium:assay_medium
+    definition: The assay buffer supplied with a commercial calcium indicator staining kit, in which the dye and any drugs are diluted for imaging.
+    scope: The buffer of a calcium dye kit; not FluoroBrite DMEM or the Seahorse XF assay medium.
+    synonyms:
+    - {text: calcium buffer, anchor: diluted in the calcium buffer provided in the calcium staining}
+- add_term:
+    field: cm_medium
+    id: cm_medium:dmem_f12
+    label: DMEM/F12
+    parent: cm_medium:dmem
+    definition: A basal medium made of DMEM and Ham's F-12 mixed 1:1.
+    scope: Plain DMEM/F12; the Advanced DMEM/F12 formulation is its own term, and plain DMEM stays on the parent.
+    synonyms:
+    - {text: DMEM/F12, anchor: DMEM/F12 media with varying amounts of FBS was prepared}
+- add_synonym:
+    id: cm_medium:mixed_cell_type_medium
+    text: ratiometric combination of cell-specific media
+    anchor: a ratiometric combination of cell-specific media reflecting the cell ratio of the organoid
+- adopt_own:
+    field: supplements
+    id: supplements:serum_free
+    label: serum-free
+    definition: No serum is added to the medium.
+    scope: The absence of serum; a named serum (fetal bovine serum, horse serum, serum of unstated type) or a serum replacement (KnockOut Serum Replacement, B27) is its own term.
+    lookup: lookup chebi "serum" gave only antisera and serum proteins; the absence of serum is a state, not a compound
+- adopt_own:
+    field: treatment
+    id: treatment:simulated_ischemia
+    label: simulated ischemia
+    definition: An in vitro exposure meant to mimic ischemia, such as low oxygen with glucose and serum deprivation, for a stated duration.
+    lookup: lookup chebi "ischemia" found nothing; an exposure regime, not a compound
+    scope: A combined ischemia-mimicking exposure; a single drug, growth factor or energy-substrate withdrawal alone (no energy substrate) is its own term, and its oxygen level goes to incubator_atmosphere.
+    qualifiers: {duration: {dimension: time}}
+    synonyms:
+    - text: ischemic stimulus
+      anchor: 'For ischemic stimulus, microtissues were rinsed in low glucose DMEM'
+# ---------------------------------------------------------------- measures
+- add_term:
+    field: measure
+    id: measure:cell_type_fraction_by_number
+    label: cell type fraction by number
+    definition: Share of a tissue's cells, counted by number, that are of a stated cell type (qualifier cell_type), by any counting method.
+    scope: A count-based share of cells of one type in a tissue; not a share assigned by clustering single-cell data (proportion of cells assigned to a cell type), not a fraction positive for one marker (marker-positive cells).
+    dimension: dimensionless
+    qualifiers: {cell_type: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:beating_regularity
+    label: regularity of beating
+    definition: How regular the rhythm of a construct's spontaneous contractions is, judged from contraction traces.
+    scope: Rhythm regularity of beating; not the beat rate (contraction frequency), not the interval between beats (inter-beat interval) and not the incidence of arrhythmias.
+    dimension: categorical
+    synonyms:
+    - text: regularity of beating
+      anchor: 'significantly higher contraction amplitude (i.e., fractional area change) and regularity of beating than adult ratio organoids'
+- add_term:
+    field: measure
+    id: measure:lumens_per_construct
+    label: lumens per construct
+    definition: Number of lumen structures lined by marker-positive endothelial cells (qualifier marker) counted per spheroid, organoid or construct.
+    scope: A lumen count per construct; not vessels per area or field (vessel count density), not tubes on a gel (tube formation).
+    dimension: dimensionless
+    qualifiers: {marker: {dimension: text}}
+    synonyms:
+    - {text: lumens per organoid, anchor: lumens per organoid a was calculated as the number}
+- add_term:
+    field: measure
+    id: measure:lumen_formation
+    label: lumen formation
+    definition: Presence or appearance of lumen-like structures lined by marker-positive endothelial cells (qualifier marker) in a construct, judged from images.
+    scope: Qualitative lumens from images; a count per construct is lumens per construct, vessels in implants are vessel perfusion or vessel counts.
+    dimension: categorical
+    qualifiers: {marker: {dimension: text}}
+    synonyms:
+    - {text: lumen formation, anchor: structures and lumen formation demonstrated}
+- add_term:
+    field: measure
+    id: measure:endothelial_network_formation
+    label: endothelial network formation
+    definition: Presence or extent of connected networks of marker-positive endothelial cells (qualifier marker) inside a construct, judged from images.
+    scope: Endothelial networks inside a construct; not tubes formed on a gel (tube formation), not lumens (lumen formation) and not a stained area ratio.
+    dimension: categorical
+    qualifiers: {marker: {dimension: text}}
+    synonyms:
+    - {text: endothelial network formation, anchor: CD31-positive endothelial network formation by D10}
+- add_term:
+    field: measure
+    id: measure:constructs_with_feature
+    label: constructs showing a feature
+    definition: Number of constructs, out of those examined, that show a stated structural feature (qualifier criterion).
+    scope: Constructs counted for a structural feature; not usable constructs per substrate (usable construct count) and not constructs that beat (fraction of constructs beating).
+    dimension: dimensionless
+    qualifiers: {criterion: {dimension: text}}
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:cell_type_fraction_by_number
+    value: {must_match: [species, platform@1, donor_age, measure.cell_type], may_vary: [method]}
+    direction: {must_match: [contrast, measure.cell_type]}
+- standing_key:
+    measure: measure:beating_regularity
+    value: {must_match: [platform@1, pacing, treatment, genotype, disease_model], may_vary: [day_of_measurement]}
+    direction: {must_match: [contrast, pacing]}
+- standing_key:
+    measure: measure:lumens_per_construct
+    value: {must_match: [platform@1, preparation, day_of_measurement, measure.marker], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.marker]}
+- standing_key:
+    measure: measure:lumen_formation
+    value: {must_match: [platform@1, preparation, measure.marker]}
+    direction: {must_match: [contrast]}
+- standing_key:
+    measure: measure:endothelial_network_formation
+    value: {must_match: [platform@1, preparation, measure.marker]}
+    direction: {must_match: [contrast]}
+- standing_key:
+    measure: measure:constructs_with_feature
+    value: {must_match: [platform@1, preparation, day_of_measurement, measure.criterion]}
+    direction: {must_match: [contrast, measure.criterion]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: donor_age
+  stated: developing stage
+  flag: {kind: placeholder, note: "'developing stage' names no age; the cited studies' heart stage (fetal, neonatal, ...) should be read from refs 45-47 or left not stated"}
+- field: composition
+  stated: developing stage cell ratio
+  flag: {kind: placeholder, note: "stands for a ratio printed elsewhere (5:4:1 hiPSC-CMs:cFBs:HUVECs, or 50/29/14/7 % with hADSCs); write the numbers for unit S8"}
+- field: cm_medium
+  stated: cell-specific media
+  flag: {kind: placeholder, note: "stands for a different named medium in each group (Methods: iCell Cardiomyocytes Maintenance Medium or DMEM/F12 + 10% FBS for CMs, FGM-3 for cFBs, EGM-2 for HUVECs); write each group's medium"}
+- field: day_of_measurement
+  stated: D0
+  flag: {kind: placeholder, note: "code's quantity parser does not read 'D0' (a digit after a letter; 'D10' parses only by accident); the paper also prints 'Day 0', which code reads"}
+- field: cm_medium
+  stated: low glucose DMEM
+  terms: [cm_medium:dmem]
+  qualifiers: {formulation: low glucose}
+- field: incubator_atmosphere
+  stated: normoxia
+  flag: {kind: placeholder, note: "a word, not a gas level; Fig. 3G legend prints 21% O2 for normoxic controls, Methods of the ischemia study say only 'normoxia'"}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: cardiac cell type fraction (by number)
+  terms: [measure:cell_type_fraction_by_number]
+  note: literature-reported cell ratios of developing and adult hearts (Fig. 2A); the cell type is per value
+- field: measure
+  stated: contraction amplitude
+  terms: [measure:fractional_area_change]
+  note: defined as the percent change in fractional area between contraction and relaxation ("contraction amplitude (i.e., fractional area change)")
+- field: measure
+  stated: fraction of organoids beating
+  terms: [measure:beating_construct_fraction]
+  qualifiers: {mode: spontaneous}
+- field: measure
+  stated: sarcomere formation (Z-line formation)
+  terms: [measure:sarcomere_organisation]
+- field: measure
+  stated: sarcomere Z-line banding
+  terms: [measure:sarcomere_organisation]
+- field: measure
+  stated: sarcomere organization (Z-line width)
+  terms: [measure:sarcomere_organisation]
+  note: images only, judged by eye; the Z-line width is not measured here, so not Z-disk width
+- field: measure
+  stated: TUNEL-based viability index
+  terms: [measure:cell_viability]
+  note: 1 - TUNEL-positive area / DAPI-positive area
+- field: measure
+  stated: TUNEL-based viability
+  terms: [measure:cell_viability]
+- field: measure
+  stated: vWF-positive area (normalized over spheroid area)
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: vWF, normalised_to: spheroid area}
+- field: measure
+  stated: CD31-positive endothelial network formation
+  terms: [measure:endothelial_network_formation]
+  qualifiers: {marker: CD31}
+- field: measure
+  stated: vWF-positive endothelial networks
+  terms: [measure:endothelial_network_formation]
+  qualifiers: {marker: vWF}
+- field: measure
+  stated: vWF-positive lumens per organoid
+  terms: [measure:lumens_per_construct]
+  qualifiers: {marker: vWF}
+- field: measure
+  stated: lumen-like structures
+  terms: [measure:lumen_formation]
+  qualifiers: {marker: vWF}
+- field: measure
+  stated: lumen-like regions in serial confocal images
+  terms: [measure:lumen_formation]
+  qualifiers: {marker: vWF}
+- field: measure
+  stated: CD31-positive vessel structures
+  terms: [measure:lumen_formation]
+  qualifiers: {marker: CD31}
+  note: 3D reconstruction of a CD31-positive vessel with open lumens
+- field: measure
+  stated: density of vWF-positive cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: vWF}
+  note: images only, stated direction
+- field: measure
+  stated: vimentin density in α-SA-positive regions
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: vimentin, normalised_to: α-SA-positive area}
+- field: measure
+  stated: collagen I-positive fraction area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: collagen I, normalised_to: spheroid area}
+- field: measure
+  stated: fibronectin-positive fraction area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: fibronectin, normalised_to: spheroid area}
+- field: measure
+  stated: laminin-positive fraction area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: laminin, normalised_to: spheroid area}
+- field: measure
+  stated: cTnI/α-SA fraction area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: cTnI, normalised_to: α-SA-covered area}
+- field: measure
+  stated: MLC-2v/α-SA fraction area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: MLC-2v, normalised_to: α-SA-covered area}
+- field: measure
+  stated: microtissues with extended Z-line width (>10 μm)
+  terms: [measure:constructs_with_feature]
+  qualifiers: {criterion: Z-line width > 10 μm}
+- field: measure
+  stated: IL6 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: IL6}
+- field: measure
+  stated: VEGFA mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: VEGFA}
+- field: measure
+  stated: VEGFR2 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: VEGFR2}
+- field: measure
+  stated: TNNI3/TNNI1 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3/TNNI1}
+  note: a ratio of two isoform transcripts; the gene qualifier carries the ratio so only the same ratio matches
+- field: measure
+  stated: MYL2/MYL7 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYL2/MYL7}
+  note: a ratio of two transcripts; the gene qualifier carries the ratio
+- field: measure
+  stated: normalized F/F0
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: normalised, normalised_to: F/F0 of the baseline transient before treatment}
+- field: measure
+  stated: arrhythmogenic activity
+  terms: [measure:arrhythmia_incidence]
+  qualifiers: {outcome: arrhythmogenic activity, counted: organoids}
+- field: measure
+  stated: time to peak calcium
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: start to peak}
+- field: measure
+  stated: time to 50% calcium decay
+  terms: [measure:calcium_transient_duration]
+  qualifiers: {level: 50% decay}
+  note: defined from the start of the transient to half-peak of the decay, so a duration at 50 % decay, not a decay time from the peak
+- field: measure
+  stated: normalized beat rate
+  terms: [measure:contraction_frequency]
+  qualifiers: {expressed_as: normalised}
+  note: normalisation not stated (presumably to the pre-drug rate); values carry their own

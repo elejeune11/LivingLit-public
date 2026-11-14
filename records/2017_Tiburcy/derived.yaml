@@ -1,0 +1,1566 @@
+record: 2017_Tiburcy
+formula_library_version: 13
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F2c_hes2_time.foc_csa_hes2_w2:
+    item: F2c_hes2_time
+    group: hes2_w2
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: &id001
+      quote: we opted to correct FOC by CSA to allow a direct
+      where: Results, functional maturation
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_hes2/hes2_w2_4
+        x: '4'
+        kind: per sample
+        note: uncorrected FOC (Suppl. Fig. 6c) at the highest calcium read, 4 mmol/L
+      A:
+        reading: S6/S6b_hes2_w4_hes2_w2/hes2_w2
+        kind: per sample
+        note: EHM CSA (Suppl. Fig. 6b)
+    output_unit: mN/mm2
+    aggregation: not stated
+    note: No printed value for this group; rebuilt for the chain. Fig. 2c readings at 4 mmol/L calcium are the paper's own
+      per-CSA values for this group. How CSA was measured is not stated.
+  F2c_hes2_time.foc_csa_hes2_w4:
+    item: F2c_hes2_time
+    group: hes2_w4
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_hes2/hes2_w4_4
+        x: '4'
+        kind: per sample
+        note: uncorrected FOC (Suppl. Fig. 6c) at the highest calcium read, 4 mmol/L
+      A:
+        reading: S6/S6b_hes2_w4_hes2_w2/hes2_w4
+        kind: per sample
+        note: EHM CSA (Suppl. Fig. 6b)
+    output_unit: mN/mm2
+    aggregation: not stated
+    note: No printed value for this group; rebuilt for the chain. Fig. 2c readings at 4 mmol/L calcium are the paper's own
+      per-CSA values for this group. How CSA was measured is not stated.
+  F2c_hes2_time.foc_csa_hes2_w6:
+    item: F2c_hes2_time
+    group: hes2_w6
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_hes2/hes2_w6_4
+        x: '4'
+        kind: per sample
+        note: uncorrected FOC (Suppl. Fig. 6c) at the highest calcium read, 4 mmol/L
+      A:
+        reading: S6/S6b_hes2_w6_hes2_w4/hes2_w6
+        kind: per sample
+        note: EHM CSA (Suppl. Fig. 6b)
+    output_unit: mN/mm2
+    aggregation: not stated
+    note: No printed value for this group; rebuilt for the chain. Fig. 2c readings at 4 mmol/L calcium are the paper's own
+      per-CSA values for this group. How CSA was measured is not stated.
+  F2c_g1_time.foc_csa_g1_w2:
+    item: F2c_g1_time
+    group: g1_w2
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_g1/g1_w2_4
+        x: '4'
+        kind: per sample
+        note: uncorrected FOC (Suppl. Fig. 6c) at the highest calcium read, 4 mmol/L
+      A:
+        reading: S6/S6b_g1_w4_g1_w2/g1_w2
+        kind: per sample
+        note: EHM CSA (Suppl. Fig. 6b)
+    output_unit: mN/mm2
+    aggregation: not stated
+    note: No printed value for this group; rebuilt for the chain. Fig. 2c readings at 4 mmol/L calcium are the paper's own
+      per-CSA values for this group. How CSA was measured is not stated.
+  F2c_g1_time.foc_csa_g1_w4:
+    item: F2c_g1_time
+    group: g1_w4
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_g1/g1_w4_4
+        x: '4'
+        kind: per sample
+        note: uncorrected FOC (Suppl. Fig. 6c) at the highest calcium read, 4 mmol/L
+      A:
+        reading: S6/S6b_g1_w4_g1_w2/g1_w4
+        kind: per sample
+        note: EHM CSA (Suppl. Fig. 6b)
+    output_unit: mN/mm2
+    aggregation: not stated
+    note: No printed value for this group; rebuilt for the chain. Fig. 2c readings at 4 mmol/L calcium are the paper's own
+      per-CSA values for this group. How CSA was measured is not stated.
+  F2c_g1_time.foc_csa_g1_w8:
+    item: F2c_g1_time
+    group: g1_w8
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_g1/g1_w8_4
+        x: '4'
+        kind: per sample
+        note: uncorrected FOC (Suppl. Fig. 6c) at the highest calcium read, 4 mmol/L
+      A:
+        reading: S6/S6b_g1_w8_g1_w2/g1_w8
+        kind: per sample
+        note: EHM CSA (Suppl. Fig. 6b)
+    output_unit: mN/mm2
+    aggregation: not stated
+    note: No printed value for this group; rebuilt for the chain. Fig. 2c readings at 4 mmol/L calcium are the paper's own
+      per-CSA values for this group. How CSA was measured is not stated.
+  F2c_g1w8_infant.foc_csa:
+    item: F2c_g1w8_infant
+    group: g1_w8
+    measure: maximal FOC per cross sectional area
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: S6/S6c_g1/g1_w8_4
+        x: '4'
+        kind: per sample
+        note: maximal FOC taken at the highest calcium read (4 mmol/L), where the hiPS-G1 week-8 curve peaks
+      A:
+        reading: S6/S6b_g1_w8_g1_w2/g1_w8
+        kind: per sample
+    output: F2c_g1w8_infant.values.foc_w8_text
+    aggregation: not stated
+    alternatives:
+    - label: maximal FOC per EHM over calcium rather than at 4 mmol/L
+      note: '''average maximal FOC'' may take each EHM''s own maximum; readings give group means only'
+    note: Same value printed again as F2c_g1w8_adult.values.foc_w8_text.
+  F4a_foc.foc_csa:
+    item: F4a_foc
+    measure: FOC per cross sectional area
+    formula: s = F/A
+    anchor: not stated
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+      A:
+        not_stated: true
+        kind: per sample
+        note: no CSA reported for the Fig. 4 EHM
+    note: Per-CSA from the axis unit (mN/mm²) as recorded; the Fig. 4a legend says only 'FOC'.
+  F2d_sf2_sf1.ffr:
+    item: F2d_sf2_sf1
+    measure: force of contraction (% change vs 1 Hz)
+    formula: d = (F - F1)/F1
+    anchor: &id002
+      quote: +22±6% at 3 Hz versus 1 Hz
+      where: Results, functional maturation
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F1
+    inputs:
+      F:
+        reading: F2d_ffr/F2d_sf2_sf1/sf2
+        x: '2'
+        kind: per sample
+      F1:
+        reading: F2d_ffr/F2d_sf2_sf1/sf1
+        x: '1'
+        kind: per sample
+        note: the plotted 1 Hz value is the reference (% of FOC at 1 Hz)
+    output: F2d_sf2_sf1.values.ffr_sf2_text
+    aggregation: not stated
+  F2d_sf3_sf1.ffr:
+    item: F2d_sf3_sf1
+    measure: force of contraction (% change vs 1 Hz)
+    formula: d = (F - F1)/F1
+    anchor: *id002
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F1
+    inputs:
+      F:
+        reading: F2d_ffr/F2d_sf3_sf1/sf3
+        x: '3'
+        kind: per sample
+      F1:
+        reading: F2d_ffr/F2d_sf3_sf1/sf1
+        x: '1'
+        kind: per sample
+        note: the plotted 1 Hz value is the reference (% of FOC at 1 Hz)
+    output: F2d_sf3_sf1.values.ffr_sf3_text
+    aggregation: not stated
+  F2d_sf3_sp3.pct_of_1hz:
+    item: F2d_sf3_sp3
+    measure: force of contraction (% of FOC at 1 Hz)
+    formula: r = F3/F1
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F3
+        b: F1
+    inputs:
+      F3:
+        not_stated: true
+        kind: per sample
+        note: FOC at 3 Hz of the same EHM
+      F1:
+        not_stated: true
+        kind: per sample
+        note: FOC at 1 Hz of the same EHM
+    aggregation: not stated
+    note: Values plotted as % of FOC at 1 Hz (axis label); absolute FOC per frequency not reported. Fig. 2d axis is raster;
+      label from the reader.
+  S10a_sf3.pct_of_1hz:
+    item: S10a_sf3
+    measure: force of contraction (% of FOC at 1 Hz)
+    formula: r = F3/F1
+    anchor:
+      quote: '% of FOC at 1 Hz'
+      where: Suppl. Fig. 10a (figure text)
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F3
+        b: F1
+    inputs:
+      F3:
+        not_stated: true
+        kind: per sample
+        note: FOC at 3 Hz of the same EHM
+      F1:
+        not_stated: true
+        kind: per sample
+        note: FOC at 1 Hz of the same EHM
+    aggregation: not stated
+    note: Values plotted as % of FOC at 1 Hz (axis label); absolute FOC per frequency not reported.
+  F2e_prp.prp:
+    item: F2e_prp
+    group: sf
+    measure: post-rest potentiation
+    formula: p = (F - F0)/F0
+    anchor:
+      quote: The last stimulated beat amplitude was compared to the first stimulated beat amplitude after the pause.
+      where: Methods, analyses of contractile function
+    library:
+      formula: relative_change
+      vars:
+        d: p
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: first stimulated beat amplitude after the 10 s pause
+      F0:
+        not_stated: true
+        kind: per sample
+        note: last stimulated beat amplitude before the pause
+    output: F2e_prp.values.prp_text
+    aggregation: not stated
+    note: '''enhanced FOC by +9±1%'' names a % change; the beat amplitudes are not reported.'
+  S8e_adrb1.share_cgp:
+    item: S8e_adrb1
+    measure: fraction of acute inotropic effect mediated via ADRB1
+    formula: s = (E - Ec)/E
+    anchor: &id003
+      quote: 32±6% of the acute inotropic effect in EHM were mediated via ADRB1
+      where: Results, heart failure
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: Ec
+        x0: E
+    inputs:
+      E:
+        reading: S8e/S8e_adrb1/iso
+        kind: per sample
+        note: ISO alone (n=11)
+      Ec:
+        reading: S8e/S8e_adrb1/iso_cgp
+        kind: per sample
+        note: ISO after the beta1 blocker CGP-20712A (n=7)
+    output: S8e_adrb1.values.adrb1_text
+    aggregation: of means
+    alternatives:
+    - label: ICI-resistant share
+      formula: s = Ei/E
+      note: effect remaining under the beta2 blocker ICI-118551; run as S8e_adrb1.share_ici
+    note: Which antagonist the 32% comes from is not stated; the record pairs iso_cgp with iso (CGP-sensitive share). ISO
+      alone and ISO+CGP are different EHM, so only of means is possible.
+  S8e_adrb1.share_ici:
+    item: S8e_adrb1
+    measure: fraction of acute inotropic effect mediated via ADRB1
+    formula: s = Ei/E
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: Ei
+        b: E
+    inputs:
+      E:
+        reading: S8e/S8e_adrb1/iso
+        kind: per sample
+      Ei:
+        reading: S8e/S8e_cgp_ici/iso_ici
+        kind: per sample
+        note: ISO after the beta2 blocker ICI-118551 (n=7)
+    output: S8e_adrb1.values.adrb1_text
+    aggregation: of means
+    note: 'Labelled alternative to S8e_adrb1.share_cgp: the beta1-mediated share as the effect left under beta2 block.'
+  S8e_cgp_ici.normalized:
+    item: S8e_cgp_ici
+    measure: inotropic effect of isoprenaline (normalized FOC)
+    formula: r = E/E0
+    anchor:
+      quote: Normalized FOC (%)
+      where: Suppl. Fig. 8e (figure text)
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: E
+        b: E0
+    inputs:
+      E:
+        not_stated: true
+        kind: per sample
+      E0:
+        not_stated: true
+        kind: not stated
+        note: reference not stated; ISO alone plots at ~100 %
+  S8d_ec50.ec50:
+    item: S8d_ec50
+    group: sf
+    measure: EC50 of isoprenaline
+    formula: not stated
+    anchor: not stated
+    no_formula: EC50 from an isoprenaline concentration-response curve; the fit model is not stated and curve fits are not
+      in the library
+    output: S8d_ec50.values.ec50_text
+  S8bc_g1_sf_g1_start.iso_change:
+    item: S8bc_g1_sf_g1_start
+    measure: inotropic response to isoprenaline (% change in FOC)
+    formula: d = (F - F0)/F0
+    anchor: &id004
+      quote: change in force of contraction (FOC) in response to
+      where: Suppl. Fig. 8b,c legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: FOC with 1 µmol/L isoprenaline
+      F0:
+        not_stated: true
+        kind: per sample
+        note: FOC before isoprenaline
+  S8bc_g1_sf_g1_matrix.iso_change:
+    item: S8bc_g1_sf_g1_matrix
+    measure: inotropic response to isoprenaline (% change in FOC)
+    formula: d = (F - F0)/F0
+    anchor: *id004
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: FOC with 1 µmol/L isoprenaline
+      F0:
+        not_stated: true
+        kind: per sample
+        note: FOC before isoprenaline
+  S8bc_hes2_sf_hes2_start.iso_change:
+    item: S8bc_hes2_sf_hes2_start
+    measure: inotropic response to isoprenaline (% change in FOC)
+    formula: d = (F - F0)/F0
+    anchor: *id004
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: FOC with 1 µmol/L isoprenaline
+      F0:
+        not_stated: true
+        kind: per sample
+        note: FOC before isoprenaline
+  S8bc_hes2_sf_hes2_matrix.iso_change:
+    item: S8bc_hes2_sf_hes2_matrix
+    measure: inotropic response to isoprenaline (% change in FOC)
+    formula: d = (F - F0)/F0
+    anchor: *id004
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: FOC with 1 µmol/L isoprenaline
+      F0:
+        not_stated: true
+        kind: per sample
+        note: FOC before isoprenaline
+  F4b_ne1.iso_change:
+    item: F4b_ne1
+    measure: inotropic response to isoprenaline (% change in FOC)
+    formula: d = (F - F0)/F0
+    anchor:
+      quote: Inotropic response to acute isoprenaline (ISO) stimulation
+      where: Fig. 4b legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+      F0:
+        not_stated: true
+        kind: per sample
+    note: '% change from the axis label as recorded (raster figure).'
+  F1b_force.normalized:
+    item: F1b_force
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: normalized to maximal FOC
+      where: Fig. 1b legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC of the EHM
+      b:
+        not_stated: true
+        kind: not stated
+        note: 'maximal FOC (of the line or series: not stated)'
+  F1e_force.force_per_cm:
+    item: F1e_force
+    measure: force per cardiomyocyte
+    formula: r = a/b
+    anchor:
+      quote: Output CM percentage and force per CM
+      where: Fig. 1e legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC of the EHM
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocyte number in the EHM
+    note: How the cardiomyocyte number is obtained is not stated.
+  S1a_force_cm.force_per_cm:
+    item: S1a_force_cm
+    measure: force per cardiomyocyte
+    formula: r = a/b
+    anchor:
+      quote: Force per cardiomyocyte (CM) in undefined vs. defined
+      where: Suppl. Fig. 1a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC of the EHM
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocyte number in the EHM
+    note: How the cardiomyocyte number is obtained is not stated.
+  S3a_foc.normalized:
+    item: S3a_foc
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized force of
+      where: Suppl. Fig. 3a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3b_foc.normalized:
+    item: S3b_foc
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC at 2 mmol/L calcium of
+      where: Suppl. Fig. 3b legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3c_fn.normalized:
+    item: S3c_fn
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC at 2 mmol/L calcium of
+      where: Suppl. Fig. 3c legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3c_lam.normalized:
+    item: S3c_lam
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC at 2 mmol/L calcium of
+      where: Suppl. Fig. 3c legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3e_nogf_matrix.normalized:
+    item: S3e_nogf_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3e_igf_matrix.normalized:
+    item: S3e_igf_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3e_vegf_matrix.normalized:
+    item: S3e_vegf_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3e_tgfb1_matrix.normalized:
+    item: S3e_tgfb1_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3e_tgfb1_d03_matrix.normalized:
+    item: S3e_tgfb1_d03_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3e_all_nogf.normalized:
+    item: S3e_all_nogf
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3f_b27_2_matrix.normalized:
+    item: S3f_b27_2_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3f_b27_4_matrix.normalized:
+    item: S3f_b27_4_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3f_ins_b27_2.normalized:
+    item: S3f_ins_b27_2
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3f_ins_b27_4.normalized:
+    item: S3f_ins_b27_4
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  S3g_rpmi_matrix.normalized:
+    item: S3g_rpmi_matrix
+    measure: normalized force of contraction
+    formula: r = a/b
+    anchor:
+      quote: Normalized FOC in EHM cultured
+      where: Suppl. Fig. 3e-g legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: FOC at 2 mmol/L calcium
+      b:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference not stated
+    note: Axis 'Normalized FOC (fold)'; what FOC is divided by is not stated.
+  F4d_ne01.fold:
+    item: F4d_ne01
+    measure: cardiomyocyte size (RFP MFI, fold)
+    formula: r = a/b
+    anchor:
+      quote: CM size measured by determination of RFP median fluorescence intensity
+      where: Fig. 4d legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: RFP MFI of treated EHM cardiomyocytes
+      b:
+        not_stated: true
+        kind: not stated
+        note: 'RFP MFI of control (reference: control, by the axis)'
+    note: Fold from the raster axis label as recorded; the legend names RFP MFI only.
+  F4d_ne1.fold:
+    item: F4d_ne1
+    measure: cardiomyocyte size (RFP MFI, fold)
+    formula: r = a/b
+    anchor:
+      quote: CM size measured by determination of RFP median fluorescence intensity
+      where: Fig. 4d legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: RFP MFI of treated EHM cardiomyocytes
+      b:
+        not_stated: true
+        kind: not stated
+        note: 'RFP MFI of control (reference: control, by the axis)'
+    note: Fold from the raster axis label as recorded; the legend names RFP MFI only.
+  F4d_et1.fold:
+    item: F4d_et1
+    measure: cardiomyocyte size (RFP MFI, fold)
+    formula: r = a/b
+    anchor:
+      quote: CM size measured by determination of RFP median fluorescence intensity
+      where: Fig. 4d legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: RFP MFI of treated EHM cardiomyocytes
+      b:
+        not_stated: true
+        kind: not stated
+        note: 'RFP MFI of control (reference: control, by the axis)'
+    note: Fold from the raster axis label as recorded; the legend names RFP MFI only.
+  F4g_foc_ne.fold:
+    item: F4g_foc_ne
+    measure: fold of control
+    formula: r = a/b
+    anchor:
+      quote: Maximal FOC, response to ISO, CM viability, and CM size in comparison to control
+      where: Fig. 4g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: treated group
+      b:
+        not_stated: true
+        kind: not stated
+        note: control (dashed line)
+  F4g_iso_ne.fold:
+    item: F4g_iso_ne
+    measure: fold of control
+    formula: r = a/b
+    anchor:
+      quote: Maximal FOC, response to ISO, CM viability, and CM size in comparison to control
+      where: Fig. 4g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: treated group
+      b:
+        not_stated: true
+        kind: not stated
+        note: control (dashed line)
+  F4g_iso_ne_phen.fold:
+    item: F4g_iso_ne_phen
+    measure: fold of control
+    formula: r = a/b
+    anchor:
+      quote: Maximal FOC, response to ISO, CM viability, and CM size in comparison to control
+      where: Fig. 4g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: treated group
+      b:
+        not_stated: true
+        kind: not stated
+        note: control (dashed line)
+  F4g_viab_ne.fold:
+    item: F4g_viab_ne
+    measure: fold of control
+    formula: r = a/b
+    anchor:
+      quote: Maximal FOC, response to ISO, CM viability, and CM size in comparison to control
+      where: Fig. 4g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: treated group
+      b:
+        not_stated: true
+        kind: not stated
+        note: control (dashed line)
+  F4g_size_ne.fold:
+    item: F4g_size_ne
+    measure: fold of control
+    formula: r = a/b
+    anchor:
+      quote: Maximal FOC, response to ISO, CM viability, and CM size in comparison to control
+      where: Fig. 4g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: treated group
+      b:
+        not_stated: true
+        kind: not stated
+        note: control (dashed line)
+  F4g_size_ne_met.fold:
+    item: F4g_size_ne_met
+    measure: fold of control
+    formula: r = a/b
+    anchor:
+      quote: Maximal FOC, response to ISO, CM viability, and CM size in comparison to control
+      where: Fig. 4g legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: treated group
+      b:
+        not_stated: true
+        kind: not stated
+        note: control (dashed line)
+  F4f_ne1.per_cm:
+    item: F4f_ne1
+    measure: NT-proBNP secretion per cardiomyocyte
+    formula: r = a/b
+    anchor:
+      quote: NT-proBNP secretion per CM into the culture medium
+      where: Fig. 4f legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: NT-proBNP in the culture medium
+      b:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocyte number
+    note: Cardiomyocyte numbers of Fig. 4e come from the Fig. 4a EHM; whether the same EHM (n=3/group) were used for 4f is
+      not stated.
+  S2a_NANOG.relative:
+    item: S2a_NANOG
+    measure: NANOG expression relative to pluripotent stem cells
+    formula: r = a/b
+    anchor:
+      quote: Expression of indicated pluripotency genes relative to pluripotent stem cells (HES2)
+      where: Suppl. Fig. 2a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the sample
+      b:
+        not_stated: true
+        kind: not stated
+        note: expression in HES2 pluripotent stem cells
+    note: The expression method is not stated; if qPCR, the 2^-ddCt form (ddct_relative_expression) is the labelled alternative.
+    alternatives:
+    - label: qPCR 2^-ddCt
+      formula: r = 2**(-ddct)
+  S2a_POU5F1.relative:
+    item: S2a_POU5F1
+    measure: POU5F1 expression relative to pluripotent stem cells
+    formula: r = a/b
+    anchor:
+      quote: Expression of indicated pluripotency genes relative to pluripotent stem cells (HES2)
+      where: Suppl. Fig. 2a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the sample
+      b:
+        not_stated: true
+        kind: not stated
+        note: expression in HES2 pluripotent stem cells
+    note: The expression method is not stated; if qPCR, the 2^-ddCt form (ddct_relative_expression) is the labelled alternative.
+    alternatives:
+    - label: qPCR 2^-ddCt
+      formula: r = 2**(-ddct)
+  S2a_ZFP42.relative:
+    item: S2a_ZFP42
+    measure: ZFP42 expression relative to pluripotent stem cells
+    formula: r = a/b
+    anchor:
+      quote: Expression of indicated pluripotency genes relative to pluripotent stem cells (HES2)
+      where: Suppl. Fig. 2a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the sample
+      b:
+        not_stated: true
+        kind: not stated
+        note: expression in HES2 pluripotent stem cells
+    note: The expression method is not stated; if qPCR, the 2^-ddCt form (ddct_relative_expression) is the labelled alternative.
+    alternatives:
+    - label: qPCR 2^-ddCt
+      formula: r = 2**(-ddct)
+  S2a_FGF4.relative:
+    item: S2a_FGF4
+    measure: FGF4 expression relative to pluripotent stem cells
+    formula: r = a/b
+    anchor:
+      quote: Expression of indicated pluripotency genes relative to pluripotent stem cells (HES2)
+      where: Suppl. Fig. 2a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the sample
+      b:
+        not_stated: true
+        kind: not stated
+        note: expression in HES2 pluripotent stem cells
+    note: The expression method is not stated; if qPCR, the 2^-ddCt form (ddct_relative_expression) is the labelled alternative.
+    alternatives:
+    - label: qPCR 2^-ddCt
+      formula: r = 2**(-ddct)
+  S2a_TERT.relative:
+    item: S2a_TERT
+    measure: TERT expression relative to pluripotent stem cells
+    formula: r = a/b
+    anchor:
+      quote: Expression of indicated pluripotency genes relative to pluripotent stem cells (HES2)
+      where: Suppl. Fig. 2a legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: expression in the sample
+      b:
+        not_stated: true
+        kind: not stated
+        note: expression in HES2 pluripotent stem cells
+    note: The expression method is not stated; if qPCR, the 2^-ddCt form (ddct_relative_expression) is the labelled alternative.
+    alternatives:
+    - label: qPCR 2^-ddCt
+      formula: r = 2**(-ddct)
+  S3d_ratio.cm_nm:
+    item: S3d_ratio
+    measure: CM/NM ratio
+    formula: r = a/b
+    anchor:
+      quote: and CM/NM ratio
+      where: Suppl. Fig. 3d legend
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: cardiomyocyte percentage (actinin+)
+      b:
+        not_stated: true
+        kind: per sample
+        note: non-myocyte percentage (actinin-)
+    note: Semi-quantitative (+/o/-) values only; nothing to rebuild.
+  S3d_viab.viability:
+    item: S3d_viab
+    measure: viability
+    formula: v = 1 - g
+    anchor:
+      quote: cell viability (100% minus percentage of cells in the sub-G1
+      where: Supplementary methods, flow cytometry
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: v
+        f: g
+    inputs:
+      g:
+        not_stated: true
+        kind: per sample
+        note: fraction of cells in the sub-G1 DNA fraction
+    note: Stated in percent ('100% minus percentage'); written as fractions. Values are semi-quantitative (+/o/-).
+  S10b_foc.change:
+    item: S10b_foc
+    measure: change in FOC compared to untreated (%)
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: '% change compared to untreated'
+      where: Suppl. Fig. 10b (figure text)
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+      kind: figure text
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: FOC after 7 days 1 µmol/L NE
+      x0:
+        not_stated: true
+        kind: per sample
+        note: FOC of untreated controls
+    aggregation: not stated
+  S10b_iso.change:
+    item: S10b_iso
+    measure: change in acute isoprenaline response compared to untreated (%)
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: '% change compared to untreated'
+      where: Suppl. Fig. 10b (figure text)
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+      kind: figure text
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: acute isoprenaline response after 7 days 1 µmol/L NE
+      x0:
+        not_stated: true
+        kind: per sample
+        note: acute isoprenaline response of untreated controls
+    aggregation: not stated
+  S10b_cmsize.change:
+    item: S10b_cmsize
+    measure: change in CM size compared to untreated (%)
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: '% change compared to untreated'
+      where: Suppl. Fig. 10b (figure text)
+      file: NIHMS862055-supplement-Corrected_Supplemental_Materials.pdf
+      kind: figure text
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: CM size after 7 days 1 µmol/L NE
+      x0:
+        not_stated: true
+        kind: per sample
+        note: CM size of untreated controls
+    aggregation: not stated
+  F3a_cm_tx.clusters:
+    item: F3a_cm_tx
+    group: cm
+    measure: cardiomyocyte transcriptome (genes)
+    formula: n = a + b + c
+    anchor:
+      quote: We classified 3 gene clusters
+      where: Results, molecular maturation
+    library:
+      formula: sum_of_three_parts
+      vars:
+        t: n
+        a: a
+        b: b
+        c: c
+    inputs:
+      a:
+        value: F3c_cluster_adult.values.n_text
+        kind: constant
+      b:
+        value: F3c_cluster_emb.values.n_text
+        kind: constant
+      c:
+        value: F3c_cluster_none.values.n_text
+        kind: constant
+    output: F3a_cm_tx.values.n_text
+    note: The three trajectory clusters partition the 'cardiomyocyte transcriptome' (Supplementary Table 5).
+  TXT1_aspect.aspect_sf:
+    item: TXT1_aspect
+    group: sf_cm
+    measure: cardiomyocyte aspect ratio
+    formula: r = L/W
+    anchor:
+      quote: but similar aspect ratio (7.6±0.4 vs.
+      where: Results, structural maturation
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: L
+        b: W
+    inputs:
+      L:
+        value: TXT1_length_adult.values.l_sf_text
+        kind: per sample
+      W:
+        value: TXT1_width_adult.values.w_sf_text
+        kind: per sample
+    output: TXT1_aspect.values.ar_sf_text
+    aggregation: not stated
+    note: Aspect ratio named as length/width. Length and width are printed for serum-free EHM cardiomyocytes without an n;
+      that they are the same n=28 cells is assumed. A mean of per-cell ratios need not equal the ratio of means.
+  F1e_ratio.output_ratio:
+    item: F1e_ratio
+    group: r70
+    measure: output cardiomyocyte:fibroblast ratio
+    formula: r = c/(1 - c)
+    anchor:
+      quote: with a cardiomyocyte:fibroblast output ratio of ~1:1
+      where: Results, cell composition
+    library:
+      formula: ratio_from_fraction
+      vars:
+        r: r
+        f: c
+    inputs:
+      c:
+        reading: F1e_ratio/r70_cmpct
+        kind: per sample
+        note: output cardiomyocyte percentage (actinin+), 70/30 input
+    output: F1e_ratio.values.ratio_text
+    output_unit: dimensionless
+    aggregation: not stated
+    note: Assumes every non-myocyte is a fibroblast (HFF input only); no fibroblast percentage is reported.
+assumptions: {}
+bounds:
+- item: S9a_actinin
+  value: S9a_actinin.values.pct_figure
+  formula: fraction_bounds
+- item: S8e_adrb1
+  value: S8e_adrb1.values.adrb1_text
+  formula: fraction_bounds
+- item: S9c_fsc
+  value: S9c_fsc.values.r2_figure
+  formula: fraction_bounds
+- item: S9c_rfp
+  value: S9c_rfp.values.r2_figure
+  formula: fraction_bounds
+- item: S9c_ssc_live
+  value: S9c_ssc_live.values.r2_figure
+  formula: fraction_bounds
+- item: S9c_ssc_fixed
+  value: S9c_ssc_fixed.values.r2_figure
+  formula: fraction_bounds
+- item: S11_corr
+  value: S11_corr.values.r2_figure
+  formula: fraction_bounds
+proposals:
+- formula: ratio_from_fraction
+  kind: derived
+  statement: In a whole made of two parts, the ratio of one part to the other is its fraction divided by one minus its fraction.
+  equations:
+  - r = f/(1 - f)
+  variables:
+    r: dimensionless
+    f: dimensionless
+    a: D
+    b: D
+    t: D
+  assumes:
+  - t = a + b
+  uses:
+  - formula: part_of_whole
+    subs:
+      f: f
+      a: a
+      b: b
+      t: t
+  - formula: ratio_def
+    subs:
+      r: r
+      a: a
+      b: b
+  does_not_apply: 'a whole with a third part (e.g. cells neither cardiomyocyte nor fibroblast): 1 - f is then not the other
+    part''s fraction'
+  tests:
+  - given:
+      f: 0.5
+    expect:
+      r: 1.0
+  - given:
+      f: 0.75
+    expect:
+      r: 3.0
+  - given:
+      f: 0.4
+    does_not_apply: 'parts 0.4, 0.4, 0.2: the ratio of the first two is 1, not 0.667'

@@ -1,0 +1,1155 @@
+record: 2016_Mannhardt
+formula_library_version: 5
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  TXT2_force.force:
+    item: TXT2_force
+    formula: not stated
+    anchor: not stated
+    no_formula: force from post deflection is stated only by citation (video-optical recording as previously described, Hansen et al. 2010); no
+      formula or post stiffness is printed
+    inputs:
+      deflection:
+        by_reference:
+          citation: Hansen2010
+          anchor:
+            quote: Analysis of contractile force was performed by video-optical recording as previously described
+            where: Experimental Procedures, Contractile Analysis
+        kind: per sample
+      stiffness:
+        by_reference:
+          citation: Hansen2010
+          anchor:
+            quote: Analysis of contractile force was performed by video-optical recording as previously described
+            where: Experimental Procedures, Contractile Analysis
+        kind: not stated
+    output: TXT2_force.values.mean
+    note: applies to every video-optical force item of this paper (F1, F3-F7, S4-S7 force items); written once here
+  F3B_iso.change_text:
+    item: F3B_iso
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: which itself amounted to +27% (from 47 ± 6 to 60 ± 4 bpm)
+      where: Results, Pacemaker Mechanisms
+    library: &id001
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: F3B_iso.values.iso
+        kind: per sample
+      x0:
+        value: F3B_iso.values.bl
+        kind: per sample
+    output: F3B_iso.values.change_text
+    aggregation: not stated
+  F3B_iso.change_discussion:
+    item: F3B_iso
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: was smaller in hiPSC-EHTs than in native SAN preparations (+30% versus +50% in mice
+      where: Discussion
+    library: *id001
+    inputs:
+      x:
+        value: F3B_iso.values.iso
+        kind: per sample
+      x0:
+        value: F3B_iso.values.bl
+        kind: per sample
+    output: F3B_iso.values.change_discussion
+    aggregation: not stated
+    note: 'the Discussion restates the isoprenaline effect of Fig. 3B (Results: +27%, from 47 to 60 bpm)'
+  F3B_ryd.reduction_discussion:
+    item: F3B_ryd
+    formula: s = (x0 - x)/x0
+    anchor:
+      quote: Ryanodine itself reduced spontaneous beating frequency by 50%
+      where: Discussion
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: F3B_ryd.values.ryd
+        kind: per sample
+      x0:
+        value: F3B_ryd.values.bl
+        kind: per sample
+    output: F3B_ryd.values.reduction_discussion
+    aggregation: not stated
+    note: Results print the same comparison as from 47 ± 6 to 20 ± 2 bpm
+  F4C_T2.fdar:
+    item: F4C_T2
+    formula: d = (x - x0)/x0
+    anchor: &id002
+      quote: frequency-dependent acceleration of relaxation [FDAR] 18%
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4C_bars/F4C_T2|f2p0
+        kind: per sample
+      x0:
+        reading: F4C_bars/F4C_T2|f1p0
+        kind: per sample
+    output: F4C_T2.values.fdar
+    aggregation: not stated
+    note: relaxation time T2 at 2.0 Hz relative to 1.0 Hz (Fig. 4C bars); the minus sign is printed on the page
+  S5F_fdar.eht:
+    item: S5F_fdar
+    formula: d = (x - x0)/x0
+    anchor: *id002
+    library: *id001
+    inputs:
+      x:
+        reading: F4C_bars/F4C_T2|f2p0
+        kind: per sample
+      x0:
+        reading: F4C_bars/F4C_T2|f1p0
+        kind: per sample
+    output: S5F_fdar.values.eht
+    aggregation: not stated
+    note: relaxation time T2 at 2.0 Hz relative to 1.0 Hz (Fig. 4C bars); the minus sign is printed on the page
+    group: eht
+  F4D_force_iso.change:
+    item: F4D_force_iso
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: led to an increase in contractile force (+41% ± 7%; n = 13)
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4D_bars/F4D_force_iso|iso
+        kind: per sample
+      x0:
+        reading: F4D_bars/F4D_force_iso|bl
+        kind: per sample
+    output: F4D_force_iso.values.change
+    aggregation: not stated
+  F4D_T1_iso.change:
+    item: F4D_T1_iso
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: no change in contraction time T1 (2% ± 2%; n = 13)
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4D_bars/F4D_T1_iso|iso
+        kind: per sample
+      x0:
+        reading: F4D_bars/F4D_T1_iso|bl
+        kind: per sample
+    output: F4D_T1_iso.values.change
+    aggregation: not stated
+  F4D_T2_iso.change:
+    item: F4D_T2_iso
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: a decrease in relaxation time T2 (20% ± 4%; n = 13
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4D_bars/F4D_T2_iso|iso
+        kind: per sample
+      x0:
+        reading: F4D_bars/F4D_T2_iso|bl
+        kind: per sample
+    output: F4D_T2_iso.values.change
+    aggregation: not stated
+  F4D_T2_cch.change:
+    item: F4D_T2_cch
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: T2 +31% ± 5% compared with isoprenaline; n = 13
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4D_bars/F4D_T2_cch|isocch
+        kind: per sample
+      x0:
+        reading: F4D_bars/F4D_T2_cch|iso
+        kind: per sample
+    output: F4D_T2_cch.values.change
+    aggregation: not stated
+  S5F_iso.eht:
+    item: S5F_iso
+    group: eht
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: led to an increase in contractile force (+41% ± 7%; n = 13)
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4D_bars/F4D_force_iso|iso
+        kind: per sample
+      x0:
+        reading: F4D_bars/F4D_force_iso|bl
+        kind: per sample
+    output: S5F_iso.values.eht
+    aggregation: not stated
+    note: Fig. S5F restates the isoprenaline effect on peak force of Fig. 4D (+41%)
+  F4E_force.slack:
+    item: F4E_force
+    group: slack
+    formula: r = a/b
+    anchor: &id003
+      quote: Increasing the preload resulted in an increase in contractile force from 43% ± 5% to 100% (maximum force
+      where: Results, Physiological Force Modulation
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force at slack length; absolute force not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: maximum force of the same EHT; not printed
+    output: F4E_force.values.slack
+    aggregation: not stated
+    note: force as % of maximum force; the Fig. 4E curve is already normalised (readings in % of maximum)
+  F4E_force.length_at_max:
+    item: F4E_force
+    group: max
+    formula: r = a/b
+    anchor:
+      quote: Maximum force was reached at 107% of slack length
+      where: Results, Physiological Force Modulation
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: length at maximum force; not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: slack length; not printed
+    output: F4E_force.values.length_at_max
+  S5F_fs.eht:
+    item: S5F_fs
+    group: eht
+    formula: d = (x - x0)/x0
+    anchor: *id003
+    library: *id001
+    inputs:
+      x:
+        value: F4E_force.values.max
+        kind: per sample
+      x0:
+        value: F4E_force.values.slack
+        kind: per sample
+    output: S5F_fs.values.eht
+    aggregation: not stated
+    alternatives:
+    - label: difference of percentages of maximum force (percentage points)
+      formula: d = x - x0
+      note: 100% - 43% = 57 percentage points; not a library formula
+    note: Fig. S5F prints the Frank-Starling force increase as +57%; the text gives 43% to 100% of maximum force (Fig. 4E); the formula behind
+      +57% is not stated
+  F4F_prp.prp:
+    item: F4F_prp
+    formula: d = (x - x0)/x0
+    anchor: &id004
+      quote: after the pacing pause revealed a PRP of +17%
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: F4F_bars/F4F_prp|post
+        kind: per sample
+      x0:
+        reading: F4F_bars/F4F_prp|prior
+        kind: per sample
+    output: F4F_prp.values.prp
+    aggregation: not stated
+  S5F_prp.eht:
+    item: S5F_prp
+    formula: d = (x - x0)/x0
+    anchor: *id004
+    library: *id001
+    inputs:
+      x:
+        reading: F4F_bars/F4F_prp|post
+        kind: per sample
+      x0:
+        reading: F4F_bars/F4F_prp|prior
+        kind: per sample
+    output: S5F_prp.values.eht
+    aggregation: not stated
+    group: eht
+  S4_T2_e.change:
+    item: S4_T2_e
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: whereas E-4031 increased relaxation time by +82% in an isoprenaline-sensitive manner
+      where: Results, Physiological Force Modulation
+    library: *id001
+    inputs:
+      x:
+        reading: S4_bars/S4_T2_e|e
+        kind: per sample
+      x0:
+        reading: S4_bars/S4_T2_e|bl
+        kind: per sample
+    output: S4_T2_e.values.change
+    aggregation: not stated
+  F6B_ATX_T2.max_effect:
+    item: F6B_ATX_T2
+    formula: r = a/b
+    anchor:
+      quote: ATX-II had the most pronounced effect (556% ± 31% of baseline
+      where: Results, Modulators of the Cardiac Ion Channels
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F6B_ATX_scatter/F6B_ATX_T2|c1e7
+        kind: per sample
+      b:
+        reading: F6B_ATX_scatter/F6B_ATX_T2|bl
+        kind: constant
+    output: F6B_ATX_T2.values.max_effect
+    aggregation: of means
+    alternatives:
+    - label: effect at 30 nM (c3e8) instead of 100 nM
+      note: the text does not name the concentration; 100 nM (c1e7) is the largest effect plotted
+    note: 'Fig. 6B values are already % of the baseline mean, so each sample is divided by one constant (the baseline mean): mean of per-sample
+      equals the ratio of means (ratio_of_means_constant_denominator)'
+  F5A_force.relative:
+    item: F5A_force
+    formula: r = a/b
+    anchor: &id005
+      quote: Depicted is the electrically stimulated (1.5–2 Hz) mean relative force in percentage of baseline maximum ± SEM
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5B_force.relative:
+    item: F5B_force
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5C_force.relative:
+    item: F5C_force
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5D_force.relative:
+    item: F5D_force
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5E_force.relative:
+    item: F5E_force
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5H_force.relative:
+    item: F5H_force
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5F_force.relative:
+    item: F5F_force
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5G_force_low.relative:
+    item: F5G_force_low
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  F5G_force_high.relative:
+    item: F5G_force_high
+    formula: r = a/b
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: force after the drug; not printed
+      b:
+        not_stated: true
+        kind: not stated
+        note: baseline maximum force; not printed
+    note: 'no printed value and no readings: nothing to rebuild'
+  S2B_CACNA1C.fold:
+    item: S2B_CACNA1C
+    formula: fc = e/d
+    anchor: &id006
+      quote: Mean fold change in RNA expression in EHT (n=5/3) vs. 2D (n=6/3) for ion channels and cardiac genes
+      where: Fig. S2B legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_CACNA1C|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_CACNA1C|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_KCNH2.fold:
+    item: S2B_KCNH2
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_KCNH2|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_KCNH2|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_KCNJ5.fold:
+    item: S2B_KCNJ5
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_KCNJ5|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_KCNJ5|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_KCNQ1.fold:
+    item: S2B_KCNQ1
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_KCNQ1|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_KCNQ1|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_HCN4.fold:
+    item: S2B_HCN4
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_HCN4|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_HCN4|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_ACTN2.fold:
+    item: S2B_ACTN2
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_ACTN2|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_ACTN2|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_NCX1.fold:
+    item: S2B_NCX1
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_NCX1|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_NCX1|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_SERCA2.fold:
+    item: S2B_SERCA2
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_SERCA2|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_SERCA2|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_MYL2.fold:
+    item: S2B_MYL2
+    formula: fc = e/d
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: e
+        b: d
+    inputs:
+      e:
+        reading: S2A_bars/S2A_MYL2_eht|eht
+        kind: per sample
+      d:
+        reading: S2A_bars/S2A_MYL2_d2|d2
+        kind: per sample
+    aggregation: not stated
+    note: no printed fold change; inputs are the Fig. S2A bar means (relative RNA expression)
+  S2B_ADRB1.fold:
+    item: S2B_ADRB1
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_ADRB1/eht
+        kind: per sample
+      ld:
+        data: S2B_ADRB1/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_CACNB2.fold:
+    item: S2B_CACNB2
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_CACNB2/eht
+        kind: per sample
+      ld:
+        data: S2B_CACNB2/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_CACNB3.fold:
+    item: S2B_CACNB3
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_CACNB3/eht
+        kind: per sample
+      ld:
+        data: S2B_CACNB3/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_DMD.fold:
+    item: S2B_DMD
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_DMD/eht
+        kind: per sample
+      ld:
+        data: S2B_DMD/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_KCNJ2.fold:
+    item: S2B_KCNJ2
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_KCNJ2/eht
+        kind: per sample
+      ld:
+        data: S2B_KCNJ2/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_PLN.fold:
+    item: S2B_PLN
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_PLN/eht
+        kind: per sample
+      ld:
+        data: S2B_PLN/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_RYR2.fold:
+    item: S2B_RYR2
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_RYR2/eht
+        kind: per sample
+      ld:
+        data: S2B_RYR2/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_SCN1B.fold:
+    item: S2B_SCN1B
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_SCN1B/eht
+        kind: per sample
+      ld:
+        data: S2B_SCN1B/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_SCN2A.fold:
+    item: S2B_SCN2A
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_SCN2A/eht
+        kind: per sample
+      ld:
+        data: S2B_SCN2A/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_TNNC1.fold:
+    item: S2B_TNNC1
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_TNNC1/eht
+        kind: per sample
+      ld:
+        data: S2B_TNNC1/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S2B_TNNT1.fold:
+    item: S2B_TNNT1
+    formula: fc = 2**(le - ld)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fc
+        la: le
+        lb: ld
+    inputs:
+      le:
+        data: S2B_TNNT1/eht
+        kind: per sample
+      ld:
+        data: S2B_TNNT1/d2
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: mean of per-sample linear fold changes
+      note: Table S1 gives log2 group means only; 2^(difference of log2 means) is the ratio of geometric means
+    note: no printed fold change; Table S1 gives log2 (quantile normalised) group means
+  S1A_OCT4.relative:
+    item: S1A_OCT4
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_Brachyury.relative:
+    item: S1A_Brachyury
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_MESP.relative:
+    item: S1A_MESP
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_VEGFR2.relative:
+    item: S1A_VEGFR2
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_Isl1.relative:
+    item: S1A_Isl1
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_TNNT2.relative:
+    item: S1A_TNNT2
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_MYH6.relative:
+    item: S1A_MYH6
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  S1A_MYH7.relative:
+    item: S1A_MYH7
+    formula: not stated
+    anchor: not stated
+    no_formula: normalised to GUSB and to day 0 is named, but the calculation (2^-ddCt or a ratio of quantities) is not stated
+    inputs:
+      target:
+        not_stated: true
+        kind: per sample
+      reference:
+        not_stated: true
+        kind: per sample
+    note: 'Fig. S1A legend: expression levels are normalized to GUSB and expression levels at day 0; no printed values'
+  TXT1_ratio.ratio:
+    item: TXT1_ratio
+    formula: r = a/b
+    anchor:
+      quote: with an input/output ratio of 1:1.2 ± 0.8 (hiPSC/
+      where: Results, Differentiation Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: hiPSC-CM harvested; not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: hiPSC seeded; not printed
+    output: TXT1_ratio.values.ratio
+    aggregation: not stated
+  F4A_force.ec50:
+    item: F4A_force
+    group: crc
+    formula: not stated
+    anchor: not stated
+    no_formula: EC50 and Hill slope come from a concentration-response fit whose equation is not stated
+    inputs:
+      force:
+        not_stated: true
+        kind: per sample
+    output: F4A_force.values.ec50
+  F4A_force.hill:
+    item: F4A_force
+    group: crc
+    formula: not stated
+    anchor: not stated
+    no_formula: Hill slope from a concentration-response fit whose equation is not stated
+    inputs:
+      force:
+        not_stated: true
+        kind: per sample
+    output: F4A_force.values.hill
+  F3A_freq.half_max:
+    item: F3A_freq
+    formula: not stated
+    anchor: not stated
+    no_formula: half-maximal effect concentration given without a fit or formula
+    inputs:
+      frequency:
+        not_stated: true
+        kind: per sample
+    output: F3A_freq.values.half_max
+  F7_corr.r2:
+    item: F7_corr
+    formula: not stated
+    anchor: not stated
+    no_formula: coefficient of determination of a correlation; the regression is not stated and r^2 over points is not a closed-form library entry
+    inputs:
+      points:
+        not_stated: true
+        kind: per sample
+        note: the ten plotted compound points (readings F7_corr) feed a regression whose form is not stated
+    output: F7_corr.values.r2_text
+assumptions: {}
+bounds: []
+proposals:
+- formula: ratio_from_log2_values
+  kind: derived
+  statement: The ratio of two positive quantities given as binary logarithms is two to the power of the difference of the logarithms (a fold change
+    from log2 values).
+  equations:
+  - r = 2**(la - lb)
+  variables:
+    r: dimensionless
+    a: dimensionless
+    b: dimensionless
+    la: dimensionless
+    lb: dimensionless
+  assumes:
+  - a = 2**la
+  - b = 2**lb
+  uses:
+  - formula: ratio_def
+    subs:
+      r: r
+      a: a
+      b: b
+  does_not_apply: values on a natural-log or log10 scale, or a mean of per-sample linear fold changes (2 to the difference of mean log2 values
+    is the ratio of geometric means)
+  tests:
+  - given:
+      la: 3.0
+      lb: 1.0
+    expect:
+      r: 4.0
+  - given:
+      la: 7.85342
+      lb: 7.29583
+    expect:
+      r: 1.47181
+  - given:
+      la: 3.0
+      lb: 1.0
+    does_not_apply: 'log2 difference read as a fold change: 2, not 4'

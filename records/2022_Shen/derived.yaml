@@ -1,0 +1,971 @@
+record: 2022_Shen
+formula_library_version: 4
+agent:
+  model: llm
+  instructions: formulas_v2
+derived:
+  F1_ffr_norm.norm_3hz_HC_NP:
+    item: F1_ffr_norm
+    group: HC_NP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: &id001
+      quote: the FFR with normalized systolic peak forces
+      where: Results, p. 2038
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f1b/HC-NP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f1b/HC-NP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f1c) reads 1.00 at 1 Hz, the first step of the staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f1c/HC-NP at 3 Hz
+  F1_ffr_norm.norm_3hz_LC_NP:
+    item: F1_ffr_norm
+    group: LC_NP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f1b/LC-NP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f1b/LC-NP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f1c) reads 1.00 at 1 Hz, the first step of the staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f1c/LC-NP at 3 Hz
+  F2_ffr_norm.norm_3hz_HC_RP:
+    item: F2_ffr_norm
+    group: HC_RP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: &id002
+      quote: (E) Normalized FFR (p < 0.0001).
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f2d/HC-RP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f2d/HC-RP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f2e) reads 1.00 at 1 Hz, the first step of the staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f2e/HC-RP at 3 Hz
+  F2_ffr_norm.norm_3hz_LC_RP:
+    item: F2_ffr_norm
+    group: LC_RP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f2d/LC-RP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f2d/LC-RP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f2e) reads 1.00 at 1 Hz, the first step of the staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f2e/LC-RP at 3 Hz
+  F5_ffr_norm.norm_3hz_HC_NP:
+    item: F5_ffr_norm
+    group: HC_NP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: &id003
+      quote: (B) Raw and normalized FFR (p < 0.0001).
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f5b_raw/HC-NP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f5b_raw/HC-NP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f5b_norm) reads 1.00 at 1 Hz, the first step of the
+          staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f5b_norm/HC-NP at 3 Hz
+  F5_ffr_norm.norm_3hz_HC_RP:
+    item: F5_ffr_norm
+    group: HC_RP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f5b_raw/HC-RP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f5b_raw/HC-RP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f5b_norm) reads 1.00 at 1 Hz, the first step of the
+          staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f5b_norm/HC-RP at 3 Hz
+  F5_ffr_norm.norm_3hz_LC_NP:
+    item: F5_ffr_norm
+    group: LC_NP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f5b_raw/LC-NP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f5b_raw/LC-NP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f5b_norm) reads 1.00 at 1 Hz, the first step of the
+          staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f5b_norm/LC-NP at 3 Hz
+  F5_ffr_norm.norm_3hz_LC_RP:
+    item: F5_ffr_norm
+    group: LC_RP
+    measure: normalized peak force
+    formula: Fn = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: Fn
+        a: F
+        b: F1
+    inputs:
+      F:
+        reading: f5b_raw/LC-RP
+        x: '3.0'
+        kind: per sample
+        note: systolic peak force at 3 Hz (group-mean curve)
+      F1:
+        reading: f5b_raw/LC-RP
+        x: '1.0'
+        kind: per sample
+        note: reference not stated in the text; the normalised curve (f5b_norm) reads 1.00 at 1 Hz, the first step of the
+          staircase
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (each EHT normalised to its own 1 Hz force), which differs from the ratio of group
+        means read here
+      formula: Fn = mean(F_i/F1_i)
+    note: no printed value; the rebuilt ratio can be set against the normalised curve f5b_norm/LC-RP at 3 Hz
+  F3_force.pct_change:
+    item: F3_force
+    formula: d = (Fiso - F0)/F0
+    anchor:
+      quote: (C) Systolic force increases in percentage
+      where: Fig. 3 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: Fiso
+        x0: F0
+    inputs:
+      Fiso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      F0:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F3_ttp.pct_change:
+    item: F3_ttp
+    formula: d = (TTPiso - TTP0)/TTP0
+    anchor:
+      quote: (D) TTP changes in percentage
+      where: Fig. 3 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: TTPiso
+        x0: TTP0
+    inputs:
+      TTPiso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      TTP0:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F3_rt50.pct_change:
+    item: F3_rt50
+    formula: d = (RT50iso - RT500)/RT500
+    anchor:
+      quote: (E) RT50 change in percentage
+      where: Fig. 3 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: RT50iso
+        x0: RT500
+    inputs:
+      RT50iso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      RT500:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F3_ca_amp.pct_change:
+    item: F3_ca_amp
+    formula: d = (Ciso - C0)/C0
+    anchor:
+      quote: (H) Ca2+ transient intensity increases
+      where: Fig. 3 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: Ciso
+        x0: C0
+    inputs:
+      Ciso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      C0:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F3_t80.pct_change:
+    item: F3_t80
+    formula: d = (t80iso - t800)/t800
+    anchor:
+      quote: Ca2+ transient time decay constant from peak to 80% relaxation
+      where: Fig. 3 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: t80iso
+        x0: t800
+    inputs:
+      t80iso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      t800:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F5_iso_force_omni.pct_change:
+    item: F5_iso_force_omni
+    formula: d = (Fiso - F0)/F0
+    anchor:
+      quote: (P) Summary force changes to 1 mM ISO
+      where: Fig. 5 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: Fiso
+        x0: F0
+    inputs:
+      Fiso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      F0:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F5_iso_ttp.pct_change:
+    item: F5_iso_ttp
+    formula: d = (TTPiso - TTP0)/TTP0
+    anchor:
+      quote: (Q) TTP changes to ISO.
+      where: Fig. 5 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: TTPiso
+        x0: TTP0
+    inputs:
+      TTPiso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      TTP0:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F5_iso_rt50.pct_change:
+    item: F5_iso_rt50
+    formula: d = (RT50iso - RT500)/RT500
+    anchor:
+      quote: (R) RT50 changes to ISO.
+      where: Fig. 5 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: RT50iso
+        x0: RT500
+    inputs:
+      RT50iso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      RT500:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F5_iso_ca_amp.pct_change:
+    item: F5_iso_ca_amp
+    formula: d = (Ciso - C0)/C0
+    anchor:
+      quote: (U) Ca2+ transient intensity changes to ISO.
+      where: Fig. 5 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: Ciso
+        x0: C0
+    inputs:
+      Ciso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      C0:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F5_iso_t80_omni.pct_change:
+    item: F5_iso_t80_omni
+    formula: d = (t80iso - t800)/t800
+    anchor:
+      quote: (V) t80 changes to ISO
+      where: Fig. 5 legend
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: t80iso
+        x0: t800
+    inputs:
+      t80iso:
+        not_stated: true
+        kind: per sample
+        note: value after 1 µM ISO stabilised, per tissue; not printed or read
+      t800:
+        not_stated: true
+        kind: per sample
+        note: value before ISO at 1 Hz pacing, per tissue; not printed or read
+    output_unit: '%'
+    alternatives:
+    - label: ratio of group means after/before instead of the mean of per-tissue percentages
+    note: plotted in % (fraction x 100); the before/after values per tissue are not given
+  F1_prp.ratio:
+    item: F1_prp
+    formula: PRP = Ff/Fs
+    anchor: &id004
+      quote: The ratio between the first twitch and the subsequent twitches at 1 Hz
+      where: Results, p. 2038
+    library:
+      formula: ratio_def
+      vars:
+        r: PRP
+        a: Ff
+        b: Fs
+    inputs:
+      Ff:
+        not_stated: true
+        kind: per sample
+        note: force of the first twitch after the 15 s pause
+      Fs:
+        not_stated: true
+        kind: per sample
+        note: force of the subsequent twitches at 1 Hz; how many are averaged is not stated
+    output_unit: dimensionless
+  F2_prp.ratio:
+    item: F2_prp
+    formula: PRP = Ff/Fs
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: PRP
+        a: Ff
+        b: Fs
+    inputs:
+      Ff:
+        not_stated: true
+        kind: per sample
+        note: force of the first twitch after the 15 s pause
+      Fs:
+        not_stated: true
+        kind: per sample
+        note: force of the subsequent twitches at 1 Hz; how many are averaged is not stated
+    output_unit: dimensionless
+  F5_prp_pace.ratio:
+    item: F5_prp_pace
+    formula: PRP = Ff/Fs
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: PRP
+        a: Ff
+        b: Fs
+    inputs:
+      Ff:
+        not_stated: true
+        kind: per sample
+        note: force of the first twitch after the 15 s pause
+      Fs:
+        not_stated: true
+        kind: per sample
+        note: force of the subsequent twitches at 1 Hz; how many are averaged is not stated
+    output_unit: dimensionless
+  F5_prp_ca.ratio:
+    item: F5_prp_ca
+    formula: PRP = Ff/Fs
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: PRP
+        a: Ff
+        b: Fs
+    inputs:
+      Ff:
+        not_stated: true
+        kind: per sample
+        note: force of the first twitch after the 15 s pause
+      Fs:
+        not_stated: true
+        kind: per sample
+        note: force of the subsequent twitches at 1 Hz; how many are averaged is not stated
+    output_unit: dimensionless
+  F1_def.ratio:
+    item: F1_def
+    formula: DEF = D3/D1
+    anchor: &id005
+      quote: diastolic excess fraction as the ratio between 3 Hz and 1Hz diastolic baselines
+      where: Fig. 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: DEF
+        a: D3
+        b: D1
+    inputs:
+      D3:
+        not_stated: true
+        kind: per sample
+        note: diastolic force at 3 Hz
+      D1:
+        not_stated: true
+        kind: per sample
+        note: diastolic baseline at 1 Hz (the Results text says 'at rest')
+    output_unit: dimensionless
+    alternatives:
+    - label: excess over the rest baseline, (D3 - D1)/D1, as the name 'excess fraction' might suggest
+      formula: DEF = (D3 - D1)/D1
+    - label: reference at rest (Results text) rather than the 1 Hz diastolic baseline (Fig. 2K legend)
+  F2_def.ratio:
+    item: F2_def
+    formula: DEF = D3/D1
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: DEF
+        a: D3
+        b: D1
+    inputs:
+      D3:
+        not_stated: true
+        kind: per sample
+        note: diastolic force at 3 Hz
+      D1:
+        not_stated: true
+        kind: per sample
+        note: diastolic baseline at 1 Hz (the Results text says 'at rest')
+    output_unit: dimensionless
+    alternatives:
+    - label: excess over the rest baseline, (D3 - D1)/D1, as the name 'excess fraction' might suggest
+      formula: DEF = (D3 - D1)/D1
+    - label: reference at rest (Results text) rather than the 1 Hz diastolic baseline (Fig. 2K legend)
+  F5_def_omni.ratio:
+    item: F5_def_omni
+    formula: DEF = D3/D1
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: DEF
+        a: D3
+        b: D1
+    inputs:
+      D3:
+        not_stated: true
+        kind: per sample
+        note: diastolic force at 3 Hz
+      D1:
+        not_stated: true
+        kind: per sample
+        note: diastolic baseline at 1 Hz (the Results text says 'at rest')
+    output_unit: dimensionless
+    alternatives:
+    - label: excess over the rest baseline, (D3 - D1)/D1, as the name 'excess fraction' might suggest
+      formula: DEF = (D3 - D1)/D1
+    - label: reference at rest (Results text) rather than the 1 Hz diastolic baseline (Fig. 2K legend)
+  F4_tpm1.total_protein_norm:
+    item: F4_tpm1
+    formula: c = S/TP
+    anchor: &id006
+      quote: all measurement and ratios were first normalized against total protein
+      where: Fig. 4 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: S
+        b: TP
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: TPM1 band signal (Image Studio Lite)
+      TP:
+        not_stated: true
+        kind: per sample
+        note: Revert total protein stain signal of the same lane
+    output_unit: relative units
+    note: any further scaling (e.g. to a group mean) is not stated
+  F4_serca.total_protein_norm:
+    item: F4_serca
+    formula: c = S/TP
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: S
+        b: TP
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: SERCA band signal (Image Studio Lite)
+      TP:
+        not_stated: true
+        kind: per sample
+        note: Revert total protein stain signal of the same lane
+    output_unit: relative units
+    note: any further scaling (e.g. to a group mean) is not stated
+  F4_pln.total_protein_norm:
+    item: F4_pln
+    formula: c = S/TP
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: S
+        b: TP
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: PLN band signal (Image Studio Lite)
+      TP:
+        not_stated: true
+        kind: per sample
+        note: Revert total protein stain signal of the same lane
+    output_unit: relative units
+    note: any further scaling (e.g. to a group mean) is not stated
+  F4_ppln.total_protein_norm:
+    item: F4_ppln
+    formula: c = S/TP
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: S
+        b: TP
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: p-PLN band signal (Image Studio Lite)
+      TP:
+        not_stated: true
+        kind: per sample
+        note: Revert total protein stain signal of the same lane
+    output_unit: relative units
+    note: any further scaling (e.g. to a group mean) is not stated
+  F4_ctni.total_protein_norm:
+    item: F4_ctni
+    formula: c = S/TP
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: S
+        b: TP
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: cTnI band signal (Image Studio Lite)
+      TP:
+        not_stated: true
+        kind: per sample
+        note: Revert total protein stain signal of the same lane
+    output_unit: relative units
+    note: any further scaling (e.g. to a group mean) is not stated
+  F4_pctni.total_protein_norm:
+    item: F4_pctni
+    formula: c = S/TP
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: S
+        b: TP
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: p-cTnI band signal (Image Studio Lite)
+      TP:
+        not_stated: true
+        kind: per sample
+        note: Revert total protein stain signal of the same lane
+    output_unit: relative units
+    note: any further scaling (e.g. to a group mean) is not stated
+  F4_ppln.phospho_total_HC_RP:
+    item: F4_ppln
+    group: HC_RP
+    measure: ppln phospho/total ratio
+    formula: q = pP/P
+    anchor: &id007
+      quote: higher p-PLN/PLN
+      where: Discussion, p. 2045
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: pP
+        b: P
+    inputs:
+      pP:
+        reading: f4b_ppln/HC-RP
+        kind: per sample
+        note: phospho form, normalised to total protein
+      P:
+        reading: f4b_pln/HC-RP
+        kind: per sample
+        note: total form, normalised to total protein
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (same blot lanes) rather than the ratio of group means read here
+    note: the ratio is named in the Discussion but no value is printed or plotted; rebuilt from the two panels' readings (relative
+      units)
+  F4_ppln.phospho_total_LC_RP:
+    item: F4_ppln
+    group: LC_RP
+    measure: ppln phospho/total ratio
+    formula: q = pP/P
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: pP
+        b: P
+    inputs:
+      pP:
+        reading: f4b_ppln/LC-RP
+        kind: per sample
+        note: phospho form, normalised to total protein
+      P:
+        reading: f4b_pln/LC-RP
+        kind: per sample
+        note: total form, normalised to total protein
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (same blot lanes) rather than the ratio of group means read here
+    note: the ratio is named in the Discussion but no value is printed or plotted; rebuilt from the two panels' readings (relative
+      units)
+  F4_pctni.phospho_total_HC_RP:
+    item: F4_pctni
+    group: HC_RP
+    measure: pctni phospho/total ratio
+    formula: q = pT/T
+    anchor: &id008
+      quote: lack of p-cTnI/cTnI
+      where: Discussion, p. 2045
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: pT
+        b: T
+    inputs:
+      pT:
+        reading: f4c_pctni/HC-RP
+        kind: per sample
+        note: phospho form, normalised to total protein
+      T:
+        reading: f4c_ctni/HC-RP
+        kind: per sample
+        note: total form, normalised to total protein
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (same blot lanes) rather than the ratio of group means read here
+    note: the ratio is named in the Discussion but no value is printed or plotted; rebuilt from the two panels' readings (relative
+      units)
+  F4_pctni.phospho_total_LC_RP:
+    item: F4_pctni
+    group: LC_RP
+    measure: pctni phospho/total ratio
+    formula: q = pT/T
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: pT
+        b: T
+    inputs:
+      pT:
+        reading: f4c_pctni/LC-RP
+        kind: per sample
+        note: phospho form, normalised to total protein
+      T:
+        reading: f4c_ctni/LC-RP
+        kind: per sample
+        note: total form, normalised to total protein
+    output_unit: dimensionless
+    alternatives:
+    - label: mean of per-tissue ratios (same blot lanes) rather than the ratio of group means read here
+    note: the ratio is named in the Discussion but no value is printed or plotted; rebuilt from the two panels' readings (relative
+      units)
+  S2_pca.pc1_pc2:
+    item: S2_pca
+    formula: c = pc1 + pc2
+    anchor:
+      quote: 'PC1-PC2: 76% Variation'
+      where: Figure S2A
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: cumulative_variance_explained_two
+      vars:
+        c: c
+        p1: pc1
+        p2: pc2
+    inputs:
+      pc1:
+        value: S2_pca.values.pc1
+        part: mean
+        kind: constant
+      pc2:
+        value: S2_pca.values.pc2
+        part: mean
+        kind: constant
+    output: S2_pca.values.pc1_pc2
+    note: a named total of the two components' shares of variation
+  S2_pca.pc1_pc3:
+    item: S2_pca
+    formula: c = pc1 + pc3
+    anchor:
+      quote: 'PC1-PC3: 67% Variation'
+      where: Figure S2B
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: cumulative_variance_explained_two
+      vars:
+        c: c
+        p1: pc1
+        p2: pc3
+    inputs:
+      pc1:
+        value: S2_pca.values.pc1
+        part: mean
+        kind: constant
+      pc3:
+        value: S2_pca.values.pc3
+        part: mean
+        kind: constant
+    output: S2_pca.values.pc1_pc3
+    note: a named total of the two components' shares of variation
+proposals:
+- formula: cumulative_variance_explained_two
+  kind: definition
+  statement: The share of total variance explained by two principal components of one PCA is the sum of the shares explained
+    by each.
+  equations:
+  - c = p1 + p2
+  variables:
+    c: dimensionless
+    p1: dimensionless
+    p2: dimensionless
+  does_not_apply: shares from different PCAs (different samples or gene sets), or a component counted twice
+  tests:
+  - given:
+      p1: 0.61
+      p2: 0.12
+    expect:
+      c: 0.73
+  - given:
+      p1: 0.5
+      p2: 0.25
+    expect:
+      c: 0.75
+  - given:
+      p1: 0.61
+      p2: 0.61
+    does_not_apply: 'PC1 counted twice: 1.22 of the variance is impossible'
+  cites:
+    text: 'Jolliffe, I. T. Principal Component Analysis, 2nd ed. Springer (2002), Section 6.1.1: cumulative percentage of
+      total variation t_m = 100 * sum_{k<=m} l_k / sum_k l_k'
+    url: https://doi.org/10.1007/b98835

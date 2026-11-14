@@ -1,0 +1,377 @@
+record: 2021_Silva
+vocabulary_version: 42
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- context
+- add_synonym:
+    id: preparation:intact_tissue
+    text: intact spheroids
+    anchor: we performed electrophysiological and structural analysis of the intact spheroids and dissociated cells
+- add_synonym:
+    id: hipsc_coating:gfr_matrigel
+    text: GFR Matrigel
+    anchor: were seeded onto GFR Matrigel-coated glass coverslips for patch-clamp recordings
+- add_term:
+    field: replating_coating
+    id: replating_coating:gfr_matrigel
+    label: growth-factor-reduced Matrigel
+    parent: replating_coating:matrigel
+    definition: Matrigel with reduced growth-factor content, used to coat the surface cells are replated on.
+    scope: Matrigel sold with reduced growth-factor content; plain Matrigel stays on the parent term.
+    synonyms:
+    - text: GFR Matrigel
+      anchor: were seeded onto GFR Matrigel-coated glass coverslips for patch-clamp recordings
+- add_term:
+    field: cm_medium
+    id: cm_medium:advanced_dmem_f12
+    label: Advanced DMEM/F12
+    parent: cm_medium:dmem
+    definition: Advanced DMEM/F12, a reduced-serum basal medium based on a 1:1 mix of DMEM and Ham's F-12.
+    scope: The Advanced DMEM/F12 formulation; plain DMEM, and DMEM whose formulation is only a qualifier, stay on the parent term.
+- adopt_own:
+    field: cell_types
+    id: cell_types:mesendoderm_progenitor
+    label: mesendoderm progenitor cell
+    definition: An early progenitor cell committed to the mesendoderm, before separation into mesoderm and endoderm, here from hiPSC differentiation day 5.
+    scope: Early mesendoderm progenitors put into a construct before they differentiate; not differentiated non-cardiomyocyte cells (non-cardiomyocyte cells).
+    lookup: "CL searched for 'mesendoderm', 'mesendodermal cell', 'mesendoderm progenitor' and 'primitive streak': no class; CL has only mesodermal cell (CL:0000222) and endodermal cell (CL:0000223), each narrower than mesendoderm."
+    synonyms:
+    - text: mesendoderm progenitor cells
+      anchor: Mesendoderm progenitor cells were dissociated at differentiation day 5 with Accutase
+- set_scope:
+    id: cell_types:non_cardiomyocyte
+    scope: Differentiated cells other than cardiomyocytes; not early progenitors put into a construct before they differentiate (mesendoderm progenitor cell).
+# ---------------------------------------------------------------- measures
+- add_synonym:
+    id: measure:maximum_diastolic_potential
+    text: MDP
+    anchor: MDP, peak, amplitude, frequency, and dV/dTMax
+- add_qualifier:
+    id: measure:tissue_volume
+    name: portion
+    dimension: text
+- add_qualifier:
+    id: measure:calcium_transient_decay_rate
+    name: statistic
+    dimension: text
+- add_term:
+    field: measure
+    id: measure:cell_type_proportion
+    label: proportion of cells assigned to a cell type
+    definition: Share of all cells of a sample assigned to a stated cell type (qualifier cell_type) by clustering or classification of single-cell data.
+    scope: Share of all cells assigned to one type by a classification; not a fraction positive for a stated marker (marker-positive cells) and not the share of cardiomyocytes in each electrophysiological subtype (proportion of cardiomyocyte subtypes).
+    dimension: dimensionless
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:classifier_prediction_probability
+    label: classifier prediction probability
+    definition: Probability a trained cell-type classifier gives to the cell type it assigns, averaged over the cells assigned to a stated type (qualifier cell_type).
+    scope: Confidence of a classification; not the share of cells assigned to a type (proportion of cells assigned to a cell type).
+    dimension: dimensionless
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:calcium_transient_frequency
+    label: calcium transient frequency
+    definition: Number of calcium transients per unit time.
+    scope: Rate of calcium transients, including in non-contracting or non-cardiomyocyte cells; not the contraction frequency (beat rate) and not a calcium transient time.
+    dimension: frequency
+- add_term:
+    field: measure
+    id: measure:action_potential_frequency
+    label: action potential frequency
+    parent: measure:action_potential
+    definition: Number of spontaneous action potentials per unit time in a patch-clamped cell.
+    scope: Firing rate of one cell's action potentials; not a contraction frequency of a tissue, and not the waveform's amplitude, duration, peak, rise time, upstroke velocity or a ratio of durations.
+    dimension: frequency
+- add_term:
+    field: measure
+    id: measure:contraction_displacement
+    label: contraction displacement
+    parent: measure:contraction_motion_amplitude
+    definition: Distance a tissue or a region of it moves during one contraction, read from images in length units.
+    scope: Contractile motion as a distance in length units; motion metrics without length units stay on the parent term.
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:beating_construct_fraction
+    label: fraction of constructs beating
+    parent: measure:beating_presence
+    definition: Share of tissues, spheroids or organoids that beat or show calcium activity, spontaneously or in a stated mode (qualifier mode).
+    scope: A share of constructs that beat; whether one construct beats stays on the parent term.
+    dimension: dimensionless
+    qualifiers:
+      mode: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:cell_perimeter
+    label: cell perimeter
+    definition: Length of the outline of one cell in an image.
+    scope: Length of a single cell's outline; not cell area, circularity, aspect ratio, cell length or width.
+    dimension: length
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:transcriptome_distance
+    label: distance between transcriptome profiles
+    definition: Distance between samples' whole-transcriptome profiles in a low-dimensional embedding such as multidimensional scaling.
+    scope: A distance between profiles in an embedding other than principal components; not a correlation coefficient of profiles (correlation of expression profiles) and not a distance between PCA centroids.
+    dimension: dimensionless
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:cell_type_proportion
+    value: {must_match: [platform@1, preparation, measure.cell_type, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:classifier_prediction_probability
+    value: {must_match: [method, measure.cell_type, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_frequency
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:action_potential_frequency
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contraction_displacement
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:beating_construct_fraction
+    value: {must_match: [platform@1, preparation, measure.mode, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.mode], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_perimeter
+    value: {must_match: [platform@1, preparation, measure.cell_type, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:transcriptome_distance
+    value: {must_match: [method, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: cell_line
+  stated: GCaMP-WTC11
+  terms: [CVCL_Y803]
+  no_ontology_term: the GCaMP6f-modified WTC11 subclone from the Conklin laboratory; no Cellosaurus entry found (searched 'GCaMP', 'GCaMP WTC11', 'WTC-GCaMP'; CVCL_E6IL is a different WTC11 GCaMP6 clone)
+  note: mapped to the parental line WTC11; the GCaMP6f reporter is in transgene
+- field: dissociation_reagent
+  stated: 0.25% Trypsin
+  terms: [dissociation_reagent:trypsin]
+  qualifiers: {concentration: 0.25%}
+- field: supplements
+  stated: B27 supplement minus insulin
+  terms: [supplements:b27]
+  qualifiers: {insulin: minus insulin}
+- field: preparation
+  stated: lysed with Trizol
+  terms: [preparation:rna_extract]
+  note: "Methods: cells 'were lysed with Trizol (Ambion) and RNA was extracted using the Direct-zol Miniprep kit' for bulk RNA-seq; the measured material is purified RNA"
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: surface area
+  terms: [measure:tissue_projected_area]
+  note: surface area of microtissues from brightfield images (projected area); no synonym, since 'surface area' elsewhere may mean a 3D surface
+- field: measure
+  stated: size
+  terms: [measure:tissue_projected_area]
+  qualifiers: {expressed_as: fold, normalised_to: conventional microtissues}
+  note: "'approximately 3 times the size of conventional microtissues', stated with the surface-area panel Fig. 1E"
+- field: measure
+  stated: Ki67+ cardiomyocytes and non-cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67, population: cardiomyocytes and non-cardiomyocytes}
+- field: measure
+  stated: Ki67+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67}
+- field: measure
+  stated: diameter
+  terms: [measure:tissue_width]
+- field: measure
+  stated: contraction size
+  terms: [measure:contraction_displacement]
+- field: measure
+  stated: cells analysed by scRNA-seq
+  flag: {kind: not a context, note: "the number of cells in the scRNA-seq analysis (3439) is the analysis's n, not a measured property of the samples"}
+- field: measure
+  stated: cardiomyocytes expressing IRX4 or MYH7
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: IRX4 or MYH7, population: cardiomyocytes}
+- field: measure
+  stated: cells classified as atrial cardiomyocytes
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: atrial}
+  note: the item's values mix shares of cardiomyocytes (98 %) and of all cells (39.87 %); see the ambiguity log
+- field: measure
+  stated: cells classified as ventricular cardiomyocytes
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: ventricular}
+- field: measure
+  stated: cells classified as cardiomyocytes (unspecified)
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: cardiomyocytes (unspecified)}
+- field: measure
+  stated: cells classified as fibroblast-like
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: fibroblast-like}
+- field: measure
+  stated: cells classified as SMC/fibroblast-like
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: SMC/fibroblast-like}
+- field: measure
+  stated: cells classified as subepicardial cells
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: subepicardial cells}
+- field: measure
+  stated: cells classified as capillary endothelium/pericytes/adventia
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: capillary endothelium/pericytes/adventia}
+- field: measure
+  stated: cells classified as capillary endothelium
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: capillary endothelium}
+- field: measure
+  stated: cells classified as erythrocytes
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: erythrocytes}
+- field: measure
+  stated: cells classified as sub-epicardial or capillary endothelium/pericytes/adventia
+  terms: [measure:cell_type_proportion]
+  qualifiers: {cell_type: sub-epicardial or capillary endothelium/pericytes/adventia}
+  note: the paper's combined share of two classifier classes ('less than 4%'), one value
+- field: measure
+  stated: contractile behavior
+  terms: [measure:beating_presence]
+  qualifiers: {mode: under electrical field stimulation}
+- field: measure
+  stated: spontaneous beating
+  terms: [measure:beating_construct_fraction]
+  qualifiers: {mode: spontaneous}
+- field: measure
+  stated: calcium transient maximum upstroke velocity
+  terms: [measure:calcium_transient_rise_rate]
+  qualifiers: {statistic: maximum}
+- field: measure
+  stated: calcium transient maximum downstroke velocity
+  terms: [measure:calcium_transient_decay_rate]
+  qualifiers: {statistic: maximum}
+- field: measure
+  stated: spheroids responding to electrical field stimulation
+  terms: [measure:pacing_entrainment]
+- field: measure
+  stated: cardiomyocyte area
+  terms: [measure:cell_area]
+- field: measure
+  stated: cardiomyocyte perimeter
+  terms: [measure:cell_perimeter]
+  qualifiers: {cell_type: cardiomyocyte}
+- field: measure
+  stated: cardiomyocyte circularity
+  terms: [measure:cell_circularity]
+- field: measure
+  stated: cardiomyocyte aspect ratio
+  terms: [measure:cell_aspect_ratio]
+  qualifiers: {cell_type: cardiomyocyte}
+- field: measure
+  stated: sarcomere class
+  terms: [measure:sarcomere_organisation]
+  note: share of cTnT-stained cells in each class of a 1-4 sarcomere development score
+- field: measure
+  stated: ADP50
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD50}
+  note: "the table prints 'ADP50'; the methods list APD50 among the parameters, and the record labels 'ADP50' a suspected misprint"
+- field: measure
+  stated: Max up dV/dT
+  terms: [measure:upstroke_velocity]
+- field: measure
+  stated: Frequency
+  terms: [measure:action_potential_frequency]
+- field: measure
+  stated: Peak
+  terms: [measure:action_potential_peak_potential]
+- field: measure
+  stated: Amplitude
+  terms: [measure:action_potential_amplitude]
+- field: measure
+  stated: atrial/nodal cardiomyocytes
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: atrial/nodal}
+- field: measure
+  stated: ventricular cardiomyocytes
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: ventricular}
+- field: measure
+  stated: transcriptome similarity (multidimensional scaling)
+  terms: [measure:transcriptome_distance]
+- field: measure
+  stated: muscle development genes and cardiac transcription factors (MYH6, MYOM1, TTN, MEF2C, NKX2-5, ISL1)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "MYH6, MYOM1, TTN, MEF2C, NKX2-5, ISL1"}
+- field: measure
+  stated: muscle tissue development genes (ACTC1, MYH6, MYOM1)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "ACTC1, MYH6, MYOM1"}
+- field: measure
+  stated: T-box transcription factors (TBX2, TBX5, TBX18, TBX20)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "TBX2, TBX5, TBX18, TBX20"}
+- field: measure
+  stated: TBX18, TBX5 and HEY1
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "TBX18, TBX5, HEY1"}
+- field: measure
+  stated: cardiac TFs and epicardial-related genes (ISL1, NKX2-5, TBX5, TBX18, CDH1, ALDH1A2, SEMA3D)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "ISL1, NKX2-5, TBX5, TBX18, CDH1, ALDH1A2, SEMA3D"}
+- field: measure
+  stated: gut tube development genes (SOX17, ONECUT2)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "SOX17, ONECUT2"}
+- field: measure
+  stated: secreted factor genes FGF10 and NPPB
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "FGF10, NPPB"}
+- field: measure
+  stated: cardiac-enriched secreted factor genes (IGF1, ANGPT1, DCN, LUM)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: "IGF1, ANGPT1, DCN, LUM"}
+- field: measure
+  stated: total volume
+  terms: [measure:tissue_volume]
+- field: measure
+  stated: cardiac core volume
+  terms: [measure:tissue_volume]
+  qualifiers: {portion: cardiac core}
+- field: measure
+  stated: ratio of cardiac to total volume
+  terms: [measure:tissue_volume]
+  qualifiers: {portion: cardiac core, expressed_as: normalised, normalised_to: total volume}
+- field: measure
+  stated: '% area SMA+'
+  terms: [measure:tissue_area_fraction]
+  qualifiers: {component: SMA+ cells}
+- field: measure
+  stated: '% area Pecam-1+'
+  terms: [measure:tissue_area_fraction]
+  qualifiers: {component: Pecam-1+ cells}
+- field: measure
+  stated: '% area MYH7+'
+  terms: [measure:tissue_area_fraction]
+  qualifiers: {component: MYH7+ cells}
+- field: measure
+  stated: '% area SMA+ and Pecam-1+'
+  flag: {kind: several measures, note: "one item for two markers (SMA+ area and Pecam-1+ area at the unmarked days); each marker's area is its own measure"}
+- field: measure
+  stated: '% area MLC2v+ over total cardiomyocyte area'
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: MLC2v, normalised_to: total cardiomyocyte area}

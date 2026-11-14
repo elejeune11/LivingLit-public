@@ -1,0 +1,567 @@
+record: 2022_Wickramasinghe
+formula_library_version: 28
+agent:
+  model: llm
+  instructions: formulas_v3
+  run: null
+derived:
+  F4B_cd36_gw.fold_change:
+    item: F4B_cd36_gw
+    formula: r = a/b
+    anchor:
+      quote: PPARd induction increased CD36 expression by 13.36-fold
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F4B/F4B_cd36_gw/gw
+        kind: per sample
+        note: '% SIRPA+CD90-CD36+ cells, GW0742 (Fig. 4B)'
+      b:
+        reading: F4B/F4B_cd36_gw/control
+        kind: per sample
+        note: '% SIRPA+CD90-CD36+ cells, control (Fig. 4B)'
+    output: F4B_cd36_gw.values.fold_text
+    aggregation: not stated
+    alternatives:
+    - label: fold of CD36 transcript (RNA-seq, Fig. 3B) rather than of % CD36+ cells
+      note: the sentence opens 'Consistent with the increased CD36 gene expression' and follows Figs. 4A-4B; the record reader placed
+        it on Fig. 4B
+    note: fold change of the % CD36+ cells, GW0742 over control
+  F6G_time.fold_change:
+    item: F6G_time
+    formula: r = a/b
+    anchor:
+      quote: with an average 1.48-fold increase across all EHTs
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: developed force at week 4, all EHTs of all conditions (Fig. 6G; not read)
+      b:
+        not_stated: true
+        kind: per sample
+        note: developed force at week 0, same EHTs (Fig. 6G; not read)
+    output: F6G_time.values.fold_text
+    aggregation: not stated
+    note: '''average ... across all EHTs'': mean of per-EHT folds or fold of pooled means is not stated'
+  S5D_spare.spare_control:
+    item: S5D_spare
+    group: control
+    formula: spare = maxr - basal
+    anchor:
+      quote: mitochondrial spare capacity
+      where: Results
+    library:
+      formula: difference_from_reference
+      vars:
+        d: spare
+        x: maxr
+        x0: basal
+    inputs:
+      maxr:
+        reading: F5H/F5H_maxresp/control
+        kind: per sample
+        note: maximal respiration, Fig. 5H (axis pmol/min/cell number)
+      basal:
+        reading: S5D_basal/S5D_basal/control
+        kind: per sample
+        note: basal respiration, Fig. S5D left (axis pmol/min)
+    output_unit: pmol/min
+    note: '''spare capacity'' names the Mito Stress Test operation (maximal minus basal OCR, Seahorse Wave); no printed value: the rebuilt
+      value sits beside the Fig. S5D right reading S5D_spare/control'
+  S5D_spare.spare_lcfa:
+    item: S5D_spare
+    group: lcfa
+    formula: spare = maxr - basal
+    anchor:
+      quote: mitochondrial spare capacity
+      where: Results
+    library:
+      formula: difference_from_reference
+      vars:
+        d: spare
+        x: maxr
+        x0: basal
+    inputs:
+      maxr:
+        reading: F5H/F5H_maxresp/lcfa
+        kind: per sample
+        note: maximal respiration, Fig. 5H (axis pmol/min/cell number)
+      basal:
+        reading: S5D_basal/S5D_basal/lcfa
+        kind: per sample
+        note: basal respiration, Fig. S5D left (axis pmol/min)
+    output_unit: pmol/min
+    note: '''spare capacity'' names the Mito Stress Test operation (maximal minus basal OCR, Seahorse Wave); no printed value: the rebuilt
+      value sits beside the Fig. S5D right reading S5D_spare/lcfa'
+  S5D_spare.spare_gw:
+    item: S5D_spare
+    group: gw
+    formula: spare = maxr - basal
+    anchor:
+      quote: mitochondrial spare capacity
+      where: Results
+    library:
+      formula: difference_from_reference
+      vars:
+        d: spare
+        x: maxr
+        x0: basal
+    inputs:
+      maxr:
+        reading: F5H/F5H_maxresp/gw
+        kind: per sample
+        note: maximal respiration, Fig. 5H (axis pmol/min/cell number)
+      basal:
+        reading: S5D_basal/S5D_basal/gw
+        kind: per sample
+        note: basal respiration, Fig. S5D left (axis pmol/min)
+    output_unit: pmol/min
+    note: '''spare capacity'' names the Mito Stress Test operation (maximal minus basal OCR, Seahorse Wave); no printed value: the rebuilt
+      value sits beside the Fig. S5D right reading S5D_spare/gw'
+  S5D_spare.spare_lcfa_gw:
+    item: S5D_spare
+    group: lcfa_gw
+    formula: spare = maxr - basal
+    anchor:
+      quote: mitochondrial spare capacity
+      where: Results
+    library:
+      formula: difference_from_reference
+      vars:
+        d: spare
+        x: maxr
+        x0: basal
+    inputs:
+      maxr:
+        reading: F5H/F5H_maxresp/lcfa_gw
+        kind: per sample
+        note: maximal respiration, Fig. 5H (axis pmol/min/cell number)
+      basal:
+        reading: S5D_basal/S5D_basal/lcfa_gw
+        kind: per sample
+        note: basal respiration, Fig. S5D left (axis pmol/min)
+    output_unit: pmol/min
+    note: '''spare capacity'' names the Mito Stress Test operation (maximal minus basal OCR, Seahorse Wave); no printed value: the rebuilt
+      value sits beside the Fig. S5D right reading S5D_spare/lcfa_gw'
+  S5D_spare.spare_gsk:
+    item: S5D_spare
+    group: gsk
+    formula: spare = maxr - basal
+    anchor:
+      quote: mitochondrial spare capacity
+      where: Results
+    library:
+      formula: difference_from_reference
+      vars:
+        d: spare
+        x: maxr
+        x0: basal
+    inputs:
+      maxr:
+        reading: F5H/F5H_maxresp/gsk
+        kind: per sample
+        note: maximal respiration, Fig. 5H (axis pmol/min/cell number)
+      basal:
+        reading: S5D_basal/S5D_basal/gsk
+        kind: per sample
+        note: basal respiration, Fig. S5D left (axis pmol/min)
+    output_unit: pmol/min
+    note: '''spare capacity'' names the Mito Stress Test operation (maximal minus basal OCR, Seahorse Wave); no printed value: the rebuilt
+      value sits beside the Fig. S5D right reading S5D_spare/gsk'
+  F6H_sys.force:
+    item: F6H_sys
+    formula: not stated
+    anchor:
+      quote: by applying a beam-bending equation from elasticity theory as previously described (Serrao et al., 2012)
+      where: Methods, Engineered heart tissue deflection analysis
+    no_formula: systolic force from post deflection by a beam-bending equation stated only by citation (Serrao et al., 2012); post geometry
+      and modulus not printed
+    inputs:
+      deflection:
+        not_stated: true
+        kind: per sample
+      post:
+        by_reference:
+          citation: Serrao2012
+          anchor:
+            quote: by applying a beam-bending equation from elasticity theory as previously described (Serrao et al., 2012)
+            where: Methods, Engineered heart tissue deflection analysis
+        kind: constant
+        note: post stiffness, or geometry and modulus
+    alternatives:
+    - label: linear spring (hooke_spring)
+      formula: F = k*x
+    - label: cantilever tip load (cantilever_tip_stiffness with hooke_spring)
+      formula: F = 3*E*I*x/L**3
+  F6H_dia.force:
+    item: F6H_dia
+    formula: not stated
+    anchor:
+      quote: by applying a beam-bending equation from elasticity theory as previously described (Serrao et al., 2012)
+      where: Methods, Engineered heart tissue deflection analysis
+    no_formula: diastolic force from post deflection by a beam-bending equation stated only by citation (Serrao et al., 2012); post
+      geometry and modulus not printed
+    inputs:
+      deflection:
+        not_stated: true
+        kind: per sample
+      post:
+        by_reference:
+          citation: Serrao2012
+          anchor:
+            quote: by applying a beam-bending equation from elasticity theory as previously described (Serrao et al., 2012)
+            where: Methods, Engineered heart tissue deflection analysis
+        kind: constant
+        note: post stiffness, or geometry and modulus
+    alternatives:
+    - label: linear spring (hooke_spring)
+      formula: F = k*x
+    - label: cantilever tip load (cantilever_tip_stiffness with hooke_spring)
+      formula: F = 3*E*I*x/L**3
+  F6G_force.force:
+    item: F6G_force
+    formula: not stated
+    anchor:
+      quote: by applying a beam-bending equation from elasticity theory as previously described (Serrao et al., 2012)
+      where: Methods, Engineered heart tissue deflection analysis
+    no_formula: spontaneous developed force from post deflection by a beam-bending equation stated only by citation (Serrao et al.,
+      2012); post geometry and modulus not printed
+    inputs:
+      deflection:
+        not_stated: true
+        kind: per sample
+      post:
+        by_reference:
+          citation: Serrao2012
+          anchor:
+            quote: by applying a beam-bending equation from elasticity theory as previously described (Serrao et al., 2012)
+            where: Methods, Engineered heart tissue deflection analysis
+        kind: constant
+        note: post stiffness, or geometry and modulus
+    alternatives:
+    - label: linear spring (hooke_spring)
+      formula: F = k*x
+    - label: cantilever tip load (cantilever_tip_stiffness with hooke_spring)
+      formula: F = 3*E*I*x/L**3
+  F6H_df.developed_force:
+    item: F6H_df
+    formula: not stated
+    anchor:
+      quote: developed force (DF; calculated from the post deflection with each twitch)
+      where: Methods, Engineered heart tissue deflection analysis
+    no_formula: developed force is defined by citation (Turnbull et al., 2014); the paper does not state DF = systolic - diastolic
+    inputs:
+      twitch:
+        by_reference:
+          citation: Turnbull2014
+          anchor:
+            quote: as previously described (Turnbull et al., 2014)
+            where: Methods, Engineered heart tissue deflection analysis
+        kind: per sample
+    alternatives:
+    - label: systolic minus diastolic force (difference_from_reference on the F6H_sys and F6H_dia readings)
+      formula: DF = Fsys - Fdia
+  F6H_t2r.ratio:
+    item: F6H_t2r
+    formula: r = t90/tpk
+    anchor:
+      quote: the ratio of time to the 90th percentile of relaxation (T2Rlx90) relative to the time to peak (T2Pk)
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: t90
+        b: tpk
+    inputs:
+      t90:
+        not_stated: true
+        kind: per sample
+        note: T2Rlx90, not printed or plotted
+      tpk:
+        not_stated: true
+        kind: per sample
+        note: T2Pk, not printed or plotted
+    aggregation: not stated
+  F5G_ocr.per_cell:
+    item: F5G_ocr
+    formula: r = ocr/cells
+    anchor:
+      quote: Cell numbers were normalized using Methylene Blue staining
+      where: Methods, Seahorse analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ocr
+        b: cells
+    inputs:
+      ocr:
+        not_stated: true
+        kind: per sample
+        note: OCR per well
+      cells:
+        not_stated: true
+        kind: per sample
+        note: cell number per well from Methylene Blue staining
+    note: normalisation to cell number; the exact operation (per cell, per 1,000 cells, or relative) is done in Seahorse Wave and not
+      stated
+  F5H_maxresp.per_cell:
+    item: F5H_maxresp
+    formula: r = ocr/cells
+    anchor:
+      quote: Cell numbers were normalized using Methylene Blue staining
+      where: Methods, Seahorse analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ocr
+        b: cells
+    inputs:
+      ocr:
+        not_stated: true
+        kind: per sample
+        note: OCR per well
+      cells:
+        not_stated: true
+        kind: per sample
+        note: cell number per well from Methylene Blue staining
+    note: normalisation to cell number; the exact operation (per cell, per 1,000 cells, or relative) is done in Seahorse Wave and not
+      stated
+  S5D_basal.per_cell:
+    item: S5D_basal
+    formula: r = ocr/cells
+    anchor:
+      quote: Cell numbers were normalized using Methylene Blue staining
+      where: Methods, Seahorse analysis
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ocr
+        b: cells
+    inputs:
+      ocr:
+        not_stated: true
+        kind: per sample
+        note: OCR per well
+      cells:
+        not_stated: true
+        kind: per sample
+        note: cell number per well from Methylene Blue staining
+    note: normalisation to cell number; the exact operation (per cell, per 1,000 cells, or relative) is done in Seahorse Wave and not
+      stated
+  F5I_fao.per_protein:
+    item: F5I_fao
+    formula: r = rate/protein
+    anchor:
+      quote: The flux is expressed in pmol/h/mg protein
+      where: Methods, Fatty acid oxidation flux assay
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: rate
+        b: protein
+    inputs:
+      rate:
+        not_stated: true
+        kind: per sample
+        note: 3H2O released per hour
+      protein:
+        not_stated: true
+        kind: per sample
+        note: protein per well
+  F1A_PPARA.relative_to_tbp:
+    item: F1A_PPARA
+    formula: r = target/tbp
+    anchor:
+      quote: normalized to TATA-binding protein (TBP) and genomic DNA was used for quantification
+      where: Methods, cDNA generation and real-time qPCR
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: target
+        b: tbp
+    inputs:
+      target:
+        by_reference:
+          citation: Dubois2011
+          anchor:
+            quote: genomic DNA was used for quantification of absolute expression levels, as previously described (Dubois et al., 2011)
+            where: Methods, cDNA generation and real-time qPCR
+        kind: per sample
+        note: absolute target expression from a genomic DNA standard
+      tbp:
+        not_stated: true
+        kind: per sample
+        note: absolute TBP expression
+  F1A_PPARD.relative_to_tbp:
+    item: F1A_PPARD
+    formula: r = target/tbp
+    anchor:
+      quote: normalized to TATA-binding protein (TBP) and genomic DNA was used for quantification
+      where: Methods, cDNA generation and real-time qPCR
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: target
+        b: tbp
+    inputs:
+      target:
+        by_reference:
+          citation: Dubois2011
+          anchor:
+            quote: genomic DNA was used for quantification of absolute expression levels, as previously described (Dubois et al., 2011)
+            where: Methods, cDNA generation and real-time qPCR
+        kind: per sample
+        note: absolute target expression from a genomic DNA standard
+      tbp:
+        not_stated: true
+        kind: per sample
+        note: absolute TBP expression
+  F1A_PPARG.relative_to_tbp:
+    item: F1A_PPARG
+    formula: r = target/tbp
+    anchor:
+      quote: normalized to TATA-binding protein (TBP) and genomic DNA was used for quantification
+      where: Methods, cDNA generation and real-time qPCR
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: target
+        b: tbp
+    inputs:
+      target:
+        by_reference:
+          citation: Dubois2011
+          anchor:
+            quote: genomic DNA was used for quantification of absolute expression levels, as previously described (Dubois et al., 2011)
+            where: Methods, cDNA generation and real-time qPCR
+        kind: per sample
+        note: absolute target expression from a genomic DNA standard
+      tbp:
+        not_stated: true
+        kind: per sample
+        note: absolute TBP expression
+  S6C_cv.velocity:
+    item: S6C_cv
+    formula: not stated
+    anchor: not stated
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: not stated
+      t1:
+        not_stated: true
+        kind: per sample
+      t2:
+        not_stated: true
+        kind: per sample
+    note: computed in Axion software (AxIS); electrode distances and activation times not stated
+assumptions: {}
+bounds:
+- item: F1C_rep
+  value: F1C_rep.values.control_fig
+  formula: fraction_bounds
+- item: F1C_rep
+  value: F1C_rep.values.gw6471_fig
+  formula: fraction_bounds
+- item: F1C_rep
+  value: F1C_rep.values.gsk_fig
+  formula: fraction_bounds
+- item: F1C_rep
+  value: F1C_rep.values.gw9662_fig
+  formula: fraction_bounds
+- item: F1C_rep
+  value: F1C_rep.values.all_antag_fig
+  formula: fraction_bounds
+- item: F1D_rep
+  value: F1D_rep.values.control_fig
+  formula: fraction_bounds
+- item: F1D_rep
+  value: F1D_rep.values.gw6471_fig
+  formula: fraction_bounds
+- item: F1D_rep
+  value: F1D_rep.values.gsk_fig
+  formula: fraction_bounds
+- item: F1D_rep
+  value: F1D_rep.values.gw9662_fig
+  formula: fraction_bounds
+- item: F1D_rep
+  value: F1D_rep.values.all_antag_fig
+  formula: fraction_bounds
+- item: F1E_rep
+  value: F1E_rep.values.control_fig
+  formula: fraction_bounds
+- item: F1E_rep
+  value: F1E_rep.values.gw6471_fig
+  formula: fraction_bounds
+- item: F1E_rep
+  value: F1E_rep.values.gsk_fig
+  formula: fraction_bounds
+- item: F1E_rep
+  value: F1E_rep.values.gw9662_fig
+  formula: fraction_bounds
+- item: F1E_rep
+  value: F1E_rep.values.all_antag_fig
+  formula: fraction_bounds
+- item: F4A_rep
+  value: F4A_rep.values.control_fig
+  formula: fraction_bounds
+- item: F4A_rep
+  value: F4A_rep.values.lcfa_fig
+  formula: fraction_bounds
+- item: F4A_rep
+  value: F4A_rep.values.gw_fig
+  formula: fraction_bounds
+- item: F4A_rep
+  value: F4A_rep.values.lcfa_gw_fig
+  formula: fraction_bounds
+- item: F4A_rep
+  value: F4A_rep.values.gsk_fig
+  formula: fraction_bounds
+- item: F4A_rep
+  value: F4A_rep.values.lcfa_gsk_fig
+  formula: fraction_bounds
+- item: S4B_rep
+  value: S4B_rep.values.control_fig
+  formula: fraction_bounds
+- item: S4B_rep
+  value: S4B_rep.values.gw_fig
+  formula: fraction_bounds
+- item: S4B_rep
+  value: S4B_rep.values.gsk_fig
+  formula: fraction_bounds
+- item: S4B_rep
+  value: S4B_rep.values.lcfa_fig
+  formula: fraction_bounds
+- item: S4B_rep
+  value: S4B_rep.values.lcfa_gw_fig
+  formula: fraction_bounds
+proposals: []

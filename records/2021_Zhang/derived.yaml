@@ -1,0 +1,410 @@
+record: 2021_Zhang
+formula_library_version: 2
+agent:
+  model: llm
+  instructions: formulas_v2
+derived:
+  # ---- CMT force from pillar deflection (Hooke; detail by reference to ref41)
+  F4C_het.force:
+    item: F4C_het
+    measure: peak systolic force
+    formula: F = k*x
+    anchor:
+      quote: based on the deflection of the pillars and the measured pillar spring constant of 2.68 µN/m
+      where: Methods, Cardiac microtissues
+    library:
+      formula: hooke_spring
+      vars: {F: F, k: k, x: x}
+    inputs:
+      k:
+        printed: '2.68'
+        unit: µN/m
+        anchor:
+          quote: constant of 2.68 µN/m
+          where: Methods, Cardiac microtissues
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: pillar deflection per CMT, tracked in videos; not printed
+    alternatives:
+    - label: two-post force balance (tension = k times the deflection of one pillar)
+      note: which deflection enters (one pillar, the mean of both, or their sum) is not stated; the method is by reference (41)
+    - label: sum of both pillars' deflections
+      formula: F = k*(x1 + x2)
+    note: no force value is printed; group values exist only as figure readings (fig4C), so nothing is rebuilt. The printed spring
+      constant unit (µN/m) is recorded as stated.
+  F4C_hom.force:
+    item: F4C_hom
+    measure: peak systolic force
+    formula: F = k*x
+    anchor:
+      quote: based on the deflection of the pillars and the measured pillar spring constant of 2.68 µN/m
+      where: Methods, Cardiac microtissues
+    library:
+      formula: hooke_spring
+      vars: {F: F, k: k, x: x}
+    inputs:
+      k:
+        printed: '2.68'
+        unit: µN/m
+        anchor:
+          quote: constant of 2.68 µN/m
+          where: Methods, Cardiac microtissues
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: pillar deflection per CMT, tracked in videos; not printed
+    alternatives:
+    - label: two-post force balance (tension = k times the deflection of one pillar)
+      note: which deflection enters (one pillar, the mean of both, or their sum) is not stated; the method is by reference (41)
+    - label: sum of both pillars' deflections
+      formula: F = k*(x1 + x2)
+  # ---- CMT stress = force / cross-sectional area (area by reference; kind not stated)
+  F4D_het.stress:
+    item: F4D_het
+    measure: peak systolic stress
+    formula: s = F/A
+    anchor:
+      quote: Maximum contractile force, stress, and contraction kinetics were calculated using a custom MATLAB script
+      where: Methods, Cardiac microtissues
+    library:
+      formula: stress_def
+      vars: {sigma: s, F: F, A: A}
+    inputs:
+      F:
+        item: F4C_het
+        kind: per sample
+      A:
+        by_reference:
+          citation: ref41
+          anchor:
+            quote: based on the deflection of the pillars and the measured pillar spring constant of 2.68 µN/m, as described previously (41)
+            where: Methods, Cardiac microtissues
+        kind: not stated
+        note: the paper names no area, no tissue dimension, and does not say whether one area is used for all CMTs or one per tissue
+    alternatives:
+    - label: one constant cross-sectional area for every CMT
+      note: stress would then be force scaled by a constant, and its P would equal the force P
+    - label: cross-sectional area measured per CMT
+      note: stress P may then differ from force P
+    note: 'stress = force / area is the definition of stress; the paper states only that stress was calculated from pillar deflection
+      by the method of ref41, so the area enters by reference'
+  F4D_hom.stress:
+    item: F4D_hom
+    measure: peak systolic stress
+    formula: s = F/A
+    anchor:
+      quote: Maximum contractile force, stress, and contraction kinetics were calculated using a custom MATLAB script
+      where: Methods, Cardiac microtissues
+    library:
+      formula: stress_def
+      vars: {sigma: s, F: F, A: A}
+    inputs:
+      F:
+        item: F4C_hom
+        kind: per sample
+      A:
+        by_reference:
+          citation: ref41
+          anchor:
+            quote: based on the deflection of the pillars and the measured pillar spring constant of 2.68 µN/m, as described previously (41)
+            where: Methods, Cardiac microtissues
+        kind: not stated
+        note: the paper names no area, no tissue dimension, and does not say whether one area is used for all CMTs or one per tissue
+    alternatives:
+    - label: one constant cross-sectional area for every CMT
+    - label: cross-sectional area measured per CMT
+  # ---- relative expression 2^-ddCt (proposal ddct_relative_expression)
+  F1D_het.rel:
+    item: F1D_het
+    measure: PKP2 RNA expression
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Relative gene expression is calculated as 2−ΔΔCT ± SEM
+      where: Methods, Reverse transcription quantitative PCR
+    library:
+      formula: ddct_relative_expression
+      vars: {r: r, ddct: ddct}
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddct = (Ct PKP2 - Ct PSMB2) of a sample minus the mean of that difference over WT repeats; no Ct value is printed
+    output: F1D_het.values.rel
+    note: the printed 63.2 % is the group mean of per-sample 2^-ddct relative to WT1, not one sample's value
+  F1D_hom.rel:
+    item: F1D_hom
+    measure: PKP2 RNA expression
+    formula: r = 2^(-ddct)
+    anchor:
+      quote: Relative gene expression is calculated as 2−ΔΔCT ± SEM
+      where: Methods, Reverse transcription quantitative PCR
+    library:
+      formula: ddct_relative_expression
+      vars: {r: r, ddct: ddct}
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddct = (Ct PKP2 - Ct PSMB2) of a sample minus the mean of that difference over WT repeats; no Ct value is printed
+    output: F1D_hom.values.rel
+    note: the printed 32.5 % is the group mean of per-sample 2^-ddct relative to WT2, not one sample's value
+  # ---- FRAP percentage recovery: normalised to an unbleached reference, then divided by pre-bleach intensity
+  F7B_het.normalized:
+    item: F7B_het
+    measure: junctional N-cadherin FRAP
+    formula: In = I/Iref
+    anchor:
+      quote: normalized to an unbleached reference region, and divided by the intensity in the ROI before photobleaching
+      where: Methods, Fluorescence recovery from photobleaching
+    library:
+      formula: ratio_def
+      vars: {r: In, a: I, b: Iref}
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: background-subtracted intensity of the bleached ROI at each time point
+      Iref:
+        not_stated: true
+        kind: per sample
+        note: intensity of the unbleached reference region
+  F7B_het.recovery:
+    item: F7B_het
+    measure: junctional N-cadherin FRAP
+    formula: R = In/I0
+    anchor:
+      quote: normalized to an unbleached reference region, and divided by the intensity in the ROI before photobleaching
+      where: Methods, Fluorescence recovery from photobleaching
+    library:
+      formula: ratio_def
+      vars: {r: R, a: In, b: I0}
+    inputs:
+      In:
+        derived: F7B_het.normalized
+        kind: per sample
+      I0:
+        not_stated: true
+        kind: per sample
+        note: ROI intensity before photobleaching; whether it was also normalised to the reference is not stated
+    output_unit: '%'
+    alternatives:
+    - label: pre-bleach intensity also normalised to the reference region (double normalisation)
+      formula: R = (I/Iref)/(I0/Iref0)
+  F7B_hom.normalized:
+    item: F7B_hom
+    measure: junctional N-cadherin FRAP
+    formula: In = I/Iref
+    anchor:
+      quote: normalized to an unbleached reference region, and divided by the intensity in the ROI before photobleaching
+      where: Methods, Fluorescence recovery from photobleaching
+    library:
+      formula: ratio_def
+      vars: {r: In, a: I, b: Iref}
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+      Iref:
+        not_stated: true
+        kind: per sample
+  F7B_hom.recovery:
+    item: F7B_hom
+    measure: junctional N-cadherin FRAP
+    formula: R = In/I0
+    anchor:
+      quote: normalized to an unbleached reference region, and divided by the intensity in the ROI before photobleaching
+      where: Methods, Fluorescence recovery from photobleaching
+    library:
+      formula: ratio_def
+      vars: {r: R, a: In, b: I0}
+    inputs:
+      In:
+        derived: F7B_hom.normalized
+        kind: per sample
+      I0:
+        not_stated: true
+        kind: per sample
+    output_unit: '%'
+    alternatives:
+    - label: pre-bleach intensity also normalised to the reference region (double normalisation)
+      formula: R = (I/Iref)/(I0/Iref0)
+  # ---- TFM RMS stress (proposal root_mean_square)
+  F5D_het.rms:
+    item: F5D_het
+    measure: RMS systolic stress
+    formula: S = sqrt(Q/n)
+    anchor:
+      quote: Root mean squares (RMSs) of the magnitudes of stress vectors
+      where: Methods, Traction force microscopy
+    library:
+      formula: root_mean_square
+      vars: {S: S, Q: Q, n: n}
+    inputs:
+      Q:
+        not_stated: true
+        kind: per sample
+        note: sum of squared stress-vector magnitudes |S1|^2 + ... + |Sn|^2 over the user-defined area
+      n:
+        not_stated: true
+        kind: per sample
+        note: number of stress vectors in the area
+    note: the paper prints S_RMS = sqrt((|S1|^2 + ... + |Sn|^2)/n); Q names the sum of squares
+  F5D_hom.rms:
+    item: F5D_hom
+    measure: RMS systolic stress
+    formula: S = sqrt(Q/n)
+    anchor:
+      quote: Root mean squares (RMSs) of the magnitudes of stress vectors
+      where: Methods, Traction force microscopy
+    library:
+      formula: root_mean_square
+      vars: {S: S, Q: Q, n: n}
+    inputs:
+      Q: {not_stated: true, kind: per sample}
+      n: {not_stated: true, kind: per sample}
+  F6D_het.rms:
+    item: F6D_het
+    measure: RMS systolic stress
+    formula: S = sqrt(Q/n)
+    anchor:
+      quote: Root mean squares (RMSs) of the magnitudes of stress vectors
+      where: Methods, Traction force microscopy
+    library:
+      formula: root_mean_square
+      vars: {S: S, Q: Q, n: n}
+    inputs:
+      Q: {not_stated: true, kind: per sample}
+      n: {not_stated: true, kind: per sample}
+  F6D_hom.rms:
+    item: F6D_hom
+    measure: RMS systolic stress
+    formula: S = sqrt(Q/n)
+    anchor:
+      quote: Root mean squares (RMSs) of the magnitudes of stress vectors
+      where: Methods, Traction force microscopy
+    library:
+      formula: root_mean_square
+      vars: {S: S, Q: Q, n: n}
+    inputs:
+      Q: {not_stated: true, kind: per sample}
+      n: {not_stated: true, kind: per sample}
+  # ---- TFM work: a field sum of dot products (no closed-form entry)
+  F5E_het.work:
+    item: F5E_het
+    measure: systolic work
+    formula: not stated
+    anchor: &work
+      quote: The work generated by cell contraction was calculated by multiplying force vectors by bead displacement vectors and summing over a user-defined area
+      where: Methods, Traction force microscopy
+    no_formula: a sum over the traction field of force vector dot bead displacement; the library has no field-sum entry
+  F5E_hom.work:
+    item: F5E_hom
+    measure: systolic work
+    formula: not stated
+    anchor: *work
+    no_formula: a sum over the traction field of force vector dot bead displacement; the library has no field-sum entry
+  F6E_het.work:
+    item: F6E_het
+    measure: systolic work
+    formula: not stated
+    anchor: *work
+    no_formula: a sum over the traction field of force vector dot bead displacement; the library has no field-sum entry
+  F6E_hom.work:
+    item: F6E_hom
+    measure: systolic work
+    formula: not stated
+    anchor: *work
+    no_formula: a sum over the traction field of force vector dot bead displacement; the library has no field-sum entry
+  # ---- curve-fit plateaus (out of closed-form scope)
+  F7C_het.mobile_fraction:
+    item: F7C_het
+    measure: N-cadherin mobile fraction
+    formula: not stated
+    anchor: &frapfit
+      quote: The fluorescence recovery curve was fitted using a two-phase association model
+      where: Results, p. 4
+    no_formula: plateau of a fitted two-phase association curve; curve fits are not closed-form library entries
+  F7C_hom.mobile_fraction:
+    item: F7C_hom
+    measure: N-cadherin mobile fraction
+    formula: not stated
+    anchor: *frapfit
+    no_formula: plateau of a fitted two-phase association curve; curve fits are not closed-form library entries
+assumptions:
+  F4C_het.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F4C_hom.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F1D_het.rel:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F1D_hom.rel:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+proposals:
+- formula: ddct_relative_expression
+  kind: model
+  statement: Relative expression of a target gene by the comparative Ct method is 2 raised to minus the difference of the
+    target-minus-reference Ct between a sample and the calibrator.
+  equations:
+  - r = 2^(-ddct)
+  variables:
+    r: dimensionless
+    ddct: dimensionless
+  assumes:
+  - amplification efficiency near 100 %
+  - equal amplification efficiencies of target and reference
+  does_not_apply: amplification efficiencies far from 100 % or unequal between target and reference (use an efficiency-corrected
+    ratio such as Pfaffl's)
+  tests:
+  - given: {ddct: 1.0}
+    expect: {r: 0.5}
+  - given: {ddct: -2.0}
+    expect: {r: 4.0}
+  - given: {ddct: 1.0}
+    does_not_apply: 'efficiency 90 % per cycle: expression ratio is 1.9^-1, not 2^-1'
+  cites:
+    text: Livak and Schmittgen, Analysis of relative gene expression data using real-time quantitative PCR and the 2^-ΔΔCT
+      method. Methods 25, 402–408 (2001)
+    url: https://doi.org/10.1006/meth.2001.1262
+- formula: root_mean_square
+  kind: definition
+  statement: The root mean square of n values is the square root of the mean of their squares.
+  equations:
+  - S = sqrt(Q/n)
+  variables:
+    S: D
+    Q: D**2
+    n: count
+  does_not_apply: the mean of the magnitudes (not squared), or a spread about the mean (that is the SD)
+  tests:
+  - given: {Q: 8.0, n: 2.0}
+    expect: {S: 2.0}
+  - given: {Q: 25.0, n: 1.0}
+    expect: {S: 5.0}
+  - given: {Q: 10.0, n: 2.0}
+    does_not_apply: 'values 1 and 3 (mean of squares 5): the plain mean 2 differs from the RMS sqrt(5)'
+  cites:
+    text: Weisstein, Root-Mean-Square, MathWorld (Wolfram Research)
+    url: https://mathworld.wolfram.com/Root-Mean-Square.html

@@ -1,0 +1,46 @@
+# Written by code from changes.yaml (version 9); never edited.
+formula: cantilever_point_load_stiffness
+kind: model
+statement: The stiffness of a slender elastic cantilever loaded by a point force at distance x from its fixed end, with the
+  deflection taken at the free end, is 6EI/(3Lx^2 - x^3).
+equations:
+- k = 6*E*I/(3*L*x**2 - x**3)
+variables:
+  k: stiffness
+  E: modulus
+  I: second_moment
+  L: length
+  x: length
+assumes:
+- small deflection
+- linear elastic material
+- slender beam
+- point load at distance x from the fixed end
+- deflection taken at the free end
+does_not_apply: large deflections, a short thick beam where shear deformation matters, or a deflection taken at the load point
+  (then k = 3EI/x^3)
+tests:
+- given:
+    E: 1.0
+    I: 1.0
+    L: 1.0
+    x: 1.0
+  expect:
+    k: 3.0
+- given:
+    E: 1.0
+    I: 1.0
+    L: 2.0
+    x: 1.0
+  expect:
+    k: 1.2
+- given:
+    E: 1.0
+    I: 1.0
+    L: 2.0
+    x: 1.0
+  does_not_apply: 'deflection read at the load point: k = 3EI/x^3 = 3, not 1.2'
+cites:
+  text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, concentrated
+    load P at distance a from the support)
+  quote: δB = Pa^2(3L - a)/6EI

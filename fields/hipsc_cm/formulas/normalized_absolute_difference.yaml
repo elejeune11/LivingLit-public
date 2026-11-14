@@ -1,0 +1,38 @@
+# Written by code from changes.yaml (version 21); never edited.
+formula: normalized_absolute_difference
+kind: derived
+statement: The absolute difference of two like quantities divided by their sum, |a - b|/(a + b), is a ratio of the absolute
+  difference to the sum.
+equations:
+- r = Abs(a - b)/(a + b)
+variables:
+  r: dimensionless
+  a: D
+  b: D
+  dn: D
+  sm: D
+assumes:
+- dn = Abs(a - b)
+- sm = a + b
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: dn
+    b: sm
+does_not_apply: a signed normalized difference (a - b)/(a + b), or a difference over the mean (a + b)/2
+tests:
+- given:
+    a: 3.0
+    b: 1.0
+  expect:
+    r: 0.5
+- given:
+    a: 1.0
+    b: 3.0
+  expect:
+    r: 0.5
+- given:
+    a: 1.0
+    b: 3.0
+  does_not_apply: the signed form gives -0.5

@@ -1,0 +1,31 @@
+# Written by code from changes.yaml (version 3); never edited.
+formula: ddct_relative_expression
+kind: model
+statement: Relative expression of a target gene by the comparative Ct method is 2 raised to minus the difference of the target-minus-reference
+  Ct between a sample and the calibrator.
+equations:
+- r = 2^(-ddct)
+variables:
+  r: dimensionless
+  ddct: dimensionless
+assumes:
+- amplification efficiency near 100 %
+- equal amplification efficiencies of target and reference
+does_not_apply: amplification efficiencies far from 100 % or unequal between target and reference (use an efficiency-corrected
+  ratio such as Pfaffl's)
+tests:
+- given:
+    ddct: 1.0
+  expect:
+    r: 0.5
+- given:
+    ddct: -2.0
+  expect:
+    r: 4.0
+- given:
+    ddct: 1.0
+  does_not_apply: 'efficiency 90 % per cycle: expression ratio is 1.9^-1, not 2^-1'
+cites:
+  text: Livak and Schmittgen, Analysis of relative gene expression data using real-time quantitative PCR and the 2^-ΔΔCT method.
+    Methods 25, 402–408 (2001)
+  url: https://doi.org/10.1006/meth.2001.1262

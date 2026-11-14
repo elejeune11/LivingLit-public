@@ -1,0 +1,2614 @@
+record: 2018_Ulmer
+formula_library_version: 7
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  prot_diff.differed_pct:
+    item: prot_diff
+    measure: differentially abundant proteins
+    formula: p = k/n
+    anchor:
+      quote: Among these 614 proteins, 256 (41%) significantly differed in abundance between the groups
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: n
+    inputs:
+      k:
+        value: prot_diff.values.differed
+        kind: constant
+      n:
+        value: prot_identified.values.compared
+        kind: constant
+    output: prot_diff.values.differed_pct
+  prot_diff.differed_sum:
+    item: prot_diff
+    measure: differentially abundant proteins
+    formula: k = u + d
+    anchor:
+      quote: 256 (41%) significantly differed in abundance between the groups, 133 proteins being more and 123 proteins less abundant in 3D
+      where: Results
+      file: main.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: k
+        a: u
+        b: d
+    inputs:
+      u:
+        value: prot_diff.values.more_3d
+        kind: constant
+      d:
+        value: prot_diff.values.less_3d
+        kind: constant
+    output: prot_diff.values.differed
+  prot_nuclear.nuclear_lower_pct:
+    item: prot_nuclear
+    measure: nuclear protein abundance
+    formula: p = k/n
+    anchor:
+      quote: For nuclear proteins, 75% showed lower abundance in 3D than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: n
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: number of nuclear proteins lower in 3D not printed
+      n:
+        not_stated: true
+        kind: constant
+        note: number of nuclear proteins compared not printed
+    output: prot_nuclear.values.nuclear_lower
+  s2e_atp_tca.share:
+    item: s2e_atp_tca
+    measure: share of Panther pathways
+    formula: p = k/n
+    anchor:
+      quote: were involved in ATP synthesis and the tricarboxylic acid (TCA) cycle (10.8% each of total pathways
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: n
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: pathway hits not printed (PANTHER output, Fig. S2E image)
+      n:
+        not_stated: true
+        kind: constant
+        note: total pathway hits not printed
+    output: s2e_atp_tca.values.atp_tca_share
+  s2f_oxidoreductases.share:
+    item: s2f_oxidoreductases
+    measure: share of Panther protein classes
+    formula: p = k/n
+    anchor:
+      quote: abundant in 3D hiPSC-CMs was annotated to oxidoreductases (21.7% of total protein classes
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: n
+    inputs:
+      k:
+        not_stated: true
+        kind: constant
+        note: class hits not printed
+      n:
+        not_stated: true
+        kind: constant
+        note: total class hits not printed
+    output: s2f_oxidoreductases.values.oxidoreductase_share
+  prot_tfam.ratio:
+    item: prot_tfam
+    measure: TFAM protein abundance
+    formula: r = a/b
+    anchor:
+      quote: TFAM protein abundance was 2.9-fold higher in 3D than in 2D (2.3 in 2D versus 6.6 in 3D; Table S2)
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: prot_tfam/g3D
+        kind: per sample
+      b:
+        data: prot_tfam/g2D
+        kind: per sample
+    output: prot_tfam.values.tfam_ratio
+    aggregation: of means
+    note: 'Fold change of group means: 6.6/2.3 printed; inputs are the released per-replicate counts (mmc2).'
+  prot_tfam.ratio_printed:
+    item: prot_tfam
+    measure: TFAM protein abundance
+    formula: r = a/b
+    anchor:
+      quote: TFAM protein abundance was 2.9-fold higher in 3D than in 2D (2.3 in 2D versus 6.6 in 3D; Table S2)
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: prot_tfam.values.tfam_3d
+        kind: constant
+      b:
+        value: prot_tfam.values.tfam_2d
+        kind: constant
+    output: prot_tfam.values.tfam_ratio
+    note: The same ratio from the printed means.
+  f4d_3d.ratio:
+    item: f4d_3d
+    measure: average intensity of mitochondrial proteins
+    formula: r = a/b
+    anchor:
+      quote: we found a 2.2-fold higher amount of mitochondrial proteins in 3D than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f4d_3d/g3D
+        kind: per sample
+      b:
+        data: f4d_3d/g2D
+        kind: per sample
+    output: f4d_3d.values.ratio_text
+    aggregation: of means
+    note: 'Fold change of group means (text: 2D, 3.3; 3D, 7.4; NFH, 9.6); inputs are the released per-sample values (mmc5 row 208).'
+  f4d_3d.ratio_printed:
+    item: f4d_3d
+    measure: average intensity of mitochondrial proteins
+    formula: r = a/b
+    anchor:
+      quote: we found a 2.2-fold higher amount of mitochondrial proteins in 3D than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: f4d_3d.values.mean_3d_text
+        kind: constant
+      b:
+        value: f4d_3d.values.mean_2d_text
+        kind: constant
+    output: f4d_3d.values.ratio_text
+    note: The same ratio from the printed means.
+  f4d_nfh.ratio:
+    item: f4d_nfh
+    measure: average intensity of mitochondrial proteins
+    formula: r = a/b
+    anchor:
+      quote: a 2.9-fold higher amount of mitochondrial proteins in NFH than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f4d_nfh/nfh
+        kind: per sample
+      b:
+        data: f4d_nfh/g2D
+        kind: per sample
+    output: f4d_nfh.values.ratio_text
+    aggregation: of means
+    note: 'Fold change of group means (text: 2D, 3.3; 3D, 7.4; NFH, 9.6); inputs are the released per-sample values (mmc5 row 208).'
+  f4d_nfh.ratio_printed:
+    item: f4d_nfh
+    measure: average intensity of mitochondrial proteins
+    formula: r = a/b
+    anchor:
+      quote: a 2.9-fold higher amount of mitochondrial proteins in NFH than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: f4d_nfh.values.mean_nfh_text
+        kind: constant
+      b:
+        value: f4d_nfh.values.mean_2d_text
+        kind: constant
+    output: f4d_nfh.values.ratio_text
+    note: The same ratio from the printed means.
+  f3b_summary.fold_range:
+    item: f3b_summary
+    measure: ATP synthase subunit fold change
+    formula: not stated
+    anchor:
+      quote: found that 9 out of 11 subunits showed an 2- to 4.5-fold increase in 3D and heart samples in comparison with 2D
+      where: Results
+      file: main.pdf
+    no_formula: 'a range (smallest and largest) of per-subunit fold changes over 9 subunits and two groups: extremes over items are not a closed-form
+      library step'
+    note: Each subunit's fold change is a ratio of group means (ratio_def); its released counts are in data.yaml (f3b_* items).
+  f2d_acot1.fold_change:
+    item: f2d_acot1
+    measure: ACOT1 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_acot1/g3D
+        kind: per sample
+      b:
+        data: f2d_acot1/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_acot13.fold_change:
+    item: f2d_acot13
+    measure: ACOT13 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_acot13/g3D
+        kind: per sample
+      b:
+        data: f2d_acot13/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_scp2.fold_change:
+    item: f2d_scp2
+    measure: SCP2 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: SCP2 counts are not in the released tables
+      b:
+        not_stated: true
+        kind: per sample
+        note: SCP2 counts are not in the released tables
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_acaa2.fold_change:
+    item: f2d_acaa2
+    measure: ACAA2 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_acaa2/g3D
+        kind: per sample
+      b:
+        data: f2d_acaa2/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_acot2.fold_change:
+    item: f2d_acot2
+    measure: ACOT2 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_acot2/g3D
+        kind: per sample
+      b:
+        data: f2d_acot2/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_eci1.fold_change:
+    item: f2d_eci1
+    measure: ECI1 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_eci1/g3D
+        kind: per sample
+      b:
+        data: f2d_eci1/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_echs1.fold_change:
+    item: f2d_echs1
+    measure: ECHS1 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_echs1/g3D
+        kind: per sample
+      b:
+        data: f2d_echs1/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_oxct1.fold_change:
+    item: f2d_oxct1
+    measure: OXCT1 normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_oxct1/g3D
+        kind: per sample
+      b:
+        data: f2d_oxct1/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_hadha.fold_change:
+    item: f2d_hadha
+    measure: HADHA normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_hadha/g3D
+        kind: per sample
+      b:
+        data: f2d_hadha/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_hadhb.fold_change:
+    item: f2d_hadhb
+    measure: HADHB normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_hadhb/g3D
+        kind: per sample
+      b:
+        data: f2d_hadhb/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f2d_acadvl.fold_change:
+    item: f2d_acadvl
+    measure: ACADVL normalized spectral count
+    formula: r = a/b
+    anchor:
+      quote: compare the mean log2 fold changes (EHT/2D) of normalized spectral counts
+      where: Fig. 2 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        data: f2d_acadvl/g3D
+        kind: per sample
+      b:
+        data: f2d_acadvl/g2D
+        kind: per sample
+    aggregation: of means
+    note: Fig. 2D plots EHT/2D fold changes (data extracted from A); no fold change is printed, so code rebuilds it only (derived by LivingLit).
+  f4e_mitomass.ratio:
+    item: f4e_mitomass
+    measure: mitochondrial mass
+    formula: r = a/b
+    anchor:
+      quote: This was 1.5-fold higher in 3D than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F4E/3D
+        kind: per sample
+      b:
+        reading: F4E/2D
+        kind: per sample
+    output: f4e_mitomass.values.ratio_text
+  f4f_3d.ratio_text:
+    item: f4f_3d
+    measure: mtDNA content
+    formula: r = a/b
+    anchor:
+      quote: DNA levels were 3-fold higher in 3D than in 2D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F4F/3D
+        kind: per sample
+      b:
+        reading: F4F/2D
+        kind: per sample
+    output: f4f_3d.values.ratio_text
+  f4f_3d.ratio_discussion:
+    item: f4f_3d
+    measure: mtDNA content
+    formula: r = a/b
+    anchor:
+      quote: which parallels the abundance of mtDNA (2.9-fold Mt-ND1/2; 2D, 343; 3D, 1,024
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: f4f_3d.values.mean_3d_discussion
+        kind: constant
+      b:
+        value: f4f_3d.values.mean_2d_discussion
+        kind: constant
+    output: f4f_3d.values.ratio_discussion
+  f4f_3d_heart.ratio:
+    item: f4f_3d_heart
+    measure: mtDNA content
+    formula: r = a/b
+    anchor:
+      quote: but still 1.5-fold lower than in NFH
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F4F/heart vs 3D
+        kind: per sample
+      b:
+        reading: F4F/3D vs heart
+        kind: per sample
+    output: f4f_3d_heart.values.ratio_text
+    note: '''1.5-fold lower than in NFH'' read as heart/3D.'
+  f4f_before.normalized_to_actin:
+    item: f4f_before
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  f4f_3d.normalized_to_actin:
+    item: f4f_3d
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  f4f_heart.normalized_to_actin:
+    item: f4f_heart
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  f4f_3d_heart.normalized_to_actin:
+    item: f4f_3d_heart
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  s4b_pooled.normalized_to_actin:
+    item: s4b_pooled
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  s4b_line2_nd2.normalized_to_actin:
+    item: s4b_line2_nd2
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  f7c_mtdna.normalized_to_actin:
+    item: f7c_mtdna
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  f7e_mtdna.normalized_to_actin:
+    item: f7e_mtdna
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  s7c_bleb.normalized_to_actin:
+    item: s7c_bleb
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  s7c_bts.normalized_to_actin:
+    item: s7c_bts
+    measure: mtDNA content (Mt-ND1/2 normalized to actin)
+    formula: m = c/g
+    anchor:
+      quote: PCR amplification of genomic DNA for the mitochondrial encoded NADH dehydrogenase (Mt-ND1/2), normalized to the nuclear encoded gene
+        actin
+      where: Fig. 4 legend
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: m
+        a: c
+        b: g
+    inputs:
+      c:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+      g:
+        by_reference:
+          citation: Burkart2016
+          anchor:
+            quote: Experimental procedure and primer sequences as published in (Burkart et al., 2016)
+            where: Supplemental Experimental Procedures
+            file: mmc1.pdf
+        kind: per sample
+    note: '''Normalized to'' a reference gene is a named ratio; how Mt-ND1/2 and ACTB quantities are obtained from the qPCR (standard curve or
+      2^-dCt) is stated only by citation.'
+  f6b_glucose.consumption:
+    item: f6b_glucose
+    measure: glucose consumption
+    formula: G = c1 - c0
+    anchor:
+      quote: Glucose consumption was calculated as the initial cGluc of the medium before the 4 hours of incubation subtracted from cGluc after
+        incubation
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: c1
+        a: c0
+        b: G
+    inputs:
+      c1:
+        not_stated: true
+        kind: per sample
+        note: cGluc after 4 h; not released
+      c0:
+        not_stated: true
+        kind: per sample
+        note: initial cGluc; not released
+    alternatives:
+    - label: consumption as initial minus final
+      formula: G = c0 - c1
+      note: the usual sign for consumption; the stated wording (initial subtracted from after) gives final minus initial
+    note: 'Written as worded: ''A subtracted from B'' is B - A.'
+  f6c_lactate.production:
+    item: f6c_lactate
+    measure: lactate production
+    formula: L = l0 - l1
+    anchor:
+      quote: Lactate production was calculated by subtracting cLac after incubation from initial cLac
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: l0
+        a: l1
+        b: L
+    inputs:
+      l0:
+        not_stated: true
+        kind: per sample
+        note: initial cLac; not released
+      l1:
+        not_stated: true
+        kind: per sample
+        note: cLac after 4 h; not released
+    alternatives:
+    - label: production as final minus initial
+      formula: L = l1 - l0
+      note: 'the usual sign for production (Fig. 6C axis: cLac increase); the stated wording gives initial minus final'
+    note: 'Written as worded: ''subtracting X from Y'' is Y - X.'
+  f6b_glucose.fold_2d_over_3d:
+    item: f6b_glucose
+    measure: glucose consumption
+    formula: r = a/b
+    anchor:
+      quote: glucose consumption and lactate production were 2- to 3-fold higher in 2D hiPSC-CMs than in 3D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F6BC/B 2D
+        kind: per sample
+      b:
+        reading: F6BC/B 3D
+        kind: per sample
+    output: f6b_glucose.values.fold_low
+    note: The range '2- to 3-fold' is printed once for both measures; judged against its lower end, the end nearest the rebuilt ratio.
+  f6c_lactate.fold_2d_over_3d:
+    item: f6c_lactate
+    measure: lactate production
+    formula: r = a/b
+    anchor:
+      quote: glucose consumption and lactate production were 2- to 3-fold higher in 2D hiPSC-CMs than in 3D
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        reading: F6BC/C 2D
+        kind: per sample
+      b:
+        reading: F6BC/C 3D
+        kind: per sample
+    output: f6c_lactate.values.fold_high
+    note: The range '2- to 3-fold' is printed once for both measures; judged against its upper end, the end nearest the rebuilt ratio.
+  f6_fa_3d.pct_increase:
+    item: f6_fa_3d
+    measure: 14C-CO2 (metabolic flux)
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: from oxidation of glucose (+230%), lactate (+388%), or fatty acid (+214%)
+      where: Results
+      file: main.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: F6DF/D 3D
+        kind: per sample
+      x0:
+        reading: F6DF/D 2D
+        kind: per sample
+    output: f6_fa_3d.values.pct_text
+    alternatives:
+    - label: 3D as percent of 2D
+      formula: d = x/x0
+      note: ratio_def; the record reader and figures reader suspect this reading of the '+' values
+    note: A '+' percentage is a relative increase over 2D, as printed.
+  f6_lac_3d.pct_increase:
+    item: f6_lac_3d
+    measure: 14C-CO2 (metabolic flux)
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: from oxidation of glucose (+230%), lactate (+388%), or fatty acid (+214%)
+      where: Results
+      file: main.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: F6DF/E 3D
+        kind: per sample
+      x0:
+        reading: F6DF/E 2D
+        kind: per sample
+    output: f6_lac_3d.values.pct_text
+    alternatives:
+    - label: 3D as percent of 2D
+      formula: d = x/x0
+      note: ratio_def; the record reader and figures reader suspect this reading of the '+' values
+    note: A '+' percentage is a relative increase over 2D, as printed.
+  f6_glc_3d.pct_increase:
+    item: f6_glc_3d
+    measure: 14C-CO2 (metabolic flux)
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: from oxidation of glucose (+230%), lactate (+388%), or fatty acid (+214%)
+      where: Results
+      file: main.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        reading: F6DF/F 3D
+        kind: per sample
+      x0:
+        reading: F6DF/F 2D
+        kind: per sample
+    output: f6_glc_3d.values.pct_text
+    alternatives:
+    - label: 3D as percent of 2D
+      formula: d = x/x0
+      note: ratio_def; the record reader and figures reader suspect this reading of the '+' values
+    note: A '+' percentage is a relative increase over 2D, as printed.
+  f6_fa_3d.bq_from_cpm:
+    item: f6_fa_3d
+    measure: 14C-CO2 (metabolic flux)
+    formula: B = C/t*e
+    anchor:
+      quote: To calculate the amount of radioactive CO2 produced, CPM was recalculated as decay per minute, Bq= CPM/60*96%
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: B
+        Q: C
+        a: e
+        b: t
+    inputs:
+      C:
+        not_stated: true
+        kind: per sample
+        note: 'CPM per sample: plotted in Fig. S6C-E, not read or released'
+      t:
+        printed: '60'
+        unit: s/min
+        anchor:
+          quote: CPM was recalculated as decay per minute, Bq= CPM/60*96%
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      e:
+        printed: 96%
+        anchor:
+          quote: CPM was recalculated as decay per minute, Bq= CPM/60*96%
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    note: Written as printed (multiplied by 96%); a counting efficiency usually divides CPM (DPM = CPM/efficiency).
+  f6_fa_3d.bq_2D:
+    item: f6_fa_3d
+    group: g2D
+    measure: 14C-CO2 (metabolic flux)
+    formula: N = P*SA
+    anchor:
+      quote: Total amount of radioactive CO2 = bq /specific radioactivity per pmol
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: N
+        b: SA
+    inputs:
+      P:
+        reading: F6DF/D 2D
+        kind: per sample
+      SA:
+        printed: '2'
+        unit: Bq/pmol
+        anchor:
+          quote: 'Glucose: bq x 1 pmol / 8 bq, oleic acid: Bq x 1 pmol / 2 bq, lactic acid: Bq x 1 pmol / 4 bq'
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: Bq
+    note: The stated P = Bq/SA solved for Bq, so the plotted pmol (oleic acid) give N in Bq.
+  f6_fa_3d.metabolized_2D:
+    item: f6_fa_3d
+    group: g2D
+    measure: metabolized energy substrate
+    formula: S = N/M*K
+    anchor:
+      quote: Metabolized energy substrate = N/M*K; N = 14CO2 [Bq]; M=Input radioactivity
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: S
+        Q: K
+        a: N
+        b: M
+    inputs:
+      N:
+        derived: f6_fa_3d.bq_2D
+        kind: per sample
+      M:
+        not_stated: true
+        kind: constant
+        note: 'input radioactivity in Bq not printed: only 0.0037 MBq/ml is, and the flux assay''s volume is not stated'
+      K:
+        printed: '1'
+        unit: mM
+        anchor:
+          quote: 1 mM linoleic acid/oleic acid fatty acid mix (L9655, Sigma), 1 mM lactate (7455, Sodium lactate solution 50%, Caelo), 5 mM D
+            (+)-glucose anhydrous
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: K is given in [M] (a concentration) although called an amount of substance
+  f6_fa_3d.atp_2D:
+    item: f6g_atp_ox
+    group: g2D
+    measure: ATP produced by oxidation
+    formula: A = S*f/m
+    anchor:
+      quote: and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010) 127,1 per oleic acid molecule
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: S
+        a: f
+        b: m
+    inputs:
+      S:
+        derived: f6_fa_3d.metabolized_2D
+        kind: per sample
+      f:
+        printed: 127,1
+        unit: ATP
+        anchor:
+          quote: and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010) 127,1 per oleic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: 'decimal comma: 127,1 is 127.1'
+      m:
+        printed: '1'
+        unit: molecule
+        anchor:
+          quote: and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010) 127,1 per oleic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: nmol
+    note: ATP from oleic acid oxidation, assuming completely efficient production.
+  f6_fa_3d.bq_3D:
+    item: f6_fa_3d
+    group: g3D
+    measure: 14C-CO2 (metabolic flux)
+    formula: N = P*SA
+    anchor:
+      quote: Total amount of radioactive CO2 = bq /specific radioactivity per pmol
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: N
+        b: SA
+    inputs:
+      P:
+        reading: F6DF/D 3D
+        kind: per sample
+      SA:
+        printed: '2'
+        unit: Bq/pmol
+        anchor:
+          quote: 'Glucose: bq x 1 pmol / 8 bq, oleic acid: Bq x 1 pmol / 2 bq, lactic acid: Bq x 1 pmol / 4 bq'
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: Bq
+    note: The stated P = Bq/SA solved for Bq, so the plotted pmol (oleic acid) give N in Bq.
+  f6_fa_3d.metabolized_3D:
+    item: f6_fa_3d
+    group: g3D
+    measure: metabolized energy substrate
+    formula: S = N/M*K
+    anchor:
+      quote: Metabolized energy substrate = N/M*K; N = 14CO2 [Bq]; M=Input radioactivity
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: S
+        Q: K
+        a: N
+        b: M
+    inputs:
+      N:
+        derived: f6_fa_3d.bq_3D
+        kind: per sample
+      M:
+        not_stated: true
+        kind: constant
+        note: 'input radioactivity in Bq not printed: only 0.0037 MBq/ml is, and the flux assay''s volume is not stated'
+      K:
+        printed: '1'
+        unit: mM
+        anchor:
+          quote: 1 mM linoleic acid/oleic acid fatty acid mix (L9655, Sigma), 1 mM lactate (7455, Sodium lactate solution 50%, Caelo), 5 mM D
+            (+)-glucose anhydrous
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: K is given in [M] (a concentration) although called an amount of substance
+  f6_fa_3d.atp_3D:
+    item: f6g_atp_ox
+    group: g3D
+    measure: ATP produced by oxidation
+    formula: A = S*f/m
+    anchor:
+      quote: and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010) 127,1 per oleic acid molecule
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: S
+        a: f
+        b: m
+    inputs:
+      S:
+        derived: f6_fa_3d.metabolized_3D
+        kind: per sample
+      f:
+        printed: 127,1
+        unit: ATP
+        anchor:
+          quote: and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010) 127,1 per oleic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: 'decimal comma: 127,1 is 127.1'
+      m:
+        printed: '1'
+        unit: molecule
+        anchor:
+          quote: and 15 per lactic acid molecule (Lopaschuk and Jaswal, 2010) 127,1 per oleic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: nmol
+    note: ATP from oleic acid oxidation, assuming completely efficient production.
+  f6_lac_3d.bq_from_cpm:
+    item: f6_lac_3d
+    measure: 14C-CO2 (metabolic flux)
+    formula: B = C/t*e
+    anchor:
+      quote: To calculate the amount of radioactive CO2 produced, CPM was recalculated as decay per minute, Bq= CPM/60*96%
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: B
+        Q: C
+        a: e
+        b: t
+    inputs:
+      C:
+        not_stated: true
+        kind: per sample
+        note: 'CPM per sample: plotted in Fig. S6C-E, not read or released'
+      t:
+        printed: '60'
+        unit: s/min
+        anchor:
+          quote: CPM was recalculated as decay per minute, Bq= CPM/60*96%
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      e:
+        printed: 96%
+        anchor:
+          quote: CPM was recalculated as decay per minute, Bq= CPM/60*96%
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    note: Written as printed (multiplied by 96%); a counting efficiency usually divides CPM (DPM = CPM/efficiency).
+  f6_lac_3d.bq_2D:
+    item: f6_lac_3d
+    group: g2D
+    measure: 14C-CO2 (metabolic flux)
+    formula: N = P*SA
+    anchor:
+      quote: Total amount of radioactive CO2 = bq /specific radioactivity per pmol
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: N
+        b: SA
+    inputs:
+      P:
+        reading: F6DF/E 2D
+        kind: per sample
+      SA:
+        printed: '4'
+        unit: Bq/pmol
+        anchor:
+          quote: 'Glucose: bq x 1 pmol / 8 bq, oleic acid: Bq x 1 pmol / 2 bq, lactic acid: Bq x 1 pmol / 4 bq'
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: Bq
+    note: The stated P = Bq/SA solved for Bq, so the plotted pmol (lactate) give N in Bq.
+  f6_lac_3d.metabolized_2D:
+    item: f6_lac_3d
+    group: g2D
+    measure: metabolized energy substrate
+    formula: S = N/M*K
+    anchor:
+      quote: Metabolized energy substrate = N/M*K; N = 14CO2 [Bq]; M=Input radioactivity
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: S
+        Q: K
+        a: N
+        b: M
+    inputs:
+      N:
+        derived: f6_lac_3d.bq_2D
+        kind: per sample
+      M:
+        not_stated: true
+        kind: constant
+        note: 'input radioactivity in Bq not printed: only 0.0037 MBq/ml is, and the flux assay''s volume is not stated'
+      K:
+        printed: '1'
+        unit: mM
+        anchor:
+          quote: 1 mM linoleic acid/oleic acid fatty acid mix (L9655, Sigma), 1 mM lactate (7455, Sodium lactate solution 50%, Caelo), 5 mM D
+            (+)-glucose anhydrous
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: K is given in [M] (a concentration) although called an amount of substance
+  f6_lac_3d.atp_2D:
+    item: f6g_atp_ox
+    group: g2D
+    measure: ATP produced by oxidation
+    formula: A = S*f/m
+    anchor:
+      quote: multiplying the metabolized energy substrate with 33 per glucose molecule, and 15 per lactic acid molecule
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: S
+        a: f
+        b: m
+    inputs:
+      S:
+        derived: f6_lac_3d.metabolized_2D
+        kind: per sample
+      f:
+        printed: '15'
+        unit: ATP
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule, and 15 per lactic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      m:
+        printed: '1'
+        unit: molecule
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule, and 15 per lactic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: nmol
+    note: ATP from lactate oxidation, assuming completely efficient production.
+  f6_lac_3d.bq_3D:
+    item: f6_lac_3d
+    group: g3D
+    measure: 14C-CO2 (metabolic flux)
+    formula: N = P*SA
+    anchor:
+      quote: Total amount of radioactive CO2 = bq /specific radioactivity per pmol
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: N
+        b: SA
+    inputs:
+      P:
+        reading: F6DF/E 3D
+        kind: per sample
+      SA:
+        printed: '4'
+        unit: Bq/pmol
+        anchor:
+          quote: 'Glucose: bq x 1 pmol / 8 bq, oleic acid: Bq x 1 pmol / 2 bq, lactic acid: Bq x 1 pmol / 4 bq'
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: Bq
+    note: The stated P = Bq/SA solved for Bq, so the plotted pmol (lactate) give N in Bq.
+  f6_lac_3d.metabolized_3D:
+    item: f6_lac_3d
+    group: g3D
+    measure: metabolized energy substrate
+    formula: S = N/M*K
+    anchor:
+      quote: Metabolized energy substrate = N/M*K; N = 14CO2 [Bq]; M=Input radioactivity
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: S
+        Q: K
+        a: N
+        b: M
+    inputs:
+      N:
+        derived: f6_lac_3d.bq_3D
+        kind: per sample
+      M:
+        not_stated: true
+        kind: constant
+        note: 'input radioactivity in Bq not printed: only 0.0037 MBq/ml is, and the flux assay''s volume is not stated'
+      K:
+        printed: '1'
+        unit: mM
+        anchor:
+          quote: 1 mM linoleic acid/oleic acid fatty acid mix (L9655, Sigma), 1 mM lactate (7455, Sodium lactate solution 50%, Caelo), 5 mM D
+            (+)-glucose anhydrous
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: K is given in [M] (a concentration) although called an amount of substance
+  f6_lac_3d.atp_3D:
+    item: f6g_atp_ox
+    group: g3D
+    measure: ATP produced by oxidation
+    formula: A = S*f/m
+    anchor:
+      quote: multiplying the metabolized energy substrate with 33 per glucose molecule, and 15 per lactic acid molecule
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: S
+        a: f
+        b: m
+    inputs:
+      S:
+        derived: f6_lac_3d.metabolized_3D
+        kind: per sample
+      f:
+        printed: '15'
+        unit: ATP
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule, and 15 per lactic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      m:
+        printed: '1'
+        unit: molecule
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule, and 15 per lactic acid molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: nmol
+    note: ATP from lactate oxidation, assuming completely efficient production.
+  f6_glc_3d.bq_from_cpm:
+    item: f6_glc_3d
+    measure: 14C-CO2 (metabolic flux)
+    formula: B = C/t*e
+    anchor:
+      quote: To calculate the amount of radioactive CO2 produced, CPM was recalculated as decay per minute, Bq= CPM/60*96%
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: B
+        Q: C
+        a: e
+        b: t
+    inputs:
+      C:
+        not_stated: true
+        kind: per sample
+        note: 'CPM per sample: plotted in Fig. S6C-E, not read or released'
+      t:
+        printed: '60'
+        unit: s/min
+        anchor:
+          quote: CPM was recalculated as decay per minute, Bq= CPM/60*96%
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      e:
+        printed: 96%
+        anchor:
+          quote: CPM was recalculated as decay per minute, Bq= CPM/60*96%
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    note: Written as printed (multiplied by 96%); a counting efficiency usually divides CPM (DPM = CPM/efficiency).
+  f6_glc_3d.bq_2D:
+    item: f6_glc_3d
+    group: g2D
+    measure: 14C-CO2 (metabolic flux)
+    formula: N = P*SA
+    anchor:
+      quote: Total amount of radioactive CO2 = bq /specific radioactivity per pmol
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: N
+        b: SA
+    inputs:
+      P:
+        reading: F6DF/F 2D
+        kind: per sample
+      SA:
+        printed: '8'
+        unit: Bq/pmol
+        anchor:
+          quote: 'Glucose: bq x 1 pmol / 8 bq, oleic acid: Bq x 1 pmol / 2 bq, lactic acid: Bq x 1 pmol / 4 bq'
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: Bq
+    note: The stated P = Bq/SA solved for Bq, so the plotted pmol (glucose) give N in Bq.
+  f6_glc_3d.metabolized_2D:
+    item: f6_glc_3d
+    group: g2D
+    measure: metabolized energy substrate
+    formula: S = N/M*K
+    anchor:
+      quote: Metabolized energy substrate = N/M*K; N = 14CO2 [Bq]; M=Input radioactivity
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: S
+        Q: K
+        a: N
+        b: M
+    inputs:
+      N:
+        derived: f6_glc_3d.bq_2D
+        kind: per sample
+      M:
+        not_stated: true
+        kind: constant
+        note: 'input radioactivity in Bq not printed: only 0.0037 MBq/ml is, and the flux assay''s volume is not stated'
+      K:
+        printed: '5'
+        unit: mM
+        anchor:
+          quote: 1 mM linoleic acid/oleic acid fatty acid mix (L9655, Sigma), 1 mM lactate (7455, Sodium lactate solution 50%, Caelo), 5 mM D
+            (+)-glucose anhydrous
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: K is given in [M] (a concentration) although called an amount of substance
+  f6_glc_3d.atp_2D:
+    item: f6g_atp_ox
+    group: g2D
+    measure: ATP produced by oxidation
+    formula: A = S*f/m
+    anchor:
+      quote: multiplying the metabolized energy substrate with 33 per glucose molecule
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: S
+        a: f
+        b: m
+    inputs:
+      S:
+        derived: f6_glc_3d.metabolized_2D
+        kind: per sample
+      f:
+        printed: '33'
+        unit: ATP
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      m:
+        printed: '1'
+        unit: molecule
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: nmol
+    note: ATP from glucose oxidation, assuming completely efficient production.
+  f6_glc_3d.bq_3D:
+    item: f6_glc_3d
+    group: g3D
+    measure: 14C-CO2 (metabolic flux)
+    formula: N = P*SA
+    anchor:
+      quote: Total amount of radioactive CO2 = bq /specific radioactivity per pmol
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: N
+        b: SA
+    inputs:
+      P:
+        reading: F6DF/F 3D
+        kind: per sample
+      SA:
+        printed: '8'
+        unit: Bq/pmol
+        anchor:
+          quote: 'Glucose: bq x 1 pmol / 8 bq, oleic acid: Bq x 1 pmol / 2 bq, lactic acid: Bq x 1 pmol / 4 bq'
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: Bq
+    note: The stated P = Bq/SA solved for Bq, so the plotted pmol (glucose) give N in Bq.
+  f6_glc_3d.metabolized_3D:
+    item: f6_glc_3d
+    group: g3D
+    measure: metabolized energy substrate
+    formula: S = N/M*K
+    anchor:
+      quote: Metabolized energy substrate = N/M*K; N = 14CO2 [Bq]; M=Input radioactivity
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: S
+        Q: K
+        a: N
+        b: M
+    inputs:
+      N:
+        derived: f6_glc_3d.bq_3D
+        kind: per sample
+      M:
+        not_stated: true
+        kind: constant
+        note: 'input radioactivity in Bq not printed: only 0.0037 MBq/ml is, and the flux assay''s volume is not stated'
+      K:
+        printed: '5'
+        unit: mM
+        anchor:
+          quote: 1 mM linoleic acid/oleic acid fatty acid mix (L9655, Sigma), 1 mM lactate (7455, Sodium lactate solution 50%, Caelo), 5 mM D
+            (+)-glucose anhydrous
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+        note: K is given in [M] (a concentration) although called an amount of substance
+  f6_glc_3d.atp_3D:
+    item: f6g_atp_ox
+    group: g3D
+    measure: ATP produced by oxidation
+    formula: A = S*f/m
+    anchor:
+      quote: multiplying the metabolized energy substrate with 33 per glucose molecule
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: S
+        a: f
+        b: m
+    inputs:
+      S:
+        derived: f6_glc_3d.metabolized_3D
+        kind: per sample
+      f:
+        printed: '33'
+        unit: ATP
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      m:
+        printed: '1'
+        unit: molecule
+        anchor:
+          quote: multiplying the metabolized energy substrate with 33 per glucose molecule
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output_unit: nmol
+    note: ATP from glucose oxidation, assuming completely efficient production.
+  f6g_atp_ox.total_2D:
+    item: f6g_atp_ox
+    group: g2D
+    measure: ATP produced by mitochondrial respiration
+    formula: O = Af + Ag + Al
+    anchor:
+      quote: the total amount of ATP produced by mitochondrial respiration was 2.3-fold higher in 3D than in 2D hiPSC-CMs (671 nmol versus 291
+        nmol
+      where: Results
+      file: main.pdf
+    library:
+      formula: sum_of_three_parts
+      vars:
+        t: O
+        a: Af
+        b: Ag
+        c: Al
+    inputs:
+      Af:
+        derived: f6_fa_3d.atp_2D
+        kind: per sample
+      Ag:
+        derived: f6_glc_3d.atp_2D
+        kind: per sample
+      Al:
+        derived: f6_lac_3d.atp_2D
+        kind: per sample
+    output: f6g_atp_ox.values.atp_2d_text
+    note: Total is not worded as a sum; 'total amount ... by mitochondrial respiration' of the three substrates' ATP.
+  f6g_atp_ox.total_3D:
+    item: f6g_atp_ox
+    group: g3D
+    measure: ATP produced by mitochondrial respiration
+    formula: O = Af + Ag + Al
+    anchor:
+      quote: the total amount of ATP produced by mitochondrial respiration was 2.3-fold higher in 3D than in 2D hiPSC-CMs (671 nmol versus 291
+        nmol
+      where: Results
+      file: main.pdf
+    library:
+      formula: sum_of_three_parts
+      vars:
+        t: O
+        a: Af
+        b: Ag
+        c: Al
+    inputs:
+      Af:
+        derived: f6_fa_3d.atp_3D
+        kind: per sample
+      Ag:
+        derived: f6_glc_3d.atp_3D
+        kind: per sample
+      Al:
+        derived: f6_lac_3d.atp_3D
+        kind: per sample
+    output: f6g_atp_ox.values.atp_3d_text
+    note: Total is not worded as a sum; 'total amount ... by mitochondrial respiration' of the three substrates' ATP.
+  f6g_atp_ox.ratio_text:
+    item: f6g_atp_ox
+    measure: ATP produced by mitochondrial respiration
+    formula: r = a/b
+    anchor:
+      quote: the total amount of ATP produced by mitochondrial respiration was 2.3-fold higher in 3D than in 2D hiPSC-CMs (671 nmol versus 291
+        nmol
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: f6g_atp_ox.values.atp_3d_text
+        kind: constant
+      b:
+        value: f6g_atp_ox.values.atp_2d_text
+        kind: constant
+    output: f6g_atp_ox.values.ratio_text
+  f6g_atp_ox.ratio_discussion:
+    item: f6g_atp_ox
+    measure: ATP produced by mitochondrial respiration
+    formula: r = a/b
+    anchor:
+      quote: and generated 2.3-fold more ATP by oxidation than 2D hiPSC-CMs
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: f6g_atp_ox.values.atp_3d_text
+        kind: constant
+      b:
+        value: f6g_atp_ox.values.atp_2d_text
+        kind: constant
+    output: f6g_atp_ox.values.ratio_discussion
+  f6g_atp_glycolysis.atp_2D:
+    item: f6g_atp_glycolysis
+    group: g2D
+    measure: ATP production by anaerobic glycolysis
+    formula: A = L*a/l
+    anchor:
+      quote: Given that during anaerobic glycolysis 1 Glucose is broken down to 2 molecules of lactate producing 2 molecules of ATP
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: L
+        a: a
+        b: l
+    inputs:
+      L:
+        reading: F6BC/C 2D
+        kind: per sample
+        note: Fig. 6C cLac increase in mmol/l, as the paper states ('We used the lactate production values')
+      a:
+        printed: '2'
+        unit: molecules
+        anchor:
+          quote: Given that during anaerobic glycolysis 1 Glucose is broken down to 2 molecules of lactate producing 2 molecules of ATP
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      l:
+        printed: '2'
+        unit: molecules
+        anchor:
+          quote: Given that during anaerobic glycolysis 1 Glucose is broken down to 2 molecules of lactate producing 2 molecules of ATP
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output: f6g_atp_glycolysis.values.atp_2d_discussion
+    note: Lactate oxidation (about 1%) ignored, as stated.
+  f6g_atp_glycolysis.atp_3D:
+    item: f6g_atp_glycolysis
+    group: g3D
+    measure: ATP production by anaerobic glycolysis
+    formula: A = L*a/l
+    anchor:
+      quote: Given that during anaerobic glycolysis 1 Glucose is broken down to 2 molecules of lactate producing 2 molecules of ATP
+      where: Supplemental Experimental Procedures
+      file: mmc1.pdf
+    library:
+      formula: proportional_amount
+      vars:
+        q: A
+        Q: L
+        a: a
+        b: l
+    inputs:
+      L:
+        reading: F6BC/C 3D
+        kind: per sample
+        note: Fig. 6C cLac increase in mmol/l, as the paper states ('We used the lactate production values')
+      a:
+        printed: '2'
+        unit: molecules
+        anchor:
+          quote: Given that during anaerobic glycolysis 1 Glucose is broken down to 2 molecules of lactate producing 2 molecules of ATP
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+      l:
+        printed: '2'
+        unit: molecules
+        anchor:
+          quote: Given that during anaerobic glycolysis 1 Glucose is broken down to 2 molecules of lactate producing 2 molecules of ATP
+          where: Supplemental Experimental Procedures
+          file: mmc1.pdf
+        kind: constant
+    output: f6g_atp_glycolysis.values.atp_3d_discussion
+    note: Lactate oxidation (about 1%) ignored, as stated.
+  f6g_glycolysis_share.total_atp_2D:
+    item: f6g_glycolysis_share
+    group: g2D
+    measure: total ATP production
+    formula: T = G + O
+    anchor:
+      quote: The relative contribution to ATP production in 2D and 3D was 49% and 14%, respectively for glycolysis
+      where: Results
+      file: main.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: T
+        a: G
+        b: O
+    inputs:
+      G:
+        printed: '280'
+        anchor:
+          quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+          where: Discussion
+          file: main.pdf
+        kind: constant
+        note: printed in nM and added to ATP in nmol by the paper; used as the printed number (unit left out so it adds as the paper's arithmetic
+          does)
+      O:
+        value: f6g_atp_ox.values.atp_2d_text
+        kind: constant
+    output_unit: nmol
+    note: Total ATP = glycolysis + oxidation, implied by the shares (49% + 40% + 9% + 2% = 100% in 2D).
+  f6g_glycolysis_share.text_2D:
+    item: f6g_glycolysis_share
+    group: g2D
+    measure: relative contribution of glycolysis to ATP production
+    formula: s = G/T
+    anchor:
+      quote: The relative contribution to ATP production in 2D and 3D was 49% and 14%, respectively for glycolysis
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: G
+        b: T
+    inputs:
+      G:
+        printed: '280'
+        anchor:
+          quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+          where: Discussion
+          file: main.pdf
+        kind: constant
+      T:
+        derived: f6g_glycolysis_share.total_atp_2D
+        kind: constant
+    output: f6g_glycolysis_share.values.glyc_2d_text
+    output_unit: '%'
+  f6g_glycolysis_share.discussion_2D:
+    item: f6g_glycolysis_share
+    group: g2D
+    measure: relative contribution of glycolysis to ATP production
+    formula: s = G/T
+    anchor:
+      quote: glycolysis/oxidation ratio of 51%:49% for 2D versus 14%:86% for 3D
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: G
+        b: T
+    inputs:
+      G:
+        printed: '280'
+        anchor:
+          quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+          where: Discussion
+          file: main.pdf
+        kind: constant
+      T:
+        derived: f6g_glycolysis_share.total_atp_2D
+        kind: constant
+    output: f6g_glycolysis_share.values.glyc_2d_discussion
+    output_unit: '%'
+  f6g_oxidation_share.discussion_2D:
+    item: f6g_oxidation_share
+    group: g2D
+    measure: relative contribution of oxidation to ATP production
+    formula: s = O/T
+    anchor:
+      quote: glycolysis/oxidation ratio of 51%:49% for 2D versus 14%:86% for 3D
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: O
+        b: T
+    inputs:
+      O:
+        value: f6g_atp_ox.values.atp_2d_text
+        kind: constant
+      T:
+        derived: f6g_glycolysis_share.total_atp_2D
+        kind: constant
+    output: f6g_oxidation_share.values.ox_2d_discussion
+    output_unit: '%'
+  f6g_fa_share.text_2D:
+    item: f6g_fa_share
+    group: g2D
+    measure: relative contribution of fatty acid oxidation to ATP production
+    formula: s = X/T
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: X
+        b: T
+    inputs:
+      X:
+        derived: f6_fa_3d.atp_2D
+        kind: per sample
+      T:
+        derived: f6g_glycolysis_share.total_atp_2D
+        kind: constant
+    output: f6g_fa_share.values.fa_2d_text
+    output_unit: '%'
+  f6g_glc_share.text_2D:
+    item: f6g_glc_share
+    group: g2D
+    measure: relative contribution of glucose oxidation to ATP production
+    formula: s = X/T
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: X
+        b: T
+    inputs:
+      X:
+        derived: f6_glc_3d.atp_2D
+        kind: per sample
+      T:
+        derived: f6g_glycolysis_share.total_atp_2D
+        kind: constant
+    output: f6g_glc_share.values.glc_2d_text
+    output_unit: '%'
+  f6g_lac_share.text_2D:
+    item: f6g_lac_share
+    group: g2D
+    measure: relative contribution of lactate oxidation to ATP production
+    formula: s = X/T
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: X
+        b: T
+    inputs:
+      X:
+        derived: f6_lac_3d.atp_2D
+        kind: per sample
+      T:
+        derived: f6g_glycolysis_share.total_atp_2D
+        kind: constant
+    output: f6g_lac_share.values.lac_2d_text
+    output_unit: '%'
+  f6g_glycolysis_share.total_atp_3D:
+    item: f6g_glycolysis_share
+    group: g3D
+    measure: total ATP production
+    formula: T = G + O
+    anchor:
+      quote: The relative contribution to ATP production in 2D and 3D was 49% and 14%, respectively for glycolysis
+      where: Results
+      file: main.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: T
+        a: G
+        b: O
+    inputs:
+      G:
+        printed: '113'
+        anchor:
+          quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+          where: Discussion
+          file: main.pdf
+        kind: constant
+        note: printed in nM and added to ATP in nmol by the paper; used as the printed number (unit left out so it adds as the paper's arithmetic
+          does)
+      O:
+        value: f6g_atp_ox.values.atp_3d_text
+        kind: constant
+    output_unit: nmol
+    note: Total ATP = glycolysis + oxidation, implied by the shares (49% + 40% + 9% + 2% = 100% in 2D).
+  f6g_glycolysis_share.text_3D:
+    item: f6g_glycolysis_share
+    group: g3D
+    measure: relative contribution of glycolysis to ATP production
+    formula: s = G/T
+    anchor:
+      quote: The relative contribution to ATP production in 2D and 3D was 49% and 14%, respectively for glycolysis
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: G
+        b: T
+    inputs:
+      G:
+        printed: '113'
+        anchor:
+          quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+          where: Discussion
+          file: main.pdf
+        kind: constant
+      T:
+        derived: f6g_glycolysis_share.total_atp_3D
+        kind: constant
+    output: f6g_glycolysis_share.values.glyc_3d_text
+    output_unit: '%'
+  f6g_glycolysis_share.discussion_3D:
+    item: f6g_glycolysis_share
+    group: g3D
+    measure: relative contribution of glycolysis to ATP production
+    formula: s = G/T
+    anchor:
+      quote: glycolysis/oxidation ratio of 51%:49% for 2D versus 14%:86% for 3D
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: G
+        b: T
+    inputs:
+      G:
+        printed: '113'
+        anchor:
+          quote: estimate ATP production by glycolysis (280 nM for 2D and 113 nM for 3D
+          where: Discussion
+          file: main.pdf
+        kind: constant
+      T:
+        derived: f6g_glycolysis_share.total_atp_3D
+        kind: constant
+    output: f6g_glycolysis_share.values.glyc_3d_discussion
+    output_unit: '%'
+  f6g_oxidation_share.discussion_3D:
+    item: f6g_oxidation_share
+    group: g3D
+    measure: relative contribution of oxidation to ATP production
+    formula: s = O/T
+    anchor:
+      quote: glycolysis/oxidation ratio of 51%:49% for 2D versus 14%:86% for 3D
+      where: Discussion
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: O
+        b: T
+    inputs:
+      O:
+        value: f6g_atp_ox.values.atp_3d_text
+        kind: constant
+      T:
+        derived: f6g_glycolysis_share.total_atp_3D
+        kind: constant
+    output: f6g_oxidation_share.values.ox_3d_discussion
+    output_unit: '%'
+  f6g_fa_share.text_3D:
+    item: f6g_fa_share
+    group: g3D
+    measure: relative contribution of fatty acid oxidation to ATP production
+    formula: s = X/T
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: X
+        b: T
+    inputs:
+      X:
+        derived: f6_fa_3d.atp_3D
+        kind: per sample
+      T:
+        derived: f6g_glycolysis_share.total_atp_3D
+        kind: constant
+    output: f6g_fa_share.values.fa_3d_text
+    output_unit: '%'
+  f6g_glc_share.text_3D:
+    item: f6g_glc_share
+    group: g3D
+    measure: relative contribution of glucose oxidation to ATP production
+    formula: s = X/T
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: X
+        b: T
+    inputs:
+      X:
+        derived: f6_glc_3d.atp_3D
+        kind: per sample
+      T:
+        derived: f6g_glycolysis_share.total_atp_3D
+        kind: constant
+    output: f6g_glc_share.values.glc_3d_text
+    output_unit: '%'
+  f6g_lac_share.text_3D:
+    item: f6g_lac_share
+    group: g3D
+    measure: relative contribution of lactate oxidation to ATP production
+    formula: s = X/T
+    anchor:
+      quote: and 40%, 9%, and 2% and 65%, 14%, and 6% for fatty acid, glucose, and lactate oxidation, respectively
+      where: Results
+      file: main.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: s
+        a: X
+        b: T
+    inputs:
+      X:
+        derived: f6_lac_3d.atp_3D
+        kind: per sample
+      T:
+        derived: f6g_glycolysis_share.total_atp_3D
+        kind: constant
+    output: f6g_lac_share.values.lac_3d_text
+    output_unit: '%'
+assumptions:
+  f6_fa_3d.atp_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: The amount of ATP produced under assumption of a completely efficient production was calculated
+  f6_fa_3d.metabolized_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_fa_3d.atp_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: The amount of ATP produced under assumption of a completely efficient production was calculated
+  f6_fa_3d.metabolized_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_fa_3d.bq_from_cpm:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_lac_3d.atp_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: The amount of ATP produced under assumption of a completely efficient production was calculated
+  f6_lac_3d.metabolized_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_lac_3d.atp_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: The amount of ATP produced under assumption of a completely efficient production was calculated
+  f6_lac_3d.metabolized_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_lac_3d.bq_from_cpm:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_glc_3d.atp_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: The amount of ATP produced under assumption of a completely efficient production was calculated
+  f6_glc_3d.metabolized_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_glc_3d.atp_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: The amount of ATP produced under assumption of a completely efficient production was calculated
+  f6_glc_3d.metabolized_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6_glc_3d.bq_from_cpm:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported: not stated
+  f6g_atp_glycolysis.atp_2D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: which we ignored in the following calculations
+  f6g_atp_glycolysis.atp_3D:
+    model: proportional_amount
+    assumptions:
+      the proportion a to b holds for every part of Q:
+        reported:
+          quote: which we ignored in the following calculations
+bounds: []
+proposals:
+- formula: sum_of_parts
+  kind: definition
+  statement: A whole made of two non-overlapping parts of the same kind is the sum of the parts; a difference (change, consumption, production)
+    is that sum solved for one part.
+  equations:
+  - t = a + b
+  variables:
+    t: D
+    a: D
+    b: D
+  does_not_apply: overlapping parts (an item counted in both), or quantities of different kinds or units
+  tests:
+  - given:
+      a: 133.0
+      b: 123.0
+    expect:
+      t: 256.0
+  - given:
+      a: 0.5
+      b: 0.25
+    expect:
+      t: 0.75
+  - given:
+      a: 133.0
+      b: 123.0
+    does_not_apply: 'overlapping parts: 10 items in both give a whole of 246, not 256'
+  cites:
+    text: 'ISO 80000-1:2022 Quantities and units, Part 1: General (quantities of the same kind can be added; the sum is a quantity of that kind)'
+    url: https://www.iso.org/standard/76921.html
+- formula: sum_of_three_parts
+  kind: derived
+  statement: A whole made of three non-overlapping parts of the same kind is the sum of the three parts.
+  equations:
+  - t = a + b + c
+  variables:
+    t: D
+    a: D
+    b: D
+    c: D
+    u: D
+  uses:
+  - formula: sum_of_parts
+    subs:
+      t: u
+      a: a
+      b: b
+  - formula: sum_of_parts
+    subs:
+      t: t
+      a: u
+      b: c
+  does_not_apply: overlapping parts, or a part counted twice
+  tests:
+  - given:
+      a: 228.0
+      b: 51.0
+      c: 12.0
+    expect:
+      t: 291.0
+  - given:
+      a: 1.0
+      b: 2.0
+      c: 3.0
+    does_not_apply: 'b counted twice: 8, not 6'
+- formula: proportional_amount
+  kind: derived
+  statement: A quantity in a fixed proportion a:b to another quantity Q is Q times a/b (amount metabolised from the fraction of label recovered;
+    product from a stoichiometric yield; a unit conversion by a factor).
+  equations:
+  - q = Q*a/b
+  variables:
+    q: D
+    Q: D
+    a: D2
+    b: D2
+    y: dimensionless
+  uses:
+  - formula: ratio_def
+    subs:
+      r: y
+      a: q
+      b: Q
+  - formula: ratio_def
+    subs:
+      r: y
+      a: a
+      b: b
+  assumes:
+  - the proportion a to b holds for every part of Q
+  does_not_apply: a proportion that changes across Q (label not equilibrated with the unlabelled pool; incomplete conversion), or an offset added
+    to the product
+  tests:
+  - given:
+      Q: 2.0
+      a: 33.0
+      b: 1.0
+    expect:
+      q: 66.0
+  - given:
+      Q: 280.0
+      a: 2.0
+      b: 2.0
+    expect:
+      q: 280.0
+  - given:
+      Q: 10.0
+      a: 1.0
+      b: 4.0
+    expect:
+      q: 2.5
+  - given:
+      Q: 2.0
+      a: 33.0
+      b: 1.0
+    does_not_apply: 'incomplete conversion: half the substrate converted gives 33, not 66'

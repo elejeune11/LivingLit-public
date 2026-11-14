@@ -1,0 +1,3543 @@
+record: 2021_Bliley
+formula_library_version: 3
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1D_s8.stiffness_ratio:
+    item: F1D_s8
+    group: s8
+    formula: k8 = k1*(t1/t8)**3
+    anchor:
+      quote: bending stiffness is proportional to the inverse of the thickness cubed
+      where: Results, dyn-EHT platform
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: strip_stiffness_thickness_ratio
+      vars:
+        k1: k1
+        k2: k8
+        t1: t1
+        t2: t8
+    inputs:
+      k1:
+        not_stated: true
+        kind: constant
+        note: bending stiffness of the 1x strip; not printed
+      t1:
+        printed: ~130
+        unit: µm
+        kind: constant
+        anchor:
+          quote: We selected strip thicknesses of ~130 µm (1×) or ~260 µm (8×)
+          where: Results
+          file: scitranslmed.abd1817.pdf
+      t8:
+        printed: ~260
+        unit: µm
+        kind: constant
+        anchor:
+          quote: We selected strip thicknesses of ~130 µm (1×) or ~260 µm (8×)
+          where: Results
+          file: scitranslmed.abd1817.pdf
+    alternatives:
+    - label: as the library states (stiffness proportional to thickness cubed)
+      formula: k8 = k1*(t8/t1)**3
+      note: gives k8/k1 = 8 for 260/130 µm, the ~8x load the paper states; the stated inverse cube gives 1/8
+    note: 'Written exactly as stated; the methods repeat it: "bending resistance of the strip is proportional to the inverse
+      of thickness-cubed". The thicker strip is said to carry about eightfold the load.'
+  F1E.force:
+    item: F1E
+    formula: not stated
+    anchor:
+      quote: Look-up tables relating tissue length to force required to induce PDMS strip bending were created using a FEM
+      where: Methods, Tissue contractility assay
+      file: scitranslmed.abd1817.pdf
+    no_formula: 'force from a finite element model of the strip (ANSYS look-up tables), not a closed-form formula: handed
+      to BoxGraph'
+    alternatives:
+    - label: small-deflection cantilever (not what the paper did)
+      formula: F = k*x
+      note: hooke_spring with k from cantilever_tip_stiffness and rect_second_moment; the strip is loaded at the tissue attachment
+        points, not at its tip
+  F2G_c1_d1.stress_c1:
+    item: F2G_c1_d1
+    group: c1
+    formula: sigma = F/A
+    anchor: &id001
+      quote: Twitch stress measurements were found by dividing average twitch force by average cross-sectional area of cardiomyocytes
+        within the tissue
+      where: Methods, Tissue contractility assay
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: average twitch force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_c1/c1
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F2G_c1_d1.twitch_c1:
+    item: F2G_c1_d1
+    group: c1
+    formula: s_tw = s_sys - s_dia
+    anchor:
+      quote: The twitch stress (equivalent to the peak systolic stress minus the diastolic stress)
+      where: Results
+      file: scitranslmed.abd1817.pdf
+    no_formula: a difference of two stresses; the library has no difference entry
+    inputs:
+      s_sys:
+        not_stated: true
+        kind: per sample
+        note: peak systolic stress; not released
+      s_dia:
+        data: F2E_c8_c1/c1
+        kind: per sample
+  F2G_c1_d1.stress_d1:
+    item: F2G_c1_d1
+    group: d1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: average twitch force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_d1/d1
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F2G_c1_d1.twitch_d1:
+    item: F2G_c1_d1
+    group: d1
+    formula: s_tw = s_sys - s_dia
+    anchor:
+      quote: The twitch stress (equivalent to the peak systolic stress minus the diastolic stress)
+      where: Results
+      file: scitranslmed.abd1817.pdf
+    no_formula: a difference of two stresses; the library has no difference entry
+    inputs:
+      s_sys:
+        not_stated: true
+        kind: per sample
+        note: peak systolic stress; not released
+      s_dia:
+        data: F2E_c8_d1/d1
+        kind: per sample
+  F2G_c8_d1.stress_c8:
+    item: F2G_c8_d1
+    group: c8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: average twitch force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_c8/c8
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F2G_c8_d1.twitch_c8:
+    item: F2G_c8_d1
+    group: c8
+    formula: s_tw = s_sys - s_dia
+    anchor:
+      quote: The twitch stress (equivalent to the peak systolic stress minus the diastolic stress)
+      where: Results
+      file: scitranslmed.abd1817.pdf
+    no_formula: a difference of two stresses; the library has no difference entry
+    inputs:
+      s_sys:
+        not_stated: true
+        kind: per sample
+        note: peak systolic stress; not released
+      s_dia:
+        data: F2E_c8_d1/c8
+        kind: per sample
+  F2G_d8_d1.stress_d8:
+    item: F2G_d8_d1
+    group: d8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: average twitch force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_d1/d8
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F2G_d8_d1.twitch_d8:
+    item: F2G_d8_d1
+    group: d8
+    formula: s_tw = s_sys - s_dia
+    anchor:
+      quote: The twitch stress (equivalent to the peak systolic stress minus the diastolic stress)
+      where: Results
+      file: scitranslmed.abd1817.pdf
+    no_formula: a difference of two stresses; the library has no difference entry
+    inputs:
+      s_sys:
+        not_stated: true
+        kind: per sample
+        note: peak systolic stress; not released
+      s_dia:
+        data: F2E_d8_d1/d8
+        kind: per sample
+  F2E_c8_c1.stress_c1:
+    item: F2E_c8_c1
+    group: c1
+    formula: sigma = F/A
+    anchor: &id002
+      quote: Cardiomyocyte cross-sectional area used for tissue stress measurements is displayed in fig. S23
+      where: Fig. 2 legend
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_c1/c1
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23)
+  F2E_c8_d1.stress_d1:
+    item: F2E_c8_d1
+    group: d1
+    formula: sigma = F/A
+    anchor: *id002
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_d1/d1
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23)
+  F2E_c8_d1.stress_c8:
+    item: F2E_c8_d1
+    group: c8
+    formula: sigma = F/A
+    anchor: *id002
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_c8/c8
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23)
+  F2E_d8_d1.stress_d8:
+    item: F2E_d8_d1
+    group: d8
+    formula: sigma = F/A
+    anchor: *id002
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S23_d8_d1/d8
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S23)
+  F6I_mut_d1_ctl_c1.stress_mut_d1:
+    item: F6I_mut_d1_ctl_c1
+    group: mut_d1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d1_ctl_c1/mut_d1
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        not_stated: true
+        kind: constant
+        note: fig. S24 shows the 8x groups only; the 1x area is not released
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6I_mut_d1_ctl_c1.stress_ctl_c1:
+    item: F6I_mut_d1_ctl_c1
+    group: ctl_c1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d1_ctl_c1/ctl_c1
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        not_stated: true
+        kind: constant
+        note: fig. S24 shows the 8x groups only; the 1x area is not released
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6I_mut_d1_mut_c1.stress_mut_c1:
+    item: F6I_mut_d1_mut_c1
+    group: mut_c1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d1_mut_c1/mut_c1
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        not_stated: true
+        kind: constant
+        note: fig. S24 shows the 8x groups only; the 1x area is not released
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6I_mut_d8_ctl_d8.stress_mut_d8:
+    item: F6I_mut_d8_ctl_d8
+    group: mut_d8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d8_ctl_d8/mut_d8
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        data: S24_mut_d8_ctl_d8/mut_d8
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6I_mut_d8_ctl_d8.stress_ctl_d8:
+    item: F6I_mut_d8_ctl_d8
+    group: ctl_d8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d8_ctl_d8/ctl_d8
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        data: S24_mut_d8_ctl_d8/ctl_d8
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6I_mut_c8_ctl_c8.stress_mut_c8:
+    item: F6I_mut_c8_ctl_c8
+    group: mut_c8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d8_mut_c8/mut_c8
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        data: S24_mut_c8_ctl_c8/mut_c8
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6I_mut_c8_ctl_c8.stress_ctl_c8:
+    item: F6I_mut_c8_ctl_c8
+    group: ctl_c8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        data: S17_mut_d8_ctl_c8/ctl_c8
+        kind: per sample
+        note: fig. S17 "average tissue contractile force"; the paper does not say it is the twitch force
+      A:
+        data: S24_mut_c8_ctl_c8/ctl_c8
+        kind: per sample
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24); one area per tissue in the released data
+          (row order assumed to match the force rows)
+    aggregation: not stated
+    note: '"average twitch force by average cross-sectional area of cardiomyocytes within the tissue" is a per-tissue stress;
+      whether the group value is the mean of per-tissue stresses or group-mean force over group-mean area is not stated, so
+      code runs both (no printed output: F6I values are released per tissue only)'
+  F6H_mut_c1_ctl_c1.stress_mut_c1:
+    item: F6H_mut_c1_ctl_c1
+    group: mut_c1
+    formula: sigma = F/A
+    anchor: &id003
+      quote: cross-sectional area used for tissue stress measurements is displayed in fig. S24
+      where: Fig. 6 legend
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: fig. S24 shows the 8x groups only; the 1x area is not released
+  F6H_mut_c1_ctl_c1.stress_ctl_c1:
+    item: F6H_mut_c1_ctl_c1
+    group: ctl_c1
+    formula: sigma = F/A
+    anchor: *id003
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: fig. S24 shows the 8x groups only; the 1x area is not released
+  F6H_mut_c1_ctl_d1.stress_ctl_d1:
+    item: F6H_mut_c1_ctl_d1
+    group: ctl_d1
+    formula: sigma = F/A
+    anchor: *id003
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: fig. S24 shows the 8x groups only; the 1x area is not released
+  F6H_mut_c8_ctl_c8.stress_mut_c8:
+    item: F6H_mut_c8_ctl_c8
+    group: mut_c8
+    formula: sigma = F/A
+    anchor: *id003
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S24_mut_c8_ctl_c8/mut_c8
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24)
+  F6H_mut_c8_ctl_c8.stress_ctl_c8:
+    item: F6H_mut_c8_ctl_c8
+    group: ctl_c8
+    formula: sigma = F/A
+    anchor: *id003
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S24_mut_c8_ctl_c8/ctl_c8
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24)
+  F6H_mut_c8_ctl_d8.stress_ctl_d8:
+    item: F6H_mut_c8_ctl_d8
+    group: ctl_d8
+    formula: sigma = F/A
+    anchor: *id003
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S24_mut_d8_ctl_d8/ctl_d8
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24)
+  F6H_mut_d8_ctl_d8.stress_mut_d8:
+    item: F6H_mut_d8_ctl_d8
+    group: mut_d8
+    formula: sigma = F/A
+    anchor: *id003
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: diastolic force; force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        data: S24_mut_d8_ctl_d8/mut_d8
+        kind: constant
+        note: average cardiomyocyte cross-sectional area of the group (fig. S24)
+  S1E_col1p5_col2p5.stress:
+    item: S1E_col1p5_col2p5
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S1E_col1_col2p5.stress:
+    item: S1E_col1_col2p5
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S1E_col0p5_col2p5.stress:
+    item: S1E_col0p5_col2p5
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S7A_c1.stress:
+    item: S7A_c1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S7A_d1.stress:
+    item: S7A_d1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S7A_c8.stress:
+    item: S7A_c8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S7A_d8.stress:
+    item: S7A_d8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S8B_c1.stress:
+    item: S8B_c1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S8B_d1.stress:
+    item: S8B_d1
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S8B_c8.stress:
+    item: S8B_c8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S8B_d8.stress:
+    item: S8B_d8
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force from strip bending through the FEM look-up tables; per-tissue forces not released
+      A:
+        not_stated: true
+        kind: constant
+        note: cardiomyocyte cross-sectional area for these tissues not released
+  S22B.stress:
+    item: S22B
+    formula: sigma = F/A
+    anchor:
+      quote: Stress was calculated by dividing the force by the cross-sectional area of the strip
+      where: Methods, Tissue contractility assay
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: Instron force; not released
+      A:
+        not_stated: true
+        kind: per sample
+        note: dog-bone cross-sectional area, measured per sample; not released
+    note: the modulus is then the mean of per-sample slopes over 0 to 10% strain (a fit; no library entry)
+  S5_d8_d1.stress:
+    item: S5_d8_d1
+    formula: sigma = F/A
+    anchor:
+      quote: Stress was calculated by dividing the force by the cross-sectional area of the tissue
+      where: Supplementary Methods, Tissue elastic modulus determination
+      file: abd1817_sm.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: transducer force; not released
+      A:
+        not_stated: true
+        kind: per sample
+        note: tissue cross-sectional area; not released
+    note: the modulus is then the mean of per-tissue slopes of the linear region (a fit; no library entry)
+  S5_d8_c1.stress:
+    item: S5_d8_c1
+    formula: sigma = F/A
+    anchor:
+      quote: Stress was calculated by dividing the force by the cross-sectional area of the tissue
+      where: Supplementary Methods, Tissue elastic modulus determination
+      file: abd1817_sm.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: transducer force; not released
+      A:
+        not_stated: true
+        kind: per sample
+        note: tissue cross-sectional area; not released
+    note: the modulus is then the mean of per-tissue slopes of the linear region (a fit; no library entry)
+  F4E_d8_d1.cv:
+    item: F4E_d8_d1
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: obtaining the average distance of the tissue in centimeters and dividing that by the average time (in seconds)
+        that it takes for the wave to traverse the tissue
+      where: Methods, Calcium imaging
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: average tissue length; not released
+      t1:
+        not_stated: true
+        kind: per sample
+        note: activation time at the start of the tissue; the traverse time t2 - t1 is not released
+      t2:
+        not_stated: true
+        kind: per sample
+        note: activation time at the far end of the tissue
+    note: the traverse time is written t2 - t1; average distance over average time is a ratio of means
+  F4E_d8_c1.cv:
+    item: F4E_d8_c1
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: obtaining the average distance of the tissue in centimeters and dividing that by the average time (in seconds)
+        that it takes for the wave to traverse the tissue
+      where: Methods, Calcium imaging
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: average tissue length; not released
+      t1:
+        not_stated: true
+        kind: per sample
+        note: activation time at the start of the tissue; the traverse time t2 - t1 is not released
+      t2:
+        not_stated: true
+        kind: per sample
+        note: activation time at the far end of the tissue
+    note: the traverse time is written t2 - t1; average distance over average time is a ratio of means
+  F4E_text.cv:
+    item: F4E_text
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: obtaining the average distance of the tissue in centimeters and dividing that by the average time (in seconds)
+        that it takes for the wave to traverse the tissue
+      where: Methods, Calcium imaging
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: average tissue length; not released
+      t1:
+        not_stated: true
+        kind: per sample
+        note: activation time at the start of the tissue; the traverse time t2 - t1 is not released
+      t2:
+        not_stated: true
+        kind: per sample
+        note: activation time at the far end of the tissue
+    note: the traverse time is written t2 - t1; average distance over average time is a ratio of means
+  S9F_c8_d1.velocity:
+    item: S9F_c8_d1
+    formula: v = dx/t
+    anchor: &id004
+      quote: tissue displacement during contraction or relaxation was divided by either the contraction or relaxation time
+      where: Supplementary Methods, twitch kinetics
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9F_d8_d1.velocity:
+    item: S9F_d8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9F_d8_c1.velocity:
+    item: S9F_d8_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9F_d8_c8.velocity:
+    item: S9F_d8_c8
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9G_c8_d1.velocity:
+    item: S9G_c8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9G_d8_d1.velocity:
+    item: S9G_d8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9G_d8_c1.velocity:
+    item: S9G_d8_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9G_d8_c8.velocity:
+    item: S9G_d8_c8
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S9H_c8_d1.work:
+    item: S9H_c8_d1
+    formula: W = F*s
+    anchor: &id005
+      quote: Contractile Work was found by multiplying the average force by contractile shortening
+      where: Supplementary Methods, twitch kinetics
+      file: abd1817_sm.pdf
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S9H_c8_c1.work:
+    item: S9H_c8_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S9H_d8_d1.work:
+    item: S9H_d8_d1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S9H_d8_c1.work:
+    item: S9H_d8_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S9I_c1_d1.power:
+    item: S9I_c1_d1
+    formula: P = W/t
+    anchor: &id006
+      quote: Contractile Power was found by dividing the contractile work by the contractile time
+      where: Supplementary Methods, twitch kinetics
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S9I_c8_d1.power:
+    item: S9I_c8_d1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S9I_c8_c1.power:
+    item: S9I_c8_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S9I_d8_d1.power:
+    item: S9I_d8_d1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S9I_d8_c1.power:
+    item: S9I_d8_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S10C_c1_d1.velocity:
+    item: S10C_c1_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10C_c8_d1.velocity:
+    item: S10C_c8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10C_c8_c1.velocity:
+    item: S10C_c8_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10C_d8_d1.velocity:
+    item: S10C_d8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10C_d8_c1.velocity:
+    item: S10C_d8_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10C_d8_c8.velocity:
+    item: S10C_d8_c8
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10D_c1_d1.velocity:
+    item: S10D_c1_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10D_c8_d1.velocity:
+    item: S10D_c8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10D_d8_d1.velocity:
+    item: S10D_d8_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10D_d8_c1.velocity:
+    item: S10D_d8_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S10E_c1_d1.work:
+    item: S10E_c1_d1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S10E_c8_d1.work:
+    item: S10E_c8_d1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S10E_c8_c1.work:
+    item: S10E_c8_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S10E_d8_d1.work:
+    item: S10E_d8_d1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S10E_d8_c1.work:
+    item: S10E_d8_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S10E_d8_c8.work:
+    item: S10E_d8_c8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S10F_c1_d1.power:
+    item: S10F_c1_d1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S10F_c8_d1.power:
+    item: S10F_c8_d1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S10F_c8_c1.power:
+    item: S10F_c8_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S10F_d8_d1.power:
+    item: S10F_d8_d1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S10F_d8_c1.power:
+    item: S10F_d8_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S10F_d8_c8.power:
+    item: S10F_d8_c8
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18F_ctl_d1_ctl_c1.velocity:
+    item: S18F_ctl_d1_ctl_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18F_mut_d1_mut_c1.velocity:
+    item: S18F_mut_d1_mut_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18F_mut_d1_ctl_c1.velocity:
+    item: S18F_mut_d1_ctl_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18F_mut_d1_ctl_d1.velocity:
+    item: S18F_mut_d1_ctl_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18G_ctl_c1_mut_c1.velocity:
+    item: S18G_ctl_c1_mut_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18G_mut_d1_mut_c1.velocity:
+    item: S18G_mut_d1_mut_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18G_mut_d1_ctl_c1.velocity:
+    item: S18G_mut_d1_ctl_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18G_mut_d1_ctl_d1.velocity:
+    item: S18G_mut_d1_ctl_d1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S18H_ctl_d1_mut_c1.work:
+    item: S18H_ctl_d1_mut_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_ctl_d1_ctl_c1.work:
+    item: S18H_ctl_d1_ctl_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_mut_d1_mut_c1.work:
+    item: S18H_mut_d1_mut_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_mut_d1_ctl_c1.work:
+    item: S18H_mut_d1_ctl_c1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_mut_d1_ctl_d1.work:
+    item: S18H_mut_d1_ctl_d1
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_mut_d8_mut_c8.work:
+    item: S18H_mut_d8_mut_c8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_mut_d8_ctl_d8.work:
+    item: S18H_mut_d8_ctl_d8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18H_mut_d8_ctl_c8.work:
+    item: S18H_mut_d8_ctl_c8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S18I_ctl_d1_ctl_c1.power:
+    item: S18I_ctl_d1_ctl_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18I_mut_d1_mut_c1.power:
+    item: S18I_mut_d1_mut_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18I_mut_d1_ctl_c1.power:
+    item: S18I_mut_d1_ctl_c1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18I_mut_d1_ctl_d1.power:
+    item: S18I_mut_d1_ctl_d1
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18I_mut_d8_mut_c8.power:
+    item: S18I_mut_d8_mut_c8
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18I_mut_d8_ctl_d8.power:
+    item: S18I_mut_d8_ctl_d8
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S18I_mut_d8_ctl_c8.power:
+    item: S18I_mut_d8_ctl_c8
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S19C_mut_d1_mut_c1.velocity:
+    item: S19C_mut_d1_mut_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S19D_mut_d1_mut_c1.velocity:
+    item: S19D_mut_d1_mut_c1
+    formula: v = dx/t
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: v
+        a: dx
+        b: t
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: tissue displacement; not released
+      t:
+        not_stated: true
+        kind: per sample
+        note: contraction or relaxation time; not released
+  S19E_mut_d8_mut_c8.work:
+    item: S19E_mut_d8_mut_c8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S19E_mut_d8_ctl_d8.work:
+    item: S19E_mut_d8_ctl_d8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S19E_mut_d8_ctl_c8.work:
+    item: S19E_mut_d8_ctl_c8
+    formula: W = F*s
+    anchor: *id005
+    library:
+      formula: work_def
+      vars:
+        W: W
+        F: F
+        d: s
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: '"average force": which force (twitch, contractile, mean over the cycle) is not stated'
+      s:
+        not_stated: true
+        kind: per sample
+        note: contractile shortening as a length; the paper reports shortening in %
+    note: 'printed in µJ: mN x mm'
+  S19F_mut_d8_mut_c8.power:
+    item: S19F_mut_d8_mut_c8
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  S19F_mut_d8_ctl_d8.power:
+    item: S19F_mut_d8_ctl_d8
+    formula: P = W/t
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: P
+        a: W
+        b: t
+    inputs:
+      W:
+        not_stated: true
+        kind: per sample
+        note: per-tissue contractile work (released as its own item, not per tissue here)
+      t:
+        not_stated: true
+        kind: per sample
+        note: contractile time; not released
+  F2B_well.increase_d8:
+    item: F2B_well
+    group: d8
+    formula: r = (L - L0)/L0
+    anchor:
+      quote: the 8× dyn-EHT showed the greatest change, with an ~50% increase in diastolic length
+      where: Results
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: r
+        x: L
+        x0: L0
+    inputs:
+      L:
+        data: F2B_well/d8
+        kind: per sample
+      L0:
+        value: F2B_well.values.well
+        kind: constant
+        note: the PDMS well length; the reference is not stated
+    output: F2B_well.values.d8_inc
+    alternatives:
+    - label: reference = 8x constrained diastolic length
+      formula: r = (L - L0)/L0
+      note: L0 from F2B_well/c8 (about 30% instead of about 50%)
+  S13C_Desmoplakin.reduction:
+    item: S13C_Desmoplakin
+    formula: s = (x0 - x)/x0
+    anchor:
+      quote: a 65% reduction in desmoplakin
+      where: Discussion
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: S13C_Desmoplakin/mut
+        kind: per sample
+      x0:
+        data: S13C_Desmoplakin/ctl
+        kind: per sample
+    output: S13C_Desmoplakin.values.red
+  S13C_Desmocollin_2.reduction:
+    item: S13C_Desmocollin_2
+    formula: s = (x0 - x)/x0
+    anchor:
+      quote: a 50% reduction in desmocollin-2
+      where: Discussion
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: S13C_Desmocollin_2/mut
+        kind: per sample
+      x0:
+        data: S13C_Desmocollin_2/ctl
+        kind: per sample
+    output: S13C_Desmocollin_2.values.red
+  S13C_Desmoplakin.fold:
+    item: S13C_Desmoplakin
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_Desmocollin_2.fold:
+    item: S13C_Desmocollin_2
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_Plakoglobin.fold:
+    item: S13C_Plakoglobin
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_Desmoglein_2.fold:
+    item: S13C_Desmoglein_2
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_Plakophillin_2.fold:
+    item: S13C_Plakophillin_2
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_Desmin.fold:
+    item: S13C_Desmin
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_B_catenin.fold:
+    item: S13C_B_catenin
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S13C_Connexin_43.fold:
+    item: S13C_Connexin_43
+    formula: fc = x/x0
+    anchor:
+      quote: Fold change
+      where: fig. S13 legend
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: band intensity over loading control; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: control mean; not released
+  S15C_desmoplakin_ctl_s_ctl.fold:
+    item: S15C_desmoplakin_ctl_s_ctl
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  S15C_desmoplakin_mut_ctl.fold:
+    item: S15C_desmoplakin_mut_ctl
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  S15C_desmoplakin_mut_s_mut.fold:
+    item: S15C_desmoplakin_mut_s_mut
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  S15C_plakoglobin_ctl_s_ctl.fold:
+    item: S15C_plakoglobin_ctl_s_ctl
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  S15C_plakoglobin_mut_s_mut.fold:
+    item: S15C_plakoglobin_mut_s_mut
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  S15C_plakophillin2_ctl_s_ctl.fold:
+    item: S15C_plakophillin2_ctl_s_ctl
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  S15C_plakophillin2_mut_s_mut.fold:
+    item: S15C_plakophillin2_mut_s_mut
+    formula: fc = x/x0
+    anchor:
+      quote: the fold change was calculated compared to the abundance of signal at the cell-cell junctions in control cells
+        in the non-stretched condition
+      where: Supplementary Methods, Protein localization
+      file: abd1817_sm.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: normalized membrane signal per image; not released
+      x0:
+        not_stated: true
+        kind: constant
+        note: non-stretched control mean; not released
+  F4F.normalized:
+    item: F4F
+    formula: f = nb/nt
+    anchor:
+      quote: Both datasets were normalized by dividing the number of events in each bin by the total number of events
+      where: Methods, Sharp electrode measurements
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nb
+        b: nt
+    inputs:
+      nb:
+        not_stated: true
+        kind: per sample
+        note: events per bin; not released
+      nt:
+        not_stated: true
+        kind: constant
+        note: total events; not released
+  F4G.normalized:
+    item: F4G
+    formula: f = nb/nt
+    anchor:
+      quote: Both datasets were normalized by dividing the number of events in each bin by the total number of events
+      where: Methods, Sharp electrode measurements
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nb
+        b: nt
+    inputs:
+      nb:
+        not_stated: true
+        kind: per sample
+        note: events per bin; not released
+      nt:
+        not_stated: true
+        kind: constant
+        note: total events; not released
+  F4FG_cmp.normalized:
+    item: F4FG_cmp
+    formula: f = nb/nt
+    anchor:
+      quote: Both datasets were normalized by dividing the number of events in each bin by the total number of events
+      where: Methods, Sharp electrode measurements
+      file: scitranslmed.abd1817.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: nb
+        b: nt
+    inputs:
+      nb:
+        not_stated: true
+        kind: per sample
+        note: events per bin; not released
+      nt:
+        not_stated: true
+        kind: constant
+        note: total events; not released
+  F2C_8x.shortening:
+    item: F2C_8x
+    formula: not stated
+    anchor: not stated
+    no_formula: contractile shortening (%) is not defined in the paper
+    alternatives:
+    - label: relative_decrease of tissue length from diastole (assumed, not stated)
+      formula: s = (L0 - L)/L0
+  F3D_MYH6_MYH7.ddct:
+    item: F3D_MYH6_MYH7
+    formula: r = 2**(-ddct)
+    anchor: &id007
+      quote: Relative expression was calculated using the ddCt method
+      where: Supplementary Methods, RT-PCR
+      file: abd1817_sm.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_NPPB.ddct:
+    item: F3D_NPPB
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_TTN_N2B.ddct:
+    item: F3D_TTN_N2B
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_TTN_N2A.ddct:
+    item: F3D_TTN_N2A
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_TNNI3.ddct:
+    item: F3D_TNNI3
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_SCN5A.ddct:
+    item: F3D_SCN5A
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_GJA1.ddct:
+    item: F3D_GJA1
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_DSP.ddct:
+    item: F3D_DSP
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_JUP.ddct:
+    item: F3D_JUP
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_PKP2.ddct:
+    item: F3D_PKP2
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_DSG2.ddct:
+    item: F3D_DSG2
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_DSC2.ddct:
+    item: F3D_DSC2
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_DES.ddct:
+    item: F3D_DES
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_CPT1B.ddct:
+    item: F3D_CPT1B
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  F3D_PDK4.ddct:
+    item: F3D_PDK4
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_DSP.ddct:
+    item: S13D_DSP
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_DSC2.ddct:
+    item: S13D_DSC2
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_JUP.ddct:
+    item: S13D_JUP
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_DSG2.ddct:
+    item: S13D_DSG2
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_PKP2.ddct:
+    item: S13D_PKP2
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_DES.ddct:
+    item: S13D_DES
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S13D_GJA1.ddct:
+    item: S13D_GJA1
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S15D_DSP_mut_ctl.ddct:
+    item: S15D_DSP_mut_ctl
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S15D_DSP_mut_s_ctl_s.ddct:
+    item: S15D_DSP_mut_s_ctl_s
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S15D_stretch_ctl_s.ddct:
+    item: S15D_stretch_ctl_s
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+  S15D_stretch_mut_s.ddct:
+    item: S15D_stretch_mut_s
+    formula: r = 2**(-ddct)
+    anchor: *id007
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ddCt values not released; reference gene and calibrator not stated
+assumptions:
+  F1D_s8.stiffness_ratio:
+    model: strip_stiffness_thickness_ratio
+    assumptions:
+      linear elastic material:
+        reported:
+          quote: The strip was considered linearly elastic, isotropic, and incompressible
+      small deflection:
+        reported: not stated
+      slender beam:
+        reported: not stated
+      point load at the free end:
+        reported:
+          quote: displacements (indicated by the yellow arrows) were applied to the tissue attachments points
+      E2 = E1:
+        reported:
+          E1: S22B.values.s1
+          E2: S22B.values.s8
+      w2 = w1:
+        reported: not stated
+      L2 = L1:
+        reported: not stated
+  F3D_MYH6_MYH7.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_NPPB.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_TTN_N2B.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_TTN_N2A.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_TNNI3.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_SCN5A.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_GJA1.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_DSP.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_JUP.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_PKP2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_DSG2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_DSC2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_DES.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_CPT1B.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3D_PDK4.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_DSP.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_DSC2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_JUP.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_DSG2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_PKP2.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_DES.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S13D_GJA1.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S15D_DSP_mut_ctl.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S15D_DSP_mut_s_ctl_s.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S15D_stretch_ctl_s.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S15D_stretch_mut_s.ddct:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+proposals:
+- formula: cantilever_tip_stiffness
+  kind: model
+  statement: The stiffness of a slender elastic cantilever loaded at its free end is three times its modulus times its second
+    moment of area over its length cubed.
+  equations:
+  - k = 3*E*I/L**3
+  variables:
+    k: stiffness
+    E: modulus
+    I: second_moment
+    L: length
+  assumes:
+  - small deflection
+  - linear elastic material
+  - slender beam
+  - point load at the free end
+  does_not_apply: large deflections, a load applied away from the free end, or a short thick beam where shear deformation
+    matters
+  tests:
+  - given:
+      E: 1.0
+      I: 1.0
+      L: 1.0
+    expect:
+      k: 3.0
+  - given:
+      E: 200.0
+      I: 2.0
+      L: 2.0
+    expect:
+      k: 150.0
+  - given:
+      E: 1.0
+      I: 1.0
+      L: 1.0
+    does_not_apply: 'load at mid-length of the cantilever: k = 24EI/L^3 (3EI/(L/2)^3), not 3EI/L^3'
+  cites:
+    text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, concentrated
+      load at the free end)
+    quote: δB = PL^3/3EI
+- formula: rect_second_moment
+  kind: definition
+  statement: The second moment of area of a rectangular cross-section of width w and thickness t, about its centroidal axis
+    parallel to the width, is w t^3 / 12.
+  equations:
+  - I = w*t**3/12
+  variables:
+    I: second_moment
+    w: length
+    t: length
+  does_not_apply: bending about the other axis (I = t*w^3/12) or a non-rectangular section
+  tests:
+  - given:
+      w: 12.0
+      t: 1.0
+    expect:
+      I: 1.0
+  - given:
+      w: 3.0
+      t: 2.0
+    expect:
+      I: 2.0
+  - given:
+      w: 3.0
+      t: 2.0
+    does_not_apply: 'bending about the width axis swapped: t*w^3/12 = 4.5, not 2'
+  cites:
+    text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix E (properties of plane areas, rectangle)
+    quote: Ix = bh^3/12
+- formula: strip_stiffness_thickness_ratio
+  kind: derived
+  statement: For two cantilever strips of the same modulus, width and length, the bending stiffness scales with the cube of
+    the thickness.
+  equations:
+  - k2 = k1*(t2/t1)**3
+  variables:
+    k1: stiffness
+    k2: stiffness
+    E1: modulus
+    E2: modulus
+    I1: second_moment
+    I2: second_moment
+    L1: length
+    L2: length
+    w1: length
+    w2: length
+    t1: length
+    t2: length
+  uses:
+  - formula: cantilever_tip_stiffness
+    subs:
+      k: k1
+      E: E1
+      I: I1
+      L: L1
+  - formula: cantilever_tip_stiffness
+    subs:
+      k: k2
+      E: E2
+      I: I2
+      L: L2
+  - formula: rect_second_moment
+    subs:
+      I: I1
+      w: w1
+      t: t1
+  - formula: rect_second_moment
+    subs:
+      I: I2
+      w: w2
+      t: t2
+  assumes:
+  - E2 = E1
+  - w2 = w1
+  - L2 = L1
+  does_not_apply: strips of different modulus, width or free length, where k2/k1 = (E2/E1)(w2/w1)(L1/L2)^3 (t2/t1)^3
+  tests:
+  - given:
+      k1: 1.0
+      t1: 1.0
+      t2: 2.0
+    expect:
+      k2: 8.0
+  - given:
+      k1: 2.0
+      t1: 2.0
+      t2: 1.0
+    expect:
+      k2: 0.25
+- formula: work_def
+  kind: definition
+  statement: The work done by a constant force along a straight displacement in its direction is the force times the displacement.
+  equations:
+  - W = F*d
+  variables:
+    W: energy
+    F: force
+    d: length
+  does_not_apply: a force not along the displacement (W = F d cos θ) or a force that varies along the path (W is the integral
+    of F)
+  tests:
+  - given:
+      F: 2.0
+      d: 3.0
+    expect:
+      W: 6.0
+  - given:
+      F: 2.0
+      d: 3.0
+    does_not_apply: 'force at 60° to the displacement: W = 3, not 6'
+  cites:
+    text: 'ISO 80000-4:2019 Quantities and units, Part 4: Mechanics (work)'
+    url: https://www.iso.org/standard/64975.html

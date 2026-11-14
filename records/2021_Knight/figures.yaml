@@ -1,0 +1,418 @@
+figures:
+  f1c_circularity:
+    file: main.pdf
+    page: 3
+    crop:
+    - 238
+    - 325
+    - 370
+    - 482
+    script: figures/f1c_circularity.py
+    unit: F1
+    kind: raster
+    groups:
+      MPAT_v_GLUC/MPAT:
+        item: F1_circ_MPAT_v_GLUC
+        group: MPAT
+        unit_of_value: AU
+      MPAT_v_GLUC/GLUC:
+        item: F1_circ_MPAT_v_GLUC
+        group: GLUC
+        unit_of_value: AU
+      MM_v_GLUC/MM:
+        item: F1_circ_MM_v_GLUC
+        group: MM
+        unit_of_value: AU
+      MM_v_GLUC/GLUC:
+        item: F1_circ_MM_v_GLUC
+        group: GLUC
+        unit_of_value: AU
+      MM_v_GLPAT/MM:
+        item: F1_circ_MM_v_GLPAT
+        group: MM
+        unit_of_value: AU
+      MM_v_GLPAT/GLPAT:
+        item: F1_circ_MM_v_GLPAT
+        group: GLPAT
+        unit_of_value: AU
+      GLPAT_v_GLUC/GLPAT:
+        item: F1_circ_GLPAT_v_GLUC
+        group: GLPAT
+        unit_of_value: AU
+      GLPAT_v_GLUC/GLUC:
+        item: F1_circ_GLPAT_v_GLUC
+        group: GLUC
+        unit_of_value: AU
+      MPAT_v_GLPAT/MPAT:
+        item: F1_circ_MPAT_v_GLPAT
+        group: MPAT
+        unit_of_value: AU
+      MPAT_v_GLPAT/GLPAT:
+        item: F1_circ_MPAT_v_GLPAT
+        group: GLPAT
+        unit_of_value: AU
+      MPAT_v_MM/MPAT:
+        item: F1_circ_MPAT_v_MM
+        group: MPAT
+        unit_of_value: AU
+      MPAT_v_MM/MM:
+        item: F1_circ_MPAT_v_MM
+        group: MM
+        unit_of_value: AU
+    note: Fig. 1C only (circularity, individual points per replicate). Fig. 1B (cell area) is bars with SEM, no points, and
+      is not listed by figures-needed. Raster at ~300 dpi; y axis calibrated from raster tick marks (labels 0.6/0.4/0.2 are
+      part of the image).
+  f2c_sarcomere_length:
+    file: main.pdf
+    page: 4
+    crop:
+    - 365
+    - 125
+    - 508
+    - 285
+    script: figures/f2c_sarcomere_length.py
+    unit: F2
+    kind: raster
+    groups:
+      sl_MM_v_GLUC/MM:
+        item: F2_sl_MM_v_GLUC
+        group: MM
+        unit_of_value: µm
+      sl_MM_v_GLUC/GLUC:
+        item: F2_sl_MM_v_GLUC
+        group: GLUC
+        unit_of_value: µm
+      sl_MPAT_v_MM/MPAT:
+        item: F2_sl_MPAT_v_MM
+        group: MPAT
+        unit_of_value: µm
+      sl_MPAT_v_MM/MM:
+        item: F2_sl_MPAT_v_MM
+        group: MM
+        unit_of_value: µm
+    note: Fig. 2C only (sarcomere length). Individual SL points are plotted but overlap heavily (hundreds per group), so they
+      are not countable and only the mean line and upper SEM end are read. Fig. 2D (organization score) is stacked percentage
+      bars with printed average scores, not listed by figures-needed. Raster at ~300 dpi; y axis calibrated from raster tick
+      marks.
+  s1b_cell_area:
+    file: mmc1.pdf
+    page: 3
+    crop:
+    - 85
+    - 315
+    - 250
+    - 470
+    script: figures/s1b_cell_area.py
+    unit: S1B
+    kind: raster
+    groups:
+      area_MM_v_AMVCM/MM:
+        item: S1B_area_MM_v_AMVCM
+        group: MM
+        unit_of_value: µm2
+      area_MM_v_AMVCM/AMVCM:
+        item: S1B_area_MM_v_AMVCM
+        group: AMVCM
+        unit_of_value: µm2
+      area_MPAT_v_AMVCM/MPAT:
+        item: S1B_area_MPAT_v_AMVCM
+        group: MPAT
+        unit_of_value: µm2
+      area_MPAT_v_AMVCM/AMVCM:
+        item: S1B_area_MPAT_v_AMVCM
+        group: AMVCM
+        unit_of_value: µm2
+    note: Fig. S1B only (cell area, CUSO-2). Individual cell areas are plotted (275 or more cells per group) but overlap heavily,
+      so they are not countable and only the black mean line is read; the legend shows no error bars. GLUC is not read (its
+      item has no stated test and is not listed by figures-needed). Raster at ~300 dpi; y axis calibrated from raster tick
+      marks.
+  s1d_circularity:
+    file: mmc1.pdf
+    page: 3
+    crop:
+    - 126
+    - 596
+    - 222
+    - 678
+    script: figures/s1d_circularity.py
+    unit: S1D
+    kind: raster
+    groups:
+      MM_v_GLUC/MM:
+        item: S1D_circ_MM_v_GLUC
+        group: MM
+        unit_of_value: AU
+      MM_v_GLUC/GLUC:
+        item: S1D_circ_MM_v_GLUC
+        group: GLUC
+        unit_of_value: AU
+      MPAT_v_GLPAT/MPAT:
+        item: S1D_circ_MPAT_v_GLPAT
+        group: MPAT
+        unit_of_value: AU
+      MPAT_v_GLPAT/GLPAT:
+        item: S1D_circ_MPAT_v_GLPAT
+        group: GLPAT
+        unit_of_value: AU
+      GLPAT_v_GLUC/GLPAT:
+        item: S1D_circ_GLPAT_v_GLUC
+        group: GLPAT
+        unit_of_value: AU
+      GLPAT_v_GLUC/GLUC:
+        item: S1D_circ_GLPAT_v_GLUC
+        group: GLUC
+        unit_of_value: AU
+      MM_v_GLPAT/MM:
+        item: S1D_circ_MM_v_GLPAT
+        group: MM
+        unit_of_value: AU
+      MM_v_GLPAT/GLPAT:
+        item: S1D_circ_MM_v_GLPAT
+        group: GLPAT
+        unit_of_value: AU
+      MPAT_v_MM/MPAT:
+        item: S1D_circ_MPAT_v_MM
+        group: MPAT
+        unit_of_value: AU
+      MPAT_v_MM/MM:
+        item: S1D_circ_MPAT_v_MM
+        group: MM
+        unit_of_value: AU
+    note: Fig. S1D only (circularity, CUSO-1; individual points per replicate over a black mean line and SEM bar). Only the
+      five items figures-needed lists are linked (MPAT_v_GLUC is not). Raster embedded at ~410 dpi, read at 300 dpi; y axis
+      calibrated from five raster tick marks (labels 0.7 to 0.3 are part of the image). Circularity has no printed unit; AU
+      as in Fig. 1C.
+  s1e_circularity:
+    file: mmc1.pdf
+    page: 3
+    crop:
+    - 440
+    - 345
+    - 525
+    - 436
+    script: figures/s1e_circularity.py
+    unit: S1E
+    kind: raster
+    groups:
+      GLUC:
+        item: S1E_circ_MPAT_v_GLUC
+        group: GLUC
+        unit_of_value: AU
+      MPAT:
+        item: S1E_circ_MPAT_v_GLUC
+        group: MPAT
+        unit_of_value: AU
+    note: Fig. S1E (circularity, MD-186C; individual points per replicate over a black mean line and SEM bar). Raster embedded
+      at ~410 dpi, read at 300 dpi; y axis calibrated from four raster tick marks (labels 0.8 to 0.2 are part of the image;
+      0.2 sits on the x axis). The crop starts below the significance line. The y-axis title reads Circularity (AU).
+  s1f_sarcomere_length:
+    file: mmc1.pdf
+    page: 3
+    crop:
+    - 292
+    - 571
+    - 385
+    - 656
+    script: figures/s1f_sarcomere_length.py
+    unit: S1F
+    kind: raster
+    groups:
+      sl_MPAT_v_GLUC/MPAT:
+        item: S1F_sl_MPAT_v_GLUC
+        group: MPAT
+        unit_of_value: µm
+      sl_MPAT_v_GLUC/GLUC:
+        item: S1F_sl_MPAT_v_GLUC
+        group: GLUC
+        unit_of_value: µm
+      sl_MPAT_v_GLPAT/MPAT:
+        item: S1F_sl_MPAT_v_GLPAT
+        group: MPAT
+        unit_of_value: µm
+      sl_MPAT_v_GLPAT/GLPAT:
+        item: S1F_sl_MPAT_v_GLPAT
+        group: GLPAT
+        unit_of_value: µm
+      sl_MPAT_v_MM/MPAT:
+        item: S1F_sl_MPAT_v_MM
+        group: MPAT
+        unit_of_value: µm
+      sl_MPAT_v_MM/MM:
+        item: S1F_sl_MPAT_v_MM
+        group: MM
+        unit_of_value: µm
+    note: Fig. S1F (sarcomere length, CUSO-2; individual points per replicate over a black mean line and SEM bar). Only the
+      three items figures-needed lists are linked (the N.S. pairs are not). Raster embedded at ~410 dpi, read at 300 dpi;
+      y axis calibrated from four raster tick marks (labels 2.0 to 1.7 are part of the image; 1.7 sits on the x axis). The
+      crop starts below the '*' lines; the 'N.S. (all)' line lies inside it and GLUC markers are searched below it. The y-axis
+      title reads Sarcomere length (µm).
+  s1g_mlc2v:
+    file: mmc1.pdf
+    page: 3
+    crop:
+    - 450
+    - 554
+    - 533
+    - 648
+    script: figures/s1g_mlc2v.py
+    unit: S1G
+    kind: raster
+    groups:
+      mlc2v_omnibus/GLUC:
+        item: S1G_mlc2v_omnibus
+        group: GLUC
+        unit_of_value: '%'
+      mlc2v_omnibus/MM:
+        item: S1G_mlc2v_omnibus
+        group: MM
+        unit_of_value: '%'
+      mlc2v_omnibus/MPAT:
+        item: S1G_mlc2v_omnibus
+        group: MPAT
+        unit_of_value: '%'
+    note: Fig. S1G (MLC-2V+ cells, CUSO-2; individual points per independent experiment over a mean line and SEM bar, all
+      in the group's colour). Raster embedded at ~410 dpi, read at 300 dpi; y axis calibrated from five raster tick marks
+      (labels 100 to 60 are part of the image; 60 sits on the x axis). The crop starts below the 'N.S' line and right of the
+      tick labels. The y-axis title reads MLC-2V+ cells (%).
+  f4d_bnp:
+    file: main.pdf
+    page: 8
+    crop:
+    - 355
+    - 335
+    - 525
+    - 515
+    script: figures/f4d_bnp.py
+    unit: F4CD
+    kind: raster
+    groups:
+      MM_VEH_v_GLUC_VEH/MM_VEH:
+        item: F4CD_bnp_MM_VEH_v_GLUC_VEH
+        group: MM_VEH
+        unit_of_value: '%'
+      MM_VEH_v_GLUC_VEH/GLUC_VEH:
+        item: F4CD_bnp_MM_VEH_v_GLUC_VEH
+        group: GLUC_VEH
+        unit_of_value: '%'
+      MPAT_VEH_v_GLUC_VEH/MPAT_VEH:
+        item: F4CD_bnp_MPAT_VEH_v_GLUC_VEH
+        group: MPAT_VEH
+        unit_of_value: '%'
+      MPAT_VEH_v_GLUC_VEH/GLUC_VEH:
+        item: F4CD_bnp_MPAT_VEH_v_GLUC_VEH
+        group: GLUC_VEH
+        unit_of_value: '%'
+      MM_PE_v_MM_VEH/MM_PE:
+        item: F4CD_bnp_MM_PE_v_MM_VEH
+        group: MM_PE
+        unit_of_value: '%'
+      MM_PE_v_MM_VEH/MM_VEH:
+        item: F4CD_bnp_MM_PE_v_MM_VEH
+        group: MM_VEH
+        unit_of_value: '%'
+      MPAT_PE_v_MPAT_VEH/MPAT_PE:
+        item: F4CD_bnp_MPAT_PE_v_MPAT_VEH
+        group: MPAT_PE
+        unit_of_value: '%'
+      MPAT_PE_v_MPAT_VEH/MPAT_VEH:
+        item: F4CD_bnp_MPAT_PE_v_MPAT_VEH
+        group: MPAT_VEH
+        unit_of_value: '%'
+    note: Fig. 4D (BNP+ cells (%), CUSO-2, PE - and + in GLUC, MM and MPAT; one point per induction, n = 3 per legend, over
+      a black mean line and an SEM bar in the group's colour). Raster embedded at 300 dpi, read at 300 dpi; y axis calibrated
+      from five raster tick marks (labels 40 to 0 are part of the image; 0 sits on the x axis). GLUC PE + is read by the script's
+      search but not returned, because no listed item group needs it.
+  f7f_bnp:
+    file: main.pdf
+    page: 11
+    crop:
+    - 115
+    - 430
+    - 225
+    - 530
+    script: figures/f7f_bnp.py
+    unit: F7FH
+    kind: raster
+    groups:
+      MM_VEH_v_GLUC/MM_VEH:
+        item: F7FH_bnp_MM_VEH_v_GLUC
+        group: MM_VEH
+        unit_of_value: '%'
+      MM_VEH_v_GLUC/GLUC:
+        item: F7FH_bnp_MM_VEH_v_GLUC
+        group: GLUC
+        unit_of_value: '%'
+      MM_DFO_v_MM_VEH/MM_DFO:
+        item: F7FH_bnp_MM_DFO_v_MM_VEH
+        group: MM_DFO
+        unit_of_value: '%'
+      MM_DFO_v_MM_VEH/MM_VEH:
+        item: F7FH_bnp_MM_DFO_v_MM_VEH
+        group: MM_VEH
+        unit_of_value: '%'
+      MPAT_DFO_v_MPAT_VEH/MPAT_DFO:
+        item: F7FH_bnp_MPAT_DFO_v_MPAT_VEH
+        group: MPAT_DFO
+        unit_of_value: '%'
+      MPAT_DFO_v_MPAT_VEH/MPAT_VEH:
+        item: F7FH_bnp_MPAT_DFO_v_MPAT_VEH
+        group: MPAT_VEH
+        unit_of_value: '%'
+      MPAT_DFO_v_GLUC/MPAT_DFO:
+        item: F7FH_bnp_MPAT_DFO_v_GLUC
+        group: MPAT_DFO
+        unit_of_value: '%'
+      MPAT_DFO_v_GLUC/GLUC:
+        item: F7FH_bnp_MPAT_DFO_v_GLUC
+        group: GLUC
+        unit_of_value: '%'
+    note: Fig. 7F only (BNP+ cells (%), CUSO-1; one point per induction over a black mean line and an SEM bar in the group's
+      colour). GLUC and both MM groups plot 4 points, MPAT groups 3, while the legend prints three inductions per experiment.
+      Markers touch same-colour caps and three GLUC markers overlap, so centres are distance-transform peaks, not blobs.
+      Fig. 7H (cell area) is bars with SEM, no points. Whole page is one raster image (~300 dpi), read at 300 dpi; y axis
+      calibrated from five raster tick marks (labels 40 to 0 are part of the image; 0 sits on the x axis).
+  s7c_bnp:
+    file: mmc1.pdf
+    page: 15
+    crop:
+    - 141
+    - 360
+    - 215
+    - 465
+    script: figures/s7c_bnp.py
+    unit: S7
+    kind: raster
+    groups:
+      MPAT_VEH_v_GLUC/MPAT_VEH:
+        item: S7_bnp_MPAT_VEH_v_GLUC
+        group: MPAT_VEH
+        unit_of_value: '%'
+      MPAT_VEH_v_GLUC/GLUC:
+        item: S7_bnp_MPAT_VEH_v_GLUC
+        group: GLUC
+        unit_of_value: '%'
+      MPAT_DFO_v_MPAT_VEH/MPAT_DFO:
+        item: S7_bnp_MPAT_DFO_v_MPAT_VEH
+        group: MPAT_DFO
+        unit_of_value: '%'
+      MPAT_DFO_v_MPAT_VEH/MPAT_VEH:
+        item: S7_bnp_MPAT_DFO_v_MPAT_VEH
+        group: MPAT_VEH
+        unit_of_value: '%'
+    note: Fig. S7C only (BNP+ cells (%), CUSO-2; individual points over a black mean line and an SEM bar in the group's
+      colour). Each group plots 5 points while the legend prints 3 inductions. Fig. S7D (cell area) is bars with SEM, no
+      points; its items are not listed by figures-needed. The figure is one raster image embedded at ~590 dpi, read at 600
+      dpi; y axis calibrated from five raster tick marks (labels 40 to 0 are part of the image; 0 sits on the x axis).
+no_points:
+  S2A: 'first look (small model): Panel A is a blue silver-stained gel image, not a plot with data points. (mmc1.pdf p. 5)'
+  S2C: 'first look (small model): Panel C is bar charts with mean and SEM whiskers; no individual dots (mmc1.pdf p. 5)'
+  S4A: 'first look (small model): Panel A shows bars with SEM error bars only, no individual dots (mmc1.pdf p. 9)'
+  S5C: 'first look (small model): Mean bars with error bars only; no individual sample markers visible. (mmc1.pdf p. 11)'
+  S4BC: 'first look (small model): Panels B, C, D are Venn diagrams and heatmaps, with no per-sample markers. (mmc1.pdf p. 7)'
+  S4D: 'first look (small model): Panel D shows bars with error bars only; no individual dots visible. (mmc1.pdf p. 9)'
+  S4F: 'first look (small model): Panel F shows bars with SEM error bars; no per-sample markers visible. (mmc1.pdf p. 9)'
+  S6B: 'first look (small model): Bars with SEM error bars only; no individual sample markers visible. (mmc1.pdf p. 13)'
+  F6D: 'first look (small model): Panel C is micrographs; panel D is bars with mean ± SEM, no dots. (main.pdf p. 10)'
+  F6E: 'first look (small model): Bars with mean ± SEM error bars; no individual markers visible (main.pdf p. 10)'
+  F7B: 'first look (small model): Panels A-B: blot and bar chart with mean error bars, no per-sample points (main.pdf p. 11)'
+  F7D: 'first look (small model): Panel C is a blot; panel D is bars with error bars, no per-sample markers. (main.pdf p. 11)'

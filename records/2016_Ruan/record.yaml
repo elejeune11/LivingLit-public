@@ -1,0 +1,5196 @@
+id: 2016_Ruan
+source:
+  title: Mechanical Stress Conditioning and Electrical Stimulation Promote Contractility and Force Maturation of Induced Pluripotent
+    Stem Cell-Derived Human Cardiac Tissue
+  doi: 10.1161/CIRCULATIONAHA.114.014998
+  year: '2016'
+  first_author: Jia-Ling Ruan
+  last_author: Charles E. Murry
+  lab: Murry lab, University of Washington
+  journal: Circulation
+  files:
+  - journal_version.pdf
+  - NIHMS822611-supplement-Supplemental_Material.pdf
+  - nihms822611.pdf
+  missing: []
+  version_note: anchors from the journal version and the supplement; the NIH manuscript was compared and carries the same
+    values
+default_context:
+  cell_line:
+    value: IMR90-iPSC
+    note: derived from the IMR90 lung fibroblast line
+  number_of_lines: not stated
+  differentiation_factors:
+    value: activin A + BMP4 + Chiron 9902 + Xav 939
+    qualifiers:
+      activin A: 100 ng/mL
+      BMP4: 5 ng/mL
+      Chiron 9902: 1 µM
+      Xav 939: 1 µM
+    suspected_error:
+      what: '''Chiron 9902'' as the Wnt agonist name'
+      why: the Cayman Wnt agonist is usually named CHIR99021; recorded as printed
+  hipsc_medium:
+    value: mouse embryonic fibroblast-conditioned medium
+    qualifiers:
+      basic fibroblast growth factor: 5 ng/mL
+    note: before differentiation; maintenance on irradiated MEFs in Standard Human Pluripotent Cell Medium with 5 ng/mL basic
+      FGF (supplement)
+  hipsc_coating:
+    value: Matrigel
+    note: weaned off mouse embryonic fibroblasts for 2 to 4 passages
+  wnt_activation_days: not stated
+  wnt_inhibition_days: not stated
+  insulin_day:
+    value: days 14 to 21
+    note: moved into B27 with insulin at construct generation
+  confluency:
+    value: confluence
+    note: packed-in morphology, 24–48 hours from plating
+  purification: not stated
+  purity_method: flow cytometry for cardiac troponin T
+  purity:
+    value: 73±3%
+    qualifiers:
+      runs: 9 runs of differentiation
+  cm_medium: RPMI
+  supplements: B27 supplement containing insulin
+  replating_coating: not applicable
+  stromal_cell: not stated
+  endothelial_cell: not stated
+  composition: not stated
+  cm_day_at_formation: days 14 to 21
+  genotype: not stated
+  disease_model: not stated
+  culture_calcium_mM: not stated
+  transgene: not stated
+  donor_age: not stated
+units:
+  F1A:
+    where: Fig. 1A
+    title: Generation of high-purity human-induced pluripotent stem cell (hiPSC)-derived constructs
+    context:
+      platform:
+        value: monolayer
+        note: Matrigel-coated 24-well plates
+      substrate: Matrigel
+      cell_types: hiPSC-derived cardiomyocytes
+      maturation_strategy: none
+      mechanical_load: not applicable
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation:
+        value: dissociated cells
+        note: fixed for flow cytometry
+      day_of_measurement:
+        value: days 14 to 21
+        note: at construct generation
+      measurement_calcium_mM: not applicable
+    groups:
+      input:
+        label: cardiomyocytes used for construct generation
+  TXT1:
+    where: Results, Generation of Engineered hiPSC-Derived Cardiac Tissue
+    title: Cell viability after 24 hours of cell seeding
+    context:
+      platform: &id001
+        value: engineered heart tissue
+        qualifiers:
+          device: Tissue Train 6-well plates (Flexcell)
+          trough: 20 mm by 3 mm by 3 mm
+        note: construct cast between two nylon mesh tabs
+      substrate: &id002
+        value: collagen type I + Geltrex
+        qualifiers:
+          collagen type I: 1.25 mg/mL
+          Geltrex: 11% vol/vol
+      cell_types: hiPSC-derived cardiomyocytes
+      maturation_strategy: none
+      mechanical_load: not stated
+      treatment: none
+      temperature: not stated
+      pacing: not applicable
+      preparation: intact tissue
+      day_of_measurement:
+        value: 24 hours
+        note: after cell seeding
+      measurement_calcium_mM: not applicable
+    groups:
+      constructs:
+        label: cardiac tissue constructs
+  F2A:
+    where: Fig. 2A
+    title: Characterization of cell alignment and matrix remodeling
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: &id004
+        value: fixed
+        note: paraffin sections, 5 µm
+      day_of_measurement: &id003
+        value: 2 weeks
+        note: after construct generation
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+      rat_heart:
+        label: rat heart
+        kind: other study
+        citation: ref23_46_47
+        context:
+          platform: native tissue
+        note: rat
+  F2B:
+    where: Fig. 2B
+    title: Passive stiffness of constructs measured by stretching constructs incrementally to 125% of slack length
+    context:
+      platform: *id001
+      substrate: *id002
+      treatment: none
+      temperature: 37 °C
+      preparation: &id005
+        value: intact tissue
+        note: 2-mm-long sections
+      day_of_measurement: *id003
+      measurement_calcium_mM: 1.8 mM
+      pacing: &id006
+        value: none
+        note: spontaneously contracting
+    groups:
+      collagen:
+        label: Collagen
+        context:
+          cell_types: none
+          mechanical_load: not stated
+          maturation_strategy: not stated
+        note: cell-free collagen matrix constructs
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+          cell_types: hiPSC-derived cardiomyocytes
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+          cell_types: hiPSC-derived cardiomyocytes
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+          cell_types: hiPSC-derived cardiomyocytes
+      rat_neonatal:
+        label: rat neonatal myocardium
+        kind: other study
+        citation: ref45
+        context:
+          platform: native tissue
+          donor_age: neonatal
+        note: rat
+  F2C:
+    where: Fig. 2C
+    title: SE promotes extracellular matrix remodeling by increasing the cell volume fraction within the constructs
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: *id004
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  S3:
+    where: Supplement Figure 3 (Figure III)
+    title: Stress conditioning facilitates the development of collagen organization
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: *id004
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  F3:
+    where: Fig. 3A
+    title: Stress conditioning increases cardiomyocyte hypertrophy
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: *id004
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+      hesc_cm_early:
+        label: human embryonic stem cell-derived cardiomyocytes, early stages
+        kind: other study
+        citation: ref33
+        context:
+          platform: monolayer
+          day_of_measurement: 20–40 days after differentiation
+  TXT2:
+    where: Results, Structural Remodeling; Discussion
+    title: Bona fide muscle cross-sectional area (α-actinin positive area in cross-section)
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: *id004
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  F4C:
+    where: Fig. 4A–C
+    title: Isometric twitch force amplitude measured at different preparation lengths
+    context:
+      platform: *id001
+      substrate: *id002
+      treatment: none
+      temperature: 37 °C
+      preparation: *id005
+      day_of_measurement: *id003
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id006
+      cell_types: hiPSC-derived cardiomyocytes
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  F4D:
+    where: Fig. 4D
+    title: Contractility of constructs from the 3 stimulation conditions
+    context:
+      platform: *id001
+      substrate: *id002
+      treatment: none
+      temperature: 37 °C
+      preparation: *id005
+      day_of_measurement: *id003
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id006
+      cell_types: hiPSC-derived cardiomyocytes
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+      lit_nrvm:
+        label: neonatal rat ventricular myocytes (reported values)
+        kind: other study
+        citation: ref11_24_25_48
+        context:
+          cell_types: neonatal rat ventricular myocytes
+      lit_hscm:
+        label: human stem cell-derived cardiomyocytes (reported values)
+        kind: other study
+        citation: ref11_24_25_48
+        context:
+          cell_types: human stem cell-derived cardiomyocytes
+      adult_strip:
+        label: human adult ventricular strip
+        kind: other study
+        citation: ref46_47
+        context:
+          platform: native tissue
+          donor_age: adult
+  TXT3:
+    where: Discussion
+    title: Twitch forces normalized with the cell-based cross-sectional area at 125% stretch
+    context:
+      platform: *id001
+      substrate: *id002
+      treatment: none
+      temperature: 37 °C
+      preparation: *id005
+      day_of_measurement: *id003
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id006
+      cell_types: hiPSC-derived cardiomyocytes
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+      newborn:
+        label: newborn strips
+        kind: other study
+        citation: ref49
+        context:
+          platform: native tissue
+          donor_age: newborn
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2 Hz
+      infant:
+        label: infant strips
+        kind: other study
+        citation: ref49
+        context:
+          platform: native tissue
+          donor_age: infant
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2 Hz
+  F5B:
+    where: Fig. 5A–B
+    title: 'Increase in calcium-handling protein expression by static stress (SS) conditioning and electric stimulation (SE):
+      SERCA2'
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  F5C:
+    where: Fig. 5A, C
+    title: An increasing RYR2 expression trend is observed from NS to SE constructs
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  S6:
+    where: Supplement Figure 6 (Figure VI)
+    title: Processed data from Western blot of Figure 5B and 5C
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment: none
+      temperature: not applicable
+      pacing: not applicable
+      preparation: lysate
+      day_of_measurement: *id003
+      measurement_calcium_mM: not applicable
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  TXT4:
+    where: Results, Calcium Handling
+    title: Conduction velocity estimated from the calcium propagation wave
+    context:
+      platform: *id001
+      substrate: *id002
+      cell_types: hiPSC-derived cardiomyocytes
+      treatment:
+        value: BDM
+        qualifiers:
+          concentration: 20 mM
+      temperature: 30 °C
+      pacing: not stated
+      preparation: intact tissue
+      day_of_measurement: *id003
+      measurement_calcium_mM: not stated
+    groups:
+      NS:
+        label: NS
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+      SS:
+        label: SS
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+      SE:
+        label: SE
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+  F6A:
+    where: Fig. 6A
+    title: Force-frequency relationship of engineered cardiac tissues
+    context:
+      platform: *id001
+      substrate: *id002
+      treatment: none
+      temperature: 37 °C
+      preparation: *id005
+      day_of_measurement: *id003
+      measurement_calcium_mM: 1.8 mM
+      cell_types: hiPSC-derived cardiomyocytes
+    groups:
+      NS_2:
+        label: NS, 2 Hz
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      NS_25:
+        label: NS, 2.5 Hz
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2.5 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      NS_3:
+        label: NS, 3 Hz
+        context:
+          mechanical_load:
+            value: no stress
+            note: one end of the construct cut free of the nylon tab
+          maturation_strategy: none
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 3 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      SS_2:
+        label: SS, 2 Hz
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      SS_25:
+        label: SS, 2.5 Hz
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2.5 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      SS_3:
+        label: SS, 3 Hz
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy: none
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 3 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      SE_2:
+        label: SE, 2 Hz
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      SE_25:
+        label: SE, 2.5 Hz
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 2.5 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+      SE_3:
+        label: SE, 3 Hz
+        context:
+          mechanical_load:
+            value: static stress
+            note: construct maintained at a fixed static length
+          maturation_strategy:
+            value: electric stimulation
+            qualifiers:
+              frequency: 2 Hz
+              field strength: 5 Volt/cm
+              pulse duration: 5 ms
+              duration: second week of 2 weeks of static stress
+              device: C-Pace EP Culture Pacer, IonOptix
+          pacing:
+            value: electrical pacing
+            qualifiers:
+              frequency: 3 Hz
+              field strength: 5 volts/cm
+              pulse duration: 40-ms
+  S4:
+    where: Supplement Figure 4 (Figure IV)
+    title: Active force decreases with BDM and rate increases with isoproterenol in a stress conditioned construct
+    context:
+      platform: *id001
+      substrate: *id002
+      temperature: 37 °C
+      preparation: *id005
+      day_of_measurement: *id003
+      measurement_calcium_mM: 1.8 mM
+      cell_types: hiPSC-derived cardiomyocytes
+      mechanical_load: &id007
+        value: static stress
+        note: construct maintained at a fixed static length
+      maturation_strategy: none
+      pacing: *id006
+    groups:
+      baseline:
+        label: Baseline
+        context:
+          treatment: none
+      bdm:
+        label: BDM
+        context:
+          treatment:
+            value: 2,3-butanedione monoxime
+            qualifiers:
+              concentration: 30 mM
+      washout:
+        label: BDM washout
+        context:
+          treatment:
+            value: none
+            note: within 3 minutes of BDM washout
+      iso:
+        label: Isoproterenol
+        context:
+          treatment:
+            value: isoproterenol
+            qualifiers:
+              concentration: 10 µM
+  S5A:
+    where: Supplement Figure 5A (Figure VA)
+    title: Contraction of human engineered cardiac tissue is affected by extracellular calcium concentration
+    context:
+      platform: *id001
+      substrate: *id002
+      treatment: none
+      temperature: 37 °C
+      preparation: *id005
+      day_of_measurement: *id003
+      measurement_calcium_mM:
+        value: 10 to 4000 µM
+        note: varied; Tyrode solution
+      cell_types: hiPSC-derived cardiomyocytes
+      mechanical_load: *id007
+      maturation_strategy: none
+      pacing: *id006
+    groups:
+      construct:
+        label: stress-conditioned engineered cardiac tissue
+  S5BC:
+    where: Supplement Figure 5B–C
+    title: Twitch amplitude decreased after constructs were perfused with L-type calcium channel antagonist, verapamil
+    context:
+      platform:
+        value: engineered heart tissue
+        qualifiers:
+          device: Tissue Train 6-well plates (Flexcell)
+          trough: 20 mm by 3 mm by 3 mm
+        note: construct cast between two nylon mesh tabs
+      substrate:
+        value: collagen type I + Geltrex
+        qualifiers:
+          collagen type I: 1.25 mg/mL
+          Geltrex: 11% vol/vol
+      temperature: 37 °C
+      preparation:
+        value: intact tissue
+        note: 2-mm-long sections
+      day_of_measurement:
+        value: 2 weeks
+        note: after construct generation
+      measurement_calcium_mM: 1.8 mM
+      cell_types: hiPSC-derived cardiomyocytes
+      mechanical_load:
+        value: static stress
+        note: construct maintained at a fixed static length
+      maturation_strategy: none
+      pacing:
+        value: none
+        note: spontaneously contracting
+    groups:
+      baseline:
+        label: Baseline
+        context:
+          treatment: none
+      verapamil:
+        label: Verapamil
+        context:
+          treatment:
+            value: verapamil
+            qualifiers:
+              concentration: 1 µM
+  S5DE:
+    where: Supplement Figure 5D–E
+    title: L-type calcium channel agonist, Bay K8644, enhanced the contractility both inotropically and chronotropically
+    context:
+      platform:
+        value: engineered heart tissue
+        qualifiers:
+          device: Tissue Train 6-well plates (Flexcell)
+          trough: 20 mm by 3 mm by 3 mm
+        note: construct cast between two nylon mesh tabs
+      substrate:
+        value: collagen type I + Geltrex
+        qualifiers:
+          collagen type I: 1.25 mg/mL
+          Geltrex: 11% vol/vol
+      temperature: 37 °C
+      preparation:
+        value: intact tissue
+        note: 2-mm-long sections
+      day_of_measurement:
+        value: 2 weeks
+        note: after construct generation
+      measurement_calcium_mM: 1.8 mM
+      cell_types: hiPSC-derived cardiomyocytes
+      mechanical_load:
+        value: static stress
+        note: construct maintained at a fixed static length
+      maturation_strategy: none
+      pacing:
+        value: none
+        note: spontaneously contracting
+    groups:
+      baseline:
+        label: Baseline
+        context:
+          treatment: none
+      bayk:
+        label: Bay K 8644
+        context:
+          treatment:
+            value: Bay K8644
+            qualifiers:
+              concentration: 1 µM
+evidence:
+  F1A_purity:
+    unit: F1A
+    measure: cardiac troponin T positive portion
+    method: flow cytometry for cardiac troponin T, gated against a mouse IgG1 isotype control
+    software: FlowJo version 9.3.1
+    finding: 73±3% cardiac troponin T positive cells from 9 differentiation runs
+    groups:
+    - input
+    n:
+      printed: 9 runs of differentiation
+      counts: differentiation runs
+    values:
+      ctnt_input_methods:
+        printed: '73'
+        unit: '%'
+        kind: mean
+        group: input
+        spread: SEM
+        spread_source: methods
+      ctnt_input_sem_methods:
+        printed: '3'
+        unit: '%'
+        kind: sem
+        group: input
+        spread: none
+      ctnt_input_results:
+        printed: '73'
+        unit: '%'
+        kind: mean
+        group: input
+        spread: SEM
+        spread_source: methods
+      ctnt_input_sem_results:
+        printed: '3'
+        unit: '%'
+        kind: sem
+        group: input
+        spread: none
+      ctnt_input_legend:
+        printed: '>70'
+        unit: '%'
+        kind: percent
+        group: input
+    anchor:
+      quote: The average cardiac troponin T positive portion was 73±3% from 9 runs of differentiation
+      where: Methods, Generation of Cardiac Constructs
+  TXT1_viability:
+    unit: TXT1
+    measure: cell viability
+    method: LIVE/DEAD staining kit, 30-minute incubation with dyes, imaged under a fluorescent microscope
+    software: not stated
+    finding: 71.2±3.6% of cells viable 24 hours after seeding
+    groups:
+    - constructs
+    values:
+      viab_constructs_text:
+        printed: '71.2'
+        unit: '%'
+        kind: mean
+        group: constructs
+        spread: SEM
+        spread_source: methods
+      viab_constructs_sem_text:
+        printed: '3.6'
+        unit: '%'
+        kind: sem
+        group: constructs
+        spread: none
+      viab_constructs_bound_text:
+        printed: '>70'
+        unit: '%'
+        kind: percent
+        group: constructs
+    anchor:
+      quote: More than 70% of cells were still viable after 24 hours of cell seeding (71.2±3.6%)
+      where: Results
+  F2A_SS_NS:
+    unit: F2A
+    measure: cell alignment
+    method: Sirius Red/Fast Green-stained micrographs taken by light or polarized microscope; reciprocal of the cell axis
+      dispersion angles
+    software: custom fiber orientation analysis program
+    definition: the inverse of the magnitude of angle dispersion (the standard deviation of cell edge angles)
+    finding: SS showed a higher degree of alignment than NS
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=7 for NS, n=7 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        NS: '7'
+        SS: '7'
+    values:
+      align_SS_text:
+        printed: '4.39'
+        unit: 1/angle dispersion, %
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      align_SS_sem_text:
+        printed: '0.57'
+        unit: 1/angle dispersion, %
+        kind: sem
+        group: SS
+        spread: none
+      align_NS_text:
+        printed: '1.17'
+        unit: 1/angle dispersion, %
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      align_NS_sem_text:
+        printed: '0.06'
+        unit: 1/angle dispersion, %
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0006
+      p_values:
+      - p: p<0.01
+        anchor:
+          quote: p<0.01
+          where: Fig. 2A figure label
+          kind: unit
+    anchor:
+      quote: NS vs SS, P=0.0006
+      where: Results, Structural Remodeling
+  F2A_SE_NS:
+    unit: F2A
+    measure: cell alignment
+    method: Sirius Red/Fast Green-stained micrographs taken by light or polarized microscope; reciprocal of the cell axis
+      dispersion angles
+    software: custom fiber orientation analysis program
+    definition: the inverse of the magnitude of angle dispersion (the standard deviation of cell edge angles)
+    finding: SE showed a higher degree of alignment than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=7 for NS, n=7 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        NS: '7'
+        SE: '4'
+    values:
+      align_SE_text:
+        printed: '4.08'
+        unit: 1/angle dispersion, %
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      align_SE_sem_text:
+        printed: '0.37'
+        unit: 1/angle dispersion, %
+        kind: sem
+        group: SE
+        spread: none
+      align_NS_text:
+        printed: '1.17'
+        unit: 1/angle dispersion, %
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      align_NS_sem_text:
+        printed: '0.06'
+        unit: 1/angle dispersion, %
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.006
+      p_values:
+      - p: p<0.01
+        anchor:
+          quote: p<0.01
+          where: Fig. 2A figure label
+          kind: unit
+    anchor:
+      quote: NS vs SE, P=0.006). However
+      where: Results, Structural Remodeling
+  F2A_SE_SS:
+    unit: F2A
+    measure: cell alignment
+    method: Sirius Red/Fast Green-stained micrographs taken by light or polarized microscope; reciprocal of the cell axis
+      dispersion angles
+    software: custom fiber orientation analysis program
+    definition: the inverse of the magnitude of angle dispersion (the standard deviation of cell edge angles)
+    finding: pacing with stress did not further promote alignment over stress alone
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=7 for NS, n=7 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        SS: '7'
+        SE: '4'
+    values:
+      align_SE_text:
+        printed: '4.08'
+        unit: 1/angle dispersion, %
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      align_SE_sem_text:
+        printed: '0.37'
+        unit: 1/angle dispersion, %
+        kind: sem
+        group: SE
+        spread: none
+      align_SS_text:
+        printed: '4.39'
+        unit: 1/angle dispersion, %
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      align_SS_sem_text:
+        printed: '0.57'
+        unit: 1/angle dispersion, %
+        kind: sem
+        group: SS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.5
+    anchor:
+      quote: did not further promote cell alignment over stress alone (SS vs SE, P=0.5)
+      where: Results
+  F2A_rat_heart:
+    unit: F2A
+    measure: cell alignment
+    finding: cell alignment value of rat heart ≈9.08
+    groups:
+    - rat_heart
+    values:
+      align_rat_heart:
+        printed: ≈9.08
+        unit: not stated
+        kind: value
+        group: rat_heart
+    anchor:
+      quote: cell alignment value of rat heart is ≈9.08
+      where: Discussion
+  F2B_NS_collagen:
+    unit: F2B
+    measure: tensile stiffness
+    method: constructs stretched in 4% steps at 30-second intervals to 125% of slack length on a force transducer (Aurora
+      Scientific 400A) and length controller (312B); slope of the passive stress-strain relationship
+    software: custom LabView software
+    definition: the slope of passive stress-strain relationship
+    finding: NS passive stiffness not significantly different from cell-free constructs; addition of cells increased stiffness
+      ≈7-fold
+    compares:
+    - NS
+    - collagen
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE (collagen n not stated)
+      counts: not stated
+      per_group:
+        NS: '6'
+    values:
+      stiff_NS_text:
+        printed: '0.47'
+        unit: kPa
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      stiff_NS_sem_text:
+        printed: '0.22'
+        unit: kPa
+        kind: sem
+        group: NS
+        spread: none
+      stiff_NS_legend:
+        printed: '0.47'
+        unit: kPa
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      stiff_NS_sem_legend:
+        printed: '0.22'
+        unit: kPa
+        kind: sem
+        group: NS
+        spread: none
+      stiff_collagen_text:
+        printed: '0.079'
+        unit: kPa
+        kind: mean
+        group: collagen
+        spread: SEM
+        spread_source: methods
+      stiff_collagen_sem_text:
+        printed: '0.041'
+        unit: kPa
+        kind: sem
+        group: collagen
+        spread: none
+      stiff_collagen_legend:
+        printed: '0.079'
+        unit: kPa
+        kind: mean
+        group: collagen
+        spread: SEM
+        spread_source: methods
+      stiff_collagen_sem_legend:
+        printed: '0.041'
+        unit: kPa
+        kind: sem
+        group: collagen
+        spread: none
+      stiff_fold_NS_collagen_legend:
+        printed: ≈7
+        unit: fold
+        kind: ratio
+        between:
+        - NS
+        - collagen
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: not significant
+    note: 'text: ''not significantly different from the cell-free constructs''; no P printed'
+    anchor:
+      quote: which is not significantly different from the cell-free constructs
+      where: Results
+  F2B_SS_collagen:
+    unit: F2B
+    measure: tensile stiffness
+    method: constructs stretched in 4% steps at 30-second intervals to 125% of slack length on a force transducer (Aurora
+      Scientific 400A) and length controller (312B); slope of the passive stress-strain relationship
+    software: custom LabView software
+    definition: the slope of passive stress-strain relationship
+    finding: SS stiffer than cell-free collagen
+    compares:
+    - SS
+    - collagen
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE (collagen n not stated)
+      counts: not stated
+      per_group:
+        SS: '7'
+    values:
+      stiff_SS_text:
+        printed: '11.13'
+        unit: kPa
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      stiff_SS_sem_text:
+        printed: '1.17'
+        unit: kPa
+        kind: sem
+        group: SS
+        spread: none
+      stiff_SS_legend:
+        printed: '11.13'
+        unit: kPa
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      stiff_SS_sem_legend:
+        printed: '1.17'
+        unit: kPa
+        kind: sem
+        group: SS
+        spread: none
+      stiff_collagen_text:
+        printed: '0.079'
+        unit: kPa
+        kind: mean
+        group: collagen
+        spread: SEM
+        spread_source: methods
+      stiff_collagen_sem_text:
+        printed: '0.041'
+        unit: kPa
+        kind: sem
+        group: collagen
+        spread: none
+      stiff_collagen_legend:
+        printed: '0.079'
+        unit: kPa
+        kind: mean
+        group: collagen
+        spread: SEM
+        spread_source: methods
+      stiff_collagen_sem_legend:
+        printed: '0.041'
+        unit: kPa
+        kind: sem
+        group: collagen
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.006
+      p_values:
+      - p: p<0.008
+        anchor:
+          quote: p<0.008
+          where: Fig. 2B figure label
+          kind: unit
+    anchor:
+      quote: collagen vs SS, P=0.006
+      where: Results
+  F2B_SE_collagen:
+    unit: F2B
+    measure: tensile stiffness
+    method: constructs stretched in 4% steps at 30-second intervals to 125% of slack length on a force transducer (Aurora
+      Scientific 400A) and length controller (312B); slope of the passive stress-strain relationship
+    software: custom LabView software
+    definition: the slope of passive stress-strain relationship
+    finding: SE stiffer than cell-free collagen
+    compares:
+    - SE
+    - collagen
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE (collagen n not stated)
+      counts: not stated
+      per_group:
+        SE: '9'
+    values:
+      stiff_SE_text:
+        printed: '21.51'
+        unit: kPa
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      stiff_SE_sem_text:
+        printed: '4.02'
+        unit: kPa
+        kind: sem
+        group: SE
+        spread: none
+      stiff_SE_legend:
+        printed: '21.51'
+        unit: kPa
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      stiff_SE_sem_legend:
+        printed: '4.02'
+        unit: kPa
+        kind: sem
+        group: SE
+        spread: none
+      stiff_collagen_text:
+        printed: '0.079'
+        unit: kPa
+        kind: mean
+        group: collagen
+        spread: SEM
+        spread_source: methods
+      stiff_collagen_sem_text:
+        printed: '0.041'
+        unit: kPa
+        kind: sem
+        group: collagen
+        spread: none
+      stiff_collagen_legend:
+        printed: '0.079'
+        unit: kPa
+        kind: mean
+        group: collagen
+        spread: SEM
+        spread_source: methods
+      stiff_collagen_sem_legend:
+        printed: '0.041'
+        unit: kPa
+        kind: sem
+        group: collagen
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.003
+      p_values:
+      - p: p<0.008
+        anchor:
+          quote: p<0.008
+          where: Fig. 2B figure label
+          kind: unit
+    anchor:
+      quote: collagen vs SE, P=0.003
+      where: Results
+  F2B_SS_NS:
+    unit: F2B
+    measure: tensile stiffness
+    method: constructs stretched in 4% steps at 30-second intervals to 125% of slack length on a force transducer (Aurora
+      Scientific 400A) and length controller (312B); slope of the passive stress-strain relationship
+    software: custom LabView software
+    definition: the slope of passive stress-strain relationship
+    finding: SS conditioning increased stiffness ≈20-fold over NS
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE (collagen n not stated)
+      counts: not stated
+      per_group:
+        NS: '6'
+        SS: '7'
+    values:
+      stiff_SS_text:
+        printed: '11.13'
+        unit: kPa
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      stiff_SS_sem_text:
+        printed: '1.17'
+        unit: kPa
+        kind: sem
+        group: SS
+        spread: none
+      stiff_SS_legend:
+        printed: '11.13'
+        unit: kPa
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      stiff_SS_sem_legend:
+        printed: '1.17'
+        unit: kPa
+        kind: sem
+        group: SS
+        spread: none
+      stiff_NS_text:
+        printed: '0.47'
+        unit: kPa
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      stiff_NS_sem_text:
+        printed: '0.22'
+        unit: kPa
+        kind: sem
+        group: NS
+        spread: none
+      stiff_NS_legend:
+        printed: '0.47'
+        unit: kPa
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      stiff_NS_sem_legend:
+        printed: '0.22'
+        unit: kPa
+        kind: sem
+        group: NS
+        spread: none
+      stiff_fold_SS_NS_legend:
+        printed: ≈20
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.001
+      p_values:
+      - p: p<0.008
+        anchor:
+          quote: p<0.008
+          where: Fig. 2B figure label
+          kind: unit
+    anchor:
+      quote: NS vs SS, P=0.001
+      where: Results
+  F2B_SE_NS:
+    unit: F2B
+    measure: tensile stiffness
+    method: constructs stretched in 4% steps at 30-second intervals to 125% of slack length on a force transducer (Aurora
+      Scientific 400A) and length controller (312B); slope of the passive stress-strain relationship
+    software: custom LabView software
+    definition: the slope of passive stress-strain relationship
+    finding: SE stiffer than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE (collagen n not stated)
+      counts: not stated
+      per_group:
+        NS: '6'
+        SE: '9'
+    values:
+      stiff_SE_text:
+        printed: '21.51'
+        unit: kPa
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      stiff_SE_sem_text:
+        printed: '4.02'
+        unit: kPa
+        kind: sem
+        group: SE
+        spread: none
+      stiff_SE_legend:
+        printed: '21.51'
+        unit: kPa
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      stiff_SE_sem_legend:
+        printed: '4.02'
+        unit: kPa
+        kind: sem
+        group: SE
+        spread: none
+      stiff_NS_text:
+        printed: '0.47'
+        unit: kPa
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      stiff_NS_sem_text:
+        printed: '0.22'
+        unit: kPa
+        kind: sem
+        group: NS
+        spread: none
+      stiff_NS_legend:
+        printed: '0.47'
+        unit: kPa
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      stiff_NS_sem_legend:
+        printed: '0.22'
+        unit: kPa
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0004
+      p_values:
+      - p: p<0.001
+        anchor:
+          quote: p<0.001
+          where: Fig. 2B figure label
+          kind: unit
+    anchor:
+      quote: NS vs SE, P=0.0004
+      where: Results
+  F2B_SE_SS:
+    unit: F2B
+    measure: tensile stiffness
+    method: constructs stretched in 4% steps at 30-second intervals to 125% of slack length on a force transducer (Aurora
+      Scientific 400A) and length controller (312B); slope of the passive stress-strain relationship
+    software: custom LabView software
+    definition: the slope of passive stress-strain relationship
+    finding: SE raised passive stiffness about 2-fold further than SS
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE (collagen n not stated)
+      counts: not stated
+      per_group:
+        SS: '7'
+        SE: '9'
+    values:
+      stiff_SE_text:
+        printed: '21.51'
+        unit: kPa
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      stiff_SE_sem_text:
+        printed: '4.02'
+        unit: kPa
+        kind: sem
+        group: SE
+        spread: none
+      stiff_SE_legend:
+        printed: '21.51'
+        unit: kPa
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      stiff_SE_sem_legend:
+        printed: '4.02'
+        unit: kPa
+        kind: sem
+        group: SE
+        spread: none
+      stiff_SS_text:
+        printed: '11.13'
+        unit: kPa
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      stiff_SS_sem_text:
+        printed: '1.17'
+        unit: kPa
+        kind: sem
+        group: SS
+        spread: none
+      stiff_SS_legend:
+        printed: '11.13'
+        unit: kPa
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      stiff_SS_sem_legend:
+        printed: '1.17'
+        unit: kPa
+        kind: sem
+        group: SS
+        spread: none
+      stiff_fold_SE_SS_legend:
+        printed: ≈2
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+      stiff_fold_SE_SS_text:
+        printed: about 2
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+      stiff_fold_SE_SS_discussion:
+        printed: '>2'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.03
+    note: no bar for SS vs SE in Fig. 2B, whose labels use thresholds 0.008 and 0.001
+    anchor:
+      quote: SS vs SE, P=0.03). This change in stiffness
+      where: Results
+  F2B_rat_neonatal:
+    unit: F2B
+    measure: passive stiffness
+    finding: rat neonatal myocardium 38.5±9.1 kPa
+    groups:
+    - rat_neonatal
+    values:
+      stiff_rat_neonatal:
+        printed: '38.5'
+        unit: kPa
+        kind: mean
+        group: rat_neonatal
+      stiff_rat_neonatal_spread:
+        printed: '9.1'
+        unit: kPa
+        kind: value
+        group: rat_neonatal
+    anchor:
+      quote: rat neonatal myocardium (38.5±9.1 kPa)
+      where: Discussion
+  F2C_SS_NS:
+    unit: F2C
+    measure: cell volume fraction
+    method: Sirius Red/Fast Green stain; channels separated by color deconvolution and converted to grey scale
+    software: ImageJ color deconvolution plugin
+    definition: the Fast Green-positive area divided by the total construct area
+    finding: cell volume fraction 39.9% NS to 53.1% SS, P=0.07
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=7 for NS, n=7 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        NS: '7'
+        SS: '7'
+    values:
+      cvf_SS_text:
+        printed: '53.1'
+        unit: '%'
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      cvf_SS_sem_text:
+        printed: '4.3'
+        unit: '%'
+        kind: sem
+        group: SS
+        spread: none
+      cvf_NS_text:
+        printed: '39.9'
+        unit: '%'
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      cvf_NS_sem_text:
+        printed: '2.5'
+        unit: '%'
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.07
+      p_values:
+      - p: P=0.0728
+        anchor:
+          quote: NS vs SS, P=0.0728
+          where: Fig. 2 legend
+    anchor:
+      quote: NS vs SS, P=0.07). A higher collagen alignment
+      where: Results
+  F2C_SE_NS:
+    unit: F2C
+    measure: cell volume fraction
+    method: Sirius Red/Fast Green stain; channels separated by color deconvolution and converted to grey scale
+    software: ImageJ color deconvolution plugin
+    definition: the Fast Green-positive area divided by the total construct area
+    finding: cell volume fraction higher in SE than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=7 for NS, n=7 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        NS: '7'
+        SE: '4'
+    values:
+      cvf_SE_text:
+        printed: '63.2'
+        unit: '%'
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      cvf_SE_sem_text:
+        printed: '6.3'
+        unit: '%'
+        kind: sem
+        group: SE
+        spread: none
+      cvf_NS_text:
+        printed: '39.9'
+        unit: '%'
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      cvf_NS_sem_text:
+        printed: '2.5'
+        unit: '%'
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.01
+      p_values:
+      - p: P=0.0121
+        anchor:
+          quote: NS vs SE, P=0.0121
+          where: Fig. 2 legend
+      - p: p<0.0167
+        anchor:
+          quote: p<0.0167
+          where: Fig. 2C figure label
+          kind: unit
+    anchor:
+      quote: Figure 2C; NS vs SE, P=0.01
+      where: Results
+  F2C_SE_SS:
+    unit: F2C
+    measure: cell volume fraction
+    method: Sirius Red/Fast Green stain; channels separated by color deconvolution and converted to grey scale
+    software: ImageJ color deconvolution plugin
+    definition: the Fast Green-positive area divided by the total construct area
+    finding: no significant increase in cell volume fraction from SS to SE
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=7 for NS, n=7 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        SS: '7'
+        SE: '4'
+    values:
+      cvf_SE_text:
+        printed: '63.2'
+        unit: '%'
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      cvf_SE_sem_text:
+        printed: '6.3'
+        unit: '%'
+        kind: sem
+        group: SE
+        spread: none
+      cvf_SS_text:
+        printed: '53.1'
+        unit: '%'
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      cvf_SS_sem_text:
+        printed: '4.3'
+        unit: '%'
+        kind: sem
+        group: SS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.3
+    anchor:
+      quote: SS vs SE, P=0.3) (n=7 for NS
+      where: Fig. 2 legend
+  S3_SS_NS:
+    unit: S3
+    measure: collagen alignment
+    method: birefringence of collagen fibers in Sirius Red/Fast Green-stained constructs imaged with a customized Rotopol
+      polarizing microscopy system
+    software: not stated
+    finding: higher collagen alignment in SS than NS
+    compares:
+    - SS
+    - NS
+    values:
+      calign_SS_text:
+        printed: '2.18'
+        unit: not stated
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      calign_SS_sem_text:
+        printed: '0.31'
+        unit: not stated
+        kind: sem
+        group: SS
+        spread: none
+      calign_NS_text:
+        printed: '1.38'
+        unit: not stated
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      calign_NS_sem_text:
+        printed: '0.12'
+        unit: not stated
+        kind: sem
+        group: NS
+        spread: none
+      calign_SS_suppl:
+        printed: '2.18'
+        unit: not stated
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      calign_SS_sem_suppl:
+        printed: '0.31'
+        unit: not stated
+        kind: sem
+        group: SS
+        spread: none
+      calign_NS_suppl:
+        printed: '1.38'
+        unit: not stated
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      calign_NS_sem_suppl:
+        printed: '0.12'
+        unit: not stated
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.03
+      p_values:
+      - p: p=0.0289
+        anchor:
+          quote: p=0.0289
+          where: Supplement Figure 3 legend
+          file: NIHMS822611-supplement-Supplemental_Material.pdf
+    anchor:
+      quote: 'NS: 1.38±0.12; NS vs SS, P=0.03'
+      where: Results
+  S3_SE_NS:
+    unit: S3
+    measure: collagen alignment
+    method: birefringence of collagen fibers in Sirius Red/Fast Green-stained constructs imaged with a customized Rotopol
+      polarizing microscopy system
+    software: not stated
+    finding: higher collagen alignment in SE than NS
+    compares:
+    - SE
+    - NS
+    values:
+      calign_SE_text:
+        printed: '2.26'
+        unit: not stated
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      calign_SE_sem_text:
+        printed: '0.29'
+        unit: not stated
+        kind: sem
+        group: SE
+        spread: none
+      calign_NS_text:
+        printed: '1.38'
+        unit: not stated
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      calign_NS_sem_text:
+        printed: '0.12'
+        unit: not stated
+        kind: sem
+        group: NS
+        spread: none
+      calign_SE_suppl:
+        printed: '2.26'
+        unit: not stated
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      calign_SE_sem_suppl:
+        printed: '0.29'
+        unit: not stated
+        kind: sem
+        group: SE
+        spread: none
+      calign_NS_suppl:
+        printed: '1.38'
+        unit: not stated
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      calign_NS_sem_suppl:
+        printed: '0.12'
+        unit: not stated
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.03
+      p_values:
+      - p: p=0.0293
+        anchor:
+          quote: p=0.0293
+          where: Supplement Figure 3 legend
+          file: NIHMS822611-supplement-Supplemental_Material.pdf
+    anchor:
+      quote: vs SE, P=0.03). No significant increase occurred
+      where: Results
+  S3_SE_SS:
+    unit: S3
+    measure: collagen alignment
+    method: birefringence of collagen fibers in Sirius Red/Fast Green-stained constructs imaged with a customized Rotopol
+      polarizing microscopy system
+    software: not stated
+    finding: no difference in collagen alignment between SS and SE
+    compares:
+    - SE
+    - SS
+    values:
+      calign_SE_suppl:
+        printed: '2.26'
+        unit: not stated
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      calign_SE_sem_suppl:
+        printed: '0.29'
+        unit: not stated
+        kind: sem
+        group: SE
+        spread: none
+      calign_SS_suppl:
+        printed: '2.18'
+        unit: not stated
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      calign_SS_sem_suppl:
+        printed: '0.31'
+        unit: not stated
+        kind: sem
+        group: SS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: p=0.9
+    anchor:
+      quote: SS vs SE, p=0.9
+      where: Supplement Figure 3 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  F3_SS_NS:
+    unit: F3
+    measure: cardiomyocyte size
+    method: 400X MYH7-stained micrographs; DAB-positive area divided by the number of DAB-positive cells
+    software: not stated
+    definition: MYH7-positive area divided by the number of DAB-positive cells
+    finding: cardiomyocytes in SS larger than in NS (≈50%)
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=16 for NS, n=14 for SS, and n=14 for SE
+      counts: not stated
+      per_group:
+        NS: '16'
+        SS: '14'
+    values:
+      size_SS_text:
+        printed: '774'
+        unit: µm2
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      size_SS_sem_text:
+        printed: '38'
+        unit: µm2
+        kind: sem
+        group: SS
+        spread: none
+      size_NS_text:
+        printed: '503'
+        unit: µm2
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      size_NS_sem_text:
+        printed: '26'
+        unit: µm2
+        kind: sem
+        group: NS
+        spread: none
+      size_pct_SS_NS_legend:
+        printed: ≈50
+        unit: '%'
+        kind: percent
+        between:
+        - SS
+        - NS
+      size_fold_SS_NS_discussion:
+        printed: '1.5'
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P<0.0001
+      p_values:
+      - p: p<0.0001
+        anchor:
+          quote: p<0.0001
+          where: Fig. 3A figure label
+          kind: unit
+    anchor:
+      quote: NS to SS, NS to SE, P<0.0001
+      where: Fig. 3 legend
+  F3_SE_NS:
+    unit: F3
+    measure: cardiomyocyte size
+    method: 400X MYH7-stained micrographs; DAB-positive area divided by the number of DAB-positive cells
+    software: not stated
+    definition: MYH7-positive area divided by the number of DAB-positive cells
+    finding: cardiomyocytes in SE larger than in NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=16 for NS, n=14 for SS, and n=14 for SE
+      counts: not stated
+      per_group:
+        NS: '16'
+        SE: '14'
+    values:
+      size_SE_text:
+        printed: '795'
+        unit: µm2
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      size_SE_sem_text:
+        printed: '46'
+        unit: µm2
+        kind: sem
+        group: SE
+        spread: none
+      size_NS_text:
+        printed: '503'
+        unit: µm2
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      size_NS_sem_text:
+        printed: '26'
+        unit: µm2
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P<0.0001
+      p_values:
+      - p: p<0.0001
+        anchor:
+          quote: p<0.0001
+          where: Fig. 3A figure label
+          kind: unit
+    anchor:
+      quote: NS to SS, NS to SE, P<0.0001
+      where: Fig. 3 legend
+  F3_SE_SS:
+    unit: F3
+    measure: cardiomyocyte size
+    method: 400X MYH7-stained micrographs; DAB-positive area divided by the number of DAB-positive cells
+    software: not stated
+    definition: MYH7-positive area divided by the number of DAB-positive cells
+    finding: SE did not further increase cardiomyocyte size over SS
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=16 for NS, n=14 for SS, and n=14 for SE
+      counts: not stated
+      per_group:
+        SS: '14'
+        SE: '14'
+    values:
+      size_SE_text:
+        printed: '795'
+        unit: µm2
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      size_SE_sem_text:
+        printed: '46'
+        unit: µm2
+        kind: sem
+        group: SE
+        spread: none
+      size_SS_text:
+        printed: '774'
+        unit: µm2
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      size_SS_sem_text:
+        printed: '38'
+        unit: µm2
+        kind: sem
+        group: SS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: not significant
+    note: 'no P printed; discussion: ''a trend toward further cardiac hypertrophy but not to significance'''
+    anchor:
+      quote: did not result in a further increase in cardiomyocyte size compared with the SS-conditioned group alone
+      where: Results
+  F3_hesc_cm_early:
+    unit: F3
+    measure: cardiomyocyte size
+    finding: 480±32 µm2 at 20–40 days
+    groups:
+    - hesc_cm_early
+    values:
+      size_hesc:
+        printed: '480'
+        unit: µm2
+        kind: mean
+        group: hesc_cm_early
+      size_hesc_spread:
+        printed: '32'
+        unit: µm2
+        kind: value
+        group: hesc_cm_early
+    anchor:
+      quote: to be 480±32 µm2 in the early stages
+      where: Discussion
+  TXT2_omnibus:
+    unit: TXT2
+    measure: bona fide muscle cross-sectional area
+    method: 100X α-actinin-stained images; α-actinin positive area in cross-section
+    software: not stated
+    finding: no difference among conditionings
+    compares:
+    - NS
+    - SS
+    - SE
+    test_of: omnibus
+    values:
+      actn_NS_results:
+        printed: '21.0'
+        unit: '%'
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      actn_NS_sem_results:
+        printed: '4.63'
+        unit: '%'
+        kind: sem
+        group: NS
+        spread: none
+      actn_SS_results:
+        printed: '23.13'
+        unit: '%'
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      actn_SS_sem_results:
+        printed: '3.99'
+        unit: '%'
+        kind: sem
+        group: SS
+        spread: none
+      actn_SE_results:
+        printed: '28.60'
+        unit: '%'
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      actn_SE_sem_results:
+        printed: '7.01'
+        unit: '%'
+        kind: sem
+        group: SE
+        spread: none
+      actn_NS_discussion:
+        printed: '21.0'
+        unit: '%'
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      actn_NS_sem_discussion:
+        printed: '4.63'
+        unit: '%'
+        kind: sem
+        group: NS
+        spread: none
+      actn_SS_discussion:
+        printed: '23.13'
+        unit: '%'
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      actn_SS_sem_discussion:
+        printed: '3.99'
+        unit: '%'
+        kind: sem
+        group: SS
+        spread: none
+      actn_SE_discussion:
+        printed: '28.60'
+        unit: '%'
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      actn_SE_sem_discussion:
+        printed: '7.01'
+        unit: '%'
+        kind: sem
+        group: SE
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    note: 'text: ''did not find any difference''; ''no difference exists'''
+    anchor:
+      quote: did not find any difference among different stimulation conditionings
+      where: Results
+  F4C_curve:
+    unit: F4C
+    measure: isometric twitch force amplitude
+    method: spontaneous isometric twitch force on 4 consecutive transients in the plateau after each 4% length step to 125%
+      of slack length; normalized to cross-sectional area assuming circular geometry
+    software: custom LabView software
+    finding: twitch force amplitude increases with preparation length; enhanced by SS and further by SE
+    groups:
+    - NS
+    - SS
+    - SE
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE
+      counts: not stated
+      per_group:
+        NS: '6'
+        SS: '7'
+        SE: '9'
+    suspected_error:
+      what: legend symbols
+      why: legend gives triangles for both SS and NS; the plot key shows squares for Static Stress
+    anchor:
+      quote: Isometric twitch force amplitude measured at different preparation lengths is enhanced by 2 weeks
+      where: Fig. 4 legend
+  F4D_SS_NS:
+    unit: F4D
+    measure: contractility
+    method: slope of the twitch force-strain curve from spontaneous isometric twitches over 4% length steps to 125% of slack
+      length
+    software: custom LabView software
+    definition: the slope of the twitch force-strain curve, which is the active force development
+    finding: SS increased contractility >10-fold over NS
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE
+      counts: not stated
+      per_group:
+        NS: '6'
+        SS: '7'
+    values:
+      contr_SS_legend:
+        printed: '0.63'
+        unit: mN/mm2
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      contr_SS_sem_legend:
+        printed: '0.10'
+        unit: mN/mm2
+        kind: sem
+        group: SS
+        spread: none
+      contr_SS_abstract:
+        printed: '0.63'
+        unit: mN/mm2
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      contr_SS_sem_abstract:
+        printed: '0.10'
+        unit: mN/mm2
+        kind: sem
+        group: SS
+        spread: none
+      contr_NS_legend:
+        printed: '0.055'
+        unit: mN/mm2
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      contr_NS_sem_legend:
+        printed: '0.009'
+        unit: mN/mm2
+        kind: sem
+        group: NS
+        spread: none
+      contr_NS_abstract:
+        printed: '0.055'
+        unit: mN/mm2
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      contr_NS_sem_abstract:
+        printed: '0.009'
+        unit: mN/mm2
+        kind: sem
+        group: NS
+        spread: none
+      contr_fold_SS_NS_legend:
+        printed: '10'
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+      contr_fold_SS_NS_text:
+        printed: '>10'
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+      contr_fold_SS_NS_discussion:
+        printed: at least 10
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0012
+      p_values:
+      - p: P<0.01
+        anchor:
+          quote: NS vs SS, P<0.01; SS vs
+          where: Fig. 4 legend
+      - p: p<0.01
+        anchor:
+          quote: p<0.01
+          where: Fig. 4D figure label
+          kind: unit
+    anchor:
+      quote: enhancement in contractility comparing NS to SS conditioning (P=0.0012)
+      where: Results
+  F4D_SE_SS:
+    unit: F4D
+    measure: contractility
+    method: slope of the twitch force-strain curve from spontaneous isometric twitches over 4% length steps to 125% of slack
+      length
+    software: custom LabView software
+    definition: the slope of the twitch force-strain curve, which is the active force development
+    finding: SE further augmented contractility by an additional 2-fold over SS
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE
+      counts: not stated
+      per_group:
+        SS: '7'
+        SE: '9'
+    values:
+      contr_SE_legend:
+        printed: '1.34'
+        unit: mN/mm2
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      contr_SE_sem_legend:
+        printed: '0.19'
+        unit: mN/mm2
+        kind: sem
+        group: SE
+        spread: none
+      contr_SE_abstract:
+        printed: '1.34'
+        unit: mN/mm2
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      contr_SE_sem_abstract:
+        printed: '0.19'
+        unit: mN/mm2
+        kind: sem
+        group: SE
+        spread: none
+      contr_SS_legend:
+        printed: '0.63'
+        unit: mN/mm2
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      contr_SS_sem_legend:
+        printed: '0.10'
+        unit: mN/mm2
+        kind: sem
+        group: SS
+        spread: none
+      contr_SS_abstract:
+        printed: '0.63'
+        unit: mN/mm2
+        kind: mean
+        group: SS
+        spread: SEM
+        spread_source: methods
+      contr_SS_sem_abstract:
+        printed: '0.10'
+        unit: mN/mm2
+        kind: sem
+        group: SS
+        spread: none
+      contr_fold_SE_SS_legend:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+      contr_fold_SE_SS_text:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+      contr_fold_SE_SS_discussion:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+      contr_fold_SE_SS_discussion2:
+        printed: '>2'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - SS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0164
+      p_values:
+      - p: P<0.01
+        anchor:
+          quote: 'SE: P<0.01; n=6 for NS'
+          where: Fig. 4 legend
+      - p: p<0.0167
+        anchor:
+          quote: p<0.0167
+          where: Fig. 4D figure label
+          kind: unit
+    suspected_error:
+      what: SS vs SE P
+      why: text prints P=0.0164 while the legend prints P<0.01; 0.0164 is not below 0.01
+    anchor:
+      quote: Adding SE further augmented contractility by an additional 2-fold (SS vs SE, P=0.0164)
+      where: Results
+  F4D_SE_NS:
+    unit: F4D
+    measure: contractility
+    method: slope of the twitch force-strain curve from spontaneous isometric twitches over 4% length steps to 125% of slack
+      length
+    software: custom LabView software
+    definition: the slope of the twitch force-strain curve, which is the active force development
+    finding: SE contractility higher than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=6 for NS, n=7 for SS, and n=9 for SE
+      counts: not stated
+      per_group:
+        NS: '6'
+        SE: '9'
+    values:
+      contr_SE_legend:
+        printed: '1.34'
+        unit: mN/mm2
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      contr_SE_sem_legend:
+        printed: '0.19'
+        unit: mN/mm2
+        kind: sem
+        group: SE
+        spread: none
+      contr_SE_abstract:
+        printed: '1.34'
+        unit: mN/mm2
+        kind: mean
+        group: SE
+        spread: SEM
+        spread_source: methods
+      contr_SE_sem_abstract:
+        printed: '0.19'
+        unit: mN/mm2
+        kind: sem
+        group: SE
+        spread: none
+      contr_NS_legend:
+        printed: '0.055'
+        unit: mN/mm2
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      contr_NS_sem_legend:
+        printed: '0.009'
+        unit: mN/mm2
+        kind: sem
+        group: NS
+        spread: none
+      contr_NS_abstract:
+        printed: '0.055'
+        unit: mN/mm2
+        kind: mean
+        group: NS
+        spread: SEM
+        spread_source: methods
+      contr_NS_sem_abstract:
+        printed: '0.009'
+        unit: mN/mm2
+        kind: sem
+        group: NS
+        spread: none
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: p<0.001
+    anchor:
+      quote: p<0.001
+      where: Fig. 4D figure label (NS vs SE)
+      kind: unit
+  F4D_lit:
+    unit: F4D
+    measure: force production
+    finding: reported ranges 0.4–4.6 (neonatal rat) and 0.12–4.4 mN/mm2 (human stem cell-derived)
+    groups:
+    - lit_nrvm
+    - lit_hscm
+    values:
+      force_nrvm_lo:
+        printed: '0.4'
+        unit: mN/mm2
+        kind: value
+        group: lit_nrvm
+        spread: range
+      force_nrvm_hi:
+        printed: '4.6'
+        unit: mN/mm2
+        kind: value
+        group: lit_nrvm
+        spread: range
+      force_hscm_lo:
+        printed: '0.12'
+        unit: mN/mm2
+        kind: value
+        group: lit_hscm
+        spread: range
+      force_hscm_hi:
+        printed: '4.4'
+        unit: mN/mm2
+        kind: value
+        group: lit_hscm
+        spread: range
+    anchor:
+      quote: neonatal rat ventricular myocytes (0.4–4.6 mN/mm2) or human stem cell-derived cardiomyocytes
+      where: Discussion
+  F4D_adult_strip:
+    unit: F4D
+    measure: active force
+    finding: human adult ventricular strip generally >10 mN/mm2
+    groups:
+    - adult_strip
+    values:
+      force_adult:
+        printed: '>10'
+        unit: mN/mm2
+        kind: value
+        group: adult_strip
+    anchor:
+      quote: active force from human adult ventricular strip is generally >10 mN/
+      where: Discussion
+  TXT3_cellnorm:
+    unit: TXT3
+    measure: twitch force normalized with the cell-based cross-sectional area
+    method: twitch force at 125% stretch normalized with the α-actinin-based cross-sectional area
+    finding: 0.08, 0.83, 1.30 mN/mm2 for NS, SS, SE
+    groups:
+    - NS
+    - SS
+    - SE
+    values:
+      cellnorm_NS:
+        printed: '0.08'
+        unit: mN/mm2
+        kind: value
+        group: NS
+      cellnorm_SS:
+        printed: '0.83'
+        unit: mN/mm2
+        kind: value
+        group: SS
+      cellnorm_SE:
+        printed: '1.30'
+        unit: mN/mm2
+        kind: value
+        group: SE
+    note: derived by the authors from contractility and α-actinin area; no spread
+    anchor:
+      quote: cell-based cross-sectional area at 125% stretch for NS, SS, and SE are 0.08, 0.83, 1.30 mN/mm2
+      where: Discussion
+  TXT3_strips:
+    unit: TXT3
+    measure: active force production
+    finding: newborn 1.1±0.3, infant 1.7±0.9 mN/mm2 at 2 Hz pacing
+    groups:
+    - newborn
+    - infant
+    values:
+      force_newborn:
+        printed: '1.1'
+        unit: mN/mm2
+        kind: mean
+        group: newborn
+      force_newborn_spread:
+        printed: '0.3'
+        unit: mN/mm2
+        kind: value
+        group: newborn
+      force_infant:
+        printed: '1.7'
+        unit: mN/mm2
+        kind: mean
+        group: infant
+      force_infant_spread:
+        printed: '0.9'
+        unit: mN/mm2
+        kind: value
+        group: infant
+    anchor:
+      quote: newborn (1.1±0.3 mN/mm2 at 2 Hz pacing) and infant (1.7±0.9 mN/mm2 at 2 Hz pacing) strips
+      where: Discussion
+  F5B_SS_NS:
+    unit: F5B
+    measure: SERCA2 expression
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH
+    software: ImageJ
+    definition: SERCA2 band intensity normalized to GAPDH
+    finding: SERCA2 upregulated 2-fold by SS
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE in total for 3 runs of biologically independent experiments
+      counts: constructs
+      per_group:
+        NS: '8'
+        SS: '7'
+    values:
+      serca_fold_SS_NS_text:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+      serca_fold_SS_NS_legend:
+        printed: '2'
+        unit: fold
+        kind: ratio
+        between:
+        - SS
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0037
+      p_values:
+      - p: P<0.01
+        anchor:
+          quote: SERCA2 expression by 2-fold (NS vs SS, P<0.01)
+          where: Fig. 5 legend
+      - p: p<0.01
+        anchor:
+          quote: p<0.01
+          where: Fig. 5B figure label
+          kind: unit
+    anchor:
+      quote: was upregulated 2-fold by SS conditioning (NS vs SS, P=0.0037)
+      where: Results
+  F5B_SE_NS:
+    unit: F5B
+    measure: SERCA2 expression
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH
+    software: ImageJ
+    definition: SERCA2 band intensity normalized to GAPDH
+    finding: SERCA2 2.5-fold higher in SE than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE in total for 3 runs of biologically independent experiments
+      counts: constructs
+      per_group:
+        NS: '8'
+        SE: '7'
+    values:
+      serca_fold_SE_NS_text:
+        printed: '2.5'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - NS
+      serca_fold_SE_NS_legend:
+        printed: '2.5'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0006
+      p_values:
+      - p: P<0.005
+        anchor:
+          quote: by 2.5-fold (NS vs SE, P<0.005)
+          where: Fig. 5 legend
+      - p: p<0.005
+        anchor:
+          quote: p<0.005
+          where: Fig. 5B figure label
+          kind: unit
+    anchor:
+      quote: SE also exhibited a 2.5-fold increase from NS conditioning (NS vs SE, P=0.0006)
+      where: Results
+  F5B_SE_SS:
+    unit: F5B
+    measure: SERCA2 expression
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH
+    software: ImageJ
+    definition: SERCA2 band intensity normalized to GAPDH
+    finding: SE did not reach significance in SERCA2 compared with SS
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE in total for 3 runs of biologically independent experiments
+      counts: constructs
+      per_group:
+        SS: '7'
+        SE: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: not significant
+    note: 'text: ''did not reach significance'''
+    anchor:
+      quote: addition of SE did not reach significance in SERCA2 expression compared with SS conditioning
+      where: Results
+  F5C_SE_NS:
+    unit: F5C
+    measure: RYR2 expression
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH
+    software: ImageJ
+    definition: RYR2 band intensity normalized to GAPDH
+    finding: RYR2 elevated 1.5-fold in SE over NS; trend not significant
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE in total for 3 runs of biologically independent experiments
+      counts: constructs
+      per_group:
+        NS: '8'
+        SE: '7'
+    values:
+      ryr_fold_SE_NS_text:
+        printed: '1.5'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: not significant
+    note: 'legend: ''did not reach statistical significance'''
+    anchor:
+      quote: expression in the SE group was also elevated by 1.5-fold from NS conditioning
+      where: Results
+  F5C_SE_SS:
+    unit: F5C
+    measure: RYR2 expression
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH
+    software: ImageJ
+    definition: RYR2 band intensity normalized to GAPDH
+    finding: RYR2 only slightly increased from SS to SE
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE in total for 3 runs of biologically independent experiments
+      counts: constructs
+      per_group:
+        SS: '7'
+        SE: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: not stated
+    stated_direction:
+      direction: up
+      anchor:
+        quote: but only slightly increased from SS conditioning
+        where: Results
+    anchor:
+      quote: but only slightly increased from SS conditioning (Figure 5C)
+      where: Results
+  F5C_SS_NS:
+    unit: F5C
+    measure: RYR2 expression
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH
+    software: ImageJ
+    definition: RYR2 band intensity normalized to GAPDH
+    finding: increasing RYR2 trend from NS to SE without significance (no pair printed)
+    groups:
+    - NS
+    - SS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE in total for 3 runs of biologically independent experiments
+      counts: constructs
+      per_group:
+        NS: '8'
+        SS: '7'
+    note: measurement item for the plotted NS and SS points; the legend states a trend only
+    anchor:
+      quote: An increasing RYR2 expression trend is observed from NS to SE constructs
+      where: Fig. 5 legend
+  S6_serca_SS_NS:
+    unit: S6
+    measure: SERCA2 expression (standardized)
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH; log-transformed,
+      mean-centered, autoscaled
+    software: ImageJ
+    definition: &id008
+      citation: ref42
+      anchor:
+        quote: band intensities were also standardized by logtransforming, mean-centering, and autoscaling
+        where: Results
+    finding: standardized SERCA2 higher in SS than NS
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE
+      counts: constructs
+      per_group:
+        NS: '8'
+        SS: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: p< 0.005
+      p_values:
+      - p: p<0.005
+        anchor:
+          quote: p<0.005
+          where: Supplement Fig. 6A figure label
+          kind: unit
+    anchor:
+      quote: NS vs SS, p< 0.005
+      where: Supplement Figure 6 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S6_serca_SE_NS:
+    unit: S6
+    measure: SERCA2 expression (standardized)
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH; log-transformed,
+      mean-centered, autoscaled
+    software: ImageJ
+    definition: *id008
+    finding: standardized SERCA2 higher in SE than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE
+      counts: constructs
+      per_group:
+        NS: '8'
+        SE: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: p< 0.001
+      p_values:
+      - p: p<0.001
+        anchor:
+          quote: p<0.001
+          where: Supplement Fig. 6A figure label
+          kind: unit
+    anchor:
+      quote: NS vs SE, p< 0.001
+      where: Supplement Figure 6 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S6_serca_SE_SS:
+    unit: S6
+    measure: SERCA2 expression (standardized)
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH; log-transformed,
+      mean-centered, autoscaled
+    software: ImageJ
+    definition: *id008
+    finding: increase from SS to SE not significant
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE
+      counts: constructs
+      per_group:
+        SS: '7'
+        SE: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: not significant
+    anchor:
+      quote: while the increase from SS to SE constructs is not significant
+      where: Supplement Figure 6 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S6_ryr_SS_NS:
+    unit: S6
+    measure: RYR2 expression (standardized)
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH; log-transformed,
+      mean-centered, autoscaled
+    software: ImageJ
+    definition: *id008
+    finding: standardized RYR2 higher in SS than NS
+    compares:
+    - SS
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE
+      counts: constructs
+      per_group:
+        NS: '8'
+        SS: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0132
+      p_values:
+      - p: p=0.0132
+        anchor:
+          quote: (NS vs SS, p=0.0132)
+          where: Supplement Figure 6 legend
+          file: NIHMS822611-supplement-Supplemental_Material.pdf
+      - p: p<0.0167
+        anchor:
+          quote: p<0.0167
+          where: Supplement Fig. 6B figure label
+          kind: unit
+    anchor:
+      quote: NS vs SS, P=0.0132
+      where: Results
+  S6_ryr_SE_NS:
+    unit: S6
+    measure: RYR2 expression (standardized)
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH; log-transformed,
+      mean-centered, autoscaled
+    software: ImageJ
+    definition: *id008
+    finding: standardized RYR2 1.8-fold higher in SE than NS
+    compares:
+    - SE
+    - NS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE
+      counts: constructs
+      per_group:
+        NS: '8'
+        SE: '7'
+    values:
+      ryr_std_fold_SE_NS:
+        printed: '1.8'
+        unit: fold
+        kind: ratio
+        between:
+        - SE
+        - NS
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: P=0.0025
+      p_values:
+      - p: p=0.0025
+        anchor:
+          quote: (NS vs SE, p=0.0025)
+          where: Supplement Figure 6 legend
+          file: NIHMS822611-supplement-Supplemental_Material.pdf
+      - p: p<0.005
+        anchor:
+          quote: p<0.005
+          where: Supplement Fig. 6B figure label
+          kind: unit
+    anchor:
+      quote: NS vs SE, P=0.0025). Using calcium
+      where: Results
+  S6_ryr_SE_SS:
+    unit: S6
+    measure: RYR2 expression (standardized)
+    method: Western blot on 4-20% gradient SDS-PAGE, PVDF, ECL detection; band intensity normalized to GAPDH; log-transformed,
+      mean-centered, autoscaled
+    software: ImageJ
+    definition: *id008
+    finding: standardized RYR2 not different between SE and SS
+    compares:
+    - SE
+    - SS
+    n:
+      printed: n=8 for NS, n=7 for SS, and n=7 for SE
+      counts: constructs
+      per_group:
+        SS: '7'
+        SE: '7'
+    stats:
+      test: Kruskal-Wallis test, and a pairwise P-value was calculated by a Mann-Whitney test with ≥95% confidence level based
+        on Bonferroni correction for multiple comparisons
+      p: p=0.1
+    anchor:
+      quote: (SS vs SE, p=0.1)
+      where: Supplement Figure 6 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  TXT4_cv:
+    unit: TXT4
+    measure: conduction velocity
+    method: Fluo-4 AM calcium propagation wave imaged on an epifluorescence stereomicroscope with an EM-CCD camera at 197
+      frames per second
+    software: Andor Solis software
+    finding: average 2.76±0.61 cm/s at 30 °C, no significant difference between groups
+    compares:
+    - NS
+    - SS
+    - SE
+    test_of: omnibus
+    values:
+      cv_pooled:
+        printed: '2.76'
+        unit: cm/s
+        kind: mean
+        over:
+        - NS
+        - SS
+        - SE
+        spread: SEM
+        spread_source: methods
+      cv_pooled_sem:
+        printed: '0.61'
+        unit: cm/s
+        kind: sem
+        over:
+        - NS
+        - SS
+        - SE
+        spread: none
+    stats:
+      test: not stated
+      p: not significant
+    note: the average is pooled over all constructs; n not stated
+    anchor:
+      quote: demonstrated an average speed of 2.76±0.61 cm/s
+      where: Results
+  F6A_NS:
+    unit: F6A
+    measure: twitch force amplitude
+    method: twitch force amplitude on 4 transients at each pacing frequency, normalized to the amplitude at 2 Hz
+    software: custom LabView software
+    finding: NS twitch amplitude decreased 43.19% from 2 to 3 Hz
+    compares:
+    - NS_3
+    - NS_2
+    n:
+      printed: n=5 for NS, n=11 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        NS_3: '5'
+        NS_2: '5'
+    values:
+      ffr_NS_dec:
+        printed: '43.19'
+        unit: '%'
+        kind: percent
+        between:
+        - NS_3
+        - NS_2
+        spread: SEM
+        spread_source: methods
+        suspected_error: &id009
+          what: spread of the percent decrease
+          why: ±0.01% and ±0.03% are implausibly small for a 43% and 17% decrease with n=5 and n=11; perhaps a fraction printed
+            with a % sign
+      ffr_NS_dec_sem:
+        printed: '0.01'
+        unit: '%'
+        kind: sem
+        between:
+        - NS_3
+        - NS_2
+        spread: none
+    stats:
+      test: Friedman's test, and the adjusted P-value from Dunn's multiple comparisons test
+      p: P=0.0047
+      p_values:
+      - p: P=0.0047
+        anchor:
+          quote: no stress [NS] P=0.0047 for 2 Hz vs 3 Hz
+          where: Fig. 6 legend
+    anchor:
+      quote: twitch amplitude significantly decreased by 43.19±0.01% (P=0.0047)
+      where: Results
+  F6A_SS:
+    unit: F6A
+    measure: twitch force amplitude
+    method: twitch force amplitude on 4 transients at each pacing frequency, normalized to the amplitude at 2 Hz
+    software: custom LabView software
+    finding: SS nonsignificant decrease of 16.8% from 2 to 3 Hz
+    compares:
+    - SS_3
+    - SS_2
+    n:
+      printed: n=5 for NS, n=11 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        SS_3: '11'
+        SS_2: '11'
+    values:
+      ffr_SS_dec:
+        printed: '16.8'
+        unit: '%'
+        kind: percent
+        between:
+        - SS_3
+        - SS_2
+        spread: SEM
+        spread_source: methods
+        suspected_error: *id009
+      ffr_SS_dec_sem:
+        printed: '0.03'
+        unit: '%'
+        kind: sem
+        between:
+        - SS_3
+        - SS_2
+        spread: none
+    stats:
+      test: Friedman's test, and the adjusted P-value from Dunn's multiple comparisons test
+      p: P=0.1
+      p_values:
+      - p: P=0.09
+        anchor:
+          quote: SS P=0.09 for 2 Hz vs 3 Hz
+          where: Fig. 6 legend
+    anchor:
+      quote: decrease of 16.8±0.03% from 2 to 3 Hz (P=0.1)
+      where: Results
+  F6A_SE:
+    unit: F6A
+    measure: twitch force amplitude
+    method: twitch force amplitude on 4 transients at each pacing frequency, normalized to the amplitude at 2 Hz
+    software: custom LabView software
+    finding: SE 4.4% decrease from 2 to 3 Hz, barely changed
+    compares:
+    - SE_3
+    - SE_2
+    n:
+      printed: n=5 for NS, n=11 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        SE_3: '4'
+        SE_2: '4'
+    values:
+      ffr_SE_dec:
+        printed: '4.4'
+        unit: '%'
+        kind: percent
+        between:
+        - SE_3
+        - SE_2
+        spread: SEM
+        spread_source: methods
+      ffr_SE_dec_sem:
+        printed: '0.4'
+        unit: '%'
+        kind: sem
+        between:
+        - SE_3
+        - SE_2
+        spread: none
+    stats:
+      test: Friedman's test, and the adjusted P-value from Dunn's multiple comparisons test
+      p: P=0.87
+      p_values:
+      - p: P=0.8
+        anchor:
+          quote: SE P=0.8 for 2 Hz vs 3 Hz
+          where: Fig. 6 legend
+    anchor:
+      quote: showed a 4.4±0.4% decrease in force production from 2 to 3 Hz
+      where: Results
+  F6A_curve:
+    unit: F6A
+    measure: normalized twitch force amplitude
+    method: twitch amplitude at each frequency normalized to the amplitude at 2 Hz
+    software: custom LabView software
+    finding: negative force-frequency relation, mitigated by SS and SE
+    groups:
+    - NS_2
+    - NS_25
+    - NS_3
+    - SS_2
+    - SS_25
+    - SS_3
+    - SE_2
+    - SE_25
+    - SE_3
+    n:
+      printed: n=5 for NS, n=11 for SS, and n=4 for SE
+      counts: not stated
+      per_group:
+        NS_2: '5'
+        NS_25: '5'
+        NS_3: '5'
+        SS_2: '11'
+        SS_25: '11'
+        SS_3: '11'
+        SE_2: '4'
+        SE_25: '4'
+        SE_3: '4'
+    note: measurement item for the plotted points at 2, 2.5 and 3 Hz; n differs from the mechanics n in Methods (6, 7, 9)
+    anchor:
+      quote: the twitch amplitude at 2 Hz was used to normalize other pacing frequencies
+      where: Fig. 6 legend
+  S4_bdm:
+    unit: S4
+    measure: spontaneous twitch force
+    finding: spontaneous twitches disappeared with BDM
+    compares:
+    - bdm
+    - baseline
+    n: &id010
+      printed: a stress conditioned construct
+      counts: constructs
+    method: force trace at 125% slack length
+    software: custom LabView software
+    stated_direction:
+      direction: down
+      anchor:
+        quote: These spontaneous twitch force transients disappeared on incubation with 2,3-butanedione monoxime
+        where: Results
+    anchor:
+      quote: Incubation with 30mM BDM inhibits spontaneous contractions
+      where: Supplement Figure 4 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S4_washout:
+    unit: S4
+    measure: spontaneous twitch force
+    finding: contractions returned on BDM washout
+    compares:
+    - washout
+    - bdm
+    n: *id010
+    software: custom LabView software
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Within 3 minutes of BDM washout, contractions return
+        where: Supplement Figure 4 legend
+        file: NIHMS822611-supplement-Supplemental_Material.pdf
+    anchor:
+      quote: Within 3 minutes of BDM washout, contractions return
+      where: Supplement Figure 4 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S4_iso_rate:
+    unit: S4
+    measure: spontaneous contraction rate
+    finding: isoproterenol markedly increased rate
+    compares:
+    - iso
+    - baseline
+    n: *id010
+    software: custom LabView software
+    stated_direction:
+      direction: up
+      anchor:
+        quote: markedly increased the rate of spontaneous contractions
+        where: Results
+    anchor:
+      quote: isoproterenol (10 µM) increases rate markedly
+      where: Supplement Figure 4 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S4_iso_force:
+    unit: S4
+    measure: spontaneous twitch force
+    finding: isoproterenol did not significantly increase force
+    compares:
+    - iso
+    - baseline
+    n: *id010
+    software: custom LabView software
+    stats:
+      test: not stated
+      p: not significant
+    stated_direction:
+      direction: none
+      anchor:
+        quote: but did not significantly increase force
+        where: Results
+    note: 'text: ''did not significantly increase force''; a single representative construct, no test named'
+    anchor:
+      quote: but did not significantly increase force
+      where: Results
+  S5A_calcium:
+    unit: S5A
+    measure: twitch amplitude
+    finding: twitch amplitude largely affected by extracellular calcium concentration
+    groups:
+    - construct
+    n:
+      printed: A stress-conditioned engineered cardiac tissue
+      counts: constructs
+    method: perfusion with Tyrode solution with varying concentrations of calcium
+    software: custom LabView software
+    anchor:
+      quote: Twitch amplitude of engineered cardiac tissue was largely affected based on the extracellular calcium
+      where: Supplement Figure 5 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S5BC_verapamil:
+    unit: S5BC
+    measure: twitch force amplitude
+    finding: verapamil reduced twitch amplitude
+    compares:
+    - verapamil
+    - baseline
+    n: not stated
+    software: custom LabView software
+    stated_direction:
+      direction: down
+      anchor:
+        quote: calcium channel inhibitor verapamil reduced the twitch force amplitude
+        where: Results
+    anchor:
+      quote: Twitch amplitude decreased after constructs were perfused with L-type calcium channel antagonist
+      where: Supplement Figure 5 legend
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+  S5DE_bayk_rate:
+    unit: S5DE
+    measure: contraction rate
+    finding: Bay K8644 increased contraction rate
+    compares:
+    - bayk
+    - baseline
+    n: not stated
+    software: custom LabView software
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Bay K8644, increased the contraction rate
+        where: Results
+    anchor:
+      quote: Bay K8644, increased the contraction rate and slightly increased force amplitude
+      where: Results
+  S5DE_bayk_force:
+    unit: S5DE
+    measure: twitch force amplitude
+    finding: Bay K8644 slightly increased force
+    compares:
+    - bayk
+    - baseline
+    n: not stated
+    software: custom LabView software
+    stated_direction:
+      direction: up
+      anchor:
+        quote: slightly increased force amplitude
+        where: Results
+    anchor:
+      quote: Bay K8644, increased the contraction rate and slightly increased force amplitude
+      where: Results
+claims:
+  C_abs_starling:
+    kind: stated
+    quote: The engineered human myocardium exhibits Frank-Starling
+    where: Abstract
+    scope: engineered human myocardium
+    strength: not stated
+    rests_on:
+    - F4C_curve
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_abs_ss_contr:
+    kind: stated
+    quote: After 2 weeks of static stress conditioning, the engineered myocardium demonstrated increases in contractility
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_abs_ss_stiff:
+    kind: stated
+    quote: tensile stiffness, construct alignment, and cell size
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_SS_NS
+    - F2A_SS_NS
+    - F3_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: SS increases tensile stiffness, construct alignment, cell size
+  C_abs_serca:
+    kind: stated
+    quote: Stress conditioning also increased SERCA2
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_abs_ffr:
+    kind: stated
+    quote: which correlated with a less negative force-frequency relationship
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F6A_NS
+    - F6A_SS
+    - F5B_SS_NS
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: no correlation is computed and the force-frequency relation is not compared between groups by a test
+  C_abs_se_force:
+    kind: stated
+    quote: the tissues showed an additional increase in force production
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_abs_se_nochange:
+    kind: stated
+    quote: with no change in construct alignment or cell size
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SE_SS
+    - F3_SE_SS
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  C_abs_ecc:
+    kind: stated
+    quote: suggesting maturation of excitation-contraction coupling
+    where: Abstract
+    scope: not stated
+    strength: suggesting
+    rests_on:
+    - F4D_SE_SS
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: cannot judge
+  C_abs_ryr_serca:
+    kind: stated
+    quote: we found expression of RYR2 (Ryanodine Receptor 2) and SERCA2 further increased by combined static stress and electric
+      stimulation
+    where: Abstract
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SE_SS
+    - F5C_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_abs_concl:
+    kind: stated
+    quote: electric pacing and mechanical stimulation promote maturation of the structural, mechanical, and force generation
+      properties
+    where: Abstract, Conclusions
+    scope: not stated
+    strength: promote maturation
+    rests_on:
+    - F2A_SS_NS
+    - F2B_SS_NS
+    - F2B_SE_SS
+    - F3_SS_NS
+    - F4D_SS_NS
+    - F4D_SE_SS
+    asserts_direction: up
+    opposes:
+    - F2A_SE_SS
+    - F3_SE_SS
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_clin:
+    kind: stated
+    quote: mechanical and electric stimulation promotes maturation of the molecular, structural, force-generation properties
+    where: Clinical Perspective
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SS_NS
+    - F4D_SS_NS
+    - F4D_SE_SS
+    - F5B_SS_NS
+    asserts_direction: up
+    opposes:
+    - F2A_SE_SS
+    - F3_SE_SS
+    restates: C_abs_concl
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_purity:
+    kind: stated
+    quote: we are able to generate high-purity cardiomyocytes from hiPSCs
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F1A_purity
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: cannot judge
+      presence: follows
+  C_density_align:
+    kind: stated
+    quote: exhibited improved cardiomyocyte density and myofibrillar alignment
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SS_NS
+    - F2A_SE_NS
+    - F2C_SS_NS
+    - F2C_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: density is not measured as such; cell volume fraction SS vs NS P=0.07
+  C_align:
+    kind: stated
+    quote: Both the SS and SE groups showed a higher degree of alignment compared with the NS group
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SS_NS
+    - F2A_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_align_se:
+    kind: stated
+    quote: pacing along with stress conditioning did not further promote cell alignment over stress alone
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SE_SS
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_stiff_ns:
+    kind: stated
+    quote: which is not significantly different from the cell-free constructs
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_NS_collagen
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_stiff_ss:
+    kind: stated
+    quote: SS conditioning significantly promotes the passive stiffness markedly
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_stiff_se:
+    kind: stated
+    quote: raised passive stiffness about 2-fold further
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: P=0.03 is above the Bonferroni threshold 0.0167 used in the figure labels
+  C_stiff_cvf:
+    kind: stated
+    quote: This change in stiffness is correlated with an increase in cell volume fraction
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2C_SS_NS
+    - F2C_SE_NS
+    - F2B_SS_NS
+    - F2B_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: no correlation computed; NS vs SS cell volume fraction P=0.07
+  C_collagen:
+    kind: stated
+    quote: A higher collagen alignment was also observed from NS to the SS and SE groups
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S3_SS_NS
+    - S3_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: P=0.03 (0.0289, 0.0293) is above the Bonferroni threshold 0.0167
+  C_collagen_title:
+    kind: stated
+    quote: Stress conditioning facilitates the development of collagen organization
+    where: Supplement Figure 3 title
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S3_SS_NS
+    - S3_SE_NS
+    asserts_direction: up
+    restates: C_collagen
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_no_ss_se:
+    kind: stated
+    quote: No significant increase occurred from the SS to SE groups in terms of cell volume fraction and construct alignment
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2C_SE_SS
+    - S3_SE_SS
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_size_ss:
+    kind: stated
+    quote: are significantly larger than those in the NS condition
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F3_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_size_title:
+    kind: stated
+    quote: Stress conditioning increases cardiomyocyte hypertrophy
+    where: Fig. 3 title
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F3_SS_NS
+    asserts_direction: up
+    restates: C_size_ss
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_size_se:
+    kind: stated
+    quote: did not result in a further increase in cardiomyocyte size
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F3_SE_SS
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_actn:
+    kind: stated
+    quote: did not find any difference among different stimulation conditionings
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - TXT2_omnibus
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_starling_res:
+    kind: stated
+    quote: appeared and increased in amplitude over a series of 4% lengthening stretches
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4C_curve
+    restates: C_abs_starling
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_bdm:
+    kind: stated
+    quote: These spontaneous twitch force transients disappeared on incubation with 2,3-butanedione monoxime
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S4_bdm
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_iso_rate:
+    kind: stated
+    quote: markedly increased the rate of spontaneous contractions
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S4_iso_rate
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_iso_force:
+    kind: stated
+    quote: but did not significantly increase force
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S4_iso_force
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: a single representative construct; no test is possible
+  C_verapamil:
+    kind: stated
+    quote: verapamil reduced the twitch force amplitude
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S5BC_verapamil
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_bayk:
+    kind: stated
+    quote: Bay K8644, increased the contraction rate and slightly increased force amplitude
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S5DE_bayk_rate
+    - S5DE_bayk_force
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_calcium_role:
+    kind: stated
+    quote: These experiments demonstrate a key role for extracellular calcium in driving the contractile function
+    where: Results
+    scope: not stated
+    strength: demonstrate a key role
+    rests_on:
+    - S5A_calcium
+    - S5BC_verapamil
+    - S5DE_bayk_force
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  C_contr_ss:
+    kind: stated
+    quote: fold enhancement in contractility comparing NS to SS conditioning
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_contr_se:
+    kind: stated
+    quote: Adding SE further augmented contractility by an additional 2-fold
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_contr_title:
+    kind: stated
+    quote: Stress conditioning and electric stimulation increase contractility
+    where: Fig. 4 title
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    - F4D_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_serca_ss:
+    kind: stated
+    quote: was upregulated 2-fold by SS conditioning
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_serca_se:
+    kind: stated
+    quote: SE also exhibited a 2.5-fold increase from NS conditioning
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_serca_se_ss:
+    kind: stated
+    quote: addition of SE did not reach significance in SERCA2 expression compared with SS conditioning
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SE_SS
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_ryr_se:
+    kind: stated
+    quote: expression in the SE group was also elevated by 1.5-fold from NS conditioning
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5C_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: 'legend: did not reach statistical significance'
+  C_f5_title:
+    kind: stated
+    quote: Increase in calcium-handling protein expression by static stress (SS) conditioning and electric stimulation (SE)
+    where: Fig. 5 title
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SS_NS
+    - F5B_SE_NS
+    asserts_direction: up
+    opposes:
+    - F5C_SE_NS
+    - F5B_SE_SS
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+  C_ryr_std:
+    kind: stated
+    quote: a significant increase of RYR2 expression from NS to SS or SE was revealed in the standardized dataset
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - S6_ryr_SS_NS
+    - S6_ryr_SE_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_cv:
+    kind: stated
+    quote: with no significant difference between groups
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - TXT4_cv
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_ffr_ns:
+    kind: stated
+    quote: we found a prominently negative force-frequency relationship
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F6A_NS
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_ffr_ss:
+    kind: stated
+    quote: twitch amplitude showed a nonsignificant decrease
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F6A_SS
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_ffr_se:
+    kind: stated
+    quote: barely changed from baseline
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F6A_SE
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_ffr_mature:
+    kind: stated
+    quote: These data demonstrate a more mature dynamic balance of calcium handling in the SS- and, especially, SE-conditioned
+      constructs
+    where: Results
+    scope: not stated
+    strength: demonstrate
+    rests_on:
+    - F6A_NS
+    - F6A_SS
+    - F6A_SE
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: cannot judge
+    note: force-frequency slopes are not compared between groups by a test; calcium handling is not measured here
+  C_f6_mitigate:
+    kind: stated
+    quote: static stress (SS) and electric pacing (SE) preconditioning were able to mitigate the effect
+    where: Fig. 6 legend
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F6A_NS
+    - F6A_SS
+    - F6A_SE
+    restates: C_ffr_mature
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_f2c_legend:
+    kind: stated
+    quote: SE promotes extracellular matrix remodeling by increasing the cell volume fraction
+    where: Fig. 2 legend
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2C_SE_NS
+    asserts_direction: up
+    opposes:
+    - F2C_SE_SS
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: the significant pair is SE vs NS, which also differs in static stress; SE vs SS P=0.3
+  C_disc_responsive:
+    kind: stated
+    quote: this engineered heart tissue is highly responsive to both mechanical and electric cues
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    - F4D_SE_SS
+    - F2B_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_se_stiff_cvf:
+    kind: stated
+    quote: we observed a further increase in passive stiffness and cell volume fraction
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_SE_SS
+    - F2C_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: SE vs SS cell volume fraction P=0.3
+  C_disc_se_proteins:
+    kind: stated
+    quote: further increased expression of calcium-handling proteins
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SE_SS
+    - F5C_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_lit_first:
+    kind: literature
+    quote: which has not been demonstrated in previous studies
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref10
+    - ref23
+    judgement: null
+  C_disc_se_struct:
+    kind: stated
+    quote: SE does not promote obvious structural maturation compared with the SS-treated group, but SE does enhance the contractility
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SE_SS
+    - F3_SE_SS
+    - F4D_SE_SS
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_ratneo:
+    kind: stated
+    quote: the passive stiffness of these constructs is still less than that of rat neonatal myocardium
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_SE_SS
+    - F2B_rat_neonatal
+    cites:
+    - ref45
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_range:
+    kind: stated
+    quote: force production within the range of most reported values
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    - F4D_SE_SS
+    - F4D_lit
+    cites:
+    - ref11_24_25_48
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_close:
+    kind: stated
+    quote: which are close to the active force production from newborn
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - TXT3_cellnorm
+    - TXT3_strips
+    cites:
+    - ref49
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_starling:
+    kind: stated
+    quote: our engineered heart tissue constructs demonstrated increasing twitch force as length increased
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4C_curve
+    restates: C_abs_starling
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_contr_se:
+    kind: stated
+    quote: length-dependent contractility was increased 2-fold in the SE group compared with the SS-conditioned tissues
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SE_SS
+    asserts_direction: up
+    restates: C_contr_se
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_contr_ss:
+    kind: stated
+    quote: the SS group demonstrated at least 10-fold enhancement over the NS group
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    asserts_direction: up
+    restates: C_contr_ss
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_sr_ffr:
+    kind: stated
+    quote: This maturation of the sarcoplasmic reticulum was associated with improvements in the negative
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SS_NS
+    - F6A_NS
+    - F6A_SS
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: cannot judge
+  C_disc_additive_stiff:
+    kind: stated
+    quote: It was interesting that SE had an additive effect on passive stiffness
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2B_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_additive_contr:
+    kind: stated
+    quote: contractility (>2-fold
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_additive_prot:
+    kind: stated
+    quote: expression of calcium-handling proteins (1.5- to 2.5-fold increase)
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F5B_SE_SS
+    - F5C_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_disc_no_align_size:
+    kind: stated
+    quote: without having detectable effects on cell alignment or size
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SE_SS
+    - F3_SE_SS
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_disc_stimuli:
+    kind: stated
+    quote: different features of maturation are controlled by different stimuli
+    where: Discussion
+    scope: not stated
+    strength: are controlled by
+    rests_on:
+    - F2A_SE_SS
+    - F4D_SE_SS
+    - F2A_SS_NS
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+  C_sum_ss:
+    kind: stated
+    quote: 2-week SS conditioning promotes alignment, passive stiffness, cardiac hypertrophy, and contractility
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F2A_SS_NS
+    - F2B_SS_NS
+    - F3_SS_NS
+    - F4D_SS_NS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_sum_se:
+    kind: stated
+    quote: the contractility of engineered cardiac tissues can be further promoted by 1-week electric stimulation
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SE_SS
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_sum_corr:
+    kind: stated
+    quote: the enhancement in functional maturation from these cues is correlated to the enhanced expression
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on:
+    - F4D_SS_NS
+    - F5B_SS_NS
+    - F5B_SE_NS
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: no correlation computed
+  A_primate:
+    kind: attributed
+    quote: Our group recently showed that human embryonic stem cell-derived cardiomyocytes mature to adult size
+    where: Introduction
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref31
+    judgement: null
+  A_shinozawa:
+    kind: attributed
+    quote: Shinozawa et al36 used in vitro aging to show
+    where: Introduction
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref36
+    judgement: null
+  A_negffr:
+    kind: attributed
+    quote: human stem cell-derived cardiomyocytes have a negative force
+    where: Results
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref43
+    judgement: null
+  A_t3:
+    kind: attributed
+    quote: Similar cell size increases have been observed with tri-iodo-thyronine
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref34
+    judgement: null
+  A_cyclic:
+    kind: attributed
+    quote: Our previous study showed that cyclic stress and SS demonstrate comparable effects
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref23
+    judgement: null
+  A_hirt:
+    kind: attributed
+    quote: studies by Hirt et al10 indicated that chronic SE for 16 to 18 days promoted
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref10
+    judgement: null
+  A_nunes:
+    kind: attributed
+    quote: Nunes et al18 showed that a gradually increasing pacing frequency from 1 to 6 Hz
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref18
+    judgement: null
+  A_lundy:
+    kind: attributed
+    quote: longer term culture (80–120 days after differentiation) is needed to increase the size 3-fold
+    where: Discussion
+    scope: not stated
+    strength: not stated
+    rests_on: []
+    cites:
+    - ref33
+    judgement: null
+citations:
+  ref23:
+    label: '23'
+    text: Tulloch NL et al. Growth of engineered human myocardium with mechanical loading and vascular coculture. Circ Res.
+      2011;109:47–59.
+    year: '2011'
+    purpose:
+    - borrows_method
+    - attributes_finding
+    anchor:
+      quote: analyzed with a custom fiber orientation analysis program as previous described
+      where: Methods, Immunostaining
+    doi: 10.1161/CIRCRESAHA.110.237206
+  ref40:
+    label: '40'
+    text: Laflamme MA et al. Cardiomyocytes derived from human embryonic stem cells in pro-survival factors enhance function
+      of infarcted rat hearts. Nat Biotechnol. 2007;25:1015–1024.
+    year: '2007'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: a modified version of the monolayer-based differentiation protocol described by Laflamme
+      where: Methods, Pluripotent Cell Culture
+    doi: 10.1038/nbt1327
+  ref41:
+    label: '41'
+    text: Ruifrok AC et al. Comparison of quantification of histochemical staining by HSI transformation and color-deconvolution.
+      Appl Immunohistochem Mol Morphol. 2003;11:85–91.
+    year: '2003'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Green channels were separated by color deconvolution plugin in ImageJ
+      where: Methods, Immunostaining
+  ref42:
+    label: '42'
+    text: Willems E et al. Standardization of real-time PCR gene expression data from independent biological replicates. Anal
+      Biochem. 2008;379:127–129.
+    year: '2008'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Western blot data were log-transformed, mean-centered, and then autoscaled as described previously
+      where: Methods, Statistical Analysis
+    doi: 10.1016/j.ab.2008.04.036
+  ref45:
+    label: '45'
+    text: Moreno-Gonzalez A et al. Cell therapy enhances function of remote non-infarcted myocardium. J Mol Cell Cardiol.
+      2009;47:603–613.
+    year: '2009'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: the passive stiffness of these constructs is still less than that of rat neonatal myocardium
+      where: Discussion
+    doi: 10.1016/j.yjmcc.2009.07.030
+  ref46_47:
+    label: 46,47
+    text: Holubarsch C et al. Cardiovasc Res. 1998;37:46–57; Mulieri LA et al. Circulation. 1992;85:1743–1750.
+    year: '1998'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: active force from human adult ventricular strip is generally >10 mN/
+      where: Discussion
+  ref23_46_47:
+    label: 23,46,47
+    text: Tulloch 2011; Holubarsch 1998; Mulieri 1992 (cell alignment value of rat heart)
+    year: '2011'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: cell alignment value of rat heart is
+      where: Discussion
+  ref11_24_25_48:
+    label: 11,24,25,48
+    text: Schaaf S et al. PLoS One 2011; Kensah G et al. Eur Heart J 2013; Kensah G et al. Tissue Eng Part C 2011; Leontyev
+      S et al. Eur J Heart Fail 2013
+    year: '2011'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: force production within the range of most reported values with neonatal rat ventricular myocytes
+      where: Discussion
+  ref49:
+    label: '49'
+    text: Wiegerinck RF et al. Force frequency relationship of the human ventricle increases during early postnatal development.
+      Pediatr Res. 2009;65:414–419.
+    year: '2009'
+    purpose:
+    - borrows_value
+    anchor:
+      quote: which are close to the active force production from newborn
+      where: Discussion
+    doi: 10.1203/PDR.0b013e318199093c
+  ref33:
+    label: '33'
+    text: Lundy SD et al. Structural and functional maturation of cardiomyocytes derived from human pluripotent stem cells.
+      Stem Cells Dev. 2013;22:1991–2002.
+    year: '2013'
+    purpose:
+    - borrows_value
+    - attributes_finding
+    anchor:
+      quote: Previous observations have estimated the size of human embryonic stem cell -derived cardiomyocytes
+      where: Discussion
+    doi: 10.1089/scd.2012.0490
+  ref10:
+    label: '10'
+    text: Hirt MN et al. Functional improvement and maturation of rat and human engineered heart tissue by chronic electrical
+      stimulation. J Mol Cell Cardiol. 2014;74:151–161.
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: studies by Hirt et al10 indicated that chronic SE for 16 to 18 days promoted
+      where: Discussion
+    doi: 10.1016/j.yjmcc.2014.05.009
+  ref18:
+    label: '18'
+    text: Nunes SS et al. Biowire. Nat Methods. 2013;10:781–787.
+    year: '2013'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Nunes et al18 showed that a gradually increasing pacing frequency from 1 to 6 Hz
+      where: Discussion
+    doi: 10.1038/nmeth.2524
+  ref31:
+    label: '31'
+    text: Chong JJ et al. Human embryonic-stem-cell-derived cardiomyocytes regenerate non-human primate hearts. Nature.
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Our group recently showed that human embryonic stem cell-derived cardiomyocytes mature to adult size
+      where: Introduction
+  ref36:
+    label: '36'
+    text: Shinozawa T et al. J Biomol Screen. 2012;17:1192–1203.
+    year: '2012'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Shinozawa et al36 used in vitro aging to show
+      where: Introduction
+    doi: 10.1177/1087057112449864
+  ref43:
+    label: '43'
+    text: Germanguz I et al. J Cell Mol Med. 2011;15:38–51.
+    year: '2011'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: human stem cell-derived cardiomyocytes have a negative force
+      where: Results
+  ref34:
+    label: '34'
+    text: Yang X et al. Tri-iodo-l-thyronine promotes the maturation of human cardiomyocytes-derived from induced pluripotent
+      stem cells. J Mol Cell Cardiol. 2014;72:296–304.
+    year: '2014'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Similar cell size increases have been observed with tri-iodo-thyronine
+      where: Discussion
+    doi: 10.1016/j.yjmcc.2014.04.005
+  sref1:
+    label: Supplement ref 1
+    text: Glazer AM, Lewis JG, Kaminsky W. An Automatic Optical Imaging System for Birefringent Media. Proc R Soc A. 1996;452:2751-2765.
+    year: '1996'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: A customized Rotopol polarizing microscopy system was used to image
+      where: Supplement, Histo- and Immunostaining
+      file: NIHMS822611-supplement-Supplemental_Material.pdf
+    doi: 10.1098/rspa.1996.0145
+cross_references: []

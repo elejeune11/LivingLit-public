@@ -1,0 +1,1455 @@
+record: 2021_Tsan
+vocabulary_version: 68
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+- add_term:
+    field: hipsc_medium
+    id: hipsc_medium:stemflex
+    label: StemFlex
+    parent: null
+    definition: StemFlex (Gibco) feeder-free medium for pluripotent stem cells.
+    scope: StemFlex medium; not Essential 8, mTeSR1, FTDA or MEF-conditioned medium.
+- adopt:
+    field: differentiation_factors
+    id: CHEBI:90739
+    label: BMS-453
+    lookup: 'lookup chebi ''BMS 453'': exact CHEBI:90739 BMS-453 (retinoic acid receptor ligand used as a retinoid signalling
+      inhibitor)'
+- add_qualifier:
+    id: platform:culture_2d
+    name: cell_contact
+    dimension: text
+- add_term:
+    field: platform
+    id: platform:muscle_bundle_2d
+    label: two-dimensional cardiac muscle bundle
+    parent: platform:micropatterned_cell_patch
+    definition: A small group of cardiomyocytes (about 6 to 12) on one narrow rectangular matrix island on a soft substrate,
+      forming an aligned bundle that contracts uniaxially against the substrate.
+    scope: A rectangular multicellular island shaped to contract uniaxially; other multicellular islands stay on the parent.
+    synonyms:
+    - text: 2DMB
+      anchor: micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+- adopt:
+    field: stromal_cell
+    id: CL:0000057
+    label: fibroblast
+    lookup: 'lookup cl fibroblast: exact CL:0000057; the source does not say which fibroblast'
+    synonyms:
+    - text: fibroblasts
+      anchor: are comprised of ~25% fibroblasts
+- adopt:
+    field: cell_line
+    id: CVCL_K054
+    label: iPS-DF19-9-11T.H
+    lookup: 'lookup cellosaurus DF19-9-11: CVCL_K054 iPS-DF19-9-11T.H (synonyms DF19-9-11T, iPS DF19-9-11T); the source names
+      WiCell iPS-DF19-911T'
+    synonyms:
+    - text: DF19-9-11
+      anchor: seven differentiation batches in the DF19-9-11 line
+- adopt:
+    field: cell_line
+    id: CVCL_VK83
+    label: WTC-mEGFP-GJA1-cl16
+    lookup: 'lookup cellosaurus AICS-0053: CVCL_VK83 WTC-mEGFP-GJA1-cl16 (synonym AICS-0053-016)'
+    synonyms:
+    - text: AICS-0053 cl.16
+      anchor: connexin-43-GFP, AICS-0053 cl.16
+- adopt:
+    field: cell_line
+    id: CVCL_UD14
+    label: WTC-mEGFP-ATP2A2-cl51
+    lookup: 'lookup cellosaurus AICS-0046: CVCL_UD14 WTC-mEGFP-ATP2A2-cl51 (synonym AICS-0046-051)'
+    synonyms:
+    - text: AICS-0046 cl.51
+      anchor: SERCA2-GFP, AICS-0046 cl.51
+- adopt_own:
+    field: cell_line
+    id: cell_line:mr18
+    label: MR18
+    definition: Control hiPSC line MR18 from a healthy individual, from the NYSCF Research Institute Stem Cell Repository.
+    scope: The NYSCF control line MR18 only; not the other NYSCF lines of this source or other unnamed lines.
+    lookup: 'lookup cellosaurus MR18: no NYSCF line of that name (only unrelated near matches); the source gives no accession'
+- adopt_own:
+    field: cell_line
+    id: cell_line:mr30
+    label: MR30
+    definition: Control hiPSC line MR30 from a healthy individual, from the NYSCF Research Institute Stem Cell Repository.
+    scope: The NYSCF control line MR30 only; not the other NYSCF lines of this source or other unnamed lines.
+    lookup: 'lookup cellosaurus MR30: no NYSCF line of that name (only unrelated near matches); the source gives no accession'
+- adopt_own:
+    field: cell_line
+    id: cell_line:mr48
+    label: MR48
+    definition: Control hiPSC line MR48 from a healthy individual, from the NYSCF Research Institute Stem Cell Repository.
+    scope: The NYSCF control line MR48 only; not the other NYSCF lines of this source or other unnamed lines.
+    lookup: 'lookup cellosaurus MR48: no NYSCF line of that name (only unrelated near matches); the source gives no accession'
+- adopt_own:
+    field: cell_line
+    id: cell_line:tsan_mybpc3_patient_ipsc
+    label: MYBPC3 patient hiPSC lines of the Tsan study (two, unnamed)
+    definition: Two unnamed hiPSC lines from patients with MYBPC3 mutations, a gift from the Mummery lab, pooled with DF19-9-11
+      in the source's mass spectrometry experiment.
+    scope: The two pooled MYBPC3 patient lines of this source only; not DF19-9-11, its MYBPC3 promoter deletion line or other
+      unnamed patient lines.
+    lookup: 'lookup cellosaurus MYBPC3: the source gives no line names or accessions, so no Cellosaurus entry can be chosen'
+- add_term:
+    field: transgene
+    id: transgene:connexin43_fusion
+    label: connexin-43 fluorescent fusion
+    parent: transgene:fluorescent_fusion_protein
+    definition: Connexin-43 (GJA1) fused to a fluorescent protein, marking gap junctions.
+    scope: Tagged connexin-43; not tagged α-actinin-2, N-cadherin or SERCA2.
+- add_term:
+    field: transgene
+    id: transgene:serca2_fusion
+    label: SERCA2 fluorescent fusion
+    parent: transgene:fluorescent_fusion_protein
+    definition: SERCA2 (ATP2A2) fused to a fluorescent protein, marking the sarcoplasmic reticulum calcium pump.
+    scope: Tagged SERCA2; not tagged α-actinin-2, N-cadherin or connexin-43.
+- set_scope:
+    id: transgene:actinin2_fusion
+    scope: Tagged α-actinin-2, marking Z-discs; not tagged N-cadherin, connexin-43 or SERCA2.
+- set_scope:
+    id: transgene:n_cadherin_fusion
+    scope: Tagged N-cadherin, marking adherens junctions; not tagged α-actinin-2, connexin-43 or SERCA2.
+- adopt:
+    field: treatment
+    id: CHEBI:756998
+    label: mavacamten
+    lookup: 'lookup chebi mavacamten: exact CHEBI:756998'
+- adopt:
+    field: treatment
+    id: CHEBI:18258
+    label: 3,3',5-triiodo-L-thyronine
+    lookup: 'lookup chebi 3,3'',5-triiodo-L-thyronine: CHEBI:18258 (T3; not the reverse T3 CHEBI:11684); the source prints
+      triiodothyronine (T3)'
+    synonyms:
+    - text: T3
+      anchor: triiodothyronine thyroid hormone (T3)
+- adopt:
+    field: treatment
+    id: CHEBI:41879
+    label: dexamethasone
+    lookup: 'lookup chebi dexamethasone: exact CHEBI:41879'
+- adopt:
+    field: treatment
+    id: CHEBI:84327
+    label: torin 1
+    lookup: 'lookup chebi torin 1: exact CHEBI:84327; the source prints torin1'
+- adopt:
+    field: supplements
+    id: CHEBI:28260
+    label: galactose
+    lookup: 'lookup chebi galactose: exact CHEBI:28260 (isomer not stated)'
+- adopt:
+    field: supplements
+    id: CHEBI:24996
+    label: lactate
+    lookup: 'lookup chebi lactate: exact CHEBI:24996, already adopted for treatment; added for supplements'
+- adopt:
+    field: supplements
+    id: CHEBI:15361
+    label: pyruvate
+    lookup: 'lookup chebi pyruvate: exact CHEBI:15361'
+- add_term:
+    field: genotype
+    id: genotype:mybpc3_variant
+    label: MYBPC3 variant
+    parent: genotype:gene_variant
+    definition: Cells carrying a variant in MYBPC3, the gene encoding cardiac myosin-binding protein C.
+    scope: A variant in MYBPC3; the variant itself and its zygosity are qualifiers; not a DSP or PKP2 variant.
+- set_scope:
+    id: genotype:dsp_variant
+    scope: A variant in DSP; the variant itself and its zygosity are qualifiers; not a PKP2 or MYBPC3 variant.
+- set_scope:
+    id: genotype:pkp2_variant
+    scope: A variant in PKP2; the variant itself and its zygosity are qualifiers; not a DSP or MYBPC3 variant.
+- add_synonym:
+    id: measure:action_potential_amplitude
+    text: action potential amplitude
+    anchor: evidence.F3d_apa.anchor
+- add_synonym:
+    id: measure:contractile_shortening
+    text: maximal fractional shortening
+    anchor: evidence.F2e_fs.anchor
+- add_synonym:
+    id: measure:contractile_shortening
+    text: fractional shortening
+    anchor: evidence.F2e_fs.anchor
+- add_synonym:
+    id: measure:sarcomere_length
+    text: resting sarcomere length
+    anchor: evidence.F1f_mono_single.anchor
+- add_term:
+    field: measure
+    id: measure:angle_dispersion
+    label: angle dispersion
+    parent: null
+    definition: Spread (standard deviation) of the angles of a stated structure (qualifier structure) within one sample or
+      image.
+    scope: The standard deviation of angles itself; not its reciprocal (inverse angle dispersion), not an order parameter
+      and not the angle histogram (orientation distribution).
+    dimension: angle
+    qualifiers:
+      structure:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:between_sample_variability
+    label: variability across samples
+    parent: null
+    definition: 'Spread of a stated measure (qualifier of_measure) across replicate samples, as a stated statistic (qualifier
+      statistic: coefficient of variation or standard deviation).'
+    scope: How much replicates of one measure differ from each other; not the measure itself and not the spread of angles
+      within one sample (angle dispersion).
+    dimension: dimensionless
+    qualifiers:
+      of_measure:
+        dimension: text
+      statistic:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:micropattern_yield
+    label: micropattern yield
+    parent: null
+    definition: Share of micropatterned islands on a substrate that hold a construct meeting a stated criterion (qualifier
+      criterion).
+    scope: A share of islands that succeed; not a count of usable cells or constructs per substrate.
+    dimension: dimensionless
+    qualifiers:
+      criterion:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:usable_construct_count
+    label: usable constructs per substrate
+    parent: null
+    definition: Number of cells or constructs on one substrate that meet a stated quality criterion (qualifier criterion).
+    scope: A count per substrate; not a share of islands (micropattern yield).
+    dimension: dimensionless
+    qualifiers:
+      criterion:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:myofibrillar_density
+    label: myofibrillar density
+    parent: null
+    definition: Fraction of a cell's or construct's area occupied by detected myofibrils.
+    scope: Myofibril coverage of the cell area; not sarcomere number, sarcomere length or alignment.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:analysis_time
+    label: analysis time
+    parent: null
+    definition: Computing or operator time needed to analyse one unit of data (such as one beat) with a stated method.
+    scope: Time spent on analysis; not a physiological time of the cells.
+    dimension: time
+- add_term:
+    field: measure
+    id: measure:resting_calcium_signal
+    label: resting calcium indicator signal
+    parent: null
+    definition: Level of a calcium indicator's signal between transients (qualifier indicator), a readout of diastolic cytosolic
+      calcium.
+    scope: The baseline level of the indicator; not the transient's amplitude or its times.
+    dimension: dimensionless
+    qualifiers:
+      indicator:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:stained_area_ratio
+    label: stained area ratio
+    parent: null
+    definition: Area stained or labelled for a stated protein (qualifier protein) divided by a reference labelled area (normalised_to).
+    scope: A ratio of labelled areas; not a staining intensity (protein fluorescence intensity) and not a fraction of positive
+      cells.
+    dimension: dimensionless
+    qualifiers:
+      protein:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:required_sample_size
+    label: required sample size
+    parent: null
+    definition: Number of samples a power analysis says are needed to detect a stated difference (qualifier effect_size) in
+      a stated measure (qualifier of_measure).
+    scope: A computed number of samples; not the variability it is computed from (variability across samples).
+    dimension: dimensionless
+    qualifiers:
+      of_measure:
+        dimension: text
+      effect_size:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:category_de_gene_fraction
+    label: share of a category's genes differentially expressed
+    parent: null
+    definition: Fraction of the genes in a stated annotation category (qualifier category) that are differentially expressed
+      between compared conditions.
+    scope: Share of one category's genes that are differentially expressed; not the share of a gene set falling in a category
+      (share of an annotation category), not a count of genes in a GO term and not an enrichment p-value.
+    dimension: dimensionless
+    qualifiers:
+      category:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:enriched_category_count
+    label: number of enriched annotation categories
+    parent: null
+    definition: Number of categories of a stated annotation (qualifier annotation, such as GO biological process) over-represented
+      among differentially expressed genes.
+    scope: A count of enriched categories; not the number of differentially expressed genes and not one category's p-value.
+    dimension: dimensionless
+    qualifiers:
+      annotation:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:pathway_regulation
+    label: pathway regulation
+    parent: null
+    definition: Direction and significance of the regulation of a stated pathway (qualifier pathway) between compared conditions,
+      from a pathway impact analysis of expression data.
+    scope: Up- or down-regulation of a whole pathway; not the expression of one gene and not over-representation of an annotation
+      (enrichment p-value).
+    dimension: categorical
+    qualifiers:
+      pathway:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:isoform_fraction
+    label: isoform fraction
+    parent: null
+    definition: Share of one isoform or variant of a gene product (qualifier isoform) in the total of the stated isoforms
+      (qualifier total).
+    scope: The share of one isoform among its alternatives; not the level of one gene or protein against a reference.
+    dimension: dimensionless
+    qualifiers:
+      isoform:
+        dimension: text
+      total:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:protein_isoform_fraction
+    label: protein isoform fraction
+    parent: measure:isoform_fraction
+    definition: Share of one protein isoform in the total of the stated protein isoforms, measured on protein.
+    scope: Measured on protein; not on mRNA (transcript isoform fraction).
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:transcript_isoform_fraction
+    label: transcript isoform fraction
+    parent: measure:isoform_fraction
+    definition: Share of one mRNA isoform or splice variant in the total of the stated transcripts, measured on mRNA.
+    scope: Measured on mRNA, including percent spliced in; not on protein (protein isoform fraction).
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:contraction_deceleration_time
+    label: contraction deceleration time
+    parent: null
+    definition: Time from the end of the linear phase of shortening (deviation from the linear contractile slope) to peak
+      contraction.
+    scope: The late, decelerating part of contraction; not time to peak from the start of contraction and not relaxation time.
+    dimension: time
+- standing_key:
+    measure: measure:angle_dispersion
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.structure
+      may_vary: &id001
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.structure
+      may_vary: &id002
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:between_sample_variability
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.of_measure
+      - measure.statistic
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.of_measure
+      - measure.statistic
+      may_vary: *id002
+- standing_key:
+    measure: measure:micropattern_yield
+    value:
+      must_match:
+      - platform
+      - substrate
+      - measure.criterion
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.criterion
+      may_vary: *id002
+- standing_key:
+    measure: measure:usable_construct_count
+    value:
+      must_match:
+      - platform
+      - substrate
+      - measure.criterion
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.criterion
+      may_vary: *id002
+- standing_key:
+    measure: measure:myofibrillar_density
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id002
+- standing_key:
+    measure: measure:analysis_time
+    value:
+      must_match:
+      - method
+      may_vary: []
+    direction:
+      must_match:
+      - contrast
+      may_vary: []
+- standing_key:
+    measure: measure:resting_calcium_signal
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      - measure.indicator
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.indicator
+      may_vary: *id002
+- standing_key:
+    measure: measure:stained_area_ratio
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.protein
+      - measure.expressed_as
+      - measure.normalised_to
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.protein
+      may_vary: *id002
+- standing_key:
+    measure: measure:required_sample_size
+    value:
+      must_match:
+      - measure.of_measure
+      - measure.effect_size
+      may_vary: []
+    direction:
+      must_match:
+      - contrast
+      - measure.of_measure
+      may_vary: []
+- standing_key:
+    measure: measure:category_de_gene_fraction
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      - measure.category
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.category
+      may_vary: *id002
+- standing_key:
+    measure: measure:enriched_category_count
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      - method
+      - measure.annotation
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.annotation
+      may_vary: *id002
+- standing_key:
+    measure: measure:pathway_regulation
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - contrast
+      - measure.pathway
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.pathway
+      may_vary: *id002
+- standing_key:
+    measure: measure:isoform_fraction
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.isoform
+      - measure.total
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.isoform
+      may_vary: *id002
+- standing_key:
+    measure: measure:protein_isoform_fraction
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.isoform
+      - measure.total
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.isoform
+      may_vary: *id002
+- standing_key:
+    measure: measure:transcript_isoform_fraction
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.isoform
+      - measure.total
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      - measure.isoform
+      may_vary: *id002
+- standing_key:
+    measure: measure:contraction_deceleration_time
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      may_vary: *id001
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id002
+- standing_key:
+    measure: measure:angle_dispersion
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:myofibrillar_density
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:resting_calcium_signal
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.indicator, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.indicator]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:stained_area_ratio
+    value:
+      must_match: [platform@1, preparation, measure.protein, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:category_de_gene_fraction
+    value:
+      must_match: [platform@1, preparation, contrast, measure.category, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.category]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:enriched_category_count
+    value:
+      must_match: [platform@1, preparation, contrast, method, measure.annotation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.annotation]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:pathway_regulation
+    value:
+      must_match: [platform@1, preparation, contrast, measure.pathway, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.pathway]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:isoform_fraction
+    value:
+      must_match: [platform@1, preparation, measure.isoform, measure.total, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.isoform]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:protein_isoform_fraction
+    value:
+      must_match: [platform@1, preparation, measure.isoform, measure.total, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.isoform]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:transcript_isoform_fraction
+    value:
+      must_match: [platform@1, preparation, measure.isoform, measure.total, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.isoform]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contraction_deceleration_time
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- add_qualifier:
+    id: measure:protein_isoform_fraction
+    name: isoform
+    dimension: text
+- add_qualifier:
+    id: measure:protein_isoform_fraction
+    name: total
+    dimension: text
+- add_qualifier:
+    id: measure:transcript_isoform_fraction
+    name: isoform
+    dimension: text
+- add_qualifier:
+    id: measure:transcript_isoform_fraction
+    name: total
+    dimension: text
+mappings:
+- field: purification
+  stated: lactate
+  terms:
+  - purification:metabolic_selection
+  qualifiers:
+    substrate: lactate
+- field: platform
+  stated: hPSC-CMs in contact
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    cell_contact: in contact with at least one other cardiomyocyte
+  split: &id003
+  - words: hPSC-CM
+    field: cell_types
+  note: Cells plated at intermediate density, unpatterned; contact with other cells is the second dimension the unit varies.
+- field: platform
+  stated: isolated hPSC-CM
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    cell_contact: isolated
+  split: *id003
+  note: Cells plated at intermediate density, unpatterned; isolated single cells, not a micropatterned single cell.
+- field: platform
+  stated: single micropatterned hPSC-CM
+  terms:
+  - platform:micropatterned_single_cell
+  split: *id003
+- field: cm_medium
+  stated: RPMI:DMEM
+  terms:
+  - cm_medium:rpmi_1640
+  - cm_medium:dmem
+  note: A mixture of the two base media; the ratio is a record qualifier.
+- field: pacing
+  stated: current injection
+  terms:
+  - pacing:current_clamp_stimulation
+- field: transgene
+  stated: connexin-43-GFP
+  terms:
+  - transgene:connexin43_fusion
+  qualifiers:
+    fluorophore: GFP
+  note: An endogenous GFP tag in the Allen Institute line AICS-0053 cl.16.
+- field: transgene
+  stated: SERCA2-GFP
+  terms:
+  - transgene:serca2_fusion
+  qualifiers:
+    fluorophore: GFP
+  note: An endogenous GFP tag in the Allen Institute line AICS-0046 cl.51.
+- field: cm_medium
+  stated: glucose-free RPMI
+  terms:
+  - cm_medium:rpmi_1640
+  qualifiers:
+    glucose: glucose-free
+- field: platform
+  stated: 3D human cardiac organoid
+  terms:
+  - platform:tissue_between_pillars
+  qualifiers:
+    posts: elastomer posts
+  note: The source describes the Mills et al. organoids as tissues that contract between elastomer posts; the insert is not
+    named, so not Heart-Dyno.
+- field: mechanical_load
+  stated: elastomer posts
+  terms:
+  - mechanical_load:auxotonic
+  qualifiers:
+    posts: elastomer posts
+  note: 'Tissues contract between elastomer posts: an elastic load.'
+- field: platform
+  stated: native tissue
+  terms:
+  - platform:native_tissue
+  note: The group is labelled Adult Heart; the stated value says only native tissue, so the broader term is kept.
+- field: cell_line
+  stated: DF19-9-11 + 2 MYBPC3 patient lines
+  terms:
+  - CVCL_K054
+  - cell_line:tsan_mybpc3_patient_ipsc
+  note: One pool of three lines; the count is number_of_lines.
+- field: genotype
+  stated: isogenic control
+  terms:
+  - genotype:wild_type
+  note: The unedited isogenic DF19-9-11 control of the MYBPC3 promoter deletion line.
+- field: genotype
+  stated: MYBPC3 promoter deletion, homozygous
+  terms:
+  - genotype:mybpc3_variant
+  qualifiers:
+    variant: promoter deletion
+    zygosity: homozygous
+- field: measure
+  stated: standard deviation of sarcomere orientation (representative image)
+  terms:
+  - measure:angle_dispersion
+  qualifiers:
+    structure: sarcomeres
+  note: σ of a Gaussian fit to one representative image per group.
+- field: measure
+  stated: standard deviation of sarcomere angles
+  terms:
+  - measure:angle_dispersion
+  qualifiers:
+    structure: sarcomeres
+- field: measure
+  stated: coefficient of variation of maximal fractional shortening
+  terms:
+  - measure:between_sample_variability
+  qualifiers:
+    of_measure: maximal fractional shortening
+    statistic: coefficient of variation
+- field: measure
+  stated: fraction of micropatterns with a quantifiable muscle unit
+  terms:
+  - measure:micropattern_yield
+  qualifiers:
+    criterion: quantifiable muscle unit
+  note: The item also prints a 110-fold increase against single cells; both forms are printed, so expressed_as is left out.
+- field: measure
+  stated: number of single hPSC-CMs meeting quality thresholds per substrate
+  terms:
+  - measure:usable_construct_count
+  qualifiers:
+    criterion: single hPSC-CMs meeting quality thresholds for contractile quantification
+- field: measure
+  stated: fraction of micropatterns with at least three hPSC-CMs contracting uniaxially
+  terms:
+  - measure:micropattern_yield
+  qualifiers:
+    criterion: at least three hPSC-CMs contracting uniaxially
+- field: measure
+  stated: myofibrillar density
+  terms:
+  - measure:myofibrillar_density
+  qualifiers:
+    expressed_as: absolute
+- field: measure
+  stated: coefficient of variation of myofibrillar density
+  terms:
+  - measure:between_sample_variability
+  qualifiers:
+    of_measure: myofibrillar density
+    statistic: coefficient of variation
+- field: measure
+  stated: uniaxial traction force normalized to width
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: normalised
+    normalised_to: width
+- field: measure
+  stated: yield of micropatterns
+  terms:
+  - measure:micropattern_yield
+  note: The criterion is not printed; the qualifier is left out.
+- field: measure
+  stated: analysis time per beat
+  terms:
+  - measure:analysis_time
+  note: Per beat; the unit of analysis (per cell, per 2DMB) is in the printed units.
+- field: measure
+  stated: spontaneous contraction frequency
+  terms:
+  - measure:contraction_frequency
+  split:
+  - words: spontaneous
+    field: pacing
+  note: '''spontaneous'' says no pacing; the units'' pacing is not stated, so it is sent back as a split request.'
+- field: measure
+  stated: correlation of mean maximal fractional shortening with mean myofibrillar area per batch
+  terms:
+  - measure:between_measure_correlation
+  qualifiers:
+    measures: mean maximal fractional shortening; mean myofibrillar area per batch
+- field: measure
+  stated: action potential duration at 90% repolarization
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: 90% repolarization
+    expressed_as: absolute
+- field: measure
+  stated: maximum dV/dt during phase 0 depolarization
+  terms:
+  - measure:upstroke_velocity
+- field: measure
+  stated: resting fura-2 ratio
+  terms:
+  - measure:resting_calcium_signal
+  qualifiers:
+    indicator: fura-2 ratio
+- field: measure
+  stated: standard deviation of calcium-transient amplitude
+  terms:
+  - measure:between_sample_variability
+  qualifiers:
+    of_measure: calcium-transient amplitude
+    statistic: standard deviation
+- field: measure
+  stated: connexin-43 area / SiR-actin area
+  terms:
+  - measure:stained_area_ratio
+  qualifiers:
+    protein: connexin-43
+    expressed_as: normalised
+    normalised_to: SiR-actin area
+- field: measure
+  stated: samples needed to detect a 20% difference in fractional shortening
+  terms:
+  - measure:required_sample_size
+  qualifiers:
+    of_measure: fractional shortening
+    effect_size: 20% difference
+- field: measure
+  stated: samples needed to detect a 20% difference in calcium-transient amplitude
+  terms:
+  - measure:required_sample_size
+  qualifiers:
+    of_measure: calcium-transient amplitude
+    effect_size: 20% difference
+- field: measure
+  stated: 'proportion of differentially expressed genes in GO category: tissue connectivity'
+  terms:
+  - measure:category_de_gene_fraction
+  qualifiers:
+    category: tissue connectivity
+- field: measure
+  stated: 'proportion of differentially expressed genes in GO category: cardiac development'
+  terms:
+  - measure:category_de_gene_fraction
+  qualifiers:
+    category: cardiac development
+- field: measure
+  stated: 'proportion of differentially expressed genes in GO category: electrophysiology'
+  terms:
+  - measure:category_de_gene_fraction
+  qualifiers:
+    category: electrophysiology
+- field: measure
+  stated: 'proportion of differentially expressed genes in GO category: mitochondrial respiration'
+  terms:
+  - measure:category_de_gene_fraction
+  qualifiers:
+    category: mitochondrial respiration
+- field: measure
+  stated: 'proportion of differentially expressed genes in GO category: cell proliferation'
+  terms:
+  - measure:category_de_gene_fraction
+  qualifiers:
+    category: cell proliferation
+- field: measure
+  stated: number of over-enriched GO biologic process categories
+  terms:
+  - measure:enriched_category_count
+  qualifiers:
+    annotation: GO biologic process
+- field: measure
+  stated: KEGG DNA replication pathway regulation
+  terms:
+  - measure:pathway_regulation
+  qualifiers:
+    pathway: KEGG DNA replication
+- field: measure
+  stated: KEGG cell cycle pathway regulation
+  terms:
+  - measure:pathway_regulation
+  qualifiers:
+    pathway: KEGG cell cycle
+- field: measure
+  stated: cTnI proportion of total TnI
+  terms:
+  - measure:protein_isoform_fraction
+  qualifiers:
+    isoform: cTnI
+    total: cTnI + ssTnI
+- field: measure
+  stated: ssTnI proportion of total TnI
+  terms:
+  - measure:protein_isoform_fraction
+  qualifiers:
+    isoform: ssTnI
+    total: cTnI + ssTnI
+- field: measure
+  stated: TNNI3 proportion of TNNI3 + TNNI1 mRNA
+  terms:
+  - measure:transcript_isoform_fraction
+  qualifiers:
+    isoform: TNNI3
+    total: TNNI3 + TNNI1 mRNA
+- field: measure
+  stated: cTnI fluorescence intensity
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: cTnI
+- field: measure
+  stated: isoproterenol frequency response (fold change from baseline)
+  terms:
+  - measure:contraction_frequency
+  qualifiers:
+    expressed_as: fold
+    normalised_to: baseline before isoproterenol
+- field: measure
+  stated: contraction velocity response to isoproterenol (fold change from baseline)
+  terms:
+  - measure:contractile_velocity
+  qualifiers:
+    normalised_to: baseline before isoproterenol
+  note: The measure says fold change from baseline but the value is printed as a % increase (20 ± 0.2%); the two conflict,
+    so expressed_as is left out.
+- field: measure
+  stated: adult TNNT2 transcript variant (% of TNNT2 transcripts)
+  terms:
+  - measure:transcript_isoform_fraction
+  qualifiers:
+    isoform: adult TNNT2 variant (exon 5 excluded)
+    total: TNNT2 transcripts
+- field: measure
+  stated: TNNT2 exon 5 percent spliced in (PSI)
+  terms:
+  - measure:transcript_isoform_fraction
+  qualifiers:
+    isoform: TNNT2 transcripts containing exon 5
+    total: TNNT2 transcripts
+- field: measure
+  stated: MLC-2v intensity
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: MLC-2v
+- field: measure
+  stated: alpha-actinin intensity
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: alpha-actinin
+- field: measure
+  stated: z-disk SERCA2 intensity
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: SERCA2
+    region: z-disk
+  note: Fluorescence of the SERCA2-GFP reporter, not of immunostaining.
+- field: measure
+  stated: normalized contraction velocity at 20% of maximal fractional shortening
+  terms:
+  - measure:contractile_velocity
+  qualifiers:
+    level: 20% of maximal fractional shortening
+    expressed_as: normalised
+    normalised_to: maximal fractional shortening
+  note: Velocity of the normalized displacement trace (ContractQuant).
+- field: measure
+  stated: normalized contraction velocity at 50% of maximal fractional shortening
+  terms:
+  - measure:contractile_velocity
+  qualifiers:
+    level: 50% of maximal fractional shortening
+    expressed_as: normalised
+    normalised_to: maximal fractional shortening
+  note: Velocity of the normalized displacement trace (ContractQuant).
+- field: measure
+  stated: normalized contraction velocity at 80% of maximal fractional shortening
+  terms:
+  - measure:contractile_velocity
+  qualifiers:
+    level: 80% of maximal fractional shortening
+    expressed_as: normalised
+    normalised_to: maximal fractional shortening
+  note: Velocity of the normalized displacement trace (ContractQuant).
+- field: measure
+  stated: normalized relaxation velocity at 80% of maximal fractional shortening
+  terms:
+  - measure:relaxation_velocity
+  qualifiers:
+    level: 80% of maximal fractional shortening
+    expressed_as: normalised
+    normalised_to: maximal fractional shortening
+  note: Velocity of the normalized displacement trace (ContractQuant).
+- field: measure
+  stated: normalized relaxation velocity at 50% of maximal fractional shortening
+  terms:
+  - measure:relaxation_velocity
+  qualifiers:
+    level: 50% of maximal fractional shortening
+    expressed_as: normalised
+    normalised_to: maximal fractional shortening
+  note: Velocity of the normalized displacement trace (ContractQuant).
+- field: measure
+  stated: normalized relaxation velocity at 20% of maximal fractional shortening
+  terms:
+  - measure:relaxation_velocity
+  qualifiers:
+    level: 20% of maximal fractional shortening
+    expressed_as: normalised
+    normalised_to: maximal fractional shortening
+  note: Velocity of the normalized displacement trace (ContractQuant).
+- field: measure
+  stated: SCN5A mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN5A
+  note: Used in several panels with different normalisations (TaqMan qRT-PCR; log-2 fold change relative to ML control; normalized
+    reads relative to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to
+    are left out.
+- field: measure
+  stated: KCNJ2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+  note: Used in several panels with different normalisations (TaqMan qRT-PCR; log-2 fold change relative to ML control; normalized
+    reads relative to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to
+    are left out.
+- field: measure
+  stated: HCN4 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HCN4
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; normalized reads relative
+    to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left
+    out.
+- field: measure
+  stated: CASQ2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CASQ2
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; normalized reads relative
+    to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left
+    out.
+- field: measure
+  stated: ATP2A2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ATP2A2
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; normalized reads relative
+    to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left
+    out.
+- field: measure
+  stated: RYR2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RYR2
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; normalized reads relative
+    to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left
+    out.
+- field: measure
+  stated: GJA1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: GJA1
+  note: Used in several panels with different normalisations (TaqMan qRT-PCR; log-2 fold change relative to ML control; normalized
+    reads relative to standard; reads normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to
+    are left out.
+- field: measure
+  stated: TNNT2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNT2
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: MYH7 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH7
+  note: Used in several panels with different normalisations (TaqMan qRT-PCR; log-2 fold change relative to ML control; reads
+    normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: MYL2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL2
+  note: Used in several panels with different normalisations (TaqMan qRT-PCR; log-2 fold change relative to ML control; reads
+    normalized to TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: TNNI3 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNI3
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: MYH6 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH6
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: MYL7 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYL7
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: TNNI1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNI1
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: ACTA2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ACTA2
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: NPPA mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: NPPA
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: NPPB mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: NPPB
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: HOPX mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HOPX
+  note: Used in several panels with different normalisations (RNA-seq; STAR alignment; DESeq2 normalization; TaqMan qRT-PCR;
+    log-2 fold change relative to ML control; log-2 fold change relative to monolayer; reads normalized to TNNT2; log-2 fold
+    change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: CCNB1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNB1
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: MKI67 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MKI67
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: ADRB1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ADRB1
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: ADCY5 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ADCY5
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: GNAS mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: GNAS
+  note: Used in several panels with different normalisations (log-2 fold change relative to ML control; reads normalized to
+    TNNT2; log-2 fold change relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: CDK1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDK1
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: CDK2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDK2
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: CCNA2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNA2
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: FOXM1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: FOXM1
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MAD2L1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MAD2L1
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MCM2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MCM2
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MCM3 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MCM3
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MCM4 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MCM4
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MCM5 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MCM5
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MCM6 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MCM6
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MCM7 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MCM7
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: MYBL2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYBL2
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: PCNA mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PCNA
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: PLK1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PLK1
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: CDKN1A mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDKN1A
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: CDKN2B mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDKN2B
+    expressed_as: fold
+    normalised_to: ML control
+  note: Printed as log-2 fold change.
+- field: measure
+  stated: WNT2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: WNT2
+  note: Used in several panels with different normalisations (RNA-seq; STAR alignment; DESeq2 normalization; log-2 fold change
+    relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: AXIN2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: AXIN2
+  note: Used in several panels with different normalisations (RNA-seq; STAR alignment; DESeq2 normalization; log-2 fold change
+    relative to monolayer); expressed_as and normalised_to are left out.
+- field: measure
+  stated: TBX2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TBX2
+  note: Used in several panels with different normalisations (RNA-seq; STAR alignment; DESeq2 normalization; log-2 fold change
+    relative to monolayer); expressed_as and normalised_to are left out.

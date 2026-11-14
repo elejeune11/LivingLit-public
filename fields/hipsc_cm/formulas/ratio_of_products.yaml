@@ -1,0 +1,39 @@
+# Written by code from changes.yaml (version 11); never edited.
+formula: ratio_of_products
+kind: derived
+statement: The ratio of two products is the product of the ratios of their factors, (a1*a2)/(b1*b2) = (a1/b1)*(a2/b2); e.g.
+  a cell number estimated as thickness times cells per field.
+equations:
+- r = (a1*a2)/(b1*b2)
+variables:
+  r: dimensionless
+  a1: D
+  b1: D
+  a2: D2
+  b2: D2
+  p: D*D2
+  q: D*D2
+assumes:
+- p = a1*a2
+- q = b1*b2
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: p
+    b: q
+does_not_apply: a ratio of sums, or a mean of per-sample products compared with a product of group means
+tests:
+- given:
+    a1: 2.0
+    a2: 3.0
+    b1: 1.0
+    b2: 2.0
+  expect:
+    r: 3.0
+- given:
+    a1: 2.0
+    a2: 3.0
+    b1: 1.0
+    b2: 2.0
+  does_not_apply: ratio of sums (2 + 3)/(1 + 2) = 1.67, not 3

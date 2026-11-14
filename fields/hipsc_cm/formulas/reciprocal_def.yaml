@@ -1,0 +1,27 @@
+# Written by code from changes.yaml (version 7); never edited.
+formula: reciprocal_def
+kind: derived
+statement: The reciprocal of a quantity is one divided by it (a ratio with numerator 1).
+equations:
+- r = 1/b
+variables:
+  r: 1/D
+  b: D
+  a: dimensionless
+assumes:
+- a = 1
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: a
+    b: b
+does_not_apply: a ratio with a numerator other than 1, or a reciprocal of a period read as a frequency in other units
+tests:
+- given:
+    b: 4.0
+  expect:
+    r: 0.25
+- given:
+    b: 4.0
+  does_not_apply: negative reciprocal or 1 - b is not the reciprocal

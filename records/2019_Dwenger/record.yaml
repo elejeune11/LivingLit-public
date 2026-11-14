@@ -1,0 +1,2724 @@
+id: 2019_Dwenger
+field_set: 3
+
+source:
+  title: "Chronic optical pacing conditioning of h-iPSC engineered cardiac tissues"
+  doi: "10.1177/2041731419841748"
+  year: "2019"
+  first_author: "Marc Dwenger"
+  last_author: "Bradley B Keller"
+  lab: "Keller lab, Kosair Charities Pediatric Heart Research Program, Cardiovascular Innovation Institute, University of Louisville"
+  journal: "Journal of Tissue Engineering"
+  files:
+    - "10.1177_2041731419841748.pdf"
+  missing: []
+  not_used: []
+
+default_context:
+  cell_line: {value: "201B6"}
+  number_of_lines: "not stated"
+  differentiation_factors:
+    value: "Activin A + Wnt3a"
+    qualifiers:
+      added_at_d1: "BMP4 + hbFGF"
+      added_at_d5: "VEGF165"
+  hipsc_medium:
+    value: "mouse embryonic fibroblast conditioned medium"
+    qualifiers: {hbFGF: "1 ng/mL"}
+  hipsc_coating: {value: "thin-coat Matrigel"}
+  wnt_activation_days: {value: "24 h"}
+  wnt_inhibition_days: "not applicable"
+  insulin_day: "not stated"
+  confluency: "not stated"
+  purification: "not stated"
+  purity_method: {value: "flow cytometer"}
+  purity: "not stated"
+  cm_medium:
+    value: "alpha minimum essential medium"
+    qualifiers: {differentiation_medium: "RPMI + B27"}
+    note: "RPMI + B27 during differentiation; the ECT pre-culture medium is alpha minimum essential medium based"
+  supplements:
+    value: "FBS + penicillin-streptomyocin + 2-mercaptoethanol"
+    qualifiers:
+      FBS: "10%"
+      penicillin_streptomyocin: "100 U/mL"
+      mercaptoethanol: "5 × 10-5 M"
+  replating_coating: "not applicable"
+  platform:
+    value: "linear ECT"
+    qualifiers: {trough: "20 mm length x 2 mm width"}
+  substrate:
+    value: "collagen + Matrigel"
+    qualifiers: {collagen: "0.67 mg/mL", matrigel: "15%"}
+  cell_types: {value: "cardiomyocytes + endothelial cells + mural cells"}
+  stromal_cell: {value: "mural cells"}
+  endothelial_cell: {value: "endothelial cells"}
+  cm_day_at_formation: "not stated"
+  treatment: "none"
+  genotype: "not stated"
+  disease_model: "none"
+  temperature: "not stated"
+  culture_calcium_mM: "not stated"
+  measurement_calcium_mM: "not stated"
+  mechanical_load: {value: "constrained at the long axis ends by nylon anchors"}
+  donor_age: "not stated"
+  species: {value: "human"}
+  time_point: "not stated"
+  seeding_density:
+    value: "1000 mm-2"
+    qualifiers: {per_ect: "three million cells"}
+  dissociation_reagent:
+    value: "Versene"
+    qualifiers: {EDTA: "0.48 mM"}
+  incubator_atmosphere:
+    value: "5% CO2"
+    qualifiers: {culture_temperature: "37°C"}
+
+units:
+
+  F1:
+    where: "Figure 1"
+    title: "ECT formation and chronic optical pacing (C-OP) protocol"
+    context:
+      day_of_measurement: "not stated"
+      pacing: "none"
+      preparation: {value: "ECT culture"}
+      measurement_medium: "not applicable"
+    groups:
+      ctrl:
+        label: "D14 control"
+        context:
+          composition: {value: "CM/EC/MC 60%/13%/12%"}
+          maturation_strategy: "none"
+          transgene: "none"
+      cop:
+        label: "D14 C-OP"
+        context:
+          composition: {value: "CM/EC/MC 56%/11%/14%"}
+          maturation_strategy:
+            value: "chronic optical pacing"
+            qualifiers:
+              from: "D7 to D14"
+              wavelength: "470 nm"
+              pulse_width: "5 ms"
+              rate: "0.5 Hz below the maximum capture rate"
+          transgene:
+            value: "AAV1/2-CAG-oChIEF-tdTomato"
+            qualifiers: {MOI: "500"}
+
+  F2:
+    where: "Figure 2a–c"
+    title: "Representative force tracings at increasing electrical pacing rates display decreasing active force and increasing beat-to-beat hysteresis"
+    context:
+      composition: "not stated"
+      day_of_measurement: "not stated"
+      maturation_strategy: "not stated"
+      transgene: "not stated"
+      preparation: {value: "linear ECT in the perfusion bath"}
+      measurement_medium: {value: "Tyrode's solution"}
+    other_conditions:
+      - text: "perfusion bath filled with 2,3-butanedione monoxime (BDM) to temporarily halt ECT shortening"
+        anchor:
+          quote: "we excised and placed each linear ECT from the TissueTrain® plate in the perfusion bath filled with 2,3-butanedione monoxime (BDM) to temporarily halt ECT shortening"
+          where: "Materials and methods, Force testing"
+    groups:
+      p3:
+        label: "3 Hz"
+        context: {pacing: {value: "electrical pacing", qualifiers: {frequency: "3 Hz"}}}
+      p3_5:
+        label: "3.5 Hz"
+        context: {pacing: {value: "electrical pacing", qualifiers: {frequency: "3.5 Hz"}}}
+      p4:
+        label: "4 Hz"
+        context: {pacing: {value: "electrical pacing", qualifiers: {frequency: "4 Hz"}}}
+      p4_5:
+        label: "4.5 Hz"
+        context: {pacing: {value: "electrical pacing", qualifiers: {frequency: "4.5 Hz"}}}
+      p5:
+        label: "5 Hz"
+        context: {pacing: {value: "electrical pacing", qualifiers: {frequency: "5 Hz"}}}
+      p5_5:
+        label: "5.5 Hz"
+        context: {pacing: {value: "electrical pacing", qualifiers: {frequency: "5.5 Hz"}}}
+
+  F3:
+    where: "Figure 3"
+    title: "Analysis of ECT performance"
+    context:
+      composition: {value: "CM/EC/MC 56%/11%/14%"}
+      day_of_measurement: {value: "D14"}
+      maturation_strategy:
+        value: "chronic optical pacing"
+        qualifiers:
+          from: "D7 to D14"
+          wavelength: "470 nm"
+          pulse_width: "5 ms"
+          rate: "0.5 Hz below the maximum capture rate"
+      transgene:
+        value: "AAV1/2-CAG-oChIEF-tdTomato"
+        qualifiers: {MOI: "500"}
+      pacing: {value: "electrical pacing", qualifiers: {frequency: "4.5 Hz"}}
+      preparation: {value: "linear ECT in the perfusion bath"}
+      measurement_medium: {value: "Tyrode's solution"}
+    groups:
+      rep:
+        label: "a C-OP ECT"
+        anchor:
+          quote: "For this representative example, a C-OP ECT is analyzed at an acute electrical pacing rate of 4.5 Hz."
+          where: "Figure 3 legend"
+
+  F4ab:
+    where: "Figure 4a and 4b"
+    title: "Representative patch clamp recording and stress trace during acute optical pacing"
+    context:
+      composition: {value: "CM/EC/MC 56%/11%/14%"}
+      day_of_measurement: {value: "D14"}
+      maturation_strategy:
+        value: "chronic optical pacing"
+        qualifiers:
+          from: "D7 to D14"
+          wavelength: "470 nm"
+          pulse_width: "5 ms"
+          rate: "0.5 Hz below the maximum capture rate"
+      transgene:
+        value: "AAV1/2-CAG-oChIEF-tdTomato"
+        qualifiers: {MOI: "500"}
+      pacing: {value: "optical pacing", qualifiers: {wavelength: "470 nm"}}
+      preparation: {value: "linear ECT in the perfusion bath"}
+      measurement_medium: {value: "Tyrode's solution"}
+    groups:
+      cop:
+        label: "D14 C-OP"
+
+  F4ch:
+    where: "Figure 4c–h"
+    title: "Impact of chronic optical pacing (C-OP) on functional maturation of h-iPSC ECTs"
+    context:
+      pacing: {value: "electrical field pacing", qualifiers: {voltage: "5 V"}}
+      preparation: {value: "linear ECT in the perfusion bath"}
+      measurement_medium: {value: "Tyrode's solution"}
+    other_conditions:
+      - text: "perfusion bath filled with 2,3-butanedione monoxime (BDM) to temporarily halt ECT shortening"
+        anchor:
+          quote: "we excised and placed each linear ECT from the TissueTrain® plate in the perfusion bath filled with 2,3-butanedione monoxime (BDM) to temporarily halt ECT shortening"
+          where: "Materials and methods, Force testing"
+    groups:
+      ctrl:
+        label: "D14 control"
+        context:
+          composition: {value: "CM/EC/MC 60%/13%/12%"}
+          day_of_measurement: {value: "D14"}
+          maturation_strategy: "none"
+          transgene: "none"
+      cop:
+        label: "D14 C-OP"
+        context:
+          composition: {value: "CM/EC/MC 56%/11%/14%"}
+          day_of_measurement: {value: "D14"}
+          maturation_strategy:
+            value: "chronic optical pacing"
+            qualifiers:
+              from: "D7 to D14"
+              wavelength: "470 nm"
+              pulse_width: "5 ms"
+              rate: "0.5 Hz below the maximum capture rate"
+          transgene:
+            value: "AAV1/2-CAG-oChIEF-tdTomato"
+            qualifiers: {MOI: "500"}
+      d28:
+        label: "D28"
+        context:
+          composition: {value: "CM/EC/MC 69%/6%/12%"}
+          day_of_measurement: {value: "D28"}
+          maturation_strategy: "none"
+          transgene: "none"
+
+  F5:
+    where: "Figure 5"
+    title: "Impact of chronic optical pacing (C-OP) on structural maturation of h-iPSC ECTs"
+    context:
+      day_of_measurement: {value: "D14"}
+      pacing: "not applicable"
+      preparation: {value: "fixed with paraformaldehyde"}
+      measurement_medium: "not applicable"
+    groups:
+      ctrl:
+        label: "D14 control"
+        context:
+          composition: {value: "CM/EC/MC 60%/13%/12%"}
+          maturation_strategy: "none"
+          transgene: "none"
+      cop:
+        label: "D14 C-OP"
+        context:
+          composition: {value: "CM/EC/MC 56%/11%/14%"}
+          maturation_strategy:
+            value: "chronic optical pacing"
+            qualifiers:
+              from: "D7 to D14"
+              wavelength: "470 nm"
+              pulse_width: "5 ms"
+              rate: "0.5 Hz below the maximum capture rate"
+          transgene:
+            value: "AAV1/2-CAG-oChIEF-tdTomato"
+            qualifiers: {MOI: "500"}
+
+  F6:
+    where: "Figure 6"
+    title: "Quantitative PCR of genes encoding contractile proteins, Ca2+ cycling mechanisms, and ion channels in D14 control and C-OP ECTs"
+    context:
+      day_of_measurement: {value: "D14"}
+      pacing: "not applicable"
+      preparation: {value: "homogenized ECT samples in Trizol"}
+      measurement_medium: "not applicable"
+    groups:
+      ctrl:
+        label: "D14 control"
+        context:
+          composition: {value: "CM/EC/MC 60%/13%/12%"}
+          maturation_strategy: "none"
+          transgene: "none"
+      cop:
+        label: "D14 C-OP"
+        context:
+          composition: {value: "CM/EC/MC 56%/11%/14%"}
+          maturation_strategy:
+            value: "chronic optical pacing"
+            qualifiers:
+              from: "D7 to D14"
+              wavelength: "470 nm"
+              pulse_width: "5 ms"
+              rate: "0.5 Hz below the maximum capture rate"
+          transgene:
+            value: "AAV1/2-CAG-oChIEF-tdTomato"
+            qualifiers: {MOI: "500"}
+
+  F7:
+    where: "Figure 7"
+    title: "Quantitative PCR for a single biological experiment comparing D14 control, D14 C-OP, and D28 ECTs"
+    context:
+      pacing: "not applicable"
+      preparation: {value: "homogenized ECT samples in Trizol"}
+      measurement_medium: "not applicable"
+    groups:
+      ctrl:
+        label: "D14 control"
+        context:
+          composition: {value: "CM/EC/MC 60%/13%/12%"}
+          day_of_measurement: {value: "D14"}
+          maturation_strategy: "none"
+          transgene: "none"
+      cop:
+        label: "D14 C-OP"
+        context:
+          composition: {value: "CM/EC/MC 56%/11%/14%"}
+          day_of_measurement: {value: "D14"}
+          maturation_strategy:
+            value: "chronic optical pacing"
+            qualifiers:
+              from: "D7 to D14"
+              wavelength: "470 nm"
+              pulse_width: "5 ms"
+              rate: "0.5 Hz below the maximum capture rate"
+          transgene:
+            value: "AAV1/2-CAG-oChIEF-tdTomato"
+            qualifiers: {MOI: "500"}
+      d28:
+        label: "D28"
+        context:
+          composition: {value: "CM/EC/MC 69%/6%/12%"}
+          day_of_measurement: {value: "D28"}
+          maturation_strategy: "none"
+          transgene: "none"
+
+  TXT1:
+    where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+    title: "Final average CM/EC/MC concentration of the cell mixture of each ECT group"
+    context:
+      day_of_measurement: {value: "d15"}
+      pacing: "not applicable"
+      preparation: {value: "stained cells"}
+      measurement_medium: "not applicable"
+    groups:
+      ctrl:
+        label: "D14 control tissues"
+        context:
+          composition: {value: "CM/EC/MC 60%/13%/12%"}
+          maturation_strategy: "none"
+          transgene: "none"
+      cop:
+        label: "D14 C-OP tissues"
+        context:
+          composition: {value: "CM/EC/MC 56%/11%/14%"}
+          maturation_strategy:
+            value: "chronic optical pacing"
+            qualifiers:
+              from: "D7 to D14"
+              wavelength: "470 nm"
+              pulse_width: "5 ms"
+              rate: "0.5 Hz below the maximum capture rate"
+          transgene:
+            value: "AAV1/2-CAG-oChIEF-tdTomato"
+            qualifiers: {MOI: "500"}
+      d28:
+        label: "D28 tissues"
+        context:
+          composition: {value: "CM/EC/MC 69%/6%/12%"}
+          maturation_strategy: "none"
+          transgene: "none"
+
+  TXT2:
+    where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs; Results"
+    title: "Pilot dose-transfection efficiency experiments"
+    context:
+      composition: "not stated"
+      day_of_measurement: "not stated"
+      maturation_strategy: "not stated"
+      transgene:
+        value: "AAV1/2-CAG-oChIEF-tdTomato"
+        qualifiers: {MOI: "500"}
+      pacing: {value: "optical pacing"}
+      preparation: {value: "ECT culture"}
+      measurement_medium: "not applicable"
+    groups:
+      pilot:
+        label: "pilot dose-transfection efficiency experiments"
+        anchor:
+          quote: "at a multiplicity of infection (MOI) of 500 based on pilot dose-transfection efficiency experiments that resulted in at least 20% transfection efficiency without cell death"
+          where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+
+  TXT3:
+    where: "Materials and methods, Real-time quantitative polymerase chain reaction"
+    title: "RNA quality of ECT samples"
+    context:
+      composition: "not stated"
+      day_of_measurement: "not stated"
+      maturation_strategy: "not stated"
+      transgene: "not stated"
+      pacing: "not applicable"
+      preparation: {value: "homogenized ECT samples in Trizol"}
+      measurement_medium: "not applicable"
+    groups:
+      rna:
+        label: "RNA samples"
+        anchor:
+          quote: "Both 260/280 and 260/230 ratios of RNA samples were approximately 2.00."
+          where: "Materials and methods, Real-time quantitative polymerase chain reaction"
+evidence:
+
+  F1_beat_onset:
+    unit: F1
+    measure: "day of onset of spontaneous beating"
+    finding: "C-OP ECTs began to beat spontaneously after 3 days of culture, as control ECTs did"
+    compares: [cop, ctrl]
+    stats: {p: "not stated"}
+    values:
+      onset_cop: {printed: "3 days", unit: "days", kind: "value", group: cop}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "D14C-OP ECTs began to spontaneously beat after 3 days of culture, similar to control ECTs"
+        where: "Results, ChIEF transfection"
+    anchor:
+      quote: "D14C-OP ECTs began to spontaneously beat after 3 days of culture, similar to control ECTs"
+      where: "Results, ChIEF transfection"
+
+  F2_active_a:
+    unit: F2
+    measure: "active force"
+    method: "force recorded at each electric field pacing rate with an isolated muscle testing system"
+    finding: "active force decreased when the pacing rate was stepped from 3 to 3.5 Hz"
+    compares: [p3_5, p3]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate: (a) 3 to 3.5 to 3 Hz."
+        where: "Figure 2 legend"
+    anchor:
+      quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate: (a) 3 to 3.5 to 3 Hz."
+      where: "Figure 2 legend"
+
+  F2_active_b:
+    unit: F2
+    measure: "active force"
+    method: "force recorded at each electric field pacing rate with an isolated muscle testing system"
+    finding: "active force decreased when the pacing rate was stepped from 4 to 4.5 Hz"
+    compares: [p4_5, p4]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate: (a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz."
+        where: "Figure 2 legend"
+    anchor:
+      quote: "(b) 4 to 4.5 to 4 Hz."
+      where: "Figure 2 legend"
+
+  F2_active_c:
+    unit: F2
+    measure: "active force"
+    method: "force recorded at each electric field pacing rate with an isolated muscle testing system"
+    finding: "active force decreased when the pacing rate was stepped from 5 to 5.5 Hz"
+    compares: [p5_5, p5]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate"
+        where: "Figure 2 legend"
+    anchor:
+      quote: "(c) 5 to 5.5 to 5 Hz."
+      where: "Figure 2 legend"
+
+  F2_passive_a:
+    unit: F2
+    measure: "passive force"
+    method: "force recorded at each electric field pacing rate with an isolated muscle testing system"
+    finding: "passive force increased when the pacing rate was stepped from 3 to 3.5 Hz"
+    compares: [p3_5, p3]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate: (a) 3 to 3.5 to 3 Hz."
+        where: "Figure 2 legend"
+    anchor:
+      quote: "Increasing pacing rate was associated with reduced active force and increased passive force."
+      where: "Materials and methods, Force testing"
+
+  F2_passive_b:
+    unit: F2
+    measure: "passive force"
+    method: "force recorded at each electric field pacing rate with an isolated muscle testing system"
+    finding: "passive force increased when the pacing rate was stepped from 4 to 4.5 Hz"
+    compares: [p4_5, p4]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate"
+        where: "Figure 2 legend"
+    anchor:
+      quote: "(b) 4 to 4.5 to 4 Hz."
+      where: "Figure 2 legend"
+
+  F2_passive_c:
+    unit: F2
+    measure: "passive force"
+    method: "force recorded at each electric field pacing rate with an isolated muscle testing system"
+    finding: "passive force increased when the pacing rate was stepped from 5 to 5.5 Hz"
+    compares: [p5_5, p5]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "Active force decreased and passive force increased during each stepwise increase in pacing rate"
+        where: "Figure 2 legend"
+    anchor:
+      quote: "(c) 5 to 5.5 to 5 Hz."
+      where: "Figure 2 legend"
+
+  F2_hysteresis:
+    unit: F2
+    measure: "beat-to-beat hysteresis"
+    method: "amplitude variation between sequential beats in the force tracing"
+    finding: "amplitude variation between sequential beats increased incrementally at higher pacing rates"
+    compares: [p5_5, p3]
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "at higher pacing rates there is an incremental increase in the amplitude variation between sequential beats, termed beat-to-beat hysteresis"
+        where: "Figure 2 legend"
+    anchor:
+      quote: "at higher pacing rates there is an incremental increase in the amplitude variation between sequential beats, termed beat-to-beat hysteresis"
+      where: "Figure 2 legend"
+
+  F3_sigma_a:
+    unit: F3
+    measure: "mean active stress"
+    method: "stress calculated as force divided by cross-sectional area; active stress is the difference between each maximum and its preceding minimum"
+    software: "automated software developed in MATLAB"
+    definition: "Active stress, σA, is the difference between σmax and σmin."
+    finding: "mean active stress of the representative C-OP ECT at 4.5 Hz was 0.29 mN/mm2"
+    groups: [rep]
+    values:
+      sigma_a: {printed: "0.29", unit: "mN/mm2", kind: "mean", group: rep, x: "4.5 Hz", spread: "none"}
+    anchor:
+      quote: "Mean σA was 0.29 mN/mm2, σbb was 0.17, RT50 was 63 ms, and normalized systolic energy was 0.53."
+      where: "Figure 3 legend"
+
+  F3_sigma_bb:
+    unit: F3
+    measure: "beat-to-beat hysteresis"
+    method: "magnitude of the difference between the active stress of an even-numbered cycle and the preceding odd-numbered cycle, divided by the mean active stress"
+    software: "automated software developed in MATLAB"
+    definition: "Beat-to-beat hysteresis, σbb, is the magnitude of the difference between the σA of an even-numbered cycle and the σA of the preceding odd-numbered cycle"
+    finding: "beat-to-beat hysteresis of the representative C-OP ECT at 4.5 Hz was 0.17"
+    groups: [rep]
+    values:
+      sigma_bb: {printed: "0.17", unit: "dimensionless", kind: "mean", group: rep, x: "4.5 Hz", spread: "none"}
+    anchor:
+      quote: "Mean σA was 0.29 mN/mm2, σbb was 0.17, RT50 was 63 ms, and normalized systolic energy was 0.53."
+      where: "Figure 3 legend"
+
+  F3_rt50:
+    unit: F3
+    measure: "relaxation time to 50% diastolic stress"
+    method: "time for stress to relax by 50% of active stress from maximum stress"
+    software: "automated software developed in MATLAB"
+    definition: "RT50 is the time for stress to relax by 50% of σA from σmax."
+    finding: "RT50 of the representative C-OP ECT at 4.5 Hz was 63 ms"
+    groups: [rep]
+    values:
+      rt50: {printed: "63", unit: "ms", kind: "value", group: rep, x: "4.5 Hz", spread: "none"}
+    anchor:
+      quote: "Mean σA was 0.29 mN/mm2, σbb was 0.17, RT50 was 63 ms, and normalized systolic energy was 0.53."
+      where: "Figure 3 legend"
+
+  F3_energy:
+    unit: F3
+    measure: "normalized systolic energy"
+    method: "systolic stress-time integral for each cycle, normalized to time and to maximum stress"
+    software: "automated software developed in MATLAB"
+    definition: "We calculated the mean normalized systolic stress-time integral and defined this value as the mean systolic potential energy (SPE)."
+    finding: "normalized systolic energy of the representative C-OP ECT at 4.5 Hz was 0.53"
+    groups: [rep]
+    values:
+      energy: {printed: "0.53", unit: "dimensionless", kind: "mean", group: rep, x: "4.5 Hz", spread: "none", expressed_as: "normalised"}
+    anchor:
+      quote: "Mean σA was 0.29 mN/mm2, σbb was 0.17, RT50 was 63 ms, and normalized systolic energy was 0.53."
+      where: "Figure 3 legend"
+
+  F4ab_patch:
+    unit: F4ab
+    measure: "action potential generation on optical stimulation"
+    method: "whole cell patch clamp of ChIEF-expressing cells within the ECT with pulsed blue light stimulation"
+    software: "pClamp 10"
+    context:
+      preparation: {value: "patched single cells within the ECT"}
+    finding: "acute optical pacing triggered CM depolarization and action potential generation in D14 C-OP ECTs"
+    groups: [cop]
+    stats: {p: "not stated"}
+    anchor:
+      quote: "We confirmed acute OP triggered CM depolarization and action potential generation within D14C-OP ECTs using pulsed blue light stimulation and patch clamp recording"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ab_capture:
+    unit: F4ab
+    measure: "optical pacing capture"
+    method: "visual inspection and brief video recordings during acute optical pacing"
+    finding: "acute optical pacing captured all beats when paced above the intrinsic beat rate until the maximum capture rate"
+    groups: [cop]
+    stats: {p: "not stated"}
+    anchor:
+      quote: "Acute OP captured all beats when paced above the intrinsic beat rate until reaching the MCR."
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ab_optical_mcr:
+    unit: F4ab
+    measure: "optical maximum capture rate"
+    method: "optical pacing with a 470 nm LED below the perfusion bath, rate increased in 0.5 Hz increments until the optical maximum capture rate"
+    finding: "optical stimulation during force testing paced tissues to a maximum rate of 5 Hz"
+    groups: [cop]
+    n:
+      printed: "For a subset of D14 C-OP ECTs (n = 6)"
+      counts: "ECTs"
+    values:
+      optical_mcr: {printed: "5", unit: "Hz", kind: "value", group: cop, spread: "none"}
+    anchor:
+      quote: "Optical stimulation during force testing could pace tissues to a maximum rate of 5 Hz"
+      where: "Discussion"
+
+  F4ch_mcr_cop_ctrl:
+    unit: F4ch
+    measure: "maximum capture rate"
+    method: "electric field pacing in 0.5 Hz increments; maximum capture rate determined at the onset of 2:1 block, with Fourier analysis of the force trace"
+    software: "automated software developed in MATLAB"
+    definition: "We determined electrical MCR at the onset of 2:1 block."
+    finding: "D14 C-OP ECTs captured at a higher electric field paced rate than D14 control ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13), D14 C-OP (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    values:
+      mcr_cop: {printed: "5.37 ± 0.69", unit: "Hz", kind: "mean", group: cop, spread: "SD", spread_source: "legend"}
+      mcr_ctrl: {printed: "4.35 ± 0.59", unit: "Hz", kind: "mean", group: ctrl, spread: "SD", spread_source: "legend"}
+      mcr_increase: {printed: "1 Hz", unit: "Hz", kind: "difference", between: [cop, ctrl]}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.001"
+    anchor:
+      quote: "achieved higher electric field paced MCRs versus D14 control ECTs (5.37 ± 0.69 vs 6.50 ± 0.71 vs 4.35 ± 0.59 Hz, p < 0.001"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_mcr_d28_ctrl:
+    unit: F4ch
+    measure: "maximum capture rate"
+    method: "electric field pacing in 0.5 Hz increments; maximum capture rate determined at the onset of 2:1 block, with Fourier analysis of the force trace"
+    software: "automated software developed in MATLAB"
+    finding: "D28 ECTs captured at a higher electric field paced rate than D14 control ECTs"
+    compares: [d28, ctrl]
+    n:
+      printed: "D14 control (n = 13) ... D28 (n = 2)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", d28: "2"}
+    values:
+      mcr_d28: {printed: "6.50 ± 0.71", unit: "Hz", kind: "mean", group: d28, spread: "SD", spread_source: "legend"}
+      mcr_ctrl: {printed: "4.35 ± 0.59", unit: "Hz", kind: "mean", group: ctrl, spread: "SD", spread_source: "legend"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.001"
+    anchor:
+      quote: "achieved higher electric field paced MCRs versus D14 control ECTs (5.37 ± 0.69 vs 6.50 ± 0.71 vs 4.35 ± 0.59 Hz, p < 0.001"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_mcr_cop_d28:
+    unit: F4ch
+    measure: "maximum capture rate"
+    method: "electric field pacing in 0.5 Hz increments; maximum capture rate determined at the onset of 2:1 block"
+    finding: "the maximum capture rate of D14 C-OP ECTs was lower than that of D28 ECTs"
+    compares: [cop, d28]
+    n:
+      printed: "C-OP ECTs (n = 15) to a prolonged culture D28 tissues (n = 2)"
+      counts: "ECTs"
+      per_group: {cop: "15", d28: "2"}
+    values:
+      mcr_cop: {printed: "5.37 ± 0.69", unit: "Hz", kind: "mean", group: cop, spread: "SD", spread_source: "legend"}
+      mcr_d28: {printed: "6.50 ± 0.71", unit: "Hz", kind: "mean", group: d28, spread: "SD", spread_source: "legend"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.05"
+    anchor:
+      quote: "However, the MCR for D14C-OP ECTs was less than that of D28 ECTs (p < 0.05, Figure 4(c))."
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_intrinsic_rate:
+    unit: F4ch
+    measure: "intrinsic beat rate"
+    method: "daily video microscopy of the intrinsic beat rate during culture"
+    context:
+      pacing: "none"
+      measurement_medium: "not applicable"
+      preparation: {value: "ECT culture"}
+    finding: "intrinsic beat rate increased after C-OP"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13), D14 C-OP (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "Intrinsic beat rate increased after C-OP and MCR increased after C-OP and prolonged culture to D28."
+        where: "Figure 4 legend"
+    anchor:
+      quote: "Intrinsic beat rate increased after C-OP and MCR increased after C-OP and prolonged culture to D28."
+      where: "Figure 4 legend"
+
+  F4ch_rt50_cop_ctrl:
+    unit: F4ch
+    measure: "relaxation time to 50% diastolic stress"
+    method: "RT50 calculated at 3.0 Hz electric field pacing from the stress trace"
+    software: "automated software developed in MATLAB"
+    definition: "RT50 is the time for stress to relax by 50% of σA from σmax."
+    finding: "RT50 at 3.0 Hz decreased in D14 C-OP ECTs compared with D14 control ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13) and C-OP tissues (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    values:
+      rt50_cop: {printed: "88.00 ± 9.60", unit: "ms", kind: "mean", group: cop, x: "3.0 Hz", spread: "SD", spread_source: "legend"}
+      rt50_ctrl: {printed: "104.23 ± 6.66", unit: "ms", kind: "mean", group: ctrl, x: "3.0 Hz", spread: "SD", spread_source: "legend"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.001"
+    anchor:
+      quote: "RT50 measured at 3.0 Hz decreased in D14C-OP ECTs compared to controls (88.00 ± 9.60 vs 104.23 ± 6.66 ms, p < 0.001"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_rt50_d28_cop:
+    unit: F4ch
+    measure: "relaxation time to 50% diastolic stress"
+    method: "RT50 calculated at 3.0 Hz electric field pacing from the stress trace"
+    finding: "RT50 decreased further by D28 compared with D14 C-OP ECTs"
+    compares: [d28, cop]
+    n:
+      printed: "C-OP ECTs (n = 15) to a prolonged culture D28 tissues (n = 2)"
+      counts: "ECTs"
+      per_group: {cop: "15", d28: "2"}
+    values:
+      rt50_d28: {printed: "65.60 ± 2.12", unit: "ms", kind: "mean", group: d28, x: "3.0 Hz", spread: "SD", spread_source: "legend"}
+      rt50_cop: {printed: "88.00 ± 9.60", unit: "ms", kind: "mean", group: cop, x: "3.0 Hz", spread: "SD", spread_source: "legend"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.05"
+    anchor:
+      quote: "further decreased by D28 (65.60 ± 2.12, p < 0.05 vs D14 C-OP, Figure 4(d))"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_sf_cop_ctrl:
+    unit: F4ch
+    measure: "stress–frequency relationship"
+    method: "mean active stress at each captured electric field pacing frequency"
+    finding: "D14 C-OP ECTs displayed a less negative stress–frequency relationship than control ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13) and C-OP tissues (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "D14C-OP ECTs displayed a less negative stress–frequency relationship than control ECTs while D28 ECTs displayed the least negative stress–frequency relationship"
+        where: "Results, Force–length and force–frequency testing"
+    anchor:
+      quote: "D14C-OP ECTs displayed a less negative stress–frequency relationship than control ECTs while D28 ECTs displayed the least negative stress–frequency relationship"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_sf_d28_cop:
+    unit: F4ch
+    measure: "stress–frequency relationship"
+    method: "mean active stress at each captured electric field pacing frequency"
+    finding: "D28 ECTs displayed the least negative stress–frequency relationship"
+    compares: [d28, cop]
+    n:
+      printed: "C-OP ECTs (n = 15) to a prolonged culture D28 tissues (n = 2)"
+      counts: "ECTs"
+      per_group: {cop: "15", d28: "2"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "while D28 ECTs displayed the least negative stress–frequency relationship"
+        where: "Results, Force–length and force–frequency testing"
+    anchor:
+      quote: "Stress-frequency curves showed a less negative relationship after C-OP or prolonged culture to D28."
+      where: "Figure 4 legend"
+
+  F4ch_sbb_cop_ctrl:
+    unit: F4ch
+    measure: "beat-to-beat hysteresis"
+    method: "mean beat-to-beat hysteresis over all cycles at each pacing rate"
+    software: "automated software developed in MATLAB"
+    finding: "beat-to-beat hysteresis at higher frequencies was reduced in D14 C-OP ECTs compared with D14 control ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13) and C-OP tissues (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "we noted reduced σbb at higher frequencies in D14C-OP ECTs compared to D14 control ECTs"
+        where: "Results, Force–length and force–frequency testing"
+    anchor:
+      quote: "we noted reduced σbb at higher frequencies in D14C-OP ECTs compared to D14 control ECTs"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_sbb_d28_cop:
+    unit: F4ch
+    measure: "beat-to-beat hysteresis"
+    method: "mean beat-to-beat hysteresis over all cycles at each pacing rate"
+    finding: "beat-to-beat hysteresis was negligible by D28"
+    compares: [d28, cop]
+    n:
+      printed: "C-OP ECTs (n = 15) to a prolonged culture D28 tissues (n = 2)"
+      counts: "ECTs"
+      per_group: {cop: "15", d28: "2"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "Of note, σbb was negligible by D28 (Figure 4(f))."
+        where: "Results, Force–length and force–frequency testing"
+    anchor:
+      quote: "Pacing rate dependent beat-to-beat hysteresis decreased after C-OP and was absent in D28 ECTs."
+      where: "Figure 4 legend"
+
+  F4ch_sigma_a_cop_ctrl:
+    unit: F4ch
+    measure: "mean active stress"
+    method: "stress calculated as force divided by cross-sectional area, from the mean of three diameter measurements at Lmax"
+    software: "automated software developed in MATLAB"
+    definition: "Active stress, σA, is the difference between σmax and σmin."
+    finding: "mean active stress was similar in D14 control and D14 C-OP ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13) and C-OP tissues (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    values:
+      sigma_a_cop: {printed: "0.52 ± 0.27", unit: "mN/mm2", kind: "mean", group: cop, spread: "SD", spread_source: "legend"}
+      sigma_a_ctrl: {printed: "0.72 ± 0.39", unit: "mN/mm2", kind: "mean", group: ctrl, spread: "SD", spread_source: "legend"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p = 0.14"
+    anchor:
+      quote: "ECT σA was similar between D14 control and D14C-OP ECTs (0.72 ± 0.39 vs 0.52 ± 0.27"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_sigma_a_d28_ctrl:
+    unit: F4ch
+    measure: "mean active stress"
+    method: "stress calculated as force divided by cross-sectional area, from the mean of three diameter measurements at Lmax"
+    finding: "mean active stress trended lower for D28 ECTs than for D14 control ECTs"
+    compares: [d28, ctrl]
+    n:
+      printed: "D14 control (n = 13) ... D28 (n = 2)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", d28: "2"}
+    values:
+      sigma_a_d28: {printed: "0.17 ± 0.11", unit: "mN/mm2", kind: "mean", group: d28, spread: "SD", spread_source: "legend"}
+      sigma_a_ctrl: {printed: "0.72 ± 0.39", unit: "mN/mm2", kind: "mean", group: ctrl, spread: "SD", spread_source: "legend"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p = 0.08"
+    anchor:
+      quote: "σA trended lower for D28 ECTs (0.17 ± 0.11, p = 0.08 vs D14 control, Figure 4(g))"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_energy_cop_ctrl:
+    unit: F4ch
+    measure: "normalized systolic energy"
+    method: "systolic stress-time integral at 3 Hz acute electrical pacing, normalized to time and to maximum stress"
+    software: "automated software developed in MATLAB"
+    finding: "normalized systolic energy at 3 Hz decreased in D14 C-OP ECTs compared with D14 control ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 13) and C-OP tissues (n = 15)"
+      counts: "ECTs"
+      per_group: {ctrl: "13", cop: "15"}
+    values:
+      energy_cop: {printed: "0.47 ± 0.03", unit: "J/m3-s", kind: "mean", group: cop, x: "3 Hz", spread: "SD", spread_source: "legend", expressed_as: "normalised"}
+      energy_ctrl: {printed: "0.54 ± 0.02", unit: "J/m3-s", kind: "mean", group: ctrl, x: "3 Hz", spread: "SD", spread_source: "legend", expressed_as: "normalised"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.001"
+    anchor:
+      quote: "significantly decreased in D14C-OP ECTs compared to D14 control ECTs (0.47 ± 0.03 vs 0.54 ± 0.02 J/m3-s, p < 0.001, Figure 4(h))"
+      where: "Results, Force–length and force–frequency testing"
+
+  F4ch_energy_d28_cop:
+    unit: F4ch
+    measure: "normalized systolic energy"
+    method: "systolic stress-time integral at 3 Hz acute electrical pacing, normalized to time and to maximum stress"
+    finding: "normalized systolic energy was lower in D28 ECTs than in D14 C-OP ECTs"
+    compares: [d28, cop]
+    n:
+      printed: "C-OP ECTs (n = 15) to a prolonged culture D28 tissues (n = 2)"
+      counts: "ECTs"
+      per_group: {cop: "15", d28: "2"}
+    values:
+      energy_d28: {printed: "0.41 ± 0.01", unit: "J/m3-s", kind: "mean", group: d28, x: "3 Hz", spread: "SD", spread_source: "legend", expressed_as: "normalised"}
+      energy_cop: {printed: "0.47 ± 0.03", unit: "J/m3-s", kind: "mean", group: cop, x: "3 Hz", spread: "SD", spread_source: "legend", expressed_as: "normalised"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "p < 0.05"
+    anchor:
+      quote: "systolic energy was lower in the more functionally mature D28 ECTs compared to D14C-OP ECTs (0.41 ± 0.01"
+      where: "Results, Force–length and force–frequency testing"
+
+  F5_cm_fraction:
+    unit: F5
+    measure: "cardiomyocyte fraction"
+    method: "percent cTnT-positive nuclei from 40X images of paraffin sections, segmented with the Chan-Vese level set method"
+    software: "Matlab"
+    context:
+      preparation: {value: "paraffin sections"}
+    finding: "D14 control and C-OP ECTs displayed similar CM fractions"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 9) and C-OP (n = 10)"
+      counts: "ECTs"
+      per_group: {ctrl: "9", cop: "10"}
+    values:
+      cm_cop_text: {printed: "48 ± 13", unit: "%", kind: "percent", group: cop, spread: "SD", spread_source: "legend"}
+      cm_ctrl_text: {printed: "50 ± 13", unit: "%", kind: "percent", group: ctrl, spread: "SD", spread_source: "legend"}
+      cm_cop_results: {printed: "48 ± 13", unit: "%", kind: "percent", group: cop, spread: "SD", spread_source: "sentence"}
+      cm_ctrl_results: {printed: "50 ± 13", unit: "%", kind: "percent", group: ctrl, spread: "SD", spread_source: "sentence"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "D14 control and C-OP ECTs displayed similar CM fractions (50 ± 13% vs 48 ± 13%, Figure 5(e))"
+        where: "Results, C-OP does not accelerate structural maturation"
+    anchor:
+      quote: "D14 control and C-OP ECTs displayed similar CM fractions (50 ± 13% vs 48 ± 13%, Figure 5(e))"
+      where: "Results, C-OP does not accelerate structural maturation"
+
+  F5_alignment:
+    unit: F5
+    measure: "alignment concentration"
+    method: "local orientation vectors measured from cTnT-stained whole-mount 3D confocal images"
+    software: "Matlab"
+    definition: "Alignment concentration κ describes the concentration of local orientation vectors around the mean direction."
+    context:
+      preparation: {value: "whole mount"}
+    finding: "CM alignment was similar between D14 control and C-OP ECTs"
+    compares: [cop, ctrl]
+    n:
+      printed: "D14 control (n = 9) and C-OP (n = 10)"
+      counts: "ECTs"
+      per_group: {ctrl: "9", cop: "10"}
+    values:
+      kappa_cop: {printed: "3.42 ± 1.33", unit: "dimensionless", kind: "mean", group: cop, spread: "SD", spread_source: "legend"}
+      kappa_ctrl: {printed: "3.76 ± 1.11", unit: "dimensionless", kind: "mean", group: ctrl, spread: "SD", spread_source: "legend"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "CM alignment was similar between D14 control and C-OP ECTs (κ = 3.76 ± 1.11 vs 3.42 ± 1.33, Figure 5(f))"
+        where: "Results, C-OP does not accelerate structural maturation"
+    anchor:
+      quote: "CM alignment was similar between D14 control and C-OP ECTs (κ = 3.76 ± 1.11 vs 3.42 ± 1.33, Figure 5(f))"
+      where: "Results, C-OP does not accelerate structural maturation"
+
+  F5_transfected_cm:
+    unit: F5
+    measure: "fraction of cardiomyocytes transfected"
+    method: "double-positive cTnT and tdTomato nuclei from 40X images of paraffin sections"
+    software: "Matlab"
+    context:
+      preparation: {value: "paraffin sections"}
+    finding: "20 ± 6% of CM were transfected in D14 C-OP ECTs"
+    groups: [cop]
+    n:
+      printed: "C-OP (n = 10)"
+      counts: "ECTs"
+    values:
+      transfected_cm: {printed: "20 ± 6", unit: "%", kind: "percent", group: cop, spread: "SD", spread_source: "legend"}
+    anchor:
+      quote: "In D14C-OP ECTs, 20 ± 6% of CM were transfected and 67 ± 14% of all transfected cells were CM."
+      where: "Results, C-OP does not accelerate structural maturation"
+
+  F5_transfected_are_cm:
+    unit: F5
+    measure: "fraction of transfected cells that are cardiomyocytes"
+    method: "double-positive cTnT and tdTomato nuclei from 40X images of paraffin sections"
+    software: "Matlab"
+    context:
+      preparation: {value: "paraffin sections"}
+    finding: "67 ± 14% of all transfected cells were CM in D14 C-OP ECTs"
+    groups: [cop]
+    n:
+      printed: "C-OP (n = 10)"
+      counts: "ECTs"
+    values:
+      transfected_are_cm: {printed: "67 ± 14", unit: "%", kind: "percent", group: cop, spread: "SD", spread_source: "legend"}
+    anchor:
+      quote: "In D14C-OP ECTs, 20 ± 6% of CM were transfected and 67 ± 14% of all transfected cells were CM."
+      where: "Results, C-OP does not accelerate structural maturation"
+
+  F5_cm_fraction_rep:
+    unit: F5
+    measure: "cardiomyocyte fraction"
+    method: "percent cTnT-positive nuclei in a representative central paraffin section"
+    context:
+      preparation: {value: "paraffin sections"}
+    finding: "a representative control section showed 54% CM and a representative C-OP section 52% CM"
+    groups: [ctrl, cop]
+    values:
+      cm_rep_ctrl: {printed: "54", unit: "%", kind: "value", group: ctrl, spread: "none"}
+      cm_rep_cop: {printed: "52", unit: "%", kind: "value", group: cop, spread: "none"}
+    anchor:
+      quote: "Representative central paraffin sections of a (b) D14 control ECT showing 54% CM and (c) D14 C-OP ECT showing 52% CM and 13% ChIEF-transfected cells."
+      where: "Figure 5 legend"
+
+  F5_transfected_rep:
+    unit: F5
+    measure: "fraction of ChIEF-transfected cells"
+    method: "percent tdTomato-positive nuclei in a representative central paraffin section"
+    context:
+      preparation: {value: "paraffin sections"}
+    finding: "a representative C-OP section showed 13% ChIEF-transfected cells"
+    groups: [cop]
+    values:
+      transfected_rep: {printed: "13", unit: "%", kind: "value", group: cop, spread: "none"}
+    anchor:
+      quote: "(c) D14 C-OP ECT showing 52% CM and 13% ChIEF-transfected cells."
+      where: "Figure 5 legend"
+
+  F5_alignment_rep:
+    unit: F5
+    measure: "alignment concentration"
+    method: "local orientation vectors of a representative whole-mount sample"
+    context:
+      preparation: {value: "whole mount"}
+    finding: "κ was 3.89 for the representative control sample and 3.46 for the representative C-OP sample"
+    groups: [ctrl, cop]
+    values:
+      kappa_rep_ctrl: {printed: "3.89", unit: "dimensionless", kind: "value", group: ctrl, spread: "none"}
+      kappa_rep_cop: {printed: "3.46", unit: "dimensionless", kind: "value", group: cop, spread: "none"}
+    anchor:
+      quote: "κ for the control sample (h) was 3.89 while the C-OP sample (j) was 3.46."
+      where: "Figure 5 legend"
+
+  F6_cTnT:
+    unit: F6
+    measure: "cTnT mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "cTnT mRNA was not upregulated in D14 C-OP tissues"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "cTnT (Figure 6(a)), SERCA2A (Figure 6(a)), and KCNJ2 (Figure 6(b)) mRNAs, common markers for maturity, were not upregulated in D14C-OP tissues."
+        where: "Results, C-OP upregulates a potassium channel"
+    anchor:
+      quote: "cTnT (Figure 6(a)), SERCA2A (Figure 6(a)), and KCNJ2 (Figure 6(b)) mRNAs, common markers for maturity, were not upregulated in D14C-OP tissues."
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F6_SERCA2A:
+    unit: F6
+    measure: "SERCA2A mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "SERCA2A mRNA was not upregulated in D14 C-OP tissues"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "cTnT (Figure 6(a)), SERCA2A (Figure 6(a)), and KCNJ2 (Figure 6(b)) mRNAs, common markers for maturity, were not upregulated in D14C-OP tissues."
+        where: "Results, C-OP upregulates a potassium channel"
+    anchor:
+      quote: "cTnT (Figure 6(a)), SERCA2A (Figure 6(a)), and KCNJ2 (Figure 6(b)) mRNAs, common markers for maturity, were not upregulated in D14C-OP tissues."
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F6_KCNJ2:
+    unit: F6
+    measure: "KCNJ2 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "KCNJ2 mRNA was not upregulated in D14 C-OP tissues"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "cTnT (Figure 6(a)), SERCA2A (Figure 6(a)), and KCNJ2 (Figure 6(b)) mRNAs, common markers for maturity, were not upregulated in D14C-OP tissues."
+        where: "Results, C-OP upregulates a potassium channel"
+    anchor:
+      quote: "cTnT (Figure 6(a)), SERCA2A (Figure 6(a)), and KCNJ2 (Figure 6(b)) mRNAs, common markers for maturity, were not upregulated in D14C-OP tissues."
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F6_MLC2v_MLC2a:
+    unit: F6
+    measure: "MLC2v/MLC2a ratio"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "the ratio of MLC2v and MLC2a was similar in D14 control and C-OP ECTs"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "The ratio of MLC2v and MLC2a, an indicator of ventricular phenotype development, was also similar."
+        where: "Results, C-OP upregulates a potassium channel"
+    anchor:
+      quote: "The ratio of MLC2v and MLC2a, an indicator of ventricular phenotype development, was also similar."
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F6_MLC2v:
+    unit: F6
+    measure: "MLC2v mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in MLC2v expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_MLC2a:
+    unit: F6
+    measure: "MLC2a mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in MLC2a expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_RYR2:
+    unit: F6
+    measure: "RYR2 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in RYR2 expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_PLN:
+    unit: F6
+    measure: "PLN mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in phospholamban expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_CASQ2:
+    unit: F6
+    measure: "CASQ2 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in calsequestrin 2 expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_ASPH:
+    unit: F6
+    measure: "ASPH mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in aspartate beta-hydroxylase expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_SLC8A1:
+    unit: F6
+    measure: "SLC8A1 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "C-OP did not produce a significant difference in sodium/calcium exchanger 1 expression"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "C-OP did not produce significant differences in expression of contractile- or Ca2+ transient-related genes."
+      where: "Figure 6 legend"
+
+  F6_Cacna1C:
+    unit: F6
+    measure: "Cacna1C mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of Cacna1C was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_Cacna1D:
+    unit: F6
+    measure: "Cacna1D mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of Cacna1D was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_Cacna1G:
+    unit: F6
+    measure: "Cacna1G mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of Cacna1G was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_SCN4A:
+    unit: F6
+    measure: "SCN4A mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of SCN4A was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_SCN5A:
+    unit: F6
+    measure: "SCN5A mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of SCN5A was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_KCNH2:
+    unit: F6
+    measure: "KCNH2 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of KCNH2 was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_KCNJ12:
+    unit: F6
+    measure: "KCNJ12 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of KCNJ12 was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_GJA1:
+    unit: F6
+    measure: "GJA1 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "expression of connexin GJA1 was unchanged after C-OP"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+        where: "Figure 6 legend"
+    anchor:
+      quote: "Expression of all other ion channels and connexin were unchanged after C-OP."
+      where: "Figure 6 legend"
+
+  F6_KCND3:
+    unit: F6
+    measure: "KCND3 mRNA expression"
+    method: "TaqMan Gene Expression Assays on a StepOnePlus Real-time PCR system with 18 S rRNA as endogenous control"
+    finding: "KCND3 was significantly upregulated twofold in D14 C-OP ECTs"
+    compares: [cop, ctrl]
+    n: {printed: "For each gene, 2–4 biological experiments were conducted and qPCR was performed in triplicate", counts: "biological experiments"}
+    values:
+      kcnd3_fold: {printed: "twofold", unit: "fold", kind: "ratio", between: [cop, ctrl], expressed_as: "fold"}
+    stats:
+      test: "unpaired Student's t-test"
+      p: "*p < 0.05"
+    suspected_error:
+      what: "the number of biological replicates is printed three ways"
+      why: "Methods say 2–3 biological replicates, the Figure 6 legend says 2–4 biological experiments, and the Results say biologic triplicates"
+    anchor:
+      quote: "was significantly upregulated twofold in D14C-OP ECTs"
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F7_cTnT_cop:
+    unit: F7
+    measure: "cTnT mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "expression was similar in D14 control and C-OP in the single biological experiment"
+    compares: [cop, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "Expression was similar for all genes in D14 control and C-OP, following the full qPCR study in Figure 3."
+        where: "Figure 7 legend"
+    anchor:
+      quote: "Expression was similar for all genes in D14 control and C-OP, following the full qPCR study in Figure 3."
+      where: "Figure 7 legend"
+
+  F7_MLC2v_MLC2a_d28:
+    unit: F7
+    measure: "MLC2v/MLC2a ratio"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "the MLC2v/MLC2a ratio was increased in the D28 sample"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "The MLC2v/MLC2a was increased in the D28 sample, suggesting a more ventricular phenotype"
+        where: "Figure 7 legend"
+    anchor:
+      quote: "The MLC2v/MLC2a was increased in the D28 sample, suggesting a more ventricular phenotype"
+      where: "Figure 7 legend"
+
+  F7_RYR2_d28:
+    unit: F7
+    measure: "RYR2 mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "RYR2 was increased in the D28 sample"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "while increased RYR2 and SERCA2A and decreased PLN suggest more mature Ca2+ handling"
+        where: "Figure 7 legend"
+    anchor:
+      quote: "while increased RYR2 and SERCA2A and decreased PLN suggest more mature Ca2+ handling"
+      where: "Figure 7 legend"
+
+  F7_SERCA2A_d28:
+    unit: F7
+    measure: "SERCA2A mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "SERCA2A was increased in the D28 sample"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "while increased RYR2 and SERCA2A and decreased PLN suggest more mature Ca2+ handling"
+        where: "Figure 7 legend"
+    anchor:
+      quote: "while increased RYR2 and SERCA2A and decreased PLN suggest more mature Ca2+ handling"
+      where: "Figure 7 legend"
+
+  F7_PLN_d28:
+    unit: F7
+    measure: "PLN mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "phospholamban was decreased in the D28 sample"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "while increased RYR2 and SERCA2A and decreased PLN suggest more mature Ca2+ handling"
+        where: "Figure 7 legend"
+    anchor:
+      quote: "while increased RYR2 and SERCA2A and decreased PLN suggest more mature Ca2+ handling"
+      where: "Figure 7 legend"
+
+  F7_KCND3_cop:
+    unit: F7
+    measure: "KCND3 mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "KCND3 increased in the C-OP sample"
+    compares: [cop, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "The expression of transient outward K+ channel KCND3 increased in both the C-OP and D28 samples"
+        where: "Figure 7 legend"
+    anchor:
+      quote: "The expression of transient outward K+ channel KCND3 increased in both the C-OP and D28 samples"
+      where: "Figure 7 legend"
+
+  F7_KCND3_d28:
+    unit: F7
+    measure: "KCND3 mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "KCND3 increased in the D28 sample"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "The expression of transient outward K+ channel KCND3 increased in both the C-OP and D28 samples"
+        where: "Figure 7 legend"
+    anchor:
+      quote: "The expression of transient outward K+ channel KCND3 increased in both the C-OP and D28 samples"
+      where: "Figure 7 legend"
+
+  F7_Cacna1D_d28:
+    unit: F7
+    measure: "Cacna1D mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "Cacna1D was upregulated in the D28 ECTs"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "Common structural and electrophysiological genes were upregulated in the D28 ECTs from this study: RYR2, SERCA2A, Cacna1D, SCN4A, KCND3"
+        where: "Results, C-OP upregulates a potassium channel"
+    anchor:
+      quote: "Common structural and electrophysiological genes were upregulated in the D28 ECTs from this study: RYR2, SERCA2A, Cacna1D, SCN4A, KCND3"
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F7_SCN4A_d28:
+    unit: F7
+    measure: "SCN4A mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "SCN4A was upregulated in the D28 ECTs"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "Common structural and electrophysiological genes were upregulated in the D28 ECTs from this study: RYR2, SERCA2A, Cacna1D, SCN4A, KCND3"
+        where: "Results, C-OP upregulates a potassium channel"
+    anchor:
+      quote: "Common structural and electrophysiological genes were upregulated in the D28 ECTs from this study: RYR2, SERCA2A, Cacna1D, SCN4A, KCND3"
+      where: "Results, C-OP upregulates a potassium channel"
+
+  F7_ltype_na_cop:
+    unit: F7
+    measure: "L-type calcium and sodium channel mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "L-type Ca2+ and Na+ channel transcripts increased in the D28 sample but not in C-OP ECTs"
+    compares: [cop, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "L-type Ca2+ and Na+ were also increased in the D28 sample, but did not show a similar increase in C-OP ECTs."
+        where: "Figure 7 legend"
+    anchor:
+      quote: "L-type Ca2+ and Na+ were also increased in the D28 sample, but did not show a similar increase in C-OP ECTs."
+      where: "Figure 7 legend"
+
+  F7_ltype_na_d28:
+    unit: F7
+    measure: "L-type calcium and sodium channel mRNA expression"
+    method: "TaqMan Gene Expression Assays, a single biological experiment"
+    finding: "L-type Ca2+ and Na+ channel transcripts were increased in the D28 sample"
+    compares: [d28, ctrl]
+    n: {printed: "a single biological experiment", counts: "biological experiments"}
+    stats: {p: "not stated"}
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "L-type Ca2+ and Na+ were also increased in the D28 sample, but did not show a similar increase in C-OP ECTs."
+        where: "Figure 7 legend"
+    anchor:
+      quote: "L-type Ca2+ and Na+ were also increased in the D28 sample, but did not show a similar increase in C-OP ECTs."
+      where: "Figure 7 legend"
+
+  TXT1_cm_percent:
+    unit: TXT1
+    measure: "cardiomyocyte percentage of the cell mixture"
+    method: "cell surface antigen staining analysed on a BD LSRII flow cytometer with DIVA software"
+    software: "DIVA"
+    finding: "the final average CM concentration was 60% for D14 control, 56% for D14 C-OP and 69% for D28 tissues"
+    groups: [ctrl, cop, d28]
+    values:
+      cm_ctrl: {printed: "60", unit: "%", kind: "percent", group: ctrl, spread: "none"}
+      cm_cop: {printed: "56", unit: "%", kind: "percent", group: cop, spread: "none"}
+      cm_d28: {printed: "69", unit: "%", kind: "percent", group: d28, spread: "none"}
+    anchor:
+      quote: "The final average CM/EC/MC% concentration was 60%/13%/12% for D14 control tissues, 56%/11%/14% for D14 C-OP tissues, and 69%/6%/12% for D28 tissues."
+      where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+
+  TXT1_ec_percent:
+    unit: TXT1
+    measure: "endothelial cell percentage of the cell mixture"
+    method: "cell surface antigen staining analysed on a BD LSRII flow cytometer with DIVA software"
+    software: "DIVA"
+    finding: "the final average EC concentration was 13% for D14 control, 11% for D14 C-OP and 6% for D28 tissues"
+    groups: [ctrl, cop, d28]
+    values:
+      ec_ctrl: {printed: "13", unit: "%", kind: "percent", group: ctrl, spread: "none"}
+      ec_cop: {printed: "11", unit: "%", kind: "percent", group: cop, spread: "none"}
+      ec_d28: {printed: "6", unit: "%", kind: "percent", group: d28, spread: "none"}
+    anchor:
+      quote: "The final average CM/EC/MC% concentration was 60%/13%/12% for D14 control tissues, 56%/11%/14% for D14 C-OP tissues, and 69%/6%/12% for D28 tissues."
+      where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+
+  TXT1_mc_percent:
+    unit: TXT1
+    measure: "mural cell percentage of the cell mixture"
+    method: "cell surface antigen staining analysed on a BD LSRII flow cytometer with DIVA software"
+    software: "DIVA"
+    finding: "the final average MC concentration was 12% for D14 control, 14% for D14 C-OP and 12% for D28 tissues"
+    groups: [ctrl, cop, d28]
+    values:
+      mc_ctrl: {printed: "12", unit: "%", kind: "percent", group: ctrl, spread: "none"}
+      mc_cop: {printed: "14", unit: "%", kind: "percent", group: cop, spread: "none"}
+      mc_d28: {printed: "12", unit: "%", kind: "percent", group: d28, spread: "none"}
+    anchor:
+      quote: "The final average CM/EC/MC% concentration was 60%/13%/12% for D14 control tissues, 56%/11%/14% for D14 C-OP tissues, and 69%/6%/12% for D28 tissues."
+      where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+
+  TXT2_transfection_efficiency:
+    unit: TXT2
+    measure: "transfection efficiency"
+    method: "pilot dose-transfection experiments with several AAV constructs and transfection doses"
+    finding: "an MOI of 500 gave at least 20% transfection efficiency without cell death"
+    groups: [pilot]
+    values:
+      efficiency: {printed: "at least 20%", unit: "%", kind: "percent", group: pilot, spread: "none"}
+    anchor:
+      quote: "based on pilot dose-transfection efficiency experiments that resulted in at least 20% transfection efficiency without cell death"
+      where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+
+  TXT2_op_capture:
+    unit: TXT2
+    measure: "optical pacing capture"
+    method: "pilot dose-transfection experiments with several AAV constructs and transfection doses"
+    finding: "an MOI of 500 resulted in 100% optical pacing capture"
+    groups: [pilot]
+    values:
+      capture: {printed: "100%", unit: "%", kind: "percent", group: pilot, spread: "none"}
+    anchor:
+      quote: "without cell death and resulted in 100% OP capture"
+      where: "Materials and methods, Construction of optogenetic human-iPSC derived ECTs"
+
+  TXT3_260_280:
+    unit: TXT3
+    measure: "260/280 ratio of RNA samples"
+    method: "RNA quality and quantity measured with the NanoDrop ND-2000"
+    finding: "260/280 ratios of RNA samples were approximately 2.00"
+    groups: [rna]
+    values:
+      ratio_260_280: {printed: "approximately 2.00", unit: "dimensionless", kind: "value", group: rna, spread: "none"}
+    anchor:
+      quote: "Both 260/280 and 260/230 ratios of RNA samples were approximately 2.00."
+      where: "Materials and methods, Real-time quantitative polymerase chain reaction"
+
+  TXT3_260_230:
+    unit: TXT3
+    measure: "260/230 ratio of RNA samples"
+    method: "RNA quality and quantity measured with the NanoDrop ND-2000"
+    finding: "260/230 ratios of RNA samples were approximately 2.00"
+    groups: [rna]
+    values:
+      ratio_260_230: {printed: "approximately 2.00", unit: "dimensionless", kind: "value", group: rna, spread: "none"}
+    anchor:
+      quote: "Both 260/280 and 260/230 ratios of RNA samples were approximately 2.00."
+      where: "Materials and methods, Real-time quantitative polymerase chain reaction"
+claims:
+
+  c_abs_immaturity:
+    kind: literature
+    quote: "The immaturity of human induced pluripotent stem cell derived engineered cardiac tissues limits their ability to regenerate damaged myocardium and to serve as robust in vitro models"
+    where: "Abstract"
+    scope: "hiPSC engineered cardiac tissues in general"
+    direction: "not stated"
+    strength: "limits"
+
+  c_abs_conditioning:
+    kind: literature
+    quote: "Several chronic biomimetic conditioning protocols, including mechanical stretch, perfusion, and/or electrical stimulation promote engineered cardiac tissue maturation but have significant technical limitations."
+    where: "Abstract"
+    scope: "published conditioning protocols"
+    direction: "not stated"
+    strength: "promote, significant technical limitations"
+
+  c_abs_transfect:
+    kind: stated
+    quote: "We designed proof-of-principle experiments to successfully transfect human induced pluripotent stem cell derived engineered cardiac tissues with a desensitization resistant, chimeric channelrhodopsin protein"
+    where: "Abstract"
+    scope: "h-iPSC ECTs transfected with AAV1/2-CAG-oChIEF-tdTomato at MOI 500"
+    direction: "not stated"
+    strength: "successfully"
+    rests_on: [F5_transfected_cm, F5_transfected_are_cm, F5_transfected_rep, TXT2_transfection_efficiency, F4ab_patch]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_abs_ep:
+    kind: stated
+    quote: "Chronically optically paced resulted in improved engineered cardiac tissue electrophysiological properties"
+    where: "Abstract"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "improved"
+    strength: "resulted in"
+    rests_on: [F4ch_mcr_cop_ctrl, F4ch_rt50_cop_ctrl, F4ch_energy_cop_ctrl, F4ch_sbb_cop_ctrl, F4ch_intrinsic_rate]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "the measures are capture rate and contractile mechanics; no electrophysiological recording is made beyond the proof-of-principle patch clamp"
+
+  c_abs_genes:
+    kind: stated
+    quote: "and subtle changes in the expression of some cardiac relevant genes"
+    where: "Abstract"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "changes"
+    strength: "subtle"
+    rests_on: [F6_KCND3]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: "the number of biological replicates is printed as 2–3 (Methods), 2–4 (legend) and triplicates (Results)"
+
+  c_abs_force:
+    kind: stated
+    quote: "though active force generation and histology were unchanged"
+    where: "Abstract"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "unchanged"
+    asserts_direction: none
+    strength: "unchanged"
+    rests_on: [F4ch_sigma_a_cop_ctrl, F5_cm_fraction, F5_alignment]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "'unchanged' is asserted from non-significant differences (p = 0.14 for active stress; no test printed for the histology measures)"
+
+  c_abs_feasible:
+    kind: stated
+    quote: "These results validate the feasibility of a novel chronically optically paced paradigm to explore non-invasive and scalable optically paced–induced engineered cardiac tissue maturation strategies."
+    where: "Abstract"
+    scope: "the optical pacing paradigm as a whole"
+    direction: "not stated"
+    strength: "validate the feasibility, scalable"
+    rests_on: [F4ab_capture, F4ab_patch, F4ch_mcr_cop_ctrl, F4ch_rt50_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "scalability is argued, not measured; one LED array and 15 tissues are shown"
+
+  c_t1_transfection:
+    kind: stated
+    quote: "ChIEF transfection of h-iPSC-derived CMs within ECTs successfully results in acute and C-OP"
+    where: "Results, section title"
+    scope: "D14 C-OP ECTs"
+    direction: "not stated"
+    strength: "successfully"
+    rests_on: [F4ab_patch, F4ab_capture, F5_transfected_cm, TXT2_op_capture]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_t2_functional:
+    kind: stated
+    quote: "Force–length and force–frequency testing of C-OP h-iPSC ECTs confirm functional maturation"
+    where: "Results, section title"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "maturation"
+    strength: "confirm"
+    rests_on: [F4ch_mcr_cop_ctrl, F4ch_rt50_cop_ctrl, F4ch_sf_cop_ctrl, F4ch_sbb_cop_ctrl, F4ch_energy_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: does not follow
+    note: "no force–length result is reported; length enters only as the determination of Lmax in the methods"
+
+  c_t3_structural:
+    kind: stated
+    quote: "C-OP does not accelerate structural maturation"
+    where: "Results, section title"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "no change"
+    asserts_direction: none
+    strength: "does not"
+    rests_on: [F5_cm_fraction, F5_alignment]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "no test is printed for either structural measure, so 'does not accelerate' rests on similarity of two means"
+
+  c_t4_kcnd3:
+    kind: stated
+    quote: "C-OP upregulates a potassium channel that contributes to cardiac repolarization"
+    where: "Results, section title"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "up"
+    asserts_direction: up
+    strength: "upregulates"
+    rests_on: [F6_KCND3]
+    cites: [r63]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+
+  c_mcr_higher:
+    kind: stated
+    quote: "Both the D14C-OP and D28 ECTs achieved higher electric field paced MCRs versus D14 control ECTs"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP and D28 ECTs versus D14 control ECTs"
+    direction: "up"
+    asserts_direction: up
+    strength: "achieved higher"
+    rests_on: [F4ch_mcr_cop_ctrl, F4ch_mcr_d28_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "the D28 arm rests on n = 2 tissues"
+
+  c_mcr_maturation:
+    kind: stated
+    quote: "indicating improved ECT maturation after C-OP"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "improved"
+    strength: "indicating"
+    rests_on: [F4ch_mcr_cop_ctrl]
+    cites: [r33, r12]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "maturation itself is not measured; capture rate is taken as its proxy from the cited work"
+
+  c_rt50:
+    kind: stated
+    quote: "RT50 measured at 3.0 Hz decreased in D14C-OP ECTs compared to controls"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP ECTs versus D14 control ECTs at 3.0 Hz"
+    direction: "down"
+    asserts_direction: down
+    strength: "decreased"
+    rests_on: [F4ch_rt50_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_stress_frequency:
+    kind: stated
+    quote: "D14C-OP ECTs displayed a less negative stress–frequency relationship than control ECTs"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "less negative"
+    asserts_direction: up
+    strength: "displayed"
+    rests_on: [F4ch_sf_cop_ctrl]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: "no test or value is printed for the stress–frequency curves"
+
+  c_hysteresis:
+    kind: stated
+    quote: "we noted reduced σbb at higher frequencies in D14C-OP ECTs compared to D14 control ECTs"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP ECTs versus D14 control ECTs at higher pacing frequencies"
+    direction: "down"
+    asserts_direction: down
+    strength: "reduced"
+    rests_on: [F4ch_sbb_cop_ctrl]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: "no test or value is printed for beat-to-beat hysteresis"
+
+  c_sigma_a_similar:
+    kind: stated
+    quote: "ECT σA was similar between D14 control and D14C-OP ECTs"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "no change"
+    asserts_direction: none
+    strength: "similar"
+    rests_on: [F4ch_sigma_a_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_sigma_a_d28:
+    kind: stated
+    quote: "σA trended lower for D28 ECTs"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D28 ECTs versus D14 control ECTs"
+    direction: "down"
+    asserts_direction: down
+    strength: "trended"
+    rests_on: [F4ch_sigma_a_d28_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "n = 2 D28 tissues"
+
+  c_energy:
+    kind: stated
+    quote: "Systolic energy, a normalized contractile efficiency index calculated at 3 Hz, significantly decreased in D14C-OP ECTs compared to D14 control ECTs"
+    where: "Results, Force–length and force–frequency testing"
+    scope: "D14 C-OP ECTs versus D14 control ECTs at 3 Hz"
+    direction: "down"
+    asserts_direction: down
+    strength: "significantly decreased"
+    rests_on: [F4ch_energy_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_cm_fraction:
+    kind: stated
+    quote: "D14 control and C-OP ECTs displayed similar CM fractions"
+    where: "Results, C-OP does not accelerate structural maturation"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "no change"
+    asserts_direction: none
+    strength: "similar"
+    rests_on: [F5_cm_fraction]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: "no test is printed"
+
+  c_alignment:
+    kind: stated
+    quote: "CM alignment was similar between D14 control and C-OP ECTs"
+    where: "Results, C-OP does not accelerate structural maturation"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "no change"
+    asserts_direction: none
+    strength: "similar"
+    rests_on: [F5_alignment]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: "no test is printed"
+
+  c_kcnd3_only:
+    kind: stated
+    quote: "the KCND3 mRNA was the only gene significantly upregulated in D14C-OP ECTs"
+    where: "Discussion"
+    scope: "the genes assayed in D14 C-OP versus D14 control ECTs"
+    direction: "up"
+    asserts_direction: up
+    strength: "the only gene"
+    rests_on: [F6_KCND3, F6_cTnT, F6_SERCA2A, F6_KCNJ2, F6_MLC2v_MLC2a, F6_RYR2, F6_PLN, F6_CASQ2, F6_ASPH, F6_SLC8A1, F6_Cacna1C, F6_Cacna1D, F6_Cacna1G, F6_SCN4A, F6_SCN5A, F6_KCNH2, F6_KCNJ12, F6_GJA1]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+
+  c_d28_genes:
+    kind: stated
+    quote: "Common structural and electrophysiological genes were upregulated in the D28 ECTs from this study: RYR2, SERCA2A, Cacna1D, SCN4A, KCND3"
+    where: "Results, C-OP upregulates a potassium channel"
+    scope: "the single D28 biological replicate"
+    direction: "up"
+    asserts_direction: up
+    strength: "were upregulated"
+    rests_on: [F7_RYR2_d28, F7_SERCA2A_d28, F7_Cacna1D_d28, F7_SCN4A_d28, F7_KCND3_d28]
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: follows
+      scope: follows
+      replication: does not follow
+      strength: overstated
+      presence: follows
+    note: "a single biological experiment, which the paper itself says is not sufficient for statistical analysis"
+
+  c_disc_express:
+    kind: stated
+    quote: "Our findings show that CMs within h-iPSC ECTs effectively express ChIEF after AAV transfection"
+    where: "Discussion"
+    scope: "D14 C-OP ECTs"
+    direction: "not stated"
+    strength: "effectively"
+    restates: c_abs_transfect
+    rests_on: [F5_transfected_cm, F5_transfected_are_cm, F5_transfected_rep]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_disc_5hz:
+    kind: stated
+    quote: "Optical stimulation during force testing could pace tissues to a maximum rate of 5 Hz, demonstrating comparable excitation–contraction coupling to ES."
+    where: "Discussion"
+    scope: "a subset of D14 C-OP ECTs (n = 6)"
+    direction: "not stated"
+    strength: "comparable"
+    rests_on: [F4ab_optical_mcr, F4ch_mcr_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "the paper itself notes in the next sentence that ES gave higher capture rates than acute optical stimulation"
+
+  c_disc_mcr:
+    kind: stated
+    quote: "C-OP increased both ECT MCR and intrinsic beat rate (Figure 4(c))."
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "up"
+    asserts_direction: up
+    strength: "increased"
+    restates: c_mcr_higher
+    rests_on: [F4ch_mcr_cop_ctrl, F4ch_intrinsic_rate]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: "no value or P is printed for the intrinsic beat rate"
+
+  c_disc_sbb:
+    kind: stated
+    quote: "C-OP also decreased σbb, RT50, and systolic energy consumption"
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "down"
+    asserts_direction: down
+    strength: "decreased"
+    restates: c_hysteresis
+    rests_on: [F4ch_sbb_cop_ctrl]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_disc_rt50:
+    kind: stated
+    quote: "C-OP also decreased σbb, RT50, and systolic energy consumption (Figure 1(d), (f) and (h))."
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "down"
+    asserts_direction: down
+    strength: "decreased"
+    restates: c_rt50
+    rests_on: [F4ch_rt50_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_disc_energy:
+    kind: stated
+    quote: "D14C-OP and D28 ECTs used less systolic energy during contraction at 3 Hz pacing as indicated by decreased stress-time integral values."
+    where: "Discussion"
+    scope: "D14 C-OP and D28 ECTs versus D14 control ECTs at 3 Hz"
+    direction: "down"
+    asserts_direction: down
+    strength: "used less"
+    restates: c_energy
+    rests_on: [F4ch_energy_cop_ctrl, F4ch_energy_d28_cop]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "the D28 arm rests on n = 2 tissues"
+
+  c_disc_alignment:
+    kind: stated
+    quote: "Alignment analysis of 3D whole mount images showed C-OP did not alter cell orientation"
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "no change"
+    asserts_direction: none
+    strength: "did not alter"
+    restates: c_alignment
+    rests_on: [F5_alignment]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+
+  c_disc_ecc:
+    kind: stated
+    quote: "Thus, we propose that the decreased hysteresis indicates maturation of excitation–contraction coupling."
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "maturation"
+    strength: "we propose"
+    rests_on: [F4ch_sbb_cop_ctrl]
+    cites: [r66]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: "excitation–contraction coupling is not measured; the link is taken from a modelling study"
+
+  c_disc_stress_maintained:
+    kind: stated
+    quote: "C-OP ECTs maintained σA, as a function of increasing pacing frequency, better than control constructs, but not to the same degree as D28"
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control and D28 ECTs"
+    direction: "up"
+    asserts_direction: up
+    strength: "better than"
+    restates: c_stress_frequency
+    rests_on: [F4ch_sf_cop_ctrl, F4ch_sf_d28_cop]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "no test or value is printed for the stress–frequency curves; the D28 arm rests on n = 2"
+
+  c_disc_first:
+    kind: literature
+    quote: "After extensive review, this is the first successful attempt at C-OP of engineered ECTs consisting of h-iPSC cardiac cells."
+    where: "Discussion"
+    scope: "the published literature"
+    direction: "not stated"
+    strength: "the first"
+
+  c_disc_sum_transfect:
+    kind: stated
+    quote: "Our results show effective ChIEF transfection of h-iPSC-CM, demonstrate an LED-based optical pacing protocol for ECTs, and provide evidence of functional ECT maturation in response to C-OP."
+    where: "Discussion"
+    scope: "D14 C-OP ECTs"
+    direction: "not stated"
+    strength: "effective"
+    restates: c_disc_express
+    rests_on: [F5_transfected_cm, F5_transfected_are_cm]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_disc_sum_led:
+    kind: stated
+    quote: "demonstrate an LED-based optical pacing protocol for ECTs"
+    where: "Discussion"
+    scope: "the custom LED array used from D7 to D14"
+    direction: "not stated"
+    strength: "demonstrate"
+    rests_on: [F4ab_capture, TXT2_op_capture]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_disc_sum_maturation:
+    kind: stated
+    quote: "provide evidence of functional ECT maturation in response to C-OP"
+    where: "Discussion"
+    scope: "D14 C-OP ECTs versus D14 control ECTs"
+    direction: "maturation"
+    strength: "provide evidence"
+    restates: c_abs_ep
+    rests_on: [F4ch_mcr_cop_ctrl, F4ch_rt50_cop_ctrl, F4ch_energy_cop_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  c_att_spheroid:
+    kind: attributed
+    quote: "This result differs from an ES study of h-iPSC derived cardiac spheroids that showed a decrease in spontaneous beating rate"
+    where: "Discussion"
+    scope: "a published electrical stimulation study of hiPSC cardiac spheroids"
+    direction: "down"
+    strength: "showed"
+    cites: [r36]
+
+  c_att_embryoid:
+    kind: attributed
+    quote: "our findings are consistent with a study of mouse-derived cardiac embryoid bodies in which spontaneous beating increased in response to ES"
+    where: "Discussion"
+    scope: "a published study of mouse cardiac embryoid bodies"
+    direction: "up"
+    strength: "consistent with"
+    cites: [r3]
+
+  c_att_force15:
+    kind: attributed
+    quote: "The neutral response of σA to C-OP contrasts with chronic ES, which has been noted to increase active force by 1.5 times."
+    where: "Discussion"
+    scope: "a published chronic electrical stimulation study"
+    direction: "up"
+    strength: "1.5 times"
+    cites: [r30]
+
+  c_att_kv43:
+    kind: attributed
+    quote: "overexpression of Kv4.3 in isolated guinea pig myocytes decreased membrane potential during the plateau phase and shortened action potential duration"
+    where: "Discussion"
+    scope: "isolated guinea pig myocytes in a published study"
+    direction: "down"
+    strength: "decreased, shortened"
+    cites: [r67]
+citations:
+  r3:
+    label: "3"
+    text: "Ahadian S, Yamada S, Ramon-Azcon J, et al. Hybrid hydrogel-aligned carbon nanotube scaffolds to enhance cardiac differentiation of embryoid bodies. Acta Biomater 2016."
+    year: "2016"
+    purpose: [attributes_finding]
+    anchor: {quote: "our findings are consistent with a study of mouse-derived cardiac embryoid bodies in which spontaneous beating increased in response to ES", where: "Discussion"}
+  r10:
+    label: "10"
+    text: "Masumoto H, Nakane T, Tinney JP, et al. The myocardial regenerative potential of three-dimensional engineered cardiac tissues composed of multiple human iPS cell-derived cardiovascular cell lineages. Sci Rep 2016."
+    year: "2016"
+    purpose: [borrows_method]
+    anchor: {quote: "We suspended each cell mixture in culture medium (Modified Dulbecco’s Essential Medium, Invitrogen) containing 20% FBS (Invitrogen) as previously described.10", where: "Materials and methods"}
+  r12:
+    label: "12"
+    text: "Nakane T, Masumoto H, Tinney JP, et al. Impact of cell composition and geometry on human induced pluripotent stem cells-derived engineered cardiac tissue. Sci Rep 2017."
+    year: "2017"
+    purpose: [borrows_method, attributes_finding]
+    anchor: {quote: "We performed qPCR as described in our previous work.12", where: "Materials and methods"}
+  r18:
+    label: "18"
+    text: "Tobita K, Liu LJ, Janczewski AM, et al. Engineered early embryonic cardiac tissue retains proliferative and contractile properties of developing embryonic myocardium. Am J Physiol Heart Circ Physiol 2006."
+    year: "2006"
+    purpose: [borrows_method]
+    anchor: {quote: "and pacing electrodes (model 801 C, Aurora Scientific, Aurora, Ontario, Canada).18", where: "Materials and methods, Force testing"}
+  r21:
+    label: "21"
+    text: "Godier-Furnemont AF, Tiburcy M, Wagner E, et al. Physiologic force-frequency response in engineered heart muscle by electromechanical stimulation. Biomaterials 2015."
+    year: "2015"
+    purpose: [attributes_finding]
+    anchor: {quote: "ES studies have shown an improvement in relaxation time similar to our result following C-OP.21", where: "Discussion"}
+  r22:
+    label: "22"
+    text: "Jacob R, Just H and Holubarsch C (eds). Cardiac energetics: basic mechanisms and clinical implications. Heidelberg; Steinkopff-Verlag, 1987."
+    year: "1987"
+    purpose: [borrows_method]
+    anchor: {quote: "The stress-time integral relates to energy consumption during contraction.22", where: "Discussion"}
+  r23:
+    label: "23"
+    text: "Han JC, Taberner AJ, Tran K, et al. Relating components of pressure-volume area in Suga's formulation of cardiac energetics to components of the stress-time integral. J Appl Physiol 2012."
+    year: "2012"
+    purpose: [borrows_method]
+    anchor: {quote: "Systolic energy is related to the stress-time integral, similar to pressure-volume area.23", where: "Materials and methods, Force testing"}
+  r30:
+    label: "30"
+    text: "Hirt MN, Boeddinghaus J, Mitchell A, et al. Functional improvement and maturation of rat and human engineered heart tissue by chronic electrical stimulation. J Mol Cell Cardiol 2014."
+    doi: "10.1016/j.yjmcc.2014.05.009"
+    year: "2014"
+    purpose: [attributes_finding, borrows_value]
+    anchor: {quote: "The neutral response of σA to C-OP contrasts with chronic ES, which has been noted to increase active force by 1.5 times.", where: "Discussion"}
+  r33:
+    label: "33"
+    text: "Nunes SS, Miklas JW, Liu J, et al. Biowire: a platform for maturation of human pluripotent stem cell-derived cardiomyocytes. Nat Methods 2013."
+    year: "2013"
+    purpose: [attributes_finding]
+    anchor: {quote: "MCR is an integrated measure of CM maturation and higher capture rates correlate with increased connexin-43 expression and potassium channel expression.12,33", where: "Discussion"}
+  r36:
+    label: "36"
+    text: "Richards DJ, Tan Y, Coyle R, et al. Nanowires and electrical stimulation synergistically improve functions of hiPSC cardiac spheroids. Nano Lett 2016."
+    year: "2016"
+    purpose: [attributes_finding]
+    anchor: {quote: "This result differs from an ES study of h-iPSC derived cardiac spheroids that showed a decrease in spontaneous beating rate", where: "Discussion"}
+  r47:
+    label: "47"
+    text: "Abilez OJ. Cardiac optogenetics. Conf Proc IEEE Eng Med Biol Soc 2012."
+    year: "2012"
+    purpose: [attributes_finding]
+    anchor: {quote: "consistent with a previously published study that showed efficient expression of ChR in h-iPSC-CMs.47", where: "Discussion"}
+  r52:
+    label: "52"
+    text: "Lin JY. A user's guide to channelrhodopsin variants: features, limitations and future developments. Exp Physiol 2011."
+    year: "2011"
+    purpose: [attributes_finding]
+    anchor: {quote: "we chose an AAV1 vector because of its safety and efficient transfection of h-iPSC-CMs.52,64,65", where: "Discussion"}
+  r55:
+    label: "55"
+    text: "Zhang J, Klos M, Wilson GF, et al. Extracellular matrix promotes highly efficient cardiac differentiation of human pluripotent stem cells: the matrix sandwich method. Circ Res 2012."
+    year: "2012"
+    purpose: [borrows_method]
+    anchor: {quote: "and 10 ng/mL hbFGF at d1 for 2 or 4 days with no medium change.55", where: "Materials and methods"}
+  r56:
+    label: "56"
+    text: "Bickford ME, Zhou N, Krahe TE, et al. Retinal and tectal 'driver-like' inputs converge in the shell of the mouse dorsal lateral geniculate nucleus. J Neurosci 2015."
+    year: "2015"
+    purpose: [borrows_method]
+    anchor: {quote: "A limited number of proof of principle patch clamp recordings were performed as previously described.56", where: "Materials and methods, Patch clamp"}
+  r57:
+    label: "57"
+    text: "Clendenon SG, Young PA, Ferkowicz M, et al. Deep tissue fluorescent imaging in scattering specimens using confocal microscopy. Microsc Microanal 2011."
+    year: "2011"
+    purpose: [borrows_method]
+    anchor: {quote: "We cleared ECTs in 53% benzyl alcohol, 45% glycerol, and 2% 1,4-diazabicyclo[2.2.2]octane (DABCO)57 for 2 h", where: "Materials and methods, Whole mount tissue immunofluorescence staining"}
+  r58:
+    label: "58"
+    text: "Kowalski WJ, Yuan F, Nakane T, et al. Quantification of cardiomyocyte alignment from three-dimensional (3D) confocal microscopy of engineered tissue. Microsc Microanal 2017."
+    doi: "10.1017/S1431927617000666"
+    year: "2017"
+    purpose: [borrows_method]
+    anchor: {quote: "3D images based on our previous method.58", where: "Materials and methods, Image acquisition and analyses"}
+  r59:
+    label: "59"
+    text: "Chan TF and Vese LA. Active contours without edges. IEEE Trans Image Process 2001."
+    year: "2001"
+    purpose: [borrows_method]
+    anchor: {quote: "We segmented the DAPI, cTnT, and tdTomato channels separately using the Chan-Vese level set method.59", where: "Materials and methods, Image acquisition and analyses"}
+  r60:
+    label: "60"
+    text: "Sternberg SR. Biomedical image-processing. Computer 1983."
+    year: "1983"
+    purpose: [borrows_method]
+    anchor: {quote: "we preprocessed the DAPI channel with a rolling ball background subtraction60", where: "Materials and methods, Image acquisition and analyses"}
+  r61:
+    label: "61"
+    text: "Zuiderveld K. Contrast limited histogram equalization. In: Graphic gems IV. San Diego: Academic Press, 1994."
+    year: "1994"
+    purpose: [borrows_method]
+    anchor: {quote: "the cTnT and tdTomato channels with contrast-limited adaptive histogram equalization.61", where: "Materials and methods, Image acquisition and analyses"}
+  r62:
+    label: "62"
+    text: "Mouelhi A, Sayadi M and Fnaiech F. Automatic segmentation of clustered breast cancer cells using watershed and concave vertex graph. CCCA 2011."
+    year: "2011"
+    purpose: [borrows_method]
+    anchor: {quote: "we separated individual nuclei using a watershed and vertex graph algorithm.62", where: "Materials and methods, Image acquisition and analyses"}
+  r63:
+    label: "63"
+    text: "Sartiani L, Bettiol E, Stillitano F, et al. Developmental changes in cardiomyocytes differentiated from human embryonic stem cells: a molecular and electrophysiological approach. Stem Cells 2007."
+    year: "2007"
+    purpose: [borrows_value]
+    anchor: {quote: "KCND3, a transcript encoding the Kv4.3 ion channel responsible for the transient outward potassium current (Ito)63", where: "Results, C-OP upregulates a potassium channel"}
+  r64:
+    label: "64"
+    text: "Zsebo K, Yaroshinsky A, Rudy JJ, et al. Long-term effects of AAV1/SERCA2A gene transfer in patients with severe heart failure. Circ Res 2014."
+    year: "2014"
+    purpose: [attributes_finding]
+    anchor: {quote: "we chose an AAV1 vector because of its safety and efficient transfection of h-iPSC-CMs.52,64,65", where: "Discussion"}
+  r65:
+    label: "65"
+    text: "Guan X, Wang Z and Czerniecki S. Use of adeno-associated virus to enrich cardiomyocytes derived from human stem cells. Hum Gene Ther Clin Dev 2015."
+    year: "2015"
+    purpose: [attributes_finding]
+    anchor: {quote: "we chose an AAV1 vector because of its safety and efficient transfection of h-iPSC-CMs.52,64,65", where: "Discussion"}
+  r66:
+    label: "66"
+    text: "Sato D, Shiferaw Y, Garfinkel A, et al. Spatially discordant alternans in cardiac tissue: role of calcium cycling. Circ Res 2006."
+    year: "2006"
+    purpose: [attributes_finding]
+    anchor: {quote: "Mathematical modeling demonstrates hysteresis occurs due to out-ofphase action potentials and calcium cycling.66", where: "Discussion"}
+  r67:
+    label: "67"
+    text: "Hoppe UC, Marban E and Johns DC. Molecular dissection of cardiac repolarization by in vivo Kv4.3 gene transfer. J Clin Invest 2000."
+    year: "2000"
+    purpose: [attributes_finding]
+    anchor: {quote: "overexpression of Kv4.3 in isolated guinea pig myocytes decreased membrane potential during the plateau phase and shortened action potential duration", where: "Discussion"}
+
+cross_references:
+  - cited: "Figure 1(a) and (b)"
+    shows: "the patch clamp recording and the acute optical pacing stress trace are Figure 4(a) and (b); Figure 1 shows the ECT formation and C-OP protocol"
+    anchor: {quote: "Acute optical stimulation during patch clamp and force testing demonstrated action potential generation and contraction in response to light excitation (Figure 1(a) and (b)).", where: "Discussion"}
+  - cited: "Figures 1 and 5(b)"
+    shows: "the significant results of C-OP are in Figure 4; Figure 1 is the protocol and Figure 5(b) a representative control section"
+    anchor: {quote: "These three properties exhibited utility as demonstrated by the significant results of C-OP (Figures 1 and 5(b)).", where: "Discussion"}
+  - cited: "Figure 1(d), (f) and (h)"
+    shows: "RT50, beat-to-beat hysteresis and systolic energy are Figure 4(d), (f) and (h)"
+    anchor: {quote: "C-OP also decreased σbb, RT50, and systolic energy consumption (Figure 1(d), (f) and (h)).", where: "Discussion"}
+  - cited: "Figure 4(h) and (j)"
+    shows: "the local CM orientations and their spherical histograms are Figure 5(h) and (j); Figure 4(h) is systolic energy"
+    anchor: {quote: "Alignment analysis of 3D whole mount images showed C-OP did not alter cell orientation (Figure 4(h) and (j)).", where: "Discussion"}
+  - cited: "Figures 5(a) and 7(a)"
+    shows: "the RNA analysis of calcium handling genes is Figure 6(a); Figure 5(a) is a photograph of an ECT"
+    anchor: {quote: "RNA analysis did not reveal significant upregulation of calcium handling structures to explain σA preservation, unlike D28 ECTs (Figures 5(a) and 7(a)).", where: "Discussion"}
+  - cited: "Figure 3"
+    shows: "the full qPCR study is Figure 6; Figure 3 is the analysis of ECT performance"
+    anchor: {quote: "Expression was similar for all genes in D14 control and C-OP, following the full qPCR study in Figure 3.", where: "Figure 7 legend"}
+context_anchors:
+  - field: cell_line
+    value: "201B6"
+    anchor: {quote: "We generated ECTs from h-iPSCs (4-factor (Oct3/4, Sox2, Klf4, and c-Myc) line 201B6) produced at the Center for iPS Cell Research and Application", where: "Materials and methods"}
+  - field: differentiation_factors
+    value: "Activin A + Wnt3a"
+    anchor: {quote: "supplemented with 100 ng/mL Activin A (R&D, Minneapolis, MN) and 100 ng/mL Wnt3a (R&D) for 24 h (differentiation day 0; d0)", where: "Materials and methods"}
+  - field: differentiation_factors.added_at_d1
+    value: "BMP4 + hbFGF"
+    anchor: {quote: "added 10 ng/mL human bone morphogenetic protein 4 (BMP4; R&D) and 10 ng/mL hbFGF at d1 for 2 or 4 days with no medium change", where: "Materials and methods"}
+  - field: differentiation_factors.added_at_d5
+    value: "VEGF165"
+    anchor: {quote: "we refreshed the RPMI + B27 culture medium at d5, supplemented with VEGF165 (Miltenyi, Bergisch Gladbach, Germany)", where: "Materials and methods"}
+  - field: hipsc_medium
+    value: "mouse embryonic fibroblast conditioned medium"
+    anchor: {quote: "augmented mouse embryonic fibroblast conditioned medium (MEF-CM) generated in our laboratory", where: "Materials and methods"}
+  - field: hipsc_medium.hbFGF
+    value: "1 ng/mL"
+    anchor: {quote: "in 1 ng/mL human basic fibroblast growth factor (hbFGF; WAKO, Osaka, Japan) augmented mouse embryonic fibroblast conditioned medium", where: "Materials and methods"}
+  - field: hipsc_coating
+    value: "thin-coat Matrigel"
+    anchor: {quote: "The h-iPSC line was maintained on thin-coat Matrigel (growth factor reduced, 1:60 dilution; BD Biosciences, San Jose, CA)", where: "Materials and methods"}
+  - field: wnt_activation_days
+    value: "24 h"
+    anchor: {quote: "100 ng/mL Wnt3a (R&D) for 24 h (differentiation day 0; d0)", where: "Materials and methods"}
+  - field: purity_method
+    value: "flow cytometer"
+    anchor: {quote: "Stained cells were analyzed for cell population percentages using a BD LSRII Flow Cytometer and DIVA software (BD).", where: "Materials and methods"}
+  - field: cm_medium
+    value: "alpha minimum essential medium"
+    anchor: {quote: "added pre-culture medium to the tissue (PM; alpha minimum essential medium (αMEM; Life Technologies) augmented with 10% FBS", where: "Materials and methods"}
+  - field: cm_medium.differentiation_medium
+    value: "RPMI + B27"
+    anchor: {quote: "then replaced the MEF-CM with RPMI + B27 medium (RPMI1640; Life Technologies, 2 mM L-glutamine; Life Technologies, 1X B27 supplement without insulin", where: "Materials and methods"}
+  - field: supplements
+    value: "FBS + penicillin-streptomyocin + 2-mercaptoethanol"
+    anchor: {quote: "augmented with 10% FBS, 100 U/mL penicillin-streptomyocin (Life Technologies), and 5 × 10-5 M 2-mercaptoethanol (Sigma)", where: "Materials and methods"}
+  - field: supplements.FBS
+    value: "10%"
+    anchor: {quote: "augmented with 10% FBS, 100 U/mL penicillin-streptomyocin (Life Technologies), and 5 × 10-5 M 2-mercaptoethanol (Sigma)", where: "Materials and methods"}
+  - field: supplements.penicillin_streptomyocin
+    value: "100 U/mL"
+    anchor: {quote: "augmented with 10% FBS, 100 U/mL penicillin-streptomyocin (Life Technologies), and 5 × 10-5 M 2-mercaptoethanol (Sigma)", where: "Materials and methods"}
+  - field: supplements.mercaptoethanol
+    value: "5 × 10-5 M"
+    anchor: {quote: "augmented with 10% FBS, 100 U/mL penicillin-streptomyocin (Life Technologies), and 5 × 10-5 M 2-mercaptoethanol (Sigma)", where: "Materials and methods"}
+  - field: platform
+    value: "linear ECT"
+    anchor: {quote: "We then generated linear ECTs using a Flexcell® FX-5000TT system and a collagen type-1 coated silicone membrane 6-well plate", where: "Materials and methods"}
+  - field: platform.trough
+    value: "20 mm length x 2 mm width"
+    anchor: {quote: "we deformed the silicone membrane at the bottom of each well into a 20 mm length x 2 mm width trough", where: "Materials and methods"}
+  - field: substrate
+    value: "collagen + Matrigel"
+    anchor: {quote: "The total volume of the cell/matrix solution was 200 μL, with a collagen concentration of 0.67 mg/mL and Matrigel fraction of 15%.", where: "Materials and methods"}
+  - field: substrate.collagen
+    value: "0.67 mg/mL"
+    anchor: {quote: "with a collagen concentration of 0.67 mg/mL and Matrigel fraction of 15%", where: "Materials and methods"}
+  - field: substrate.matrigel
+    value: "15%"
+    anchor: {quote: "with a collagen concentration of 0.67 mg/mL and Matrigel fraction of 15%", where: "Materials and methods"}
+  - field: cell_types
+    value: "cardiomyocytes + endothelial cells + mural cells"
+    anchor: {quote: "ECTs were generated from a multi-component mixture of cardiomyocytes, endothelial cells, and mural cells, differentiated from h-iPSCs.", where: "Figure 1 legend"}
+  - field: stromal_cell
+    value: "mural cells"
+    anchor: {quote: "ECTs were generated from a multi-component mixture of cardiomyocytes, endothelial cells, and mural cells, differentiated from h-iPSCs.", where: "Figure 1 legend"}
+  - field: endothelial_cell
+    value: "endothelial cells"
+    anchor: {quote: "ECTs were generated from a multi-component mixture of cardiomyocytes, endothelial cells, and mural cells, differentiated from h-iPSCs.", where: "Figure 1 legend"}
+  - field: mechanical_load
+    value: "constrained at the long axis ends by nylon anchors"
+    anchor: {quote: "Representative, linear and cylindrical h-iPSC ECT constrained at the long axis ends by mesh nylon anchors.", where: "Figure 5 legend"}
+  - field: species
+    value: "human"
+    anchor: {quote: "particularly when myocardial cells are derived from human-induced pluripotent stem cells (h-iPSCs)", where: "Introduction"}
+  - field: seeding_density
+    value: "1000 mm-2"
+    anchor: {quote: "re-plated cells at 1000 mm-2 on Matrigelcoated plates in hbFGF-augmented MEF-CM for 2–3 days", where: "Materials and methods"}
+  - field: seeding_density.per_ect
+    value: "three million cells"
+    anchor: {quote: "For each ECT, we combined three million cells from the CM + EC and MC protocols.", where: "Materials and methods"}
+  - field: dissociation_reagent
+    value: "Versene"
+    anchor: {quote: "treated undifferentiated h-iPSCs with Versene (0.48 mM ethylenediaminetetraacetic acid (EDTA) solution; Life Technologies, Carlsbad, CA) treatment", where: "Materials and methods"}
+  - field: dissociation_reagent.EDTA
+    value: "0.48 mM"
+    anchor: {quote: "Versene (0.48 mM ethylenediaminetetraacetic acid (EDTA) solution; Life Technologies, Carlsbad, CA)", where: "Materials and methods"}
+  - field: incubator_atmosphere
+    value: "5% CO2"
+    anchor: {quote: "We conducted ECT formation and culture in an incubator maintained at 37°C and 5% CO2.", where: "Materials and methods"}
+  - field: incubator_atmosphere.culture_temperature
+    value: "37°C"
+    anchor: {quote: "We conducted ECT formation and culture in an incubator maintained at 37°C and 5% CO2.", where: "Materials and methods"}
+  - field: composition
+    value: "CM/EC/MC 60%/13%/12%"
+    anchor: {quote: "The final average CM/EC/MC% concentration was 60%/13%/12% for D14 control tissues, 56%/11%/14% for D14 C-OP tissues, and 69%/6%/12% for D28 tissues.", where: "Materials and methods"}
+  - field: composition
+    value: "CM/EC/MC 56%/11%/14%"
+    anchor: {quote: "The final average CM/EC/MC% concentration was 60%/13%/12% for D14 control tissues, 56%/11%/14% for D14 C-OP tissues, and 69%/6%/12% for D28 tissues.", where: "Materials and methods"}
+  - field: composition
+    value: "CM/EC/MC 69%/6%/12%"
+    anchor: {quote: "The final average CM/EC/MC% concentration was 60%/13%/12% for D14 control tissues, 56%/11%/14% for D14 C-OP tissues, and 69%/6%/12% for D28 tissues.", where: "Materials and methods"}
+  - field: day_of_measurement
+    value: "D14"
+    anchor: {quote: "Therefore, we had three ECT groups: D14 control, D14 C-OP, and D28.", where: "Materials and methods"}
+  - field: day_of_measurement
+    value: "D28"
+    anchor: {quote: "Therefore, we had three ECT groups: D14 control, D14 C-OP, and D28.", where: "Materials and methods"}
+  - field: day_of_measurement
+    value: "d15"
+    anchor: {quote: "On d15, cells were stained with a combination of one or more cell surface antigen reagents", where: "Materials and methods"}
+  - field: maturation_strategy
+    value: "chronic optical pacing"
+    anchor: {quote: "In the second D14 group, ECTs were transfected and we performed chronic optical pacing (C-OP) as described below from D7 to D14.", where: "Materials and methods"}
+  - field: maturation_strategy.from
+    value: "D7 to D14"
+    anchor: {quote: "we performed chronic optical pacing (C-OP) as described below from D7 to D14", where: "Materials and methods"}
+  - field: maturation_strategy.wavelength
+    value: "470 nm"
+    anchor: {quote: "C-OP ECTs were stimulated with a pulsed 470 nm LED.", where: "Figure 1 legend"}
+  - field: maturation_strategy.pulse_width
+    value: "5 ms"
+    anchor: {quote: "We used a 5 ms pulse width.", where: "Materials and methods, Chronic light stimulation"}
+  - field: maturation_strategy.rate
+    value: "0.5 Hz below the maximum capture rate"
+    anchor: {quote: "we measured the maximum capture rate (MCR) and set the C-OP rate at 0.5 Hz below MCR", where: "Figure 1 legend"}
+  - field: transgene
+    value: "AAV1/2-CAG-oChIEF-tdTomato"
+    anchor: {quote: "AAV1/2-CAG-oChIEF-tdTomato virus was then added to the gel mixture at 500 MOI.", where: "Figure 1 legend"}
+  - field: transgene.MOI
+    value: "500"
+    anchor: {quote: "AAV1/2-CAG-oChIEF-tdTomato virus was then added to the gel mixture at 500 MOI.", where: "Figure 1 legend"}
+  - field: pacing
+    value: "electrical pacing"
+    anchor: {quote: "Representative force tracings at increasing electrical pacing rates display decreasing active force and increasing beat-to-beat hysteresis", where: "Figure 2 legend"}
+  - field: pacing.frequency
+    value: "3 Hz"
+    anchor: {quote: "(a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz. (c) 5 to 5.5 to 5 Hz.", where: "Figure 2 legend"}
+  - field: pacing.frequency
+    value: "3.5 Hz"
+    anchor: {quote: "(a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz. (c) 5 to 5.5 to 5 Hz.", where: "Figure 2 legend"}
+  - field: pacing.frequency
+    value: "4 Hz"
+    anchor: {quote: "(a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz. (c) 5 to 5.5 to 5 Hz.", where: "Figure 2 legend"}
+  - field: pacing.frequency
+    value: "4.5 Hz"
+    anchor: {quote: "(a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz. (c) 5 to 5.5 to 5 Hz.", where: "Figure 2 legend"}
+  - field: pacing.frequency
+    value: "5 Hz"
+    anchor: {quote: "(a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz. (c) 5 to 5.5 to 5 Hz.", where: "Figure 2 legend"}
+  - field: pacing.frequency
+    value: "5.5 Hz"
+    anchor: {quote: "(a) 3 to 3.5 to 3 Hz. (b) 4 to 4.5 to 4 Hz. (c) 5 to 5.5 to 5 Hz.", where: "Figure 2 legend"}
+  - field: pacing
+    value: "optical pacing"
+    anchor: {quote: "Representative stress trace during acute optical pacing of a C-OP ECT.", where: "Figure 4 legend"}
+  - field: pacing.wavelength
+    value: "470 nm"
+    anchor: {quote: "we began acute pacing with a 470 nm 3.5 Hz pulsed LED", where: "Figure 4 legend"}
+  - field: pacing
+    value: "electrical field pacing"
+    anchor: {quote: "Results in (c–h) obtained with 5 V acute electrical field pacing.", where: "Figure 4 legend"}
+  - field: pacing.voltage
+    value: "5 V"
+    anchor: {quote: "Results in (c–h) obtained with 5 V acute electrical field pacing.", where: "Figure 4 legend"}
+  - field: preparation
+    value: "ECT culture"
+    anchor: {quote: "During ECT culture, we changed medium every 48 h.", where: "Materials and methods"}
+  - field: preparation
+    value: "linear ECT in the perfusion bath"
+    anchor: {quote: "we excised and placed each linear ECT from the TissueTrain® plate in the perfusion bath filled with 2,3-butanedione monoxime (BDM)", where: "Materials and methods, Force testing"}
+  - field: preparation
+    value: "patched single cells within the ECT"
+    anchor: {quote: "We randomly patched the filled borosilicate capillary onto ChIEFexpressing single cells within the ECT.", where: "Materials and methods, Patch clamp"}
+  - field: preparation
+    value: "fixed with paraformaldehyde"
+    anchor: {quote: "We collected ECTs at D14 or D28 after force testing, fixed them with 4% paraformaldehyde (PFA) at room temperature for 30 min", where: "Materials and methods, Histological assessment"}
+  - field: preparation
+    value: "paraffin sections"
+    anchor: {quote: "We processed ECTs for paraffin blocks and cut into 5 µm sections for IF staining.", where: "Materials and methods, IF staining for paraffin sections"}
+  - field: preparation
+    value: "whole mount"
+    anchor: {quote: "stained as whole mounts for 3D confocal imaging", where: "Results, C-OP does not accelerate structural maturation"}
+  - field: preparation
+    value: "homogenized ECT samples in Trizol"
+    anchor: {quote: "We homogenized fresh ECT samples in Trizol reagent", where: "Materials and methods, Real-time quantitative polymerase chain reaction"}
+  - field: preparation
+    value: "stained cells"
+    anchor: {quote: "Stained cells were analyzed for cell population percentages using a BD LSRII Flow Cytometer and DIVA software (BD).", where: "Materials and methods"}
+  - field: measurement_medium
+    value: "Tyrode's solution"
+    anchor: {quote: "We washed out the BDM and filled the perfusion chamber with warmed Tyrode's solution, pre-bubbled with 95/5% O2/CO2 gas.", where: "Materials and methods, Force testing"}

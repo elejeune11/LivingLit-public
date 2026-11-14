@@ -1,0 +1,37 @@
+# Written by code from changes.yaml (version 10); never edited.
+formula: part_of_whole
+kind: derived
+statement: The share of one part in a whole made of two parts is the part divided by the sum of the two parts.
+equations:
+- f = a/(a + b)
+variables:
+  f: dimensionless
+  a: D
+  b: D
+  t: D
+assumes:
+- t = a + b
+uses:
+- formula: ratio_def
+  subs:
+    r: f
+    a: a
+    b: t
+- formula: sum_of_parts
+  subs:
+    t: t
+    a: a
+    b: b
+does_not_apply: a whole with more than two parts, or parts that overlap (the denominator is then not a + b)
+tests:
+- given:
+    a: 1.0
+    b: 3.0
+  expect:
+    f: 0.25
+    t: 4.0
+- given:
+    a: 2.0
+    b: 2.0
+    t: 6.0
+  does_not_apply: 'a third part of 2 in the whole: 2/6, not 2/4'

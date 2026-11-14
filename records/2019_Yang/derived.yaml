@@ -1,0 +1,514 @@
+record: 2019_Yang
+formula_library_version: 21
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  # ---------------------------------------------------------------- fatty acid uptake (medium depletion)
+  S3a_uptake.uptake_with_carnitine:
+    item: S3a_uptake
+    group: with_carnitine
+    formula: u = c0 - c1
+    anchor:
+      quote: Fatty acid concentration in the medium before and 48 h after treating the cells was determined using the HR
+        Series NEFA-HR
+      where: Experimental Procedures, Fatty Acid Concentration Measurements
+      file: main.pdf
+    library: {formula: sum_of_parts, vars: {t: c0, a: u, b: c1}}
+    inputs:
+      c0: {not_stated: true, kind: per sample, note: NEFA in the medium before treatment}
+      c1: {not_stated: true, kind: per sample, note: NEFA in the medium 48 h after treatment}
+    output: S3a_uptake.values.uptake_with_text
+    aggregation: not stated
+    note: the text gives uptake per one million cells ('one million cells take up 57 ± 7 µM'); how the depletion was
+      scaled to cell number is not stated
+  S3a_uptake.uptake_without_carnitine:
+    item: S3a_uptake
+    group: without_carnitine
+    formula: u = c0 - c1
+    anchor:
+      quote: Fatty acid concentration in the medium before and 48 h after treating the cells was determined using the HR
+        Series NEFA-HR
+      where: Experimental Procedures, Fatty Acid Concentration Measurements
+      file: main.pdf
+    library: {formula: sum_of_parts, vars: {t: c0, a: u, b: c1}}
+    inputs:
+      c0: {not_stated: true, kind: per sample, note: NEFA in the medium before treatment}
+      c1: {not_stated: true, kind: per sample, note: NEFA in the medium 48 h after treatment}
+    output: S3a_uptake.values.uptake_without_text
+    aggregation: not stated
+  TXT1_imr90.uptake:
+    item: TXT1_imr90
+    group: imr90
+    formula: u = c0 - c1
+    anchor:
+      quote: quantifying the nonesterified fatty acids in the medium before and after 2 days of treatment
+      where: Results, hPSC-CM Take Up Fatty Acids
+      file: main.pdf
+    library: {formula: sum_of_parts, vars: {t: c0, a: u, b: c1}}
+    inputs:
+      c0: {not_stated: true, kind: per sample, note: NEFA in the medium before treatment}
+      c1: {not_stated: true, kind: per sample, note: NEFA in the medium after 2 days}
+    output: TXT1_imr90.values.uptake_imr90_text
+    aggregation: not stated
+    note: per one million cells; the scaling to cell number is not stated
+  TXT1_wtc11.uptake:
+    item: TXT1_wtc11
+    group: wtc11
+    formula: u = c0 - c1
+    anchor:
+      quote: quantifying the nonesterified fatty acids in the medium before and after 2 days of treatment
+      where: Results, hPSC-CM Take Up Fatty Acids
+      file: main.pdf
+    library: {formula: sum_of_parts, vars: {t: c0, a: u, b: c1}}
+    inputs:
+      c0: {not_stated: true, kind: per sample, note: NEFA in the medium before treatment}
+      c1: {not_stated: true, kind: per sample, note: NEFA in the medium after 2 days}
+    output: TXT1_wtc11.values.uptake_wtc11_text
+    aggregation: not stated
+  S3a_uptake.reduction:
+    item: S3a_uptake
+    formula: s = (u0 - u)/u0
+    anchor:
+      quote: Removing carnitine reduced fatty acid uptake by nearly 50%
+      where: Results, hPSC-CM Take Up Fatty Acids
+      file: main.pdf
+    library: {formula: relative_decrease, vars: {s: s, x: u, x0: u0}}
+    inputs:
+      u: {value: S3a_uptake.values.uptake_without_text, part: mean, kind: constant}
+      u0: {value: S3a_uptake.values.uptake_with_text, part: mean, kind: constant}
+    output: S3a_uptake.values.uptake_reduction_text
+  # ---------------------------------------------------------------- intracellular fatty acid content
+  S3b_content.content_control:
+    item: S3b_content
+    group: control
+    formula: c = N/P
+    anchor:
+      quote: The fatty acid content was normalized to protein concentration.
+      where: Experimental Procedures, Intracellular Fatty Acid Content
+      file: main.pdf
+    library: {formula: ratio_def, vars: {r: c, a: N, b: P}}
+    inputs:
+      N: {not_stated: true, kind: per sample, note: NEFA in the lipid extract}
+      P: {not_stated: true, kind: per sample, note: protein concentration of the homogenate}
+    output: S3b_content.values.content_cntl_text
+    aggregation: not stated
+  S3b_content.content_fa:
+    item: S3b_content
+    group: fa
+    formula: c = N/P
+    anchor:
+      quote: The fatty acid content was normalized to protein concentration.
+      where: Experimental Procedures, Intracellular Fatty Acid Content
+      file: main.pdf
+    library: {formula: ratio_def, vars: {r: c, a: N, b: P}}
+    inputs:
+      N: {not_stated: true, kind: per sample, note: NEFA in the lipid extract}
+      P: {not_stated: true, kind: per sample, note: protein concentration of the homogenate}
+    output: S3b_content.values.content_fa_text
+    aggregation: not stated
+  S3b_content.increase:
+    item: S3b_content
+    formula: d = (c - c0)/c0
+    anchor:
+      quote: intracellular fatty acid content was increased by 46%
+      where: Results, hPSC-CM Take Up Fatty Acids
+      file: main.pdf
+    library: {formula: relative_change, vars: {d: d, x: c, x0: c0}}
+    inputs:
+      c: {value: S3b_content.values.content_fa_text, part: mean, kind: constant}
+      c0: {value: S3b_content.values.content_cntl_text, part: mean, kind: constant}
+    output: S3b_content.values.content_increase_text
+  # ---------------------------------------------------------------- morphology
+  F1_area.increase:
+    item: F1_area
+    formula: d = (a - a0)/a0
+    anchor:
+      quote: increased cell area by 59%
+      where: Results, Fatty Acid Supplementation Enhances Structural Maturation
+      file: main.pdf
+    library: {formula: relative_change, vars: {d: d, x: a, x0: a0}}
+    inputs:
+      a: {value: F1_area.values.area_fa_text, part: mean, kind: constant}
+      a0: {value: F1_area.values.area_cntl_text, part: mean, kind: constant}
+    output: F1_area.values.area_increase_text
+  F1_sarcomere.length_control:
+    item: F1_sarcomere
+    group: control
+    formula: s = L/n
+    anchor:
+      quote: divided the length value by the number of sarcomeres
+      where: Experimental Procedures, Imaging and Morphological Analysis
+      file: main.pdf
+    library: {formula: ratio_def, vars: {r: s, a: L, b: n}}
+    inputs:
+      L: {not_stated: true, kind: per sample, note: length of a myofibril with at least ten continuous α-actinin bands}
+      n: {not_stated: true, kind: per sample, note: number of sarcomeres along it}
+    output: F1_sarcomere.values.sl_cntl_text
+    aggregation: not stated
+  F1_sarcomere.length_fa:
+    item: F1_sarcomere
+    group: fa
+    formula: s = L/n
+    anchor:
+      quote: divided the length value by the number of sarcomeres
+      where: Experimental Procedures, Imaging and Morphological Analysis
+      file: main.pdf
+    library: {formula: ratio_def, vars: {r: s, a: L, b: n}}
+    inputs:
+      L: {not_stated: true, kind: per sample, note: length of a myofibril with at least ten continuous α-actinin bands}
+      n: {not_stated: true, kind: per sample, note: number of sarcomeres along it}
+    output: F1_sarcomere.values.sl_fa_text
+    aggregation: not stated
+  # ---------------------------------------------------------------- micropost force (IMR90, Fig. 3)
+  F3_force.post_second_moment:
+    item: F3_force
+    formula: not stated
+    anchor: not stated
+    library: {formula: circular_second_moment_diameter, vars: {I: I, d: d}}
+    inputs:
+      d:
+        printed: '2.3'
+        unit: µm
+        anchor:
+          quote: The microposts used in this study were 6.45 µm in height and 2.3 µm in diameter
+          where: Experimental Procedures, Contractile Force Measurement
+          file: main.pdf
+        kind: constant
+    note: the paper states only that the stiffness 'was based on the dimensions of the microposts'; a solid circular
+      section is assumed from the printed diameter
+  F3_force.post_stiffness:
+    item: F3_force
+    formula: not stated
+    anchor:
+      quote: The stiffness of each micropost, which was based on the dimensions of the microposts and the material properties
+        of PDMS, was 38.4 nN/µm.
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    library: {formula: cantilever_tip_stiffness, vars: {k: k, E: E, I: I, L: L}}
+    inputs:
+      E: {not_stated: true, kind: constant, note: "PDMS modulus ('the material properties of PDMS'); not printed"}
+      I: {derived: F3_force.post_second_moment, kind: constant}
+      L:
+        printed: '6.45'
+        unit: µm
+        anchor:
+          quote: The microposts used in this study were 6.45 µm in height and 2.3 µm in diameter
+          where: Experimental Procedures, Contractile Force Measurement
+          file: main.pdf
+        kind: constant
+    note: the printed k (38.4 nN/µm) is not an evidence value, so it cannot be named as the output; with E not stated the
+      step cannot be rebuilt
+  F3_force.post_force:
+    item: F3_force
+    formula: F = k*d
+    anchor:
+      quote: Twitch forces were subsequently calculated by multiplying the deflection of the posts by the bending stiffness
+        of the microposts
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    library: {formula: hooke_spring, vars: {F: F, k: k, x: d}}
+    inputs:
+      k:
+        printed: '38.4'
+        unit: nN/µm
+        anchor:
+          quote: bending stiffness (38.4 nN/µm)
+          where: Experimental Procedures, Contractile Force Measurement
+          file: main.pdf
+        kind: constant
+      d: {not_stated: true, kind: per sample, note: tip-to-base centroid distance of each post at peak twitch}
+  F3_force.total_control:
+    item: F3_force
+    group: control
+    formula: not stated
+    anchor:
+      quote: The total twitch force was then determined by adding together the forces measured at each post beneath the individual
+        cardiomyocytes.
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    no_formula: a sum over a per-cell number of posts that is not stated; no library entry sums a variable number of parts
+    inputs:
+      F: {derived: F3_force.post_force, kind: per sample}
+    output: F3_force.values.force_cntl_text
+    aggregation: mean of per-sample
+  F3_force.total_fa:
+    item: F3_force
+    group: fa
+    formula: not stated
+    anchor:
+      quote: The total twitch force was then determined by adding together the forces measured at each post beneath the individual
+        cardiomyocytes.
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    no_formula: a sum over a per-cell number of posts that is not stated; no library entry sums a variable number of parts
+    inputs:
+      F: {derived: F3_force.post_force, kind: per sample}
+    output: F3_force.values.force_fa_text
+    aggregation: mean of per-sample
+  # ---------------------------------------------------------------- micropost force (RUES2, Fig. S4B)
+  S4b_force.post_force:
+    item: S4b_force
+    formula: F = k*d
+    anchor:
+      quote: Twitch forces were subsequently calculated by multiplying the deflection of the posts by the bending stiffness
+        of the microposts
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    library: {formula: hooke_spring, vars: {F: F, k: k, x: d}}
+    inputs:
+      k:
+        printed: '38.4'
+        unit: nN/µm
+        anchor:
+          quote: bending stiffness (38.4 nN/µm)
+          where: Experimental Procedures, Contractile Force Measurement
+          file: main.pdf
+        kind: constant
+      d: {not_stated: true, kind: per sample, note: tip-to-base centroid distance of each post at peak twitch}
+    note: the supplement refers the RUES2 methods to the main text; the same posts are assumed
+  S4b_force.total_control:
+    item: S4b_force
+    group: control
+    formula: not stated
+    anchor:
+      quote: The total twitch force was then determined by adding together the forces measured at each post beneath the individual
+        cardiomyocytes.
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    no_formula: a sum over a per-cell number of posts that is not stated; no library entry sums a variable number of parts
+    inputs:
+      F: {derived: S4b_force.post_force, kind: per sample}
+    output: S4b_force.values.force_cntl_supptext
+    aggregation: mean of per-sample
+  S4b_force.total_fa:
+    item: S4b_force
+    group: fa
+    formula: not stated
+    anchor:
+      quote: The total twitch force was then determined by adding together the forces measured at each post beneath the individual
+        cardiomyocytes.
+      where: Experimental Procedures, Contractile Force Measurement
+      file: main.pdf
+    no_formula: a sum over a per-cell number of posts that is not stated; no library entry sums a variable number of parts
+    inputs:
+      F: {derived: S4b_force.post_force, kind: per sample}
+    output: S4b_force.values.force_fa_supptext
+    aggregation: mean of per-sample
+  # ---------------------------------------------------------------- electrophysiology
+  F4_dvdt.increase:
+    item: F4_dvdt
+    formula: d = (v - v0)/v0
+    anchor:
+      quote: Fatty acids increase action potential maximum upstroke velocity, dV/dtmax, by 57%
+      where: Results, Fatty Acids Improve Action Potential Upstroke Velocity
+      file: main.pdf
+    library: {formula: relative_change, vars: {d: d, x: v, x0: v0}}
+    inputs:
+      v: {value: F4_dvdt.values.dvdt_fa_text, part: mean, kind: constant}
+      v0: {value: F4_dvdt.values.dvdt_cntl_text, part: mean, kind: constant}
+    output: F4_dvdt.values.dvdt_increase_text
+  F4_capacitance.increase:
+    item: F4_capacitance
+    formula: d = (c - c0)/c0
+    anchor:
+      quote: increases membrane capacitance by 24%
+      where: Results, Fatty Acids Improve Action Potential Upstroke Velocity
+      file: main.pdf
+    library: {formula: relative_change, vars: {d: d, x: c, x0: c0}}
+    inputs:
+      c: {value: F4_capacitance.values.cm_fa_text, part: mean, kind: constant}
+      c0: {value: F4_capacitance.values.cm_cntl_text, part: mean, kind: constant}
+    output: F4_capacitance.values.cm_increase_text
+  # ---------------------------------------------------------------- calcium transients (Fura-2)
+  F2_amplitude.fura_ratio:
+    item: F2_amplitude
+    formula: R = F340/F380
+    anchor:
+      quote: F/F0 is the ratio of F340/F380
+      where: Fig. 2 legend
+      file: main.pdf
+    library: {formula: ratio_def, vars: {r: R, a: F340, b: F380}}
+    inputs:
+      F340: {not_stated: true, kind: per sample, note: emission at 340 nm excitation}
+      F380: {not_stated: true, kind: per sample, note: emission at 380 nm excitation}
+    note: the printed amplitudes (0.16, 0.24 F/F0) are built from this ratio by a method stated only by citation
+  F2_amplitude.amplitude:
+    item: F2_amplitude
+    formula: not stated
+    anchor:
+      quote: Intracellular calcium content was measured using the ratiometric indicator dye Fura-2 AM as described previously
+        (Korte et al., 2011)
+      where: Experimental Procedures, Calcium Imaging
+      file: main.pdf
+    no_formula: method stated only by citation (Korte et al. 2011)
+    inputs:
+      R: {derived: F2_amplitude.fura_ratio, kind: per sample}
+  F2_upstroke.velocity:
+    item: F2_upstroke
+    formula: not stated
+    anchor:
+      quote: Intracellular calcium content was measured using the ratiometric indicator dye Fura-2 AM as described previously
+        (Korte et al., 2011)
+      where: Experimental Procedures, Calcium Imaging
+      file: main.pdf
+    no_formula: method stated only by citation (Korte et al. 2011)
+    inputs:
+      R: {derived: F2_amplitude.fura_ratio, kind: per sample}
+  F2_decay.velocity:
+    item: F2_decay
+    formula: not stated
+    anchor:
+      quote: Intracellular calcium content was measured using the ratiometric indicator dye Fura-2 AM as described previously
+        (Korte et al., 2011)
+      where: Experimental Procedures, Calcium Imaging
+      file: main.pdf
+    no_formula: method stated only by citation (Korte et al. 2011)
+    inputs:
+      R: {derived: F2_amplitude.fura_ratio, kind: per sample}
+  # ---------------------------------------------------------------- respiratory reserve capacity (Fig. 5)
+  F5_respiration.reserve_control:
+    item: F5_respiration
+    group: control
+    formula: R = Ofccp - Obase
+    anchor:
+      quote: mitochondrial respiratory reserve capacity was calculated by the difference between FCCP and baseline OCR values
+      where: Experimental Procedures, Mitochondrial Function
+      file: main.pdf
+    library: {formula: sum_of_parts, vars: {t: Ofccp, a: R, b: Obase}}
+    inputs:
+      Ofccp: {not_stated: true, kind: per sample, note: OCR after FCCP normalized to cell number}
+      Obase: {not_stated: true, kind: per sample, note: baseline OCR normalized to cell number}
+    note: OCR normalized to the number of cells per well (Hoechst); no group values printed
+  F5_respiration.reserve_fa:
+    item: F5_respiration
+    group: fa
+    formula: R = Ofccp - Obase
+    anchor:
+      quote: mitochondrial respiratory reserve capacity was calculated by the difference between FCCP and baseline OCR values
+      where: Experimental Procedures, Mitochondrial Function
+      file: main.pdf
+    library: {formula: sum_of_parts, vars: {t: Ofccp, a: R, b: Obase}}
+    inputs:
+      Ofccp: {not_stated: true, kind: per sample, note: OCR after FCCP normalized to cell number}
+      Obase: {not_stated: true, kind: per sample, note: baseline OCR normalized to cell number}
+  F5_respiration.ratio:
+    item: F5_respiration
+    formula: r = Rfa/Rc
+    anchor:
+      quote: the relative fatty acid-treated/untreated control levels were used to compare and summarize independent biological
+        replicates
+      where: Experimental Procedures, Mitochondrial Function
+      file: main.pdf
+    library: {formula: ratio_def, vars: {r: r, a: Rfa, b: Rc}}
+    inputs:
+      Rfa: {derived: F5_respiration.reserve_fa, kind: per sample}
+      Rc: {derived: F5_respiration.reserve_control, kind: per sample}
+    note: one ratio per differentiation run (n = 6)
+  F5_respiration.increase:
+    item: F5_respiration
+    formula: d = r - 1
+    anchor:
+      quote: The maximal mitochondrial respiratory capacity after the FCCP treatment was enhanced by 38% after fatty acid treatment.
+      where: Results, Fatty Acids Enhance Mitochondrial Respiratory Reserve Capacity
+      file: main.pdf
+    library: {formula: relative_change_from_ratio, vars: {d: d, r: r}}
+    inputs:
+      r: {derived: F5_respiration.ratio, kind: per sample}
+    output: F5_respiration.values.maxresp_increase_text
+    aggregation: mean of per-sample
+  # ---------------------------------------------------------------- NF-κB reporter (Fig. S1)
+  S1_lps_001.relative_activity:
+    item: S1_lps_001
+    formula: r = Ff/Fr
+    anchor: &s1anchor
+      quote: the ratio of NF-κB-dependent fire-fly luciferase activity to β-Actin
+      where: Supplemental Experimental Procedures, TLR4 activation assay
+      file: mmc1.pdf
+    library: {formula: ratio_def, vars: {r: r, a: Ff, b: Fr}}
+    inputs: &s1inputs
+      Ff: {not_stated: true, kind: per sample, note: NF-κB-dependent fire-fly luciferase activity}
+      Fr: {not_stated: true, kind: per sample, note: β-actin promoter-dependent Renilla luciferase activity}
+  S1_lps_01.relative_activity:
+    item: S1_lps_01
+    formula: r = Ff/Fr
+    anchor: *s1anchor
+    library: {formula: ratio_def, vars: {r: r, a: Ff, b: Fr}}
+    inputs: *s1inputs
+  S1_lps_1.relative_activity:
+    item: S1_lps_1
+    formula: r = Ff/Fr
+    anchor: *s1anchor
+    library: {formula: ratio_def, vars: {r: r, a: Ff, b: Fr}}
+    inputs: *s1inputs
+  S1_palm.relative_activity:
+    item: S1_palm
+    formula: r = Ff/Fr
+    anchor: *s1anchor
+    library: {formula: ratio_def, vars: {r: r, a: Ff, b: Fr}}
+    inputs: *s1inputs
+  # ---------------------------------------------------------------- qPCR (Fig. 6D, Fig. S5B): normalized to HPRT
+  F6d_CD36.relative_expression: &qpcr
+    item: F6d_CD36
+    formula: not stated
+    anchor:
+      quote: Samples were normalized using HPRT
+      where: Experimental Procedures, qRT-PCR
+      file: main.pdf
+    no_formula: normalized to HPRT, but how (ΔCt, 2^-ΔΔCt, standard curve) is not stated; no values printed
+    alternatives:
+    - {label: 2^-ΔΔCt against HPRT and control, formula: ddct_relative_expression}
+  F6d_CPT1B.relative_expression: {<<: *qpcr, item: F6d_CPT1B}
+  F6d_PDK4.relative_expression: {<<: *qpcr, item: F6d_PDK4}
+  F6d_GluT4.relative_expression: {<<: *qpcr, item: F6d_GluT4}
+  F6d_HK2.relative_expression: {<<: *qpcr, item: F6d_HK2}
+  S5b_CD36.relative_expression: {<<: *qpcr, item: S5b_CD36}
+  S5b_CPT1B.relative_expression: {<<: *qpcr, item: S5b_CPT1B}
+  S5b_PDK4.relative_expression: {<<: *qpcr, item: S5b_PDK4}
+  S5b_GluT4.relative_expression: {<<: *qpcr, item: S5b_GluT4}
+  S5b_HK2.relative_expression: {<<: *qpcr, item: S5b_HK2}
+assumptions:
+  F3_force.post_force:
+    model: hooke_spring
+    assumptions:
+      linear spring: {reported: not stated}
+      small deflection: {reported: not stated}
+  S4b_force.post_force:
+    model: hooke_spring
+    assumptions:
+      linear spring: {reported: not stated}
+      small deflection: {reported: not stated}
+  F3_force.post_stiffness:
+    model: cantilever_tip_stiffness
+    assumptions:
+      small deflection: {reported: not stated}
+      linear elastic material: {reported: not stated}
+      slender beam:
+        reported:
+          height_and_diameter: The microposts used in this study were 6.45 µm in height and 2.3 µm in diameter
+      point load at the free end:
+        reported:
+          tips_stamped: To enable cell attachment, we stamped the tips of these microposts
+bounds:
+- {item: S5a_purity, value: S5a_purity.values.purity_legend, formula: fraction_bounds}
+proposals:
+- formula: circular_second_moment_diameter
+  kind: derived
+  statement: The second moment of area of a solid circular cross-section of diameter d about a diameter is πd^4/64.
+  equations:
+  - I = pi*d**4/64
+  variables:
+    I: second_moment
+    d: length
+    R: length
+  assumes:
+  - d = 2*R
+  uses:
+  - formula: circular_second_moment
+    subs: {I: I, R: R}
+  does_not_apply: a hollow tube, or the polar moment of the same section (πd^4/32)
+  tests:
+  - given: {d: 2.0}
+    expect: {I: 0.7853981633974483}
+  - given: {d: 2.0}
+    does_not_apply: the polar moment πd^4/32 = 1.5708 is not the bending second moment

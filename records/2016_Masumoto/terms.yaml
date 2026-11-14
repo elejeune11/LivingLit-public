@@ -1,0 +1,502 @@
+record: 2016_Masumoto
+vocabulary_version: 28
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context: adopted fields
+- adopt:
+    field: cell_line
+    id: CVCL_A065
+    label: 201B6
+    lookup: "cellosaurus '201B6': exact label match (synonyms 201-B6, KUIFMSi004-B)"
+- adopt:
+    field: disease_model
+    id: MONDO:0005068
+    label: myocardial infarction
+    lookup: "mondo 'myocardial infarction': exact label; the model is permanent LAD ligation in rats, no subtype (acute, anterior) stated"
+- adopt:
+    field: cell_types
+    id: CL:0000115
+    label: endothelial cell
+    lookup: "cl 'endothelial cell': exact label; the paper's ECs are VE-cadherin+ cells co-differentiated from hiPSCs"
+    synonyms:
+    - {text: endothelial cells, anchor: "containing cardiomyocytes (CM), endothelial cells (EC), and/or mural cells (MC)"}
+- adopt:
+    field: cell_types
+    id: CL:0008034
+    label: mural cell
+    lookup: "cl 'mural cell': exact label; the paper's MCs are PDGFRβ+ vascular mural cells"
+    synonyms:
+    - {text: mural cells, anchor: "containing cardiomyocytes (CM), endothelial cells (EC), and/or mural cells (MC)"}
+- adopt:
+    field: supplements
+    id: CHEBI:41218
+    label: mercaptoethanol
+    lookup: "chebi '2-mercaptoethanol': no hit; chebi 'mercaptoethanol': exact label CHEBI:41218 (2-mercaptoethanol is its systematic name)"
+    synonyms:
+    - {text: 2-mercaptoethanol, anchor: "2-mercaptoethanol (Sigma) and 100 U/mL Penicillin-Streptomycin"}
+- adopt_own:
+    field: differentiation_factors
+    id: differentiation_factors:wnt3a
+    label: Wnt3a
+    definition: Recombinant Wnt3a protein, a canonical Wnt ligand added to activate Wnt signalling during early differentiation.
+    scope: A Wnt ligand protein; not a small-molecule Wnt activator such as CHIR99021 and not a Wnt inhibitor (IWP4, XAV939, Wnt-C59, Dkk1).
+    lookup: "chebi 'Wnt3a', 'Wnt-3a' and 'Wnt': no protein entry (only Wnt-C59 and the role classes Wnt signalling activator/inhibitor)"
+- adopt_own:
+    field: treatment
+    id: treatment:wnt3a
+    label: Wnt3a
+    definition: Recombinant Wnt3a protein given as an exposure that a comparison varies (here on differentiation day 0-1).
+    scope: A Wnt ligand protein; not a small-molecule Wnt activator such as CHIR99021 and not the Wnt antagonist Dkk1.
+    lookup: "chebi 'Wnt3a', 'Wnt-3a' and 'Wnt': no protein entry"
+- adopt_own:
+    field: treatment
+    id: treatment:dkk1
+    label: Dkk1
+    definition: Recombinant dickkopf WNT signalling pathway inhibitor 1 protein, a secreted Wnt antagonist, given as an exposure that a comparison varies.
+    scope: A protein Wnt antagonist; not a small-molecule Wnt inhibitor (IWP4, XAV939, Wnt-C59) and not a Wnt ligand (Wnt3a).
+    lookup: "chebi 'Dkk1' and 'dickkopf': no entry"
+- adopt_own:
+    field: treatment
+    id: treatment:ect_implantation
+    label: engineered cardiac tissue implantation
+    definition: Surgical implantation of engineered cardiac tissue constructs onto the heart of a recipient animal.
+    scope: Implanting a construct in vivo; not a drug, a protein or a mechanical or electrical regime applied in culture.
+    lookup: "not a chemical entity; ChEBI holds no procedures, so searched nothing further"
+    synonyms:
+    - {text: ECT implantation, anchor: "ECT implantation was performed 1 week after MI induction"}
+- add_synonym: {id: CHEBI:760509, text: bFGF, anchor: "bFGF, basic fibroblast growth factor"}
+- add_synonym: {id: supplements:fetal_bovine_serum, text: FBS, anchor: "FBS, fetal bovine serum"}
+# ---------------------------------------------------------------- context: own fields
+- add_synonym: {id: hipsc_medium:mef_conditioned_medium, text: MEF-CM, anchor: "fibroblast conditioned medium (MEF-CM) supplemented with 4 ng/mL human basic fibroblast growth factor"}
+- add_qualifier: {id: hipsc_medium:mef_conditioned_medium, name: supplement, dimension: text}
+- add_synonym: {id: cm_medium:alpha_mem, text: alpha minimum essential medium, anchor: "pre-culture medium [PM; alpha minimum essential medium"}
+- add_synonym: {id: preparation:intact_tissue, text: intact muscle, anchor: "using a custom intact muscle test system"}
+- add_synonym: {id: preparation:dissociated_cells, text: dissociated, anchor: "HiPSC-derived CV cells were dissociated by incubation with Accumax"}
+- add_synonym: {id: pacing:field_stimulation, text: field-stimulated, anchor: "the construct was field-stimulated (2 Hz/5V)"}
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:accumax
+    label: Accumax
+    parent: null
+    definition: A commercial blend of proteolytic and collagenolytic enzymes in solution used to dissociate cells into single cells.
+    scope: The Accumax enzyme blend; not animal-derived trypsin with EDTA (trypsin-EDTA), and not Accutase, TrypLE or collagenase, which are siblings to add when a paper names them.
+- add_term:
+    field: platform
+    id: platform:tissue_between_anchors
+    label: linear tissue held between two end anchors
+    parent: platform:engineered_3d
+    definition: An elongated engineered tissue formed in a trough or mould whose two ends are held by anchors (such as nylon mesh tabs) fixed to the culture vessel.
+    scope: A linear tissue held at its two ends by anchors fixed to the vessel; not a tissue suspended between two flexible pillars, not a tissue cast around a single bending strip and not a flat sheet held at its edges by a frame.
+- add_term:
+    field: platform
+    id: platform:tissuetrain
+    label: TissueTrain
+    parent: platform:tissue_between_anchors
+    definition: The Flexcell TissueTrain culture plate, in which a cylindrical tissue gels in a vacuum-formed trough of a silicone membrane and is held at its ends by nylon mesh anchors.
+    scope: The TissueTrain plate; other linear tissues held by end anchors stay on the parent term.
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:end_anchored
+    label: held between two end anchors, regime not stated
+    parent: null
+    definition: Culture in which the tissue is held at both ends by anchors, where the source does not say whether the anchors yield (auxotonic) or hold the length fixed (isometric).
+    scope: Ends held by anchors with no regime stated; not a stated elastic load (auxotonic), not a stated fixed length (isometric), not a strip load, not externally applied cyclic stretch and not unloaded culture.
+    synonyms:
+    - {text: nylon mesh anchors, anchor: "Both ends of the construct were held by nylon mesh anchors"}
+# ---------------------------------------------------------------- measures
+- add_synonym: {id: measure:twitch_force, text: active force, anchor: "Active force of hiPSC-ECTs."}
+- add_synonym: {id: measure:twitch_stress, text: active stress, anchor: "The highest active stress generated by hiPSC-ECTs was"}
+- add_synonym: {id: measure:elastic_modulus, text: "Young's modulus", anchor: evidence.F1d_ym_cm_vs_ce.anchor}
+- add_synonym: {id: measure:angle_dispersion, text: circular standard deviation, anchor: "Calculated circular standard deviation, an index of"}
+- add_term:
+    field: measure
+    id: measure:maximum_capture_rate
+    label: maximum capture rate
+    parent: null
+    dimension: frequency
+    definition: The highest pacing frequency at which a tissue still follows each stimulus with one contraction.
+    scope: The upper limit of one-to-one capture under pacing; not the spontaneous beat rate (contraction frequency) and not the stimulus strength needed to excite (excitation threshold).
+- add_term:
+    field: measure
+    id: measure:excitation_threshold
+    label: excitation threshold
+    parent: null
+    dimension: voltage
+    definition: The smallest stimulus voltage that elicits a contraction or action potential at a stated pacing rate.
+    scope: Stimulus strength needed to excite; not a membrane potential (resting or action potential) and not the highest rate followed (maximum capture rate).
+- add_term:
+    field: measure
+    id: measure:von_mises_concentration
+    label: von Mises concentration parameter
+    parent: null
+    dimension: dimensionless
+    qualifiers: {structure: {dimension: text}}
+    definition: The concentration parameter κ of a von Mises distribution fitted to the local orientations of a stated structure (qualifier structure); larger values mean stronger alignment.
+    scope: A fitted κ; not the standard deviation of angles (angle dispersion) or its reciprocal (inverse angle dispersion), not an orientational order parameter and not the angle histogram (orientation distribution).
+    synonyms:
+    - {text: "concentration parameter (κ)", anchor: "we computed the concentration parameter (κ) for the associated"}
+- add_term:
+    field: measure
+    id: measure:cardiac_output
+    label: cardiac output
+    parent: null
+    dimension: volume_rate
+    definition: Volume of blood pumped by the left ventricle per minute in vivo, here from echocardiography.
+    scope: Volume per minute; not the volume of one beat (stroke volume), not a fraction (ejection fraction) and not a chamber area.
+- add_term:
+    field: measure
+    id: measure:stroke_volume
+    label: stroke volume
+    parent: null
+    dimension: volume
+    definition: Volume of blood ejected by the left ventricle in one beat in vivo.
+    scope: Volume of one beat; not volume per minute (cardiac output) and not the ejected fraction (ejection fraction).
+- add_term:
+    field: measure
+    id: measure:lv_end_diastolic_area
+    label: left ventricular end diastolic area
+    parent: null
+    dimension: area
+    definition: Area of the left ventricular cavity at end diastole in an echocardiographic view.
+    scope: A cavity area in an imaging plane; not the projected area of an engineered tissue and not a volume or a fraction.
+- add_term:
+    field: measure
+    id: measure:ejection_fraction
+    label: ejection fraction
+    parent: null
+    dimension: dimensionless
+    definition: Fraction of the left ventricular end-diastolic volume ejected in one beat in vivo.
+    scope: A fraction of ventricular volume; not an ejected volume (stroke volume) and not the fractional shortening of an engineered tissue (contractile shortening).
+- add_term:
+    field: measure
+    id: measure:engraftment
+    label: engraftment of implanted tissue
+    parent: null
+    dimension: categorical
+    definition: Presence and extent of implanted donor tissue surviving in the host organ, from histology.
+    scope: Whether and how much implanted tissue persists in a host; not the staining pattern of one protein (protein staining) and not cell viability in culture.
+- add_term:
+    field: measure
+    id: measure:graft_infarct_area_ratio
+    label: engrafted area per infarct area
+    parent: measure:engraftment
+    dimension: dimensionless
+    definition: Area of engrafted donor tissue divided by the infarct (scar) area in a heart section.
+    scope: An area ratio from sections; not the fraction of recipient animals with a graft (engraftment incidence).
+- add_term:
+    field: measure
+    id: measure:engraftment_incidence
+    label: engraftment incidence
+    parent: measure:engraftment
+    dimension: dimensionless
+    definition: Number or fraction of recipient animals in which implanted tissue engrafted.
+    scope: Counted over animals; not an area ratio of graft to infarct (engrafted area per infarct area).
+- add_term:
+    field: measure
+    id: measure:vessel_perfusion
+    label: perfusion of vessels by the host circulation
+    parent: null
+    dimension: categorical
+    definition: Presence of vessels in an implant or tissue that carry a tracer (such as fluorescent lectin) injected into the host circulation.
+    scope: Vessels shown to be perfused; not the area density of vessels (blood vessel density) and not the immunostaining of a vessel marker (protein staining).
+# ---------------------------------------------------------------- standing keys for the measures added
+- standing_key:
+    measure: measure:maximum_capture_rate
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:excitation_threshold
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:von_mises_concentration
+    value: {must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cardiac_output
+    value: {must_match: [species, disease_model, treatment, genotype, time_point, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:stroke_volume
+    value: {must_match: [species, disease_model, treatment, genotype, time_point, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:lv_end_diastolic_area
+    value: {must_match: [species, disease_model, treatment, genotype, time_point, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:ejection_fraction
+    value: {must_match: [species, disease_model, treatment, genotype, time_point, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, species], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:engraftment
+    value: {must_match: [species, disease_model, treatment, genotype, time_point], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:graft_infarct_area_ratio
+    value: {must_match: [species, disease_model, treatment, genotype, time_point], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:engraftment_incidence
+    value: {must_match: [species, disease_model, treatment, genotype, time_point], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, time_point]}
+- standing_key:
+    measure: measure:vessel_perfusion
+    value: {must_match: [species, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, time_point]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: hipsc_medium
+  stated: MEF-CM + hbFGF
+  terms: [hipsc_medium:mef_conditioned_medium]
+  qualifiers: {supplement: 4 ng/mL hbFGF}
+  note: hbFGF is an addition to the hiPSC maintenance medium; no field holds hiPSC-medium supplements (supplements is the culture medium's), so it is a qualifier.
+- field: hipsc_coating
+  stated: thin-coat matrigel
+  terms: [hipsc_coating:gfr_matrigel]
+  note: "The same quote says 'thin-coat matrigel (growth factor reduced, 1:60 dilution'. No synonym: 'thin-coat matrigel' alone does not say growth-factor-reduced."
+- field: cm_medium
+  stated: RPMI+B27
+  terms: [cm_medium:rpmi_1640]
+  split: [{words: B27, field: supplements}]
+- field: cm_medium
+  stated: RPMI+10% FBS medium
+  terms: [cm_medium:rpmi_1640]
+  split: [{words: 10% FBS, field: supplements}]
+- field: supplements
+  stated: FBS + 2-mercaptoethanol + Penicillin-Streptomycin
+  terms: [supplements:fetal_bovine_serum, CHEBI:41218, CHEBI:17334, CHEBI:17076]
+  note: Penicillin-Streptomycin is the two antibiotics; no synonym, since one wording for two terms would be broader than either.
+- field: preparation
+  stated: homogenized
+  terms: [preparation:rna_extract]
+  note: "'Fresh hiPSC-ECT samples were homogenized in Trizol' for RNA sequencing. No synonym: 'homogenized' alone does not say RNA."
+- field: preparation
+  stated: perfusion fixation
+  terms: [preparation:fixed]
+  note: Perfusion with 4% PFA is one way of fixing; mapped to the broader term.
+- field: preparation
+  stated: frozen
+  terms: [preparation:cryosection]
+  note: "'embedded in OCT compound and frozen for sectioning'. No synonym: 'frozen' alone could be a frozen extract."
+- field: platform
+  stated: 24-well plates
+  terms: [platform:culture_2d]
+  note: The paper's 2D comparison culture; whether it is a monolayer is not stated (a cell/matrix mixture was plated), so the broader term.
+- field: platform
+  stated: plates
+  terms: [platform:culture_2d]
+  note: Differentiation culture on matrigel-coated plates at 1,000 cells/mm2.
+- field: donor_age
+  stated: pediatric
+  flag: {kind: not a context, note: "Stand-in flag: 'pediatric' is one context but neither a number nor a declared donor_age state (fetal, neonatal, newborn, infant, young, adult), and a quantity field takes no terms. A person may add the state; the reader may give an age if ref. 23 states one."}
+- field: insulin_day
+  stated: d5
+  flag: {kind: not a context, note: "Stand-in flag: a day printed as 'd5' is one quantity, but code's quantity parser does not read the 'd' prefix ('d15' parses only because '5' follows a digit). Not a reader error."}
+- field: seeding_density
+  stated: same density as used for ECT formation
+  flag: {kind: placeholder, note: "A pointer to another value, not a density: the reader may restate the ECT density (about 3.0 × 10^6 cells per 200 µL of cell/matrix mixture) or leave it by reference."}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: proportion of CM, EC and MC
+  flag: {kind: several measures, note: "Three fractions (CM, EC, MC) in one item; the reader may split it into one item per cell type (marker-positive cells, population qualifier)."}
+- field: measure
+  stated: CM ratio
+  terms: [measure:marker_positive_cells]
+  qualifiers: {population: cardiomyocytes}
+  note: The share of CMs among the cells used for each ECT, from flow cytometry; the marker is not printed with the ratio.
+- field: measure
+  stated: TRA-1-60-positive undifferentiated hiPSCs
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TRA-1-60, population: undifferentiated hiPSCs}
+- field: measure
+  stated: onset of spontaneous beating
+  terms: [measure:beating_onset_time]
+  qualifiers: {reference: start of ECT culture}
+  note: "'spontaneous beating after 3 to 4 days in culture' of ECTs; code matches the term, the mapping adds the reference."
+- field: measure
+  stated: appearance of beating cells
+  terms: [measure:beating_onset_time]
+  qualifiers: {reference: start of differentiation (d0)}
+- field: measure
+  stated: relaxation time
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 90% decrease of maximum}
+  note: "Methods: 'relaxation time (time for 90% decrease of maximum)'; code matches the term, the mapping adds the level."
+- field: measure
+  stated: tissue stiffness
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: normal cardiac muscle tissue}
+  note: "Ref. 27's 'normal cardiac muscle tissue stiffness (10–15 kPa)', set against the ECTs' Young's modulus. No synonym: 'tissue stiffness' may be a spring constant elsewhere."
+- field: measure
+  stated: concentration parameter (κ)
+  terms: [measure:von_mises_concentration]
+  qualifiers: {structure: cardiomyocyte orientation (cTnT images)}
+- field: measure
+  stated: circular standard deviation
+  terms: [measure:angle_dispersion]
+  qualifiers: {structure: myofiber orientation (cTnT images)}
+- field: measure
+  stated: sarcomeric ultrastructure
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: sarcomere}
+- field: measure
+  stated: sarcomeric structure (cTnT immunostaining)
+  terms: [measure:protein_staining]
+  qualifiers: {protein: cTnT, region: sarcomeres in ECTs}
+- field: measure
+  stated: enrichment of Muscle Structure Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Muscle Structure Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiovascular System Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cardiovascular System Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiac Muscle Tissue Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cardiac Muscle Tissue Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Heart Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Heart Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Myofibril Assembly (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Myofibril Assembly (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiac Muscle Cell Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cardiac Muscle Cell Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Blood Vessel Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Blood Vessel Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiac Cell Development (GO process)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cardiac Cell Development (GO process), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Muscle Contract (pathway or process network)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Muscle Contract (MetaCore pathway or process network), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cytoskeleton Remodeling (pathway or process network)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cytoskeleton Remodeling (MetaCore pathway or process network), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiac Development FGF ErbB Signaling (pathway or process network)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cardiac Development FGF ErbB Signaling (MetaCore pathway or process network), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiac Development Wnt beta-catenin, Notch, VEGF, IP3 and integrin signaling (pathway or process network)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: "Cardiac Development Wnt beta-catenin, Notch, VEGF, IP3 and integrin signaling (MetaCore pathway or process network)", gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: enrichment of Cardiac development BMP TGF-β signaling (pathway or process network)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: Cardiac development BMP TGF-β signaling (MetaCore pathway or process network), gene_set: genes differing between CM+EC+MC and CM+EC}
+- field: measure
+  stated: survival and tumor formation
+  flag: {kind: several measures, note: "Survival of the rats and tumour formation are two outcomes in one item; the reader may split them."}
+- field: measure
+  stated: "engrafted HNA+ myocardium (Masson's trichrome, cTnT/HNA)"
+  terms: [measure:engraftment]
+  note: The parenthesis names the stains (method), not a second measure.
+- field: measure
+  stated: sarcomeric structure of regenerated myocardium
+  terms: [measure:protein_staining]
+  qualifiers: {protein: cTnT, region: regenerated (engrafted) myocardium}
+  note: "Fig. 4b: 'cTnT and HNA double immunostaining showing sarcomeric structure'."
+- field: measure
+  stated: vWF+ vascular structures (host or graft origin)
+  terms: [measure:protein_staining]
+  qualifiers: {protein: vWF (with HNA for origin), region: around and within regenerated myocardium}
+- field: measure
+  stated: lectin-perfused vasculature in engrafted tissue
+  terms: [measure:vessel_perfusion]
+- field: measure
+  stated: Connexin 43 expression in regenerated myocardium
+  terms: [measure:protein_staining]
+  qualifiers: {protein: Connexin 43, region: regenerated (engrafted) myocardium}
+- field: measure
+  stated: engrafted area / infarcted area
+  terms: [measure:graft_infarct_area_ratio]
+  note: "No synonym: '/' is a separator, so code would split the wording."
+- field: measure
+  stated: rats with ECT engraftment
+  terms: [measure:engraftment_incidence]
+- field: measure
+  stated: cTnT+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cTnT, population: cardiomyocytes}
+- field: measure
+  stated: VE-cadherin+ endothelial cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: VE-cadherin, population: endothelial cells}
+- field: measure
+  stated: PDGFRβ+ vascular mural cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: PDGFRβ, population: vascular mural cells}
+- field: measure
+  stated: CM induction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {population: cardiomyocytes}
+  note: Share of CMs by flow cytometry (Supplementary Fig. 2b); the marker is not printed in that panel.
+- field: measure
+  stated: EC induction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {population: endothelial cells}
+- field: measure
+  stated: MC induction
+  terms: [measure:marker_positive_cells]
+  qualifiers: {population: vascular mural cells}
+- field: measure
+  stated: VE-cadherin+ EC fraction (representative dot plot)
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: VE-cadherin, population: endothelial cells}
+  note: "'(representative dot plot)' is how the value is shown, not part of the measure."
+- field: measure
+  stated: PDGFRb+ MC fraction (representative dot plot)
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: PDGFRβ, population: vascular mural cells}
+- field: measure
+  stated: ECT area
+  terms: [measure:tissue_projected_area]
+  note: "Supplementary Fig. 4: 'Measured ECT area' from macroscopic views during gel compaction."
+- field: measure
+  stated: correlation between active force and CM ratio
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: active force; CM ratio}
+- field: measure
+  stated: correlation between maximum capture rate and MC ratio
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: maximum capture rate; MC ratio}
+- field: measure
+  stated: correlation between relaxation time and MC ratio
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: relaxation time; MC ratio}
+- field: measure
+  stated: R2 of passive stress against strain
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: passive stress; strain}
+  note: R2 of a fit within each tissue's stress-strain curve, not across samples.
+- field: measure
+  stated: R2 of active stress against strain
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: active stress; strain}
+  note: R2 of a fit within each tissue's stress-strain curve, not across samples.
+- field: measure
+  stated: active force (increase ratio)
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: fold}
+  note: "'Increase ratio of active force according to gradually increasing external Ca2+'; the reference concentration is not printed, so no normalised_to."
+- field: measure
+  stated: Ca2+ EC50
+  terms: [measure:ec50]
+  qualifiers: {agonist: Ca2+, response: active force}
+- field: measure
+  stated: active force increase on caffeine
+  terms: [measure:twitch_force]
+  qualifiers: {normalised_to: active force before caffeine}
+  note: "Supplementary Fig. 8b legend says 'Fold increase of active force' but the axis is printed in % (values about 7-33 %), so expressed_as is left to the values' unit."

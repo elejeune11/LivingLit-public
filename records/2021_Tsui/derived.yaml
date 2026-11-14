@@ -1,0 +1,4691 @@
+# Formula agent (formulas_v3) for 2021_Tsui. Generated once; edit by hand from here.
+record: 2021_Tsui
+formula_library_version: 29
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1c_col1.coverage:
+    item: F1c_col1
+    measure: collagen I % coverage
+    formula: not stated
+    anchor:
+      quote: The six most abundant ECM components for each developmental age were identified from spectrum count data.
+      where: Methods 2.2
+    no_formula: how % coverage was computed is not stated (share of spectrum counts, or peptide sequence coverage)
+    alternatives:
+    - label: share of ECM spectrum counts
+      note: counts of one protein / counts of the ECM proteins
+    - label: sequence coverage
+      note: share of the protein's residues covered by identified peptides
+  F1c_col2.coverage:
+    item: F1c_col2
+    measure: collagen II % coverage
+    formula: not stated
+    anchor:
+      quote: The six most abundant ECM components for each developmental age were identified from spectrum count data.
+      where: Methods 2.2
+    no_formula: how % coverage was computed is not stated (share of spectrum counts, or peptide sequence coverage)
+    alternatives:
+    - label: share of ECM spectrum counts
+      note: counts of one protein / counts of the ECM proteins
+    - label: sequence coverage
+      note: share of the protein's residues covered by identified peptides
+  F1c_col3.coverage:
+    item: F1c_col3
+    measure: collagen III % coverage
+    formula: not stated
+    anchor:
+      quote: The six most abundant ECM components for each developmental age were identified from spectrum count data.
+      where: Methods 2.2
+    no_formula: how % coverage was computed is not stated (share of spectrum counts, or peptide sequence coverage)
+    alternatives:
+    - label: share of ECM spectrum counts
+      note: counts of one protein / counts of the ECM proteins
+    - label: sequence coverage
+      note: share of the protein's residues covered by identified peptides
+  F1c_col4.coverage:
+    item: F1c_col4
+    measure: collagen IV % coverage
+    formula: not stated
+    anchor:
+      quote: The six most abundant ECM components for each developmental age were identified from spectrum count data.
+      where: Methods 2.2
+    no_formula: how % coverage was computed is not stated (share of spectrum counts, or peptide sequence coverage)
+    alternatives:
+    - label: share of ECM spectrum counts
+      note: counts of one protein / counts of the ECM proteins
+    - label: sequence coverage
+      note: share of the protein's residues covered by identified peptides
+  F1c_fn.coverage:
+    item: F1c_fn
+    measure: fibronectin % coverage
+    formula: not stated
+    anchor:
+      quote: The six most abundant ECM components for each developmental age were identified from spectrum count data.
+      where: Methods 2.2
+    no_formula: how % coverage was computed is not stated (share of spectrum counts, or peptide sequence coverage)
+    alternatives:
+    - label: share of ECM spectrum counts
+      note: counts of one protein / counts of the ECM proteins
+    - label: sequence coverage
+      note: share of the protein's residues covered by identified peptides
+  F1c_lam.coverage:
+    item: F1c_lam
+    measure: laminin % coverage
+    formula: not stated
+    anchor:
+      quote: The six most abundant ECM components for each developmental age were identified from spectrum count data.
+      where: Methods 2.2
+    no_formula: how % coverage was computed is not stated (share of spectrum counts, or peptide sequence coverage)
+    alternatives:
+    - label: share of ECM spectrum counts
+      note: counts of one protein / counts of the ECM proteins
+    - label: sequence coverage
+      note: share of the protein's residues covered by identified peptides
+  F2a_modulus.modulus:
+    item: F2a_modulus
+    measure: compressive modulus
+    formula: not stated
+    anchor:
+      quote: Compressive moduli of hydrated crosslinked hydrogels were measured using an Instron compressive testing system
+      where: Methods 2.6
+    no_formula: how the modulus was taken from the compression curve (strain range, fit, area) is not stated
+    alternatives:
+    - label: slope of the initial linear stress–strain region
+      formula: E = sigma/eps
+  F2b_modulus.modulus:
+    item: F2b_modulus
+    measure: compressive modulus
+    formula: not stated
+    anchor:
+      quote: Compressive moduli of hydrated crosslinked hydrogels were measured using an Instron compressive testing system
+      where: Methods 2.6
+    no_formula: how the modulus was taken from the compression curve (strain range, fit, area) is not stated
+    alternatives:
+    - label: slope of the initial linear stress–strain region
+      formula: E = sigma/eps
+  F2e_cond.sample_mean:
+    item: F2e_cond
+    measure: electroconductivity
+    formula: s = S/n
+    anchor:
+      quote: Probe measurements were taken at 20 different points across the sample and averaged.
+      where: Methods 2.6
+    library:
+      formula: mean_def
+      vars:
+        m: s
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum of the 20 point readings
+      n:
+        printed: '20'
+        unit: count
+        kind: constant
+        anchor:
+          quote: Probe measurements were taken at 20 different points across the sample and averaged.
+          where: Methods 2.6
+    alternatives:
+    - label: conversion from probe reading
+      note: conductivity from four-point-probe sheet resistance needs the film thickness (σ = 1/(Rs·t)); neither the conversion nor the thickness
+        is stated
+    note: Gives one value per sample; the printed means are over n = 6 samples.
+  F2f_cond.sample_mean:
+    item: F2f_cond
+    measure: electroconductivity
+    formula: s = S/n
+    anchor:
+      quote: Probe measurements were taken at 20 different points across the sample and averaged.
+      where: Methods 2.6
+    library:
+      formula: mean_def
+      vars:
+        m: s
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum of the 20 point readings
+      n:
+        printed: '20'
+        unit: count
+        kind: constant
+        anchor:
+          quote: Probe measurements were taken at 20 different points across the sample and averaged.
+          where: Methods 2.6
+    alternatives:
+    - label: conversion from probe reading
+      note: conductivity from four-point-probe sheet resistance needs the film thickness (σ = 1/(Rs·t)); neither the conversion nor the thickness
+        is stated
+    note: Gives one value per sample; the printed means are over n = 6 samples.
+  F2f_cond_c02_c01.sample_mean:
+    item: F2f_cond_c02_c01
+    measure: electroconductivity
+    formula: s = S/n
+    anchor:
+      quote: Probe measurements were taken at 20 different points across the sample and averaged.
+      where: Methods 2.6
+    library:
+      formula: mean_def
+      vars:
+        m: s
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum of the 20 point readings
+      n:
+        printed: '20'
+        unit: count
+        kind: constant
+        anchor:
+          quote: Probe measurements were taken at 20 different points across the sample and averaged.
+          where: Methods 2.6
+    alternatives:
+    - label: conversion from probe reading
+      note: conductivity from four-point-probe sheet resistance needs the film thickness (σ = 1/(Rs·t)); neither the conversion nor the thickness
+        is stated
+    note: Gives one value per sample; the printed means are over n = 6 samples.
+  S2_idig.idig:
+    item: S2_idig
+    measure: Raman D:G peak intensity ratio
+    formula: r = ID/IG
+    anchor:
+      quote: the D:G peak intensity ratio increased
+      where: Results 3.1
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ID
+        b: IG
+    inputs:
+      ID:
+        not_stated: true
+        kind: per sample
+        note: D-band peak intensity
+      IG:
+        not_stated: true
+        kind: per sample
+        note: G-band peak intensity
+    aggregation: not stated
+  S4_modulus.modulus:
+    item: S4_modulus
+    measure: compressive modulus
+    formula: not stated
+    anchor:
+      quote: Compressive moduli of hydrated crosslinked hydrogels were measured using an Instron compressive testing system
+      where: Methods 2.6
+    no_formula: how the modulus was taken from the compression curve (strain range, fit, area) is not stated
+    alternatives:
+    - label: slope of the initial linear stress–strain region
+      formula: E = sigma/eps
+  S5_viab_cm.viability:
+    item: S5_viab_cm
+    measure: hiPSC-CM viability
+    formula: not stated
+    anchor:
+      quote: Quantitative analysis of captured images was performed using ImageJ
+      where: Methods 2.9
+    no_formula: how % viability was computed from the live/dead images is not stated
+    alternatives:
+    - label: live share of all cells
+      formula: v = a/(a + b)
+      note: part_of_whole with a = live, b = dead cell counts
+  S5_viab_hs.viability:
+    item: S5_viab_hs
+    measure: HS27a viability
+    formula: not stated
+    anchor:
+      quote: Quantitative analysis of captured images was performed using ImageJ
+      where: Methods 2.9
+    no_formula: how % viability was computed from the live/dead images is not stated
+    alternatives:
+    - label: live share of all cells
+      formula: v = a/(a + b)
+      note: part_of_whole with a = live, b = dead cell counts
+  TXT_viab.viability:
+    item: TXT_viab
+    measure: viability
+    formula: not stated
+    anchor:
+      quote: Quantitative analysis of captured images was performed using ImageJ
+      where: Methods 2.9
+    no_formula: how % viability was computed from the live/dead images is not stated
+    alternatives:
+    - label: live share of all cells
+      formula: v = a/(a + b)
+      note: part_of_whole with a = live, b = dead cell counts
+  F3_vel_d14.contraction_velocity:
+    item: F3_vel_d14
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_d35.contraction_velocity:
+    item: F3_vel_d35
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_col_time.contraction_velocity:
+    item: F3_vel_col_time
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_decm_time.contraction_velocity:
+    item: F3_vel_decm_time
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_tg_time.contraction_velocity:
+    item: F3_vel_tg_time
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_rgo_time.contraction_velocity:
+    item: F3_vel_rgo_time
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_d14_decm_col.contraction_velocity:
+    item: F3_vel_d14_decm_col
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  F3_vel_d35_decm_col.contraction_velocity:
+    item: F3_vel_d35_decm_col
+    measure: contraction velocity
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: contraction velocity is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: peak rate of force development
+      note: max dF/dt of the force trace
+    - label: peak shortening velocity
+      note: max d(deflection)/dt
+  S6_power_d14_tg_col.twitch_power:
+    item: S6_power_d14_tg_col
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_d14_tg_decm.twitch_power:
+    item: S6_power_d14_tg_decm
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_d35_tg_col.twitch_power:
+    item: S6_power_d35_tg_col
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_d14.twitch_power:
+    item: S6_power_d14
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_d35.twitch_power:
+    item: S6_power_d35
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_d35_tg_decm.twitch_power:
+    item: S6_power_d35_tg_decm
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_col_time.twitch_power:
+    item: S6_power_col_time
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_decm_time.twitch_power:
+    item: S6_power_decm_time
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_tg_time.twitch_power:
+    item: S6_power_tg_time
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  S6_power_rgo_time.twitch_power:
+    item: S6_power_rgo_time
+    measure: twitch power
+    formula: not stated
+    anchor:
+      quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+      where: Methods 2.12
+    no_formula: twitch power is computed from the tracked post deflection by a method stated only by citation [25]
+    inputs:
+      method:
+        by_reference:
+          citation: c25
+          anchor:
+            quote: twitch force, time to peak force, time to 90% force decay, contraction velocity, and twitch power [25]
+            where: Methods 2.12
+        kind: not stated
+    alternatives:
+    - label: work per twitch over contraction time
+      note: power = work/time, work = force × displacement
+    - label: peak instantaneous power
+      note: max of F·v over the twitch
+  F3fj_MYH7_d14.relative_expression:
+    item: F3fj_MYH7_d14
+    measure: MYH7 relative expression
+    formula: r = 2^(-ddct)
+    anchor: &id001
+      quote: Relative gene expression was calculated using the comparative Ct method, where GAPDH was designated as the housekeeping gene
+      where: Methods 2.13
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_MYH7_d35.relative_expression:
+    item: F3fj_MYH7_d35
+    measure: MYH7 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_MYH7_col_time.relative_expression:
+    item: F3fj_MYH7_col_time
+    measure: MYH7 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_MYH7_decm_time.relative_expression:
+    item: F3fj_MYH7_decm_time
+    measure: MYH7 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_MYH7_tg_time.relative_expression:
+    item: F3fj_MYH7_tg_time
+    measure: MYH7 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_MYH7_rgo_time.relative_expression:
+    item: F3fj_MYH7_rgo_time
+    measure: MYH7 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of MYH7 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_d35.relative_expression:
+    item: F3fj_TNNT2_d35
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_tg_d14_col_d14.relative_expression:
+    item: F3fj_TNNT2_tg_d14_col_d14
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_tg_d14_decm_d14.relative_expression:
+    item: F3fj_TNNT2_tg_d14_decm_d14
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_rgo_d14_col_d14.relative_expression:
+    item: F3fj_TNNT2_rgo_d14_col_d14
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_rgo_d14_decm_d14.relative_expression:
+    item: F3fj_TNNT2_rgo_d14_decm_d14
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_col_time.relative_expression:
+    item: F3fj_TNNT2_col_time
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_decm_time.relative_expression:
+    item: F3fj_TNNT2_decm_time
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_tg_time.relative_expression:
+    item: F3fj_TNNT2_tg_time
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_rgo_time.relative_expression:
+    item: F3fj_TNNT2_rgo_time
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d14.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_d14
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d14.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_d14
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d14.ratio:
+    item: F3fj_TNNI3_TNNI1_d14
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: &id002
+      quote: the significantly higher ratio of expression of TNNI3 to TNNI1 in dECM-rGO tissues at both time points
+      where: Results 3.2
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_d14.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_d14.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNI3_TNNI1_d35.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_d35
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d35.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_d35
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d35.ratio:
+    item: F3fj_TNNI3_TNNI1_d35
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_d35.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_d35.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNI3_TNNI1_col_time.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_col_time
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_col_time.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_col_time
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_col_time.ratio:
+    item: F3fj_TNNI3_TNNI1_col_time
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_col_time.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_col_time.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNI3_TNNI1_decm_time.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_decm_time
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_decm_time.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_decm_time
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_decm_time.ratio:
+    item: F3fj_TNNI3_TNNI1_decm_time
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_decm_time.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_decm_time.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNI3_TNNI1_tg_time.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_tg_time
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_tg_time.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_tg_time
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_tg_time.ratio:
+    item: F3fj_TNNI3_TNNI1_tg_time
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_tg_time.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_tg_time.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNI3_TNNI1_rgo_time.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_rgo_time
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_rgo_time.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_rgo_time
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_rgo_time.ratio:
+    item: F3fj_TNNI3_TNNI1_rgo_time
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_rgo_time.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_rgo_time.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TTN_d35.relative_expression:
+    item: F3fj_TTN_d35
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_rgo_d14_col_d14.relative_expression:
+    item: F3fj_TTN_rgo_d14_col_d14
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_rgo_d14_decm_d14.relative_expression:
+    item: F3fj_TTN_rgo_d14_decm_d14
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_tg_d35_col_d35.relative_expression:
+    item: F3fj_TTN_tg_d35_col_d35
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_rgo_d35_col_d35.relative_expression:
+    item: F3fj_TTN_rgo_d35_col_d35
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_col_time.relative_expression:
+    item: F3fj_TTN_col_time
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_decm_time.relative_expression:
+    item: F3fj_TTN_decm_time
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_tg_time.relative_expression:
+    item: F3fj_TTN_tg_time
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TTN_rgo_time.relative_expression:
+    item: F3fj_TTN_rgo_time
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_d14.n2b_expression:
+    item: F3fj_N2B_N2BA_d14
+    measure: N2B relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2B (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_d14.n2ba_expression:
+    item: F3fj_N2B_N2BA_d14
+    measure: N2BA relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2BA (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_d14.ratio:
+    item: F3fj_N2B_N2BA_d14
+    measure: N2B:N2BA expression ratio
+    formula: q = a/b
+    anchor: &id003
+      quote: the ratio of the N2B to N2BA isoforms of titin was significantly higher in dECM-rGO tissues
+      where: Results 3.2
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_N2B_N2BA_d14.n2b_expression
+        kind: per sample
+      b:
+        derived: F3fj_N2B_N2BA_d14.n2ba_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_N2B_N2BA_d35.n2b_expression:
+    item: F3fj_N2B_N2BA_d35
+    measure: N2B relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2B (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_d35.n2ba_expression:
+    item: F3fj_N2B_N2BA_d35
+    measure: N2BA relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2BA (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_d35.ratio:
+    item: F3fj_N2B_N2BA_d35
+    measure: N2B:N2BA expression ratio
+    formula: q = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_N2B_N2BA_d35.n2b_expression
+        kind: per sample
+      b:
+        derived: F3fj_N2B_N2BA_d35.n2ba_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_N2B_N2BA_decm_d35_tcps_d35.n2b_expression:
+    item: F3fj_N2B_N2BA_decm_d35_tcps_d35
+    measure: N2B relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2B (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_decm_d35_tcps_d35.n2ba_expression:
+    item: F3fj_N2B_N2BA_decm_d35_tcps_d35
+    measure: N2BA relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2BA (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_decm_d35_tcps_d35.ratio:
+    item: F3fj_N2B_N2BA_decm_d35_tcps_d35
+    measure: N2B:N2BA expression ratio
+    formula: q = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_N2B_N2BA_decm_d35_tcps_d35.n2b_expression
+        kind: per sample
+      b:
+        derived: F3fj_N2B_N2BA_decm_d35_tcps_d35.n2ba_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_N2B_N2BA_tg_time.n2b_expression:
+    item: F3fj_N2B_N2BA_tg_time
+    measure: N2B relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2B (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_tg_time.n2ba_expression:
+    item: F3fj_N2B_N2BA_tg_time
+    measure: N2BA relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2BA (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_tg_time.ratio:
+    item: F3fj_N2B_N2BA_tg_time
+    measure: N2B:N2BA expression ratio
+    formula: q = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_N2B_N2BA_tg_time.n2b_expression
+        kind: per sample
+      b:
+        derived: F3fj_N2B_N2BA_tg_time.n2ba_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_N2B_N2BA_rgo_time.n2b_expression:
+    item: F3fj_N2B_N2BA_rgo_time
+    measure: N2B relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2B (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_rgo_time.n2ba_expression:
+    item: F3fj_N2B_N2BA_rgo_time
+    measure: N2BA relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of N2BA (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_N2B_N2BA_rgo_time.ratio:
+    item: F3fj_N2B_N2BA_rgo_time
+    measure: N2B:N2BA expression ratio
+    formula: q = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_N2B_N2BA_rgo_time.n2b_expression
+        kind: per sample
+      b:
+        derived: F3fj_N2B_N2BA_rgo_time.n2ba_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNT2_d14_decm_col.relative_expression:
+    item: F3fj_TNNT2_d14_decm_col
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNT2_d35_decm_col.relative_expression:
+    item: F3fj_TNNT2_d35_decm_col
+    measure: TNNT2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNT2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d14_tg_decm.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_d14_tg_decm
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d14_tg_decm.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_d14_tg_decm
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d14_tg_decm.ratio:
+    item: F3fj_TNNI3_TNNI1_d14_tg_decm
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_d14_tg_decm.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_d14_tg_decm.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TNNI3_TNNI1_d35_tg_decm.tnni3_expression:
+    item: F3fj_TNNI3_TNNI1_d35_tg_decm
+    measure: TNNI3 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI3 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d35_tg_decm.tnni1_expression:
+    item: F3fj_TNNI3_TNNI1_d35_tg_decm
+    measure: TNNI1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TNNI1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F3fj_TNNI3_TNNI1_d35_tg_decm.ratio:
+    item: F3fj_TNNI3_TNNI1_d35_tg_decm
+    measure: TNNI3:TNNI1 expression ratio
+    formula: q = a/b
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: a
+        b: b
+    inputs:
+      a:
+        derived: F3fj_TNNI3_TNNI1_d35_tg_decm.tnni3_expression
+        kind: per sample
+      b:
+        derived: F3fj_TNNI3_TNNI1_d35_tg_decm.tnni1_expression
+        kind: per sample
+    aggregation: not stated
+    alternatives:
+    - label: ratio of group-mean relative expressions
+      note: the ratio could be built from group means of each isoform rather than per tissue; not stated
+    note: A within-sample ratio of two measures of the same tissues.
+  F3fj_TTN_d14_rgo_tg.relative_expression:
+    item: F3fj_TTN_d14_rgo_tg
+    measure: TTN relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of TTN (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5b_dff_d14.dff:
+    item: F5b_dff_d14
+    measure: calcium transient amplitude ΔF/F0
+    formula: dff = (F - F0)/F0
+    anchor:
+      quote: fluorescence intensity over time was quantified using NIS Elements software (Nikon) and used to calculate ΔF/F0 values
+      where: Methods 2.12
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was chosen is not stated
+    aggregation: not stated
+  F5b_dff_d35.dff:
+    item: F5b_dff_d35
+    measure: calcium transient amplitude ΔF/F0
+    formula: dff = (F - F0)/F0
+    anchor:
+      quote: fluorescence intensity over time was quantified using NIS Elements software (Nikon) and used to calculate ΔF/F0 values
+      where: Methods 2.12
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was chosen is not stated
+    aggregation: not stated
+  F5b_dff_rgo_time.dff:
+    item: F5b_dff_rgo_time
+    measure: calcium transient amplitude ΔF/F0
+    formula: dff = (F - F0)/F0
+    anchor:
+      quote: fluorescence intensity over time was quantified using NIS Elements software (Nikon) and used to calculate ΔF/F0 values
+      where: Methods 2.12
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was chosen is not stated
+    aggregation: not stated
+  F5b_dff_decm_time.dff:
+    item: F5b_dff_decm_time
+    measure: calcium transient amplitude ΔF/F0
+    formula: dff = (F - F0)/F0
+    anchor:
+      quote: fluorescence intensity over time was quantified using NIS Elements software (Nikon) and used to calculate ΔF/F0 values
+      where: Methods 2.12
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was chosen is not stated
+    aggregation: not stated
+  F5j_cv_d14.cv:
+    item: F5j_cv_d14
+    measure: longitudinal conduction velocity
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: calculated by measuring the time delay in the onset of depolarization at two regions of interest that were at opposite ends of the
+        tissue’s long axis
+      where: Methods 2.12
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: not stated
+        note: the regions were 'a known distance apart'; the distance is not printed
+      t1:
+        not_stated: true
+        kind: per sample
+        note: onset of depolarization at the first region
+      t2:
+        not_stated: true
+        kind: per sample
+        note: onset of depolarization at the second region
+    aggregation: not stated
+  F5j_cv_d35.cv:
+    item: F5j_cv_d35
+    measure: longitudinal conduction velocity
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: calculated by measuring the time delay in the onset of depolarization at two regions of interest that were at opposite ends of the
+        tissue’s long axis
+      where: Methods 2.12
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: not stated
+        note: the regions were 'a known distance apart'; the distance is not printed
+      t1:
+        not_stated: true
+        kind: per sample
+        note: onset of depolarization at the first region
+      t2:
+        not_stated: true
+        kind: per sample
+        note: onset of depolarization at the second region
+    aggregation: not stated
+  F5j_cv_rgo_time.cv:
+    item: F5j_cv_rgo_time
+    measure: longitudinal conduction velocity
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: calculated by measuring the time delay in the onset of depolarization at two regions of interest that were at opposite ends of the
+        tissue’s long axis
+      where: Methods 2.12
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: not stated
+        note: the regions were 'a known distance apart'; the distance is not printed
+      t1:
+        not_stated: true
+        kind: per sample
+        note: onset of depolarization at the first region
+      t2:
+        not_stated: true
+        kind: per sample
+        note: onset of depolarization at the second region
+    aggregation: not stated
+  F5q_CACNA1C_d14.relative_expression:
+    item: F5q_CACNA1C_d14
+    measure: CACNA1C relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of CACNA1C (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_CACNA1C_d35.relative_expression:
+    item: F5q_CACNA1C_d35
+    measure: CACNA1C relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of CACNA1C (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_ATP2A2_d14.relative_expression:
+    item: F5q_ATP2A2_d14
+    measure: ATP2A2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of ATP2A2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_ATP2A2_d35.relative_expression:
+    item: F5q_ATP2A2_d35
+    measure: ATP2A2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of ATP2A2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_ATP2A2_rgo_time.relative_expression:
+    item: F5q_ATP2A2_rgo_time
+    measure: ATP2A2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of ATP2A2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNH2_d14.relative_expression:
+    item: F5q_KCNH2_d14
+    measure: KCNH2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNH2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNH2_d35.relative_expression:
+    item: F5q_KCNH2_d35
+    measure: KCNH2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNH2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNJ2_d14.relative_expression:
+    item: F5q_KCNJ2_d14
+    measure: KCNJ2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNJ2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNJ2_d35.relative_expression:
+    item: F5q_KCNJ2_d35
+    measure: KCNJ2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNJ2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNJ2_decm_time.relative_expression:
+    item: F5q_KCNJ2_decm_time
+    measure: KCNJ2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNJ2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNJ2_tg_time.relative_expression:
+    item: F5q_KCNJ2_tg_time
+    measure: KCNJ2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNJ2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNJ2_rgo_time.relative_expression:
+    item: F5q_KCNJ2_rgo_time
+    measure: KCNJ2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNJ2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_SCN5A_d14.relative_expression:
+    item: F5q_SCN5A_d14
+    measure: SCN5A relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of SCN5A (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_SCN5A_d35.relative_expression:
+    item: F5q_SCN5A_d35
+    measure: SCN5A relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of SCN5A (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_SCN5A_decm_time.relative_expression:
+    item: F5q_SCN5A_decm_time
+    measure: SCN5A relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of SCN5A (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_SCN5A_tg_time.relative_expression:
+    item: F5q_SCN5A_tg_time
+    measure: SCN5A relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of SCN5A (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_d14.relative_expression:
+    item: F5q_GJA1_d14
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_d35.relative_expression:
+    item: F5q_GJA1_d35
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_tg_d35_col_d35.relative_expression:
+    item: F5q_GJA1_tg_d35_col_d35
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_tcps_time.relative_expression:
+    item: F5q_GJA1_tcps_time
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_col_time.relative_expression:
+    item: F5q_GJA1_col_time
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_decm_time.relative_expression:
+    item: F5q_GJA1_decm_time
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_tg_time.relative_expression:
+    item: F5q_GJA1_tg_time
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_GJA1_rgo_time.relative_expression:
+    item: F5q_GJA1_rgo_time
+    measure: GJA1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GJA1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F5q_KCNH2_rgo_time.relative_expression:
+    item: F5q_KCNH2_rgo_time
+    measure: KCNH2 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNH2 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_d14.relative_expression:
+    item: F6_NKX25_d14
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_d35.relative_expression:
+    item: F6_NKX25_d35
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_col_time.relative_expression:
+    item: F6_NKX25_col_time
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_decm_time.relative_expression:
+    item: F6_NKX25_decm_time
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_tg_time.relative_expression:
+    item: F6_NKX25_tg_time
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_rgo_time.relative_expression:
+    item: F6_NKX25_rgo_time
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_GATA4_d14.relative_expression:
+    item: F6_GATA4_d14
+    measure: GATA4 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GATA4 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_GATA4_d35.relative_expression:
+    item: F6_GATA4_d35
+    measure: GATA4 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GATA4 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_GATA4_decm_time.relative_expression:
+    item: F6_GATA4_decm_time
+    measure: GATA4 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GATA4 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_GATA4_tg_time.relative_expression:
+    item: F6_GATA4_tg_time
+    measure: GATA4 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GATA4 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_GATA4_rgo_time.relative_expression:
+    item: F6_GATA4_rgo_time
+    measure: GATA4 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GATA4 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_NKX25_d14_rgo_col.relative_expression:
+    item: F6_NKX25_d14_rgo_col
+    measure: NKX2.5 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of NKX2.5 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  F6_GATA4_d14_rgo_col.relative_expression:
+    item: F6_GATA4_d14_rgo_col
+    measure: GATA4 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of GATA4 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNE1_d14.relative_expression:
+    item: S7_KCNE1_d14
+    measure: KCNE1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNE1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNE1_d35.relative_expression:
+    item: S7_KCNE1_d35
+    measure: KCNE1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNE1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNQ1_d14.relative_expression:
+    item: S7_KCNQ1_d14
+    measure: KCNQ1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNQ1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNQ1_d35.relative_expression:
+    item: S7_KCNQ1_d35
+    measure: KCNQ1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNQ1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNQ1_decm_time.relative_expression:
+    item: S7_KCNQ1_decm_time
+    measure: KCNQ1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNQ1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNQ1_tg_time.relative_expression:
+    item: S7_KCNQ1_tg_time
+    measure: KCNQ1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNQ1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S7_KCNQ1_rgo_time.relative_expression:
+    item: S7_KCNQ1_rgo_time
+    measure: KCNQ1 relative expression
+    formula: r = 2^(-ddct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: ΔΔCt of KCNQ1 (GAPDH reference, age-matched TCPS calibrator); Ct values are not printed
+    aggregation: not stated
+    note: 'Calibrator: age-matched TCPS controls with the same HS27A ratio; each sample run in triplicate. Whether ΔΔCt is taken per sample against
+      the calibrator mean (mean of per-sample 2^-ΔΔCt) or from group-mean Ct is not stated.'
+  S8_rmp_d14.tip_corrected:
+    item: S8_rmp_d14
+    measure: resting membrane potential
+    formula: v = vm - vtip
+    anchor:
+      quote: Membrane potentials were corrected by subtraction of a 20 mV tip potential, calculated using the HEKA software
+      where: Methods 2.16
+    library:
+      formula: difference_from_reference
+      vars:
+        d: v
+        x: vm
+        x0: vtip
+    inputs:
+      vm:
+        not_stated: true
+        kind: per sample
+        note: recorded potential at 0 pA
+      vtip:
+        printed: '20'
+        unit: mV
+        kind: constant
+        anchor:
+          quote: Membrane potentials were corrected by subtraction of a 20 mV tip potential
+          where: Methods 2.16
+    note: The sign convention of the 20 mV tip potential is not stated (subtracting +20 mV).
+  S8_rmp_d7.tip_corrected:
+    item: S8_rmp_d7
+    measure: resting membrane potential
+    formula: v = vm - vtip
+    anchor:
+      quote: Membrane potentials were corrected by subtraction of a 20 mV tip potential, calculated using the HEKA software
+      where: Methods 2.16
+    library:
+      formula: difference_from_reference
+      vars:
+        d: v
+        x: vm
+        x0: vtip
+    inputs:
+      vm:
+        not_stated: true
+        kind: per sample
+        note: recorded potential at 0 pA
+      vtip:
+        printed: '20'
+        unit: mV
+        kind: constant
+        anchor:
+          quote: Membrane potentials were corrected by subtraction of a 20 mV tip potential
+          where: Methods 2.16
+    note: The sign convention of the 20 mV tip potential is not stated (subtracting +20 mV).
+  F7c_ic50_apd.ic50:
+    item: F7c_ic50_apd
+    measure: IC50 of APD90 prolongation by cisapride
+    formula: not stated
+    anchor:
+      quote: the normalized data was fit to a non-linear dose response curve using a least squares fit
+      where: Methods 2.19
+    no_formula: a least-squares fit of a dose–response curve in GraphPad Prism (model, Hill slope and constraints not stated); curve fits are
+      outside the closed-form library
+    inputs:
+      curve:
+        derived: F7b_dr_apd.normalised
+        kind: per sample
+  F7c_ic50_bi.ic50:
+    item: F7c_ic50_bi
+    measure: IC50 of change in beat interval by cisapride
+    formula: not stated
+    anchor:
+      quote: the normalized data was fit to a non-linear dose response curve using a least squares fit
+      where: Methods 2.19
+    no_formula: a least-squares fit of a dose–response curve in GraphPad Prism (model, Hill slope and constraints not stated); curve fits are
+      outside the closed-form library
+    inputs:
+      curve:
+        derived: F7b_dr_bi.normalised
+        kind: per sample
+  F7b_dr_apd.normalised:
+    item: F7b_dr_apd
+    measure: '% change in APD90'
+    formula: n = (x - xmin)/(xmax - xmin)
+    anchor:
+      quote: APD90 or ΔBI values were normalized such that the lowest value was set at 0% and the largest value at 100%
+      where: Methods 2.19
+    library:
+      formula: min_max_normalised
+      vars:
+        n: n
+        x: x
+        xmin: xmin
+        xmax: xmax
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: APD90 at one cisapride concentration
+      xmin:
+        not_stated: true
+        kind: not stated
+        note: 'lowest value: per tissue, per group or pooled is not stated'
+      xmax:
+        not_stated: true
+        kind: not stated
+        note: 'largest value: per tissue, per group or pooled is not stated'
+    output_unit: '%'
+    note: Printed as % (fraction × 100). Fig. 7b and S9a label the axis '% change', but Methods 2.19 describes min–max normalisation.
+  F7b_dr_bi.delta_bi:
+    item: F7b_dr_bi
+    measure: beat-to-beat change in beat interval
+    formula: dbi = bi2 - bi1
+    anchor:
+      quote: calculating the difference in this interval from one beat to the next
+      where: Methods 2.19
+    library:
+      formula: difference_from_reference
+      vars:
+        d: dbi
+        x: bi2
+        x0: bi1
+    inputs:
+      bi2:
+        not_stated: true
+        kind: per sample
+        note: a beat interval
+      bi1:
+        not_stated: true
+        kind: per sample
+        note: the preceding beat interval
+    alternatives:
+    - label: absolute difference
+      formula: dbi = Abs(bi2 - bi1)
+      note: whether the sign is kept is not stated
+    - label: averaged over beats
+      note: how successive differences were reduced to one value per tissue is not stated
+  F7b_dr_bi.normalised:
+    item: F7b_dr_bi
+    measure: '% change in ΔBI'
+    formula: n = (x - xmin)/(xmax - xmin)
+    anchor:
+      quote: APD90 or ΔBI values were normalized such that the lowest value was set at 0% and the largest value at 100%
+      where: Methods 2.19
+    library:
+      formula: min_max_normalised
+      vars:
+        n: n
+        x: x
+        xmin: xmin
+        xmax: xmax
+    inputs:
+      x:
+        derived: F7b_dr_bi.delta_bi
+        kind: per sample
+      xmin:
+        not_stated: true
+        kind: not stated
+        note: 'lowest value: per tissue, per group or pooled is not stated'
+      xmax:
+        not_stated: true
+        kind: not stated
+        note: 'largest value: per tissue, per group or pooled is not stated'
+    output_unit: '%'
+    note: Printed as % (fraction × 100). Fig. 7b and S9a label the axis '% change', but Methods 2.19 describes min–max normalisation.
+  S9b_ic50_apd.ic50:
+    item: S9b_ic50_apd
+    measure: IC50 of APD90 prolongation by cisapride
+    formula: not stated
+    anchor:
+      quote: the normalized data was fit to a non-linear dose response curve using a least squares fit
+      where: Methods 2.19
+    no_formula: a least-squares fit of a dose–response curve in GraphPad Prism (model, Hill slope and constraints not stated); curve fits are
+      outside the closed-form library
+    inputs:
+      curve:
+        derived: S9a_dr_apd.normalised
+        kind: per sample
+  S9b_ic50_bi.ic50:
+    item: S9b_ic50_bi
+    measure: IC50 of change in beat interval by cisapride
+    formula: not stated
+    anchor:
+      quote: the normalized data was fit to a non-linear dose response curve using a least squares fit
+      where: Methods 2.19
+    no_formula: a least-squares fit of a dose–response curve in GraphPad Prism (model, Hill slope and constraints not stated); curve fits are
+      outside the closed-form library
+    inputs:
+      curve:
+        derived: S9a_dr_bi.normalised
+        kind: per sample
+  S9a_dr_apd.normalised:
+    item: S9a_dr_apd
+    measure: '% change in APD90'
+    formula: n = (x - xmin)/(xmax - xmin)
+    anchor:
+      quote: APD90 or ΔBI values were normalized such that the lowest value was set at 0% and the largest value at 100%
+      where: Methods 2.19
+    library:
+      formula: min_max_normalised
+      vars:
+        n: n
+        x: x
+        xmin: xmin
+        xmax: xmax
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: APD90 at one cisapride concentration
+      xmin:
+        not_stated: true
+        kind: not stated
+        note: 'lowest value: per tissue, per group or pooled is not stated'
+      xmax:
+        not_stated: true
+        kind: not stated
+        note: 'largest value: per tissue, per group or pooled is not stated'
+    output_unit: '%'
+    note: Printed as % (fraction × 100). Fig. 7b and S9a label the axis '% change', but Methods 2.19 describes min–max normalisation.
+  S9a_dr_bi.delta_bi:
+    item: S9a_dr_bi
+    measure: beat-to-beat change in beat interval
+    formula: dbi = bi2 - bi1
+    anchor:
+      quote: calculating the difference in this interval from one beat to the next
+      where: Methods 2.19
+    library:
+      formula: difference_from_reference
+      vars:
+        d: dbi
+        x: bi2
+        x0: bi1
+    inputs:
+      bi2:
+        not_stated: true
+        kind: per sample
+        note: a beat interval
+      bi1:
+        not_stated: true
+        kind: per sample
+        note: the preceding beat interval
+    alternatives:
+    - label: absolute difference
+      formula: dbi = Abs(bi2 - bi1)
+      note: whether the sign is kept is not stated
+    - label: averaged over beats
+      note: how successive differences were reduced to one value per tissue is not stated
+  S9a_dr_bi.normalised:
+    item: S9a_dr_bi
+    measure: '% change in ΔBI'
+    formula: n = (x - xmin)/(xmax - xmin)
+    anchor:
+      quote: APD90 or ΔBI values were normalized such that the lowest value was set at 0% and the largest value at 100%
+      where: Methods 2.19
+    library:
+      formula: min_max_normalised
+      vars:
+        n: n
+        x: x
+        xmin: xmin
+        xmax: xmax
+    inputs:
+      x:
+        derived: S9a_dr_bi.delta_bi
+        kind: per sample
+      xmin:
+        not_stated: true
+        kind: not stated
+        note: 'lowest value: per tissue, per group or pooled is not stated'
+      xmax:
+        not_stated: true
+        kind: not stated
+        note: 'largest value: per tissue, per group or pooled is not stated'
+    output_unit: '%'
+    note: Printed as % (fraction × 100). Fig. 7b and S9a label the axis '% change', but Methods 2.19 describes min–max normalisation.
+  ST5_RASGRF1.fold_change:
+    item: ST5_RASGRF1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: RASGRF1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: RASGRF1 normalised expression in dECM-only EHTs
+    output: ST5_RASGRF1.values.fc_RASGRF1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_RAC2.fold_change:
+    item: ST5_RAC2
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: RAC2 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: RAC2 normalised expression in dECM-only EHTs
+    output: ST5_RAC2.values.fc_RAC2_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_MYLK2.fold_change:
+    item: ST5_MYLK2
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: MYLK2 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: MYLK2 normalised expression in dECM-only EHTs
+    output: ST5_MYLK2.values.fc_MYLK2_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_CAV1.fold_change:
+    item: ST5_CAV1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: CAV1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: CAV1 normalised expression in dECM-only EHTs
+    output: ST5_CAV1.values.fc_CAV1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_VEGFC.fold_change:
+    item: ST5_VEGFC
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: VEGFC normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: VEGFC normalised expression in dECM-only EHTs
+    output: ST5_VEGFC.values.fc_VEGFC_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_FLNA.fold_change:
+    item: ST5_FLNA
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: FLNA normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: FLNA normalised expression in dECM-only EHTs
+    output: ST5_FLNA.values.fc_FLNA_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_VEGFA.fold_change:
+    item: ST5_VEGFA
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: VEGFA normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: VEGFA normalised expression in dECM-only EHTs
+    output: ST5_VEGFA.values.fc_VEGFA_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_MET.fold_change:
+    item: ST5_MET
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: MET normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: MET normalised expression in dECM-only EHTs
+    output: ST5_MET.values.fc_MET_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_DIAPH1.fold_change:
+    item: ST5_DIAPH1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: DIAPH1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: DIAPH1 normalised expression in dECM-only EHTs
+    output: ST5_DIAPH1.values.fc_DIAPH1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_ACTN4.fold_change:
+    item: ST5_ACTN4
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: ACTN4 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: ACTN4 normalised expression in dECM-only EHTs
+    output: ST5_ACTN4.values.fc_ACTN4_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_ITGA5.fold_change:
+    item: ST5_ITGA5
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: ITGA5 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: ITGA5 normalised expression in dECM-only EHTs
+    output: ST5_ITGA5.values.fc_ITGA5_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_THBS2.fold_change:
+    item: ST5_THBS2
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: THBS2 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: THBS2 normalised expression in dECM-only EHTs
+    output: ST5_THBS2.values.fc_THBS2_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_ITGB4.fold_change:
+    item: ST5_ITGB4
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: ITGB4 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: ITGB4 normalised expression in dECM-only EHTs
+    output: ST5_ITGB4.values.fc_ITGB4_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_COL4A3.fold_change:
+    item: ST5_COL4A3
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: COL4A3 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: COL4A3 normalised expression in dECM-only EHTs
+    output: ST5_COL4A3.values.fc_COL4A3_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_FN1.fold_change:
+    item: ST5_FN1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: FN1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: FN1 normalised expression in dECM-only EHTs
+    output: ST5_FN1.values.fc_FN1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_TNC.fold_change:
+    item: ST5_TNC
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: TNC normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: TNC normalised expression in dECM-only EHTs
+    output: ST5_TNC.values.fc_TNC_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_LAMA3.fold_change:
+    item: ST5_LAMA3
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: LAMA3 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: LAMA3 normalised expression in dECM-only EHTs
+    output: ST5_LAMA3.values.fc_LAMA3_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_COL1A1.fold_change:
+    item: ST5_COL1A1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: COL1A1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: COL1A1 normalised expression in dECM-only EHTs
+    output: ST5_COL1A1.values.fc_COL1A1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_COL6A1.fold_change:
+    item: ST5_COL6A1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: COL6A1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: COL6A1 normalised expression in dECM-only EHTs
+    output: ST5_COL6A1.values.fc_COL6A1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_COL6A2.fold_change:
+    item: ST5_COL6A2
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: COL6A2 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: COL6A2 normalised expression in dECM-only EHTs
+    output: ST5_COL6A2.values.fc_COL6A2_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_COL1A2.fold_change:
+    item: ST5_COL1A2
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: COL1A2 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: COL1A2 normalised expression in dECM-only EHTs
+    output: ST5_COL1A2.values.fc_COL1A2_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_COL6A3.fold_change:
+    item: ST5_COL6A3
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: COL6A3 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: COL6A3 normalised expression in dECM-only EHTs
+    output: ST5_COL6A3.values.fc_COL6A3_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_ITGA11.fold_change:
+    item: ST5_ITGA11
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: ITGA11 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: ITGA11 normalised expression in dECM-only EHTs
+    output: ST5_ITGA11.values.fc_ITGA11_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_CD44.fold_change:
+    item: ST5_CD44
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: CD44 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: CD44 normalised expression in dECM-only EHTs
+    output: ST5_CD44.values.fc_CD44_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  ST5_SDC1.fold_change:
+    item: ST5_SDC1
+    measure: fold change
+    formula: fc = a/b
+    anchor:
+      quote: Upregulated fold changes in dECM-rGO EHTs
+      where: Table S5
+      file: NIHMS1685525-supplement-3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: SDC1 normalised expression in dECM-rGO EHTs
+      b:
+        not_stated: true
+        kind: not stated
+        note: SDC1 normalised expression in dECM-only EHTs
+    output: ST5_SDC1.values.fc_SDC1_table
+    alternatives:
+    - label: DESeq2 model estimate
+      formula: fc = 2^l
+      note: fold change as 2^log2FC from DESeq2's negative-binomial fit (shrunken or not, not stated)
+    note: Fold changes come from DESeq2 (Methods 2.17), not from printed means.
+  F3b_force_d7.post_second_moment:
+    item: F3b_force_d7
+    measure: second moment of area of the flexible post
+    formula: not stated
+    anchor: not stated
+    library:
+      formula: circular_second_moment_diameter
+      vars:
+        I: I
+        d: d
+    inputs:
+      d:
+        printed: '1.5'
+        unit: mm
+        kind: constant
+        anchor: &id004
+          quote: each post 12.5 mm long and 1.5 mm in diameter
+          where: Methods 2.10
+    note: Implied by 'slender-beam theory' with the post's diameter; the formula is not printed. The 2 mm cap is ignored.
+  F3b_force_d7.post_stiffness:
+    item: F3b_force_d7
+    measure: spring constant of the flexible post
+    formula: not stated
+    anchor:
+      quote: the spring constant of the PDMS post, k, was determined by the Young’s modulus of PDMS (~3.8 MPa) and the diameter and length of
+        the post itself
+      where: Methods 2.12
+    library:
+      formula: cantilever_tip_stiffness
+      vars:
+        k: k
+        E: E
+        I: I
+        L: L
+    inputs:
+      E:
+        printed: ~3.8
+        unit: MPa
+        kind: constant
+        anchor:
+          quote: Young’s modulus of PDMS (~3.8 MPa)
+          where: Methods 2.12
+      I:
+        derived: F3b_force_d7.post_second_moment
+        kind: constant
+      L:
+        printed: '12.5'
+        unit: mm
+        kind: constant
+        anchor: *id004
+    alternatives:
+    - label: load at the tissue's height
+      formula: k = 6*E*I/(3*L*x**2 - x**3)
+      note: cantilever_point_load_stiffness, with x the distance from the post base to the tissue; the tissue's height on the post is not printed
+    note: '''Slender-beam theory'' names the model; which load case was used is not stated. One post of each pair is rigid (glass capillary),
+      so the tissue force is the flexible post''s force.'
+  F3b_force_d7.force:
+    item: F3b_force_d7
+    measure: twitch force
+    formula: F = k*x
+    anchor: &id005
+      quote: flexible post deflection was tracked across the duration of each video, which allowed for the calculation of twitch force
+      where: Methods 2.12
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d14_rgo_tg.force:
+    item: F3b_force_d14_rgo_tg
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d14_rgo_col.force:
+    item: F3b_force_d14_rgo_col
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d14_rgo_decm.force:
+    item: F3b_force_d14_rgo_decm
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d21.force:
+    item: F3b_force_d21
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d28_rgo_decm.force:
+    item: F3b_force_d28_rgo_decm
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d28.force:
+    item: F3b_force_d28
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d35_rgo_decm.force:
+    item: F3b_force_d35_rgo_decm
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d35.force:
+    item: F3b_force_d35
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_col_d28.force:
+    item: F3b_force_col_d28
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_tg_decm_late.force:
+    item: F3b_force_tg_decm_late
+    measure: twitch force
+    formula: F = k*x
+    anchor: *id005
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: x
+    inputs:
+      k:
+        derived: F3b_force_d7.post_stiffness
+        kind: constant
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak twitch deflection of the flexible post; not printed
+    aggregation: not stated
+    note: F = k·x from 'spring constant'; one post is rigid, so no two-post sum applies.
+  F3b_force_d14_rgo_tg.fold:
+    item: F3b_force_d14_rgo_tg
+    measure: twitch force fold
+    formula: r = a/b
+    anchor:
+      quote: the dECM-rGO tissues produced twitch forces nearly twice that of the next closest group
+      where: Results 3.2
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: F3b_force_d14_rgo_tg.values.force_rgo_d14_text
+        part: mean
+        kind: constant
+      b:
+        value: F3b_force_d14_rgo_tg.values.force_tg_d14_text
+        part: mean
+        kind: constant
+    output: F3b_force_d14_rgo_tg.values.force_ratio_rgo_tg_text
+    aggregation: of means
+    note: The ratio is printed in words ('nearly twice', 'nearly five times').
+  F3b_force_d14_rgo_col.fold:
+    item: F3b_force_d14_rgo_col
+    measure: twitch force fold
+    formula: r = a/b
+    anchor:
+      quote: nearly five times that of the collagen tissues
+      where: Results 3.2
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: F3b_force_d14_rgo_col.values.force_rgo_d14_text
+        part: mean
+        kind: constant
+      b:
+        value: F3b_force_d14_rgo_col.values.force_col_d14_text
+        part: mean
+        kind: constant
+    output: F3b_force_d14_rgo_col.values.force_ratio_rgo_col_text
+    aggregation: of means
+    note: The ratio is printed in words ('nearly twice', 'nearly five times').
+assumptions:
+  F3fj_MYH7_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: &id006
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F3fj_MYH7_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_MYH7_col_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_MYH7_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_MYH7_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_MYH7_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_tg_d14_col_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_tg_d14_decm_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_rgo_d14_col_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_rgo_d14_decm_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_col_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d14.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d14.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d35.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d35.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_col_time.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_col_time.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_decm_time.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_decm_time.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_tg_time.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_tg_time.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_rgo_time.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_rgo_time.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_rgo_d14_col_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_rgo_d14_decm_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_tg_d35_col_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_rgo_d35_col_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_col_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_d14.n2b_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_d14.n2ba_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_d35.n2b_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_d35.n2ba_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_decm_d35_tcps_d35.n2b_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_decm_d35_tcps_d35.n2ba_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_tg_time.n2b_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_tg_time.n2ba_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_rgo_time.n2b_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_N2B_N2BA_rgo_time.n2ba_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_d14_decm_col.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNT2_d35_decm_col.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d14_tg_decm.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d14_tg_decm.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d35_tg_decm.tnni3_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TNNI3_TNNI1_d35_tg_decm.tnni1_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3fj_TTN_d14_rgo_tg.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_CACNA1C_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_CACNA1C_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_ATP2A2_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_ATP2A2_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_ATP2A2_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNH2_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNH2_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNJ2_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNJ2_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNJ2_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNJ2_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNJ2_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_SCN5A_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_SCN5A_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_SCN5A_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_SCN5A_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_tg_d35_col_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_tcps_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_col_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_GJA1_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F5q_KCNH2_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_col_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_GATA4_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_GATA4_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_GATA4_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_GATA4_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_GATA4_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_NKX25_d14_rgo_col.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F6_GATA4_d14_rgo_col.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNE1_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNE1_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNQ1_d14.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNQ1_d35.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNQ1_decm_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNQ1_tg_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  S7_KCNQ1_rgo_time.relative_expression:
+    model: ddct_relative_expression
+    assumptions: *id006
+  F3b_force_d7.post_stiffness:
+    model: cantilever_tip_stiffness
+    assumptions:
+      small deflection:
+        reported: not stated
+      linear elastic material:
+        reported:
+          E: Young’s modulus of PDMS (~3.8 MPa)
+      slender beam:
+        reported:
+          length_and_diameter: each post 12.5 mm long and 1.5 mm in diameter
+      point load at the free end:
+        reported:
+          cap: featuring a cap structure 0.5 mm thick and 2 mm in diameter to assist with tissue attachment
+  F3b_force_d7.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d14_rgo_tg.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d14_rgo_col.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d14_rgo_decm.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d21.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d28_rgo_decm.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d28.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d35_rgo_decm.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_d35.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_col_d28.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+  F3b_force_tg_decm_late.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported: not stated
+      small deflection:
+        reported: not stated
+bounds:
+- item: S1_purity
+  value: S1_purity.values.purity_legend
+  formula: fraction_bounds
+- item: TXT_viab
+  value: TXT_viab.values.viab_text
+  formula: fraction_bounds
+proposals:
+- formula: min_max_normalised
+  kind: derived
+  statement: 'Min–max normalisation maps a value onto [0, 1] between the lowest and largest values of its set: (x - xmin)/(xmax - xmin).'
+  equations:
+  - n = (x - xmin)/(xmax - xmin)
+  variables:
+    n: dimensionless
+    x: D
+    xmin: D
+    xmax: D
+  uses:
+  - formula: ratio_of_differences
+    subs:
+      r: n
+      x1: x
+      x2: xmin
+      y1: xmax
+      y2: xmin
+  does_not_apply: normalisation to a reference value (x/x0), a percent change from baseline ((x - x0)/x0), or a z-score
+  tests:
+  - given:
+      x: 5.0
+      xmin: 1.0
+      xmax: 9.0
+    expect:
+      n: 0.5
+  - given:
+      x: 1.0
+      xmin: 1.0
+      xmax: 9.0
+    expect:
+      n: 0.0
+  - given:
+      x: 5.0
+      xmin: 1.0
+      xmax: 9.0
+    does_not_apply: 'percent change from the lowest value: (5 - 1)/1 = 4, not 0.5'

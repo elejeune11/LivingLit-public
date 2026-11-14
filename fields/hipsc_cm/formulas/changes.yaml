@@ -1,0 +1,2413 @@
+# Append-only log of accepted formula entries (04-formulas). Entry files are rebuilt from it.
+- version: 1
+  paper: 2018_Ronaldson-Bouchard
+  agent:
+    model: llm
+    instructions: formulas_v2
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ratio_def
+      kind: definition
+      statement: A ratio (including a fold change, a fraction and a normalised value) is one quantity divided by another.
+      equations:
+      - r = a/b
+      variables:
+        r: D/D2
+        a: D
+        b: D2
+      does_not_apply: a difference, a log ratio, or a mean of per-sample ratios compared with a ratio of means
+      tests:
+      - given:
+          a: 6.0
+          b: 2.0
+        expect:
+          r: 3.0
+      - given:
+          a: 6.0
+          b: 2.0
+        does_not_apply: log2 ratio (1.585) is not the ratio
+      cites:
+        text: 'ISO 80000-1:2022 Quantities and units, Part 1: General (quotients of quantities; quantities of dimension one)'
+        url: https://www.iso.org/standard/76921.html
+  - event: add
+    entry:
+      formula: stress_def
+      kind: definition
+      statement: Normal stress is the normal force divided by the area it acts on.
+      equations:
+      - sigma = F/A
+      variables:
+        sigma: stress
+        F: force
+        A: area
+      does_not_apply: shear force, or an area other than the one carrying the force (e.g. a per-cell or per-myofibril area)
+      tests:
+      - given:
+          F: 2.0
+          A: 4.0
+        expect:
+          sigma: 0.5
+      cites:
+        text: 'ISO 80000-4:2019 Quantities and units, Part 4: Mechanics (normal stress)'
+        url: https://www.iso.org/standard/64975.html
+  - event: add
+    entry:
+      formula: conduction_velocity_def
+      kind: definition
+      statement: Conduction velocity is the distance between two sites divided by the difference of their activation times.
+      equations:
+      - v = d/(t2 - t1)
+      variables:
+        v: velocity
+        d: length
+        t1: time
+        t2: time
+      does_not_apply: propagation not along the line between the two sites (curved or oblique wavefront)
+      tests:
+      - given:
+          d: 1.0
+          t1: 0.0
+          t2: 0.5
+        expect:
+          v: 2.0
+      cites:
+        text: 'ISO 80000-3:2019 Quantities and units, Part 3: Space and time (velocity, speed = ds/dt)'
+        url: https://www.iso.org/standard/64974.html
+  - event: add
+    entry:
+      formula: frequency_def
+      kind: definition
+      statement: The frequency of a periodic event is the inverse of its period.
+      equations:
+      - f = 1/T
+      variables:
+        f: frequency
+        T: time
+      does_not_apply: irregular beating, where the mean of inverse periods differs from the inverse of the mean period
+      tests:
+      - given:
+          T: 0.5
+        expect:
+          f: 2.0
+      cites:
+        text: 'ISO 80000-3:2019 Quantities and units, Part 3: Space and time (frequency f = 1/T)'
+        url: https://www.iso.org/standard/64974.html
+  - event: add
+    entry:
+      formula: relative_change
+      kind: derived
+      statement: The relative change of a value from a reference, (x - x0)/x0, is the ratio of the difference to the reference.
+      equations:
+      - d = (x - x0)/x0
+      variables:
+        d: dimensionless
+        x: D
+        x0: D
+        dx: D
+      assumes:
+      - dx = x - x0
+      uses:
+      - formula: ratio_def
+        subs:
+          r: d
+          a: dx
+          b: x0
+      does_not_apply: a change expressed relative to a value other than the reference subtracted (e.g. % of peak)
+      tests:
+      - given:
+          x: 3.0
+          x0: 2.0
+        expect:
+          d: 0.5
+- version: 2
+  paper: 2020_Saleem-U
+  agent:
+    model: llm
+    instructions: formulas_v2
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: hooke_spring
+      kind: model
+      statement: The force of a linear elastic spring (or a flexible post loaded at a point) is its stiffness times its deflection.
+      equations:
+      - F = k*x
+      variables:
+        F: force
+        k: stiffness
+        x: length
+      assumes:
+      - linear spring
+      - small deflection
+      does_not_apply: large deflections or a nonlinear (e.g. viscoelastic or strain-stiffening) post, where force is not proportional
+        to deflection
+      tests:
+      - given:
+          k: 2.0
+          x: 3.0
+        expect:
+          F: 6.0
+      - given:
+          k: 2.0
+          x: 3.0
+        does_not_apply: 'post deflected beyond its linear range: measured F differs from k*x'
+      cites:
+        text: Halliday, Resnick and Walker, Fundamentals of Physics, 10th ed., Wiley 2014, ch. 7 (spring force, Hooke's law)
+        quote: Fx = -kx (Hooke's law)
+  - event: add
+    entry:
+      formula: relative_decrease
+      kind: derived
+      statement: The relative decrease of a value from a reference, (x0 - x)/x0, is the ratio of the drop to the reference.
+      equations:
+      - s = (x0 - x)/x0
+      variables:
+        s: dimensionless
+        x: D
+        x0: D
+        dx: D
+      assumes:
+      - dx = x0 - x
+      uses:
+      - formula: ratio_def
+        subs:
+          r: s
+          a: dx
+          b: x0
+      does_not_apply: a signed relative change (x - x0)/x0, or a drop relative to a value other than the reference
+      tests:
+      - given:
+          x: 1.5
+          x0: 2.0
+        expect:
+          s: 0.25
+      - given:
+          x: 1.5
+          x0: 2.0
+        does_not_apply: signed relative change gives -0.25
+- version: 3
+  paper: 2021_Zhang
+  agent:
+    model: llm
+    instructions: formulas_v2
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ddct_relative_expression
+      kind: model
+      statement: Relative expression of a target gene by the comparative Ct method is 2 raised to minus the difference of
+        the target-minus-reference Ct between a sample and the calibrator.
+      equations:
+      - r = 2^(-ddct)
+      variables:
+        r: dimensionless
+        ddct: dimensionless
+      assumes:
+      - amplification efficiency near 100 %
+      - equal amplification efficiencies of target and reference
+      does_not_apply: amplification efficiencies far from 100 % or unequal between target and reference (use an efficiency-corrected
+        ratio such as Pfaffl's)
+      tests:
+      - given:
+          ddct: 1.0
+        expect:
+          r: 0.5
+      - given:
+          ddct: -2.0
+        expect:
+          r: 4.0
+      - given:
+          ddct: 1.0
+        does_not_apply: 'efficiency 90 % per cycle: expression ratio is 1.9^-1, not 2^-1'
+      cites:
+        text: Livak and Schmittgen, Analysis of relative gene expression data using real-time quantitative PCR and the 2^-ΔΔCT
+          method. Methods 25, 402–408 (2001)
+        url: https://doi.org/10.1006/meth.2001.1262
+  - event: add
+    entry:
+      formula: root_mean_square
+      kind: definition
+      statement: The root mean square of n values is the square root of the mean of their squares.
+      equations:
+      - S = sqrt(Q/n)
+      variables:
+        S: D
+        Q: D**2
+        n: count
+      does_not_apply: the mean of the magnitudes (not squared), or a spread about the mean (that is the SD)
+      tests:
+      - given:
+          Q: 8.0
+          n: 2.0
+        expect:
+          S: 2.0
+      - given:
+          Q: 25.0
+          n: 1.0
+        expect:
+          S: 5.0
+      - given:
+          Q: 10.0
+          n: 2.0
+        does_not_apply: 'values 1 and 3 (mean of squares 5): the plain mean 2 differs from the RMS sqrt(5)'
+      cites:
+        text: Weisstein, Root-Mean-Square, MathWorld (Wolfram Research)
+        url: https://mathworld.wolfram.com/Root-Mean-Square.html
+- version: 4
+  paper: 2021_Bliley
+  agent:
+    model: llm
+    instructions: formulas_v2
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: cantilever_tip_stiffness
+      kind: model
+      statement: The stiffness of a slender elastic cantilever loaded at its free end is three times its modulus times its
+        second moment of area over its length cubed.
+      equations:
+      - k = 3*E*I/L**3
+      variables:
+        k: stiffness
+        E: modulus
+        I: second_moment
+        L: length
+      assumes:
+      - small deflection
+      - linear elastic material
+      - slender beam
+      - point load at the free end
+      does_not_apply: large deflections, a load applied away from the free end, or a short thick beam where shear deformation
+        matters
+      tests:
+      - given:
+          E: 1.0
+          I: 1.0
+          L: 1.0
+        expect:
+          k: 3.0
+      - given:
+          E: 200.0
+          I: 2.0
+          L: 2.0
+        expect:
+          k: 150.0
+      - given:
+          E: 1.0
+          I: 1.0
+          L: 1.0
+        does_not_apply: 'load at mid-length of the cantilever: k = 24EI/L^3 (3EI/(L/2)^3), not 3EI/L^3'
+      cites:
+        text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, concentrated
+          load at the free end)
+        quote: δB = PL^3/3EI
+  - event: add
+    entry:
+      formula: rect_second_moment
+      kind: definition
+      statement: The second moment of area of a rectangular cross-section of width w and thickness t, about its centroidal
+        axis parallel to the width, is w t^3 / 12.
+      equations:
+      - I = w*t**3/12
+      variables:
+        I: second_moment
+        w: length
+        t: length
+      does_not_apply: bending about the other axis (I = t*w^3/12) or a non-rectangular section
+      tests:
+      - given:
+          w: 12.0
+          t: 1.0
+        expect:
+          I: 1.0
+      - given:
+          w: 3.0
+          t: 2.0
+        expect:
+          I: 2.0
+      - given:
+          w: 3.0
+          t: 2.0
+        does_not_apply: 'bending about the width axis swapped: t*w^3/12 = 4.5, not 2'
+      cites:
+        text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix E (properties of plane areas, rectangle)
+        quote: Ix = bh^3/12
+  - event: add
+    entry:
+      formula: strip_stiffness_thickness_ratio
+      kind: derived
+      statement: For two cantilever strips of the same modulus, width and length, the bending stiffness scales with the cube
+        of the thickness.
+      equations:
+      - k2 = k1*(t2/t1)**3
+      variables:
+        k1: stiffness
+        k2: stiffness
+        E1: modulus
+        E2: modulus
+        I1: second_moment
+        I2: second_moment
+        L1: length
+        L2: length
+        w1: length
+        w2: length
+        t1: length
+        t2: length
+      assumes:
+      - E2 = E1
+      - w2 = w1
+      - L2 = L1
+      uses:
+      - formula: cantilever_tip_stiffness
+        subs:
+          k: k1
+          E: E1
+          I: I1
+          L: L1
+      - formula: cantilever_tip_stiffness
+        subs:
+          k: k2
+          E: E2
+          I: I2
+          L: L2
+      - formula: rect_second_moment
+        subs:
+          I: I1
+          w: w1
+          t: t1
+      - formula: rect_second_moment
+        subs:
+          I: I2
+          w: w2
+          t: t2
+      does_not_apply: strips of different modulus, width or free length, where k2/k1 = (E2/E1)(w2/w1)(L1/L2)^3 (t2/t1)^3
+      tests:
+      - given:
+          k1: 1.0
+          t1: 1.0
+          t2: 2.0
+        expect:
+          k2: 8.0
+      - given:
+          k1: 2.0
+          t1: 2.0
+          t2: 1.0
+        expect:
+          k2: 0.25
+  - event: add
+    entry:
+      formula: work_def
+      kind: definition
+      statement: The work done by a constant force along a straight displacement in its direction is the force times the displacement.
+      equations:
+      - W = F*d
+      variables:
+        W: energy
+        F: force
+        d: length
+      does_not_apply: a force not along the displacement (W = F d cos θ) or a force that varies along the path (W is the integral
+        of F)
+      tests:
+      - given:
+          F: 2.0
+          d: 3.0
+        expect:
+          W: 6.0
+      - given:
+          F: 2.0
+          d: 3.0
+        does_not_apply: 'force at 60° to the displacement: W = 3, not 6'
+      cites:
+        text: 'ISO 80000-4:2019 Quantities and units, Part 4: Mechanics (work)'
+        url: https://www.iso.org/standard/64975.html
+- version: 5
+  paper: 2022_Shen
+  agent:
+    model: llm
+    instructions: formulas_v2
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: cumulative_variance_explained_two
+      kind: definition
+      statement: The share of total variance explained by two principal components of one PCA is the sum of the shares explained
+        by each.
+      equations:
+      - c = p1 + p2
+      variables:
+        c: dimensionless
+        p1: dimensionless
+        p2: dimensionless
+      does_not_apply: shares from different PCAs (different samples or gene sets), or a component counted twice
+      tests:
+      - given:
+          p1: 0.61
+          p2: 0.12
+        expect:
+          c: 0.73
+      - given:
+          p1: 0.5
+          p2: 0.25
+        expect:
+          c: 0.75
+      - given:
+          p1: 0.61
+          p2: 0.61
+        does_not_apply: 'PC1 counted twice: 1.22 of the variance is impossible'
+      cites:
+        text: 'Jolliffe, I. T. Principal Component Analysis, 2nd ed. Springer (2002), Section 6.1.1: cumulative percentage
+          of total variation t_m = 100 * sum_{k<=m} l_k / sum_k l_k'
+        url: https://doi.org/10.1007/b98835
+- version: 6
+  paper: 2016_Mannhardt
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ratio_from_log2_values
+      kind: derived
+      statement: The ratio of two positive quantities given as binary logarithms is two to the power of the difference of
+        the logarithms (a fold change from log2 values).
+      equations:
+      - r = 2**(la - lb)
+      variables:
+        r: dimensionless
+        a: dimensionless
+        b: dimensionless
+        la: dimensionless
+        lb: dimensionless
+      assumes:
+      - a = 2**la
+      - b = 2**lb
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: a
+          b: b
+      does_not_apply: values on a natural-log or log10 scale, or a mean of per-sample linear fold changes (2 to the difference
+        of mean log2 values is the ratio of geometric means)
+      tests:
+      - given:
+          la: 3.0
+          lb: 1.0
+        expect:
+          r: 4.0
+      - given:
+          la: 7.85342
+          lb: 7.29583
+        expect:
+          r: 1.47181
+      - given:
+          la: 3.0
+          lb: 1.0
+        does_not_apply: 'log2 difference read as a fold change: 2, not 4'
+- version: 7
+  paper: 2016_Ruan
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: circular_cross_section_area
+      kind: model
+      statement: The cross-sectional area of a cylindrical specimen computed from one measured diameter, A = pi*d^2/4, treating
+        the section as a circle.
+      equations:
+      - A = pi*d**2/4
+      variables:
+        A: area
+        d: length
+      assumes:
+      - circular cross-section
+      - uniform diameter along the length
+      does_not_apply: flattened, elliptical or rectangular sections (strips, sheets), or a diameter that varies along the
+        specimen
+      tests:
+      - given:
+          d: 2.0
+        expect:
+          A: 3.14159265
+      - given:
+          d: 2.0
+        does_not_apply: a square section of side 2 has area 4, not pi
+      cites:
+        text: 'Gere JM, Goodno BJ. Mechanics of Materials (Cengage), Appendix: Properties of plane areas, circle (A = pi d^2/4)'
+        anchor:
+          quote: assuming circular cross-sectional geometry
+          where: Methods, Measurement of Contractile Function
+  - event: add
+    entry:
+      formula: reciprocal_def
+      kind: derived
+      statement: The reciprocal of a quantity is one divided by it (a ratio with numerator 1).
+      equations:
+      - r = 1/b
+      variables:
+        r: 1/D
+        b: D
+        a: dimensionless
+      assumes:
+      - a = 1
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: a
+          b: b
+      does_not_apply: a ratio with a numerator other than 1, or a reciprocal of a period read as a frequency in other units
+      tests:
+      - given:
+          b: 4.0
+        expect:
+          r: 0.25
+      - given:
+          b: 4.0
+        does_not_apply: negative reciprocal or 1 - b is not the reciprocal
+  - event: add
+    entry:
+      formula: fraction_bounds
+      kind: bound
+      statement: A fraction of a whole (a part divided by the whole it belongs to) lies between 0 and 1 (0 % and 100 %).
+      equations:
+      - f >= 0
+      - f <= 1
+      variables:
+        f: dimensionless
+      does_not_apply: ratios of distinct quantities (fold changes, normalised values, % of baseline above 100 %)
+      tests:
+      - given:
+          f: 0.4
+      - given:
+          f: 1.2
+        does_not_apply: a fold change of 1.2 is not a fraction of a whole
+      cites:
+        text: 'NIST Special Publication 811 (2008), Guide for the Use of the International System of Units (SI), section 7.10:
+          quantities of dimension one, such as mass fraction and volume fraction'
+        url: https://www.nist.gov/pml/special-publication-811
+- version: 8
+  paper: 2018_Ulmer
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: sum_of_parts
+      kind: definition
+      statement: A whole made of two non-overlapping parts of the same kind is the sum of the parts; a difference (change,
+        consumption, production) is that sum solved for one part.
+      equations:
+      - t = a + b
+      variables:
+        t: D
+        a: D
+        b: D
+      does_not_apply: overlapping parts (an item counted in both), or quantities of different kinds or units
+      tests:
+      - given:
+          a: 133.0
+          b: 123.0
+        expect:
+          t: 256.0
+      - given:
+          a: 0.5
+          b: 0.25
+        expect:
+          t: 0.75
+      - given:
+          a: 133.0
+          b: 123.0
+        does_not_apply: 'overlapping parts: 10 items in both give a whole of 246, not 256'
+      cites:
+        text: 'ISO 80000-1:2022 Quantities and units, Part 1: General (quantities of the same kind can be added; the sum is
+          a quantity of that kind)'
+        url: https://www.iso.org/standard/76921.html
+  - event: add
+    entry:
+      formula: sum_of_three_parts
+      kind: derived
+      statement: A whole made of three non-overlapping parts of the same kind is the sum of the three parts.
+      equations:
+      - t = a + b + c
+      variables:
+        t: D
+        a: D
+        b: D
+        c: D
+        u: D
+      uses:
+      - formula: sum_of_parts
+        subs:
+          t: u
+          a: a
+          b: b
+      - formula: sum_of_parts
+        subs:
+          t: t
+          a: u
+          b: c
+      does_not_apply: overlapping parts, or a part counted twice
+      tests:
+      - given:
+          a: 228.0
+          b: 51.0
+          c: 12.0
+        expect:
+          t: 291.0
+      - given:
+          a: 1.0
+          b: 2.0
+          c: 3.0
+        does_not_apply: 'b counted twice: 8, not 6'
+  - event: add
+    entry:
+      formula: proportional_amount
+      kind: derived
+      statement: A quantity in a fixed proportion a:b to another quantity Q is Q times a/b (amount metabolised from the fraction
+        of label recovered; product from a stoichiometric yield; a unit conversion by a factor).
+      equations:
+      - q = Q*a/b
+      variables:
+        q: D
+        Q: D
+        a: D2
+        b: D2
+        y: dimensionless
+      assumes:
+      - the proportion a to b holds for every part of Q
+      uses:
+      - formula: ratio_def
+        subs:
+          r: y
+          a: q
+          b: Q
+      - formula: ratio_def
+        subs:
+          r: y
+          a: a
+          b: b
+      does_not_apply: a proportion that changes across Q (label not equilibrated with the unlabelled pool; incomplete conversion),
+        or an offset added to the product
+      tests:
+      - given:
+          Q: 2.0
+          a: 33.0
+          b: 1.0
+        expect:
+          q: 66.0
+      - given:
+          Q: 280.0
+          a: 2.0
+          b: 2.0
+        expect:
+          q: 280.0
+      - given:
+          Q: 10.0
+          a: 1.0
+          b: 4.0
+        expect:
+          q: 2.5
+      - given:
+          Q: 2.0
+          a: 33.0
+          b: 1.0
+        does_not_apply: 'incomplete conversion: half the substrate converted gives 33, not 66'
+- version: 9
+  paper: 2017_Mills
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: cantilever_point_load_stiffness
+      kind: model
+      statement: The stiffness of a slender elastic cantilever loaded by a point force at distance x from its fixed end, with
+        the deflection taken at the free end, is 6EI/(3Lx^2 - x^3).
+      equations:
+      - k = 6*E*I/(3*L*x**2 - x**3)
+      variables:
+        k: stiffness
+        E: modulus
+        I: second_moment
+        L: length
+        x: length
+      assumes:
+      - small deflection
+      - linear elastic material
+      - slender beam
+      - point load at distance x from the fixed end
+      - deflection taken at the free end
+      does_not_apply: large deflections, a short thick beam where shear deformation matters, or a deflection taken at the
+        load point (then k = 3EI/x^3)
+      tests:
+      - given:
+          E: 1.0
+          I: 1.0
+          L: 1.0
+          x: 1.0
+        expect:
+          k: 3.0
+      - given:
+          E: 1.0
+          I: 1.0
+          L: 2.0
+          x: 1.0
+        expect:
+          k: 1.2
+      - given:
+          E: 1.0
+          I: 1.0
+          L: 2.0
+          x: 1.0
+        does_not_apply: 'deflection read at the load point: k = 3EI/x^3 = 3, not 1.2'
+      cites:
+        text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, concentrated
+          load P at distance a from the support)
+        quote: δB = Pa^2(3L - a)/6EI
+  - event: add
+    entry:
+      formula: cantilever_point_load_stiffness_rect
+      kind: derived
+      statement: For a rectangular cantilever (width w in the plane, thickness t in the bending direction) loaded at distance
+        x from its fixed end, the stiffness at the free end is E w t^3 / (2(3Lx^2 - x^3)).
+      equations:
+      - k = E*w*t**3/(2*(3*L*x**2 - x**3))
+      variables:
+        k: stiffness
+        E: modulus
+        I: second_moment
+        L: length
+        x: length
+        w: length
+        t: length
+      uses:
+      - formula: cantilever_point_load_stiffness
+        subs:
+          k: k
+          E: E
+          I: I
+          L: L
+          x: x
+      - formula: rect_second_moment
+        subs:
+          I: I
+          w: w
+          t: t
+      does_not_apply: a non-rectangular (e.g. circular) pole section, where I = pi d^4/64
+      tests:
+      - given:
+          E: 1.0
+          w: 12.0
+          t: 1.0
+          L: 1.0
+          x: 1.0
+        expect:
+          k: 3.0
+      - given:
+          E: 1500000.0
+          w: 0.0005
+          t: 0.0002
+          L: 0.0007
+          x: 0.00035
+        expect:
+          k: 13.994169096209912
+      - given:
+          E: 1.0
+          w: 12.0
+          t: 1.0
+          L: 1.0
+          x: 1.0
+        does_not_apply: 'width and thickness swapped (w = 1, t = 12): k is 144 times larger'
+- version: 10
+  paper: 2021_Tsan
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: part_of_whole
+      kind: derived
+      statement: The share of one part in a whole made of two parts is the part divided by the sum of the two parts.
+      equations:
+      - f = a/(a + b)
+      variables:
+        f: dimensionless
+        a: D
+        b: D
+        t: D
+      assumes:
+      - t = a + b
+      uses:
+      - formula: ratio_def
+        subs:
+          r: f
+          a: a
+          b: t
+      - formula: sum_of_parts
+        subs:
+          t: t
+          a: a
+          b: b
+      does_not_apply: a whole with more than two parts, or parts that overlap (the denominator is then not a + b)
+      tests:
+      - given:
+          a: 1.0
+          b: 3.0
+        expect:
+          f: 0.25
+          t: 4.0
+      - given:
+          a: 2.0
+          b: 2.0
+          t: 6.0
+        does_not_apply: 'a third part of 2 in the whole: 2/6, not 2/4'
+  - event: add
+    entry:
+      formula: complement_fraction
+      kind: derived
+      statement: When a whole is split into two exclusive parts, the fraction in one part is one minus the fraction in the
+        other.
+      equations:
+      - c = 1 - f
+      variables:
+        c: dimensionless
+        f: dimensionless
+        t: dimensionless
+      assumes:
+      - t = 1
+      uses:
+      - formula: sum_of_parts
+        subs:
+          t: t
+          a: f
+          b: c
+      does_not_apply: more than two categories, or categories that overlap or leave a remainder
+      tests:
+      - given:
+          f: 0.326
+          t: 1.0
+        expect:
+          c: 0.674
+      - given:
+          f: 0.3
+          t: 1.0
+        does_not_apply: 'three categories (0.3, 0.2, 0.5): the second is 0.2, not 0.7'
+  - event: add
+    entry:
+      formula: relative_change_from_ratio
+      kind: derived
+      statement: The relative change of a value from a reference is the ratio of the value to the reference minus one.
+      equations:
+      - d = r - 1
+      variables:
+        d: dimensionless
+        r: dimensionless
+        x: D
+        x0: D
+      uses:
+      - formula: relative_change
+        subs:
+          d: d
+          x: x
+          x0: x0
+      - formula: ratio_def
+        subs:
+          r: r
+          a: x
+          b: x0
+      does_not_apply: a ratio of means compared with a mean of per-sample changes when the reference varies, or a change on
+        a log scale
+      tests:
+      - given:
+          x: 6.0
+          x0: 5.0
+        expect:
+          r: 1.2
+          d: 0.2
+      - given:
+          r: 1.2
+        does_not_apply: a log2 ratio of 1.2 is a change of 2**1.2 - 1 = 1.30, not 0.2
+- version: 11
+  paper: 2017_Shadrin
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ratio_of_products
+      kind: derived
+      statement: The ratio of two products is the product of the ratios of their factors, (a1*a2)/(b1*b2) = (a1/b1)*(a2/b2);
+        e.g. a cell number estimated as thickness times cells per field.
+      equations:
+      - r = (a1*a2)/(b1*b2)
+      variables:
+        r: dimensionless
+        a1: D
+        b1: D
+        a2: D2
+        b2: D2
+        p: D*D2
+        q: D*D2
+      assumes:
+      - p = a1*a2
+      - q = b1*b2
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: p
+          b: q
+      does_not_apply: a ratio of sums, or a mean of per-sample products compared with a product of group means
+      tests:
+      - given:
+          a1: 2.0
+          a2: 3.0
+          b1: 1.0
+          b2: 2.0
+        expect:
+          r: 3.0
+      - given:
+          a1: 2.0
+          a2: 3.0
+          b1: 1.0
+          b2: 2.0
+        does_not_apply: ratio of sums (2 + 3)/(1 + 2) = 1.67, not 3
+- version: 12
+  paper: 2016_Masumoto
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: linear_elastic_stress_strain
+      kind: model
+      statement: In uniaxial loading of a linear elastic material, normal stress is Young's modulus times normal strain (Hooke's
+        law, sigma = E*eps); E is the slope of the stress-strain line.
+      equations:
+      - sigma = E*eps
+      variables:
+        sigma: stress
+        E: modulus
+        eps: dimensionless
+      assumes:
+      - linear elastic material
+      - small strain
+      does_not_apply: a nonlinear (strain-stiffening or viscoelastic) stress-strain response or large strains, where stress
+        is not proportional to strain; a secant or tangent modulus from a curved plot is not this E
+      tests:
+      - given:
+          E: 10.0
+          eps: 0.1
+        expect:
+          sigma: 1.0
+      - given:
+          E: 10.0
+          eps: 0.1
+        does_not_apply: 'strain-stiffening tissue: measured stress at 10 % strain exceeds E*eps from the initial slope'
+      cites:
+        text: Gere JM, Goodno BJ. Mechanics of Materials, 8th ed., Cengage 2013, section 1.5 (Linear elasticity, Hooke's law)
+        quote: σ = Eε
+- version: 13
+  paper: 2018_Leonard
+  agent: null
+  events:
+  - event: add
+    entry:
+      formula: elliptical_cross_section_area
+      kind: model
+      statement: The cross-sectional area of a specimen whose section is treated as an ellipse with full axes a and b (e.g.
+        width and thickness) is A = pi*a*b/4.
+      equations:
+      - A = pi*a*b/4
+      variables:
+        A: area
+        a: length
+        b: length
+      assumes:
+      - elliptical cross-section
+      - width and thickness are the full axes of the ellipse
+      - uniform cross-section along the length
+      does_not_apply: rectangular or irregular sections, or a and b given as semi-axes (then A = pi*a*b)
+      tests:
+      - given:
+          a: 2.0
+          b: 1.0
+        expect:
+          A: 1.5707963
+      - given:
+          a: 2.0
+          b: 2.0
+        expect:
+          A: 3.14159265
+      - given:
+          a: 2.0
+          b: 1.0
+        does_not_apply: a 2 x 1 rectangle has area 2, not pi/2
+      cites:
+        text: 'Zwillinger D (ed.). CRC Standard Mathematical Tables and Formulas, 33rd ed., CRC Press 2018, section 4.5 (Conic
+          sections: ellipse, area pi*a*b for semi-axes a and b)'
+        quote: area of an ellipse with semi-axes a and b is πab
+  - event: add
+    entry:
+      formula: modulus_from_force_strain_slope
+      kind: derived
+      statement: For a linear elastic specimen of constant cross-sectional area A whose force rises linearly with strain (F
+        = s*eps), Young's modulus is the force-strain slope divided by the area, E = s/A.
+      equations:
+      - E = s/A
+      variables:
+        E: modulus
+        s: force
+        A: area
+        F: force
+        sigma: stress
+        eps: dimensionless
+      assumes:
+      - F = s*eps
+      uses:
+      - formula: stress_def
+        subs:
+          sigma: sigma
+          F: F
+          A: A
+      - formula: linear_elastic_stress_strain
+        subs:
+          sigma: sigma
+          E: E
+          eps: eps
+      does_not_apply: a curved force-strain response (strain stiffening), or an area that changes with strain
+      tests:
+      - given:
+          s: 6.0
+          A: 2.0
+        expect:
+          E: 3.0
+      - given:
+          s: 6.0
+          A: 2.0
+        does_not_apply: 'strain-stiffening tissue: the secant slope over 0-40 % strain is not the initial modulus'
+- version: 14
+  paper: 2017_Tiburcy
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ratio_from_fraction
+      kind: derived
+      statement: In a whole made of two parts, the ratio of one part to the other is its fraction divided by one minus its
+        fraction.
+      equations:
+      - r = f/(1 - f)
+      variables:
+        r: dimensionless
+        f: dimensionless
+        a: D
+        b: D
+        t: D
+      assumes:
+      - t = a + b
+      uses:
+      - formula: part_of_whole
+        subs:
+          f: f
+          a: a
+          b: b
+          t: t
+      - formula: ratio_def
+        subs:
+          r: r
+          a: a
+          b: b
+      does_not_apply: 'a whole with a third part (e.g. cells neither cardiomyocyte nor fibroblast): 1 - f is then not the
+        other part''s fraction'
+      tests:
+      - given:
+          f: 0.5
+        expect:
+          r: 1.0
+      - given:
+          f: 0.75
+        expect:
+          r: 3.0
+      - given:
+          f: 0.4
+        does_not_apply: 'parts 0.4, 0.4, 0.2: the ratio of the first two is 1, not 0.667'
+- version: 15
+  paper: 2020_Giacomelli
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: bazett_rate_correction
+      kind: definition
+      statement: A rate-corrected duration (Bazett's correction) is the duration divided by the square root of the beat interval,
+        both in seconds.
+      equations:
+      - dc = d/sqrt(RR)
+      variables:
+        dc: time^(1/2)
+        d: time
+        RR: time
+      does_not_apply: 'other rate corrections: Fridericia''s divides by the cube root of the interval, Framingham''s is linear
+        in the interval'
+      tests:
+      - given:
+          d: 0.4
+          RR: 1.0
+        expect:
+          dc: 0.4
+      - given:
+          d: 0.3
+          RR: 0.25
+        expect:
+          dc: 0.6
+      - given:
+          d: 0.3
+          RR: 0.25
+        does_not_apply: Fridericia's correction gives 0.3/0.25^(1/3) = 0.476
+      cites:
+        text: Bazett HC. An analysis of the time-relations of electrocardiograms. Heart 7, 353-370 (1920); reprinted in Ann
+          Noninvasive Electrocardiol 2, 177-194 (1997)
+        url: https://doi.org/10.1111/j.1542-474X.1997.tb00325.x
+- version: 16
+  paper: 2015_Hinson
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: spring_strain_energy
+      kind: model
+      statement: The elastic potential (strain) energy stored in a linear spring, or a flexible post loaded at a point, is
+        one-half its stiffness times the square of its deflection.
+      equations:
+      - U = k*x**2/2
+      variables:
+        U: energy
+        k: stiffness
+        x: length
+      assumes:
+      - linear spring
+      - small deflection
+      does_not_apply: a nonlinear or viscoelastic post, or deflections beyond the linear range, where the stored energy is
+        not k*x^2/2; and energy summed over several posts (then a sum of such terms)
+      tests:
+      - given:
+          k: 2.0
+          x: 3.0
+        expect:
+          U: 9.0
+      - given:
+          k: 11.076
+          x: 0.1
+        expect:
+          U: 0.05538
+      - given:
+          k: 2.0
+          x: 3.0
+        does_not_apply: work at constant force F = k*x over x gives k*x^2 = 18, twice the stored energy
+      cites:
+        text: Halliday, Resnick and Walker, Fundamentals of Physics, 10th ed., Wiley 2014, ch. 8 (elastic potential energy)
+        quote: U(x) = ½kx² (elastic potential energy)
+- version: 17
+  paper: 2018_Gao
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: laplace_thin_wall_sphere
+      kind: model
+      statement: In a thin-walled sphere under uniform internal pressure, the wall (hoop) stress is the pressure times the
+        radius divided by twice the wall thickness (law of Laplace).
+      equations:
+      - sigma = P*r/(2*h)
+      variables:
+        sigma: stress
+        P: pressure
+        r: length
+        h: length
+      assumes:
+      - thin wall (thickness much smaller than radius)
+      - spherical chamber
+      - uniform wall thickness
+      does_not_apply: a thick wall (h/r above about 0.1), where stress varies through the wall, or a cylindrical chamber (hoop
+        stress P*r/h)
+      tests:
+      - given:
+          P: 16.0
+          r: 3.0
+          h: 1.0
+        expect:
+          sigma: 24.0
+      - given:
+          P: 16.0
+          r: 3.0
+          h: 1.0
+        does_not_apply: 'cylindrical vessel: hoop stress P*r/h = 48, not 24'
+      cites:
+        text: 'Young WC, Budynas RG. Roark''s Formulas for Stress and Strain, 7th ed., McGraw-Hill 2002, ch. 13 (thin-walled
+          pressure vessels: sphere under uniform internal pressure)'
+        quote: 'thin-walled sphere: sigma1 = sigma2 = qR/(2t)'
+        url: https://en.wikipedia.org/wiki/Cylinder_stress
+  - event: add
+    entry:
+      formula: ptotal_from_relative_abundance
+      kind: derived
+      statement: The mean number of phosphates per protein molecule (Ptotal, mol Pi/mol protein) is the sum of each phosphorylated
+        form's percent relative abundance times its number of phosphates, divided by 100 (forms with up to three phosphates).
+      equations:
+      - P = (p1 + 2*p2 + 3*p3)/100
+      variables:
+        P: dimensionless
+        p1: dimensionless
+        p2: dimensionless
+        p3: dimensionless
+        S: count
+        n: count
+        n1: count
+        n2: count
+        n3: count
+      assumes:
+      - S = n1 + 2*n2 + 3*n3
+      - p1 = 100*n1/n
+      - p2 = 100*n2/n
+      - p3 = 100*n3/n
+      uses:
+      - formula: mean_def
+        subs:
+          m: P
+          S: S
+          n: n
+      does_not_apply: a protein with forms carrying four or more phosphates (add 4*p4/100 and so on), or abundances given
+        as fractions rather than percentages
+      tests:
+      - given:
+          p1: 30.0
+          p2: 10.0
+          p3: 0.0
+        expect:
+          P: 0.5
+      - given:
+          p1: 20.0
+          p2: 20.0
+          p3: 20.0
+        expect:
+          P: 1.2
+      - given:
+          p1: 30.0
+          p2: 10.0
+          p3: 0.0
+        does_not_apply: 'abundances as fractions (0.3, 0.1): P is 0.005, not 0.5'
+- version: 18
+  paper: 2020_Richards
+  agent: null
+  events:
+  - event: add
+    entry:
+      formula: micropipette_aspiration_half_space
+      kind: model
+      statement: Aspirating a homogeneous, incompressible, linear elastic half-space into a micropipette of inner radius a
+        under a pressure difference dp draws in a length L, giving E = 3*a*dp*Phi/(2*pi*L), with Phi a wall function of the
+        pipette geometry (about 2.0-2.1).
+      equations:
+      - E = 3*a*dp*Phi/(2*pi*L)
+      variables:
+        E: modulus
+        a: length
+        dp: pressure
+        Phi: dimensionless
+        L: length
+      assumes:
+      - homogeneous isotropic linear elastic material
+      - incompressible material
+      - half-space (sample much larger than the pipette radius)
+      - small aspirated length (L small relative to a)
+      - equilibrium (elastic) deformation
+      does_not_apply: a sample comparable in size to the pipette or a thin layer (not a half-space), a large aspirated length,
+        or a viscoelastic creep reading taken before equilibrium
+      tests:
+      - given:
+          a: 1.0
+          dp: 1.0
+          Phi: 2.1
+          L: 1.0
+        expect:
+          E: 1.0026761414789407
+      - given:
+          a: 3.75e-05
+          dp: 3900.0
+          Phi: 2.1
+          L: 5.0e-05
+        expect:
+          E: 2932.82771382
+      - given:
+          a: 3.75e-05
+          dp: 3900.0
+          Phi: 2.1
+          L: 0.0002
+        does_not_apply: 'aspirated length several times the pipette radius: outside the small-deformation half-space solution'
+      cites:
+        text: Theret, D. P., Levesque, M. J., Sato, M., Nerem, R. M. & Wheeler, L. T. The application of a homogeneous half-space
+          model in the analysis of endothelial cell micropipette measurements. J. Biomech. Eng. 110, 190-199 (1988)
+        anchor:
+          quote: Under the homogeneous half-space model assumptions
+          where: Methods, Mechanical testing using micropipette aspiration
+- version: 19
+  paper: 2022_Huebsch
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: fridericia_rate_correction
+      kind: definition
+      statement: A rate-corrected duration (Fridericia's correction) is the duration divided by the cube root of the beat
+        interval, both in seconds.
+      equations:
+      - dcf = dur/RR**(1/3)
+      variables:
+        dcf: time^(2/3)
+        dur: time
+        RR: time
+      does_not_apply: 'other rate corrections: Bazett''s divides by the square root of the interval, Framingham''s is linear
+        in the interval'
+      tests:
+      - given:
+          dur: 0.4
+          RR: 1.0
+        expect:
+          dcf: 0.4
+      - given:
+          dur: 0.3
+          RR: 0.125
+        expect:
+          dcf: 0.6
+      - given:
+          dur: 0.3
+          RR: 0.25
+        does_not_apply: Bazett's correction gives 0.3/0.25^(1/2) = 0.6, not 0.3/0.25^(1/3) = 0.476
+      cites:
+        text: Fridericia LS. The duration of systole in an electrocardiogram in normal humans and in patients with heart disease
+          (1920; English translation). Ann Noninvasive Electrocardiol 8, 343–351 (2003)
+        url: https://doi.org/10.1046/j.1542-474X.2003.08413.x
+  - event: add
+    entry:
+      formula: cantilever_uniform_load
+      kind: model
+      statement: A slender elastic cantilever under a uniformly distributed load q along its length L deflects at its free
+        end by qL^4/(8EI); the total load is F = qL, so F = 8EI·d/L^3.
+      equations:
+      - d = q*L**4/(8*E*I)
+      - F = q*L
+      variables:
+        d: length
+        q: force/length
+        L: length
+        E: modulus
+        I: second_moment
+        F: force
+      assumes:
+      - small deflection
+      - linear elastic material
+      - slender beam
+      - uniformly distributed load along the length
+      - deflection taken at the free end
+      does_not_apply: a point load at the free end (d = F L^3/(3EI)), large deflections, or a short thick beam where shear
+        deformation matters
+      tests:
+      - given:
+          q: 1.0
+          L: 1.0
+          E: 1.0
+          I: 1.0
+        expect:
+          d: 0.125
+          F: 1.0
+      - given:
+          q: 2.0
+          L: 2.0
+          E: 4.0
+          I: 1.0
+        expect:
+          d: 1.0
+          F: 4.0
+      - given:
+          q: 1.0
+          L: 1.0
+          E: 1.0
+          I: 1.0
+        does_not_apply: the same total load F = 1 at the free end deflects the tip by 1/3, not 1/8
+      cites:
+        text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix G, Table G-1 (cantilever beam, uniform
+          load)
+        quote: δB = qL^4/8EI
+  - event: add
+    entry:
+      formula: circular_second_moment
+      kind: definition
+      statement: The second moment of area of a solid circular cross-section of radius R about a diameter is πR^4/4.
+      equations:
+      - I = pi*R**4/4
+      variables:
+        I: second_moment
+        R: length
+      does_not_apply: a hollow tube (π(R^4 − Ri^4)/4) or the polar moment of the same section (πR^4/2)
+      tests:
+      - given:
+          R: 1.0
+        expect:
+          I: 0.7853981633974483
+      - given:
+          R: 2.0
+        expect:
+          I: 12.566370614359172
+      - given:
+          R: 1.0
+        does_not_apply: the polar moment πR^4/2 = 1.5708 is not the bending second moment
+      cites:
+        text: Gere and Goodno, Mechanics of Materials, 8th ed., Cengage 2013, Appendix E, Properties of plane areas (circle)
+        quote: Ix = Iy = πr^4/4
+- version: 20
+  paper: 2022_Ronaldson-Bouchard
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: apparent_permeability
+      kind: model
+      statement: The apparent permeability of a barrier is the amount that has crossed it (receiver concentration times receiver
+        volume) per unit barrier area, per unit donor concentration, per unit time.
+      equations:
+      - P = Ct*V/(C0*A*t)
+      variables:
+        P: velocity
+        Ct: concentration
+        V: volume
+        C0: concentration
+        A: area
+        t: time
+      assumes:
+      - sink conditions (receiver concentration much lower than donor concentration)
+      - donor concentration constant over the assay time
+      - linear accumulation in the receiver over the assay time
+      does_not_apply: a receiver concentration approaching the donor concentration (no sink), or a curved accumulation over
+        the assay time; the amount crossed then underestimates the initial flux and P is too low
+      tests:
+      - given:
+          Ct: 1.0
+          V: 2.0
+          C0: 10.0
+          A: 0.5
+          t: 4.0
+        expect:
+          P: 0.1
+      - given:
+          Ct: 5.0
+          V: 1.0
+          C0: 10.0
+          A: 1.0
+          t: 1.0
+        does_not_apply: 'receiver at half the donor concentration: no sink, the formula gives 0.5, an underestimate of the
+          initial flux per concentration'
+      cites:
+        text: 'Hubatsch I, Ragnarsson EGE, Artursson P. Determination of drug permeability and prediction of drug absorption
+          in Caco-2 monolayers. Nature Protocols 2, 2111–2119 (2007): Papp = (dQ/dt)/(A·C0), under sink conditions'
+        url: https://doi.org/10.1038/nprot.2007.303
+- version: 21
+  paper: 2015_Guyette
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: normalized_absolute_difference
+      kind: derived
+      statement: The absolute difference of two like quantities divided by their sum, |a - b|/(a + b), is a ratio of the absolute
+        difference to the sum.
+      equations:
+      - r = Abs(a - b)/(a + b)
+      variables:
+        r: dimensionless
+        a: D
+        b: D
+        dn: D
+        sm: D
+      assumes:
+      - dn = Abs(a - b)
+      - sm = a + b
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: dn
+          b: sm
+      does_not_apply: a signed normalized difference (a - b)/(a + b), or a difference over the mean (a + b)/2
+      tests:
+      - given:
+          a: 3.0
+          b: 1.0
+        expect:
+          r: 0.5
+      - given:
+          a: 1.0
+          b: 3.0
+        expect:
+          r: 0.5
+      - given:
+          a: 1.0
+          b: 3.0
+        does_not_apply: the signed form gives -0.5
+  - event: add
+    entry:
+      formula: ratio_to_square
+      kind: derived
+      statement: A quantity divided by the square of another, a/h^2 (e.g. body mass index), is a ratio whose denominator is
+        a square.
+      equations:
+      - r = a/h**2
+      variables:
+        r: D/D2**2
+        a: D
+        h: D2
+        b: D2**2
+      assumes:
+      - b = h**2
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: a
+          b: b
+      does_not_apply: a ratio to the first power of h, or a mean of per-sample ratios compared with the mean of a over the
+        squared mean of h
+      tests:
+      - given:
+          a: 81.0
+          h: 1.8
+        expect:
+          r: 25.0
+      - given:
+          a: 81.0
+          h: 1.8
+        does_not_apply: a/h gives 45
+- version: 22
+  paper: 2019_Yang
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: circular_second_moment_diameter
+      kind: derived
+      statement: The second moment of area of a solid circular cross-section of diameter d about a diameter is πd^4/64.
+      equations:
+      - I = pi*d**4/64
+      variables:
+        I: second_moment
+        d: length
+        R: length
+      assumes:
+      - d = 2*R
+      uses:
+      - formula: circular_second_moment
+        subs:
+          I: I
+          R: R
+      does_not_apply: a hollow tube, or the polar moment of the same section (πd^4/32)
+      tests:
+      - given:
+          d: 2.0
+        expect:
+          I: 0.7853981633974483
+      - given:
+          d: 2.0
+        does_not_apply: the polar moment πd^4/32 = 1.5708 is not the bending second moment
+- version: 23
+  paper: 2017_Richards
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: complement_of_ratio
+      kind: derived
+      statement: One minus the ratio of a part to the whole containing it is the fraction of the whole outside that part,
+        1 - a/b (e.g. a viability index from a stained area within a nuclear area).
+      equations:
+      - c = 1 - a/b
+      variables:
+        c: dimensionless
+        a: D
+        b: D
+        f: dimensionless
+        t: dimensionless
+      assumes:
+      - t = 1
+      uses:
+      - formula: ratio_def
+        subs:
+          r: f
+          a: a
+          b: b
+      - formula: complement_fraction
+        subs:
+          c: c
+          f: f
+          t: t
+      does_not_apply: a part not contained in the whole (a > b, or areas that only partly overlap), or a ratio of two unrelated
+        quantities
+      tests:
+      - given:
+          a: 1.0
+          b: 4.0
+          t: 1.0
+        expect:
+          c: 0.75
+      - given:
+          a: 1.0
+          b: 4.0
+          t: 1.0
+        does_not_apply: 'part only half inside the whole: the outside fraction is 0.875, not 0.75'
+- version: 24
+  paper: 2022_Ergir
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: fold_change_from_log2_fold_change
+      kind: derived
+      statement: A fold change given as its binary logarithm (a log2 fold change) is two to the power of that logarithm.
+      equations:
+      - r = 2**l
+      variables:
+        r: dimensionless
+        l: dimensionless
+        la: dimensionless
+        lb: dimensionless
+      assumes:
+      - l = la - lb
+      uses:
+      - formula: ratio_from_log2_values
+        subs:
+          r: r
+          la: la
+          lb: lb
+      does_not_apply: a log fold change on a natural-log or log10 scale, or a shrunken/moderated estimate compared with a
+        ratio of raw means
+      tests:
+      - given:
+          l: 2.0
+        expect:
+          r: 4.0
+      - given:
+          l: -1.0
+        expect:
+          r: 0.5
+      - given:
+          l: 4.0
+        does_not_apply: 'a log2 fold change of 4 read as a fold change: 16, not 4'
+- version: 25
+  paper: 2014_Yang
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: circularity_def
+      kind: definition
+      statement: The circularity (form factor) of a planar outline is 4π times its area divided by the square of its perimeter;
+        1 for a circle, towards 0 for an elongated outline.
+      equations:
+      - c = 4*pi*A/P**2
+      variables:
+        c: dimensionless
+        A: area
+        P: length
+      does_not_apply: the ISO 9276-6 'circularity' defined as the square root of this form factor, aspect ratio, or roundness
+        from the major axis
+      tests:
+      - given:
+          A: 3.141592653589793
+          P: 6.283185307179586
+        expect:
+          c: 1.0
+      - given:
+          A: 1.0
+          P: 4.0
+        expect:
+          c: 0.7853981633974483
+      - given:
+          A: 1.0
+          P: 4.0
+        does_not_apply: the square-root form sqrt(4πA/P^2) gives 0.886 for a square, not 0.785
+      cites:
+        text: 'Rasband, ImageJ User Guide, Analyze > Set Measurements: Shape descriptors (Circularity = 4π × area / perimeter²;
+          1.0 a perfect circle, approaching 0 an increasingly elongated shape)'
+        url: https://imagej.net/ij/docs/menus/analyze.html
+        anchor:
+          quote: we assessed the "circularity index" (Circularity = 4π · Area / Perimeter2) [26]
+          where: Results 3.1
+- version: 26
+  paper: 2018_Mosqueira
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: sphere_volume
+      kind: model
+      statement: The volume of a body treated as a sphere of radius r is 4/3 pi r^3 (e.g. a cell volume from one measured
+        size).
+      equations:
+      - V = 4*pi*r**3/3
+      variables:
+        V: volume
+        r: length
+      assumes:
+      - spherical shape
+      does_not_apply: elongated, flattened or irregular bodies (rod-shaped adult cardiomyocytes, spread cells), whose volume
+        is not set by one radius
+      tests:
+      - given:
+          r: 1.0
+        expect:
+          V: 4.1887902
+      - given:
+          r: 3.0
+        expect:
+          V: 113.097336
+      - given:
+          r: 1.0
+        does_not_apply: a prolate ellipsoid with semi-axes 1, 1 and 2 has volume 8.38, not 4.19
+      cites:
+        text: 'Zwillinger D (ed.). CRC Standard Mathematical Tables and Formulae, 33rd ed., CRC Press 2018, section 4.6 (solids:
+          sphere of radius r)'
+        quote: V = 4/3 πr^3
+  - event: add
+    entry:
+      formula: sphere_volume_diameter
+      kind: derived
+      statement: The volume of a body treated as a sphere, from its diameter, is pi d^3 / 6.
+      equations:
+      - V = pi*d**3/6
+      variables:
+        V: volume
+        d: length
+        r: length
+      assumes:
+      - d = 2*r
+      uses:
+      - formula: sphere_volume
+        subs:
+          V: V
+          r: r
+      does_not_apply: a diameter taken as the radius (volume 8x too large), or a non-spherical body
+      tests:
+      - given:
+          d: 2.0
+        expect:
+          V: 4.1887902
+      - given:
+          d: 10.0
+        expect:
+          V: 523.598776
+      - given:
+          d: 2.0
+        does_not_apply: 'diameter used as the radius: 4/3 pi 2^3 = 33.5, not 4.19'
+  - event: add
+    entry:
+      formula: ratio_of_differences
+      kind: derived
+      statement: A ratio of two differences, (x1 - x2)/(y1 - y2), e.g. an action potential shape metric (APD80-APD70)/(APD40-APD30).
+      equations:
+      - r = (x1 - x2)/(y1 - y2)
+      variables:
+        r: D/D2
+        x1: D
+        x2: D
+        y1: D2
+        y2: D2
+        p: D
+        q: D2
+      assumes:
+      - p = x1 - x2
+      - q = y1 - y2
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: p
+          b: q
+      does_not_apply: a difference of ratios, or x1 - x2/(y1 - y2) without the numerator bracketed
+      tests:
+      - given:
+          x1: 5.0
+          x2: 3.0
+          y1: 4.0
+          y2: 3.0
+        expect:
+          r: 2.0
+      - given:
+          x1: 300.0
+          x2: 280.0
+          y1: 150.0
+          y2: 140.0
+        expect:
+          r: 2.0
+      - given:
+          x1: 5.0
+          x2: 3.0
+          y1: 4.0
+          y2: 3.0
+        does_not_apply: ratio of the first terms, 5/4 = 1.25, is not the ratio of the differences (2)
+  - event: add
+    entry:
+      formula: difference_from_reference
+      kind: derived
+      statement: The change of a value from a reference, d = x - x0 (an absolute or percentage-point change), is the sum of
+        parts x = x0 + d solved for d.
+      equations:
+      - d = x - x0
+      variables:
+        d: D
+        x: D
+        x0: D
+      uses:
+      - formula: sum_of_parts
+        subs:
+          t: x
+          a: x0
+          b: d
+      does_not_apply: a change expressed relative to the reference ((x - x0)/x0) or as a ratio (x/x0)
+      tests:
+      - given:
+          x: 3.0
+          x0: 2.0
+        expect:
+          d: 1.0
+      - given:
+          x: 5.5
+          x0: 3.6
+        expect:
+          d: 1.9
+      - given:
+          x: 3.0
+          x0: 2.0
+        does_not_apply: 'relative change: (3 - 2)/2 = 0.5, not 1'
+- version: 27
+  paper: 2022_Garay
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: sum_of_four_parts
+      kind: derived
+      statement: A whole made of four non-overlapping parts of the same kind is the sum of the four parts.
+      equations:
+      - t = a + b + c + d
+      variables:
+        t: D
+        a: D
+        b: D
+        c: D
+        d: D
+        u: D
+      uses:
+      - formula: sum_of_three_parts
+        subs:
+          t: u
+          a: a
+          b: b
+          c: c
+      - formula: sum_of_parts
+        subs:
+          t: t
+          a: u
+          b: d
+      does_not_apply: overlapping parts, or a part counted twice
+      tests:
+      - given:
+          a: 10.0
+          b: 4.0
+          c: 1.0
+          d: 4.0
+        expect:
+          t: 19.0
+      - given:
+          a: 1.0
+          b: 2.0
+          c: 3.0
+          d: 4.0
+        does_not_apply: 'd counted twice: 14, not 10'
+  - event: add
+    entry:
+      formula: mito_stress_test_partition
+      kind: model
+      statement: In a mitochondrial stress test, ATP-linked respiration is the oxygen consumption rate lost on adding oligomycin,
+        and proton-leak respiration is the oligomycin-insensitive rate above the rate left after rotenone and antimycin A.
+      equations:
+      - atp = b - o
+      - leak = o - n
+      variables:
+        atp: D
+        leak: D
+        b: D
+        o: D
+        n: D
+      assumes:
+      - oligomycin fully inhibits ATP synthase
+      - rotenone and antimycin A abolish mitochondrial respiration
+      - oligomycin does not change proton leak
+      does_not_apply: incomplete inhibition by oligomycin or by rotenone and antimycin A; a leak taken as the raw oligomycin
+        rate without subtracting non-mitochondrial respiration
+      tests:
+      - given:
+          b: 100.0
+          o: 40.0
+          n: 10.0
+        expect:
+          atp: 60.0
+          leak: 30.0
+      - given:
+          b: 100.0
+          o: 40.0
+          n: 10.0
+        does_not_apply: 'leak as the raw oligomycin rate (40) ignores non-mitochondrial respiration: 40, not 30'
+      cites:
+        text: Brand MD, Nicholls DG (2011). Assessing mitochondrial dysfunction in cells. Biochem J 435:297-312 (the cell
+          respiratory control experiment, Figure 1)
+        url: https://doi.org/10.1042/BJ20110162
+- version: 28
+  paper: 2020_Buikema
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: product_of_three_ratios
+      kind: derived
+      statement: A fold over three successive stages is the product of the per-stage folds, N3/N0 = (N1/N0)*(N2/N1)*(N3/N2);
+        e.g. overall expansion over three passages.
+      equations:
+      - R = r1*r2*r3
+      variables:
+        R: dimensionless
+        r1: dimensionless
+        r2: dimensionless
+        r3: dimensionless
+        N0: D
+        N1: D
+        N2: D
+        N3: D
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r1
+          a: N1
+          b: N0
+      - formula: ratio_def
+        subs:
+          r: r2
+          a: N2
+          b: N1
+      - formula: ratio_def
+        subs:
+          r: r3
+          a: N3
+          b: N2
+      - formula: ratio_def
+        subs:
+          r: R
+          a: N3
+          b: N0
+      does_not_apply: a sum of per-stage folds, or folds each taken over the same start (cumulative folds)
+      tests:
+      - given:
+          r1: 8.0
+          r2: 8.0
+          r3: 4.0
+        expect:
+          R: 256.0
+      - given:
+          r1: 8.0
+          r2: 8.0
+          r3: 4.0
+        does_not_apply: 'sum of the folds: 20, not 256'
+  - event: add
+    entry:
+      formula: force_from_strain_modulus_area
+      kind: derived
+      statement: For a linear elastic specimen of Young's modulus E and area A, elongated by d over length L (strain d/L),
+        the normal force is F = E*A*d/L.
+      equations:
+      - F = E*A*d/L
+      variables:
+        F: force
+        E: modulus
+        A: area
+        d: length
+        L: length
+        sigma: stress
+        eps: dimensionless
+      assumes:
+      - eps = d/L
+      uses:
+      - formula: stress_def
+        subs:
+          sigma: sigma
+          F: F
+          A: A
+      - formula: linear_elastic_stress_strain
+        subs:
+          sigma: sigma
+          E: E
+          eps: eps
+      does_not_apply: a nonlinear material or large strains; an area other than the one carrying the force; a modulus of a
+        body other than the one strained
+      tests:
+      - given:
+          E: 10.0
+          A: 2.0
+          d: 1.0
+          L: 4.0
+        expect:
+          F: 5.0
+      - given:
+          E: 10.0
+          A: 2.0
+          d: 1.0
+          L: 4.0
+        does_not_apply: 'strain taken as d/(L + d) (true length): 4.0, not 5.0'
+- version: 29
+  paper: 2022_Strimaityte
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: relative_deviation_from_period
+      kind: derived
+      statement: The relative deviation of a measured interval from the period of a stated frequency is the interval times
+        the frequency, minus one.
+      equations:
+      - d = x*f - 1
+      variables:
+        d: dimensionless
+        x: time
+        f: frequency
+        T: time
+      uses:
+      - formula: relative_change
+        subs:
+          d: d
+          x: x
+          x0: T
+      - formula: frequency_def
+        subs:
+          f: f
+          T: T
+      does_not_apply: a deviation stated in absolute value, or relative to the measured interval rather than the period
+      tests:
+      - given:
+          x: 0.55
+          f: 2.0
+        expect:
+          d: 0.1
+      - given:
+          x: 0.4
+          f: 5.0
+        expect:
+          d: 1.0
+      - given:
+          x: 0.45
+          f: 2.0
+        does_not_apply: 'absolute deviation: 0.1, not the signed -0.1'
+- version: 30
+  paper: 2021_Tsui
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: min_max_normalised
+      kind: derived
+      statement: 'Min–max normalisation maps a value onto [0, 1] between the lowest and largest values of its set: (x - xmin)/(xmax
+        - xmin).'
+      equations:
+      - n = (x - xmin)/(xmax - xmin)
+      variables:
+        n: dimensionless
+        x: D
+        xmin: D
+        xmax: D
+      uses:
+      - formula: ratio_of_differences
+        subs:
+          r: n
+          x1: x
+          x2: xmin
+          y1: xmax
+          y2: xmin
+      does_not_apply: normalisation to a reference value (x/x0), a percent change from baseline ((x - x0)/x0), or a z-score
+      tests:
+      - given:
+          x: 5.0
+          xmin: 1.0
+          xmax: 9.0
+        expect:
+          n: 0.5
+      - given:
+          x: 1.0
+          xmin: 1.0
+          xmax: 9.0
+        expect:
+          n: 0.0
+      - given:
+          x: 5.0
+          xmin: 1.0
+          xmax: 9.0
+        does_not_apply: 'percent change from the lowest value: (5 - 1)/1 = 4, not 0.5'
+- version: 31
+  paper: 2016_Herron
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ci95_upper_from_sem
+      kind: derived
+      statement: The upper limit of a 95 % confidence interval of a mean is the mean plus the t quantile (n - 1 degrees of
+        freedom) times the SEM.
+      equations:
+      - u = m + tq975(n - 1)*se
+      variables:
+        u: D
+        m: D
+        se: D
+        sd: D
+        h: D
+        n: count
+      uses:
+      - formula: ci95_halfwidth
+        subs:
+          h: h
+          sd: sd
+          n: n
+      - formula: sem_def
+        subs:
+          sem: se
+          sd: sd
+          n: n
+      - formula: sum_of_parts
+        subs:
+          t: u
+          a: m
+          b: h
+      does_not_apply: a printed spread that is an SD (then u = m + tq975(n - 1)*sd/sqrt(n)), or a lower limit
+      tests:
+      - given:
+          m: 10.0
+          se: 1.0
+          n: 4.0
+        expect:
+          u: 13.182446305284262
+      - given:
+          m: 10.0
+          se: 2.0
+          n: 4.0
+        does_not_apply: 'spread is an SD of 2: u = 10 + 3.182*2/2 = 13.18, not 16.36'
+- version: 32
+  paper: 2019_Dwenger
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: absolute_difference_over_reference
+      kind: derived
+      statement: The absolute difference of two like quantities divided by a reference of the same kind, |a - b|/m (e.g. the
+        beat-to-beat difference in active stress over the mean active stress), is a ratio of the absolute difference to the
+        reference.
+      equations:
+      - r = Abs(a - b)/m
+      variables:
+        r: dimensionless
+        a: D
+        b: D
+        m: D
+        dn: D
+      assumes:
+      - dn = Abs(a - b)
+      uses:
+      - formula: ratio_def
+        subs:
+          r: r
+          a: dn
+          b: m
+      does_not_apply: a signed difference (a - b)/m, a difference over the sum of the two (|a - b|/(a + b)), or a mean of
+        per-pair ratios compared with the ratio of means
+      tests:
+      - given:
+          a: 3.0
+          b: 1.0
+          m: 4.0
+        expect:
+          r: 0.5
+      - given:
+          a: 1.0
+          b: 3.0
+          m: 4.0
+        expect:
+          r: 0.5
+      - given:
+          a: 1.0
+          b: 3.0
+          m: 4.0
+        does_not_apply: the signed form gives -0.5
+  - event: add
+    entry:
+      formula: normalized_time_integral
+      kind: derived
+      statement: A time integral of a quantity over an interval, normalised to the interval's duration and to a reference
+        value of the quantity (e.g. a systolic stress-time integral over cycle time and peak stress), is the integral divided
+        by the product of duration and reference; it is dimensionless.
+      equations:
+      - e = Si/(T*m)
+      variables:
+        e: dimensionless
+        Si: D*time
+        T: time
+        m: D
+        q: D*time
+      assumes:
+      - q = T*m
+      uses:
+      - formula: ratio_def
+        subs:
+          r: e
+          a: Si
+          b: q
+      does_not_apply: an integral normalised to time only (a time-averaged value, with the quantity's own dimension), or to
+        the reference only
+      tests:
+      - given:
+          Si: 6.0
+          T: 2.0
+          m: 3.0
+        expect:
+          e: 1.0
+      - given:
+          Si: 3.0
+          T: 2.0
+          m: 3.0
+        expect:
+          e: 0.5
+      - given:
+          Si: 6.0
+          T: 2.0
+          m: 3.0
+        does_not_apply: normalised to time only gives 3, not 1
+- version: 33
+  paper: 2020_Rupert-C
+  agent:
+    model: llm
+    instructions: formulas_v3
+    run: null
+  events:
+  - event: add
+    entry:
+      formula: ellipse_area_half_width
+      kind: derived
+      statement: The cross-sectional area of a specimen whose section is taken as an ellipse of full width w and height half
+        the width (h = w/2) is A = pi*w**2/8.
+      equations:
+      - A = pi*w**2/8
+      variables:
+        A: area
+        w: length
+        h: length
+      assumes:
+      - h = w/2
+      uses:
+      - formula: elliptical_cross_section_area
+        subs:
+          A: A
+          a: w
+          b: h
+      does_not_apply: a measured thickness other than half the width, a rectangular or irregular section, or w given as a
+        semi-axis
+      tests:
+      - given:
+          w: 2.0
+        expect:
+          A: 1.5707963
+      - given:
+          w: 1.0
+        expect:
+          A: 0.39269908
+      - given:
+          w: 2.0
+        does_not_apply: an ellipse 2 wide and 1.5 thick has area 2.356, not pi/2

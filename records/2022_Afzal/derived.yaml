@@ -1,0 +1,2071 @@
+record: 2022_Afzal
+formula_library_version: 33
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F2i_KCNJ2.rq_d30:
+    item: F2i_KCNJ2
+    group: d30
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e
+    anchor: &id001
+      quote: Heatmap with relative quantification (RQ) of select cardiac transcript expression using RT-PCR on different substrates
+      where: Fig. 2I legend
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: rq
+        mx: e
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH, d30 group (Ct values not printed)
+    output: F2i_KCNJ2.values.rq_d30
+    note: d30 is the calibrator (RQ 1.00); 'd30 is control condition' (STAR Methods, RT-PCR).
+  F2i_KCNJ2.rq_d30m:
+    item: F2i_KCNJ2
+    group: d30m
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group d30m; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_d30m
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_KCNJ2.rq_plga:
+    item: F2i_KCNJ2
+    group: plga
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group plga; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_plga
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_KCNJ2.rq_plgam:
+    item: F2i_KCNJ2
+    group: plgam
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group plgam; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_plgam
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_KCNJ2.rq_pu:
+    item: F2i_KCNJ2
+    group: pu
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group pu; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_pu
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_KCNJ2.rq_pum:
+    item: F2i_KCNJ2
+    group: pum
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group pum; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_pum
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_KCNJ2.rq_anw:
+    item: F2i_KCNJ2
+    group: anw
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group anw; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_anw
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_KCNJ2.rq_cmm:
+    item: F2i_KCNJ2
+    group: cmm
+    measure: KCNJ2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in group cmm; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: KCNJ2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_KCNJ2.values.rq_cmm
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_d30:
+    item: F2i_TTN
+    group: d30
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e
+    anchor: *id001
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: rq
+        mx: e
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH, d30 group (Ct values not printed)
+    output: F2i_TTN.values.rq_d30
+    note: d30 is the calibrator (RQ 1.00); 'd30 is control condition' (STAR Methods, RT-PCR).
+  F2i_TTN.rq_d30m:
+    item: F2i_TTN
+    group: d30m
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group d30m; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_d30m
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_plga:
+    item: F2i_TTN
+    group: plga
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group plga; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_plga
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_plgam:
+    item: F2i_TTN
+    group: plgam
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group plgam; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_plgam
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_pu:
+    item: F2i_TTN
+    group: pu
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group pu; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_pu
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_pum:
+    item: F2i_TTN
+    group: pum
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group pum; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_pum
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_anw:
+    item: F2i_TTN
+    group: anw
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group anw; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_anw
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_TTN.rq_cmm:
+    item: F2i_TTN
+    group: cmm
+    measure: TTN mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in group cmm; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: TTN expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_TTN.values.rq_cmm
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_d30:
+    item: F2i_MYL2
+    group: d30
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e
+    anchor: *id001
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: rq
+        mx: e
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH, d30 group (Ct values not printed)
+    output: F2i_MYL2.values.rq_d30
+    note: d30 is the calibrator (RQ 1.00); 'd30 is control condition' (STAR Methods, RT-PCR).
+  F2i_MYL2.rq_d30m:
+    item: F2i_MYL2
+    group: d30m
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group d30m; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_d30m
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_plga:
+    item: F2i_MYL2
+    group: plga
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group plga; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_plga
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_plgam:
+    item: F2i_MYL2
+    group: plgam
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group plgam; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_plgam
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_pu:
+    item: F2i_MYL2
+    group: pu
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group pu; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_pu
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_pum:
+    item: F2i_MYL2
+    group: pum
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group pum; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_pum
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_anw:
+    item: F2i_MYL2
+    group: anw
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group anw; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_anw
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_MYL2.rq_cmm:
+    item: F2i_MYL2
+    group: cmm
+    measure: MYL2 mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in group cmm; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: MYL2 expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_MYL2.values.rq_cmm
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_d30:
+    item: F2i_CAMK2D
+    group: d30
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e
+    anchor: *id001
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: rq
+        mx: e
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH, d30 group (Ct values not printed)
+    output: F2i_CAMK2D.values.rq_d30
+    note: d30 is the calibrator (RQ 1.00); 'd30 is control condition' (STAR Methods, RT-PCR).
+  F2i_CAMK2D.rq_d30m:
+    item: F2i_CAMK2D
+    group: d30m
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group d30m; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_d30m
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_plga:
+    item: F2i_CAMK2D
+    group: plga
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group plga; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_plga
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_plgam:
+    item: F2i_CAMK2D
+    group: plgam
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group plgam; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_plgam
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_pu:
+    item: F2i_CAMK2D
+    group: pu
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group pu; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_pu
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_pum:
+    item: F2i_CAMK2D
+    group: pum
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group pum; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_pum
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_anw:
+    item: F2i_CAMK2D
+    group: anw
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group anw; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_anw
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  F2i_CAMK2D.rq_cmm:
+    item: F2i_CAMK2D
+    group: cmm
+    measure: CAMK2D mRNA relative quantification (RQ)
+    formula: rq = e/e0
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: rq
+        a: e
+        b: e0
+    inputs:
+      e:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in group cmm; Ct values not printed
+      e0:
+        not_stated: true
+        kind: not stated
+        note: CAMK2D expression normalised to GAPDH in d30 (control condition); not printed
+    output: F2i_CAMK2D.values.rq_cmm
+    aggregation: not stated
+    alternatives:
+    - label: comparative Ct (2^-ddCt, Livak), the usual RQ computation; not stated in the methods
+      formula: rq = 2^(-ddct)
+    note: 'Normalisation to GAPDH: ''the transcripts were normalized to endogenous GAPDH Control'' (STAR Methods, RT-PCR). n per surface
+      not printed.'
+  S6b_minor.minor_d30:
+    item: S6b_minor
+    group: d30
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m
+    anchor: &id002
+      quote: Relative mitochondrial quantification on different surfaces with/without matrix
+      where: Fig. S6b legend
+      file: mmc1.pdf
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: f
+        mx: m
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M), d30 mean; not printed
+    output: S6b_minor.values.minor_d30
+    note: d30 printed as 1 with a nonzero spread (normalised to the d30 mean, not each sample to itself).
+  S6b_minor.minor_d30m:
+    item: S6b_minor
+    group: d30m
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group d30m, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_d30m
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_minor.minor_plga:
+    item: S6b_minor
+    group: plga
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group plga, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_plga
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_minor.minor_plgam:
+    item: S6b_minor
+    group: plgam
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group plgam, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_plgam
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_minor.minor_pu:
+    item: S6b_minor
+    group: pu
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group pu, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_pu
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_minor.minor_pum:
+    item: S6b_minor
+    group: pum
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group pum, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_pum
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_minor.minor_anw:
+    item: S6b_minor
+    group: anw
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group anw, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_anw
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_minor.minor_cmm:
+    item: S6b_minor
+    group: cmm
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group cmm, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_minor.values.minor_cmm
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_d30:
+    item: S6b_major
+    group: d30
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m
+    anchor: *id002
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: f
+        mx: m
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M), d30 mean; not printed
+    output: S6b_major.values.major_d30
+    note: d30 printed as 1 with a nonzero spread (normalised to the d30 mean, not each sample to itself).
+  S6b_major.major_d30m:
+    item: S6b_major
+    group: d30m
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group d30m, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_d30m
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_plga:
+    item: S6b_major
+    group: plga
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group plga, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_plga
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_plgam:
+    item: S6b_major
+    group: plgam
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group plgam, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_plgam
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_pu:
+    item: S6b_major
+    group: pu
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group pu, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_pu
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_pum:
+    item: S6b_major
+    group: pum
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group pum, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_pum
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_anw:
+    item: S6b_major
+    group: anw
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group anw, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_anw
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S6b_major.major_cmm:
+    item: S6b_major
+    group: cmm
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        by_reference:
+          citation: Phillips2014
+          anchor:
+            quote: using probe-based Taqman Real-Time PCR as described earlier (primer/probes sequence and concentration) (Phillips
+              et al., 2014)
+            where: STAR Methods, Mitochondrial number
+        kind: not stated
+        note: mtDNA relative to nuclear DNA (B2M) in group cmm, method by citation; values not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30 group; not printed
+    output: S6b_major.values.major_cmm
+    aggregation: not stated
+    note: 'Fold of d30 is not written in words: the d30 value is printed as 1 (record: normalised_to d30).'
+  S7b_minor_l1.fold:
+    item: S7b_minor_l1
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: &id003
+      quote: mitochondrial quantification from three different iPSCs lines on the CMM substrate when comapred to their respective d30
+        samples
+      where: Fig. S7 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, cmm_l1; not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30_l1; not printed
+    output: S7b_minor_l1.values.fold
+    aggregation: not stated
+  S7b_minor_l2.fold:
+    item: S7b_minor_l2
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, cmm_l2; not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30_l2; not printed
+    output: S7b_minor_l2.values.fold
+    aggregation: not stated
+  S7b_minor_l3.fold:
+    item: S7b_minor_l3
+    measure: mitochondrial DNA (minor arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, cmm_l3; not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30_l3; not printed
+    output: S7b_minor_l3.values.fold
+    aggregation: not stated
+  S7b_major_l1.fold:
+    item: S7b_major_l1
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, cmm_l1; not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30_l1; not printed
+    output: S7b_major_l1.values.fold
+    aggregation: not stated
+  S7b_major_l2.fold:
+    item: S7b_major_l2
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, cmm_l2; not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30_l2; not printed
+    output: S7b_major_l2.values.fold
+    aggregation: not stated
+  S7b_major_l3.fold:
+    item: S7b_major_l3
+    measure: mitochondrial DNA (major arc) relative to nuclear DNA
+    formula: f = m/m0
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, cmm_l3; not printed
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30_l3; not printed
+    output: S7b_major_l3.values.fold
+    aggregation: not stated
+  S9b_tnni1.fold:
+    item: S9b_tnni1
+    measure: TNNI1 relative gene expression
+    formula: f = e/e0
+    anchor: &id004
+      quote: upregulation (3 fold) of cardiac Tnni3 and downregulation (0.7 fold) of Tnni1 on CMM
+      where: Fig. S9 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: e
+        b: e0
+    inputs:
+      e:
+        reading: S9b/Tnni1 CMM
+        kind: per sample
+      e0:
+        reading: S9b/Tnni1 d30
+        kind: per sample
+    output: S9b_tnni1.values.fold_legend
+    aggregation: of means
+    note: 'A fold of the two groups (CMM vs d30): the ratio of the group means. d30 bars give the mean only (discs overlap).'
+  S9b_tnni3.fold:
+    item: S9b_tnni3
+    measure: TNNI3 relative gene expression
+    formula: f = e/e0
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: e
+        b: e0
+    inputs:
+      e:
+        reading: S9b/Tnni3 CMM
+        kind: per sample
+      e0:
+        reading: S9b/Tnni3 d30
+        kind: per sample
+    output: S9b_tnni3.values.fold_legend
+    aggregation: of means
+    note: 'A fold of the two groups (CMM vs d30): the ratio of the group means. d30 bars give the mean only (discs overlap).'
+  S10_duration_cmm_d30.ratio:
+    item: S10_duration_cmm_d30
+    measure: beating duration
+    formula: r = t/t0
+    anchor:
+      quote: Duration of beats on CMM was twice as long
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: t
+        b: t0
+    inputs:
+      t:
+        not_stated: true
+        kind: not stated
+        note: beating duration, CMM (Fig. S10f bars not read)
+      t0:
+        not_stated: true
+        kind: not stated
+        note: beating duration, d30 (Fig. S10f bars not read)
+    output: S10_duration_cmm_d30.values.twice_text
+    aggregation: not stated
+  F4b_coupled.coupled_d30:
+    item: F4b_coupled
+    group: d30
+    measure: coupled (oligomycin-sensitive) respiration
+    formula: c = b - o
+    anchor:
+      quote: coupled respiration (oligomycin-sensitive respiration) from 65 pmol/min to 141 pmol/min
+      where: Results
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: c
+        b: b
+        o: o
+    inputs:
+      b:
+        item: F4b_basal
+        kind: per sample
+      o:
+        not_stated: true
+        kind: not stated
+        note: OCR after oligomycin; not printed
+    output: F4b_coupled.values.d30_text
+    aggregation: not stated
+    note: '''Oligomycin-sensitive'' names the difference basal minus oligomycin-insensitive OCR.'
+  F4b_coupled.coupled_cmm:
+    item: F4b_coupled
+    group: cmm
+    measure: coupled (oligomycin-sensitive) respiration
+    formula: c = b - o
+    anchor:
+      quote: coupled respiration (oligomycin-sensitive respiration) from 65 pmol/min to 141 pmol/min
+      where: Results
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: c
+        b: b
+        o: o
+    inputs:
+      b:
+        item: F4b_basal
+        kind: per sample
+      o:
+        not_stated: true
+        kind: not stated
+        note: OCR after oligomycin; not printed
+    output: F4b_coupled.values.cmm_text
+    aggregation: not stated
+    note: '''Oligomycin-sensitive'' names the difference basal minus oligomycin-insensitive OCR.'
+  F4g_gsh.ratio_cmm:
+    item: F4g_gsh
+    group: cmm
+    measure: Grx1-roGFP2 ratio (400/485) at 60 s
+    formula: r = i405/i488
+    anchor: &id005
+      quote: The image 405 nm image was divided by 488 nm image (pixel by pixel), and the values are reported as the ratio of 405/488
+      where: STAR Methods, Cyto-calcium, action potential and redox handling
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: i405
+        b: i488
+    inputs:
+      i405:
+        not_stated: true
+        kind: per sample
+        note: 405 nm image intensity (per pixel); not printed
+      i488:
+        not_stated: true
+        kind: per sample
+        note: 488 nm image intensity (per pixel); not printed
+    output: F4g_gsh.values.cmm_text
+    aggregation: not stated
+    note: 'Ratio at 60 s before the diamide/DTT calibration (Results: ''at 60 s in all the conditions before calibration'').'
+  F4g_gsh.ratio_d30:
+    item: F4g_gsh
+    group: d30
+    measure: Grx1-roGFP2 ratio (400/485) at 60 s
+    formula: r = i405/i488
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: i405
+        b: i488
+    inputs:
+      i405:
+        not_stated: true
+        kind: per sample
+        note: 405 nm image intensity (per pixel); not printed
+      i488:
+        not_stated: true
+        kind: per sample
+        note: 488 nm image intensity (per pixel); not printed
+    output: F4g_gsh.values.d30_text
+    aggregation: not stated
+    note: 'Ratio at 60 s before the diamide/DTT calibration (Results: ''at 60 s in all the conditions before calibration'').'
+  F7g_cmm_et1.ratio_cmm_et1:
+    item: F7g_cmm_et1
+    group: cmm_et1
+    measure: Grx1-roGFP2 ratio (400/485) at 60 s
+    formula: r = i405/i488
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: i405
+        b: i488
+    inputs:
+      i405:
+        not_stated: true
+        kind: per sample
+        note: 405 nm image intensity (per pixel); not printed
+      i488:
+        not_stated: true
+        kind: per sample
+        note: 488 nm image intensity (per pixel); not printed
+    output: F7g_cmm_et1.values.cmm_et1_fig
+    aggregation: not stated
+    note: 'Ratio at 60 s before the diamide/DTT calibration (Results: ''at 60 s in all the conditions before calibration'').'
+  F7g_cmm_et1.ratio_cmm:
+    item: F7g_cmm_et1
+    group: cmm
+    measure: Grx1-roGFP2 ratio (400/485) at 60 s
+    formula: r = i405/i488
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: i405
+        b: i488
+    inputs:
+      i405:
+        not_stated: true
+        kind: per sample
+        note: 405 nm image intensity (per pixel); not printed
+      i488:
+        not_stated: true
+        kind: per sample
+        note: 488 nm image intensity (per pixel); not printed
+    output: F7g_cmm_et1.values.cmm_fig
+    aggregation: not stated
+    note: 'Ratio at 60 s before the diamide/DTT calibration (Results: ''at 60 s in all the conditions before calibration'').'
+  F7g_d30_et1.ratio_d30_et1:
+    item: F7g_d30_et1
+    group: d30_et1
+    measure: Grx1-roGFP2 ratio (400/485) at 60 s
+    formula: r = i405/i488
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: i405
+        b: i488
+    inputs:
+      i405:
+        not_stated: true
+        kind: per sample
+        note: 405 nm image intensity (per pixel); not printed
+      i488:
+        not_stated: true
+        kind: per sample
+        note: 488 nm image intensity (per pixel); not printed
+    output: F7g_d30_et1.values.d30_et1_fig
+    aggregation: not stated
+    note: 'Ratio at 60 s before the diamide/DTT calibration (Results: ''at 60 s in all the conditions before calibration'').'
+  F7g_d30_et1.ratio_d30:
+    item: F7g_d30_et1
+    group: d30
+    measure: Grx1-roGFP2 ratio (400/485) at 60 s
+    formula: r = i405/i488
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: i405
+        b: i488
+    inputs:
+      i405:
+        not_stated: true
+        kind: per sample
+        note: 405 nm image intensity (per pixel); not printed
+      i488:
+        not_stated: true
+        kind: per sample
+        note: 488 nm image intensity (per pixel); not printed
+    output: F7g_d30_et1.values.d30_fig
+    aggregation: not stated
+    note: 'Ratio at 60 s before the diamide/DTT calibration (Results: ''at 60 s in all the conditions before calibration'').'
+  F5d_text.fold_d30:
+    item: F5d_text
+    measure: mitochondrial DNA relative to nuclear DNA
+    formula: f = m/m0
+    anchor:
+      quote: qRT-PCR of mitochondrial DNA showed >2-fold higher expression in CMM versus d30 or d60
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, CMM (arc not stated; Fig. 5D bars not read)
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d30
+    output: F5d_text.values.fold_d30
+    aggregation: not stated
+  F5d_text.fold_d60:
+    item: F5d_text
+    measure: mitochondrial DNA relative to nuclear DNA
+    formula: f = m/m0
+    anchor:
+      quote: qRT-PCR of mitochondrial DNA showed >2-fold higher expression in CMM versus d30 or d60
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: m
+        b: m0
+    inputs:
+      m:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, CMM
+      m0:
+        not_stated: true
+        kind: not stated
+        note: mtDNA relative to nuclear DNA, d60
+    output: F5d_text.values.fold_d60
+    aggregation: not stated
+  F5f_mito.fold_legend:
+    item: F5f_mito
+    measure: Mitotracker intensity per cell
+    formula: f = i/i0
+    anchor:
+      quote: Mitotracker Green (E) indicates >3-fold increase in mitochondrial content on CMM (F)
+      where: Fig. 5E-G legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: i
+        b: i0
+    inputs:
+      i:
+        not_stated: true
+        kind: not stated
+        note: Mitotracker intensity per cell, CMM; not printed
+      i0:
+        not_stated: true
+        kind: not stated
+        note: Mitotracker intensity per cell, d30; not printed
+    output: F5f_mito.values.fold_legend
+    aggregation: not stated
+  F5f_mito.fold_text:
+    item: F5f_mito
+    measure: Mitotracker intensity per cell
+    formula: f = i/i0
+    anchor:
+      quote: Mitotracker Green (E) indicates >3-fold increase in mitochondrial content on CMM (F)
+      where: Fig. 5E-G legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: i
+        b: i0
+    inputs:
+      i:
+        not_stated: true
+        kind: not stated
+        note: Mitotracker intensity per cell, CMM; not printed
+      i0:
+        not_stated: true
+        kind: not stated
+        note: Mitotracker intensity per cell, d30; not printed
+    output: F5f_mito.values.fold_text
+    aggregation: not stated
+  S12h_lido_freq.reduction:
+    item: S12h_lido_freq
+    measure: average beat frequency (compared to control)
+    formula: s = (f0 - f)/f0
+    anchor:
+      quote: reduced the frequency (by 40% in two biological batches; n = 30)
+      where: Results
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: f
+        x0: f0
+    inputs:
+      f:
+        not_stated: true
+        kind: not stated
+        note: beat frequency with lidocaine (Fig. S12h bar, not read)
+      f0:
+        not_stated: true
+        kind: not stated
+        note: beat frequency of the control
+    output: S12h_lido_freq.values.pct_text
+    aggregation: not stated
+  F7f_cmm_d30.rcr_cmm:
+    item: F7f_cmm_d30
+    group: cmm
+    measure: respiratory control ratio (state 3/state 4) of FAO
+    formula: rcr = s3/s4
+    anchor: &id006
+      quote: Respiratory control ratio (state 3/state 4) of FAO
+      where: Fig. 7F legend
+    library:
+      formula: ratio_def
+      vars:
+        r: rcr
+        a: s3
+        b: s4
+    inputs:
+      s3:
+        item: F7e_state3_cmm_d30
+        kind: per sample
+      s4:
+        item: F7e_state4_cmm_d30
+        kind: per sample
+    aggregation: not stated
+    note: No RCR value is printed (Fig. 7F plotted only); Fig. 7E values are not printed or read.
+  F7f_cmm_d30.rcr_d30:
+    item: F7f_cmm_d30
+    group: d30
+    measure: respiratory control ratio (state 3/state 4) of FAO
+    formula: rcr = s3/s4
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: rcr
+        a: s3
+        b: s4
+    inputs:
+      s3:
+        item: F7e_state3_cmm_d30
+        kind: per sample
+      s4:
+        item: F7e_state4_cmm_d30
+        kind: per sample
+    aggregation: not stated
+    note: No RCR value is printed (Fig. 7F plotted only); Fig. 7E values are not printed or read.
+  F7f_cmm_d30_et1.rcr_d30_et1:
+    item: F7f_cmm_d30_et1
+    group: d30_et1
+    measure: respiratory control ratio (state 3/state 4) of FAO
+    formula: rcr = s3/s4
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: rcr
+        a: s3
+        b: s4
+    inputs:
+      s3:
+        item: F7e_state3_cmm_d30_et1
+        kind: per sample
+      s4:
+        item: F7e_state4_cmm_d30_et1
+        kind: per sample
+    aggregation: not stated
+    note: No RCR value is printed (Fig. 7F plotted only); Fig. 7E values are not printed or read.
+  F7f_cmm_et1_cmm.rcr_cmm_et1:
+    item: F7f_cmm_et1_cmm
+    group: cmm_et1
+    measure: respiratory control ratio (state 3/state 4) of FAO
+    formula: rcr = s3/s4
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: rcr
+        a: s3
+        b: s4
+    inputs:
+      s3:
+        item: F7e_state3_cmm_et1_cmm
+        kind: per sample
+      s4:
+        not_stated: true
+        kind: not stated
+        note: 'state-4 FAO respiration of cmm_et1: no item plots it'
+    aggregation: not stated
+    note: No RCR value is printed (Fig. 7F plotted only); Fig. 7E values are not printed or read.
+  F3s_strain.strain_energy:
+    item: F3s_strain
+    measure: strain energy
+    formula: not stated
+    anchor:
+      quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass et al.,
+        2008)
+      where: STAR Methods, Traction force microscopy
+    no_formula: 'method stated only by citation (Sabass et al., 2008): strain energy from the TFM traction and displacement fields'
+    inputs:
+      u:
+        by_reference:
+          citation: Sabass2008
+          anchor:
+            quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass
+              et al., 2008)
+            where: STAR Methods
+        kind: per sample
+  S10_strain_05.strain_energy:
+    item: S10_strain_05
+    measure: strain energy
+    formula: not stated
+    anchor:
+      quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass et al.,
+        2008)
+      where: STAR Methods, Traction force microscopy
+    no_formula: 'method stated only by citation (Sabass et al., 2008): strain energy from the TFM traction and displacement fields'
+    inputs:
+      u:
+        by_reference:
+          citation: Sabass2008
+          anchor:
+            quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass
+              et al., 2008)
+            where: STAR Methods
+        kind: per sample
+  S10_strain_1.strain_energy:
+    item: S10_strain_1
+    measure: strain energy
+    formula: not stated
+    anchor:
+      quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass et al.,
+        2008)
+      where: STAR Methods, Traction force microscopy
+    no_formula: 'method stated only by citation (Sabass et al., 2008): strain energy from the TFM traction and displacement fields'
+    inputs:
+      u:
+        by_reference:
+          citation: Sabass2008
+          anchor:
+            quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass
+              et al., 2008)
+            where: STAR Methods
+        kind: per sample
+  S10_strain_15.strain_energy:
+    item: S10_strain_15
+    measure: strain energy
+    formula: not stated
+    anchor:
+      quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass et al.,
+        2008)
+      where: STAR Methods, Traction force microscopy
+    no_formula: 'method stated only by citation (Sabass et al., 2008): strain energy from the TFM traction and displacement fields'
+    inputs:
+      u:
+        by_reference:
+          citation: Sabass2008
+          anchor:
+            quote: Strain energy calculations were made as mentioned earlier to assess contractile energies of cardiomyocytes (Sabass
+              et al., 2008)
+            where: STAR Methods
+        kind: per sample
+  F3t_contract.contractility:
+    item: F3t_contract
+    measure: contractility
+    formula: not stated
+    anchor: not stated
+    no_formula: how 'contractility' is computed from the TFM data is not stated, and its unit is not printed
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+  S10_contract_05.contractility:
+    item: S10_contract_05
+    measure: contractility
+    formula: not stated
+    anchor: not stated
+    no_formula: how 'contractility' is computed from the TFM data is not stated, and its unit is not printed
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+  S10_contract_1.contractility:
+    item: S10_contract_1
+    measure: contractility
+    formula: not stated
+    anchor: not stated
+    no_formula: how 'contractility' is computed from the TFM data is not stated, and its unit is not printed
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+  S10_contract_15.contractility:
+    item: S10_contract_15
+    measure: contractility
+    formula: not stated
+    anchor: not stated
+    no_formula: how 'contractility' is computed from the TFM data is not stated, and its unit is not printed
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+assumptions:
+  F4b_coupled.coupled_d30:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported: not stated
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported: not stated
+      oligomycin does not change proton leak:
+        reported: not stated
+  F4b_coupled.coupled_cmm:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported: not stated
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported: not stated
+      oligomycin does not change proton leak:
+        reported: not stated
+bounds:
+- item: F1h_ligands
+  value: F1h_ligands.values.nephronectin
+  formula: fraction_bounds
+- item: F1h_ligands
+  value: F1h_ligands.values.crgds
+  formula: fraction_bounds
+- item: F1h_ligands
+  value: F1h_ligands.values.gfpger
+  formula: fraction_bounds
+- item: F1h_ligands
+  value: F1h_ligands.values.pa
+  formula: fraction_bounds
+- item: S1e_batches
+  value: S1e_batches.values.b1_fig
+  formula: fraction_bounds
+- item: S1e_batches
+  value: S1e_batches.values.b2_fig
+  formula: fraction_bounds
+- item: S1e_batches
+  value: S1e_batches.values.b3_fig
+  formula: fraction_bounds
+proposals: []

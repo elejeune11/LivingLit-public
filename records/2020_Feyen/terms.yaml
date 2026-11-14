@@ -1,0 +1,403 @@
+record: 2020_Feyen
+vocabulary_version: 68
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context: own fields
+- add_qualifier: {id: dissociation_reagent:tryple, name: concentration, dimension: text}
+- add_qualifier: {id: platform:culture_2d, name: format, dimension: text}
+- add_synonym: {id: substrate:polyacrylamide, text: polyacrylamide gel, anchor: hiPSC-CMs were plated on polyacrylamide gel substrates}
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:metabolic_maturation_medium
+    label: metabolic maturation medium
+    parent: maturation_strategy:maturation_medium
+    definition: A maturation medium that shifts the cells' energy substrates (low glucose, fatty acids and related supplements) to promote oxidative metabolism.
+    scope: Maturation by changing energy substrates in the medium; a maturation medium that only adds hormones stays on the parent term.
+    synonyms:
+    - {text: metabolic maturation, anchor: A 3- to 5-week period of directed metabolic maturation increased FAO.}
+- add_synonym: {id: measurement_medium:tyrode_solution, text: Tyrode solution, anchor: continuously perfused (2 mL/min) with Tyrode solution containing}
+- add_synonym: {id: measurement_medium:tyrode_solution, text: Ca-Tyrode buffer, anchor: After 5 minutes of washing in 1.8 mmol/L Ca-Tyrode buffer}
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:assay_medium
+    label: assay or imaging medium
+    definition: A commercial medium formulated for an assay or for live imaging, used as the bath during the measurement.
+    scope: A named assay or imaging medium replacing the culture medium for the measurement; not the cells' own culture medium, not a physiological salt solution (Tyrode's, Krebs, extracellular solution) and not an unnamed serum-free medium.
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:fluorobrite_dmem
+    label: FluoroBrite DMEM
+    parent: measurement_medium:assay_medium
+    definition: A low-background DMEM formulation for live fluorescence imaging, used as the bath during measurement.
+    scope: FluoroBrite imaging medium; not the Seahorse XF assay medium.
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:seahorse_xf_dmem
+    label: Seahorse XF DMEM Basal Medium
+    parent: measurement_medium:assay_medium
+    definition: The unbuffered DMEM-based medium for Seahorse extracellular flux assays, with its supplements as stated.
+    scope: The Seahorse XF assay medium; not an imaging medium such as FluoroBrite DMEM.
+    synonyms:
+    - {text: Agilent Seahorse XF DMEM Basal Medium, anchor: Culture medium was exchanged for Agilent Seahorse XF DMEM Basal Medium}
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:serum_free_medium
+    label: serum-free medium, base not stated
+    definition: A medium without serum whose base formulation is not stated, used as the bath during the measurement.
+    scope: An unnamed serum-free medium as the bath; not a named assay or imaging medium, not a salt solution and not the cells' culture medium kept for the measurement.
+    synonyms:
+    - {text: serum-free media, anchor: Cells were washed 3x with serum-free media and preincubated in serum-free media for 2 hours.}
+- add_qualifier: {id: genotype:wild_type, name: gene, dimension: text}
+- add_qualifier: {id: genotype:wild_type, name: zygosity, dimension: text}
+- add_term:
+    field: genotype
+    id: genotype:rbm20_variant
+    label: RBM20 variant
+    parent: genotype:gene_variant
+    definition: Cells carrying a variant in RBM20, the gene encoding the RNA-binding splicing regulator RBM20.
+    scope: A variant in RBM20; the variant itself and its zygosity are qualifiers; not a PKP2, DSP, MYBPC3 or SCN5A variant.
+- add_term:
+    field: genotype
+    id: genotype:scn5a_variant
+    label: SCN5A variant
+    parent: genotype:gene_variant
+    definition: Cells carrying a variant in SCN5A, the gene encoding the cardiac sodium channel Nav1.5.
+    scope: A variant in SCN5A; the variant itself and its zygosity are qualifiers; not a PKP2, DSP, MYBPC3 or RBM20 variant.
+# ---------------------------------------------------------------- context: adopted fields
+- adopt: {field: cell_line, id: CVCL_A8PR, label: UKEi001-A, lookup: "cellosaurus 'UKEi001-A' (exact; Cellosaurus synonym ERC001sv1162)",
+          synonyms: [{text: ERC001sv1162, anchor: "hPSCreg: UKEi001-A/ERC001sv1162"}]}
+- adopt: {field: cell_line, id: CVCL_A8PV, label: UKEi003-C, lookup: "cellosaurus 'UKEi003-C' (exact; Cellosaurus synonym ERC018sv1634)",
+          synonyms: [{text: ERC018sv1634, anchor: "hPSCreg: UKEi003-C/ERC018sv1634"}]}
+- adopt: {field: disease_model, id: MONDO:0005021, label: dilated cardiomyopathy, lookup: "mondo 'dilated cardiomyopathy' (exact)"}
+- adopt: {field: disease_model, id: MONDO:0011377, label: long QT syndrome 3, lookup: "mondo 'long QT syndrome 3' (exact; ontology synonym long QT syndrome type 3)",
+          synonyms: [{text: long QT syndrome type 3, anchor: "the maturation protocol enhanced the fidelity of modeling two cardiac disorders: long QT syndrome type 3 (LQT3)"}]}
+- adopt: {field: supplements, id: CHEBI:16919, label: creatine, lookup: "chebi 'creatine' (exact)"}
+- adopt: {field: supplements, id: CHEBI:15891, label: taurine, lookup: "chebi 'taurine' (exact)"}
+- adopt: {field: supplements, id: CHEBI:16347, label: (R)-carnitine, lookup: "chebi 'L-carnitine' (no exact hit; L-carnitine is the (R) enantiomer), then '(R)-carnitine' (exact)",
+          synonyms: [{text: L-carnitine, anchor: "5mM Creatine monohydrate (Sigma Aldrich, C3630), 2mM Taurine (Sigma Aldrich, T0625), 2mM L-carnitine"}]}
+- adopt_own: {field: supplements, id: supplements:albumax, label: AlbuMAX,
+              definition: A lipid-rich bovine serum albumin preparation (Thermo Fisher AlbuMAX) that carries fatty acids into the medium.,
+              scope: Lipid-rich albumin added as a fatty-acid carrier; not whole serum (FBS, horse serum), not a serum replacement (KOSR) and not B27.,
+              lookup: "chebi 'AlbuMAX', 'bovine serum albumin', 'serum albumin', 'albumin': no term for this product or for lipid-rich BSA"}
+- adopt: {field: treatment, id: CHEBI:25675, label: oligomycin, lookup: "chebi 'oligomycin' (exact; the paper does not say which oligomycin)"}
+- adopt: {field: treatment, id: CHEBI:75458, label: carbonyl cyanide p-trifluoromethoxyphenylhydrazone, lookup: "chebi 'FCCP' (no hit), then the full name (exact)",
+          synonyms: [{text: FCCP, anchor: "oligomycin (2.5 mM), FCCP (2 mM), rotenone and antimycin A (2.5 mM)"}]}
+- adopt: {field: treatment, id: CHEBI:28201, label: rotenone, lookup: "chebi 'rotenone' (exact)"}
+- adopt: {field: treatment, id: CHEBI:2762, label: antimycin A, lookup: "chebi 'antimycin A' (exact)"}
+- adopt: {field: treatment, id: CHEBI:15866, label: 2-deoxy-D-glucose, lookup: "chebi '2-deoxy-D-glucose' (exact)",
+          synonyms: [{text: 2-DG, anchor: "For the Glycolysis stress test; glucose (10mM), oligomycin (1 mM), and 2-DG (50mM)."}]}
+- adopt: {field: treatment, id: CHEBI:37136, label: barium(2+), lookup: "chebi 'barium(2+)' (exact)"}
+- adopt_own: {field: treatment, id: treatment:sirna_serca2a, label: siRNA targeting SERCA2a,
+              definition: A small interfering RNA that knocks down ATP2A2 (SERCA2a).,
+              scope: An siRNA knockdown of SERCA2a; not a knockdown of another gene, not the non-targeting control siRNA and not a miRNA mimic.,
+              lookup: "chebi 'siRNA', 'small interfering RNA': no term; gene-specific siRNAs are not in ChEBI",
+              synonyms: [{text: siSERCA2a, anchor: "MM-cultured cells significantly increased CTD after siSERCA2a compared with siControl (siCtr)"}]}
+- adopt_own: {field: treatment, id: treatment:sirna_pln, label: siRNA targeting PLN,
+              definition: A small interfering RNA that knocks down PLN (phospholamban).,
+              scope: An siRNA knockdown of PLN; not a knockdown of another gene, not the non-targeting control siRNA and not a miRNA mimic.,
+              lookup: "chebi 'siRNA', 'small interfering RNA': no term; gene-specific siRNAs are not in ChEBI",
+              synonyms: [{text: siPLN, anchor: "a significantly lowered CTD was recorded in MM after addition of siPLN"}]}
+- adopt_own: {field: treatment, id: treatment:sirna_control, label: control siRNA,
+              definition: A non-targeting small interfering RNA used as the control for siRNA knockdowns.,
+              scope: The non-targeting control of an siRNA experiment; not a targeting siRNA and not a scrambled miRNA control.,
+              lookup: "chebi 'siRNA', 'small interfering RNA': no term",
+              synonyms: [{text: siControl, anchor: "MM-cultured cells significantly increased CTD after siSERCA2a compared with siControl (siCtr)"}]}
+# ---------------------------------------------------------------- measures
+- add_synonym: {id: measure:contraction_frequency, text: spontaneous beat rate, anchor: while spontaneous beat rate was significantly lower in MM culture}
+- add_synonym: {id: measure:resting_membrane_potential, text: diastolic membrane potential, anchor: "Correlation and individual distribution of cell capacitance, IK1 magnitude, diastolic membrane potential and upstroke velocity"}
+- add_synonym: {id: measure:upstroke_velocity, text: AP upstroke velocity, anchor: "a rapid AP upstroke velocity (dV/dtmax of 250"}
+- add_synonym: {id: measure:resting_calcium_signal, text: diastolic calcium, anchor: Diastolic calcium was significantly increased in MM}
+- add_qualifier: {id: measure:current_density, name: test_potential, dimension: voltage}
+- add_term:
+    field: measure
+    id: measure:glycolytic_capacity
+    label: glycolytic capacity
+    parent: measure:extracellular_acidification_rate
+    dimension: rate
+    definition: Extracellular acidification rate after ATP synthase is blocked with oligomycin, the maximal glycolytic rate.
+    scope: Acidification after oligomycin; basal acidification stays on the parent term.
+    synonyms:
+    - {text: glycolytic capacity, anchor: Maturation conditions induced the glycolytic capacity of cells}
+- add_term:
+    field: measure
+    id: measure:atp_linked_respiration
+    label: ATP-linked oxygen consumption rate
+    parent: measure:oxygen_consumption_rate
+    dimension: amount_rate
+    definition: The part of the oxygen consumption rate that oligomycin removes, the respiration coupled to ATP synthesis.
+    scope: Oligomycin-sensitive respiration; not maximal (uncoupled) respiration and not spare capacity; ATP amounts from substrate use are ATP production.
+- add_term:
+    field: measure
+    id: measure:cell_capacitance
+    label: cell capacitance
+    dimension: capacitance
+    definition: Membrane capacitance of a single cell measured by patch clamp, a proxy for membrane area.
+    scope: Electrical membrane capacitance; not cell area from images and not a current normalised to it (current density).
+    synonyms:
+    - {text: cell capacitance, anchor: Cell capacitance was 56.8 ± 3.1 pF}
+- add_term:
+    field: measure
+    id: measure:calcium_transient_duration
+    label: calcium transient duration
+    dimension: time
+    definition: Duration of the calcium transient between its upstroke and a stated level of decay (qualifier level).
+    scope: Duration of the whole transient at a stated level; not the time from peak to a level of decay (decay time), not the full width at half maximum read alone (FWHM), and not the rise time.
+    synonyms:
+    - {text: Ca2+ transient duration, anchor: "enhanced thapsigargin sensitivity on Ca2+ transient duration (CTD) of MM cultured cells"}
+- add_term:
+    field: measure
+    id: measure:non_serca_decay_constant
+    label: non-SERCA calcium removal time constant
+    parent: measure:calcium_transient_decay_constant
+    dimension: time
+    definition: Time constant of the decay of a caffeine-evoked calcium transient, when SERCA cannot take calcium back into the SR, a readout of removal by non-SERCA routes.
+    scope: Decay of the caffeine transient; decay of electrically evoked transients stays on the parent term.
+    synonyms:
+    - {text: non-SERCA mediated tau, anchor: no difference was observed in non-SERCA mediated Tau and SR load}
+- add_term:
+    field: measure
+    id: measure:intracellular_tension
+    label: intracellular tension
+    dimension: force_per_length
+    definition: Tension carried within a contracting cell layer, computed from the traction it exerts on a soft substrate, in force per length.
+    scope: Tension within the cell layer in force per length; not traction stress on the substrate (force per area) and not twitch force of a tissue.
+    synonyms:
+    - {text: intracellular tension, anchor: "Under MM conditions, intracellular tension was significantly increased"}
+- add_term:
+    field: measure
+    id: measure:max_tension_rise_rate
+    label: maximal rate of tension rise
+    parent: measure:max_force_rise_rate
+    dimension: force_per_length_rate
+    definition: Maximal rate of rise of a cell layer's intracellular tension during contraction, in force per length per time.
+    scope: Rate of rise of a tension in force per length; rates of force rise of tissues in force per time stay on the parent term.
+- add_term:
+    field: measure
+    id: measure:max_tension_decay_rate
+    label: maximal rate of tension decline
+    parent: measure:max_force_decay_rate
+    dimension: force_per_length_rate
+    definition: Maximal rate of decline of a cell layer's intracellular tension during relaxation, in force per length per time.
+    scope: Rate of decline of a tension in force per length; rates of force decline of tissues in force per time stay on the parent term.
+- add_term:
+    field: measure
+    id: measure:contraction_motion_amplitude
+    label: image-based contraction amplitude
+    dimension: dimensionless
+    definition: Peak amplitude of contractile motion of cells computed from image sequences by a stated motion metric (qualifier metric).
+    scope: An image-derived motion metric of cells in culture; not force, not tissue shortening as a fraction of length, and not structure displacement in length units.
+    qualifiers:
+      metric: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:maximal_conductance
+    label: maximal ionic conductance
+    dimension: conductance
+    definition: Conductance of a stated ionic current (qualifier current) at maximal activation, from a fit of its current-voltage relation.
+    scope: A fitted conductance; not the current density at a test potential.
+    qualifiers:
+      current: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:spent_medium_concentration
+    label: component concentration in conditioned medium
+    dimension: concentration
+    definition: Concentration of a stated component (qualifier component) measured in culture medium that has been on the cells for a stated time.
+    scope: A concentration measured in medium after culture with cells; not a medium's formulation (medium component concentration), and not a change over an interval (glucose consumption, lactate production).
+    qualifiers:
+      component: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:fatty_acid_uptake
+    label: fatty acid uptake
+    dimension: dimensionless
+    definition: Uptake of a labelled fatty acid by cells, read as the rise of its signal in the cells over time.
+    scope: Fatty acid taken up into cells; not fatty acid oxidation.
+    synonyms:
+    - {text: fatty acid uptake, anchor: hiPSC-CMs maintained in MM showed a higher fatty acid uptake capacity}
+- add_term:
+    field: measure
+    id: measure:pacing_entrainment
+    label: entrainment to pacing
+    dimension: dimensionless
+    definition: Whether cells' transients or contractions follow each stimulus at the stated pacing frequency, or the share of cells or wells that do.
+    scope: One-to-one following at one stated frequency; not the highest frequency still followed (maximum capture rate).
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:glycolytic_capacity
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:atp_linked_respiration
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_capacitance
+    value: {must_match: [platform@1, preparation, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_duration
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.level, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:non_serca_decay_constant
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:intracellular_tension
+    value: {must_match: [platform@1, substrate, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:max_tension_rise_rate
+    value: {must_match: [platform@1, substrate, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:max_tension_decay_rate
+    value: {must_match: [platform@1, substrate, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contraction_motion_amplitude
+    value: {must_match: [platform@1, preparation, pacing, temperature, method, measure.metric, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.metric, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:maximal_conductance
+    value: {must_match: [platform@1, preparation, temperature, measure.current, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.current], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:spent_medium_concentration
+    value: {must_match: [platform@1, cm_medium, time_point, measure.component, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.component], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:fatty_acid_uptake
+    value: {must_match: [platform@1, preparation, temperature, method, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:pacing_entrainment
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- {field: purification, stated: sodium L-lactate, terms: [purification:metabolic_selection], qualifiers: {substrate: sodium L-lactate},
+   note: "the paper selects in glucose-free RPMI/B27 with 5 mM sodium L-lactate for 3 days; the stated value names the substrate, the method is metabolic selection"}
+- {field: dissociation_reagent, stated: TrypLE 10x, terms: [dissociation_reagent:tryple], qualifiers: {concentration: 10x}}
+- field: preparation
+  stated: monolayer
+  flag: {kind: not a context, note: "'monolayer' names the platform (2D culture), not how the sample was prepared for measurement (intact live cells, dissociated, fixed, lysed); the reader should state the preparation or leave it not stated"}
+  split: [{words: monolayer, field: platform}]
+- {field: platform, stated: 384-well plate, terms: [platform:culture_2d], qualifiers: {format: 384-well plate}}
+- {field: platform, stated: XF96 well, terms: [platform:culture_2d], qualifiers: {format: XF96 well}}
+- {field: platform, stated: 6-well plate, terms: [platform:culture_2d], qualifiers: {format: 6-well plate}}
+- {field: platform, stated: Matrigel-coated coverslips, terms: [platform:culture_2d], qualifiers: {format: coverslip},
+   split: [{words: Matrigel-coated, field: substrate}], note: cells plated at low density on coverslips for patch clamp}
+- {field: platform, stated: glass coverslip, terms: [platform:culture_2d], qualifiers: {format: coverslip},
+   split: [{words: glass, field: substrate}]}
+- {field: cm_medium, stated: DMEM without glucose, terms: [cm_medium:dmem], qualifiers: {glucose: without glucose},
+   note: "the maturation medium's base; the 3 mM glucose added back is in the record's supplements qualifiers"}
+- field: donor_age
+  stated: two healthy female volunteers
+  flag: {kind: not a context, note: "a number of donors and their sex, not an age; code reads it as a quantity only because it holds a number word. The reader should state the donors' age or leave donor_age not stated (the count is number_of_lines)"}
+- field: time_point
+  stated: 4h, 24h and at the time of re-feeding
+  flag: {kind: several conditions, note: "three sampling times (4 h, 24 h, re-feeding at 48 h ctr / 72 h MM) in one unit value; the reader should give each value or group its own time point"}
+- {field: pacing, stated: 1 Hz, terms: [pacing:current_clamp_stimulation], qualifiers: {frequency: 1 Hz},
+   note: "stimulated action potentials at 1 Hz in whole-cell current clamp (STAR Methods, Electrophysiology recordings)"}
+- {field: pacing, stated: 0.5 Hz, terms: [pacing:field_stimulation], qualifiers: {frequency: 0.5 Hz},
+   note: "myocytes were field stimulated at 0.5 Hz (STAR Methods, Fura-2 measurements)"}
+- {field: pacing, stated: 2 Hz, terms: [pacing:field_stimulation], qualifiers: {frequency: 2 Hz},
+   note: "high frequency (2Hz) field stimulations (Fig. S5E legend)"}
+- {field: genotype, stated: homozygous RBM20-WT, terms: [genotype:wild_type], qualifiers: {gene: RBM20, zygosity: homozygous}}
+- {field: genotype, stated: homozygous RBM20-R634Q, terms: [genotype:rbm20_variant], qualifiers: {variant: R634Q, zygosity: homozygous}}
+- {field: genotype, stated: SCN5A F1473C, terms: [genotype:scn5a_variant], qualifiers: {variant: F1473C}}
+- field: day_of_measurement
+  stated: last day of culture
+  flag: {kind: placeholder, note: "no day is given; the last day of EHT culture is stated elsewhere (day 59, Fig. 6A legend), so the reader should write that day or leave the field not stated"}
+- field: day_of_measurement
+  stated: last week of culture
+  flag: {kind: placeholder, note: "a week, not a day; the reader should write the days (the week before day 59) or leave the field not stated"}
+- field: day_of_measurement
+  stated: after three weeks of culture
+  flag: {kind: placeholder, note: "three weeks counted from the media switch, not a day of differentiation; the reader should write the day of culture (e.g. day 41 if the switch is day 20, as in Fig. 2) only if the paper states it, or put '3 weeks' in a time field"}
+- field: treatment
+  stated: EdU
+  flag: {kind: not a context, note: "EdU is the proliferation label of the measurement (EdU incorporation by flow cytometry), applied to every group; it belongs to the method, not to treatment"}
+- field: treatment
+  stated: wheat germ agglutinin–Alexa Fluor 488 conjugate
+  flag: {kind: not a context, note: "a membrane imaging dye added for the contractility assay; it belongs to the method, not to treatment"}
+- {field: treatment, stated: Ba2+, terms: ["CHEBI:37136"], note: "300 µmol/L Ba2+ isolates IK1 as the Ba2+-sensitive current; not added as a synonym because '+' is a separator"}
+# ---------------------------------------------------------------- measures
+- {field: measure, stated: TTX concentration at which beating ceased (IC50), terms: [measure:ic50], qualifiers: {target: beating}}
+- {field: measure, stated: beating response to TTX, terms: [measure:beating_presence],
+   note: "the printed 100 µM is the highest TTX concentration tested, at which RPMI/B27 cells still beat; it is a condition, not a value of the measure"}
+- {field: measure, stated: spare respiration rate (OCR), terms: [measure:spare_respiratory_capacity]}
+- {field: measure, stated: maximal respiration rate (OCR), terms: [measure:maximal_oxygen_consumption_rate]}
+- {field: measure, stated: glycolytic capacity (ECAR after oligomycin), terms: [measure:glycolytic_capacity]}
+- {field: measure, stated: Tom20 immunoreactivity (mitochondrial content), terms: [measure:protein_fluorescence_intensity], qualifiers: {protein: Tom20},
+   note: Tom20 immunostaining intensity by flow cytometry}
+- {field: measure, stated: IK1 density at −140 mV, terms: [measure:current_density], qualifiers: {current: IK1, test_potential: −140 mV}}
+- {field: measure, stated: IK1 density at +60 mV, terms: [measure:current_density], qualifiers: {current: IK1, test_potential: +60 mV}}
+- {field: measure, stated: IK1 density, terms: [measure:current_density], qualifiers: {current: IK1}}
+- {field: measure, stated: cell capacitance (Cm), terms: [measure:cell_capacitance]}
+- {field: measure, stated: AP upstroke velocity (dV/dtmax), terms: [measure:upstroke_velocity]}
+- field: measure
+  stated: diastolic membrane potential and AP upstroke velocity of adult ventricular myocytes
+  flag: {kind: several measures, note: "two measures (diastolic membrane potential, upstroke velocity) in one item, each with its own printed value; the reader should split it in two items"}
+- {field: measure, stated: correlation of IK1 density with cell capacitance, terms: [measure:between_measure_correlation], qualifiers: {measures: IK1 density; cell capacitance}}
+- {field: measure, stated: SERCA2a protein level, terms: [measure:protein_level], qualifiers: {protein: SERCA2a}}
+- {field: measure, stated: CASQ2 protein level, terms: [measure:protein_level], qualifiers: {protein: CASQ2}}
+- {field: measure, stated: JPH2 protein level, terms: [measure:protein_level], qualifiers: {protein: JPH2}}
+- {field: measure, stated: PLN protein level, terms: [measure:protein_level], qualifiers: {protein: PLN}}
+- {field: measure, stated: slope of the decay phase of the calcium transient duration (CTD75-25), terms: [measure:calcium_transient_duration], qualifiers: {level: CTD75-25},
+   note: "the item is the thapsigargin-induced change of CTD75-25 (MM 2-fold greater than RPMI/B27); thapsigargin is the unit's treatment"}
+- {field: measure, stated: calcium transient duration (CTD), terms: [measure:calcium_transient_duration]}
+- {field: measure, stated: calcium decay tau, terms: [measure:calcium_transient_decay_constant]}
+- {field: measure, stated: "diastolic intracellular Ca2+ ([Ca2+]i)", terms: [measure:resting_calcium_signal],
+   qualifiers: {indicator: fura-2, expressed_as: fold, normalised_to: "non-paced diastolic [Ca2+]"},
+   note: "printed as the paced/non-paced diastolic [Ca2+] ratio of fura-2 recordings"}
+- {field: measure, stated: SR Ca2+ load relative to transient amplitude, terms: [measure:caffeine_calcium_release],
+   qualifiers: {expressed_as: normalised, normalised_to: calcium transient amplitude}}
+- {field: measure, stated: SR calcium load, terms: [measure:caffeine_calcium_release]}
+- {field: measure, stated: contraction frequency (peak-to-peak time), terms: [measure:contraction_frequency]}
+- {field: measure, stated: maximal contraction rate, terms: [measure:max_tension_rise_rate], note: "printed in nN/(µm s), the rate of rise of intracellular tension"}
+- {field: measure, stated: maximal relaxation rate, terms: [measure:max_tension_decay_rate], note: "printed in nN/(µm s), the rate of decline of intracellular tension"}
+- {field: measure, stated: relaxation (fall) time, terms: [measure:relaxation_time]}
+- {field: measure, stated: RyR2 isoform expression (24 bp insert), terms: [measure:transcript_isoform_fraction], qualifiers: {isoform: RyR2 with the 24 bp insert},
+   note: "PCR products on agarose gel: presence of each isoform, no fraction printed"}
+- {field: measure, stated: fetal TTN isoform expression, terms: [measure:gene_expression], qualifiers: {gene: TTN, isoform: fetal TTN isoform},
+   note: "qRT-PCR level of the fetal TTN isoform, not its share of all TTN"}
+- {field: measure, stated: amplitude of peak contraction, terms: [measure:contraction_motion_amplitude], qualifiers: {metric: contractile divergence},
+   note: "Kinetic Image Cytometer contractility assay; 'amplitude of peak contractile divergence'"}
+- {field: measure, stated: action potential duration (APD75) at baseline, terms: [measure:action_potential_duration], qualifiers: {level: APD75},
+   split: [{words: at baseline, field: time_point}]}
+- {field: measure, stated: mexiletine concentration for half-maximal AP shortening (IC50), terms: [measure:ic50], qualifiers: {target: APD75 shortening}}
+- {field: measure, stated: APD75 shortening by mexiletine, terms: [measure:action_potential_duration], qualifiers: {level: APD75},
+   note: dose-effect of mexiletine on APD75; mexiletine is the unit's treatment}
+- {field: measure, stated: maximum APD75 shortening by mexiletine, terms: [measure:action_potential_duration], qualifiers: {level: APD75},
+   note: "printed as the change in APD75 (ms) from each condition's own ctr wells at the most effective dose; a difference, not a ratio, so expressed_as is left to the values"}
+- {field: measure, stated: action potential duration response to ATX-II, terms: [measure:action_potential_duration],
+   note: dose-response of APD to ATX-II; level not stated in the legend}
+- {field: measure, stated: EHT width normalized to baseline, terms: [measure:tissue_width], qualifiers: {expressed_as: normalised, normalised_to: baseline (randomization)}}
+- {field: measure, stated: EHT length normalized to baseline, terms: [measure:tissue_length], qualifiers: {expressed_as: normalised, normalised_to: baseline (randomization)}}
+- {field: measure, stated: average contractile force, terms: [measure:twitch_force],
+   qualifiers: {expressed_as: normalised, normalised_to: mean force of ctr of the respective batch}}
+- {field: measure, stated: time to peak (TTP 80%), terms: [measure:contraction_time_to_peak], qualifiers: {level: TTP 80%}}
+- {field: measure, stated: relaxation time (RT 80%), terms: [measure:relaxation_time], qualifiers: {level: RT 80%}}
+- {field: measure, stated: glucose concentration in the culture medium, terms: [measure:spent_medium_concentration], qualifiers: {component: glucose}}
+- {field: measure, stated: EdU incorporation (proliferation), terms: [measure:marker_positive_cells], qualifiers: {marker: EdU}}
+- {field: measure, stated: cardiomyocyte purity (cTnT-positive fraction), terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT}}
+- {field: measure, stated: cTnT mean fluorescent intensity, terms: [measure:protein_fluorescence_intensity], qualifiers: {protein: cTnT}}
+- {field: measure, stated: ATP production (OCR), terms: [measure:atp_linked_respiration], note: Seahorse oligomycin-sensitive OCR (Fig. S2D)}
+- {field: measure, stated: phospho-PLN expression, terms: [measure:protein_level], qualifiers: {protein: phospho-PLN},
+   note: "western blot after isoproterenol; the paper does not say pPLN is divided by total PLN, so not phosphorylated_protein_fraction"}
+- {field: measure, stated: entrainment of the calcium transient to 2 Hz stimulation, terms: [measure:pacing_entrainment]}
+- {field: measure, stated: adult/fetal SCN5a expression ratio, terms: [measure:gene_expression], qualifiers: {gene: SCN5A, isoform: adult SCN5A isoform, normalised_to: fetal SCN5A isoform}}
+- {field: measure, stated: "maximal Na+ conductance (Gmax), absolute", terms: [measure:maximal_conductance], qualifiers: {current: INa, expressed_as: absolute}}
+- {field: measure, stated: lactate concentration in the medium, terms: [measure:spent_medium_concentration], qualifiers: {component: lactate}}
+- {field: measure, stated: glucose concentration in the medium, terms: [measure:spent_medium_concentration], qualifiers: {component: glucose}}
+- {field: measure, stated: lactate production / glucose consumption ratio, terms: [measure:lactate_glucose_yield]}
+- {field: measure, stated: mitochondrial DNA content (ND1/ND2 to genomic DNA), terms: [measure:mitochondrial_dna_content], qualifiers: {gene: ND1/ND2, normalised_to: genomic DNA}}
+- {field: measure, stated: average contractile force over the last week of culture, terms: [measure:twitch_force],
+   split: [{words: over the last week of culture, field: day_of_measurement}]}
+- {field: measure, stated: beat rate on the last day of culture, terms: [measure:contraction_frequency],
+   split: [{words: on the last day of culture, field: day_of_measurement}]}
+- {field: measure, stated: β-MHC abundance relative to cTnT, terms: [measure:protein_level], qualifiers: {protein: β-MHC, normalised_to: cTnT}}
+- {field: measure, stated: α-MHC abundance relative to cTnT, terms: [measure:protein_level], qualifiers: {protein: α-MHC, normalised_to: cTnT}}

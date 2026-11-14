@@ -1,0 +1,3492 @@
+record: 2021_deLange
+formula_library_version: 29
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  ST3_auto_early.pct_iso:
+    item: ST3_auto_early
+    measure: automaticity
+    formula: d = (x - x0)/x0
+    anchor: &id001
+      quote: expressed as % isoproterenol response
+      where: Results
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_auto_early.values.auto_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_auto_early.values.auto_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_auto_early.values.auto_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_auto_late.pct_iso:
+    item: ST3_auto_late
+    measure: automaticity
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_auto_late.values.auto_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_auto_late.values.auto_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_auto_late.values.auto_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_TF_early.pct_iso:
+    item: ST3_TF_early
+    measure: maximum twitch force
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_TF_early.values.TF_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_TF_early.values.TF_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_TF_early.values.TF_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_TF_late.pct_iso:
+    item: ST3_TF_late
+    measure: maximum twitch force
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_TF_late.values.TF_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_TF_late.values.TF_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_TF_late.values.TF_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CT100_early.pct_iso:
+    item: ST3_CT100_early
+    measure: CT100
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_early.values.CT100_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT100_early.values.CT100_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT100_early.values.CT100_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CT100_late.pct_iso:
+    item: ST3_CT100_late
+    measure: CT100
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_late.values.CT100_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT100_late.values.CT100_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT100_late.values.CT100_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CT50_early.pct_iso:
+    item: ST3_CT50_early
+    measure: CT50
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT50_early.values.CT50_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_early.values.CT50_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_early.values.CT50_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CT50_late.pct_iso:
+    item: ST3_CT50_late
+    measure: CT50
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT50_late.values.CT50_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_late.values.CT50_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_late.values.CT50_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CT50_100_early.pct_iso:
+    item: ST3_CT50_100_early
+    measure: CT50-100
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT50_100_early.values.CT50_100_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_100_early.values.CT50_100_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_100_early.values.CT50_100_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CT50_100_late.pct_iso:
+    item: ST3_CT50_100_late
+    measure: CT50-100
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT50_100_late.values.CT50_100_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_100_late.values.CT50_100_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_100_late.values.CT50_100_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_RT90_early.pct_iso:
+    item: ST3_RT90_early
+    measure: RT90
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT90_early.values.RT90_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT90_early.values.RT90_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT90_early.values.RT90_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_RT90_late.pct_iso:
+    item: ST3_RT90_late
+    measure: RT90
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT90_late.values.RT90_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT90_late.values.RT90_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT90_late.values.RT90_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_RT50_early.pct_iso:
+    item: ST3_RT50_early
+    measure: RT50
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT50_early.values.RT50_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_early.values.RT50_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_early.values.RT50_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_RT50_late.pct_iso:
+    item: ST3_RT50_late
+    measure: RT50
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT50_late.values.RT50_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_late.values.RT50_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_late.values.RT50_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_RT50_90_early.pct_iso:
+    item: ST3_RT50_90_early
+    measure: RT50-90
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT50_90_early.values.RT50_90_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_90_early.values.RT50_90_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_90_early.values.RT50_90_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_RT50_90_late.pct_iso:
+    item: ST3_RT50_90_late
+    measure: RT50-90
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT50_90_late.values.RT50_90_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_90_late.values.RT50_90_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_90_late.values.RT50_90_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_ndFdt_pos_early.pct_iso:
+    item: ST3_ndFdt_pos_early
+    measure: normalized +dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_ndFdt_pos_early.values.ndFdt_pos_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_ndFdt_pos_early.values.ndFdt_pos_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_ndFdt_pos_early.values.ndFdt_pos_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_ndFdt_pos_late.pct_iso:
+    item: ST3_ndFdt_pos_late
+    measure: normalized +dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_ndFdt_pos_late.values.ndFdt_pos_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_ndFdt_pos_late.values.ndFdt_pos_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_ndFdt_pos_late.values.ndFdt_pos_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_ndFdt_neg_early.pct_iso:
+    item: ST3_ndFdt_neg_early
+    measure: normalized -dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_ndFdt_neg_early.values.ndFdt_neg_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_ndFdt_neg_early.values.ndFdt_neg_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_ndFdt_neg_early.values.ndFdt_neg_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_ndFdt_neg_late.pct_iso:
+    item: ST3_ndFdt_neg_late
+    measure: normalized -dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_ndFdt_neg_late.values.ndFdt_neg_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_ndFdt_neg_late.values.ndFdt_neg_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_ndFdt_neg_late.values.ndFdt_neg_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_dFdt_ratio_early.pct_iso:
+    item: ST3_dFdt_ratio_early
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_dFdt_ratio_early.values.dFdt_ratio_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_dFdt_ratio_early.values.dFdt_ratio_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_dFdt_ratio_early.values.dFdt_ratio_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_dFdt_ratio_late.pct_iso:
+    item: ST3_dFdt_ratio_late
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_dFdt_ratio_late.values.dFdt_ratio_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_dFdt_ratio_late.values.dFdt_ratio_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_dFdt_ratio_late.values.dFdt_ratio_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_T_dFdtmax_early.pct_iso:
+    item: ST3_T_dFdtmax_early
+    measure: time to +dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_T_dFdtmax_early.values.T_dFdtmax_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_early.values.T_dFdtmax_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_early.values.T_dFdtmax_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_T_dFdtmax_late.pct_iso:
+    item: ST3_T_dFdtmax_late
+    measure: time to +dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_T_dFdtmax_late.values.T_dFdtmax_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_late.values.T_dFdtmax_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_late.values.T_dFdtmax_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_T_dFdtmax_Fmax_early.pct_iso:
+    item: ST3_T_dFdtmax_Fmax_early
+    measure: time from +dF/dtmax to Fmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_T_dFdtmax_Fmax_early.values.T_dFdtmax_Fmax_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_Fmax_early.values.T_dFdtmax_Fmax_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_Fmax_early.values.T_dFdtmax_Fmax_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_T_dFdtmax_Fmax_late.pct_iso:
+    item: ST3_T_dFdtmax_Fmax_late
+    measure: time from +dF/dtmax to Fmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_T_dFdtmax_Fmax_late.values.T_dFdtmax_Fmax_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_Fmax_late.values.T_dFdtmax_Fmax_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_Fmax_late.values.T_dFdtmax_Fmax_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_T_Fmax_negdFdt_early.pct_iso:
+    item: ST3_T_Fmax_negdFdt_early
+    measure: time from Fmax to -dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_T_Fmax_negdFdt_early.values.T_Fmax_negdFdt_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_Fmax_negdFdt_early.values.T_Fmax_negdFdt_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_Fmax_negdFdt_early.values.T_Fmax_negdFdt_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_T_Fmax_negdFdt_late.pct_iso:
+    item: ST3_T_Fmax_negdFdt_late
+    measure: time from Fmax to -dF/dtmax
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_T_Fmax_negdFdt_late.values.T_Fmax_negdFdt_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_Fmax_negdFdt_late.values.T_Fmax_negdFdt_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_Fmax_negdFdt_late.values.T_Fmax_negdFdt_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaTR_early.pct_iso:
+    item: ST3_CaTR_early
+    measure: Ca2+-transient amplitude
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaTR_early.values.CaTR_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaTR_early.values.CaTR_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaTR_early.values.CaTR_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaTR_late.pct_iso:
+    item: ST3_CaTR_late
+    measure: Ca2+-transient amplitude
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaTR_late.values.CaTR_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaTR_late.values.CaTR_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaTR_late.values.CaTR_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaT100_early.pct_iso:
+    item: ST3_CaT100_early
+    measure: Ca2+T100
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaT100_early.values.CaT100_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaT100_early.values.CaT100_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaT100_early.values.CaT100_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaT100_late.pct_iso:
+    item: ST3_CaT100_late
+    measure: Ca2+T100
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaT100_late.values.CaT100_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaT100_late.values.CaT100_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaT100_late.values.CaT100_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaDT75_early.pct_iso:
+    item: ST3_CaDT75_early
+    measure: Ca2+DT75
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT75_early.values.CaDT75_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT75_early.values.CaDT75_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT75_early.values.CaDT75_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaDT75_late.pct_iso:
+    item: ST3_CaDT75_late
+    measure: Ca2+DT75
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT75_late.values.CaDT75_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT75_late.values.CaDT75_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT75_late.values.CaDT75_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaDT50_early.pct_iso:
+    item: ST3_CaDT50_early
+    measure: Ca2+DT50
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT50_early.values.CaDT50_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_early.values.CaDT50_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_early.values.CaDT50_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaDT50_late.pct_iso:
+    item: ST3_CaDT50_late
+    measure: Ca2+DT50
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT50_late.values.CaDT50_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_late.values.CaDT50_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_late.values.CaDT50_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaDT50_75_early.pct_iso:
+    item: ST3_CaDT50_75_early
+    measure: Ca2+DT50-75
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT50_75_early.values.CaDT50_75_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_75_early.values.CaDT50_75_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_75_early.values.CaDT50_75_early_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  ST3_CaDT50_75_late.pct_iso:
+    item: ST3_CaDT50_75_late
+    measure: Ca2+DT50-75
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT50_75_late.values.CaDT50_75_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_75_late.values.CaDT50_75_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_75_late.values.CaDT50_75_late_pct_table
+    output_unit: '%'
+    aggregation: not stated
+    note: paired design (each ECT at baseline and with isoproterenol); the % values in brackets after each Iso mean are read
+      as the % change from baseline; whether each ECT's % change was averaged or the means were used is not stated
+  S4_TF_early.pct_iso:
+    item: S4_TF_early
+    measure: maximum twitch force
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: 'TF with isoproterenol at 2.5 Hz: box plot only (Supplemental Fig. S4)'
+      x0:
+        not_stated: true
+        kind: per sample
+        note: 'baseline TF at 2.5 Hz: box plot only (Supplemental Fig. S4)'
+    output: S4_TF_early.values.TF25_early_pct_text
+    output_unit: '%'
+    aggregation: not stated
+  S4_TF_late.pct_iso:
+    item: S4_TF_late
+    measure: maximum twitch force
+    formula: d = (x - x0)/x0
+    anchor: *id001
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: 'TF with isoproterenol at 2.5 Hz: box plot only (Supplemental Fig. S4)'
+      x0:
+        not_stated: true
+        kind: per sample
+        note: 'baseline TF at 2.5 Hz: box plot only (Supplemental Fig. S4)'
+    output: S4_TF_late.values.TF25_late_pct_text
+    output_unit: '%'
+    aggregation: not stated
+  ST1_CT50_100.interval_early:
+    item: ST1_CT50_100
+    group: early
+    measure: CT50-100
+    formula: d = x - x0
+    anchor: &id002
+      quote: CT50–100, time from 50% to peak force production
+      where: Fig. 4 legend
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_CT100.values.CT100_early_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_CT50.values.CT50_early_table
+        part: mean
+        kind: per sample
+    output: ST1_CT50_100.values.CT50_100_early_table
+    aggregation: not stated
+  ST1_CT50_100.interval_late:
+    item: ST1_CT50_100
+    group: late
+    measure: CT50-100
+    formula: d = x - x0
+    anchor: *id002
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_CT100.values.CT100_late_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_CT50.values.CT50_late_table
+        part: mean
+        kind: per sample
+    output: ST1_CT50_100.values.CT50_100_late_table
+    aggregation: not stated
+  ST3_CT50_100_early.interval_early_bl:
+    item: ST3_CT50_100_early
+    group: early_bl
+    measure: CT50-100
+    formula: d = x - x0
+    anchor: *id002
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_early.values.CT100_early_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_early.values.CT50_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_100_early.values.CT50_100_early_bl_table
+    aggregation: not stated
+  ST3_CT50_100_early.interval_early_iso:
+    item: ST3_CT50_100_early
+    group: early_iso
+    measure: CT50-100
+    formula: d = x - x0
+    anchor: *id002
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_early.values.CT100_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_early.values.CT50_early_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_100_early.values.CT50_100_early_iso_table
+    aggregation: not stated
+  ST3_CT50_100_late.interval_late_bl:
+    item: ST3_CT50_100_late
+    group: late_bl
+    measure: CT50-100
+    formula: d = x - x0
+    anchor: *id002
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_late.values.CT100_late_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_late.values.CT50_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_100_late.values.CT50_100_late_bl_table
+    aggregation: not stated
+  ST3_CT50_100_late.interval_late_iso:
+    item: ST3_CT50_100_late
+    group: late_iso
+    measure: CT50-100
+    formula: d = x - x0
+    anchor: *id002
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_late.values.CT100_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CT50_late.values.CT50_late_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_CT50_100_late.values.CT50_100_late_iso_table
+    aggregation: not stated
+  ST1_RT50_90.interval_early:
+    item: ST1_RT50_90
+    group: early
+    measure: RT50-90
+    formula: d = x - x0
+    anchor: &id003
+      quote: RT50-90, time from 50% to 90% twitch force decay
+      where: Table 1 footnote
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_RT90.values.RT90_early_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_RT50.values.RT50_early_table
+        part: mean
+        kind: per sample
+    output: ST1_RT50_90.values.RT50_90_early_table
+    aggregation: not stated
+  ST1_RT50_90.interval_late:
+    item: ST1_RT50_90
+    group: late
+    measure: RT50-90
+    formula: d = x - x0
+    anchor: *id003
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_RT90.values.RT90_late_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_RT50.values.RT50_late_table
+        part: mean
+        kind: per sample
+    output: ST1_RT50_90.values.RT50_90_late_table
+    aggregation: not stated
+  ST3_RT50_90_early.interval_early_bl:
+    item: ST3_RT50_90_early
+    group: early_bl
+    measure: RT50-90
+    formula: d = x - x0
+    anchor: *id003
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT90_early.values.RT90_early_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_early.values.RT50_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_90_early.values.RT50_90_early_bl_table
+    aggregation: not stated
+  ST3_RT50_90_early.interval_early_iso:
+    item: ST3_RT50_90_early
+    group: early_iso
+    measure: RT50-90
+    formula: d = x - x0
+    anchor: *id003
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT90_early.values.RT90_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_early.values.RT50_early_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_90_early.values.RT50_90_early_iso_table
+    aggregation: not stated
+  ST3_RT50_90_late.interval_late_bl:
+    item: ST3_RT50_90_late
+    group: late_bl
+    measure: RT50-90
+    formula: d = x - x0
+    anchor: *id003
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT90_late.values.RT90_late_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_late.values.RT50_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_90_late.values.RT50_90_late_bl_table
+    aggregation: not stated
+  ST3_RT50_90_late.interval_late_iso:
+    item: ST3_RT50_90_late
+    group: late_iso
+    measure: RT50-90
+    formula: d = x - x0
+    anchor: *id003
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_RT90_late.values.RT90_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_RT50_late.values.RT50_late_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_RT50_90_late.values.RT50_90_late_iso_table
+    aggregation: not stated
+  ST1_CaDT50_75.interval_early:
+    item: ST1_CaDT50_75
+    group: early
+    measure: Ca2+DT50-75
+    formula: d = x - x0
+    anchor: &id004
+      quote: time from 50% to 75% cytoplasmic Ca2 þ decay (Ca2 þDT50-75)
+      where: Fig. 6 legend
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_CaDT75.values.CaDT75_early_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_CaDT50.values.CaDT50_early_table
+        part: mean
+        kind: per sample
+    output: ST1_CaDT50_75.values.CaDT50_75_early_table
+    aggregation: not stated
+  ST1_CaDT50_75.interval_late:
+    item: ST1_CaDT50_75
+    group: late
+    measure: Ca2+DT50-75
+    formula: d = x - x0
+    anchor: *id004
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_CaDT75.values.CaDT75_late_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_CaDT50.values.CaDT50_late_table
+        part: mean
+        kind: per sample
+    output: ST1_CaDT50_75.values.CaDT50_75_late_table
+    aggregation: not stated
+  ST3_CaDT50_75_early.interval_early_bl:
+    item: ST3_CaDT50_75_early
+    group: early_bl
+    measure: Ca2+DT50-75
+    formula: d = x - x0
+    anchor: *id004
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT75_early.values.CaDT75_early_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_early.values.CaDT50_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_75_early.values.CaDT50_75_early_bl_table
+    aggregation: not stated
+  ST3_CaDT50_75_early.interval_early_iso:
+    item: ST3_CaDT50_75_early
+    group: early_iso
+    measure: Ca2+DT50-75
+    formula: d = x - x0
+    anchor: *id004
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT75_early.values.CaDT75_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_early.values.CaDT50_early_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_75_early.values.CaDT50_75_early_iso_table
+    aggregation: not stated
+  ST3_CaDT50_75_late.interval_late_bl:
+    item: ST3_CaDT50_75_late
+    group: late_bl
+    measure: Ca2+DT50-75
+    formula: d = x - x0
+    anchor: *id004
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT75_late.values.CaDT75_late_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_late.values.CaDT50_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_75_late.values.CaDT50_75_late_bl_table
+    aggregation: not stated
+  ST3_CaDT50_75_late.interval_late_iso:
+    item: ST3_CaDT50_75_late
+    group: late_iso
+    measure: Ca2+DT50-75
+    formula: d = x - x0
+    anchor: *id004
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CaDT75_late.values.CaDT75_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_CaDT50_late.values.CaDT50_late_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_CaDT50_75_late.values.CaDT50_75_late_iso_table
+    aggregation: not stated
+  ST1_T_dFdtmax_Fmax.interval_early:
+    item: ST1_T_dFdtmax_Fmax
+    group: early
+    measure: time from +dF/dtmax to Fmax
+    formula: d = x - x0
+    anchor: &id005
+      quote: time from +dF/dtMax to FMax (G)
+      where: Supplemental Fig. S2 legend
+      file: SupplementalData_Fig2.docx
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_CT100.values.CT100_early_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_T_dFdtmax.values.T_dFdtmax_early_table
+        part: mean
+        kind: per sample
+    output: ST1_T_dFdtmax_Fmax.values.T_dFdtmax_Fmax_early_table
+    aggregation: not stated
+    note: FMax is reached at CT100 (time to peak force production) and +dF/dtMax at 'time to +dF/dtMax'; that both times share
+      one origin (the stimulus) is not stated
+  ST1_T_dFdtmax_Fmax.interval_late:
+    item: ST1_T_dFdtmax_Fmax
+    group: late
+    measure: time from +dF/dtmax to Fmax
+    formula: d = x - x0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST1_CT100.values.CT100_late_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST1_T_dFdtmax.values.T_dFdtmax_late_table
+        part: mean
+        kind: per sample
+    output: ST1_T_dFdtmax_Fmax.values.T_dFdtmax_Fmax_late_table
+    aggregation: not stated
+    note: FMax is reached at CT100 (time to peak force production) and +dF/dtMax at 'time to +dF/dtMax'; that both times share
+      one origin (the stimulus) is not stated
+  ST3_T_dFdtmax_Fmax_early.interval_early_bl:
+    item: ST3_T_dFdtmax_Fmax_early
+    group: early_bl
+    measure: time from +dF/dtmax to Fmax
+    formula: d = x - x0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_early.values.CT100_early_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_early.values.T_dFdtmax_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_Fmax_early.values.T_dFdtmax_Fmax_early_bl_table
+    aggregation: not stated
+    note: FMax is reached at CT100 (time to peak force production) and +dF/dtMax at 'time to +dF/dtMax'; that both times share
+      one origin (the stimulus) is not stated
+  ST3_T_dFdtmax_Fmax_early.interval_early_iso:
+    item: ST3_T_dFdtmax_Fmax_early
+    group: early_iso
+    measure: time from +dF/dtmax to Fmax
+    formula: d = x - x0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_early.values.CT100_early_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_early.values.T_dFdtmax_early_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_Fmax_early.values.T_dFdtmax_Fmax_early_iso_table
+    aggregation: not stated
+    note: FMax is reached at CT100 (time to peak force production) and +dF/dtMax at 'time to +dF/dtMax'; that both times share
+      one origin (the stimulus) is not stated
+  ST3_T_dFdtmax_Fmax_late.interval_late_bl:
+    item: ST3_T_dFdtmax_Fmax_late
+    group: late_bl
+    measure: time from +dF/dtmax to Fmax
+    formula: d = x - x0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_late.values.CT100_late_bl_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_late.values.T_dFdtmax_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_Fmax_late.values.T_dFdtmax_Fmax_late_bl_table
+    aggregation: not stated
+    note: FMax is reached at CT100 (time to peak force production) and +dF/dtMax at 'time to +dF/dtMax'; that both times share
+      one origin (the stimulus) is not stated
+  ST3_T_dFdtmax_Fmax_late.interval_late_iso:
+    item: ST3_T_dFdtmax_Fmax_late
+    group: late_iso
+    measure: time from +dF/dtmax to Fmax
+    formula: d = x - x0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        value: ST3_CT100_late.values.CT100_late_iso_table
+        part: mean
+        kind: per sample
+      x0:
+        value: ST3_T_dFdtmax_late.values.T_dFdtmax_late_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_T_dFdtmax_Fmax_late.values.T_dFdtmax_Fmax_late_iso_table
+    aggregation: not stated
+    note: FMax is reached at CT100 (time to peak force production) and +dF/dtMax at 'time to +dF/dtMax'; that both times share
+      one origin (the stimulus) is not stated
+  ST1_dFdt_ratio.ratio_early:
+    item: ST1_dFdt_ratio
+    group: early
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: r = a/b
+    anchor: &id006
+      where: Supplemental Table 1
+      file: SupplementalData_Table1.docx
+      kind: table cell
+      quote: dF/dt Ratio (-dFdt/+dFdt)
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST1_ndFdt_neg.values.ndFdt_neg_early_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST1_ndFdt_pos.values.ndFdt_pos_early_table
+        part: mean
+        kind: per sample
+    output: ST1_dFdt_ratio.values.dFdt_ratio_early_table
+    aggregation: not stated
+    alternatives: &id007
+    - label: magnitude ratio
+      formula: r = -a/b
+      note: 'n-dF/dt is printed negative (-5.574) and the ratio positive (0.647): the ratio may be |-dF/dt| / +dF/dt'
+  ST1_dFdt_ratio.ratio_late:
+    item: ST1_dFdt_ratio
+    group: late
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: r = a/b
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST1_ndFdt_neg.values.ndFdt_neg_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST1_ndFdt_pos.values.ndFdt_pos_late_table
+        part: mean
+        kind: per sample
+    output: ST1_dFdt_ratio.values.dFdt_ratio_late_table
+    aggregation: not stated
+    alternatives: *id007
+  ST3_dFdt_ratio_early.ratio_early_bl:
+    item: ST3_dFdt_ratio_early
+    group: early_bl
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: r = a/b
+    anchor:
+      quote: dFdt Ratio (-dFdt/+dFdt)
+      where: Supplemental Table 3
+      file: SupplementalData_Table3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST3_ndFdt_neg_early.values.ndFdt_neg_early_bl_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST3_ndFdt_pos_early.values.ndFdt_pos_early_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_dFdt_ratio_early.values.dFdt_ratio_early_bl_table
+    aggregation: not stated
+    alternatives: *id007
+  ST3_dFdt_ratio_early.ratio_early_iso:
+    item: ST3_dFdt_ratio_early
+    group: early_iso
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: r = a/b
+    anchor:
+      quote: dFdt Ratio (-dFdt/+dFdt)
+      where: Supplemental Table 3
+      file: SupplementalData_Table3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST3_ndFdt_neg_early.values.ndFdt_neg_early_iso_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST3_ndFdt_pos_early.values.ndFdt_pos_early_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_dFdt_ratio_early.values.dFdt_ratio_early_iso_table
+    aggregation: not stated
+    alternatives: *id007
+  ST3_dFdt_ratio_late.ratio_late_bl:
+    item: ST3_dFdt_ratio_late
+    group: late_bl
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: r = a/b
+    anchor:
+      quote: dFdt Ratio (-dFdt/+dFdt)
+      where: Supplemental Table 3
+      file: SupplementalData_Table3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST3_ndFdt_neg_late.values.ndFdt_neg_late_bl_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST3_ndFdt_pos_late.values.ndFdt_pos_late_bl_table
+        part: mean
+        kind: per sample
+    output: ST3_dFdt_ratio_late.values.dFdt_ratio_late_bl_table
+    aggregation: not stated
+    alternatives: *id007
+  ST3_dFdt_ratio_late.ratio_late_iso:
+    item: ST3_dFdt_ratio_late
+    group: late_iso
+    measure: dF/dt ratio (-dF/dt / +dF/dt)
+    formula: r = a/b
+    anchor:
+      quote: dFdt Ratio (-dFdt/+dFdt)
+      where: Supplemental Table 3
+      file: SupplementalData_Table3.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST3_ndFdt_neg_late.values.ndFdt_neg_late_iso_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST3_ndFdt_pos_late.values.ndFdt_pos_late_iso_table
+        part: mean
+        kind: per sample
+    output: ST3_dFdt_ratio_late.values.dFdt_ratio_late_iso_table
+    aggregation: not stated
+    alternatives: *id007
+  ST1_ndFdt_pos.normalized:
+    item: ST1_ndFdt_pos
+    measure: normalized +dF/dtmax
+    formula: n = a/b
+    anchor: &id008
+      quote: these differences disappeared when values were normalized to TFmax
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'absolute dF/dtmax: traces only (Supplemental Fig. S2A)'
+      b:
+        not_stated: true
+        kind: per sample
+        note: TFmax in mN is not printed (TF is printed in mN/mm2)
+    aggregation: not stated
+  ST1_ndFdt_neg.normalized:
+    item: ST1_ndFdt_neg
+    measure: normalized -dF/dtmax
+    formula: n = a/b
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'absolute dF/dtmax: traces only (Supplemental Fig. S2A)'
+      b:
+        not_stated: true
+        kind: per sample
+        note: TFmax in mN is not printed (TF is printed in mN/mm2)
+    aggregation: not stated
+  ST3_ndFdt_pos_early.normalized:
+    item: ST3_ndFdt_pos_early
+    measure: normalized +dF/dtmax
+    formula: n = a/b
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'absolute dF/dtmax: traces only (Supplemental Fig. S2A)'
+      b:
+        not_stated: true
+        kind: per sample
+        note: TFmax in mN is not printed (TF is printed in mN/mm2)
+    aggregation: not stated
+  ST3_ndFdt_pos_late.normalized:
+    item: ST3_ndFdt_pos_late
+    measure: normalized +dF/dtmax
+    formula: n = a/b
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'absolute dF/dtmax: traces only (Supplemental Fig. S2A)'
+      b:
+        not_stated: true
+        kind: per sample
+        note: TFmax in mN is not printed (TF is printed in mN/mm2)
+    aggregation: not stated
+  ST3_ndFdt_neg_early.normalized:
+    item: ST3_ndFdt_neg_early
+    measure: normalized -dF/dtmax
+    formula: n = a/b
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'absolute dF/dtmax: traces only (Supplemental Fig. S2A)'
+      b:
+        not_stated: true
+        kind: per sample
+        note: TFmax in mN is not printed (TF is printed in mN/mm2)
+    aggregation: not stated
+  ST3_ndFdt_neg_late.normalized:
+    item: ST3_ndFdt_neg_late
+    measure: normalized -dF/dtmax
+    formula: n = a/b
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'absolute dF/dtmax: traces only (Supplemental Fig. S2A)'
+      b:
+        not_stated: true
+        kind: per sample
+        note: TFmax in mN is not printed (TF is printed in mN/mm2)
+    aggregation: not stated
+  ST1_TF.stress:
+    item: ST1_TF
+    measure: maximum twitch force
+    formula: not stated
+    anchor: not stated
+    no_formula: the paper prints TF in mN/mm2 but does not state how force was normalised (by which area, measured how)
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force in mN is not printed
+      A:
+        item: F4_CSA
+        kind: per sample
+        note: CSA is plotted (Fig. 4C) with no values printed
+    alternatives:
+    - label: force divided by cross-sectional area (stress_def)
+      formula: s = F/A
+  ST3_TF_early.stress:
+    item: ST3_TF_early
+    measure: maximum twitch force
+    formula: not stated
+    anchor: not stated
+    no_formula: the paper prints TF in mN/mm2 but does not state how force was normalised (by which area, measured how)
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force in mN is not printed
+      A:
+        item: F4_CSA
+        kind: per sample
+        note: CSA is plotted (Fig. 4C) with no values printed
+    alternatives:
+    - label: force divided by cross-sectional area (stress_def)
+      formula: s = F/A
+  ST3_TF_late.stress:
+    item: ST3_TF_late
+    measure: maximum twitch force
+    formula: not stated
+    anchor: not stated
+    no_formula: the paper prints TF in mN/mm2 but does not state how force was normalised (by which area, measured how)
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: force in mN is not printed
+      A:
+        item: F4_CSA
+        kind: per sample
+        note: CSA is plotted (Fig. 4C) with no values printed
+    alternatives:
+    - label: force divided by cross-sectional area (stress_def)
+      formula: s = F/A
+  ST1_CaTR.amplitude_early:
+    item: ST1_CaTR
+    group: early
+    measure: Ca2+-transient amplitude
+    formula: d = x - x0
+    anchor:
+      quote: Ca2 þTR amplitude as estimated by maximum DF340/F380
+      where: Fig. 6 legend
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak F340/F380 is not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the reference of the Δ is not stated; [Ca2+]min (ST1_CaMin) is one candidate
+    output: ST1_CaTR.values.CaTR_early_table
+    aggregation: not stated
+  ST1_CaTR.amplitude_late:
+    item: ST1_CaTR
+    group: late
+    measure: Ca2+-transient amplitude
+    formula: d = x - x0
+    anchor:
+      quote: Ca2 þTR amplitude as estimated by maximum DF340/F380
+      where: Fig. 6 legend
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: peak F340/F380 is not printed
+      x0:
+        not_stated: true
+        kind: per sample
+        note: the reference of the Δ is not stated; [Ca2+]min (ST1_CaMin) is one candidate
+    output: ST1_CaTR.values.CaTR_late_table
+    aggregation: not stated
+  ST2_MYL2.relative_expression:
+    item: ST2_MYL2
+    measure: MYL2 mRNA expression
+    formula: not stated
+    anchor: &id009
+      quote: using a modified DDCT method as previously described (28
+      where: Methods, qRT-PCR
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: &id010
+          citation: r28
+          anchor: *id009
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_MYL7.relative_expression:
+    item: ST2_MYL7
+    measure: MYL7 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_MYH6.relative_expression:
+    item: ST2_MYH6
+    measure: MYH6 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_MYH7.relative_expression:
+    item: ST2_MYH7
+    measure: MYH7 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_TNNI1.relative_expression:
+    item: ST2_TNNI1
+    measure: TNNI1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_TNNI3.relative_expression:
+    item: ST2_TNNI3
+    measure: TNNI3 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_ACTA1.relative_expression:
+    item: ST2_ACTA1
+    measure: ACTA1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_ACTC1.relative_expression:
+    item: ST2_ACTC1
+    measure: ACTC1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_MYBPC3.relative_expression:
+    item: ST2_MYBPC3
+    measure: MYBPC3 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_CACNA1.relative_expression:
+    item: ST2_CACNA1
+    measure: CACNA1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_RYR2.relative_expression:
+    item: ST2_RYR2
+    measure: RYR2 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_ATP2A2.relative_expression:
+    item: ST2_ATP2A2
+    measure: ATP2A2 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_PLN.relative_expression:
+    item: ST2_PLN
+    measure: PLN mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_SLC8A1.relative_expression:
+    item: ST2_SLC8A1
+    measure: SLC8A1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_CMYA5.relative_expression:
+    item: ST2_CMYA5
+    measure: CMYA5 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_KCND3.relative_expression:
+    item: ST2_KCND3
+    measure: KCND3 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_KCNJ2.relative_expression:
+    item: ST2_KCNJ2
+    measure: KCNJ2 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_FHL2.relative_expression:
+    item: ST2_FHL2
+    measure: FHL2 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_ZBTB16.relative_expression:
+    item: ST2_ZBTB16
+    measure: ZBTB16 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_XIRP2_s.relative_expression:
+    item: ST2_XIRP2_s
+    measure: XIRP2 (s) mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_XIRP2_l.relative_expression:
+    item: ST2_XIRP2_l
+    measure: XIRP2 (l) mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_NPPA.relative_expression:
+    item: ST2_NPPA
+    measure: NPPA mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_NPPB.relative_expression:
+    item: ST2_NPPB
+    measure: NPPB mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_GJA.relative_expression:
+    item: ST2_GJA
+    measure: GJA mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_ADRB1.relative_expression:
+    item: ST2_ADRB1
+    measure: ADRB1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_ADRB2.relative_expression:
+    item: ST2_ADRB2
+    measure: ADRB2 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_BIN1.relative_expression:
+    item: ST2_BIN1
+    measure: BIN1 mRNA expression
+    formula: not stated
+    anchor: *id009
+    no_formula: a 'modified' ΔΔCT method stated only by citation (28); the modification is not given
+    inputs:
+      method:
+        by_reference: *id010
+        kind: not stated
+    alternatives:
+    - label: plain 2^-ΔΔCt (ddct_relative_expression)
+      formula: r = 2**(-ddct)
+  ST2_MYL2.fold_change:
+    item: ST2_MYL2
+    measure: MYL2 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_MYL2.values.MYL2_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_MYL2.values.MYL2_early_table
+        part: mean
+        kind: per sample
+    output: ST2_MYL2.values.MYL2_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_MYL7.fold_change:
+    item: ST2_MYL7
+    measure: MYL7 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_MYL7.values.MYL7_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_MYL7.values.MYL7_early_table
+        part: mean
+        kind: per sample
+    output: ST2_MYL7.values.MYL7_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_MYH6.fold_change:
+    item: ST2_MYH6
+    measure: MYH6 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_MYH6.values.MYH6_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_MYH6.values.MYH6_early_table
+        part: mean
+        kind: per sample
+    output: ST2_MYH6.values.MYH6_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_MYH7.fold_change:
+    item: ST2_MYH7
+    measure: MYH7 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_MYH7.values.MYH7_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_MYH7.values.MYH7_early_table
+        part: mean
+        kind: per sample
+    output: ST2_MYH7.values.MYH7_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_TNNI1.fold_change:
+    item: ST2_TNNI1
+    measure: TNNI1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_TNNI1.values.TNNI1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_TNNI1.values.TNNI1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_TNNI1.values.TNNI1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_TNNI3.fold_change:
+    item: ST2_TNNI3
+    measure: TNNI3 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_TNNI3.values.TNNI3_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_TNNI3.values.TNNI3_early_table
+        part: mean
+        kind: per sample
+    output: ST2_TNNI3.values.TNNI3_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_ACTA1.fold_change:
+    item: ST2_ACTA1
+    measure: ACTA1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_ACTA1.values.ACTA1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_ACTA1.values.ACTA1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_ACTA1.values.ACTA1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_ACTC1.fold_change:
+    item: ST2_ACTC1
+    measure: ACTC1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_ACTC1.values.ACTC1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_ACTC1.values.ACTC1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_ACTC1.values.ACTC1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_MYBPC3.fold_change:
+    item: ST2_MYBPC3
+    measure: MYBPC3 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_MYBPC3.values.MYBPC3_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_MYBPC3.values.MYBPC3_early_table
+        part: mean
+        kind: per sample
+    output: ST2_MYBPC3.values.MYBPC3_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_CACNA1.fold_change:
+    item: ST2_CACNA1
+    measure: CACNA1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_CACNA1.values.CACNA1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_CACNA1.values.CACNA1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_CACNA1.values.CACNA1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_RYR2.fold_change:
+    item: ST2_RYR2
+    measure: RYR2 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_RYR2.values.RYR2_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_RYR2.values.RYR2_early_table
+        part: mean
+        kind: per sample
+    output: ST2_RYR2.values.RYR2_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_ATP2A2.fold_change:
+    item: ST2_ATP2A2
+    measure: ATP2A2 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_ATP2A2.values.ATP2A2_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_ATP2A2.values.ATP2A2_early_table
+        part: mean
+        kind: per sample
+    output: ST2_ATP2A2.values.ATP2A2_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_PLN.fold_change:
+    item: ST2_PLN
+    measure: PLN mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_PLN.values.PLN_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_PLN.values.PLN_early_table
+        part: mean
+        kind: per sample
+    output: ST2_PLN.values.PLN_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_SLC8A1.fold_change:
+    item: ST2_SLC8A1
+    measure: SLC8A1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_SLC8A1.values.SLC8A1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_SLC8A1.values.SLC8A1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_SLC8A1.values.SLC8A1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_CMYA5.fold_change:
+    item: ST2_CMYA5
+    measure: CMYA5 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_CMYA5.values.CMYA5_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_CMYA5.values.CMYA5_early_table
+        part: mean
+        kind: per sample
+    output: ST2_CMYA5.values.CMYA5_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_KCND3.fold_change:
+    item: ST2_KCND3
+    measure: KCND3 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_KCND3.values.KCND3_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_KCND3.values.KCND3_early_table
+        part: mean
+        kind: per sample
+    output: ST2_KCND3.values.KCND3_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_KCNJ2.fold_change:
+    item: ST2_KCNJ2
+    measure: KCNJ2 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_KCNJ2.values.KCNJ2_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_KCNJ2.values.KCNJ2_early_table
+        part: mean
+        kind: per sample
+    output: ST2_KCNJ2.values.KCNJ2_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_FHL2.fold_change:
+    item: ST2_FHL2
+    measure: FHL2 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_FHL2.values.FHL2_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_FHL2.values.FHL2_early_table
+        part: mean
+        kind: per sample
+    output: ST2_FHL2.values.FHL2_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_ZBTB16.fold_change:
+    item: ST2_ZBTB16
+    measure: ZBTB16 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_ZBTB16.values.ZBTB16_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_ZBTB16.values.ZBTB16_early_table
+        part: mean
+        kind: per sample
+    output: ST2_ZBTB16.values.ZBTB16_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_XIRP2_s.fold_change:
+    item: ST2_XIRP2_s
+    measure: XIRP2 (s) mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_XIRP2_s.values.XIRP2_s_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_XIRP2_s.values.XIRP2_s_early_table
+        part: mean
+        kind: per sample
+    output: ST2_XIRP2_s.values.XIRP2_s_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_XIRP2_l.fold_change:
+    item: ST2_XIRP2_l
+    measure: XIRP2 (l) mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_XIRP2_l.values.XIRP2_l_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_XIRP2_l.values.XIRP2_l_early_table
+        part: mean
+        kind: per sample
+    output: ST2_XIRP2_l.values.XIRP2_l_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_NPPA.fold_change:
+    item: ST2_NPPA
+    measure: NPPA mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_NPPA.values.NPPA_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_NPPA.values.NPPA_early_table
+        part: mean
+        kind: per sample
+    output: ST2_NPPA.values.NPPA_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_NPPB.fold_change:
+    item: ST2_NPPB
+    measure: NPPB mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_NPPB.values.NPPB_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_NPPB.values.NPPB_early_table
+        part: mean
+        kind: per sample
+    output: ST2_NPPB.values.NPPB_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_GJA.fold_change:
+    item: ST2_GJA
+    measure: GJA mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_GJA.values.GJA_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_GJA.values.GJA_early_table
+        part: mean
+        kind: per sample
+    output: ST2_GJA.values.GJA_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_ADRB1.fold_change:
+    item: ST2_ADRB1
+    measure: ADRB1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_ADRB1.values.ADRB1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_ADRB1.values.ADRB1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_ADRB1.values.ADRB1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_ADRB2.fold_change:
+    item: ST2_ADRB2
+    measure: ADRB2 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_ADRB2.values.ADRB2_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_ADRB2.values.ADRB2_early_table
+        part: mean
+        kind: per sample
+    output: ST2_ADRB2.values.ADRB2_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  ST2_BIN1.fold_change:
+    item: ST2_BIN1
+    measure: BIN1 mRNA expression
+    formula: fc = a/b
+    anchor:
+      quote: Fold Change
+      where: Supplemental Table 2 header
+      file: SupplementalData_Table2.docx
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: a
+        b: b
+    inputs:
+      a:
+        value: ST2_BIN1.values.BIN1_late_table
+        part: mean
+        kind: per sample
+      b:
+        value: ST2_BIN1.values.BIN1_early_table
+        part: mean
+        kind: per sample
+    output: ST2_BIN1.values.BIN1_fc_table
+    aggregation: not stated
+    alternatives:
+    - label: relative change (late - early)/early (relative_change)
+      formula: fc = (a - b)/b
+    note: '''Fold Change'' names late/early; written as stated, the column''s direction (late over early) taken from the record''s
+      between: [late, early]'
+  TXT1_ADRB1.share:
+    item: TXT1_ADRB1
+    group: early
+    measure: ADRB1 as % of ADRB1 + ADRB2
+    formula: f = a/(a + b)
+    anchor:
+      quote: as % of ADRB1 þ ADRB2
+      where: Results
+    library:
+      formula: part_of_whole
+      vars:
+        f: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: ADRB1 transcript counts are not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: ADRB2 transcript counts are not printed
+    output: TXT1_ADRB1.values.ADRB1_text
+    output_unit: '%'
+    aggregation: not stated
+  TXT1_MYH7.share:
+    item: TXT1_MYH7
+    group: early
+    measure: MYH7 as % of MYH7 + MYH6
+    formula: f = a/(a + b)
+    anchor:
+      quote: as % of MYH7 þ MYH6
+      where: Results
+    library:
+      formula: part_of_whole
+      vars:
+        f: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: MYH7 transcript counts are not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: MYH6 transcript counts are not printed
+    output: TXT1_MYH7.values.MYH7_text
+    output_unit: '%'
+    aggregation: not stated
+  TXT1_ACTC1.share:
+    item: TXT1_ACTC1
+    group: early
+    measure: ACTC1 as % of ACTC1 + ACTA1
+    formula: f = a/(a + b)
+    anchor:
+      quote: as % of ACTC1 þ ACTA1
+      where: Results
+    library:
+      formula: part_of_whole
+      vars:
+        f: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: ACTC1 transcript counts are not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: ACTA1 transcript counts are not printed
+    output: TXT1_ACTC1.values.ACTC1_text
+    output_unit: '%'
+    aggregation: not stated
+  TXT1_TNNI3.share:
+    item: TXT1_TNNI3
+    group: early
+    measure: TNNI3 as % of TNNI3 + TNNI1
+    formula: f = a/(a + b)
+    anchor:
+      quote: as % of TNNI3 þ TNNI1
+      where: Results
+    library:
+      formula: part_of_whole
+      vars:
+        f: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TNNI3 transcript counts are not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: TNNI1 transcript counts are not printed
+    output: TXT1_TNNI3.values.TNNI3_text
+    output_unit: '%'
+    aggregation: not stated
+  F2m_APD_ratio.ratio:
+    item: F2m_APD_ratio
+    group: ect
+    measure: APD40-30/80-70 ratio
+    formula: r = (x1 - x2)/(y1 - y2)
+    anchor:
+      quote: ADP40-30/80-70 ratio
+      where: Results
+    library:
+      formula: ratio_of_differences
+      vars:
+        r: r
+        x1: x1
+        x2: x2
+        y1: y1
+        y2: y2
+    inputs:
+      x1:
+        not_stated: true
+        kind: per sample
+        note: APD40 not printed
+      x2:
+        not_stated: true
+        kind: per sample
+        note: APD30 not printed
+      y1:
+        not_stated: true
+        kind: per sample
+        note: APD80 not printed
+      y2:
+        not_stated: true
+        kind: per sample
+        note: APD70 not printed
+    output: F2m_APD_ratio.values.apd_ratio_text
+    note: read as (APD40 - APD30)/(APD80 - APD70), the order the name prints; printed 'ADP' for APD
+  F5ij_ADRB_early_vs_2d.ratio:
+    item: F5ij_ADRB_early_vs_2d
+    measure: ADRB1/ADRB2 mRNA ratio
+    formula: r = a/b
+    anchor:
+      quote: The ADRB1:ADRB2 expression ratio
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'ADRB1 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'ADRB2 expression per sample: box plots only'
+    aggregation: not stated
+  F5ij_ADRB_late_vs_2d.ratio:
+    item: F5ij_ADRB_late_vs_2d
+    measure: ADRB1/ADRB2 mRNA ratio
+    formula: r = a/b
+    anchor:
+      quote: The ADRB1:ADRB2 expression ratio
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'ADRB1 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'ADRB2 expression per sample: box plots only'
+    aggregation: not stated
+  F5ij_ADRB_late_vs_early.ratio:
+    item: F5ij_ADRB_late_vs_early
+    measure: ADRB1/ADRB2 mRNA ratio
+    formula: r = a/b
+    anchor:
+      quote: The ADRB1:ADRB2 expression ratio
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'ADRB1 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'ADRB2 expression per sample: box plots only'
+    aggregation: not stated
+  F5ij_TNNI_late_vs_2d.ratio:
+    item: F5ij_TNNI_late_vs_2d
+    measure: TNNI3/TNNI1 mRNA ratio
+    formula: r = a/b
+    anchor:
+      quote: TNNI3/TNNI1 ratios (J)
+      where: Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'TNNI3 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'TNNI1 expression per sample: box plots only'
+    aggregation: not stated
+  S6_MYL2_MYL7_early_vs_d30_2d.ratio:
+    item: S6_MYL2_MYL7_early_vs_d30_2d
+    measure: MYL2/MYL7 mRNA expression
+    formula: r = a/b
+    anchor:
+      quote: the MYL2/MYL7 Ratio (I)
+      where: Supplemental Fig. S6 legend
+      file: SupplementalData_Fig6.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'MYL2 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'MYL7 expression per sample: box plots only'
+    aggregation: not stated
+  S6_MYL2_MYL7_late_vs_d30_2d.ratio:
+    item: S6_MYL2_MYL7_late_vs_d30_2d
+    measure: MYL2/MYL7 mRNA expression
+    formula: r = a/b
+    anchor:
+      quote: the MYL2/MYL7 Ratio (I)
+      where: Supplemental Fig. S6 legend
+      file: SupplementalData_Fig6.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'MYL2 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'MYL7 expression per sample: box plots only'
+    aggregation: not stated
+  S6_TNNI3_TNNI1_late_vs_d30_2d.ratio:
+    item: S6_TNNI3_TNNI1_late_vs_d30_2d
+    measure: TNNI3/TNNI1 mRNA expression
+    formula: r = a/b
+    anchor:
+      quote: the TNNI3/TNNI1 ratio (L)
+      where: Supplemental Fig. S6 legend
+      file: SupplementalData_Fig6.docx
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: 'TNNI3 expression per sample: box plots only'
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'TNNI1 expression per sample: box plots only'
+    aggregation: not stated
+assumptions: {}
+bounds:
+- item: TXT1_ADRB1
+  value: TXT1_ADRB1.values.ADRB1_text
+  formula: fraction_bounds
+- item: TXT1_ADRB1
+  value: TXT1_ADRB1.values.ADRB1_discussion
+  formula: fraction_bounds
+- item: TXT1_MYH7
+  value: TXT1_MYH7.values.MYH7_text
+  formula: fraction_bounds
+- item: TXT1_ACTC1
+  value: TXT1_ACTC1.values.ACTC1_text
+  formula: fraction_bounds
+- item: TXT1_TNNI3
+  value: TXT1_TNNI3.values.TNNI3_text
+  formula: fraction_bounds
+- item: TXT1_TNNI3
+  value: TXT1_TNNI3.values.TNNI3_text2
+  formula: fraction_bounds
+proposals: []

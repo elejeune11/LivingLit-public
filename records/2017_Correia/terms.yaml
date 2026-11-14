@@ -1,0 +1,568 @@
+record: 2017_Correia
+vocabulary_version: 52
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context: cell line, coatings, factors
+- add_synonym: {id: CVCL_K054, text: DF19-9-11T.H, anchor: hiPSC line DF19-9-11T.H (WiCell)}
+- add_term:
+    field: hipsc_coating
+    id: hipsc_coating:synthemax_ii_sc
+    label: Synthemax II-SC
+    definition: A synthetic vitronectin-derived peptide substrate (Corning Synthemax II-SC) coated on plates for undifferentiated pluripotent stem cells.
+    scope: A synthetic peptide surface; not Matrigel or Geltrex (basement-membrane extracts) and not recombinant vitronectin protein.
+    synonyms:
+    - {text: Synthemax II-SC, anchor: hPSCs were routinely expanded in Synthemax II-SC (corning) coated plates}
+- adopt:
+    field: differentiation_factors
+    id: CHEBI:22652
+    label: ascorbic acid
+    lookup: searched 'ascorbic acid' in ChEBI 257; exact match; already adopted for supplements, added here because the paper gives it with CHIR99021 and Activin A at mesoderm induction
+# ---------------------------------------------------------------- context: preparation, medium, bath
+- add_synonym: {id: preparation:collected_medium, text: culture supernatants, anchor: concentrations from cell culture supernatants were measured using YSI 7100MBS}
+- add_synonym: {id: preparation:rna_extract, text: RNA samples, anchor: 'Human left and right ventricular RNA samples, from a commercial supplier'}
+- add_term:
+    field: preparation
+    id: preparation:metabolite_extract
+    label: metabolite extract
+    definition: Intracellular metabolites quenched and extracted from cells for mass spectrometry.
+    scope: Small-molecule metabolites extracted from the cells; not the collected culture medium, not purified RNA (RNA extract) and not a protein lysate.
+    synonyms:
+    - {text: metabolite extraction, anchor: 'Metabolic quenching, metabolite extraction and derivatization'}
+- add_synonym: {id: measurement_medium:culture_medium, text: culture media, anchor: hiPSC-CMs were imaged in the different culture media}
+# ---------------------------------------------------------------- context: treatments (energy substrates)
+- adopt:
+    field: treatment
+    id: CHEBI:18050
+    label: L-glutamine
+    lookup: searched 'L-glutamine' in ChEBI 257; exact match; already adopted for supplements, added for treatment because the paper's media vary it between groups
+    synonyms:
+    - {text: Gln, anchor: 1 mM glutamine (Gln)}
+- adopt:
+    field: treatment
+    id: CHEBI:28260
+    label: galactose
+    lookup: searched 'galactose' in ChEBI 257; exact match (the paper does not say D-); already adopted for supplements, added for treatment because only GFAM contains it
+- adopt:
+    field: treatment
+    id: CHEBI:16196
+    label: oleic acid
+    lookup: searched 'oleic acid' in ChEBI 257; exact match
+- add_synonym: {id: CHEBI:7896, text: palmitic acid, anchor: 'OA: Oleic Acid and PA: Palmitic acid'}
+- add_synonym: {id: CHEBI:24996, text: sodium L-Lactate, anchor: 4 mM sodium L-Lactate (Sigma-Aldrich)}
+# ---------------------------------------------------------------- context: maturation strategies (Table 1)
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:pluricyte_medium
+    label: Pluricyte Medium
+    parent: maturation_strategy:maturation_medium
+    definition: The commercial Pluricyte cardiomyocyte medium, used as a maturation medium.
+    scope: The named commercial product, whose formulation the source does not give; not a medium defined by its energy substrates (metabolic maturation medium).
+    synonyms:
+    - {text: Pluricyte Medium, anchor: Pluricyte Medium (with T3}
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:gene_overexpression
+    label: gene overexpression
+    definition: Overexpression of a gene or microRNA in the cells to promote their maturation.
+    scope: Maturation by an introduced gene or microRNA (named in transgene); not electrical stimulation, mechanical loading, a maturation medium, dynamic, static or prolonged culture.
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:prolonged_culture
+    label: prolonged culture
+    definition: Keeping the cells in culture for a long time so that they mature with time alone.
+    scope: Maturation by time in culture alone (the duration is day_of_measurement); not electrical stimulation, mechanical loading, a maturation medium, gene overexpression, dynamic or static culture.
+    synonyms:
+    - {text: time in culture, anchor: 'by increasing time in culture4, applying mechanical and electrical stimulation'}
+# ---------------------------------------------------------------- measures: qualifiers on existing terms
+- add_qualifier: {id: measure:contractile_velocity, name: statistic, dimension: text}
+- add_qualifier: {id: measure:relaxation_velocity, name: statistic, dimension: text}
+- add_qualifier: {id: measure:expression_profile_correlation, name: reference, dimension: text}
+- add_qualifier: {id: measure:differentially_expressed_gene_count, name: regulation, dimension: text}
+- add_qualifier: {id: measure:differentially_expressed_gene_count, name: reference, dimension: text}
+# ---------------------------------------------------------------- measures: synonyms on existing terms
+- add_synonym: {id: measure:oxygen_consumption_rate, text: basal oxygen consumption rate, anchor: (F) Basal oxygen consumption rate (OCR)}
+- add_synonym: {id: measure:oxygen_consumption_rate, text: OCR, anchor: 'hiPSC-CMs displayed a significantly higher oxygen consumption rate (OCR, Fig. 1F)'}
+- add_synonym: {id: measure:extracellular_acidification_rate, text: ECAR, anchor: 'lower extracellular acidification rate (ECAR, Fig. 1G)'}
+- add_synonym: {id: measure:cell_aspect_ratio, text: length-to-width ratio, anchor: 'length-to-width ratio (I). n > 70 cells per condition'}
+- add_synonym: {id: measure:contractile_shortening, text: percentage of shortening, anchor: (F) Percentage of shortening}
+- add_synonym: {id: measure:twitch_force, text: maximum contractile force, anchor: (H) Maximum contractile force generated by}
+# ---------------------------------------------------------------- measures: new terms
+- add_term:
+    field: measure
+    id: measure:lactate_glucose_yield
+    label: lactate yield on glucose
+    dimension: dimensionless
+    definition: Lactate produced per glucose consumed by the cells over a stated interval, from medium concentrations.
+    scope: A ratio of lactate production to glucose consumption; not glucose consumption or lactate production alone, and not an OCR/ECAR ratio.
+- add_term:
+    field: measure
+    id: measure:isotopologue_fraction
+    label: mass isotopologue fraction
+    dimension: dimensionless
+    definition: Share of a metabolite pool (qualifier metabolite) present as one mass isotopologue (qualifier isotopologue) after labelling with a stated 13C tracer (qualifier tracer).
+    scope: One isotopologue's share of a labelled pool; not a substrate's computed contribution to a pool, not metabolite abundance and not labelled substrate oxidation.
+    qualifiers:
+      tracer: {dimension: text}
+      metabolite: {dimension: text}
+      isotopologue: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:tracer_contribution
+    label: substrate contribution to a labelled pool
+    dimension: dimensionless
+    definition: Fraction of a metabolite pool (qualifier pool) derived from a stated 13C-labelled substrate (qualifier tracer), computed from isotopologue distributions.
+    scope: A substrate's share of a pool's carbon; not the fraction of a single isotopologue, not metabolite abundance and not labelled substrate oxidation.
+    qualifiers:
+      tracer: {dimension: text}
+      pool: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:ocr_ecar_ratio
+    label: OCR/ECAR ratio
+    dimension: dimensionless
+    definition: Oxygen consumption rate divided by extracellular acidification rate, an index of oxidative over glycolytic energy production.
+    scope: The ratio of the two rates; not the oxygen consumption rate or the acidification rate alone, and not lactate yield on glucose.
+- add_term:
+    field: measure
+    id: measure:cell_concentration
+    label: cell concentration
+    dimension: number_per_volume
+    definition: Number of cells per volume of suspension, counted after harvesting a culture.
+    scope: Cells per volume of a harvested culture; not cells in a whole construct (cell number), cells per field of view, or the fraction alive (cell viability).
+- add_term:
+    field: measure
+    id: measure:lipid_droplet_content
+    label: lipid droplet content
+    dimension: dimensionless
+    definition: Amount of intracellular neutral lipid droplets, measured by the fluorescence of a lipid-droplet dye.
+    scope: Stored neutral lipid; not fatty acid uptake, fatty acid oxidation or mitochondrial mass.
+- add_term:
+    field: measure
+    id: measure:gene_set_distribution_shift
+    label: shift of a gene set's fold-change distribution
+    parent: measure:gene_set_expression
+    dimension: dimensionless
+    definition: Whether the distribution of expression fold changes of a stated gene set (qualifier gene_set) is shifted from that of all genes, tested by a distribution test.
+    scope: A test of a set's fold-change distribution against all genes; not the heat map or profile of the set's genes read together (the parent term).
+- add_term:
+    field: measure
+    id: measure:pca_centroid_distance
+    label: distance between PCA centroids
+    dimension: dimensionless
+    definition: Euclidean distance between the centroids of two sample groups in a principal component analysis over stated components (qualifier components) and a stated gene set (qualifier gene_set).
+    scope: Distance between groups in principal component space; not one sample's principal component score, the variance a component explains, or a correlation of expression profiles.
+    qualifiers:
+      components: {dimension: text}
+      gene_set: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:binucleated_cell_fraction
+    label: binucleated cell fraction
+    dimension: dimensionless
+    definition: Fraction of cells with two nuclei.
+    scope: Share of cells with two nuclei; not the fraction of cells positive for a marker and not the distance between nuclei.
+    synonyms:
+    - {text: percentage of binucleated cells, anchor: higher (1.6-fold) percentage of binucleated cells}
+- add_term:
+    field: measure
+    id: measure:mitochondrial_membrane_potential
+    label: mitochondrial membrane potential
+    dimension: dimensionless
+    definition: Inner mitochondrial membrane potential, read as the fluorescence of a potential-dependent mitochondrial dye.
+    scope: Potential-dependent dye signal; not mitochondrial mass, mitochondrial DNA content or mitochondrial area fraction.
+    synonyms:
+    - {text: mitochondrial membrane potential, anchor: Measurement of mitochondrial membrane potential}
+- add_term:
+    field: measure
+    id: measure:cell_circularity
+    label: cell circularity index
+    dimension: dimensionless
+    definition: Circularity of a cell's outline (4π·area/perimeter², 1 for a circle).
+    scope: Roundness of the outline; not cell area, the length-to-width aspect ratio or the 0-to-1 elongation ratio.
+- add_term:
+    field: measure
+    id: measure:calcium_transient_decay_rate
+    label: calcium transient decay velocity
+    dimension: rate
+    definition: Rate at which the calcium-dye signal falls during the decay of the calcium transient.
+    scope: Slope of the decay in signal per time; not the decay time or time constant, and not the rising slope.
+- add_term:
+    field: measure
+    id: measure:metabolic_activity
+    label: metabolic activity
+    dimension: dimensionless
+    definition: Cellular reducing activity measured by the reduction of a resazurin-based reagent.
+    scope: Reagent reduction by living cells; not the fraction of cells alive (cell viability), oxygen consumption or cell concentration.
+- set_scope:
+    id: measure:calcium_transient_rise_rate
+    scope: Slope of the rise in signal per time; not the rise time, the amplitude, or the slope of the decay (calcium transient decay velocity).
+# ---------------------------------------------------------------- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:lactate_glucose_yield
+    value: {must_match: [platform@1, cm_medium, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:isotopologue_fraction
+    value: {must_match: [platform@1, measure.tracer, measure.metabolite, measure.isotopologue, time_point, cm_medium, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.tracer, measure.metabolite, measure.isotopologue], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tracer_contribution
+    value: {must_match: [platform@1, measure.tracer, measure.pool, cm_medium, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.tracer, measure.pool], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:ocr_ecar_ratio
+    value: {must_match: [platform@1, preparation, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_concentration
+    value: {must_match: [platform@1, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lipid_droplet_content
+    value: {must_match: [platform@1, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:gene_set_distribution_shift
+    value: {must_match: [platform@1, preparation, measure.gene_set, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.gene_set], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:pca_centroid_distance
+    value: {must_match: [platform@1, preparation, measure.components, measure.gene_set, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.components, measure.gene_set], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:binucleated_cell_fraction
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitochondrial_membrane_potential
+    value: {must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_circularity
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_decay_rate
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:metabolic_activity
+    value: {must_match: [platform@1, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: cell_line
+  stated: HES3 NKX2-5(eGFP/w)
+  terms: [CVCL_7158]
+  no_ontology_term: the HES-3 NKX2-5(eGFP/w) single-reporter subline (Elliott et al.); Cellosaurus 57.0 has only the double reporter HES-3 MESP1mCherry/w NKX2-5eGFP/w (CVCL_A8JT)
+  split:
+  - {words: NKX2-5(eGFP/w), field: transgene}
+- field: platform
+  stated: ventricular tissue
+  terms: [platform:native_tissue]
+  qualifiers: {region: ventricle}
+  note: commercial human adult ventricular RNA (HAV); adult is in donor_age, not inferred into the platform term
+- field: platform
+  stated: single cells
+  terms: [platform:culture_2d]
+  qualifiers: {cell_contact: single cells and clusters of fewer than 10 cells}
+  note: 'single hiPSC-CMs and CM clusters (<10 cells) on 5 kPa PDMS, unpatterned; not a monolayer'
+- field: dissociation_reagent
+  stated: TrypLE Select
+  terms: [dissociation_reagent:tryple]
+  note: the paper prints "TrypLE™Select", so no synonym can be anchored in its text
+- field: cm_medium
+  stated: RPMI without Glc
+  terms: [cm_medium:rpmi_1640]
+  qualifiers: {glucose: without}
+- field: treatment
+  stated: Gln + galactose + OA + PA
+  terms: [CHEBI:18050, CHEBI:28260, CHEBI:16196, CHEBI:7896]
+  note: OA = oleic acid and PA = palmitic acid (paper's abbreviations); no synonyms for the two-letter abbreviations
+- field: treatment
+  stated: Gln + OA + PA
+  terms: [CHEBI:18050, CHEBI:16196, CHEBI:7896]
+- field: maturation_strategy
+  stated: T3 hormone treatment
+  terms: [maturation_strategy:maturation_medium]
+  qualifiers: {components: T3 hormone}
+  split:
+  - {words: T3, field: treatment}
+- field: maturation_strategy
+  stated: Electrical stimulation 3D culture
+  terms: [maturation_strategy:electrical_stimulation]
+  split:
+  - {words: 3D culture, field: platform}
+- field: maturation_strategy
+  stated: Mechanical and electrical stimulation
+  terms: [maturation_strategy:mechanical_loading, maturation_strategy:electrical_stimulation]
+- field: maturation_strategy
+  stated: Overexpression of let-7
+  terms: [maturation_strategy:gene_overexpression]
+  split:
+  - {words: let-7, field: transgene}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: ratio of Lac production to Glc consumption (YLac/Glc)
+  terms: [measure:lactate_glucose_yield]
+- field: measure
+  stated: percentage of labelled M2 isotopomer from [1,2-13C]Glc in Lac
+  terms: [measure:isotopologue_fraction]
+  qualifiers: {tracer: '[1,2-13C]Glc', metabolite: Lac, isotopologue: M2}
+- field: measure
+  stated: percentage of labelled M2 isotopomer from [1,2-13C]Glc in Cit
+  terms: [measure:isotopologue_fraction]
+  qualifiers: {tracer: '[1,2-13C]Glc', metabolite: Cit, isotopologue: M2}
+- field: measure
+  stated: percentage of labelled M2 isotopomer from [1,2-13C]Glc in Mal
+  terms: [measure:isotopologue_fraction]
+  qualifiers: {tracer: '[1,2-13C]Glc', metabolite: Mal, isotopologue: M2}
+- field: measure
+  stated: percentage of labelled M2 isotopomer from [1,2-13C]Glc in Fum
+  terms: [measure:isotopologue_fraction]
+  qualifiers: {tracer: '[1,2-13C]Glc', metabolite: Fum, isotopologue: M2}
+- field: measure
+  stated: percentage of labelled M4 isotopomer from [U-13C]Gln in TCA intermediates
+  terms: [measure:isotopologue_fraction]
+  qualifiers: {tracer: '[U-13C]Gln', metabolite: TCA intermediates, isotopologue: M4}
+- field: measure
+  stated: contribution of [U-13C]oleic acid to labelled TCA cycle pools
+  terms: [measure:tracer_contribution]
+  qualifiers: {tracer: oleic acid, pool: TCA cycle pools}
+  note: Results print [U-13C]OA, Methods [18-13C]Oleic Acid; the tracer qualifier names the substrate only
+- field: measure
+  stated: contribution of [U-13C]palmitic acid to labelled TCA cycle pools
+  terms: [measure:tracer_contribution]
+  qualifiers: {tracer: palmitic acid, pool: TCA cycle pools}
+  note: Results print [U-13C]PA, Methods [16-13C]Palmitic Acid; the tracer qualifier names the substrate only
+- field: measure
+  stated: contribution of [U-13C]glutamine to labelled TCA cycle pools
+  terms: [measure:tracer_contribution]
+  qualifiers: {tracer: glutamine, pool: TCA cycle pools}
+- field: measure
+  stated: contribution of [U-13C]galactose to labelled TCA cycle pools
+  terms: [measure:tracer_contribution]
+  qualifiers: {tracer: galactose, pool: TCA cycle pools}
+- field: measure
+  stated: contribution of FA to labelled TCA cycle pools
+  terms: [measure:tracer_contribution]
+  qualifiers: {tracer: fatty acids (oleic and palmitic acid), pool: TCA cycle pools}
+- field: measure
+  stated: cell concentration relative to day 0
+  terms: [measure:cell_concentration]
+  qualifiers: {expressed_as: '% of baseline', normalised_to: day 0}
+- field: measure
+  stated: apoptosis-related gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: apoptosis-related genes}
+- field: measure
+  stated: oxidative stress resistance and heat shock gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: oxidative stress resistance and heat shock genes}
+  note: one heat-map category (legend, "oxidative stress responses"), not two measures
+- field: measure
+  stated: unfolded protein response gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: unfolded protein response genes}
+- field: measure
+  stated: glycolytic gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: glycolytic genes}
+- field: measure
+  stated: FA metabolism gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: FA metabolism genes}
+- field: measure
+  stated: OXPHOS gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: OXPHOS genes}
+- field: measure
+  stated: GPI and TALDO1 expression
+  flag: {kind: several measures, note: 'two genes (GPI and TALDO1) in one value; one item per gene is needed for the gene qualifier'}
+- field: measure
+  stated: log2 fold change distribution of glycolysis genes against all genes
+  terms: [measure:gene_set_distribution_shift]
+  qualifiers: {gene_set: glycolysis genes}
+- field: measure
+  stated: log2 fold change distribution of TCA cycle genes against all genes
+  terms: [measure:gene_set_distribution_shift]
+  qualifiers: {gene_set: TCA cycle genes}
+- field: measure
+  stated: log2 fold change distribution of OXPHOS genes against all genes
+  terms: [measure:gene_set_distribution_shift]
+  qualifiers: {gene_set: OXPHOS genes}
+- field: measure
+  stated: log2 fold change distribution of FA metabolism genes against all genes
+  terms: [measure:gene_set_distribution_shift]
+  qualifiers: {gene_set: FA metabolism genes}
+- field: measure
+  stated: Pearson correlation coefficient (metabolic process genes)
+  terms: [measure:expression_profile_correlation]
+  qualifiers: {profile: metabolic process genes}
+- field: measure
+  stated: Pearson correlation coefficient (metabolic process genes) with HAV
+  terms: [measure:expression_profile_correlation]
+  qualifiers: {profile: metabolic process genes, reference: HAV}
+- field: measure
+  stated: Pearson correlation coefficient (all enriched genes)
+  terms: [measure:expression_profile_correlation]
+  qualifiers: {profile: all enriched genes}
+- field: measure
+  stated: Pearson correlation coefficient (all enriched genes) with HAV
+  terms: [measure:expression_profile_correlation]
+  qualifiers: {profile: all enriched genes, reference: HAV}
+- field: measure
+  stated: Euclidean distance between PCA centroids (PC1 and PC2; metabolic process genes)
+  terms: [measure:pca_centroid_distance]
+  qualifiers: {components: PC1 and PC2, gene_set: metabolic process genes}
+- field: measure
+  stated: Euclidean distance between PCA centroids (PC1 and PC2; all enriched genes)
+  terms: [measure:pca_centroid_distance]
+  qualifiers: {components: PC1 and PC2, gene_set: all enriched genes}
+- field: measure
+  stated: number of down-regulated genes
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {regulation: down}
+- field: measure
+  stated: number of up-regulated genes
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {regulation: up}
+- field: measure
+  stated: overlap of differentially expressed genes with HAV
+  terms: [measure:shared_de_gene_count]
+  qualifiers: {reference: HAV}
+- field: measure
+  stated: cardiac gene expression (contractile, calcium cycling, electrophysiology)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: 'cardiac genes (contractile, calcium cycling, electrophysiology)'}
+- field: measure
+  stated: cardiac gene expression (contractile, calcium signaling, electrophysiology)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: 'cardiac genes (contractile, calcium cycling, electrophysiology)'}
+  note: same Fig. 4D heat-map category as the "calcium cycling" wording; given the same gene_set so the two wordings match
+- field: measure
+  stated: fetal gene expression (NPPB, ACTA1)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: fetal genes}
+- field: measure
+  stated: KCNJ2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: KCNJ2}
+- field: measure
+  stated: NPPB expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NPPB}
+- field: measure
+  stated: TNNI3 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3}
+- field: measure
+  stated: PPARGC1A expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PPARGC1A}
+- field: measure
+  stated: PPAR signaling activation
+  terms: [measure:pathway_regulation]
+  qualifiers: {pathway: PPAR signaling}
+- field: measure
+  stated: PI3K/AKT/insulin signaling activation
+  terms: [measure:pathway_regulation]
+  qualifiers: {pathway: PI3K/AKT/insulin signaling}
+- field: measure
+  stated: cardiac hypertrophy signaling activation
+  terms: [measure:pathway_regulation]
+  qualifiers: {pathway: cardiac hypertrophy signaling}
+- field: measure
+  stated: myofibril density and alignment (TEM)
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: myofibril density and alignment}
+  note: one qualitative TEM observation of myofibrils
+- field: measure
+  stated: mitochondria with prominent cristae (TEM)
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: mitochondrial cristae}
+- field: measure
+  stated: mitochondrial membrane potential (Mitoview fluorescence)
+  terms: [measure:mitochondrial_membrane_potential]
+  qualifiers: {expressed_as: fold, normalised_to: GLCM}
+  note: legend "Fold increase in mitochondria potential ... normalized for the values obtained in GLCM"; MitoView is the method
+- field: measure
+  stated: sarcomere alignment (inverse of sarcomere angle dispersion)
+  terms: [measure:inverse_angle_dispersion]
+  qualifiers: {structure: sarcomere}
+- field: measure
+  stated: calcium transient amplitude (F/F0)
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: fold}
+- field: measure
+  stated: calcium transient time to peak
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: time to peak}
+- field: measure
+  stated: calcium transient time to 50% decay
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 50% decay}
+- field: measure
+  stated: calcium transient upstroke velocity
+  terms: [measure:calcium_transient_rise_rate]
+  note: the legend says "Average upstroke and decay velocities"
+- field: measure
+  stated: maximum shortening velocity
+  terms: [measure:contractile_velocity]
+  qualifiers: {statistic: maximum}
+- field: measure
+  stated: maximum relengthening velocity
+  terms: [measure:relaxation_velocity]
+  qualifiers: {statistic: maximum}
+- field: measure
+  stated: average shortening velocity
+  terms: [measure:contractile_velocity]
+  qualifiers: {statistic: average}
+- field: measure
+  stated: average relengthening velocity
+  terms: [measure:relaxation_velocity]
+  qualifiers: {statistic: average}
+- field: measure
+  stated: AP duration at 50% repolarization (APD50)
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD50}
+- field: measure
+  stated: AP duration at 90% repolarization (APD90)
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD90}
+- field: measure
+  stated: APD50/APD90
+  terms: [measure:action_potential_duration_ratio]
+  qualifiers: {level: APD50/APD90}
+- field: measure
+  stated: aspect ratio
+  terms: [measure:cell_aspect_ratio]
+  note: Table 1 cell aspect ratio; no synonym, "aspect ratio" alone could be a tissue's
+- field: measure
+  stated: surface area
+  terms: [measure:cell_area]
+  note: Table 1 cell surface area; no synonym, "surface area" alone could be a tissue's
+- field: measure
+  stated: basal oxygen consumption rate (fold change)
+  terms: [measure:oxygen_consumption_rate]
+  qualifiers: {expressed_as: fold}
+  note: Fig. S7, each line normalised to its own GLCM; normalised_to left to the values
+- field: measure
+  stated: extracellular acidification rate (fold change)
+  terms: [measure:extracellular_acidification_rate]
+  qualifiers: {expressed_as: fold}
+  note: Fig. S7, each line normalised to its own GLCM; normalised_to left to the values
+- field: measure
+  stated: metabolic activity relative to d0 (PrestoBlue)
+  terms: [measure:metabolic_activity]
+  qualifiers: {expressed_as: normalised, normalised_to: d0}
+  note: the legend does not say % or fold, so expressed_as is "normalised"; PrestoBlue is the method
+- field: measure
+  stated: Ki67 expression
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67}
+  note: immunostaining for Ki67+ cells (Fig. S6B), not mRNA
+- field: measure
+  stated: enrichment of cell-cycle related pathways (IPA adjusted P)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: cell-cycle related pathways}

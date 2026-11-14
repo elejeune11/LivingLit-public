@@ -1,0 +1,50 @@
+# Written by code from changes.yaml (version 28); never edited.
+formula: product_of_three_ratios
+kind: derived
+statement: A fold over three successive stages is the product of the per-stage folds, N3/N0 = (N1/N0)*(N2/N1)*(N3/N2); e.g.
+  overall expansion over three passages.
+equations:
+- R = r1*r2*r3
+variables:
+  R: dimensionless
+  r1: dimensionless
+  r2: dimensionless
+  r3: dimensionless
+  N0: D
+  N1: D
+  N2: D
+  N3: D
+uses:
+- formula: ratio_def
+  subs:
+    r: r1
+    a: N1
+    b: N0
+- formula: ratio_def
+  subs:
+    r: r2
+    a: N2
+    b: N1
+- formula: ratio_def
+  subs:
+    r: r3
+    a: N3
+    b: N2
+- formula: ratio_def
+  subs:
+    r: R
+    a: N3
+    b: N0
+does_not_apply: a sum of per-stage folds, or folds each taken over the same start (cumulative folds)
+tests:
+- given:
+    r1: 8.0
+    r2: 8.0
+    r3: 4.0
+  expect:
+    R: 256.0
+- given:
+    r1: 8.0
+    r2: 8.0
+    r3: 4.0
+  does_not_apply: 'sum of the folds: 20, not 256'

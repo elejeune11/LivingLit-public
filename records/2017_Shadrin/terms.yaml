@@ -1,0 +1,646 @@
+record: 2017_Shadrin
+vocabulary_version: 52
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- cell_line
+- adopt_own:
+    field: cell_line
+    id: cell_line:du11
+    label: DU11
+    definition: The hiPSC line DU11 (Duke University clone 11), reprogrammed at the Duke University iPSC Core Facility.
+    scope: The Duke DU11 line only; not any other own line (IMR90, ERC018, MR lines, unnamed patient or control lines, commercial iCell cardiomyocytes).
+    lookup: "Cellosaurus (pinned) searched for 'DU11' and 'Duke University clone'; no matching accession."
+    synonyms:
+    - {text: DU11 hiPSC, anchor: "were performed using DU11 hiPSCs between passages 18 and 45"}
+- adopt:
+    field: cell_line
+    id: CVCL_D093
+    label: HES-2
+    lookup: "Cellosaurus (pinned) 'HES2': exact synonym of HES-2 (CVCL_D093)."
+    synonyms:
+    - {text: Hes2 hESC, anchor: "Cardiomyocytes differentiated from Hes2 hESCs were obtained from VistaGen Therapeutics"}
+- adopt:
+    field: cell_line
+    id: CVCL_B810
+    label: RUES2
+    lookup: "Cellosaurus (pinned) 'RUES2': exact label (CVCL_B810), the parent line, not an engineered subclone."
+- add_synonym: {id: CVCL_9773, field: cell_line, text: H9 hESC, anchor: "RUES2 and H9 hESCs were"}
+# ---------------------------------------------------------------- cell_types
+- add_synonym: {id: CL:0000746, field: cell_types, text: CMs, anchor: evidence.F1g_w1.anchor}
+- adopt_own:
+    field: cell_types
+    id: cell_types:non_cardiomyocyte
+    label: non-cardiomyocyte cells
+    definition: Cells of a cardiac differentiation or construct that are not cardiomyocytes, their type not stated.
+    lookup: "CL (pinned) searched for 'non-cardiomyocyte' and 'non-myocyte'; CL has no class for 'any cell that is not a cardiomyocyte'."
+    synonyms:
+    - {text: non-CMs, anchor: "replating to eliminate non-CMs"}
+# ---------------------------------------------------------------- supplements
+- adopt:
+    field: supplements
+    id: CHEBI:16586
+    label: 6-aminohexanoic acid
+    lookup: "ChEBI (pinned) 'aminocaproic acid' gave only 3-aminocaproic acid; '6-aminohexanoic acid' is exact (CHEBI:16586), the compound sold as (epsilon-)aminocaproic acid."
+    synonyms:
+    - {text: aminocaproic acid, anchor: "aminocaproic acid to prevent ﬁbrin degradation"}
+# ---------------------------------------------------------------- substrate
+- add_synonym: {id: substrate:fibrin_hydrogel, text: fibrinogen, anchor: "Hydrogel solution (24 μL human ﬁbrinogen (10 mg/mL, Sigma F4883), 12 μL Matrigel"}
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:frame_anchored_patch
+    label: frame-anchored tissue patch
+    parent: platform:engineered_3d
+    definition: A flat engineered tissue sheet cast in a mould with its edges anchored to a surrounding frame (such as a nylon mesh frame) and cultured free-floating in medium.
+    scope: A flat sheet held at its edges by a frame; not a tissue suspended between two pillars and not a tissue cast around a single bending strip.
+    qualifiers:
+      size: {dimension: text}
+    synonyms:
+    - {text: cardiopatch, anchor: "a “Cardiopatch” platform for 3D culture and maturation of hiPSC-CMs"}
+# ---------------------------------------------------------------- maturation_strategy
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:dynamic_culture
+    label: dynamic culture
+    definition: Culture of free-floating constructs on a rocking platform or in moving medium, to improve nutrient and oxygen supply.
+    scope: Agitated or flowing medium around the construct; not mechanical loading through a load-bearing element (mechanical loading), not electrical stimulation, not a change of medium composition (maturation medium), and not static culture.
+    synonyms:
+    - {text: free-floating dynamic culture, anchor: "After 3 weeks of free-ﬂoating dynamic culture"}
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:static_culture
+    label: static culture
+    definition: Culture in still medium without rocking or flow, named as the comparison for dynamic culture.
+    scope: Still medium, stated as the contrast to dynamic culture; not dynamic culture, and not any electrical, mechanical or medium-based strategy.
+# ---------------------------------------------------------------- pacing
+- add_term:
+    field: pacing
+    id: pacing:spontaneous
+    label: spontaneous beating
+    definition: No stimulation during the measurement; the cells or tissue beat at their own rate.
+    scope: Unpaced, spontaneous activity; not electrical pacing of any kind.
+    synonyms:
+    - {text: spontaneous, anchor: "Cardiopatches exhibited spontaneous macroscopic contractions"}
+- set_scope: {id: pacing:electrical_pacing, scope: "Beats driven by an electrical stimulus (the delivery is a narrower term, frequency and protocol are qualifiers); not spontaneous beating."}
+- add_qualifier: {id: pacing:electrical_pacing, name: protocol, dimension: text}
+- add_term:
+    field: pacing
+    id: pacing:field_stimulation
+    label: field stimulation
+    parent: pacing:electrical_pacing
+    definition: Electrical pacing by an electric field between two electrodes on either side of the whole sample.
+    scope: Field across the whole sample; not a point electrode at one site and not current injection through a patch pipette.
+    synonyms:
+    - {text: field-electrode stimulation, anchor: "recorded during 1 Hz ﬁeld-electrode stimulation (10 ms duration"}
+    - {text: field-shock stimulation, anchor: "step-wise increases in ﬁeld-shock stimulation at 1, 1.5, and 2 Hz"}
+- add_term:
+    field: pacing
+    id: pacing:point_stimulation
+    label: point stimulation
+    parent: pacing:electrical_pacing
+    definition: Electrical pacing from a point electrode at one site of the sample, so that activation spreads from that site.
+    scope: Stimulus at one site (used to measure conduction); not a field across the whole sample and not current injection through a patch pipette.
+- set_scope: {id: pacing:current_clamp_stimulation, scope: "Current injected into one cell through a patch pipette; not a field across the sample and not a point electrode on a tissue."}
+# ---------------------------------------------------------------- preparation
+- add_synonym: {id: preparation:dissociated_cells, text: dissociated cardiomyocytes, anchor: "Dissociated cardiomyocytes were ﬁxed in"}
+- add_term:
+    field: preparation
+    id: preparation:implanted_tissue
+    label: implanted tissue
+    parent: preparation:intact_tissue
+    definition: An engineered tissue measured in or on a living animal after implantation.
+    scope: Measured in vivo after implantation; not an excised heart perfused ex vivo (Langendorff-perfused heart).
+- add_term:
+    field: preparation
+    id: preparation:perfused_heart
+    label: Langendorff-perfused heart
+    parent: preparation:intact_tissue
+    definition: A whole heart excised and retrogradely perfused through the aorta (Langendorff), measured ex vivo.
+    scope: An excised whole heart under perfusion; not an engineered tissue measured in a living animal (implanted tissue).
+# ---------------------------------------------------------------- measurement_medium
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:tyrode_solution
+    label: Tyrode's solution
+    definition: A physiological salt solution (Tyrode's) used as the bath during measurement.
+    scope: Tyrode's salt solution as the measurement bath; its calcium goes to measurement_calcium_mM.
+# ---------------------------------------------------------------- species
+- add_term:
+    field: species
+    id: species:human
+    label: human
+    xref: [NCBITaxon:9606]
+    definition: Homo sapiens.
+    scope: Human cells or tissue; not rat or other animals.
+- add_term:
+    field: species
+    id: species:rat
+    label: rat
+    xref: [NCBITaxon:10116]
+    definition: Rattus norvegicus.
+    scope: Rat cells, tissue or hearts; not human.
+# ---------------------------------------------------------------- dissociation_reagent
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:trypsin_edta
+    label: trypsin-EDTA
+    definition: Trypsin with EDTA in solution, used to dissociate adherent cells into single cells.
+    scope: Animal-derived trypsin with EDTA; recombinant trypsin-like enzymes (TrypLE), Accutase and collagenase are siblings to add when a paper names them.
+    qualifiers:
+      concentration: {dimension: text}
+    synonyms:
+    - {text: trypsin/EDTA, anchor: "0.25% trypsin/EDTA followed by quenching"}
+# ---------------------------------------------------------------- transgene
+- add_term:
+    field: transgene
+    id: transgene:gcamp6
+    label: GCaMP6 (variant not stated)
+    parent: transgene:calcium_indicator
+    definition: A GCaMP6 genetically encoded calcium indicator whose variant (6f, 6m, 6s) the source does not state.
+    scope: GCaMP6 of unstated variant; not GCaMP5G and not GCaMP6f when the source names it.
+    synonyms:
+    - {text: gCaMP6, anchor: "hiPSC-CMs were transduced with MHCK7-gCaMP6 lentivirus following"}
+# ---------------------------------------------------------------- cm_medium
+- add_qualifier: {id: cm_medium:rpmi_1640, name: days, dimension: text}
+- add_qualifier: {id: cm_medium:dmem, name: days, dimension: text}
+# ---------------------------------------------------------------- measure: synonyms
+- add_synonym: {id: measure:twitch_force, text: maximum active force, anchor: "g, h Maximum active force (g) and speciﬁc force (h) of cardiopatches cultured"}
+- add_synonym: {id: measure:twitch_stress, text: specific force, anchor: "g, h Maximum active force (g) and speciﬁc force (h) of cardiopatches cultured"}
+- add_synonym: {id: measure:elastic_modulus, text: passive stiffness, anchor: evidence.F2c_stiffness.anchor}
+- add_synonym: {id: measure:protein_dna_ratio, text: protein/DNA ratio, anchor: "Western blotting and protein/DNA ratio. To isolate protein from tissues"}
+# ---------------------------------------------------------------- measure: new terms
+- add_term:
+    field: measure
+    id: measure:passive_force
+    label: passive tension
+    dimension: force
+    definition: Tensile force a tissue bears at rest when held at a stated stretch (qualifier stretch).
+    scope: Resting force in newtons at a set length; not resting stress (diastolic stress), not active twitch force, and not the load a culture device applies (applied tissue load).
+    qualifiers:
+      stretch: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:tissue_thickness
+    label: tissue thickness
+    dimension: length
+    definition: Thickness of an engineered tissue sheet or construct.
+    scope: Thickness of the whole construct; not its length, its cross-sectional area or sarcomere length.
+- add_term:
+    field: measure
+    id: measure:cells_per_field
+    label: cells per field of view
+    dimension: dimensionless
+    definition: Number of cells (nuclei) counted in one microscope field of view of a tissue.
+    scope: A cell count per imaged field; not the number of cells in a whole construct, not desmosomes per field, and not a marker-positive fraction.
+- add_term:
+    field: measure
+    id: measure:cell_number
+    label: cell number per construct
+    dimension: dimensionless
+    definition: Number of cells in a whole construct, counted or calculated.
+    scope: Cells in a whole construct; not cells per field of view and not cardiomyocyte yield per input hiPSC.
+- add_term:
+    field: measure
+    id: measure:tissue_volume
+    label: tissue volume
+    dimension: volume
+    definition: Volume of an engineered tissue construct.
+    scope: Volume of the whole construct; not its thickness, cross-sectional area or projected area.
+- add_term:
+    field: measure
+    id: measure:cell_volume
+    label: cell volume
+    dimension: volume
+    definition: Volume of single cells, measured or inferred (for example as tissue volume per cell).
+    scope: Size of cells as a volume; not the projected cell area.
+- add_term:
+    field: measure
+    id: measure:protein_dna_ratio
+    label: protein to DNA ratio
+    dimension: dimensionless
+    definition: Total protein of a sample divided by its DNA content, an index of cell size.
+    scope: Total protein per DNA; not the level of one named protein and not mitochondrial DNA content.
+- add_term:
+    field: measure
+    id: measure:sarcomere_band_count
+    label: sarcomeric bands per sarcomere
+    dimension: dimensionless
+    definition: Number of a stated sarcomeric band (qualifier band, such as H-zone or I-band) seen per sarcomere in electron micrographs.
+    scope: A count of one band type per sarcomere; not the number of sarcomeres, not sarcomere length and not a qualitative ultrastructure grade.
+    qualifiers:
+      band: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:phosphorylated_protein_fraction
+    label: phosphorylated to total protein ratio
+    parent: measure:protein_level
+    dimension: dimensionless
+    definition: Amount of the phosphorylated form of a stated protein (qualifier protein) divided by the total amount of that protein.
+    scope: Phospho- over total protein of one named protein; the parent is a protein's amount against a loading reference.
+- add_term:
+    field: measure
+    id: measure:between_measure_slope
+    label: regression slope between two measures
+    dimension: rate
+    definition: Slope of a linear regression across samples of one stated measure against another (qualifier measures); its unit follows the two measures.
+    scope: A regression slope across samples; not a correlation coefficient (correlation between two measures) and not the force-frequency relationship itself.
+    qualifiers:
+      measures: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:blood_vessel_density
+    label: blood vessel density
+    dimension: dimensionless
+    definition: Area of blood vessels per area of an implant or tissue, from intravital or section images.
+    scope: Vessel area per implant area; not the area fraction of a section taken by cells or muscle (tissue area fraction).
+- add_term:
+    field: measure
+    id: measure:calcium_transient_presence
+    label: presence of calcium transients
+    dimension: dimensionless
+    definition: Whether constructs show calcium transients, reported as the count or fraction of constructs that do.
+    scope: Calcium transients present or absent; not their amplitude or timing, and not presence of beating.
+- add_term:
+    field: measure
+    id: measure:arrhythmia_incidence
+    label: arrhythmia incidence
+    dimension: dimensionless
+    definition: Count or fraction of hearts, tissues or pacing attempts with a stated arrhythmia outcome (qualifier outcome) out of those tested (qualifier counted).
+    scope: How often an arrhythmia outcome occurs; not conduction velocity, action potential duration or beat rate.
+    qualifiers:
+      outcome: {dimension: text}
+      counted: {dimension: text}
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:passive_force
+    value: {must_match: [platform@1, preparation, temperature, mechanical_load, measure.stretch, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.stretch], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_thickness
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cells_per_field
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_number
+    value: {must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_volume
+    value: {must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_volume
+    value: {must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_dna_ratio
+    value: {must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:sarcomere_band_count
+    value: {must_match: [platform@1, preparation, measure.band, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.band], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:phosphorylated_protein_fraction
+    value: {must_match: [platform@1, preparation, measure.protein, measure.normalised_to, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:between_measure_slope
+    value: {must_match: [platform@1, preparation, measure.measures, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.measures], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:blood_vessel_density
+    value: {must_match: [platform@1, preparation, species, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_presence
+    value: {must_match: [platform@1, preparation, pacing, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:arrhythmia_incidence
+    value: {must_match: [preparation, species, pacing, measure.outcome, measure.counted, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing, measure.outcome], may_vary: [cell_line, day_of_measurement]}
+
+mappings:
+# ---------------------------------------------------------------- flags
+- field: hipsc_medium
+  stated: TeSR-E8 or mTeSR
+  flag: {kind: alternatives, note: "Two media joined by 'or' (the paper used E8 for one protocol and mTeSR for the other); which applies to these units is not one value."}
+- field: wnt_inhibition_days
+  stated: d3
+  flag: {kind: not a context, note: "Stand-in flag: a day printed as 'd3' is one quantity, but code's quantity parser does not read the 'd' prefix (matching.quantity_value), and a quantity field takes no terms. Not a reader error."}
+- field: insulin_day
+  stated: d7
+  flag: {kind: not a context, note: "Stand-in flag: a day printed as 'd7'; code's quantity parser does not read the 'd' prefix. Not a reader error."}
+- field: day_of_measurement
+  stated: d0
+  flag: {kind: not a context, note: "Stand-in flag: a day printed as 'd0'; code's quantity parser does not read the 'd' prefix. Not a reader error."}
+- field: time_point
+  stated: d7 post implantation
+  flag: {kind: not a context, note: "Stand-in flag: 'd7' is not read by code's quantity parser ('d14 post implantation' parses only because '14' has a digit before it). Not a reader error."}
+- field: time_point
+  stated: pre-implantation
+  flag: {kind: not a context, note: "A word that is neither a number nor a declared state of time_point (baseline); the reader may restate it as 'baseline' if the paper means the measurement before implantation."}
+- field: cm_medium
+  stated: cardiac medium
+  flag: {kind: placeholder, note: "The paper's generic name for whichever culture medium of Supplementary Table 1 was used (3D RB+, 5% FBS, or the 1-week 3D RB+ then 2-week 5% FBS regime); the reader should state the medium these units used."}
+- field: measure
+  stated: maturation gene expression relative to d0
+  flag: {kind: several measures, note: "A range over ten maturation genes (3- to 163-fold, median 23-fold); one measure per gene is needed (gene is a key field)."}
+- field: measure
+  stated: maturation gene expression relative to d0 hiPSC-CMs
+  flag: {kind: several measures, note: "Ten maturation genes in one value; one measure per gene is needed."}
+- field: measure
+  stated: maturation gene expression relative to age-matched 2D monolayers
+  flag: {kind: several measures, note: "Ten maturation genes in one value (9 of 10 up, MYOM2 10-fold); one measure per gene is needed."}
+- field: measure
+  stated: cardiomyocytes with M-bands or T-tubule-like structures
+  flag: {kind: several measures, note: "Two ultrastructural features (M-bands, Fig. 4j; T-tubule-like structures, Fig. 4k) joined by 'or'; the printed value (<5%) is for M-bands."}
+# ---------------------------------------------------------------- context
+- field: cell_line
+  stated: RUES2 hESC
+  terms: [CVCL_B810]
+- field: cell_line
+  stated: H9, iPSC
+  terms: [CVCL_9773, cell_line:du11]
+  note: "Supplementary Fig. 5B pools cardiopatches from 'multiple hPSC lines (H9, iPSC)'; the paper states that all experiments except Fig. 2f used DU11 hiPSCs, so 'iPSC' is DU11."
+- field: dissociation_reagent
+  stated: 0.25% trypsin/EDTA
+  terms: [dissociation_reagent:trypsin_edta]
+  qualifiers: {concentration: 0.25%}
+- field: cm_medium
+  stated: 3D RB+ (d0–21)
+  terms: [cm_medium:rpmi_1640]
+  qualifiers: {formulation: "3D RB+ (RPMI/B27 + insulin, Supplementary Table 1)", days: d0–21}
+- field: cm_medium
+  stated: 5% FBS (d14–21)
+  terms: [cm_medium:dmem]
+  qualifiers: {formulation: "5% FBS medium (Supplementary Table 1)", glucose: low, days: d14–21}
+  note: "The value names only the 5% FBS period; the medium before d14 is not in the value."
+- field: cm_medium
+  stated: 5% FBS (d7–21)
+  terms: [cm_medium:dmem]
+  qualifiers: {formulation: "5% FBS medium (Supplementary Table 1)", glucose: low, days: d7–21}
+  note: "The value names only the 5% FBS period; the medium before d7 is not in the value."
+- field: cm_medium
+  stated: 5% FBS (d0–21)
+  terms: [cm_medium:dmem]
+  qualifiers: {formulation: "5% FBS medium (Supplementary Table 1)", glucose: low, days: d0–21}
+- field: cm_medium
+  stated: 1 week 3D RB+, 2 weeks 5% FBS
+  terms: [cm_medium:rpmi_1640, cm_medium:dmem]
+  qualifiers: {formulation: "3D RB+ (RPMI/B27 + insulin), then 5% FBS medium (low-glucose DMEM)", days: "1 week 3D RB+, 2 weeks 5% FBS"}
+- field: cm_medium
+  stated: 3D RB+ d0–7, 5% FBS d7–21
+  terms: [cm_medium:rpmi_1640, cm_medium:dmem]
+  qualifiers: {formulation: "3D RB+ (RPMI/B27 + insulin), then 5% FBS medium (low-glucose DMEM)", days: "3D RB+ d0–7, 5% FBS d7–21"}
+- field: platform
+  stated: Cerex frame only
+  terms: [platform:cell_free_control]
+  note: "Blank implant: the nylon (Cerex) frame without cells or gel."
+- field: pacing
+  stated: 1 Hz ﬁeld-electrode stimulation
+  terms: [pacing:field_stimulation]
+  qualifiers: {frequency: 1 Hz}
+- field: pacing
+  stated: 1.5 Hz
+  terms: [pacing:electrical_pacing]
+  qualifiers: {frequency: 1.5 Hz}
+- field: pacing
+  stated: 2 Hz
+  terms: [pacing:electrical_pacing]
+  qualifiers: {frequency: 2 Hz}
+- field: pacing
+  stated: 1 Hz
+  terms: [pacing:electrical_pacing]
+  qualifiers: {frequency: 1 Hz}
+- field: pacing
+  stated: burst pacing at 2–20 Hz
+  terms: [pacing:electrical_pacing]
+  qualifiers: {frequency: 2–20 Hz, protocol: burst pacing}
+- field: preparation
+  stated: cardiac tissue patch
+  terms: [preparation:intact_tissue]
+- field: preparation
+  stated: implanted cardiopatch
+  terms: [preparation:implanted_tissue]
+  split: [{words: cardiopatch, field: platform}]
+- field: transgene
+  stated: MHCK7-gCaMP6 lentivirus
+  terms: [transgene:gcamp6]
+  qualifiers: {vector: "lentivirus, MHCK7 promoter"}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: cTnT+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cTnT, population: cells}
+- field: measure
+  stated: CD31+ endothelial cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: CD31, population: cells}
+- field: measure
+  stated: Ki67+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67, population: Nkx2.5+ cardiomyocytes}
+- field: measure
+  stated: MLC2v single-positive cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: "MLC2v single-positive (MLC2a-negative)", population: cardiomyocytes}
+- field: measure
+  stated: MLC2a + 2v double-positive cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: MLC2a and MLC2v double-positive, population: cardiomyocytes}
+- field: measure
+  stated: spontaneous contraction rate
+  terms: [measure:contraction_frequency]
+- field: measure
+  stated: action potential duration at 80% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD80, expressed_as: absolute}
+- field: measure
+  stated: cardiopatch thickness
+  terms: [measure:tissue_thickness]
+- field: measure
+  stated: calculated cell number
+  terms: [measure:cell_number]
+  qualifiers: {expressed_as: "% of baseline", normalised_to: 1MM cardiopatches}
+- field: measure
+  stated: relative tissue volume
+  terms: [measure:tissue_volume]
+  qualifiers: {expressed_as: "% of baseline", normalised_to: 1MM cardiopatches}
+- field: measure
+  stated: cell size
+  terms: [measure:cell_volume]
+  qualifiers: {expressed_as: "% change", normalised_to: 1MM cardiopatches}
+  note: "Cell size here is inferred from relative cell number and tissue volume, i.e. volume per cell."
+- field: measure
+  stated: contractile force per input cardiomyocyte
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: normalised, normalised_to: number of input cardiomyocytes}
+- field: measure
+  stated: twitch force rise time
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: 10 to 90% activation}
+- field: measure
+  stated: twitch force relaxation time
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 10 to 90% relaxation}
+  note: "Code splits this wording into twitch force + relaxation time (two measures); it is one measure, the relaxation time of the force twitch."
+# gene expression relative to adult left ventricle
+- field: measure
+  stated: TNNI3 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3, normalised_to: adult human left ventricle}
+- field: measure
+  stated: MYL2 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYL2}
+  note: "normalised_to left out: the wording says adult left ventricle but the printed value (108-fold) is against d0; the values carry their own."
+- field: measure
+  stated: MYOM2 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYOM2, normalised_to: adult human left ventricle}
+- field: measure
+  stated: CASQ2 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CASQ2}
+  note: "normalised_to left out: the wording says adult left ventricle but the printed value (163-fold) is against d0; the values carry their own."
+- field: measure
+  stated: MYOM3 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYOM3, normalised_to: adult human left ventricle}
+- field: measure
+  stated: CKMT2 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CKMT2, normalised_to: adult human left ventricle}
+- field: measure
+  stated: S100A1 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: S100A1, normalised_to: adult human left ventricle}
+- field: measure
+  stated: COX6A2 expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: COX6A2, normalised_to: adult human left ventricle}
+- field: measure
+  stated: CKM expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CKM, normalised_to: adult human left ventricle}
+- field: measure
+  stated: PLN expression relative to adult human left ventricle
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PLN, normalised_to: adult human left ventricle}
+# gene expression relative to 1MM cardiopatches
+- field: measure
+  stated: MYOM3 expression relative to 1MM cardiopatches
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYOM3, normalised_to: 1MM cardiopatches, expressed_as: fold}
+- field: measure
+  stated: CASQ2 expression relative to 1MM cardiopatches
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CASQ2, normalised_to: 1MM cardiopatches, expressed_as: fold}
+- field: measure
+  stated: S100A1 expression relative to 1MM cardiopatches
+  terms: [measure:gene_expression]
+  qualifiers: {gene: S100A1, normalised_to: 1MM cardiopatches, expressed_as: fold}
+- field: measure
+  stated: COX6A2 expression relative to 1MM cardiopatches
+  terms: [measure:gene_expression]
+  qualifiers: {gene: COX6A2, normalised_to: 1MM cardiopatches, expressed_as: fold}
+# protein
+- field: measure
+  stated: GAPDH protein relative to LamB1
+  terms: [measure:protein_level]
+  qualifiers: {protein: GAPDH, normalised_to: LamB1}
+- field: measure
+  stated: SAA protein relative to LamB1
+  terms: [measure:protein_level]
+  qualifiers: {protein: sarcomeric α-actinin (SAA), normalised_to: LamB1}
+- field: measure
+  stated: βMHC protein relative to LamB1
+  terms: [measure:protein_level]
+  qualifiers: {protein: βMHC, normalised_to: LamB1}
+- field: measure
+  stated: Cx43 protein relative to LamB1
+  terms: [measure:protein_level]
+  qualifiers: {protein: Cx43, normalised_to: LamB1}
+- field: measure
+  stated: JPH2 protein relative to GAPDH
+  terms: [measure:protein_level]
+  qualifiers: {protein: JPH2, normalised_to: GAPDH}
+- field: measure
+  stated: Cav3 protein relative to GAPDH
+  terms: [measure:protein_level]
+  qualifiers: {protein: Cav3, normalised_to: GAPDH}
+- field: measure
+  stated: phosphorylated Akt relative to total, normalized to 1MM cardiopatches
+  terms: [measure:phosphorylated_protein_fraction]
+  qualifiers: {protein: Akt, normalised_to: 1MM cardiopatches}
+- field: measure
+  stated: phosphorylated mTOR relative to total, normalized to 1MM cardiopatches
+  terms: [measure:phosphorylated_protein_fraction]
+  qualifiers: {protein: mTOR, normalised_to: 1MM cardiopatches}
+- field: measure
+  stated: phosphorylated AMPK relative to total, normalized to 1MM cardiopatches
+  terms: [measure:phosphorylated_protein_fraction]
+  qualifiers: {protein: AMPK, normalised_to: 1MM cardiopatches}
+# ultrastructure
+- field: measure
+  stated: H-zones per sarcomere
+  terms: [measure:sarcomere_band_count]
+  qualifiers: {band: H-zone}
+- field: measure
+  stated: I-bands per sarcomere
+  terms: [measure:sarcomere_band_count]
+  qualifiers: {band: I-band}
+# force, relative
+- field: measure
+  stated: active force normalized to 1 Hz force
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: "% of baseline", normalised_to: 1 Hz force}
+- field: measure
+  stated: slope of 2 Hz force against 1 Hz twitch duration
+  terms: [measure:between_measure_slope]
+  qualifiers: {measures: "2 Hz force (normalised to 1 Hz force) against 1 Hz twitch duration"}
+- field: measure
+  stated: slope of 2 Hz force against 1 Hz twitch relaxation time
+  terms: [measure:between_measure_slope]
+  qualifiers: {measures: "2 Hz force (normalised to 1 Hz force) against 1 Hz twitch relaxation time"}
+- field: measure
+  stated: slope of 2 Hz force against 1 Hz twitch rise time
+  terms: [measure:between_measure_slope]
+  qualifiers: {measures: "2 Hz force (normalised to 1 Hz force) against 1 Hz twitch rise time"}
+- field: measure
+  stated: maximum active force relative to Ctrl cardiopatch
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: normalised, normalised_to: Ctrl cardiopatch}
+- field: measure
+  stated: specific force relative to Ctrl cardiopatch
+  terms: [measure:twitch_stress]
+  qualifiers: {expressed_as: normalised, normalised_to: Ctrl cardiopatch}
+# in vivo
+- field: measure
+  stated: Ca2+ transient amplitude (dF/F)
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: "% change"}
+- field: measure
+  stated: cardiopatches with gCaMP6-reported Ca2+ transients
+  terms: [measure:calcium_transient_presence]
+- field: measure
+  stated: host epicardial conduction velocity
+  terms: [measure:conduction_velocity]
+  note: "The host rat epicardium under or away from the patch; the context (species rat, Langendorff-perfused heart) carries the difference."
+- field: measure
+  stated: host epicardial action potential duration
+  terms: [measure:action_potential_duration]
+  note: "Level (APD50/80/90) not stated for the rat epicardium; level left out."
+- field: measure
+  stated: burst pacing attempts without arrhythmia
+  terms: [measure:arrhythmia_incidence]
+  qualifiers: {outcome: no arrhythmia, counted: burst pacing attempts}
+- field: measure
+  stated: hearts with sustained (>1 min) arrhythmias
+  terms: [measure:arrhythmia_incidence]
+  qualifiers: {outcome: sustained (>1 min) arrhythmia, counted: hearts}

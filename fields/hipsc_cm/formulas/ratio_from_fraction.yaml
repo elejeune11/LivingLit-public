@@ -1,0 +1,40 @@
+# Written by code from changes.yaml (version 14); never edited.
+formula: ratio_from_fraction
+kind: derived
+statement: In a whole made of two parts, the ratio of one part to the other is its fraction divided by one minus its fraction.
+equations:
+- r = f/(1 - f)
+variables:
+  r: dimensionless
+  f: dimensionless
+  a: D
+  b: D
+  t: D
+assumes:
+- t = a + b
+uses:
+- formula: part_of_whole
+  subs:
+    f: f
+    a: a
+    b: b
+    t: t
+- formula: ratio_def
+  subs:
+    r: r
+    a: a
+    b: b
+does_not_apply: 'a whole with a third part (e.g. cells neither cardiomyocyte nor fibroblast): 1 - f is then not the other
+  part''s fraction'
+tests:
+- given:
+    f: 0.5
+  expect:
+    r: 1.0
+- given:
+    f: 0.75
+  expect:
+    r: 3.0
+- given:
+    f: 0.4
+  does_not_apply: 'parts 0.4, 0.4, 0.2: the ratio of the first two is 1, not 0.667'

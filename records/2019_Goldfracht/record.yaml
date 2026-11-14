@@ -1,0 +1,2991 @@
+id: 2019_Goldfracht
+field_set: 3
+
+source:
+  title: "Engineered heart tissue models from hiPSC-derived cardiomyocytes and cardiac ECM for disease modeling and drug testing applications"
+  doi: "10.1016/j.actbio.2019.05.016"
+  year: "2019"
+  first_author: "Idit Goldfracht"
+  last_author: "Lior Gepstein"
+  lab: "Sohnis Research Laboratory for Cardiac Electrophysiology and Regenerative Medicine, Technion - Israel Institute of Technology"
+  journal: "Acta Biomaterialia"
+  files:
+    - main.pdf
+    - mmc1.pdf
+  missing: []
+  not_used: []
+
+default_context:
+  differentiation_factors: "CHIR99021 + Wnt-C59"
+  hipsc_medium: "mTeSR-1"
+  hipsc_coating: "Matrigel"
+  wnt_activation_days: "two days"
+  wnt_inhibition_days: "not stated"
+  insulin_day: "not stated"
+  confluency: "80-90% confluence"
+  purification: "not stated"
+  purity_method:
+    value: "flow cytometry"
+    qualifiers:
+      marker: "cTNT"
+  purity: ">85%"
+  replating_coating: "not applicable"
+  cell_types: "hiPSC-derived cardiomyocytes"
+  stromal_cell: "not stated"
+  endothelial_cell: "not stated"
+  composition: "not stated"
+  maturation_strategy: "not stated"
+  culture_calcium_mM: "not stated"
+  species: "human"
+  seeding_density: "2 million hiPSC-derived cardiomyocytes"
+  dissociation_reagent: "TrypLE express"
+  incubator_atmosphere: "not stated"
+  number_of_lines: "not stated"
+
+units:
+
+  F1E:
+    where: "Fig. 1E"
+    title: "Gene expression analysis of ECM-EHTs and two-dimension cultured hiPSC-CMs at different maturation stages"
+    context:
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      preparation: "Total RNA"
+      transgene: "not stated"
+      temperature: "not applicable"
+      pacing: "not applicable"
+      treatment: "none"
+      time_point: "not applicable"
+      measurement_calcium_mM: "not applicable"
+      measurement_medium: "not applicable"
+    groups:
+      eht7:
+        label: "ECM-EHT d7"
+        context:
+          platform: "ECM-EHT"
+          substrate: &ecmgel
+            value: "cardiac-specific ECM hydrogel"
+            qualifiers:
+              chitosan: "0.2 g chitosan/g ECM"
+              genipin: "0.01 g genipin/g ECM"
+              source: "decellularized pig hearts"
+          cm_medium: "Iscove-Medium"
+          supplements: &ehtsup "fetal bovine serum + non-essential amino acids + glutamine + penicillin/streptomycin + b-mercaptoethanol"
+          mechanical_load: &stretch
+            value: "static stretch"
+            qualifiers:
+              device: "passive-stretcher devices"
+          cm_day_at_formation: "14-20 d"
+          day_of_measurement: "7 d"
+      eht30:
+        label: "ECM-EHT d30"
+        context:
+          platform: "ECM-EHT"
+          substrate: *ecmgel
+          cm_medium: "Iscove-Medium"
+          supplements: *ehtsup
+          mechanical_load: *stretch
+          cm_day_at_formation: "14-20 d"
+          day_of_measurement: "30 d"
+      cells7:
+        label: "Cells d7"
+        context:
+          platform: "two-dimensional cultures"
+          substrate: "not stated"
+          cm_medium: "CDM3"
+          supplements: &cdm3sup "recombinant human serum albumin + L-ascorbic acid 2-phosphate + penicillin/streptomycin"
+          mechanical_load: "not applicable"
+          cm_day_at_formation: "not applicable"
+          day_of_measurement: "7 d"
+      cells30:
+        label: "Cells d30"
+        context:
+          platform: "two-dimensional cultures"
+          substrate: "not stated"
+          cm_medium: "CDM3"
+          supplements: *cdm3sup
+          mechanical_load: "not applicable"
+          cm_day_at_formation: "not applicable"
+          day_of_measurement: "30 d"
+
+  S1A:
+    where: "Fig. S1A"
+    title: "Percentage of cardiac troponin T (cTnT) positive cells as a result of hiPSC cardiomyocytes differentiation"
+    anchor:
+      quote: "Percentage of cardiac troponin T (cTnT) positive cells as a result of hiPSC cardiomyocytes"
+      where: "Supplementary Figure 1 legend"
+      file: mmc1.pdf
+    context:
+      cell_line: "not stated"
+      genotype: "not stated"
+      disease_model: "not stated"
+      donor_age: "not stated"
+      platform: "two-dimensional cultures"
+      substrate: "not stated"
+      cm_medium: "CDM3"
+      supplements: *cdm3sup
+      mechanical_load: "not applicable"
+      cm_day_at_formation: "not applicable"
+      day_of_measurement: "not stated"
+      preparation: "dissociated cardiomyocytes"
+      transgene: "not stated"
+      temperature: "not applicable"
+      pacing: "not applicable"
+      treatment: "none"
+      time_point: "not applicable"
+      measurement_calcium_mM: "not applicable"
+      measurement_medium: "not applicable"
+    groups:
+      cm:
+        label: "cTnT+"
+
+  F2C:
+    where: "Fig. 2C"
+    title: "Changes induced by isoproterenol in the contraction rates and in the signal decay time"
+    context: &conf
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      platform: "ECM-EHT"
+      substrate: *ecmgel
+      cm_medium: "Iscove-Medium"
+      supplements: *ehtsup
+      mechanical_load: *stretch
+      cm_day_at_formation: "14-20 d"
+      day_of_measurement: "not stated"
+      preparation: "not stated"
+      transgene:
+        value: "GCaMP5G"
+        qualifiers:
+          MOI: "0.65"
+          promoter: "cTnT promoter"
+      temperature: "not stated"
+      pacing: "none"
+      measurement_calcium_mM: "1.8 mM"
+      measurement_medium: "Tyrode's solution"
+    groups:
+      base:
+        label: "Baseline"
+        context: &basetreat
+          treatment: "none"
+          time_point: "baseline"
+      iso:
+        label: "1 µM Isoproterenol"
+        context: &isotreat
+          treatment:
+            value: "isoproterenol"
+            qualifiers:
+              dose: "1 µM"
+          time_point: "15 min after adding the different drugs"
+
+  F2D:
+    where: "Fig. 2D"
+    title: "Changes induced by carbamylcholine in the contraction rates and in the signal decay time"
+    context: *conf
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      carb:
+        label: "1 µM Carbamylcholine"
+        context: &carbtreat
+          treatment:
+            value: "carbamylcholine"
+            qualifiers:
+              dose: "1 µM"
+          time_point: "15 min after adding the different drugs"
+
+  F2E:
+    where: "Fig. 2E"
+    title: "Representative line-scan images showing changes in intracellular [Ca2+]i transients at baseline and following application of 500 nM E4031"
+    context: *conf
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      e500:
+        label: "E4031"
+        context: &e500treat
+          treatment:
+            value: "E4031"
+            qualifiers:
+              dose: "500 nM"
+          time_point: "15 min after adding the different drugs"
+
+  F2FG:
+    where: "Fig. 2F, G"
+    title: "Effects of application of 1 µM ouabain on calcium-handling and arrhythmogenicity in the ECM-EHT"
+    context: *conf
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      oua:
+        label: "1µM Ouabain"
+        context:
+          treatment:
+            value: "ouabain"
+            qualifiers:
+              dose: "1 µM"
+          time_point: "15 min after adding the different drugs"
+
+  F3C:
+    where: "Fig. 3C"
+    title: "Summary of APD90 measurements from hiPSC-CMs within the EHTs at baseline and following application of the IKr current blocker E4031"
+    context:
+      <<: &arc
+        platform: "ECM-EHT"
+        substrate: *ecmgel
+        cm_medium: "Iscove-Medium"
+        supplements: *ehtsup
+        mechanical_load: *stretch
+        cm_day_at_formation: "14-20 d"
+        day_of_measurement: "not stated"
+        preparation: "not stated"
+        transgene:
+          value: "ArcLight"
+          qualifiers:
+            MOI: "0.35"
+        temperature: "not stated"
+        pacing: "none"
+        measurement_calcium_mM: "1.8 mM"
+        measurement_medium: "Tyrode's solution"
+      cell_line: "ArcLight-expressing transgenic hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "not stated"
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      e100:
+        label: "100 nM E4031"
+        context:
+          treatment:
+            value: "E4031"
+            qualifiers:
+              dose: "100 nM"
+          time_point: "15 min after adding the different drugs"
+      e500:
+        label: "500 nM E4031"
+        context: *e500treat
+      e1000:
+        label: "1 µM E4031"
+        context:
+          treatment:
+            value: "E4031"
+            qualifiers:
+              dose: "1 µM"
+          time_point: "15 min after adding the different drugs"
+
+  F3D:
+    where: "Fig. 3D"
+    title: "Summary of APD90 measurements from hiPSC-CMs within the EHTs at baseline and following application of the late-sodium current activator ATX-II"
+    context:
+      <<: *arc
+      cell_line: "ArcLight-expressing transgenic hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "not stated"
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      atx:
+        label: "ATXII"
+        context:
+          treatment:
+            value: "ATX-II"
+            qualifiers:
+              dose: "30 nM"
+          time_point: "15 min after adding the different drugs"
+
+  S3A:
+    where: "Fig. S3A"
+    title: "Changes in mean APD90 values following addition of 500nM E4031"
+    anchor:
+      quote: "Changes in mean APD90 values following addition of 500nM E4031 (n=4)."
+      where: "Supplementary Figure 3 legend"
+      file: mmc1.pdf
+    context:
+      <<: *arc
+      cell_line: "ArcLight-expressing transgenic hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "not stated"
+      preparation: "whole EHT"
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      e500:
+        label: "E4031"
+        context: *e500treat
+
+  F5B:
+    where: "Fig. 5B"
+    title: "Changes in APD90 in LQTS2-EHTs compare to healthy-control ECM-EHTs"
+    context:
+      <<: *arc
+      treatment: "none"
+      time_point: "baseline"
+    groups:
+      ctrl:
+        label: "Baseline"
+        context: &ctrlline
+          cell_line: "healthy-control hiPSC line"
+          genotype: "healthy control line"
+          disease_model: "none"
+          donor_age: "young"
+      lqts2:
+        label: "LQTS2"
+        context: &lqtsline
+          cell_line: "LQTS2-hiPSC-CMs"
+          genotype: &lqtsgeno
+            by_reference:
+              citation: c9
+              anchor:
+                quote: "a hiPSC line generated from a young patient with the long QT syndrome type 2 (LQTS2) [9]"
+                where: "Results, Modeling of inherited arrhythmogenic disorders"
+          disease_model: "long QT syndrome type 2"
+          donor_age: "young"
+
+  S3B:
+    where: "Fig. S3B"
+    title: "Changes in mean APD90 values in the LQTS2-ECM-EHTs as compared to healthy-control ECM-EHTs"
+    anchor:
+      quote: "Changes in mean APD90 values in the LQTS2-ECM-EHTs as compared to healthy-control ECM-EHTs (n=4)."
+      where: "Supplementary Figure 3 legend"
+      file: mmc1.pdf
+    context:
+      <<: *arc
+      preparation: "whole EHT"
+      treatment: "none"
+      time_point: "baseline"
+    groups:
+      ctrl:
+        label: "Baseline"
+        context: *ctrlline
+      lqts2:
+        label: "LQTS2"
+        context: *lqtsline
+
+  S2AB:
+    where: "Fig. S2A, B"
+    title: "Changes in signal frequency (beating rate) and in the intracellular [Ca2+]i transient decay time following application of 1µM isoproterenol"
+    anchor:
+      quote: "Changes in signal frequency (beating rate, n=4, A) and in the intracellular [Ca2+]i transient decay time (n=4, B) following application of 1µM isoproterenol."
+      where: "Supplementary Figure 2 legend"
+      file: mmc1.pdf
+    context:
+      <<: *conf
+      preparation: "whole EHT"
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      iso:
+        label: "1 µM Isoproterenol"
+        context: *isotreat
+
+  S2CD:
+    where: "Fig. S2C, D"
+    title: "Changes in signal frequency (beating rate) and in the intracellular [Ca2+]i transient decay time following application of 1µM carbamylcholine"
+    anchor:
+      quote: "Changes in signal frequency (beating rate, n=4, C) and in the intracellular [Ca2+]i transient decay time (n=4, D) following application of 1µM carbamylcholine."
+      where: "Supplementary Figure 2 legend"
+      file: mmc1.pdf
+    context:
+      <<: *conf
+      preparation: "whole EHT"
+    groups:
+      base:
+        label: "Baseline"
+        context: *basetreat
+      carb:
+        label: "1 µM Carbomylcholine"
+        context: *carbtreat
+
+  F4AB:
+    where: "Fig. 4A, B"
+    title: "Frank-Starling mechanism in ECM-EHT: FOC (normalized to cross sectional area, CSA) of ECM-EHT at L0 and Lmax"
+    context:
+      <<: &force
+        cell_line: "healthy-control hiPSC line"
+        genotype: "healthy control line"
+        disease_model: "none"
+        donor_age: "young"
+        platform: "ECM-EHT"
+        substrate: *ecmgel
+        cm_medium: "Iscove-Medium"
+        supplements: *ehtsup
+        mechanical_load: *stretch
+        cm_day_at_formation: "14-20 d"
+        preparation: "not stated"
+        transgene: "not stated"
+        temperature: "37 °C"
+        pacing: "none"
+        measurement_medium: "Tyrode's solution"
+      day_of_measurement: "30 d"
+      treatment: "none"
+      time_point: "not stated"
+      measurement_calcium_mM: "not stated"
+    other_conditions:
+      - text: "ECM-EHTs were shipped to Göttingen, Germany at room temperature (overnight shipment) and analyzed after 72 h of recovery at 37 °C"
+        anchor:
+          quote: "ECM-EHTs were shipped to Göttingen, Germany at room temperature (overnight shipment) and analyzed after 72 h of recovery at 37 °C."
+          where: "Methods, Isometric force measurements"
+    groups:
+      l0:
+        label: "L0"
+        other_conditions:
+          - text: "L0 (slack length)"
+            anchor:
+              quote: "in response to increases in tissue length from L0 (slack length) to Lmax (length of maximal FOC)"
+              where: "Fig. 4 legend"
+      lmax:
+        label: "Lmax"
+        other_conditions:
+          - text: "Lmax (length of maximal FOC)"
+            anchor:
+              quote: "in response to increases in tissue length from L0 (slack length) to Lmax (length of maximal FOC)"
+              where: "Fig. 4 legend"
+
+  F4C:
+    where: "Fig. 4C"
+    title: "Effects of increasing extracellular Ca2+ concentration on FOC of ECM-EHTs (normalized per cross sectional area, CSA)"
+    context:
+      <<: *force
+      day_of_measurement: "30 d"
+      treatment: "none"
+      time_point: "not stated"
+      measurement_calcium_mM: "0.2-4 mM"
+    groups:
+      eht30:
+        label: "ECM-EHT"
+
+  F4DEF:
+    where: "Fig. 4D-F"
+    title: "Changes in FOC, contraction (T1-90) and relaxation (T2-50) times of ECM-EHTs after application of 1 µM isoproterenol followed by addition of 10 µM carbamylcholin"
+    context:
+      <<: *force
+      day_of_measurement: "30 d"
+      measurement_calcium_mM: "half-maximal calcium concentration (EC50)"
+    groups:
+      base:
+        label: "0.2 mM calcium"
+        context:
+          treatment: "none"
+          time_point: "baseline"
+      iso:
+        label: "Iso"
+        context:
+          treatment:
+            value: "isoproterenol"
+            qualifiers:
+              dose: "1 µM"
+          time_point: "not stated"
+      carb:
+        label: "Carb"
+        context:
+          treatment:
+            value: "isoproterenol + carbamylcholine"
+            qualifiers:
+              dose_isoproterenol: "1 µM"
+              dose_carbamylcholine: "10 µM"
+          time_point: "not stated"
+
+  S4:
+    where: "Fig. S4C"
+    title: "Comparison of FOC measurements from 7d and 30d ECM-EHTs as function of extracellular Ca2+ concentration"
+    anchor:
+      quote: "Comparison of FOC measurements from 7d and 30d ECM-EHTs as function of extracellular Ca2+ concentration."
+      where: "Supplementary Figure 4 legend"
+      file: mmc1.pdf
+    context:
+      <<: *force
+      treatment: "none"
+      time_point: "not stated"
+      measurement_calcium_mM: "0.2-4 mM"
+    groups:
+      d7:
+        label: "Day 7"
+        context:
+          day_of_measurement: "7 d"
+      d30:
+        label: "Day 28"
+        context:
+          day_of_measurement: "30 d"
+
+  TXT1:
+    where: "Results, Contractile function of the ECM-EHTs"
+    title: "Spontaneous beating rate of the 30 d ECM-EHTs after recovery, and their mean cross sectional area"
+    context:
+      <<: *force
+      day_of_measurement: "30 d"
+      treatment: "none"
+      time_point: "not stated"
+      measurement_calcium_mM: "not stated"
+    groups:
+      eht30:
+        label: "ECM-EHT"
+
+  F5F:
+    where: "Fig. 5F"
+    title: "Quantification of the percentage of cells displaying abnormal [Ca2+]i transients in isolated CPVT-hiPSC-CMs, in hiPSC-CMs within the CPVT-EHTs, and in hiPSC-CMs within healthy-control EHTs"
+    context:
+      day_of_measurement: "not stated"
+      transgene: "not stated"
+      temperature: "not stated"
+      measurement_calcium_mM: "1.8 mM"
+      measurement_medium: "Tyrode's solution"
+      time_point: "not stated"
+    groups:
+      cpvt_eht:
+        label: "CPVT2 EHT"
+        context:
+          cell_line: "CPVT2-hiPSC-CMs"
+          genotype: &cpvtgeno
+            by_reference:
+              citation: c14
+              anchor:
+                quote: "hiPSC-CMs derived from a patient, diagnosed with catecholaminergic polymorphic ventricular tachycardia type 2 (CPVT2)"
+                where: "Results, Modeling of inherited arrhythmogenic disorders"
+          disease_model: "catecholaminergic polymorphic ventricular tachycardia type 2"
+          donor_age: "not stated"
+          platform: "ECM-EHT"
+          substrate: *ecmgel
+          cm_medium: "Iscove-Medium"
+          supplements: *ehtsup
+          mechanical_load: *stretch
+          cm_day_at_formation: "14-20 d"
+          preparation: "not stated"
+          pacing: "rapid pacing (2 Hz)"
+          treatment: &iso10
+            value: "isoproterenol"
+            qualifiers:
+              dose: "10 µM"
+      ctrl_eht:
+        label: "Control EHT"
+        context:
+          cell_line: "healthy-control hiPSC line"
+          genotype: "healthy control line"
+          disease_model: "none"
+          donor_age: "young"
+          platform: "ECM-EHT"
+          substrate: *ecmgel
+          cm_medium: "Iscove-Medium"
+          supplements: *ehtsup
+          mechanical_load: *stretch
+          cm_day_at_formation: "14-20 d"
+          preparation: "not stated"
+          pacing: "rapid pacing (2 Hz)"
+          treatment: *iso10
+      cpvt_cells:
+        label: "CPVT2 single cells"
+        context:
+          cell_line: "CPVT2-hiPSC-CMs"
+          genotype: *cpvtgeno
+          disease_model: "catecholaminergic polymorphic ventricular tachycardia type 2"
+          donor_age: "not stated"
+          platform: "2D-cultured single-cell"
+          substrate: "not stated"
+          cm_medium: "not stated"
+          supplements: "not stated"
+          mechanical_load: "not applicable"
+          cm_day_at_formation: "not applicable"
+          preparation: "dispersed single-cells"
+          pacing: "none"
+          treatment: *iso10
+
+  F7A:
+    where: "Fig. 7A"
+    title: "CV restitution curve depicting the typical slowing of conduction in response to increasing stimulation frequency"
+    context:
+      <<: &optmap
+        platform: "ECM-EHT"
+        substrate: *ecmgel
+        cm_medium: "Iscove-Medium"
+        supplements: *ehtsup
+        mechanical_load: *stretch
+        cm_day_at_formation: "14-20 d"
+        day_of_measurement: "not stated"
+        preparation: "not stated"
+        transgene: "not stated"
+        temperature: "not stated"
+        time_point: "not stated"
+        measurement_calcium_mM: "not stated"
+        measurement_medium: "medium containing Blebbistatin"
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      treatment: "none"
+    groups:
+      f05:
+        label: "0.5 Hz"
+        context:
+          pacing: {value: "point stimulation", qualifiers: {frequency: "0.5 Hz"}}
+      f1:
+        label: "1 Hz"
+        context:
+          pacing: {value: "point stimulation", qualifiers: {frequency: "1 Hz"}}
+      f15:
+        label: "1.5 Hz"
+        context:
+          pacing: {value: "point stimulation", qualifiers: {frequency: "1.5 Hz"}}
+      f2:
+        label: "2 Hz"
+        context:
+          pacing: {value: "point stimulation", qualifiers: {frequency: "2 Hz"}}
+      f25:
+        label: "2.5 Hz"
+        context:
+          pacing: {value: "point stimulation", qualifiers: {frequency: "2.5 Hz"}}
+      f3:
+        label: "3 Hz"
+        context:
+          pacing: {value: "point stimulation", qualifiers: {frequency: "3 Hz"}}
+
+  F7B:
+    where: "Fig. 7B"
+    title: "Summary of the resulting changes in mean CV values at baseline and following administration of 100 µM lidocaine"
+    context:
+      <<: *optmap
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      pacing: "point stimulation at 1 Hz"
+    groups:
+      base:
+        label: "Baseline"
+        context:
+          treatment: "none"
+      lido:
+        label: "100µM Lidocaine"
+        context:
+          treatment:
+            value: "lidocaine"
+            qualifiers:
+              dose: "100 µM"
+
+  F7C:
+    where: "Fig. 7C"
+    title: "Summary of the resulting changes in mean CV values at baseline and following administration of 50 µM of carbenoxolone"
+    context:
+      <<: *optmap
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      pacing: "point stimulation at 1 Hz"
+    groups:
+      base:
+        label: "Baseline"
+        context:
+          treatment: "none"
+      carbenox:
+        label: "50µM Carbenoxolone"
+        context:
+          treatment:
+            value: "carbenoxolone"
+            qualifiers:
+              dose: "50 µM"
+
+  F7D:
+    where: "Fig. 7D"
+    title: "Dose-response curves showing the effects of escalating doses of quinidine on APD and CV"
+    context:
+      <<: *optmap
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      pacing: "point stimulation at 1 Hz"
+    groups:
+      base:
+        label: "Baseline"
+        context:
+          treatment: "none"
+      q01:
+        label: "0.1 µM quinidine"
+        context:
+          treatment: {value: "quinidine", qualifiers: {dose: "0.1 µM"}}
+      q03:
+        label: "0.3 µM quinidine"
+        context:
+          treatment: {value: "quinidine", qualifiers: {dose: "0.3 µM"}}
+      q1:
+        label: "1 µM quinidine"
+        context:
+          treatment: {value: "quinidine", qualifiers: {dose: "1 µM"}}
+      q3:
+        label: "3 µM quinidine"
+        context:
+          treatment: {value: "quinidine", qualifiers: {dose: "3 µM"}}
+      q10:
+        label: "10µM quinidine"
+        context:
+          treatment: {value: "quinidine", qualifiers: {dose: "10 µM"}}
+      q30:
+        label: "30 µM quinidine"
+        context:
+          treatment: {value: "quinidine", qualifiers: {dose: "30 µM"}}
+
+  F7F:
+    where: "Fig. 7F"
+    title: "Quantification of the percentage of healthy-control and LQTS2 ECM-EHT that developed arrhythmias at baseline and after addition of dofetilide"
+    context:
+      <<: *optmap
+      pacing: "not stated"
+    groups:
+      ctrl_base:
+        label: "Healthy Baseline"
+        context:
+          cell_line: "healthy-control hiPSC line"
+          genotype: "healthy control line"
+          disease_model: "none"
+          donor_age: "young"
+          treatment: "none"
+      ctrl_dof:
+        label: "Healthy Dofetilide"
+        context:
+          cell_line: "healthy-control hiPSC line"
+          genotype: "healthy control line"
+          disease_model: "none"
+          donor_age: "young"
+          treatment: &dof
+            value: "dofetilide"
+            qualifiers:
+              dose: "25 nM"
+      lqt_base:
+        label: "LQT2 Baseline"
+        context:
+          cell_line: "LQTS2-hiPSC-CMs"
+          genotype: *lqtsgeno
+          disease_model: "long QT syndrome type 2"
+          donor_age: "young"
+          treatment: "none"
+      lqt_dof:
+        label: "LQT2 Dofetilide"
+        context:
+          cell_line: "LQTS2-hiPSC-CMs"
+          genotype: *lqtsgeno
+          disease_model: "long QT syndrome type 2"
+          donor_age: "young"
+          treatment: *dof
+
+  TXT2:
+    where: "Results, Optical mapping of EHTs for assessment of conduction and reentrant arrhythmias"
+    title: "Spontaneous activation rate and average conduction velocity of the ECM-EHTs"
+    context:
+      <<: *optmap
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      treatment: "none"
+      pacing: "none"
+    groups:
+      eht:
+        label: "ECM-EHT"
+
+  TXT3:
+    where: "Results, Optical mapping of EHTs for assessment of conduction and reentrant arrhythmias"
+    title: "Arrhythmias triggered at high pacing frequency, their rotation frequency, and their termination by field stimulation"
+    context:
+      <<: *optmap
+      cell_line: "healthy-control hiPSC line"
+      genotype: "healthy control line"
+      disease_model: "none"
+      donor_age: "young"
+      treatment: "none"
+      pacing: "rapid stimulation"
+    groups:
+      eht:
+        label: "ECM-EHT"
+evidence:
+
+  F1E_MYL2_time:
+    unit: F1E
+    measure: "MYL2 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "MYL2 expression was upregulated in ECM-EHTs between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "p < 0.01"
+    anchor:
+      quote: "upregulation in the expression of genes associated with the contractile apparatus such as TNNT2 (encoding cTnT), MYL2 (MLC-2v, p < 0.01)"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_MYH7_time:
+    unit: F1E
+    measure: "MYH7 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "MYH7 expression was upregulated in ECM-EHTs between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "p < 0.05"
+    anchor:
+      quote: "MYH7 (encoding the b-MHC isoform, p < 0.05)"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_MYL2_MYL7_time:
+    unit: F1E
+    measure: "MYL2/MYL7 expression ratio"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "the MYL2/MYL7 expression ratio increased in ECM-EHTs between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "p < 0.05"
+    anchor:
+      quote: "respectively, p < 0.05), both considered signs of maturation"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_CASQ2_time:
+    unit: F1E
+    measure: "CASQ2 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "CASQ2 expression was significantly upregulated in ECM-EHTs between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "p < 0.05"
+    anchor:
+      quote: "gene expression of CASQ2, encoding for the major sarcoplasmatic-reticulum Ca2+ buffering protein calsequestrin, was also significantly upregulated (p < 0.05)"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_NKX25_time:
+    unit: F1E
+    measure: "NKX2.5 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "NKX2.5, a marker of immature cardiomyocytes, was downregulated between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "p < 0.05"
+    anchor:
+      quote: "the downregulation of gene markers of immature cardiomyocytes such as NKX2.5 (p < 0.05)."
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_TNNT2_time:
+    unit: F1E
+    measure: "TNNT2 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "TNNT2 expression showed statistical significance or a trend for upregulation between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "revealed statistically significance or a trend for upregulation in the expression of genes associated with the contractile apparatus such as TNNT2 (encoding cTnT)"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "revealed statistically significance or a trend for upregulation in the expression of genes associated with the contractile apparatus such as TNNT2 (encoding cTnT)"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_MYH6_time:
+    unit: F1E
+    measure: "MYH6 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "MYH6 expression showed statistical significance or a trend for upregulation between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "MYH7 (encoding the b-MHC isoform, p < 0.05) and MYH6 (a-MHC isoform)"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "MYH7 (encoding the b-MHC isoform, p < 0.05) and MYH6 (a-MHC isoform)"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_MYH7_MYH6_time:
+    unit: F1E
+    measure: "MYH7/MYH6 expression ratio"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "the MYH7/MYH6 expression ratio increased between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "This was associated with an increase in the ratio of expression of MYH7/MYH6"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "This was associated with an increase in the ratio of expression of MYH7/MYH6"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_CACNA1C_time:
+    unit: F1E
+    measure: "CACNA1C relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "a trend for upregulation of CACNA1C was noted between day 7 and day 30"
+    compares: [eht30, eht7]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "with a similar trend noted in the expression of CACNA1C (encoding for alpha-1 subunit of a voltage-dependent calcium channel)"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "with a similar trend noted in the expression of CACNA1C (encoding for alpha-1 subunit of a voltage-dependent calcium channel)"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_MYL2_platform:
+    unit: F1E
+    measure: "MYL2 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "MYL2 expression was markedly elevated in the ECM-EHTs compared to 2D cultured cells of similar age"
+    compares: [eht30, cells30]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    note: "the text says 'of similar age'; the day-30 pair was taken as the comparison"
+
+  F1E_TNNT2_platform:
+    unit: F1E
+    measure: "TNNT2 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "TNNT2 expression was markedly elevated in the ECM-EHTs compared to 2D cultured cells of similar age"
+    compares: [eht30, cells30]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_CASQ2_platform:
+    unit: F1E
+    measure: "CASQ2 relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "CASQ2 expression was markedly elevated in the ECM-EHTs compared to 2D cultured cells of similar age"
+    compares: [eht30, cells30]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  F1E_CACNA1C_platform:
+    unit: F1E
+    measure: "CACNA1C relative gene expression"
+    method: "real-time qPCR, expression levels normalized to the housekeeping gene GAPDH"
+    software: "not stated"
+    finding: "CACNA1C expression was markedly elevated in the ECM-EHTs compared to 2D cultured cells of similar age"
+    compares: [eht30, cells30]
+    n: {printed: "n = 6-7", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+        where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    anchor:
+      quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+
+  S1A_purity:
+    unit: S1A
+    measure: "percentage of cardiac troponin T (cTnT) positive cells"
+    method: "intracellular staining for cTnT and flow cytometry"
+    software: "FlowJo software"
+    finding: "87.2% of the dissociated cells were cTnT positive in the shown experiment"
+    groups: [cm]
+    values:
+      cTnT_pos:
+        printed: "87.2"
+        unit: "%"
+        kind: percent
+        group: cm
+        spread: none
+    anchor:
+      quote: "cTnT+ 87.2"
+      where: "Fig. S1A, flow cytometry histogram"
+      file: mmc1.pdf
+      kind: unit
+    suspected_error:
+      what: "the stated cardiomyocyte purity differs between places: '>85%' (Methods), 'at least 80% cTnT+ cells' (Results) and 87.2% in this panel"
+      why: "three different purity statements for the same routine assay"
+
+  F2C_rate:
+    unit: F2C
+    measure: "contraction rate"
+    method: "line-scan mode confocal imaging of GCaMP5G fluorescence in single cells within the EHT, analysed with Clampfit10"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "isoproterenol significantly increased the frequency of the optically-derived [Ca2+]i transients"
+    compares: [iso, base]
+    n: {printed: "n = 48", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "P < 0.001"
+      p_values:
+        - p: "*p < 0.01"
+          anchor:
+            quote: "carbamylcholine (n = 31; D) in the contraction rates (middle-panels) and in the signal decay time (right-panels). *p < 0.01."
+            where: "Fig. 2 legend"
+    anchor:
+      quote: "a significant increase in the frequency of the optically-derived [Ca2+]i transients, in both the line-scan confocal single-cell resolution experiments (Fig. 2C, n = 48, P < 0.001)"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F2C_decay:
+    unit: F2C
+    measure: "optical signal decay time"
+    method: "line-scan mode confocal imaging of GCaMP5G fluorescence in single cells within the EHT, analysed with Clampfit10"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the time interval from the timing of the calcium transient peak to the point where calcium level is reduced to 20% of peak amplitude"
+    finding: "isoproterenol significantly shortened the optical signal decay time"
+    compares: [iso, base]
+    n: {printed: "n = 37", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "P < 0.001"
+      p_values:
+        - p: "*p < 0.01"
+          anchor:
+            quote: "carbamylcholine (n = 31; D) in the contraction rates (middle-panels) and in the signal decay time (right-panels). *p < 0.01."
+            where: "Fig. 2 legend"
+    anchor:
+      quote: "Isoproterenol application also caused significant shortening of the optical signal decay time, indicating more rapid relaxation (Fig. 2C right-panel, n = 37, P < 0.001"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F2D_rate:
+    unit: F2D
+    measure: "contraction rate"
+    method: "line-scan mode confocal imaging of GCaMP5G fluorescence in single cells within the EHT, analysed with Clampfit10"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "carbamylcholine significantly decreased the [Ca2+]i transients frequency"
+    compares: [carb, base]
+    n: {printed: "n = 31", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "P < 0.001"
+      p_values:
+        - p: "*p < 0.01"
+          anchor:
+            quote: "carbamylcholine (n = 31; D) in the contraction rates (middle-panels) and in the signal decay time (right-panels). *p < 0.01."
+            where: "Fig. 2 legend"
+    anchor:
+      quote: "a significant decrease in the [Ca2+]i transients frequency (Figs. 2D and S2C, n = 31, P < 0.001)"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F2D_decay:
+    unit: F2D
+    measure: "optical signal decay time"
+    method: "line-scan mode confocal imaging of GCaMP5G fluorescence in single cells within the EHT, analysed with Clampfit10"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the time interval from the timing of the calcium transient peak to the point where calcium level is reduced to 20% of peak amplitude"
+    finding: "carbamylcholine did not have a significant effect on the signal decay time"
+    compares: [carb, base]
+    n: {printed: "n = 31", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "but did not have a significant effect on the signal decay time (Figs. 2D and S2D)."
+        where: "Results, Electrophysiological and calcium-handling assessment"
+    anchor:
+      quote: "but did not have a significant effect on the signal decay time (Figs. 2D and S2D)."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F2E_irregularity:
+    unit: F2E
+    measure: "irregularity of the [Ca2+]i transient profile"
+    method: "line-scan mode confocal imaging of GCaMP5G fluorescence in single cells within the EHT"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "E4031 resulted in the development of significant irregularities in the [Ca2+]i transient profile"
+    compares: [e500, base]
+    stats:
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "resulted in the development of significant irregularities in the [Ca2+]i transient profile (Fig. 2E)"
+        where: "Results, Electrophysiological and calcium-handling assessment"
+    anchor:
+      quote: "Application of the IKr current blocker E4031 (500 nM), known to prolong AP duration (APD)"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F2F_irregularity:
+    unit: F2FG
+    measure: "irregularity of the [Ca2+]i transients at the single-cell resolution"
+    method: "line-scan confocal imaging of GCaMP5G fluorescence in single cells within the EHT"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "ouabain led to double- and triple-humped [Ca2+]i transients in the line-scan recordings"
+    compares: [oua, base]
+    stats:
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "the development of double- and triple-humped [Ca2+]i transients in the line-scan recordings from the hiPSC-CMs at the single-cell resolution within the ECM-EHTs (Fig. 2F)"
+        where: "Results, Electrophysiological and calcium-handling assessment"
+    anchor:
+      quote: "Application of 1 µM of ouabain led to significant [Ca2+]i transients' irregularity and arrhythmogenic activity."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F2G_arrhythmia:
+    unit: F2FG
+    measure: "spatially abnormal diastolic calcium release and triggered-activity events"
+    method: "lower-resolution time-lapse imaging of the entire GCaMP5-expressing EHT"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "abnormal diastolic calcium release and triggered-activity events appeared in the whole tissue after ouabain"
+    compares: [oua, base]
+    stats:
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "the presence of spatially abnormal diastolic calcium release and TA events identified at lower-resolution imaging experiments (Fig. 2G and Movie S2)."
+        where: "Results, Electrophysiological and calcium-handling assessment"
+    anchor:
+      quote: "the presence of spatially abnormal diastolic calcium release and TA events identified at lower-resolution imaging experiments (Fig. 2G and Movie S2)."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+
+  F3C_apd_100:
+    unit: F3C
+    measure: "APD90"
+    method: "high-resolution line-scan imaging of ArcLight optical APs in hiPSC-CMs within the EHTs"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "100 nM E4031 prolonged the optical APD90 of hiPSC-CMs within the ECM-EHTs"
+    compares: [e100, base]
+    n: {printed: "n = 35", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "*p < 0.05"
+    anchor:
+      quote: "*"
+      where: "Fig. 3C, bracket from Baseline to 100 nM E4031"
+      kind: unit
+
+  F3C_apd_500:
+    unit: F3C
+    measure: "APD90"
+    method: "high-resolution line-scan imaging of ArcLight optical APs in hiPSC-CMs within the EHTs"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "500 nM E4031 prolonged the optical APD90 of hiPSC-CMs within the ECM-EHTs"
+    compares: [e500, base]
+    n: {printed: "n = 35", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "**p < 0.01"
+    anchor:
+      quote: "**"
+      where: "Fig. 3C, bracket from Baseline to 500 nM E4031"
+      kind: unit
+
+  F3C_apd_1000:
+    unit: F3C
+    measure: "APD90"
+    method: "high-resolution line-scan imaging of ArcLight optical APs in hiPSC-CMs within the EHTs"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "1 µM E4031 prolonged the optical APD90 of hiPSC-CMs within the ECM-EHTs"
+    compares: [e1000, base]
+    n: {printed: "n = 35", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "***p < 0.001"
+    anchor:
+      quote: "***"
+      where: "Fig. 3C, bracket from Baseline to 1 µM E4031"
+      kind: unit
+
+  F3D_apd_atx:
+    unit: F3D
+    measure: "APD90"
+    method: "high-resolution line-scan imaging of ArcLight optical APs in hiPSC-CMs within the EHTs"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "ATX-II led to significant APD90 prolongation"
+    compares: [atx, base]
+    n: {printed: "n = 20", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "P < 0.001"
+    anchor:
+      quote: "treatment of the ECM-EHTs with ATX-II (30 nM), known to augment INaL, also led to significant APD90 prolongation (Fig. 3D, n = 20, P < 0.001)."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+    suspected_error:
+      what: "the dose of ATX-II is given as 30 nM in the text and as '30 ng' in the Fig. 3 legend"
+      why: "ng is a mass, not a concentration, and the two statements disagree"
+
+  F4B_foc:
+    unit: F4AB
+    measure: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    method: "isometric force measurement in organ baths, as described previously [21]; EHTs pre-stretched from L0 to Lmax"
+    software: "not stated"
+    finding: "FOC/CSA was higher at Lmax than at L0"
+    compares: [lmax, l0]
+    stats:
+      test: "Student's t-test"
+      p: "*p < 0.05"
+    anchor:
+      quote: "FOC (normalized to cross sectional area, CSA) of ECM-EHT at L0 and Lmax, *p < 0.05 by Student's t-test."
+      where: "Fig. 4 legend"
+
+  F4C_max_foc:
+    unit: F4C
+    measure: "maximal specific force of contraction"
+    method: "isometric force measurement in organ baths under cumulatively increasing extracellular calcium concentrations"
+    software: "not stated"
+    finding: "the maximal specific force of contraction of the ECM-EHT was 0.46 ± 0.06 mN/mm2"
+    groups: [eht30]
+    values:
+      foc_mean:
+        printed: "0.46"
+        unit: "mN/mm2"
+        kind: mean
+        group: eht30
+        spread: SEM
+        spread_source: methods
+      foc_spread:
+        printed: "0.06"
+        unit: "mN/mm2"
+        kind: sem
+        group: eht30
+    n: {printed: "n = 6", counts: "biological replicates"}
+    anchor:
+      quote: "the maximal specific force of contraction (FOC) of ECM-EHT amounted to 0.46 ± 0.06 mN/mm2 (n = 6)"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  F4C_inotropy:
+    unit: F4C
+    measure: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    method: "isometric force measurement in organ baths under cumulatively increasing extracellular calcium concentrations"
+    software: "not stated"
+    finding: "the ECM-EHT showed a positive inotropic response to increasing extracellular calcium"
+    groups: [eht30]
+    stats:
+      p: "not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "ECM-EHT displayed the Frank-Starling mechanism and a positive inotropic response to increasing extracellular Ca2+ concentrations"
+        where: "Results, Contractile function of the ECM-EHTs"
+    anchor:
+      quote: "Effects of increasing extracellular Ca2+ concentration on FOC of ECM-EHTs (normalized per cross sectional area, CSA)."
+      where: "Fig. 4 legend"
+
+  TXT1_csa:
+    unit: TXT1
+    measure: "cross sectional area"
+    method: "not stated"
+    software: "not stated"
+    finding: "the mean cross sectional area of the ECM-EHTs was 1.3 ± 0.1 mm2"
+    groups: [eht30]
+    values:
+      csa_mean:
+        printed: "1.3"
+        unit: "mm2"
+        kind: mean
+        group: eht30
+        spread: SEM
+        spread_source: methods
+      csa_spread:
+        printed: "0.1"
+        unit: "mm2"
+        kind: sem
+        group: eht30
+    anchor:
+      quote: "Considering a mean cross sectional area of 1.3 ± 0.1 mm2"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  TXT1_rate:
+    unit: TXT1
+    measure: "spontaneous beating rate"
+    method: "recorded in the organ bath after recovery at 37 °C"
+    software: "not stated"
+    finding: "the spontaneous beating rate remained stable at 38 ± 8 beats per minute after recovery"
+    groups: [eht30]
+    values:
+      rate_mean:
+        printed: "38"
+        unit: "beats per minute"
+        kind: mean
+        group: eht30
+        spread: SEM
+        spread_source: methods
+      rate_spread:
+        printed: "8"
+        unit: "beats per minute"
+        kind: sem
+        group: eht30
+    n: {printed: "n = 6", counts: "biological replicates"}
+    anchor:
+      quote: "The spontaneous beating rate remained stable at 38 ± 8 beats (n = 6) per minute after recovery at 37 °C."
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  F4D_foc_iso:
+    unit: F4DEF
+    measure: "force of contraction"
+    method: "isometric force measurement in organ baths; percent change from pre-treatment"
+    software: "not stated"
+    finding: "isoproterenol increased FOC of the tissue by 42%"
+    groups: [iso]
+    values:
+      foc_change:
+        printed: "42"
+        unit: "%"
+        kind: percent
+        group: iso
+        expressed_as: "% change"
+        spread: not stated
+    n: {printed: "n = 6", counts: "biological replicates"}
+    anchor:
+      quote: "application of 1 µM isoproterenol increased FOC of the tissue by 42%"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  F4D_foc_carb:
+    unit: F4DEF
+    measure: "force of contraction"
+    method: "isometric force measurement in organ baths; percent change from pre-treatment"
+    software: "not stated"
+    finding: "carbamylcholine reduced the isoproterenol-induced increase in FOC by about 10%"
+    groups: [carb]
+    values:
+      foc_change:
+        printed: "~10"
+        unit: "%"
+        kind: percent
+        group: carb
+        expressed_as: "% change"
+        spread: not stated
+    n: {printed: "n = 6", counts: "biological replicates"}
+    anchor:
+      quote: "induced an antagonistic effect by reducing the isoproterenol-induced increase in FOC by 10% (Fig. 4D)"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  F4E_t190_iso:
+    unit: F4DEF
+    measure: "time to 90% contraction (T1-90)"
+    method: "isometric force measurement in organ baths"
+    software: "not stated"
+    finding: "isoproterenol significantly shortened the contraction time"
+    compares: [iso, base]
+    n: {printed: "n = 6", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "*p < 0.05"
+    anchor:
+      quote: "*"
+      where: "Fig. 4E, bracket from 0.2 mM calcium to Iso"
+      kind: unit
+
+  F4E_t190_carb:
+    unit: F4DEF
+    measure: "time to 90% contraction (T1-90)"
+    method: "isometric force measurement in organ baths"
+    software: "not stated"
+    finding: "contraction time after isoproterenol followed by carbamylcholine differed from the pre-treatment value"
+    compares: [carb, base]
+    n: {printed: "n = 6", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "**p < 0.01"
+    anchor:
+      quote: "**"
+      where: "Fig. 4E, bracket from 0.2 mM calcium to Carb"
+      kind: unit
+
+  F4E_t190_carb_vs_iso:
+    unit: F4DEF
+    measure: "time to 90% contraction (T1-90)"
+    method: "isometric force measurement in organ baths"
+    software: "not stated"
+    finding: "carbamylcholine only minimally reversed the isoproterenol-induced shortening of contraction time, and not significantly"
+    compares: [carb, iso]
+    n: {printed: "n = 6", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "the effect of carbamylcholine in reversing isoproterenol-induced shortening of contraction and relaxation times was only minimal and was not statistically significant"
+        where: "Results, Contractile function of the ECM-EHTs"
+    anchor:
+      quote: "the effect of carbamylcholine in reversing isoproterenol-induced shortening of contraction and relaxation times was only minimal and was not statistically significant"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  F4F_t250_iso:
+    unit: F4DEF
+    measure: "time to 50% relaxation (T2-50)"
+    method: "isometric force measurement in organ baths"
+    software: "not stated"
+    finding: "isoproterenol significantly shortened the relaxation time"
+    compares: [iso, base]
+    n: {printed: "n = 6", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "significantly shortened both contraction and relaxation times of the ECM-EHT (Fig. 4D–F)"
+        where: "Results, Contractile function of the ECM-EHTs"
+    anchor:
+      quote: "significantly shortened both contraction and relaxation times of the ECM-EHT (Fig. 4D–F)"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  F4F_t250_carb:
+    unit: F4DEF
+    measure: "time to 50% relaxation (T2-50)"
+    method: "isometric force measurement in organ baths"
+    software: "not stated"
+    finding: "relaxation time after isoproterenol followed by carbamylcholine differed from the pre-treatment value"
+    compares: [carb, base]
+    n: {printed: "n = 6", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "**p < 0.01"
+    anchor:
+      quote: "**"
+      where: "Fig. 4F, bracket from 0.2 mM calcium to Carb"
+      kind: unit
+
+  F4F_t250_carb_vs_iso:
+    unit: F4DEF
+    measure: "time to 50% relaxation (T2-50)"
+    method: "isometric force measurement in organ baths"
+    software: "not stated"
+    finding: "carbamylcholine only minimally reversed the isoproterenol-induced shortening of relaxation time, and not significantly"
+    compares: [carb, iso]
+    n: {printed: "n = 6", counts: "biological replicates"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "not stated"
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "the effect of carbamylcholine in reversing isoproterenol-induced shortening of contraction and relaxation times was only minimal and was not statistically significant"
+        where: "Results, Contractile function of the ECM-EHTs"
+    anchor:
+      quote: "In contrast the effect of carbamylcholine in reversing isoproterenol-induced shortening of contraction and relaxation times was only minimal"
+      where: "Results, Contractile function of the ECM-EHTs"
+
+  S4_foc_day:
+    unit: S4
+    measure: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    method: "isometric force measurement in organ baths under increasing extracellular calcium concentrations"
+    software: "not stated"
+    finding: "early-stage (7 d) EHTs displayed markedly lower FOC than 30 d EHTs"
+    compares: [d7, d30]
+    stats:
+      p: "not stated"
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "early-stage (7 d) EHTs, although retaining the positive inotropic response to increasing extracellular Ca2+, displayed markedly lower FOC (Fig. S4)"
+        where: "Results, Contractile function of the ECM-EHTs"
+    anchor:
+      quote: "Comparison of FOC measurements from 7d and 30d ECM-EHTs as function of extracellular Ca2+ concentration."
+      where: "Supplementary Figure 4 legend"
+      file: mmc1.pdf
+    suspected_error:
+      what: "the key of Fig. S4C labels the older tissues 'Day 28', while the legend and the main text call them 30 d ECM-EHTs"
+      why: "the same group is given two different culture days"
+
+  F5B_apd:
+    unit: F5B
+    measure: "APD90"
+    method: "laser confocal line-scan of ArcLight optical APs in hiPSC-CMs within the EHTs"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "APD values in the LQTS2-ECM-EHTs were significantly longer than in the healthy-control EHTs"
+    compares: [lqts2, ctrl]
+    n: {printed: "n = 25", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "unpaired student t-test (Methods)"
+      p: "p < 0.001"
+      p_values:
+        - p: "*p < 0.001"
+          anchor:
+            quote: "Changes in APD90 in LQTS2-EHTs compare to healthy-control ECM-EHTs (n = 25). *p < 0.001."
+            where: "Fig. 5 legend"
+    anchor:
+      quote: "which were significantly longer than the APD values measured in the healthy-control EHTs (p < 0.001, n = 25)."
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+    suspected_error:
+      what: "the healthy-control bar in Fig. 5B is labelled 'Baseline' although the legend says the comparison is with healthy-control ECM-EHTs"
+      why: "the axis label names a time point where the legend names a different cell line"
+
+  F5F_cpvt_vs_ctrl:
+    unit: F5F
+    measure: "percentage of cells displaying abnormal [Ca2+]i transients"
+    method: "laser-confocal calcium imaging of fluo4-loaded hiPSC-CMs at baseline, after isoproterenol and following rapid pacing"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "19.1% of CPVT-EHTs showed broad double-humped transients against 2.7% of healthy-control EHTs"
+    compares: [cpvt_eht, ctrl_eht]
+    values:
+      cpvt_pct:
+        printed: "19.1"
+        unit: "%"
+        kind: percent
+        group: cpvt_eht
+        spread: none
+      ctrl_pct:
+        printed: "2.7"
+        unit: "%"
+        kind: percent
+        group: ctrl_eht
+        spread: none
+    n: {printed: "n = 50", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "unpaired student t-test (Methods)"
+      p: "P < 0.001"
+    anchor:
+      quote: "only 2.7% of healthy-control EHTs displayed any calcium transient irregularities (Fig. 5C–F, n = 50, P < 0.001)."
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+
+  F5F_cells_vs_cpvt_eht:
+    unit: F5F
+    measure: "percentage of cells displaying abnormal [Ca2+]i transients"
+    method: "laser-confocal calcium imaging of fluo4-loaded hiPSC-CMs at baseline and after isoproterenol"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "the rate of arrhythmic events was significantly higher in dispersed single CPVT2 cells than in the same cells within the EHT"
+    compares: [cpvt_cells, cpvt_eht]
+    n: {printed: "n = 50", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "*p < 0.001"
+    anchor:
+      quote: "the rate of arrhythmic events were significantly higher in CPVT2-hiPSC-CMs studied as dispersed single-cells when compared to the same cells within the generated EHT environment (Fig. 5F)."
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+
+  F5F_cells_vs_ctrl:
+    unit: F5F
+    measure: "percentage of cells displaying abnormal [Ca2+]i transients"
+    method: "laser-confocal calcium imaging of fluo4-loaded hiPSC-CMs at baseline and after isoproterenol"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "dispersed single CPVT2 cells showed more abnormal transients than hiPSC-CMs within healthy-control EHTs"
+    compares: [cpvt_cells, ctrl_eht]
+    n: {printed: "n = 50", counts: "the number of analyzed sites within the EHTs from 5 independent experiments"}
+    stats:
+      test: "repeated-measurements one-way ANOVA, followed by Tukey post-hoc analysis (Methods)"
+      p: "*p < 0.001"
+    anchor:
+      quote: "*"
+      where: "Fig. 5F, bracket from Control EHT to CPVT2 single cells"
+      kind: unit
+
+  F7A_cv_restitution:
+    unit: F7A
+    measure: "conduction velocity (CV)"
+    method: "optical mapping with Di-4-ANBDQBS, activation maps from the maximal first derivative of the fluorescent signal"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "conduction slowed with higher pacing frequencies"
+    compares: [f05, f1, f15, f2, f25, f3]
+    test_of: omnibus
+    n: {printed: "n = 10", counts: "biological replicates"}
+    stats:
+      p: "P < 0.05"
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "the expected conduction slowing (P < 0.05, n = 10) observed with higher pacing frequencies"
+        where: "Results, Optical mapping of EHTs"
+    anchor:
+      quote: "Note in the resulting CV restitution plot (Fig. 7A), the expected conduction slowing (P < 0.05, n = 10) observed with higher pacing frequencies."
+      where: "Results, Optical mapping of EHTs"
+
+  TXT2_activation_rate:
+    unit: TXT2
+    measure: "spontaneous activation rate"
+    method: "optical mapping with Di-4-ANBDQBS during spontaneous activity"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "the ECM-EHTs' spontaneous activation rate was 0.70 ± 0.08 Hz"
+    groups: [eht]
+    values:
+      rate_mean:
+        printed: "0.70"
+        unit: "Hz"
+        kind: mean
+        group: eht
+        spread: SEM
+        spread_source: methods
+      rate_spread:
+        printed: "0.08"
+        unit: "Hz"
+        kind: sem
+        group: eht
+    anchor:
+      quote: "the ECM-EHTs spontaneous activation rate was 0.70 ± 0.08 Hz"
+      where: "Results, Optical mapping of EHTs"
+
+  TXT2_cv:
+    unit: TXT2
+    measure: "conduction velocity (CV)"
+    method: "optical mapping with Di-4-ANBDQBS, activation maps from the maximal first derivative of the fluorescent signal"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "the measured average conduction velocity was 8.0 ± 0.6 cm/s"
+    groups: [eht]
+    values:
+      cv_mean:
+        printed: "8.0"
+        unit: "cm/s"
+        kind: mean
+        group: eht
+        spread: SEM
+        spread_source: methods
+      cv_spread:
+        printed: "0.6"
+        unit: "cm/s"
+        kind: sem
+        group: eht
+    n: {printed: "n = 13", counts: "biological replicates"}
+    anchor:
+      quote: "the measured average CV in these tissues was found to be 8.0 ± 0.6 cm/s (n = 13)."
+      where: "Results, Optical mapping of EHTs"
+
+  TXT3_arrhythmia_rate:
+    unit: TXT3
+    measure: "percentage of ECM-EHTs in which arrhythmias were triggered"
+    method: "rapid stimulation with sequential increase in pacing frequency until development of arrhythmias or loss of capture"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "arrhythmias were triggered in 58% of the ECM-EHTs at high pacing frequency"
+    groups: [eht]
+    values:
+      pct:
+        printed: "58"
+        unit: "%"
+        kind: percent
+        group: eht
+        spread: none
+    n: {printed: "n = 12", counts: "biological replicates"}
+    anchor:
+      quote: "at high pacing frequency, we were also able to trigger arrhythmias in 58% of the ECM-EHTs (n = 12)"
+      where: "Results, Optical mapping of EHTs"
+
+  TXT3_rotation:
+    unit: TXT3
+    measure: "rotation frequency of the reentrant arrhythmias"
+    method: "optical mapping with Di-4-ANBDQBS during induced arrhythmias"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "the induced macro-reentrant arrhythmias had a mean rotation frequency of 1.6 ± 0.2 Hz"
+    groups: [eht]
+    values:
+      rot_mean:
+        printed: "1.6"
+        unit: "Hz"
+        kind: mean
+        group: eht
+        spread: SEM
+        spread_source: methods
+      rot_spread:
+        printed: "0.2"
+        unit: "Hz"
+        kind: sem
+        group: eht
+    anchor:
+      quote: "These arrhythmias were all macro-reentrant in nature with a mean rotation frequency of 1.6 ± 0.2 Hz."
+      where: "Results, Optical mapping of EHTs"
+
+  TXT3_termination:
+    unit: TXT3
+    measure: "percentage of arrhythmic ECM-EHTs terminated by field stimulation"
+    method: "application of field stimulation (electrical shock) during the arrhythmia"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "arrhythmias were terminated in 85% of the EHTs that developed them"
+    groups: [eht]
+    values:
+      pct:
+        printed: "85"
+        unit: "%"
+        kind: percent
+        group: eht
+        spread: none
+    n: {printed: "n = 7", counts: "biological replicates"}
+    anchor:
+      quote: "In 85% of the ECM-EHTs developing reentrant arrhythmias, we were able to terminate the arrhythmias and resume normal"
+      where: "Results, Optical mapping of EHTs"
+
+  F7B_cv_lidocaine:
+    unit: F7B
+    measure: "conduction velocity (CV)"
+    method: "optical mapping with Di-4-ANBDQBS at a fixed point-stimulation pacing frequency of 1 Hz"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "lidocaine slowed conduction, with an average decrease in mean CV by 38%"
+    compares: [lido, base]
+    values:
+      cv_change:
+        printed: "38"
+        unit: "%"
+        kind: percent
+        between: [lido, base]
+        expressed_as: "% change"
+        spread: none
+    n: {printed: "n = 5", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "P < 0.05"
+    anchor:
+      quote: "This slowing of conduction was manifested in all ECM-EHTs with an average decrease in the mean CV by 38% (P < 0.05, n = 5, Fig. 7B)."
+      where: "Results, Optical mapping of EHTs"
+
+  F7C_cv_carbenoxolone:
+    unit: F7C
+    measure: "conduction velocity (CV)"
+    method: "optical mapping with Di-4-ANBDQBS at a fixed point-stimulation pacing frequency of 1 Hz"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "carbenoxolone slowed conduction with about 50% reduction in the average CV"
+    compares: [carbenox, base]
+    values:
+      cv_change:
+        printed: "~50"
+        unit: "%"
+        kind: percent
+        between: [carbenox, base]
+        expressed_as: "% change"
+        spread: none
+    n: {printed: "n = 5", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "P < 0.01"
+    anchor:
+      quote: "carbenoxolone also led to significant slowing of conduction with 50% reduction in the average CV values when compared to the baseline values (Fig. 7C, n = 5, P < 0.01)"
+      where: "Results, Optical mapping of EHTs"
+
+  F7D_apd_quinidine:
+    unit: F7D
+    measure: "APD90"
+    method: "optical mapping with Di-4-ANBDQBS at a fixed point-stimulation pacing frequency of 1 Hz; dose-response to escalating quinidine doses"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "escalating doses of quinidine significantly prolonged APD90 values in the EHTs"
+    compares: [base, q01, q03, q1, q3, q10, q30]
+    test_of: omnibus
+    n: {printed: "n = 4", counts: "biological replicates"}
+    stats:
+      p: "significant, threshold not stated"
+    stated_direction:
+      direction: up
+      anchor:
+        quote: "escalating doses of quinidine significantly prolonged APD90 values in the EHTs while simultaneously slowing conduction"
+        where: "Results, Optical mapping of EHTs"
+    anchor:
+      quote: "escalating doses of quinidine significantly prolonged APD90 values in the EHTs while simultaneously slowing conduction"
+      where: "Results, Optical mapping of EHTs"
+    note: "the panel prints marks of significance per dose, both against baseline (black) and against 0.1 µM (red); which mark belongs to which dose could not be read from the page"
+
+  F7D_cv_quinidine:
+    unit: F7D
+    measure: "conduction velocity (CV)"
+    method: "optical mapping with Di-4-ANBDQBS at a fixed point-stimulation pacing frequency of 1 Hz; dose-response to escalating quinidine doses"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "escalating doses of quinidine slowed conduction"
+    compares: [base, q01, q03, q1, q3, q10, q30]
+    test_of: omnibus
+    n: {printed: "n = 4", counts: "biological replicates"}
+    stats:
+      p: "significant, threshold not stated"
+    stated_direction:
+      direction: down
+      anchor:
+        quote: "escalating doses of quinidine significantly prolonged APD90 values in the EHTs while simultaneously slowing conduction"
+        where: "Results, Optical mapping of EHTs"
+    anchor:
+      quote: "Dose-response curves (lower-panels) showing the effects of escalating doses of quinidine"
+      where: "Fig. 7 legend"
+
+  F7F_lqts_dofetilide:
+    unit: F7F
+    measure: "percentage of ECM-EHTs that developed arrhythmias"
+    method: "optical mapping with Di-4-ANBDQBS, with and without dofetilide"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "75% of LQTS2-EHTs developed reentrant arrhythmic activity after dofetilide, against 12.5% of control EHTs"
+    compares: [lqt_dof, ctrl_dof]
+    values:
+      lqts_pct:
+        printed: "75"
+        unit: "%"
+        kind: percent
+        group: lqt_dof
+        spread: none
+      ctrl_pct:
+        printed: "12.5"
+        unit: "%"
+        kind: percent
+        group: ctrl_dof
+        spread: none
+    n: {printed: "n = 8", counts: "biological replicates", per_group: {lqt_dof: "8", ctrl_dof: "8"}}
+    stats:
+      p: "*p < 0.05"
+    anchor:
+      quote: "In contrast only 12.5% (n = 8) of control ECM-EHTs tested developed arrhythmic activity following dofetilide application (Fig. 7F)."
+      where: "Results, Optical mapping of EHTs"
+
+  F7F_lqts_dof_vs_base:
+    unit: F7F
+    measure: "percentage of ECM-EHTs that developed arrhythmias"
+    method: "optical mapping with Di-4-ANBDQBS, with and without dofetilide"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "LQTS2-EHTs developed arrhythmias after dofetilide but not at baseline"
+    compares: [lqt_dof, lqt_base]
+    n: {printed: "n = 8", counts: "biological replicates"}
+    stats:
+      p: "**p < 0.01"
+    anchor:
+      quote: "**"
+      where: "Fig. 7F, bracket from LQT2 Baseline to LQT2 Dofetilide"
+      kind: unit
+
+  F7F_baseline:
+    unit: F7F
+    measure: "percentage of ECM-EHTs that developed arrhythmias"
+    method: "optical mapping with Di-4-ANBDQBS at baseline"
+    software: "custom-designed software kindly provided by Prof. Bum-Rak Choi (Brown University)"
+    finding: "at baseline the LQTS2-EHTs did not display arrhythmogenic activity, like the control EHTs"
+    compares: [lqt_base, ctrl_base]
+    stats:
+      p: "not stated"
+    stated_direction:
+      direction: none
+      anchor:
+        quote: "at baseline the LQTS2-EHTs did not display arrhythmogenic activity, in a similar manner to control ECM-EHT (Fig. 7E left-panel and F)"
+        where: "Results, Optical mapping of EHTs"
+    anchor:
+      quote: "at baseline the LQTS2-EHTs did not display arrhythmogenic activity, in a similar manner to control ECM-EHT (Fig. 7E left-panel and F)"
+      where: "Results, Optical mapping of EHTs"
+
+  S2A_rate:
+    unit: S2AB
+    measure: "beating rate"
+    method: "whole-EHT GCaMP5 imaging, averaging the optical signal from the entire tissue"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "isoproterenol increased the beating rate measured at the whole EHT level"
+    compares: [iso, base]
+    n: {printed: "n=4", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "*p<0.05"
+    anchor:
+      quote: "Changes in signal frequency (beating rate, n=4, A) and in the intracellular [Ca2+]i transient decay time (n=4, B) following application of 1µM isoproterenol."
+      where: "Supplementary Figure 2 legend"
+      file: mmc1.pdf
+
+  S2B_decay:
+    unit: S2AB
+    measure: "intracellular [Ca2+]i transient decay time"
+    method: "whole-EHT GCaMP5 imaging, averaging the optical signal from the entire tissue"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the time interval from the timing of the calcium transient peak to the point where calcium level is reduced to 20% of peak amplitude"
+    finding: "isoproterenol shortened the [Ca2+]i transient decay time measured at the whole EHT level"
+    compares: [iso, base]
+    n: {printed: "n=4", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "significant, threshold not stated"
+    anchor:
+      quote: "***"
+      where: "Fig. S2B, bracket from Baseline to 1 µM Isoproterenol"
+      file: mmc1.pdf
+      kind: unit
+    suspected_error:
+      what: "the panel carries three asterisks while the Supplementary Figure 2 legend defines only *p<0.05 and **p<0.001"
+      why: "a mark with no stated threshold"
+
+  S2C_rate:
+    unit: S2CD
+    measure: "beating rate"
+    method: "whole-EHT GCaMP5 imaging, averaging the optical signal from the entire tissue"
+    software: "Clampfit10 program (Molecular Devices)"
+    finding: "carbamylcholine decreased the beating rate measured at the whole EHT level"
+    compares: [carb, base]
+    n: {printed: "n=4", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "*p<0.05"
+    anchor:
+      quote: "Changes in signal frequency (beating rate, n=4, C) and in the intracellular [Ca2+]i transient decay time (n=4, D) following application of 1µM carbamylcholine."
+      where: "Supplementary Figure 2 legend"
+      file: mmc1.pdf
+
+  S2D_decay:
+    unit: S2CD
+    measure: "intracellular [Ca2+]i transient decay time"
+    method: "whole-EHT GCaMP5 imaging, averaging the optical signal from the entire tissue"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the time interval from the timing of the calcium transient peak to the point where calcium level is reduced to 20% of peak amplitude"
+    finding: "no mark of significance is shown for the decay time after carbamylcholine at the whole EHT level"
+    compares: [carb, base]
+    n: {printed: "n=4", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "not stated"
+    anchor:
+      quote: "Changes in signal frequency (beating rate, n=4, C) and in the intracellular [Ca2+]i transient decay time (n=4, D) following application of 1µM carbamylcholine."
+      where: "Supplementary Figure 2 legend"
+      file: mmc1.pdf
+
+  S3A_apd_e4031:
+    unit: S3A
+    measure: "APD90"
+    method: "whole-EHT ArcLight imaging"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "E4031 increased the mean APD90 measured at the whole EHT level"
+    compares: [e500, base]
+    n: {printed: "n=4", counts: "biological replicates"}
+    stats:
+      test: "paired student t-test (Methods)"
+      p: "significant, threshold not stated"
+    anchor:
+      quote: "Changes in mean APD90 values following addition of 500nM E4031 (n=4)."
+      where: "Supplementary Figure 3 legend"
+      file: mmc1.pdf
+    suspected_error:
+      what: "the Supplementary Figure 3 legend gives '**p<0.001, **p<0.05', using the same mark for two thresholds"
+      why: "the threshold of the panel's two asterisks cannot be told from the legend"
+
+  S3B_apd_lqts:
+    unit: S3B
+    measure: "APD90"
+    method: "whole-EHT ArcLight imaging"
+    software: "Clampfit10 program (Molecular Devices)"
+    definition: "the interval between the timing of 50% maximal upstroke amplitude (timing of phase 0) until the time point of 90% of repolarization"
+    finding: "mean APD90 was longer in LQTS2-ECM-EHTs than in healthy-control ECM-EHTs at the whole EHT level"
+    compares: [lqts2, ctrl]
+    n: {printed: "n=4", counts: "biological replicates"}
+    stats:
+      test: "unpaired student t-test (Methods)"
+      p: "significant, threshold not stated"
+    anchor:
+      quote: "Changes in mean APD90 values in the LQTS2-ECM-EHTs as compared to healthy-control ECM-EHTs (n=4)."
+      where: "Supplementary Figure 3 legend"
+      file: mmc1.pdf
+    suspected_error:
+      what: "the healthy-control bar in Fig. S3B is labelled 'Baseline', and the legend's thresholds are given as '**p<0.001, **p<0.05'"
+      why: "the group label and the threshold of the single asterisk shown cannot be told from the legend"
+
+claims:
+
+  abstract_ultrastructure:
+    kind: stated
+    quote: "Ultrastructural characterization of the ECM-derived engineered heart tissues (ECM-EHTs) revealed an anisotropic muscle structure, with embedded cardiomyocytes showing more mature properties than 2D-cultured hiPSC-CMs."
+    where: "Abstract"
+    scope: "ECM-EHTs against 2D-cultured hiPSC-CMs"
+    direction: "more mature in the ECM-EHTs"
+    asserts_direction: up
+    strength: "revealed"
+    rests_on: [F1E_MYL2_platform, F1E_TNNT2_platform, F1E_CASQ2_platform, F1E_CACNA1C_platform]
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: "the ultrastructural part rests on images with no measurement; the maturity part rests on the gene-expression items"
+
+  abstract_force:
+    kind: stated
+    quote: "Force measurements confirmed typical force-length relationships, sensitivity to extracellular calcium, and adequate ionotropic responses to contractility modulators."
+    where: "Abstract"
+    scope: "30 d ECM-EHTs"
+    direction: "not stated"
+    strength: "confirmed"
+    rests_on: [F4B_foc, F4C_inotropy, F4D_foc_iso, F4D_foc_carb]
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  abstract_chronotropy:
+    kind: stated
+    quote: "This allowed to detect drug-induced changes in contraction rate (isoproterenol, carbamylcholine)"
+    where: "Abstract"
+    scope: "GCaMP5G-expressing ECM-EHTs"
+    direction: "not stated"
+    strength: "allowed to detect"
+    rests_on: [F2C_rate, F2D_rate, S2A_rate, S2C_rate]
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "n for the cellular experiments counts analysed sites within the EHTs, not tissues"
+
+  abstract_disease:
+    kind: stated
+    quote: "Similar assays in ECM-EHTs derived from patient-specific hiPSC-CMs recapitulated the abnormal phenotype of the long QT syndrome and catecholaminergic polymorphic ventricular tachycardia."
+    where: "Abstract"
+    scope: "LQTS2 and CPVT2 patient lines against healthy control"
+    direction: "abnormal phenotype in the patient tissues"
+    asserts_direction: up
+    strength: "recapitulated"
+    rests_on: [F5B_apd, F5F_cpvt_vs_ctrl, S3B_apd_lqts]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "one patient line per disorder, against a non-isogenic healthy-control line"
+
+  abstract_reentry:
+    kind: stated
+    quote: "Finally, programmed electrical stimulation and drug-induced pro-arrhythmia led to the development of reentrant arrhythmias in the ECM-EHTs."
+    where: "Abstract"
+    scope: "ECM-EHTs under rapid pacing or dofetilide"
+    direction: "arrhythmias develop"
+    asserts_direction: up
+    strength: "led to"
+    rests_on: [TXT3_arrhythmia_rate, F7F_lqts_dofetilide, F7F_lqts_dof_vs_base]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  results_culture_time:
+    kind: stated
+    quote: "These results, indicates the importance of culture time in the process of ECM-EHT maturation."
+    where: "Results, Contractile function of the ECM-EHTs"
+    scope: "7 d against 30 d ECM-EHTs"
+    direction: "more force with longer culture"
+    asserts_direction: down
+    strength: "indicates the importance"
+    rests_on: [S4_foc_day]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: "no test, n or values are printed for the 7 d against 30 d force comparison"
+
+  results_genes_vs_2D:
+    kind: stated
+    quote: "the expression levels of the vast majority of these genes (MYL2, TNNT2, CASQ2, and CACNA1C) was markedly elevated in the ECM-EHTs when compared to 2D cultured cells"
+    where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    scope: "ECM-EHTs against 2D cultured hiPSC-CMs of similar age"
+    direction: "higher in the ECM-EHTs"
+    asserts_direction: up
+    strength: "markedly elevated"
+    rests_on: [F1E_MYL2_platform, F1E_TNNT2_platform, F1E_CASQ2_platform, F1E_CACNA1C_platform]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: "no P is printed for the ECM-EHT against 2D comparisons in the text"
+
+  results_lqts_ap:
+    kind: stated
+    quote: "These optical recordings revealed the typical prolonged APs associated with the LQTS in the LQTS2-ECM-EHT"
+    where: "Results, Modeling of inherited arrhythmogenic disorders"
+    scope: "LQTS2-ECM-EHTs against healthy-control ECM-EHTs"
+    direction: "longer APD in the LQTS2 tissues"
+    asserts_direction: up
+    strength: "revealed"
+    rests_on: [F5B_apd, S3B_apd_lqts]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+
+  results_cpvt_single_cells:
+    kind: stated
+    quote: "the rate of arrhythmic events were significantly higher in CPVT2-hiPSC-CMs studied as dispersed single-cells when compared to the same cells within the generated EHT environment"
+    where: "Results, Modeling of inherited arrhythmogenic disorders"
+    scope: "CPVT2 hiPSC-CMs, single cells against the same cells within EHTs"
+    direction: "more arrhythmic events in single cells"
+    asserts_direction: up
+    strength: "significantly higher"
+    rests_on: [F5F_cells_vs_cpvt_eht]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+
+  discussion_antiarrhythmic:
+    kind: stated
+    quote: "This suggests that the multicellular nature of the generated tissues is associated with an anti-arrhythmic property, probably stemming from electrotonic interactions between the connected cardiomyocytes."
+    where: "Discussion"
+    scope: "CPVT2 hiPSC-CMs in tissue against single cells"
+    direction: "fewer arrhythmias in the tissue"
+    asserts_direction: up
+    strength: "suggests, probably"
+    rests_on: [F5F_cells_vs_cpvt_eht, F5F_cells_vs_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: cannot judge
+      strength: follows
+      presence: overstated
+    note: "electrotonic interactions were not measured in this study"
+
+  results_lidocaine:
+    kind: stated
+    quote: "Application of lidocaine significantly slowed conduction, as manifested by an increase in the total tissue activation time"
+    where: "Results, Optical mapping of EHTs"
+    scope: "ECM-EHTs paced at 1 Hz"
+    direction: "slower conduction with lidocaine"
+    asserts_direction: down
+    strength: "significantly slowed"
+    rests_on: [F7B_cv_lidocaine]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  results_carbenoxolone:
+    kind: stated
+    quote: "carbenoxolone also led to significant slowing of conduction with 50% reduction in the average CV values when compared to the baseline values"
+    where: "Results, Optical mapping of EHTs"
+    scope: "ECM-EHTs paced at 1 Hz"
+    direction: "slower conduction with carbenoxolone"
+    asserts_direction: down
+    strength: "significant slowing"
+    rests_on: [F7C_cv_carbenoxolone]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  results_quinidine_apd:
+    kind: stated
+    quote: "escalating doses of quinidine significantly prolonged APD90 values in the EHTs"
+    where: "Results, Optical mapping of EHTs"
+    scope: "ECM-EHTs paced at 1 Hz, quinidine 0.1-30 µM"
+    direction: "longer APD90 with higher doses"
+    asserts_direction: up
+    strength: "significantly prolonged"
+    rests_on: [F7D_apd_quinidine]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: "the marks of significance in the panel carry no readable dose assignment"
+
+  results_quinidine_cv:
+    kind: stated
+    quote: "while simultaneously slowing conduction (Fig. 7D, n = 4, *p < 0.05, **p < 0.01, ***p < 0.001)"
+    where: "Results, Optical mapping of EHTs"
+    scope: "ECM-EHTs paced at 1 Hz, quinidine 0.1-30 µM"
+    direction: "slower conduction with higher doses"
+    asserts_direction: down
+    strength: "slowing"
+    rests_on: [F7D_cv_quinidine]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+
+  results_lqts_baseline:
+    kind: stated
+    quote: "at baseline the LQTS2-EHTs did not display arrhythmogenic activity, in a similar manner to control ECM-EHT"
+    where: "Results, Optical mapping of EHTs"
+    scope: "LQTS2 and control ECM-EHTs at baseline"
+    direction: "no arrhythmias in either"
+    asserts_direction: none
+    strength: "did not display"
+    rests_on: [F7F_baseline]
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+
+  results_dofetilide:
+    kind: stated
+    quote: "The application of dofetilide led to the development of different types of reentrant arrhythmic activity in the vast majority (75%, n = 8) of the LQTS2-EHTs studied"
+    where: "Results, Optical mapping of EHTs"
+    scope: "LQTS2-ECM-EHTs with 25 nM dofetilide"
+    direction: "more arrhythmias after dofetilide"
+    asserts_direction: up
+    strength: "vast majority"
+    rests_on: [F7F_lqts_dof_vs_base, F7F_lqts_dofetilide]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  results_restitution:
+    kind: stated
+    quote: "Note in the resulting CV restitution plot (Fig. 7A), the expected conduction slowing (P < 0.05, n = 10) observed with higher pacing frequencies."
+    where: "Results, Optical mapping of EHTs"
+    scope: "ECM-EHTs paced at 0.5-3 Hz"
+    direction: "slower conduction at higher frequency"
+    asserts_direction: down
+    strength: "expected"
+    rests_on: [F7A_cv_restitution]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+
+  discussion_frank_starling:
+    kind: stated
+    quote: "ECM-EHT displayed the Frank-Starling mechanism and a positive inotropic response to increasing extracellular Ca2+ concentrations"
+    where: "Results, Contractile function of the ECM-EHTs"
+    scope: "30 d ECM-EHTs"
+    direction: "force rises with length and with calcium"
+    asserts_direction: up
+    strength: "displayed"
+    rests_on: [F4B_foc, F4C_inotropy]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: "no n is printed for the L0 against Lmax comparison"
+
+  discussion_phenotypes:
+    kind: stated
+    quote: "Our results show that the clinical phenotypes of the LQTS and CPVT; namely AP prolongation and abnormal calcium-handling respectively, can also be identified in the patient/disease-specific ECM-EHTs."
+    where: "Discussion"
+    scope: "LQTS2 and CPVT2 ECM-EHTs"
+    direction: "disease phenotypes present"
+    asserts_direction: up
+    strength: "show"
+    restates: abstract_disease
+    rests_on: [F5B_apd, F5F_cpvt_vs_ctrl]
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: overstated
+      strength: follows
+      presence: follows
+
+  conclusion_model:
+    kind: stated
+    quote: "we were able to establish a clinically-relevant engineered cardiac-tissue model"
+    where: "Conclusions"
+    scope: "the ECM-EHT model"
+    direction: "not stated"
+    strength: "clinically-relevant"
+    rests_on: [F5B_apd, F5F_cpvt_vs_ctrl, F7F_lqts_dofetilide, F4C_max_foc]
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: cannot judge
+      scope: overstated
+      replication: overstated
+      strength: overstated
+      presence: follows
+
+  fig1_title:
+    kind: stated
+    quote: "Note that cardiomyocytes in the ECM-EHT are characterized by a more organized anisotropic structure and elongated shape."
+    where: "Fig. 1 legend"
+    scope: "ECM-EHTs against 2D cultures"
+    direction: "more organized in the ECM-EHT"
+    strength: "note that"
+    rests_on: []
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: cannot judge
+      scope: cannot judge
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: "rests on immunostaining images only; nothing was measured or tested"
+
+  literature_first:
+    kind: literature
+    quote: "The development of the aforementioned tools then allowed to establish, for the first time, patient/disease-specific hiPSC-based EHT models of familial arrhythmogenic syndromes"
+    where: "Discussion"
+    scope: "the field"
+    direction: "not stated"
+    strength: "for the first time"
+
+  literature_cv_higher:
+    kind: literature
+    quote: "CV values measured in the ECM-EHTs were higher than previously reported in monolayer- or EB-based models [27,29], indicating a higher degree of electrophysiological maturation"
+    where: "Discussion"
+    scope: "this model against monolayer- and EB-based models in the literature"
+    direction: "higher CV here"
+    strength: "indicating"
+    cites: [c27, c29]
+
+  literature_force_lower:
+    kind: literature
+    quote: "the forces recorded in this study from the ECM-EHTs are at least one magnitude lower than the forces generated by the adult human heart muscle [56]"
+    where: "Discussion"
+    scope: "ECM-EHTs against adult human heart muscle"
+    direction: "lower force here"
+    strength: "at least one magnitude"
+    cites: [c56]
+
+citations:
+
+  c6:
+    label: "[6]"
+    text: "L. Zwi-Dantsis et al., Derivation and cardiomyocyte differentiation of induced pluripotent stem cells from heart failure patients, Eur. Heart J. 34 (2013) 1575-1586."
+    year: "2013"
+    purpose: [borrows_method]
+    anchor:
+      quote: "The fibroblasts were reprogrammed to generate the hiPSC by retroviral transduction of SOX2, KLF4 and OCT4 as previously described [6]."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+
+  c9:
+    label: "[9]"
+    text: "I. Itzhaki et al., Modelling the long QT syndrome with induced pluripotent stem cells, Nature 471 (2011) 225-229."
+    year: "2011"
+    purpose: [borrows_data, borrows_method]
+    anchor:
+      quote: "a hiPSC line generated from a young patient with the long QT syndrome type 2 (LQTS2) [9]"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+
+  c13:
+    label: "[13]"
+    text: "R. Shinnawi et al., Monitoring human-induced pluripotent stem cell-derived cardiomyocytes with genetically encoded calcium and voltage fluorescent reporters, Stem Cell Rep. 5 (2015) 582-596."
+    year: "2015"
+    purpose: [borrows_method, borrows_data]
+    anchor:
+      quote: "we also utilized a previously established transgenic hiPSC line expressing the GEVI, ArcLight [13]."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+
+  c14:
+    label: "[14]"
+    text: "L. Maizels et al., Patient-specific drug screening using a human induced pluripotent stem cell model of catecholaminergic polymorphic ventricular tachycardia type 2, Circ. Arrhythm. Electrophysiol. 10 (2017)."
+    year: "2017"
+    purpose: [borrows_data, borrows_method]
+    anchor:
+      quote: "hiPSC-CMs derived from a patient, diagnosed with catecholaminergic polymorphic ventricular tachycardia type 2 (CPVT2) [14]"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+
+  c21:
+    label: "[21]"
+    text: "M. Tiburcy et al., Defined engineered human myocardium with advanced maturation for applications in heart failure modeling and repair, Circulation 135 (2017) 1832-1847."
+    year: "2017"
+    purpose: [borrows_method]
+    anchor:
+      quote: "The contractile function of ECM-EHTs was measured as described previously [21]."
+      where: "Methods, Isometric force measurements"
+
+  c27:
+    label: "[27]"
+    text: "Z. Ma et al., Contractile deficits in engineered cardiac microtissues as a result of MYBPC3 deficiency and mechanical overload, Nat. Biomed. Eng. 2 (2018) 955-967."
+    year: "2018"
+    purpose: [contrasts]
+    anchor:
+      quote: "CV values measured in the ECM-EHTs were higher than previously reported in monolayer- or EB-based models [27,29]"
+      where: "Discussion"
+
+  c29:
+    label: "[29]"
+    text: "K. Ronaldson-Bouchard et al., Advanced maturation of human cardiac tissue grown from pluripotent stem cells, Nature 556 (2018) 239-243."
+    year: "2018"
+    purpose: [contrasts]
+    anchor:
+      quote: "CV values measured in the ECM-EHTs were higher than previously reported in monolayer- or EB-based models [27,29]"
+      where: "Discussion"
+
+  c39:
+    label: "[39]"
+    text: "Y. Eitan, U. Sarig, N. Dahan, M. Machluf, Acellular cardiac extracellular matrix as a scaffold for tissue engineering, Tissue Eng. Part C: Methods 16 (2010) 671-683."
+    year: "2010"
+    purpose: [borrows_method]
+    anchor:
+      quote: "were decellularized according to our previously published protocols with slight modifications [39]"
+      where: "Methods, Decellularized porcine heart and ECM gel preparation"
+
+  c40:
+    label: "[40]"
+    text: "Y. Efraim et al., Biohybrid cardiac ECM-based hydrogels improve long term cardiac function post myocardial infarction, Acta Biomater. 50 (2017) 220-233."
+    year: "2017"
+    purpose: [borrows_method, borrows_value]
+    anchor:
+      quote: "in order to control the resulting mechanical properties as described [40]"
+      where: "Methods, Decellularized porcine heart and ECM gel preparation"
+
+  c47:
+    label: "[47]"
+    text: "P.W. Burridge et al., Chemically defined generation of human cardiomyocytes, Nat. Met. 11 (2014) 855-860."
+    year: "2014"
+    purpose: [borrows_method]
+    anchor:
+      quote: "Cardiomyocyte differentiation was based on a previously described protocol [47]."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+
+  c48:
+    label: "[48]"
+    text: "M. Tiburcy, T. Meyer, P.L. Soong, W.H. Zimmermann, Collagen-based engineered heart muscle, Methods Mol. Biol. 1181 (2014) 167-176."
+    year: "2014"
+    purpose: [borrows_method]
+    anchor:
+      quote: "The mixture was pipetted into circular casting molds [48] where the tissue condensed quickly."
+      where: "Methods, Generation of the engineered heart tissues (EHTs)"
+
+  c49:
+    label: "[49]"
+    text: "H. Lahat et al., A missense mutation in a highly conserved region of CASQ2 is associated with autosomal recessive catecholamine-induced polymorphic ventricular tachycardia, Am. J. Hum. Genet. 69 (2001) 1378-1384."
+    year: "2001"
+    purpose: [attributes_finding]
+    anchor:
+      quote: "homozygous mutations in the CASQ2 gene encoding the main sarcoplasmic-reticulum (SR) calcium buffer protein calsequestrin [49]"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+
+  c56:
+    label: "[56]"
+    text: "J. van der Velden et al., Isometric tension development and its calcium sensitivity in skinned myocyte-sized preparations from different regions of the human heart, Cardiovasc. Res. 42 (1999) 706-719."
+    year: "1999"
+    purpose: [contrasts]
+    anchor:
+      quote: "the forces recorded in this study from the ECM-EHTs are at least one magnitude lower than the forces generated by the adult human heart muscle [56]"
+      where: "Discussion"
+
+cross_references: []
+
+context_anchors:
+
+  - field: cell_line
+    value: "healthy-control hiPSC line"
+    anchor:
+      quote: "A healthy-control [13] and two patient-specific [9,14] hiPSC lines, previously created in our lab, were used in this study."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: cell_line
+    value: "ArcLight-expressing transgenic hiPSC line"
+    anchor:
+      quote: "we also utilized a previously established transgenic hiPSC line expressing the GEVI, ArcLight [13]."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: cell_line
+    value: "LQTS2-hiPSC-CMs"
+    anchor:
+      quote: "we used lentiviral transduction to express ArcLight in the LQTS2-hiPSC-CMs."
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: cell_line
+    value: "CPVT2-hiPSC-CMs"
+    anchor:
+      quote: "the rate of arrhythmic events were significantly higher in CPVT2-hiPSC-CMs studied as dispersed single-cells"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: disease_model
+    value: "long QT syndrome type 2"
+    anchor:
+      quote: "a hiPSC line generated from a young patient with the long QT syndrome type 2 (LQTS2) [9]"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: disease_model
+    value: "catecholaminergic polymorphic ventricular tachycardia type 2"
+    anchor:
+      quote: "hiPSC-CMs derived from a patient, diagnosed with catecholaminergic polymorphic ventricular tachycardia type 2 (CPVT2)"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: platform
+    value: "ECM-EHT"
+    anchor:
+      quote: "The ECM-EHTs were generated by combining cardiomyocytes derived from hiPSCs using a monolayer-based directed differentiation system"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+  - field: platform
+    value: "two-dimensional cultures"
+    anchor:
+      quote: "in comparison to control hiPSC-CMs grown as two-dimensional cultures (right-panel)"
+      where: "Fig. 1 legend"
+  - field: substrate
+    value: "cardiac-specific ECM hydrogel"
+    anchor:
+      quote: "a novel EHT model through the use of a chitosan-enhanced cardiac-specific ECM hydrogel"
+      where: "Discussion"
+  - field: substrate.chitosan
+    value: "0.2 g chitosan/g ECM"
+    anchor:
+      quote: "(FMC Biopolymer, Norway, 0.2 g chitosan/g ECM), and also with the crosslinker genipin (0.01 g genipin/g ECM)"
+      where: "Methods, Decellularized porcine heart and ECM gel preparation"
+  - field: substrate.genipin
+    value: "0.01 g genipin/g ECM"
+    anchor:
+      quote: "(FMC Biopolymer, Norway, 0.2 g chitosan/g ECM), and also with the crosslinker genipin (0.01 g genipin/g ECM)"
+      where: "Methods, Decellularized porcine heart and ECM gel preparation"
+  - field: substrate.source
+    value: "decellularized pig hearts"
+    anchor:
+      quote: "we combined human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CMs) with a chitosan-enhanced extracellular-matrix (ECM) hydrogel, derived from decellularized pig hearts"
+      where: "Abstract"
+  - field: cm_medium
+    value: "Iscove-Medium"
+    anchor:
+      quote: "(Iscove-Medium with 20% fetal bovine serum, 1% non-essential amino acids, 1% glutamine, 1% penicillin/streptomycin and 100 mmol/l b-mercaptoethanol)"
+      where: "Methods, Generation of the engineered heart tissues (EHTs)"
+  - field: supplements
+    value: "fetal bovine serum + non-essential amino acids + glutamine + penicillin/streptomycin + b-mercaptoethanol"
+    anchor:
+      quote: "(Iscove-Medium with 20% fetal bovine serum, 1% non-essential amino acids, 1% glutamine, 1% penicillin/streptomycin and 100 mmol/l b-mercaptoethanol)"
+      where: "Methods, Generation of the engineered heart tissues (EHTs)"
+  - field: cm_medium
+    value: "CDM3"
+    anchor:
+      quote: "the culture-medium was switched to a differentiation medium CDM3 [RPMI-1640 (Roswell Park Memorial Institute)"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: supplements
+    value: "recombinant human serum albumin + L-ascorbic acid 2-phosphate + penicillin/streptomycin"
+    anchor:
+      quote: "recombinant human serum albumin 500 lg/mL (Oryzogen), 213 lg/mL, L-ascorbic acid 2-phosphate (Sigma-Aldrich), 1% penicillin/streptomycin"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: mechanical_load
+    value: "static stretch"
+    anchor:
+      quote: "Hematoxylin and eosin (H&E) histological staining of ECM-EHTs that were placed under conditions of static stretch or no stretch."
+      where: "Supplementary Figure 1 legend"
+      file: mmc1.pdf
+  - field: mechanical_load.device
+    value: "passive-stretcher devices"
+    anchor:
+      quote: "The resulting tissue was transferred onto passive-stretcher devices on d3."
+      where: "Methods, Generation of the engineered heart tissues (EHTs)"
+  - field: cm_day_at_formation
+    value: "14-20 d"
+    anchor:
+      quote: "The resulting beating monolayers (14-20 d) were enzymatically dissociated into small clusters or single cardiomyocytes using TrypLE express (Gibco)."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: dissociation_reagent
+    value: "TrypLE express"
+    anchor:
+      quote: "The resulting beating monolayers (14-20 d) were enzymatically dissociated into small clusters or single cardiomyocytes using TrypLE express (Gibco)."
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: day_of_measurement
+    value: "7 d"
+    anchor:
+      quote: "early-stage (7 d) EHTs, although retaining the positive inotropic response to increasing extracellular Ca2+, displayed markedly lower FOC"
+      where: "Results, Contractile function of the ECM-EHTs"
+  - field: day_of_measurement
+    value: "30 d"
+    anchor:
+      quote: "Contractile properties of 30 d ECM-EHTs."
+      where: "Fig. 4 legend"
+  - field: preparation
+    value: "Total RNA"
+    anchor:
+      quote: "Total RNA was isolated using TRIzol (Invitrogen; 15596-026) according to the manufacturer"
+      where: "Methods, Real-time quantitative PCR"
+  - field: preparation
+    value: "dissociated cardiomyocytes"
+    anchor:
+      quote: "dissociated cardiomyocytes were fixed with 4% paraformaldehyde, permeabilized in phosphate-buffered saline (PBS) with 5% fetal calf serum (FCS) and 0.5% Saponin"
+      where: "Methods, Flow cytometry"
+  - field: preparation
+    value: "dispersed single-cells"
+    anchor:
+      quote: "the rate of arrhythmic events were significantly higher in CPVT2-hiPSC-CMs studied as dispersed single-cells"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: preparation
+    value: "whole EHT"
+    anchor:
+      quote: "Drug testing using GCaMP5 imaging at the whole EHT level"
+      where: "Supplementary Figure 2 legend"
+      file: mmc1.pdf
+  - field: transgene
+    value: "GCaMP5G"
+    anchor:
+      quote: "Lentiviral transduction was used to express the GCaMP5G transgene (under the transcriptional control of the cTnT promoter) in the differentiating hiPSC-CMs."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: transgene.promoter
+    value: "cTnT promoter"
+    anchor:
+      quote: "Lentiviral transduction was used to express the GCaMP5G transgene (under the transcriptional control of the cTnT promoter) in the differentiating hiPSC-CMs."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: transgene.MOI
+    value: "0.65"
+    anchor:
+      quote: "resulting in multiplicity of infection (MOI) values for ArcLight and GCaMP5 transduction of 0.35 and 0.65 respectively."
+      where: "Methods, Lentiviral transduction of the ArcLight and GCaMP5G transgenes"
+  - field: transgene
+    value: "ArcLight"
+    anchor:
+      quote: "we used lentiviral transduction to express ArcLight in the LQTS2-hiPSC-CMs."
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: transgene.MOI
+    value: "0.35"
+    anchor:
+      quote: "resulting in multiplicity of infection (MOI) values for ArcLight and GCaMP5 transduction of 0.35 and 0.65 respectively."
+      where: "Methods, Lentiviral transduction of the ArcLight and GCaMP5G transgenes"
+  - field: temperature
+    value: "37 °C"
+    anchor:
+      quote: "analyzed after 72 h of recovery at 37 °C"
+      where: "Methods, Isometric force measurements"
+  - field: measurement_medium
+    value: "Tyrode's solution"
+    anchor:
+      quote: "The tissue was kept in a heated organ bath in Tyrode's solution (NaCl-140 mM, KCl-5.4 mM, CaCl2-1.8 mM"
+      where: "Methods, Laser-confocal AP and calcium transient recordings"
+  - field: measurement_calcium_mM
+    value: "1.8 mM"
+    anchor:
+      quote: "The tissue was kept in a heated organ bath in Tyrode's solution (NaCl-140 mM, KCl-5.4 mM, CaCl2-1.8 mM"
+      where: "Methods, Laser-confocal AP and calcium transient recordings"
+  - field: measurement_calcium_mM
+    value: "0.2-4 mM"
+    anchor:
+      quote: "Force of contraction (FOC) was then measured under cumulatively increasing extracellular calcium concentrations (0.2-4 mM)."
+      where: "Methods, Isometric force measurements"
+  - field: measurement_calcium_mM
+    value: "half-maximal calcium concentration (EC50)"
+    anchor:
+      quote: "were investigated at half-maximal calcium concentration (EC50)"
+      where: "Methods, Isometric force measurements"
+  - field: measurement_medium
+    value: "medium containing Blebbistatin"
+    anchor:
+      quote: "ECM-EHTs were incubated in medium containing Blebbistatin (5 mmol/L, Sigma-Aldrich) for 30 min to prevent motion artifacts"
+      where: "Methods, Optical mapping"
+  - field: pacing
+    value: "point stimulation at 1 Hz"
+    anchor:
+      quote: "Studies were performed at a fixed continuous point-stimulation pacing frequency of 1 Hz."
+      where: "Results, Optical mapping of EHTs"
+  - field: pacing
+    value: "point stimulation"
+    anchor:
+      quote: "Studies were performed at a fixed continuous point-stimulation pacing frequency of 1 Hz."
+      where: "Results, Optical mapping of EHTs"
+  - field: pacing
+    value: "rapid pacing (2 Hz)"
+    anchor:
+      quote: "and following rapid pacing (2 Hz)"
+      where: "Fig. 5 legend"
+  - field: pacing
+    value: "rapid stimulation"
+    anchor:
+      quote: "Induction of arrhythmias was achieved by rapid stimulation (sequential increase in pacing frequency until development of arrhythmias or loss of capture)."
+      where: "Methods, Optical mapping"
+  - field: pacing.frequency
+    value: "0.5 Hz"
+    anchor:
+      quote: "0.5 1 1.5 2 2.5 3 Frequency (Hz)"
+      where: "Fig. 7A, x axis"
+      kind: unit
+  - field: pacing.frequency
+    value: "1 Hz"
+    anchor:
+      quote: "0.5 1 1.5 2 2.5 3 Frequency (Hz)"
+      where: "Fig. 7A, x axis"
+      kind: unit
+  - field: pacing.frequency
+    value: "1.5 Hz"
+    anchor:
+      quote: "0.5 1 1.5 2 2.5 3 Frequency (Hz)"
+      where: "Fig. 7A, x axis"
+      kind: unit
+  - field: pacing.frequency
+    value: "2 Hz"
+    anchor:
+      quote: "0.5 1 1.5 2 2.5 3 Frequency (Hz)"
+      where: "Fig. 7A, x axis"
+      kind: unit
+  - field: pacing.frequency
+    value: "2.5 Hz"
+    anchor:
+      quote: "0.5 1 1.5 2 2.5 3 Frequency (Hz)"
+      where: "Fig. 7A, x axis"
+      kind: unit
+  - field: pacing.frequency
+    value: "3 Hz"
+    anchor:
+      quote: "0.5 1 1.5 2 2.5 3 Frequency (Hz)"
+      where: "Fig. 7A, x axis"
+      kind: unit
+  - field: treatment
+    value: "isoproterenol"
+    anchor:
+      quote: "The addition of 1 µM isoproterenol, a b-adrenergic agonist, resulted in a positive chronotropic effect."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment.dose
+    value: "1 µM"
+    anchor:
+      quote: "The addition of 1 µM isoproterenol, a b-adrenergic agonist, resulted in a positive chronotropic effect."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment
+    value: "carbamylcholine"
+    anchor:
+      quote: "application of the muscarinic agonist carbamylcholine (1 µM) led to a significant negative chronotropic effect"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment
+    value: "E4031"
+    anchor:
+      quote: "Application of the IKr current blocker E4031 (500 nM), known to prolong AP duration (APD)"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment.dose
+    value: "500 nM"
+    anchor:
+      quote: "Application of the IKr current blocker E4031 (500 nM), known to prolong AP duration (APD)"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment.dose
+    value: "100 nM"
+    anchor:
+      quote: "the IKr current blocker E4031 (100 nM"
+      where: "Fig. 3 legend"
+  - field: treatment
+    value: "ouabain"
+    anchor:
+      quote: "Application of 1 µM of ouabain led to significant [Ca2+]i transients"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment
+    value: "ATX-II"
+    anchor:
+      quote: "treatment of the ECM-EHTs with ATX-II (30 nM), known to augment INaL, also led to significant APD90 prolongation"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment.dose
+    value: "30 nM"
+    anchor:
+      quote: "treatment of the ECM-EHTs with ATX-II (30 nM), known to augment INaL, also led to significant APD90 prolongation"
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment
+    value: "isoproterenol + carbamylcholine"
+    anchor:
+      quote: "The addition of the muscarinic agonist carbamylcholine (10 µM) following isoproterenol application induced an antagonistic effect"
+      where: "Results, Contractile function of the ECM-EHTs"
+  - field: treatment.dose_isoproterenol
+    value: "1 µM"
+    anchor:
+      quote: "The addition of 1 µM isoproterenol, a b-adrenergic agonist, resulted in a positive chronotropic effect."
+      where: "Results, Electrophysiological and calcium-handling assessment"
+  - field: treatment.dose_carbamylcholine
+    value: "10 µM"
+    anchor:
+      quote: "The addition of the muscarinic agonist carbamylcholine (10 µM) following isoproterenol application induced an antagonistic effect"
+      where: "Results, Contractile function of the ECM-EHTs"
+  - field: treatment.dose
+    value: "10 µM"
+    anchor:
+      quote: "the EHTs were treated with isoproterenol (10 µM) or evaluated following rapid pacing"
+      where: "Results, Modeling of inherited arrhythmogenic disorders"
+  - field: treatment
+    value: "lidocaine"
+    anchor:
+      quote: "following administration of 100 µM lidocaine (n = 5, B) or 50 µM of carbenoxolone (n = 5, C)"
+      where: "Fig. 7 legend"
+  - field: treatment.dose
+    value: "100 µM"
+    anchor:
+      quote: "following administration of 100 µM lidocaine (n = 5, B) or 50 µM of carbenoxolone (n = 5, C)"
+      where: "Fig. 7 legend"
+  - field: treatment
+    value: "carbenoxolone"
+    anchor:
+      quote: "following administration of 100 µM lidocaine (n = 5, B) or 50 µM of carbenoxolone (n = 5, C)"
+      where: "Fig. 7 legend"
+  - field: treatment.dose
+    value: "50 µM"
+    anchor:
+      quote: "following administration of 100 µM lidocaine (n = 5, B) or 50 µM of carbenoxolone (n = 5, C)"
+      where: "Fig. 7 legend"
+  - field: treatment
+    value: "quinidine"
+    anchor:
+      quote: "escalating doses of quinidine"
+      where: "Fig. 7 legend"
+  - field: treatment.dose
+    value: "0.1 µM"
+    anchor:
+      quote: "showing the effects of escalating doses of quinidine (0.1, 0.3, 1, 3, 10, and 30 µM, n = 4) on APD"
+      where: "Fig. 7 legend"
+      kind: unit
+  - field: treatment.dose
+    value: "0.3 µM"
+    anchor:
+      quote: "showing the effects of escalating doses of quinidine (0.1, 0.3, 1, 3, 10, and 30 µM, n = 4) on APD"
+      where: "Fig. 7 legend"
+      kind: unit
+  - field: treatment.dose
+    value: "3 µM"
+    anchor:
+      quote: "showing the effects of escalating doses of quinidine (0.1, 0.3, 1, 3, 10, and 30 µM, n = 4) on APD"
+      where: "Fig. 7 legend"
+      kind: unit
+  - field: treatment.dose
+    value: "30 µM"
+    anchor:
+      quote: "showing the effects of escalating doses of quinidine (0.1, 0.3, 1, 3, 10, and 30 µM, n = 4) on APD"
+      where: "Fig. 7 legend"
+      kind: unit
+  - field: treatment
+    value: "dofetilide"
+    anchor:
+      quote: "We then treated the tissue with the Ikr blocking anti-arrhythmic agent dofetilide (25 nM)."
+      where: "Results, Optical mapping of EHTs"
+  - field: treatment.dose
+    value: "25 nM"
+    anchor:
+      quote: "We then treated the tissue with the Ikr blocking anti-arrhythmic agent dofetilide (25 nM)."
+      where: "Results, Optical mapping of EHTs"
+  - field: time_point
+    value: "15 min after adding the different drugs"
+    anchor:
+      quote: "Ca2+ and AP recordings were performed 15 min after adding the different drugs to the Tyrode"
+      where: "Methods, Pharmacological studies"
+  - field: differentiation_factors
+    value: "CHIR99021 + Wnt-C59"
+    anchor:
+      quote: "Wnt-C59 (Selleckchem) instead of CHIR99021"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: hipsc_medium
+    value: "mTeSR-1"
+    anchor:
+      quote: "Colonies of hiPSCs were propagated on Matrigel using mTeSR-1 (stem-cell technologies)"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: hipsc_coating
+    value: "Matrigel"
+    anchor:
+      quote: "Colonies of hiPSCs were propagated on Matrigel using mTeSR-1 (stem-cell technologies)"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: wnt_activation_days
+    value: "two days"
+    anchor:
+      quote: "CHIR99021 (Stemgent) for two days"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: confluency
+    value: "80-90% confluence"
+    anchor:
+      quote: "when the cells reached 80-90% confluence (day 0 of differentiation)"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: purity_method
+    value: "flow cytometry"
+    anchor:
+      quote: "Flow cytometry was performed routinely to ensure >85%"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: purity_method.marker
+    value: "cTNT"
+    anchor:
+      quote: "cardiomyocyte purity by analyzing the percentage of cells that expressed cTNT"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: platform
+    value: "2D-cultured single-cell"
+    anchor:
+      quote: "Laser-confocal [Ca2+]i imaging of 2D-cultured single-cell dispersed CPVT-hiPSC-CMs at baseline"
+      where: "Fig. 5 legend"
+  - field: purity
+    value: ">85%"
+    anchor:
+      quote: "Flow cytometry was performed routinely to ensure >85%"
+      where: "Methods, Propagation of hiPSCs and cardiomyocyte differentiation"
+  - field: cell_types
+    value: "hiPSC-derived cardiomyocytes"
+    anchor:
+      quote: "0.1 M NaOH and 2 million hiPSC-derived cardiomyocytes (hiPSC-CMs)"
+      where: "Methods, Generation of the engineered heart tissues (EHTs)"
+  - field: seeding_density
+    value: "2 million hiPSC-derived cardiomyocytes"
+    anchor:
+      quote: "0.1 M NaOH and 2 million hiPSC-derived cardiomyocytes (hiPSC-CMs)"
+      where: "Methods, Generation of the engineered heart tissues (EHTs)"
+  - field: species
+    value: "human"
+    anchor:
+      quote: "we combined human induced pluripotent stem cell-derived cardiomyocytes (hiPSC-CMs) with a chitosan-enhanced extracellular-matrix (ECM) hydrogel"
+      where: "Abstract"

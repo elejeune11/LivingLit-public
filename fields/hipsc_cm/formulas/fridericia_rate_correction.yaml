@@ -1,0 +1,32 @@
+# Written by code from changes.yaml (version 19); never edited.
+formula: fridericia_rate_correction
+kind: definition
+statement: A rate-corrected duration (Fridericia's correction) is the duration divided by the cube root of the beat interval,
+  both in seconds.
+equations:
+- dcf = dur/RR**(1/3)
+variables:
+  dcf: time^(2/3)
+  dur: time
+  RR: time
+does_not_apply: 'other rate corrections: Bazett''s divides by the square root of the interval, Framingham''s is linear in
+  the interval'
+tests:
+- given:
+    dur: 0.4
+    RR: 1.0
+  expect:
+    dcf: 0.4
+- given:
+    dur: 0.3
+    RR: 0.125
+  expect:
+    dcf: 0.6
+- given:
+    dur: 0.3
+    RR: 0.25
+  does_not_apply: Bazett's correction gives 0.3/0.25^(1/2) = 0.6, not 0.3/0.25^(1/3) = 0.476
+cites:
+  text: Fridericia LS. The duration of systole in an electrocardiogram in normal humans and in patients with heart disease
+    (1920; English translation). Ann Noninvasive Electrocardiol 8, 343–351 (2003)
+  url: https://doi.org/10.1046/j.1542-474X.2003.08413.x

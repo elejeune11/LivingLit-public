@@ -1,0 +1,279 @@
+record: 2022_Wickramasinghe
+vocabulary_version: 56
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- synonyms
+- add_synonym: {id: CHEBI:62878, text: XAV, anchor: "5 mmol/L XAV (Stemgent). On Day 5, medium was changed to differentiation medium supplemented with 5 ng/ml VEGF"}
+- add_synonym: {id: platform:monolayer, text: 2D monolayers, anchor: "hPSC-CMs were plated as 2D monolayers at day 20 of differentiation"}
+- add_synonym: {id: purification:facs, text: FACS, anchor: "RNA was extracted from FACS-isolated SIRPA+CD90- hPSC-CMs"}
+- add_synonym: {id: measurement_medium:tyrode_solution, text: "Tyrode's buffer", anchor: "incubated in 1X Tyrode’s buffer with 10 mM blebbistatin for"}
+- add_synonym: {id: CL:0002129, field: cell_types, text: atrial hPSC-CMs, anchor: "We demonstrated that CD36 is also low in atrial hPSC-CMs"}
+- add_synonym: {id: CL:0000057, field: cell_types, text: hPSC-derived fibroblasts, anchor: "Oxygen consumption rate (OCR) in hPSC-CMs and hPSC-derived fibroblasts (black)"}
+- add_synonym: {id: measure:spare_respiratory_capacity, text: respiratory spare capacity, anchor: "Basal respiration (left) and respiratory spare capacity (right)"}
+- add_synonym: {id: measure:fatty_acid_oxidation_rate, text: FAO flux, anchor: "FAO flux assay 4 weeks after PPARd modulation (n = 4)."}
+- add_synonym: {id: measure:maximum_capture_rate, text: maximum capture frequency, anchor: "and the maximum capture frequency across EHTs remained unchanged"}
+- add_synonym: {id: measure:twitch_force, text: developed force, anchor: "twitch parameters including developed force (DF; calculated from the post deflection with each twitch)"}
+- add_synonym: {id: measure:angle_dispersion, text: circularity standard deviation, anchor: "to determine alignment (Mean Vector Length, MVL) and the circularity standard deviation (CSD)"}
+- add_synonym: {id: measure:binucleated_cell_fraction, text: binucleated hPSC-CMs, anchor: "Percentage of binucleated hPSC-CMs determined on images from IF analysis for ACTN2 and DAPI stain"}
+# ---------------------------------------------------------------- treatment (ChEBI)
+- adopt: {field: treatment, id: CHEBI:79989, label: GW 6471, lookup: "livinglit lookup chebi GW6471: exact"}
+- adopt: {field: treatment, id: CHEBI:79993, label: GW 9662, lookup: "livinglit lookup chebi GW9662: exact"}
+- adopt: {field: treatment, id: CHEBI:79991, label: GW 0742, lookup: "livinglit lookup chebi GW0742: exact"}
+- adopt: {field: treatment, id: CHEBI:50122, label: rosiglitazone, lookup: "livinglit lookup chebi rosiglitazone: exact (racemate; the paper does not name an enantiomer or salt)"}
+- adopt:
+    field: treatment
+    id: CHEBI:32509
+    label: pirinixic acid
+    lookup: "livinglit lookup chebi WY14643 and WY-14643: nothing; pirinixic acid is WY-14643 (exact label match)"
+    synonyms: [{text: WY14643, anchor: "Rosiglitazone (Sigma-Aldrich, 5 μM), WY14643 (Sigma-Aldrich, 5 μM) with or without"}]
+- adopt_own:
+    field: treatment
+    id: treatment:gsk0660
+    label: GSK0660
+    definition: A small-molecule PPARδ antagonist (inverse agonist) used to inhibit PPARδ signalling.
+    scope: The named PPARδ antagonist compound; not other own small molecules (EMD-57033, BTS, ATX-II, NS-1643, compound 6.28, pifithrin-α, nutlin-3a), not proteins, RNAs, cells or physical exposures.
+    lookup: "livinglit lookup chebi GSK0660, 'GSK 0660', GSK-0660 and GSK: no GSK0660 entry in the pinned ChEBI release"
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:embryoid_body
+    label: embryoid body
+    parent: platform:cell_aggregate
+    definition: A suspension aggregate of pluripotent stem cells in which they are differentiated, before any replating.
+    scope: Aggregates formed from undifferentiated stem cells to drive differentiation; not a fused tissue of several preformed aggregates (organoid aggregate macrotissue), and not a spheroid formed from already differentiated cardiomyocytes (cell aggregate).
+    synonyms: [{text: embryoid bodies, anchor: "or until cells dissociated from plates, to generate embryoid bodies (EBs)"}]
+# ---------------------------------------------------------------- measures
+- add_term:
+    field: measure
+    id: measure:mean_vector_length
+    label: mean vector length
+    definition: Length of the mean resultant vector of the orientations of a stated structure (qualifier structure), from 0 (no common direction) to 1 (all aligned).
+    scope: The circular-statistics resultant length as an alignment index; not the standard deviation of angles (angle dispersion), not an orientational order parameter, not a sarcomere alignment index and not the von Mises concentration.
+    dimension: dimensionless
+    qualifiers: {structure: {dimension: text}}
+    synonyms: [{text: mean vector length, anchor: "to determine alignment (Mean Vector Length, MVL) and the circularity standard deviation (CSD)"}]
+- add_term:
+    field: measure
+    id: measure:chromatin_accessibility
+    label: chromatin accessibility
+    definition: Accessibility of chromatin at a stated locus or gene (qualifier locus), read from ATAC-seq or a similar assay.
+    scope: Open chromatin at one locus; not a histone mark signal (histone mark signal), not gene expression and not a count of differential loci.
+    dimension: dimensionless
+    qualifiers: {locus: {dimension: text}}
+    synonyms: [{text: chromatin accessibility, anchor: "the biggest increases and decreases in chromatin accessibility in GW0742 compared with"}]
+- add_term:
+    field: measure
+    id: measure:mitochondrial_morphology
+    label: mitochondrial morphology
+    definition: Shape, size or internal structure of mitochondria, with the aspect in a qualifier (feature).
+    scope: Mitochondrial shape or ultrastructure as a whole or as a stated feature (cristae); not mitochondrial mass or content from a dye (mitochondrial mass), and not the share of image area covered by mitochondria (mitochondrial area fraction).
+    dimension: categorical
+    qualifiers: {feature: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:mitochondrial_length
+    label: mitochondrial length
+    parent: measure:mitochondrial_morphology
+    definition: Length of single mitochondria along their long axis in micrographs.
+    scope: The long axis of a mitochondrion; not its short axis (mitochondrial width).
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:mitochondrial_width
+    label: mitochondrial width
+    parent: measure:mitochondrial_morphology
+    definition: Width of single mitochondria across their long axis in micrographs.
+    scope: The short axis of a mitochondrion; not its long axis (mitochondrial length).
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:systolic_force
+    label: systolic force
+    definition: Total force a tissue exerts at the peak of a contraction, the resting (diastolic) force included.
+    scope: Absolute force at peak contraction; not the active amplitude above the resting force (twitch force, developed force), not the resting force between beats (diastolic force), and not force per cross-section.
+    dimension: force
+- add_term:
+    field: measure
+    id: measure:diastolic_force
+    label: diastolic force
+    definition: Force a beating tissue exerts between contractions, at rest in its device.
+    scope: Resting force between beats at the device's own length; not passive tension at an imposed stretch (passive tension), not resting stress (diastolic stress), and not peak force (systolic force).
+    dimension: force
+    synonyms: [{text: diastolic force, anchor: "increases in systolic and diastolic force following PPARd induction"}]
+- add_term:
+    field: measure
+    id: measure:cell_proliferation
+    label: cell proliferation, assay not stated
+    definition: Proliferation of cells reported without its assay or marker.
+    scope: Use only when a source states proliferation without the assay; a marker-positive fraction (EdU, Ki67, pH3) is marker-positive cells and a DNA-content phase share is cell cycle phase fraction.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:electrical_coupling
+    label: electrical coupling, measure not stated
+    definition: Electrical coupling between cells reported without the quantity measured.
+    scope: Use only when a source states coupling without a measure; conduction velocity, gap junction protein levels or dye transfer have their own terms.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:sequencing_read_count
+    label: sequencing read count
+    definition: Number of sequencing reads per sample meeting a stated criterion (qualifier criterion), such as reads aligned or pseudoaligned.
+    scope: A sequencing quality figure; not a gene's expression and not a count of differentially expressed genes.
+    dimension: dimensionless
+    qualifiers: {criterion: {dimension: text}}
+    synonyms: [{text: reads successfully pseudoaligned, anchor: "The average number of reads successfully pseudoaligned across samples was 16.46 million"}]
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:mean_vector_length
+    value: {must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:chromatin_accessibility
+    value: {must_match: [platform@1, preparation, measure.locus, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.locus], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitochondrial_morphology
+    value: {must_match: [platform@1, preparation, measure.feature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.feature], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitochondrial_length
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitochondrial_width
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:systolic_force
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:diastolic_force
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_proliferation
+    value: {must_match: [platform@1, preparation, method, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:electrical_coupling
+    value: {must_match: [platform@1, preparation, pacing, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:sequencing_read_count
+    value: {must_match: [method, measure.criterion], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.criterion], may_vary: [cell_line]}
+mappings:
+# ---------------------------------------------------------------- context
+- {field: platform, stated: EHTs, terms: [platform:tissue_between_pillars], note: "Fibrin EHTs on two posts (Schaaf et al., 2014), force from post deflection; 'EHTs' is not added as a synonym because it would be broader than this term."}
+- {field: dissociation_reagent, stated: Collagenase Type II, terms: [dissociation_reagent:collagenase], qualifiers: {type: Type II}}
+- {field: dissociation_reagent, stated: Collagenase Type II + TrypLE Express, terms: [dissociation_reagent:collagenase, dissociation_reagent:tryple], qualifiers: {type: Type II}, note: "type applies to the collagenase."}
+- {field: purification, stated: lactate, terms: [purification:metabolic_selection], qualifiers: {substrate: lactate}}
+- {field: transgene, stated: ACTN2-eGFP, terms: [transgene:actinin2_fusion], qualifiers: {fluorophore: eGFP}}
+- {field: pacing, stated: paced, terms: [pacing:field_stimulation], note: "Methods: 'Cells were paced at 0.5 Hz using a MyoPacer Field Stimulator'; frequency is in the record's pacing.frequency."}
+- {field: substrate, stated: fibrinogen + thrombin, terms: [substrate:fibrin_hydrogel], note: "Thrombin is the enzyme that gels the fibrinogen into the fibrin hydrogel; it is not a second material."}
+- {field: cell_types, stated: iPSC, terms: [CL:0002248], no_ontology_term: "induced pluripotent stem cell (no CL class in the pinned release)", note: "Group label 'iPSC Control'; pluripotent stem cell is the nearest broader class."}
+- {field: treatment, stated: LCFA, terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351], note: "Methods define the LCFAs as palmitic, oleic and linoleic acid, BSA-complexed, 5:4:1."}
+- {field: treatment, stated: LCFA + WY14643, terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351, CHEBI:32509]}
+- {field: treatment, stated: LCFA + GW0742, terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351, CHEBI:79991]}
+- {field: treatment, stated: LCFA + Rosiglitazone, terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351, CHEBI:50122]}
+- {field: treatment, stated: LCFA + GSK0660, terms: [CHEBI:7896, CHEBI:16196, CHEBI:17351, treatment:gsk0660]}
+- {field: treatment, stated: lactate + LCFA, terms: [CHEBI:24996, CHEBI:7896, CHEBI:16196, CHEBI:17351]}
+- {field: treatment, stated: lactate + LCFA + GW0742, terms: [CHEBI:24996, CHEBI:7896, CHEBI:16196, CHEBI:17351, CHEBI:79991]}
+# ---------------------------------------------------------------- measures: gene expression
+- {field: measure, stated: PPARA expression, terms: [measure:gene_expression], qualifiers: {gene: PPARA, expressed_as: normalised, normalised_to: TBP}}
+- {field: measure, stated: PPARD expression, terms: [measure:gene_expression], qualifiers: {gene: PPARD, expressed_as: normalised, normalised_to: TBP}}
+- {field: measure, stated: PPARG expression, terms: [measure:gene_expression], qualifiers: {gene: PPARG, expressed_as: normalised, normalised_to: TBP}}
+- {field: measure, stated: PPARA expression (scRNA-seq), terms: [measure:gene_expression], qualifiers: {gene: PPARA}}
+- {field: measure, stated: PPARD expression (scRNA-seq), terms: [measure:gene_expression], qualifiers: {gene: PPARD}}
+- {field: measure, stated: PPARG expression (scRNA-seq), terms: [measure:gene_expression], qualifiers: {gene: PPARG}}
+- {field: measure, stated: CPT1A expression, terms: [measure:gene_expression], qualifiers: {gene: CPT1A}}
+- {field: measure, stated: ACADVL expression, terms: [measure:gene_expression], qualifiers: {gene: ACADVL}}
+- {field: measure, stated: PDK4 expression, terms: [measure:gene_expression], qualifiers: {gene: PDK4}}
+- {field: measure, stated: CPT1B expression, terms: [measure:gene_expression], qualifiers: {gene: CPT1B}}
+- {field: measure, stated: PFKM expression, terms: [measure:gene_expression], qualifiers: {gene: PFKM}}
+- {field: measure, stated: MLYCD expression, terms: [measure:gene_expression], qualifiers: {gene: MLYCD}}
+- {field: measure, stated: HADHA expression, terms: [measure:gene_expression], qualifiers: {gene: HADHA}}
+- {field: measure, stated: PPARGC1A expression, terms: [measure:gene_expression], qualifiers: {gene: PPARGC1A}}
+- {field: measure, stated: MFN2 expression, terms: [measure:gene_expression], qualifiers: {gene: MFN2}}
+- {field: measure, stated: DNM1L expression, terms: [measure:gene_expression], qualifiers: {gene: DNM1L}}
+- {field: measure, stated: WNT11 expression, terms: [measure:gene_expression], qualifiers: {gene: WNT11}}
+- {field: measure, stated: CD36 expression, terms: [measure:gene_expression], qualifiers: {gene: CD36}}
+- {field: measure, stated: ACSL1 expression, terms: [measure:gene_expression], qualifiers: {gene: ACSL1}}
+- {field: measure, stated: ANGPTL4 expression, terms: [measure:gene_expression], qualifiers: {gene: ANGPTL4}}
+- {field: measure, stated: "PPAR isoform expression (PPARA, PPARD, PPARG)", flag: {kind: several measures, note: "Three genes' expression compared with each other in one item (the record's own note says so); one item per gene."}}
+- {field: measure, stated: "PPARGC1A, PPARGC1B, RXRA, RXRB, RXRG and MED1 expression", flag: {kind: several measures, note: "Six genes' expression in one item with no gene set named by the paper; one item per gene, or the paper's name for the set."}}
+# ---------------------------------------------------------------- measures: gene sets
+- {field: measure, stated: "FAO gene expression (CD36, CPT1A, CPT1B, ACADVL, HADHA, HADHB, PDK4, ACSL1, MLYCD, ANGPTL4)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "FAO genes (CD36, CPT1A, CPT1B, ACADVL, HADHA, HADHB, PDK4, ACSL1, MLYCD, ANGPTL4)"}}
+- {field: measure, stated: "FAO gene expression (CD36, CPT1A, ASCL1, CPT1B, HADHA, HADHB, PDK4)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "FAO genes (CD36, CPT1A, ASCL1, CPT1B, HADHA, HADHB, PDK4)"}}
+- {field: measure, stated: "FAO gene expression (CD36, CPT1A, ACADVL, ANGPTL4, HADHA, HADHB, ACSL1, PDK4)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "FAO genes (CD36, CPT1A, ACADVL, ANGPTL4, HADHA, HADHB, ACSL1, PDK4)"}}
+- {field: measure, stated: FAO gene expression, terms: [measure:gene_set_expression], qualifiers: {gene_set: FAO genes}}
+- {field: measure, stated: "Wnt component expression (WNT5B, FZD1)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "Wnt components (WNT5B, FZD1)"}}
+- {field: measure, stated: "Wnt inhibitor expression (DKK3, FRAT1)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "Wnt inhibitors (DKK3, FRAT1)"}}
+- {field: measure, stated: "Wnt inhibitor expression (SFRP1, SFRP2)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "Wnt inhibitors (SFRP1, SFRP2)"}}
+- {field: measure, stated: "lactate and glucose metabolism genes (SLC16A3, SLC2A1, LDHA, PDHA1, HK1, HK2)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "lactate and glucose metabolism genes (SLC16A3, SLC2A1, LDHA, PDHA1, HK1, HK2)"}}
+- {field: measure, stated: "proliferation marker expression (CCND2, IGF2)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "proliferation markers (CCND2, IGF2)"}}
+- {field: measure, stated: "contractility gene expression (TNNT2, MYLK, MYOM3)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "contractility genes (TNNT2, MYLK, MYOM3)"}}
+- {field: measure, stated: "calcium signaling gene expression (CACNA1C, CASQ2)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "calcium signaling genes (CACNA1C, CASQ2)"}}
+- {field: measure, stated: structural gene expression (myofibril and junction proteins), terms: [measure:gene_set_expression], qualifiers: {gene_set: structural genes (myofibril and junction proteins)}}
+- {field: measure, stated: "channel gene expression (Na+, K+, Ca2+)", terms: [measure:gene_set_expression], qualifiers: {gene_set: "channel genes (Na+, K+, Ca2+)"}}
+- {field: measure, stated: metabolic gene expression, terms: [measure:gene_set_expression], qualifiers: {gene_set: metabolic genes}}
+- {field: measure, stated: "sarcomere, conduction, calcium handling and cardiac transcription factor gene expression", flag: {kind: several measures, note: "Four gene categories in one heatmap item; one item per category the paper names."}}
+- {field: measure, stated: "KEGG pathway regulation (FA metabolism, adipocytokine signaling, peroxisomes)", flag: {kind: several measures, note: "Three KEGG pathways in one item; pathway regulation is one pathway per item."}}
+- {field: measure, stated: "early-response KEGG pathways (cell cycle, OXPHOS up; PPARA, glycolysis, galactose metabolism, pentose-phosphate down)", flag: {kind: several measures, note: "Six KEGG pathways, in two directions, in one item."}}
+- {field: measure, stated: "KEGG pathways (OXPHOS, galactose metabolism, pentose-phosphate pathway)", flag: {kind: several measures, note: "Three KEGG pathways in one item."}}
+- {field: measure, stated: KEGG pathway regulation, flag: {kind: several measures, note: "A comparison of many KEGG pathways (Fig. 7B) with none named; pathway regulation is one pathway per item."}}
+- {field: measure, stated: overlap of differentially expressed genes with genes upregulated in adult heart vs D27 hPSC-CMs, terms: [measure:enrichment_p_value], qualifiers: {gene_set: differentially expressed genes, annotation: genes upregulated in adult heart vs D27 hPSC-CMs}, note: "The printed values are overlap p-values (e.g. 5.53E-01), not counts."}
+- {field: measure, stated: overlap of differentially expressed genes with genes downregulated in adult heart vs D27 hPSC-CMs, terms: [measure:enrichment_p_value], qualifiers: {gene_set: differentially expressed genes, annotation: genes downregulated in adult heart vs D27 hPSC-CMs}, note: "The printed values are overlap p-values, not counts."}
+- {field: measure, stated: "upregulated genes shared between 7 days, 7-day pulse and 28 days of PPARd activation", terms: [measure:shared_de_gene_count], qualifiers: {regulation: up}}
+- {field: measure, stated: "downregulated genes shared between 7 days, 7-day pulse and 28 days of PPARd activation", terms: [measure:shared_de_gene_count], qualifiers: {regulation: down}}
+# ---------------------------------------------------------------- measures: chromatin
+- {field: measure, stated: fraction of promoter- and enhancer-associated peaks, flag: {kind: several measures, note: "A stacked bar of two peak categories (promoter, enhancer); one item per category."}}
+- {field: measure, stated: ATAC-seq principal component analysis, terms: [measure:principal_component_score], qualifiers: {gene_set: ATAC-seq peaks}}
+- {field: measure, stated: chromatin accessibility (PDK4), terms: [measure:chromatin_accessibility], qualifiers: {locus: PDK4}}
+- {field: measure, stated: chromatin accessibility (DYSF), terms: [measure:chromatin_accessibility], qualifiers: {locus: DYSF}}
+- {field: measure, stated: chromatin accessibility (KCNT2), terms: [measure:chromatin_accessibility], qualifiers: {locus: KCNT2}}
+- {field: measure, stated: chromatin accessibility (NIPSNAP3B), terms: [measure:chromatin_accessibility], qualifiers: {locus: NIPSNAP3B}}
+- {field: measure, stated: chromatin accessibility (PXDNL), terms: [measure:chromatin_accessibility], qualifiers: {locus: PXDNL}}
+- {field: measure, stated: differential chromatin accessibility (50 genes), flag: {kind: several measures, note: "A heatmap of 50 loci in one item; chromatin accessibility is one locus per item."}}
+# ---------------------------------------------------------------- measures: flow and imaging
+- {field: measure, stated: "SIRPA+CD90− cells (representative flow plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD90−"}}
+- {field: measure, stated: "SIRPA+CD90− hPSC-CMs", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD90−"}}
+- {field: measure, stated: "SIRPA+CD90− hPSC-CMs (normalised to control)", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD90−", expressed_as: normalised, normalised_to: control}}
+- {field: measure, stated: "ACTN2-eGFP+ cells (representative flow plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: "ACTN2-eGFP+"}}
+- {field: measure, stated: ACTN2-eGFP mean fluorescence intensity, terms: [measure:protein_fluorescence_intensity], qualifiers: {protein: ACTN2-eGFP, expressed_as: normalised, normalised_to: control}}
+- {field: measure, stated: "SIRPA+CD90−CD36+ cells (representative flow plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD90−CD36+"}}
+- {field: measure, stated: "SIRPA+CD90−CD36+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD90−CD36+"}, note: "Values are % in most figures and fold in others; expressed_as left to the values."}
+- {field: measure, stated: "SIRPA+CD36+ cells (representative flow plot)", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD36+"}}
+- {field: measure, stated: "SIRPA+CD36+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: "SIRPA+CD36+"}}
+- {field: measure, stated: "EdU+ cells", terms: [measure:marker_positive_cells], qualifiers: {marker: "EdU+"}}
+- {field: measure, stated: LCFA transporters, terms: [measure:marker_positive_cells], qualifiers: {marker: "CD36+"}, note: "Table S3 row; its entry reads 'Increased CD36 cell surface expression'."}
+- {field: measure, stated: "PPARa, PPARd and PPARg immunofluorescence", flag: {kind: several measures, note: "Staining of three proteins in one item; one item per protein."}}
+- {field: measure, stated: VLCAD immunofluorescence, terms: [measure:protein_staining], qualifiers: {protein: VLCAD}}
+- {field: measure, stated: PMP70 mean fluorescence intensity, terms: [measure:protein_fluorescence_intensity], qualifiers: {protein: PMP70, expressed_as: fold}}
+- {field: measure, stated: "myofibril organization (cTnT and ACTN2 IF)", terms: [measure:sarcomere_organisation], qualifiers: {aspect: myofibril organization}}
+- {field: measure, stated: sarcomere organization, terms: [measure:sarcomere_organisation]}
+- {field: measure, stated: mean vector length (myofibril alignment), terms: [measure:mean_vector_length], qualifiers: {structure: myofibrils (cTnT)}}
+- {field: measure, stated: circularity standard deviation, terms: [measure:angle_dispersion], qualifiers: {structure: myofibrils (cTnT)}}
+- {field: measure, stated: multinucleation, terms: [measure:multinucleated_cell_fraction]}
+- {field: measure, stated: proliferation, terms: [measure:cell_proliferation]}
+# ---------------------------------------------------------------- measures: mitochondria and metabolism
+- {field: measure, stated: MitoTracker Deep Red intensity, terms: [measure:mitochondrial_mass], qualifiers: {expressed_as: fold}}
+- {field: measure, stated: mitochondrial content, terms: [measure:mitochondrial_mass]}
+- {field: measure, stated: mitochondrial area, terms: [measure:mitochondrial_cross_sectional_area], note: "Area of single mitochondria on TEM images (Fig. 5E)."}
+- {field: measure, stated: mitochondrial cristae organization, terms: [measure:mitochondrial_morphology], qualifiers: {feature: cristae organization}}
+- {field: measure, stated: OXPHOS and active FAO, flag: {kind: several measures, note: "Table S3 row naming oxidative phosphorylation and fatty acid oxidation together."}}
+# ---------------------------------------------------------------- measures: electrophysiology and force
+- {field: measure, stated: APD20, terms: [measure:action_potential_duration], qualifiers: {level: APD20}}
+- {field: measure, stated: APD50, terms: [measure:action_potential_duration], qualifiers: {level: APD50}}
+- {field: measure, stated: CaD20, terms: [measure:calcium_transient_duration], qualifiers: {level: CaD20}, note: "Results: 'the 20th and 50th percentiles of the intracellular calcium transient duration'."}
+- {field: measure, stated: CaD50, terms: [measure:calcium_transient_duration], qualifiers: {level: CaD50}}
+- {field: measure, stated: CaD90, terms: [measure:calcium_transient_duration], qualifiers: {level: CaD90}}
+- {field: measure, stated: calcium transient duration (20th percentile), terms: [measure:calcium_transient_duration], qualifiers: {level: 20th percentile}}
+- {field: measure, stated: action potential duration (20th and 50th percentiles), flag: {kind: several measures, note: "Two levels (APD20 and APD50) in one Table S3 item; one item per level."}}
+- {field: measure, stated: developed force (spontaneous), terms: [measure:twitch_force], split: [{words: spontaneous, field: pacing}]}
+- {field: measure, stated: T2Rlx90 / T2Pk, terms: [measure:relaxation_time], qualifiers: {level: 90 % relaxation, expressed_as: normalised, normalised_to: time to peak (T2Pk)}, note: "Results: 'the ratio of time to the 90th percentile of relaxation (T2Rlx90) relative to the time to peak (T2Pk)'."}
+- {field: measure, stated: tissue compaction and gross EHT morphology, flag: {kind: several measures, note: "Compaction and gross morphology in one item; one item each."}}
+- {field: measure, stated: systolic and diastolic force, flag: {kind: several measures, note: "Two force measures in one Table S3 item; one item each."}}
+- {field: measure, stated: electrical coupling, terms: [measure:electrical_coupling], note: "Table S3 row (NS) separate from its conduction velocity row; the measure behind it is not stated."}

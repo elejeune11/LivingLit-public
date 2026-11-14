@@ -1,0 +1,44 @@
+# Written by code from changes.yaml (version 28); never edited.
+formula: force_from_strain_modulus_area
+kind: derived
+statement: For a linear elastic specimen of Young's modulus E and area A, elongated by d over length L (strain d/L), the normal
+  force is F = E*A*d/L.
+equations:
+- F = E*A*d/L
+variables:
+  F: force
+  E: modulus
+  A: area
+  d: length
+  L: length
+  sigma: stress
+  eps: dimensionless
+assumes:
+- eps = d/L
+uses:
+- formula: stress_def
+  subs:
+    sigma: sigma
+    F: F
+    A: A
+- formula: linear_elastic_stress_strain
+  subs:
+    sigma: sigma
+    E: E
+    eps: eps
+does_not_apply: a nonlinear material or large strains; an area other than the one carrying the force; a modulus of a body
+  other than the one strained
+tests:
+- given:
+    E: 10.0
+    A: 2.0
+    d: 1.0
+    L: 4.0
+  expect:
+    F: 5.0
+- given:
+    E: 10.0
+    A: 2.0
+    d: 1.0
+    L: 4.0
+  does_not_apply: 'strain taken as d/(L + d) (true length): 4.0, not 5.0'

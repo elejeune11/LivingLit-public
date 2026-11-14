@@ -1,0 +1,491 @@
+record: 2020_Saleem-U
+vocabulary_version: 7
+agent: {model: llm, instructions: terms_v3}
+
+edits:
+# ---------------------------------------------------------------- culture fields
+- add_term:
+    field: hipsc_medium
+    id: hipsc_medium:ftda
+    label: FTDA medium
+    definition: FTDA defined medium for expanding pluripotent stem cells.
+    scope: FTDA medium; not mTeSR1.
+- set_scope:
+    id: hipsc_medium:mtesr1
+    scope: mTeSR1 medium; not FTDA medium.
+- add_term:
+    field: hipsc_coating
+    id: hipsc_coating:geltrex
+    label: Geltrex
+    definition: Geltrex basement-membrane matrix used to coat culture vessels.
+    scope: The Geltrex product; not Matrigel, a different basement-membrane extract.
+- set_scope:
+    id: hipsc_coating:matrigel
+    scope: Matrigel and its variants; not Geltrex, a different basement-membrane extract.
+- add_qualifier: {id: purity_method:flow_cytometry, name: marker, dimension: text}
+- add_term:
+    field: cm_medium
+    id: cm_medium:eht_medium
+    label: EHT medium
+    definition: The culture medium a source calls EHT medium, used to maintain engineered heart tissues; its composition is given by the cited protocol.
+    scope: A medium named EHT medium without stated base; not RPMI 1640.
+- set_scope:
+    id: cm_medium:rpmi_1640
+    scope: RPMI-1640 based medium; not a medium named only as EHT medium.
+- add_synonym:
+    id: substrate:fibrin_hydrogel
+    text: fibrin
+    anchor: thrombin carryover and fibrin polymerization in the pipette tip
+- add_synonym:
+    id: CL:0000746
+    text: hiPSC-CMs
+    anchor: Frozen or freshly dissociated hiPSC-CMs were counted
+- add_qualifier: {id: platform:tissue_between_pillars, name: posts, dimension: text}
+
+# ---------------------------------------------------------------- treatment
+- adopt_own:
+    field: treatment
+    id: treatment:viral_transduction
+    label: viral transduction
+    definition: Transduction of the cells with a viral vector carrying a transgene (the transgene, vector and multiplicity of infection are qualifiers).
+    scope: Gene transfer by a viral vector; not a compound and not a mechanical intervention.
+    qualifiers:
+      transgene: {dimension: text}
+      vector: {dimension: text}
+      MOI: {dimension: text}
+    lookup: searched 'transduction', 'lentiviral', 'GFP', 'green fluorescent protein' and 'GCaMP' in ChEBI 257; ChEBI holds chemicals, not gene transfer or proteins such as GFP or GCaMP
+- adopt_own:
+    field: treatment
+    id: treatment:metal_braces
+    label: metal braces
+    definition: Metal braces inserted into hollow posts to stiffen them and stop the tissue from shortening.
+    scope: A mechanical intervention on the posts; not a compound or a gene transfer.
+    qualifiers:
+      phase: {dimension: text}
+    lookup: searched 'metal brace' and 'brace' in ChEBI 257; a mechanical intervention, not a chemical
+- adopt_own:
+    field: treatment
+    id: treatment:emd_57033
+    label: EMD-57033
+    definition: The thiadiazinone calcium sensitiser EMD-57033.
+    scope: The compound EMD-57033; not a gene transfer or a mechanical intervention.
+    lookup: searched 'EMD-57033', 'EMD57033', 'EMD 57033' and 'EMD' in ChEBI 257; no entry for this compound
+- adopt:
+    field: treatment
+    id: CHEBI:4480
+    label: diacetylmonoxime
+    lookup: searched 'BDM', '2,3-butanedione monoxime', 'butanedione monoxime' (no hit) and 'diacetyl monoxime' in ChEBI 257; 2,3-butanedione monoxime is diacetylmonoxime
+    synonyms:
+    - text: BDM
+      anchor: monoxime (BDM; 10 mM
+- adopt:
+    field: treatment
+    id: CHEBI:34555
+    label: Bay-K-8644
+    lookup: searched 'Bay K-8644' and 'Bay K 8644' in ChEBI 257; exact match (racemate)
+- adopt:
+    field: treatment
+    id: CHEBI:4551
+    label: digoxin
+    lookup: searched 'digoxin' in ChEBI 257; exact match
+- adopt:
+    field: treatment
+    id: CHEBI:85966
+    label: ivabradine
+    lookup: searched 'ivabradine' in ChEBI 257; exact match (the free base; the hydrochloride is CHEBI:85969, the paper names no salt)
+- adopt:
+    field: treatment
+    id: CHEBI:188664
+    label: omecamtiv mecarbil
+    lookup: searched 'omecamtiv mecarbil' in ChEBI 257; exact match
+
+# ---------------------------------------------------------------- measures: synonyms and qualifiers on existing terms
+- add_synonym:
+    id: measure:calcium_transient_amplitude
+    text: CaT amplitude
+    anchor: At 1.8 mM calcium, CaT amplitude was 185%
+- add_synonym:
+    id: measure:twitch_force
+    text: force amplitude
+    anchor: higher (15,128 versus 5,318 AU) and force amplitude was
+- add_synonym:
+    id: measure:twitch_force
+    text: contraction force
+    anchor: Average peaks of contraction force (blue, left)
+- add_synonym:
+    id: measure:contraction_frequency
+    text: beating frequency
+    anchor: The adaptation of force to changes in beating frequency
+- add_qualifier: {id: measure:calcium_transient_rise_time, name: level, dimension: text}
+- add_qualifier: {id: measure:calcium_transient_decay_time, name: level, dimension: text}
+
+# ---------------------------------------------------------------- measures: new terms
+- add_term:
+    field: measure
+    id: measure:signal_to_noise_ratio
+    label: signal-to-noise ratio
+    definition: Amplitude of a recorded signal divided by the background noise of the recording.
+    scope: Quality of a recording (the signal is the qualifier signal); not the amplitude of the signal itself.
+    qualifiers:
+      signal: {dimension: text}
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:fluorescence_peak_amplitude
+    label: peak fluorescence amplitude
+    definition: Peak intensity of a recorded fluorescence signal, whatever its source (calcium indicator, GFP or autofluorescence).
+    scope: Raw fluorescence peaks compared across signal sources (qualifier signal); not calcium transient amplitude, which is the transient of a calcium indicator.
+    qualifiers:
+      signal: {dimension: text}
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:contraction_time_to_peak
+    label: time to peak force
+    definition: Time from the start of a contraction to its force peak, measured from a stated level (qualifier level).
+    scope: Rise of force; not relaxation time and not the rise time of the calcium transient.
+    qualifiers:
+      level: {dimension: text}
+    dimension: time
+- add_term:
+    field: measure
+    id: measure:calcium_force_time_difference
+    label: calcium transient time relative to force time
+    definition: Relative difference between a time of the calcium transient and the matching time of force in the same beats (qualifier phase says which pair).
+    scope: A comparison of calcium and force kinetics within one tissue; not either time on its own.
+    qualifiers:
+      phase: {dimension: text}
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:force_fluorescence_loop
+    label: force-fluorescence loop
+    definition: Qualitative shape or orientation of force plotted against fluorescence over one beat (qualifier aspect).
+    scope: The phase-plane loop of force against fluorescence; not the relation of amplitudes across conditions.
+    qualifiers:
+      aspect: {dimension: text}
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:force_calcium_relation
+    label: force-calcium amplitude relation
+    definition: How relative force amplitude changes with relative calcium transient amplitude across conditions (qualifier varied_by).
+    scope: Relation of amplitudes across conditions; not the within-beat force-fluorescence loop.
+    qualifiers:
+      varied_by: {dimension: text}
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:beating_presence
+    label: presence of beating
+    definition: Whether tissues beat or have stopped beating.
+    scope: Beating present or absent; not contraction frequency.
+    qualifiers:
+      mode: {dimension: text}
+    dimension: categorical
+
+# ---------------------------------------------------------------- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:signal_to_noise_ratio
+    value: {must_match: [platform@1, preparation, measure.signal], may_vary: [cell_line, pacing]}
+    direction: {must_match: [contrast, measure.signal], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:fluorescence_peak_amplitude
+    value: {must_match: [platform@1, preparation, pacing, measure.signal], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contraction_time_to_peak
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_force_time_difference
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.phase], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.phase], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:force_fluorescence_loop
+    value: {must_match: [platform@1, preparation, pacing, measure.aspect], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.aspect], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:force_calcium_relation
+    value: {must_match: [platform@1, preparation, temperature, culture_calcium_mM, measure.varied_by], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.varied_by], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:beating_presence
+    value: {must_match: [platform@1, preparation, pacing], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+
+# ================================================================ re-map v3 (vocabulary v7)
+# ---------------------------------------------------------------- transgene (new field)
+- add_term:
+    field: transgene
+    id: transgene:calcium_indicator
+    label: genetically encoded calcium indicator
+    definition: An introduced gene for a fluorescent protein whose signal changes with intracellular calcium.
+    scope: A calcium-sensing reporter (GCaMP family and similar); not a fluorescent protein whose signal does not depend on calcium.
+    qualifiers:
+      vector: {dimension: text}
+      MOI: {dimension: text}
+    synonyms:
+    - text: GECIs
+      anchor: genetically encoded calcium sensors (GECIs) for the characterization of EHTs
+- add_term:
+    field: transgene
+    id: transgene:fluorescent_reporter
+    label: fluorescent protein reporter
+    definition: An introduced gene for a fluorescent protein whose signal does not report calcium or another cellular variable.
+    scope: A constitutive fluorescent marker such as GFP; not a calcium-sensing indicator.
+    qualifiers:
+      vector: {dimension: text}
+      MOI: {dimension: text}
+- add_term:
+    field: transgene
+    id: transgene:gcamp5g
+    label: GCaMP5G
+    parent: transgene:calcium_indicator
+    definition: The genetically encoded calcium indicator GCaMP5G.
+    scope: GCaMP5G, with slower on and off kinetics; not GCaMP6f.
+    synonyms:
+    - text: GCaMP5G
+      anchor: transduced with lentivirus encoding either GCaMP5G or GCaMP6f
+- add_term:
+    field: transgene
+    id: transgene:gcamp6f
+    label: GCaMP6f
+    parent: transgene:calcium_indicator
+    definition: The fast genetically encoded calcium indicator GCaMP6f.
+    scope: GCaMP6f; not GCaMP5G, whose kinetics differ.
+    synonyms:
+    - text: GCaMP6f
+      anchor: transduced with lentivirus encoding either GCaMP5G or GCaMP6f
+- add_term:
+    field: transgene
+    id: transgene:gfp
+    label: green fluorescent protein
+    parent: transgene:fluorescent_reporter
+    definition: Green fluorescent protein expressed as a non-sensing fluorescent marker.
+    scope: GFP as a marker on its own; not a GFP-based calcium indicator such as GCaMP.
+    synonyms:
+    - text: GFP
+      anchor: hiPSC-CM EHTs transduced with GFP
+
+# ---------------------------------------------------------------- mechanical_load
+- add_qualifier: {id: mechanical_load:auxotonic, name: posts, dimension: text}
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:isometric
+    label: isometric load
+    definition: Contraction against a load stiff enough to prevent shortening, so the tissue contracts at fixed length.
+    scope: Shortening prevented (rigid or stiffened posts, fixed length); not contraction against an elastic, spring-like load (auxotonic).
+    qualifiers:
+      posts: {dimension: text}
+
+# ---------------------------------------------------------------- standing keys revised (re-map v3)
+- standing_key:
+    measure: measure:contraction_time_to_peak
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:force_calcium_relation
+    value: {must_match: [platform@1, preparation, temperature, measurement_calcium_mM, measure.varied_by], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.varied_by], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:fluorescence_peak_amplitude
+    value: {must_match: [platform@1, preparation, pacing, measurement_calcium_mM, measure.signal], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+
+- standing_key:
+    measure: measure:fluorescence_peak_amplitude
+    value:
+      must_match: [platform@1, preparation, pacing, measurement_calcium_mM, measure.signal, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contraction_time_to_peak
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_force_time_difference
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.phase, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.phase]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:force_fluorescence_loop
+    value:
+      must_match: [platform@1, preparation, pacing, measure.aspect, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.aspect]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:force_calcium_relation
+    value:
+      must_match: [platform@1, preparation, temperature, measurement_calcium_mM, measure.varied_by, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.varied_by]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:beating_presence
+    value:
+      must_match: [platform@1, preparation, pacing, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- culture and platform
+- field: purity_method
+  stated: flow cytometry (cardiac troponin T)
+  terms: [purity_method:flow_cytometry]
+  qualifiers: {marker: cardiac troponin T}
+- field: platform
+  stated: engineered heart tissue (EHT)
+  terms: [platform:tissue_between_pillars]
+  note: The paper's EHTs are fibrin strips cast between pairs of flexible PDMS posts (Experimental Procedures). "EHT" is not added as a synonym because it is broader than this format.
+- field: platform
+  stated: engineered heart tissue (EHT) on hollow PDMS posts
+  terms: [platform:tissue_between_pillars]
+  qualifiers: {posts: hollow PDMS posts}
+
+# ---------------------------------------------------------------- mechanical load
+- field: mechanical_load
+  stated: flexible PDMS posts
+  terms: [mechanical_load:auxotonic]
+  qualifiers: {posts: flexible PDMS posts}
+  note: EHTs contract against flexible posts that bend with each beat (auxotonic); the post description is kept as a qualifier.
+- field: mechanical_load
+  stated: stiffened PDMS posts (metal braces)
+  terms: [mechanical_load:isometric]
+  qualifiers: {posts: hollow PDMS posts stiffened by metal braces}
+  note: The braces stiffen the posts and abrogate EHT movement, so contraction is at fixed length.
+
+# ---------------------------------------------------------------- measurement calcium
+- field: measurement_calcium_mM
+  stated: submaximal
+  flag: {kind: several conditions, note: "Not a number; the qualifier gives a different bath calcium per hiPSC line (and for Bay K-8644), so the unit pools several calcium conditions."}
+- field: measurement_calcium_mM
+  stated: 0.4–0.6 mM for hiPSC cell line 2, and 0.8 mM for hiPSC cell line 3
+  flag: {kind: several conditions, note: "Two bath calcium concentrations for two cell lines in one value; code would read it as one quantity."}
+
+# ---------------------------------------------------------------- transgene
+- field: transgene
+  stated: GFP (lentiviral)
+  terms: [transgene:gfp]
+  qualifiers: {vector: lentivirus}
+- field: transgene
+  stated: GCaMP5G or GCaMP6f (lentiviral)
+  flag: {kind: alternatives, note: "Names two sensors joined by 'or'; the group pools GCaMP5G and GCaMP6f tissues, so it is not one transgene."}
+- field: transgene
+  stated: GCaMP5G (lentiviral)
+  terms: [transgene:gcamp5g]
+  qualifiers: {vector: lentivirus}
+- field: transgene
+  stated: GCaMP6f (lentiviral)
+  terms: [transgene:gcamp6f]
+  qualifiers: {vector: lentivirus}
+- field: transgene
+  stated: GCaMP6f (AAV6)
+  terms: [transgene:gcamp6f]
+  qualifiers: {vector: AAV6}
+- field: transgene
+  stated: GCaMP6f (AAV6 and lentiviral)
+  terms: [transgene:gcamp6f]
+  qualifiers: {vector: AAV6 and lentivirus (pooled)}
+  note: One transgene; the unit pools tissues transduced by either vector, which the paper analyses together, so both vectors are named in the qualifier.
+
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: time-to-peak CaT (TTP80%,CaT)
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: 80%}
+  note: Items of this measure are printed both in s and as % change from own baseline, so no paper-wide expressed_as is given (see ambiguity log).
+- field: measure
+  stated: TTP-80% (CaT)
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: 80%, expressed_as: "% change", normalised_to: own baseline}
+- field: measure
+  stated: time-to-peak force (TTP80%,force)
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: 80%}
+  note: Printed both in s and as % change from own baseline; no paper-wide expressed_as.
+- field: measure
+  stated: TTP-80% (force)
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: 80%, expressed_as: "% change", normalised_to: own baseline}
+- field: measure
+  stated: decay time of the CaT (DT80%)
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 80%, expressed_as: absolute}
+- field: measure
+  stated: decay time of the CaT (DT80%,CaT)
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 80%}
+  note: Printed both in s and as % change from own baseline; no paper-wide expressed_as.
+- field: measure
+  stated: DT80% (CaT)
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 80%, expressed_as: "% change", normalised_to: own baseline}
+- field: measure
+  stated: relaxation time CaT (RT80%,CaT)
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 80%, expressed_as: "% change", normalised_to: own baseline}
+  note: The isoprenaline sentence writes RT80%,CaT where the paper otherwise writes DT80%,CaT, and the plotted panel (Fig. S4A) is labelled DT80%; the same quantity.
+- field: measure
+  stated: relaxation time for force (RT80%,force)
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 80%}
+  note: Printed both in s and as % change from own baseline; no paper-wide expressed_as.
+- field: measure
+  stated: RT80% (force)
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 80%, expressed_as: "% change", normalised_to: own baseline}
+- field: measure
+  stated: time-to-peak CaT relative to time-to-peak force
+  terms: [measure:calcium_force_time_difference]
+  qualifiers: {phase: time to peak}
+- field: measure
+  stated: decay time of the CaT relative to relaxation time for force
+  terms: [measure:calcium_force_time_difference]
+  qualifiers: {phase: CaT decay versus force relaxation}
+- field: measure
+  stated: orientation of the force-calcium loop
+  terms: [measure:force_fluorescence_loop]
+  qualifiers: {aspect: orientation}
+- field: measure
+  stated: shape of the force-fluorescence loop
+  terms: [measure:force_fluorescence_loop]
+  qualifiers: {aspect: shape}
+- field: measure
+  stated: shape of the force-light dependency
+  terms: [measure:force_fluorescence_loop]
+  qualifiers: {aspect: shape}
+- field: measure
+  stated: contraction force and autofluorescence intensity peaks
+  flag: {kind: several measures, note: "Two measures in one value: contraction force peaks and autofluorescence intensity peaks."}
+- field: measure
+  stated: contraction force and GFP fluorescence intensity peaks
+  flag: {kind: several measures, note: "Two measures in one value: contraction force peaks and GFP fluorescence intensity peaks."}
+- field: measure
+  stated: fraction of hiPSC-CMs transduced, by GFP staining
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: GFP}
+- field: measure
+  stated: spontaneous beating
+  terms: [measure:beating_presence]
+  note: The finding is that some EHTs stopped beating at 100 nM nifedipine while electrically paced; whether "spontaneous" is right is doubtful, so no mode qualifier is given.
+- field: measure
+  stated: TTP80%,force, TTP80%,CaT, RT80%,force, and DT80%,CaT
+  flag: {kind: several measures, note: "Four kinetic measures in one value (time to peak and relaxation of force, time to peak and decay of CaT)."}
+- field: measure
+  stated: correlation of relative force and CaT amplitude values at different pacing frequencies
+  terms: [measure:force_calcium_relation]
+  qualifiers: {varied_by: pacing frequency}

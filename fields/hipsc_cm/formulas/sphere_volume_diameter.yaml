@@ -1,0 +1,30 @@
+# Written by code from changes.yaml (version 26); never edited.
+formula: sphere_volume_diameter
+kind: derived
+statement: The volume of a body treated as a sphere, from its diameter, is pi d^3 / 6.
+equations:
+- V = pi*d**3/6
+variables:
+  V: volume
+  d: length
+  r: length
+assumes:
+- d = 2*r
+uses:
+- formula: sphere_volume
+  subs:
+    V: V
+    r: r
+does_not_apply: a diameter taken as the radius (volume 8x too large), or a non-spherical body
+tests:
+- given:
+    d: 2.0
+  expect:
+    V: 4.1887902
+- given:
+    d: 10.0
+  expect:
+    V: 523.598776
+- given:
+    d: 2.0
+  does_not_apply: 'diameter used as the radius: 4/3 pi 2^3 = 33.5, not 4.19'

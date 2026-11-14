@@ -1,0 +1,391 @@
+record: 2021_Tsui
+vocabulary_version: 59
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- cell_line, cell_types, stromal_cell
+- adopt_own:
+    field: cell_line
+    id: cell_line:uc_3_4
+    label: UC 3–4
+    definition: Urine-derived human iPSC line UC 3–4 (Mack lab), used in the Tsui 2021 study.
+    scope: The UC 3–4 urine-derived hiPSC line; not any other line.
+    lookup: Cellosaurus searched for "UC 3–4", "UC3" and "UC 3"; only UM-UC-3 (a urothelial carcinoma line) and unrelated lines came back, so the line has no accession in the pinned release.
+    synonyms:
+    - {text: UC 3–4, anchor: UC 3–4 urine-derived human induced pluripotent stem cells (hiPSCs)}
+- adopt:
+    field: cell_types
+    id: CL:0010001
+    label: stromal cell of bone marrow
+    lookup: CL searched for "stromal cell of bone marrow" (exact); HS-27A is a human bone marrow stromal line (Cellosaurus CVCL_3719).
+    synonyms:
+    - {text: HS-27A stromal cells, anchor: hiPSC-CMs and HS-27A stromal cells were mixed in hydrogel pre-gel solutions}
+- add_synonym:
+    id: CL:0010001
+    field: stromal_cell
+    text: HS-27A
+    anchor: HS-27A human bone marrow-derived stromal cells (ATCC)
+# ---------------------------------------------------------------- substrate
+- add_term:
+    field: substrate
+    id: substrate:graphene_material
+    label: graphene-family material
+    parent: null
+    definition: A carbon nanomaterial made of graphene sheets or their oxidised or reduced derivatives, used as a coating or a filler of a substrate.
+    scope: Graphene, graphene oxide and reduced graphene oxide as coatings or fillers; not the polymer, glass, plastic or hydrogel they coat or are mixed into, which are their own terms in a set.
+- add_term:
+    field: substrate
+    id: substrate:graphene
+    label: graphene
+    parent: substrate:graphene_material
+    definition: Pristine (non-oxidised) graphene, such as a film grown by chemical vapour deposition.
+    scope: Unoxidised graphene; not graphene oxide or reduced graphene oxide.
+    synonyms:
+    - {text: pristine graphene, anchor: Clean glass coverslips were coated with pristine graphene}
+- add_term:
+    field: substrate
+    id: substrate:graphene_oxide
+    label: graphene oxide
+    parent: substrate:graphene_material
+    definition: Graphene sheets bearing oxygen groups, as supplied before any chemical reduction.
+    scope: Unreduced graphene oxide; not reduced graphene oxide (chemically reduced, a different conductivity) and not pristine graphene.
+    synonyms:
+    - {text: GO, anchor: graphene oxide solution (GO; Graphene Laboratories)}
+- add_term:
+    field: substrate
+    id: substrate:reduced_graphene_oxide
+    label: reduced graphene oxide
+    parent: substrate:graphene_material
+    definition: Graphene oxide chemically or thermally reduced to remove oxygen groups; the reducing agent and its concentration are qualifiers of the value.
+    scope: Graphene oxide after reduction; not unreduced graphene oxide and not pristine graphene.
+    qualifiers:
+      reducing_agent: {dimension: text}
+    synonyms:
+    - {text: rGO, anchor: Reduced graphene oxide (rGO) was chemically reduced from commercially-available}
+- add_qualifier:
+    id: substrate:cardiac_ecm_hydrogel
+    name: crosslinker
+    dimension: text
+- add_synonym:
+    id: substrate:culture_plate
+    text: TCPS
+    anchor: monolayers on tissue culture polystyrene (TCPS) as controls
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:cell_free_material_sample
+    label: cell-free material sample
+    parent: null
+    definition: A sample of a construct's material (a hydrogel, ink or film) made and characterised without cells.
+    scope: Material characterised on its own, without cells (mechanics, rheology, conductivity, imaging); not a blank well used as a background (cell-free control), not a device piece tested for uptake (cell-free device chip), and not any culture or tissue with cells.
+- add_term:
+    field: platform
+    id: platform:biomaterial_scaffold
+    label: cell-seeded biomaterial scaffold, format not stated
+    parent: null
+    definition: Cells seeded on or into a pre-formed biomaterial scaffold, where the source does not say whether they form a flat layer or a 3D construct.
+    scope: A seeded scaffold whose 2D or 3D format is not stated; not an electrospun fibrous scaffold, not a stated flat culture (2D culture) and not a stated 3D engineered tissue.
+- add_synonym:
+    id: platform:tissue_between_pillars
+    text: two-post EHT platform
+    anchor: Representative photographs of dECM and dECM-rGO tissues formed on the two-post EHT platform
+- add_qualifier:
+    id: platform:tissue_between_anchors
+    name: fabrication
+    dimension: text
+# ---------------------------------------------------------------- preparation
+- add_term:
+    field: preparation
+    id: preparation:hydrated_gel_specimen
+    label: hydrated crosslinked gel specimen
+    parent: preparation:material_specimen
+    definition: A cell-free crosslinked hydrogel kept swollen in liquid and tested as a gel.
+    scope: A crosslinked gel tested hydrated (compression, oscillatory rheology); not a dried material and not an uncrosslinked precursor solution.
+    synonyms:
+    - {text: hydrated crosslinked hydrogels, anchor: Compressive moduli of hydrated crosslinked hydrogels}
+    - {text: crosslinked hydrogels, anchor: with crosslinked hydrogels held at 25°C}
+- add_term:
+    field: preparation
+    id: preparation:uncured_precursor_solution
+    label: uncrosslinked precursor solution
+    parent: null
+    definition: A cell-free gel or ink precursor measured as a liquid before it is crosslinked or cured.
+    scope: A liquid precursor before gelation (viscosity, flow); not a crosslinked gel or cut material specimen, not a dried material and not collected culture medium.
+    synonyms:
+    - {text: uncrosslinked pre-gel solution, anchor: with uncrosslinked pre-gel solution held at 25°C}
+- add_term:
+    field: preparation
+    id: preparation:dried_material_sample
+    label: dried material sample
+    parent: null
+    definition: A cell-free material dehydrated (air-, oven- or critical-point dried) before measurement; the drying method and the sample form are qualifiers.
+    scope: A material measured dry (conductivity of films, electron microscopy); not a hydrated material specimen, not a liquid precursor, and not fixed or sectioned biological samples.
+    qualifiers:
+      method: {dimension: text}
+      form: {dimension: text}
+- add_synonym:
+    id: preparation:intact_tissue
+    text: live tissue
+    anchor: Prior to live-tissue imaging
+- add_synonym:
+    id: preparation:rna_extract
+    text: isolated RNA
+    anchor: cDNA was then synthesized from the isolated RNA
+# ---------------------------------------------------------------- measures
+- add_synonym:
+    id: measure:cell_viability
+    text: viability
+    anchor: High viability of both cell types is maintained
+- add_synonym:
+    id: measure:contractile_power
+    text: twitch power
+    anchor: Twitch power generated by EHTs followed a similar trend
+- add_synonym:
+    id: measure:action_potential_rise_time
+    text: time to peak depolarization
+    anchor: was no significant difference in time to peak depolarization between dECM and dECM-rGO
+- add_term:
+    field: measure
+    id: measure:compressive_modulus
+    label: compressive modulus
+    parent: measure:elastic_modulus
+    dimension: stress
+    definition: Slope of the stress-strain curve of a specimen loaded in compression.
+    scope: An elastic modulus measured in compression; tensile or unstated loading stays on elastic modulus, and oscillatory shear moduli are storage and loss modulus.
+    synonyms:
+    - {text: compressive modulus, anchor: Compressive modulus was found to increase as both a function of the}
+- add_term:
+    field: measure
+    id: measure:storage_modulus
+    label: storage modulus
+    parent: null
+    dimension: stress
+    definition: In-phase (elastic) part of the shear modulus of a material in oscillatory rheology (G').
+    scope: The elastic part of an oscillatory shear modulus; not the loss modulus (G''), not an elastic modulus from a stress-strain slope and not viscosity.
+- add_term:
+    field: measure
+    id: measure:loss_modulus
+    label: loss modulus
+    parent: null
+    dimension: stress
+    definition: Out-of-phase (viscous) part of the shear modulus of a material in oscillatory rheology (G'').
+    scope: The viscous part of an oscillatory shear modulus; not the storage modulus (G'), not an elastic modulus and not viscosity.
+- add_term:
+    field: measure
+    id: measure:flake_diameter
+    label: filler flake diameter
+    parent: null
+    dimension: length
+    definition: Lateral diameter of flakes of a filler material (such as reduced graphene oxide) in or on a construct material, from microscopy.
+    scope: Size of filler flakes or particles (the material is qualifier material); not fiber diameter of a scaffold, and not a cell, vessel, tubule or tissue dimension.
+    qualifiers:
+      material: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:raman_d_g_ratio
+    label: Raman D:G peak intensity ratio
+    parent: null
+    dimension: dimensionless
+    definition: Ratio of the Raman D-band to G-band peak intensities (ID/IG) of a carbon material, a readout of its lattice defects.
+    scope: A spectroscopic ratio of a carbon material; not a conductivity, a modulus or a flake size.
+    synonyms:
+    - {text: D:G peak intensity ratio, anchor: the D:G peak intensity ratio increased}
+- add_term:
+    field: measure
+    id: measure:qt_interval
+    label: QT interval
+    parent: null
+    dimension: time
+    definition: Time from the start of the QRS complex to the end of the T wave in an electrocardiogram.
+    scope: The ECG interval of a heart in vivo; not the field potential duration on electrodes and not an action potential duration, which papers use as its analogue.
+- add_term:
+    field: measure
+    id: measure:beat_interval_change
+    label: beat-to-beat change in beat interval
+    parent: null
+    dimension: time
+    definition: Difference between one beat interval and the next, a measure of beat-interval irregularity.
+    scope: The change in interval from one beat to the next; not the inter-beat interval itself, not contraction frequency and not deviation from a pacing interval.
+    synonyms:
+    - {text: change in beat interval, anchor: Change in beat interval (ΔBI) was}
+    - {text: ΔBI, anchor: Change in beat interval (ΔBI) was}
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:compressive_modulus
+    value: {must_match: [platform@1, preparation, substrate, cell_types, temperature], may_vary: []}
+    direction: {must_match: [contrast, platform@1], may_vary: [substrate]}
+- standing_key:
+    measure: measure:storage_modulus
+    value: {must_match: [platform@1, preparation, substrate, cell_types, temperature], may_vary: []}
+    direction: {must_match: [contrast, platform@1], may_vary: [substrate]}
+- standing_key:
+    measure: measure:loss_modulus
+    value: {must_match: [platform@1, preparation, substrate, cell_types, temperature], may_vary: []}
+    direction: {must_match: [contrast, platform@1], may_vary: [substrate]}
+- standing_key:
+    measure: measure:flake_diameter
+    value: {must_match: [substrate, measure.material], may_vary: []}
+    direction: {must_match: [contrast, measure.material], may_vary: []}
+- standing_key:
+    measure: measure:raman_d_g_ratio
+    value: {must_match: [substrate], may_vary: []}
+    direction: {must_match: [contrast], may_vary: []}
+- standing_key:
+    measure: measure:qt_interval
+    value: {must_match: [platform@1, species, treatment, genotype, disease_model], may_vary: [donor_age]}
+    direction: {must_match: [contrast], may_vary: []}
+- standing_key:
+    measure: measure:beat_interval_change
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: substrate
+  stated: dECM
+  terms: [substrate:cardiac_ecm_hydrogel]
+  qualifiers: {source: porcine left ventricular myocardium}
+  note: Porcine myocardial dECM solubilised with pepsin into a pre-gel solution (Fig. 1a). No synonym added; "dECM" alone is broader than a cardiac ECM hydrogel.
+- field: substrate
+  stated: dECM + rGO
+  terms: [substrate:cardiac_ecm_hydrogel, substrate:reduced_graphene_oxide]
+  qualifiers: {source: porcine left ventricular myocardium}
+- field: substrate
+  stated: dECM + transglutaminase
+  terms: [substrate:cardiac_ecm_hydrogel]
+  qualifiers: {source: porcine left ventricular myocardium, crosslinker: transglutaminase}
+- field: substrate
+  stated: graphene-coated glass
+  terms: [substrate:glass, substrate:graphene]
+  note: CVD pristine graphene on glass coverslips, then fibronectin (Methods 2.15).
+- field: platform
+  stated: hydrogel
+  terms: [platform:cell_free_material_sample]
+  note: Cell-free hydrogels characterised by SEM, compression, rheology and conductivity.
+- field: platform
+  stated: scaffold
+  terms: [platform:biomaterial_scaffold]
+  note: Fig. S5 says cells were "cultured on" the scaffolds, Methods 2.9 says scaffolds were "seeded with" cells; on or in is not stated.
+- field: platform
+  stated: coverslip
+  terms: [platform:culture_2d]
+  qualifiers: {format: glass coverslip}
+- field: platform
+  stated: bioprinted cardiac tissue
+  terms: [platform:tissue_between_anchors]
+  qualifiers: {fabrication: bioprinted}
+  note: Tissues bioprinted between a pair of printed PCL posts (1 mm diameter, 5 mm tall, 10 mm apart); post flexibility is not stated, so not tissue between two (flexible) pillars.
+- field: preparation
+  stated: digested
+  terms: [preparation:lysate]
+  note: Lyophilised dECM solubilised in urea/thiourea/DTT/SDS and the protein precipitated for LC-MS/MS (Methods 2.2); a protein extract.
+- field: preparation
+  stated: critical-point drying
+  terms: [preparation:dried_material_sample]
+  qualifiers: {method: critical-point drying}
+- field: preparation
+  stated: dehydrated thin films
+  terms: [preparation:dried_material_sample]
+  qualifiers: {form: thin film}
+- field: preparation
+  stated: whole cell patch clamp
+  flag: {kind: not a context, note: "A recording method, not a sample preparation; the paper says the cells were cultured cardiomyocytes on coated coverslips (Methods 2.15–2.16). Method belongs in the item's method."}
+- field: mechanical_load
+  stated: passive tension
+  terms: [mechanical_load:end_anchored]
+  note: '"a two-post passive tension design" (Table S3 caption): ends held by printed PCL posts; whether they yield is not stated.'
+# ---------------------------------------------------------------- measures
+- {field: measure, stated: cTnT+ fraction, terms: [measure:marker_positive_cells], qualifiers: {marker: cTnT}}
+- field: measure
+  stated: collagen I % coverage
+  terms: [measure:matrisome_share]
+  qualifiers: {component: collagen I}
+  note: LC-MS/MS spectrum-count composition of the dECM's ECM components (Fig. 1c axis "% coverage"); read as a share of the ECM proteins, not peptide sequence coverage.
+- {field: measure, stated: collagen II % coverage, terms: [measure:matrisome_share], qualifiers: {component: collagen II}}
+- {field: measure, stated: collagen III % coverage, terms: [measure:matrisome_share], qualifiers: {component: collagen III}}
+- {field: measure, stated: collagen IV % coverage, terms: [measure:matrisome_share], qualifiers: {component: collagen IV}}
+- {field: measure, stated: fibronectin % coverage, terms: [measure:matrisome_share], qualifiers: {component: fibronectin}}
+- {field: measure, stated: laminin % coverage, terms: [measure:matrisome_share], qualifiers: {component: laminin}}
+- {field: measure, stated: rGO flake diameter, terms: [measure:flake_diameter], qualifiers: {material: rGO}}
+- field: measure
+  stated: viscosity
+  terms: [measure:ink_viscosity]
+  note: Viscosity of the dECM and dECM-rGO pre-gel solutions, which the paper also uses as bioinks; "viscosity" alone is too broad for a synonym.
+- field: measure
+  stated: electroconductivity
+  terms: [measure:material_conductivity]
+  note: Four-point probe on dehydrated hydrogel films.
+- {field: measure, stated: "storage modulus G'", terms: [measure:storage_modulus]}
+- {field: measure, stated: "loss modulus G''", terms: [measure:loss_modulus]}
+- {field: measure, stated: hiPSC-CM viability, terms: [measure:cell_viability], qualifiers: {cell_type: hiPSC-CM}}
+- {field: measure, stated: HS27a viability, terms: [measure:cell_viability], qualifiers: {cell_type: HS27a}}
+- {field: measure, stated: time to 90% force decay, terms: [measure:relaxation_time], qualifiers: {level: 90% force decay}}
+- {field: measure, stated: calcium transient amplitude ΔF/F0, terms: [measure:calcium_transient_amplitude], qualifiers: {expressed_as: "% change"}}
+- {field: measure, stated: APD90, terms: [measure:action_potential_duration], qualifiers: {level: APD90}}
+- {field: measure, stated: longitudinal conduction velocity, terms: [measure:conduction_velocity], qualifiers: {direction: longitudinal}}
+- field: measure
+  stated: IC50 of APD90 prolongation by cisapride
+  terms: [measure:ec50]
+  qualifiers: {response: APD90 prolongation, compound: cisapride}
+  note: The paper calls it IC50, but it is the concentration at half of a min–max normalised APD90 prolongation from a dose-response fit, i.e. half-maximal response of a readout (EC50 by this vocabulary's definitions).
+- field: measure
+  stated: IC50 of change in beat interval by cisapride
+  terms: [measure:ec50]
+  qualifiers: {response: change in beat interval, compound: cisapride}
+  note: As for APD90; called IC50 by the paper.
+- field: measure
+  stated: '% change in APD90'
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD90, expressed_as: normalised, normalised_to: lowest (0 %) and largest (100 %) value of the dose-response}
+  note: Fig. 7b labels it percent change; Methods 2.19 says APD90 values were normalised so the lowest is 0 % and the largest 100 %.
+- field: measure
+  stated: '% change in ΔBI'
+  terms: [measure:beat_interval_change]
+  qualifiers: {expressed_as: normalised, normalised_to: lowest (0 %) and largest (100 %) value of the dose-response}
+- {field: measure, stated: "number of upregulated genes: genes exclusive to focal adhesion pathways", terms: [measure:differentially_expressed_gene_count], qualifiers: {gene_set: genes exclusive to KEGG focal adhesion pathways, regulation: upregulated, reference: dECM EHTs}}
+- {field: measure, stated: "number of upregulated genes: genes involved in both focal adhesion and ecm receptor interaction pathways", terms: [measure:differentially_expressed_gene_count], qualifiers: {gene_set: genes in both KEGG focal adhesion and ECM receptor interaction pathways, regulation: upregulated, reference: dECM EHTs}}
+- {field: measure, stated: "number of upregulated genes: genes exclusive to ecm receptor interaction pathways", terms: [measure:differentially_expressed_gene_count], qualifiers: {gene_set: genes exclusive to KEGG ECM receptor interaction pathways, regulation: upregulated, reference: dECM EHTs}}
+# RT-qPCR, comparative Ct against GAPDH, normalised to age-matched TCPS controls (Methods 2.13)
+- {field: measure, stated: MYH7 relative expression, terms: [measure:gene_expression], qualifiers: {gene: MYH7, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: TNNT2 relative expression, terms: [measure:gene_expression], qualifiers: {gene: TNNT2, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: TTN relative expression, terms: [measure:gene_expression], qualifiers: {gene: TTN, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: CACNA1C relative expression, terms: [measure:gene_expression], qualifiers: {gene: CACNA1C, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: ATP2A2 relative expression, terms: [measure:gene_expression], qualifiers: {gene: ATP2A2, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: KCNH2 relative expression, terms: [measure:gene_expression], qualifiers: {gene: KCNH2, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: KCNJ2 relative expression, terms: [measure:gene_expression], qualifiers: {gene: KCNJ2, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: SCN5A relative expression, terms: [measure:gene_expression], qualifiers: {gene: SCN5A, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: GJA1 relative expression, terms: [measure:gene_expression], qualifiers: {gene: GJA1, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: NKX2.5 relative expression, terms: [measure:gene_expression], qualifiers: {gene: NKX2.5, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: GATA4 relative expression, terms: [measure:gene_expression], qualifiers: {gene: GATA4, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: KCNE1 relative expression, terms: [measure:gene_expression], qualifiers: {gene: KCNE1, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: KCNQ1 relative expression, terms: [measure:gene_expression], qualifiers: {gene: KCNQ1, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- {field: measure, stated: TNNI3:TNNI1 expression ratio, terms: [measure:gene_expression_ratio], qualifiers: {gene: TNNI3:TNNI1, expressed_as: fold, normalised_to: age-matched TCPS controls}}
+- field: measure
+  stated: N2B:N2BA expression ratio
+  terms: [measure:gene_expression_ratio]
+  qualifiers: {gene: TTN N2B:N2BA, expressed_as: fold, normalised_to: age-matched TCPS controls}
+  note: Ratio of two TTN isoform transcripts (primers in Table S2).
+# RNA-seq (DESeq2) fold changes, dECM-rGO against dECM EHTs (Table S5)
+- {field: measure, stated: RASGRF1 expression, terms: [measure:gene_expression], qualifiers: {gene: RASGRF1, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: RAC2 expression, terms: [measure:gene_expression], qualifiers: {gene: RAC2, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: MYLK2 expression, terms: [measure:gene_expression], qualifiers: {gene: MYLK2, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: CAV1 expression, terms: [measure:gene_expression], qualifiers: {gene: CAV1, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: VEGFC expression, terms: [measure:gene_expression], qualifiers: {gene: VEGFC, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: FLNA expression, terms: [measure:gene_expression], qualifiers: {gene: FLNA, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: VEGFA expression, terms: [measure:gene_expression], qualifiers: {gene: VEGFA, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: MET expression, terms: [measure:gene_expression], qualifiers: {gene: MET, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: DIAPH1 expression, terms: [measure:gene_expression], qualifiers: {gene: DIAPH1, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: ACTN4 expression, terms: [measure:gene_expression], qualifiers: {gene: ACTN4, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: ITGA5 expression, terms: [measure:gene_expression], qualifiers: {gene: ITGA5, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: THBS2 expression, terms: [measure:gene_expression], qualifiers: {gene: THBS2, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: ITGB4 expression, terms: [measure:gene_expression], qualifiers: {gene: ITGB4, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: COL4A3 expression, terms: [measure:gene_expression], qualifiers: {gene: COL4A3, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: FN1 expression, terms: [measure:gene_expression], qualifiers: {gene: FN1, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: TNC expression, terms: [measure:gene_expression], qualifiers: {gene: TNC, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: LAMA3 expression, terms: [measure:gene_expression], qualifiers: {gene: LAMA3, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: COL1A1 expression, terms: [measure:gene_expression], qualifiers: {gene: COL1A1, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: COL6A1 expression, terms: [measure:gene_expression], qualifiers: {gene: COL6A1, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: COL6A2 expression, terms: [measure:gene_expression], qualifiers: {gene: COL6A2, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: COL1A2 expression, terms: [measure:gene_expression], qualifiers: {gene: COL1A2, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: COL6A3 expression, terms: [measure:gene_expression], qualifiers: {gene: COL6A3, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: ITGA11 expression, terms: [measure:gene_expression], qualifiers: {gene: ITGA11, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: CD44 expression, terms: [measure:gene_expression], qualifiers: {gene: CD44, expressed_as: fold, normalised_to: dECM EHTs}}
+- {field: measure, stated: SDC1 expression, terms: [measure:gene_expression], qualifiers: {gene: SDC1, expressed_as: fold, normalised_to: dECM EHTs}}

@@ -1,0 +1,53 @@
+# Written by code from changes.yaml (version 9); never edited.
+formula: cantilever_point_load_stiffness_rect
+kind: derived
+statement: For a rectangular cantilever (width w in the plane, thickness t in the bending direction) loaded at distance x
+  from its fixed end, the stiffness at the free end is E w t^3 / (2(3Lx^2 - x^3)).
+equations:
+- k = E*w*t**3/(2*(3*L*x**2 - x**3))
+variables:
+  k: stiffness
+  E: modulus
+  I: second_moment
+  L: length
+  x: length
+  w: length
+  t: length
+uses:
+- formula: cantilever_point_load_stiffness
+  subs:
+    k: k
+    E: E
+    I: I
+    L: L
+    x: x
+- formula: rect_second_moment
+  subs:
+    I: I
+    w: w
+    t: t
+does_not_apply: a non-rectangular (e.g. circular) pole section, where I = pi d^4/64
+tests:
+- given:
+    E: 1.0
+    w: 12.0
+    t: 1.0
+    L: 1.0
+    x: 1.0
+  expect:
+    k: 3.0
+- given:
+    E: 1500000.0
+    w: 0.0005
+    t: 0.0002
+    L: 0.0007
+    x: 0.00035
+  expect:
+    k: 13.994169096209912
+- given:
+    E: 1.0
+    w: 12.0
+    t: 1.0
+    L: 1.0
+    x: 1.0
+  does_not_apply: 'width and thickness swapped (w = 1, t = 12): k is 144 times larger'

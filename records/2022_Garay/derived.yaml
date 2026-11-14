@@ -1,0 +1,2614 @@
+record: 2022_Garay
+formula_library_version: 26
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  ST1_chip_adult.pct:
+    item: ST1_chip_adult
+    formula: p = n/N
+    anchor: &id001
+      quote: N (%)
+      where: Table S1
+      file: mmc1.pdf
+      kind: table cell
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_chip_adult.values.n_table
+        kind: constant
+      N:
+        value: ST1_chip_total.values.n_table
+        kind: constant
+    output: ST1_chip_adult.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_chip_fetal.pct:
+    item: ST1_chip_fetal
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_chip_fetal.values.n_table
+        kind: constant
+      N:
+        value: ST1_chip_total.values.n_table
+        kind: constant
+    output: ST1_chip_fetal.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_chip_embryo.pct:
+    item: ST1_chip_embryo
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_chip_embryo.values.n_table
+        kind: constant
+      N:
+        value: ST1_chip_total.values.n_table
+        kind: constant
+    output: ST1_chip_embryo.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_chip_invitro.pct:
+    item: ST1_chip_invitro
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_chip_invitro.values.n_table
+        kind: constant
+      N:
+        value: ST1_chip_total.values.n_table
+        kind: constant
+    output: ST1_chip_invitro.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_chip_total.sum:
+    item: ST1_chip_total
+    formula: N = n1 + n2 + n3 + n4
+    anchor:
+      quote: 19 (100)
+      where: Table S1
+      file: mmc1.pdf
+      kind: table cell
+    library:
+      formula: sum_of_four_parts
+      vars:
+        t: N
+        a: n1
+        b: n2
+        c: n3
+        d: n4
+    inputs:
+      n1:
+        value: ST1_chip_adult.values.n_table
+        kind: constant
+      n2:
+        value: ST1_chip_fetal.values.n_table
+        kind: constant
+      n3:
+        value: ST1_chip_embryo.values.n_table
+        kind: constant
+      n4:
+        value: ST1_chip_invitro.values.n_table
+        kind: constant
+    output: ST1_chip_total.values.n_table
+    note: The Total row (100 %) is the sum of the four group rows.
+  ST1_rna_adult.pct:
+    item: ST1_rna_adult
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_rna_adult.values.n_table
+        kind: constant
+      N:
+        value: ST1_rna_total.values.n_table
+        kind: constant
+    output: ST1_rna_adult.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_rna_child.pct:
+    item: ST1_rna_child
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_rna_child.values.n_table
+        kind: constant
+      N:
+        value: ST1_rna_total.values.n_table
+        kind: constant
+    output: ST1_rna_child.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_rna_fetal.pct:
+    item: ST1_rna_fetal
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_rna_fetal.values.n_table
+        kind: constant
+      N:
+        value: ST1_rna_total.values.n_table
+        kind: constant
+    output: ST1_rna_fetal.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_rna_invitro.pct:
+    item: ST1_rna_invitro
+    formula: p = n/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n
+        b: N
+    inputs:
+      n:
+        value: ST1_rna_invitro.values.n_table
+        kind: constant
+      N:
+        value: ST1_rna_total.values.n_table
+        kind: constant
+    output: ST1_rna_invitro.values.pct_table
+    note: Table S1 prints each group as N (%), the percent of the assay's total.
+  ST1_rna_total.sum:
+    item: ST1_rna_total
+    formula: N = n1 + n2 + n3 + n4
+    anchor:
+      quote: 92 (100)
+      where: Table S1
+      file: mmc1.pdf
+      kind: table cell
+    library:
+      formula: sum_of_four_parts
+      vars:
+        t: N
+        a: n1
+        b: n2
+        c: n3
+        d: n4
+    inputs:
+      n1:
+        value: ST1_rna_adult.values.n_table
+        kind: constant
+      n2:
+        value: ST1_rna_child.values.n_table
+        kind: constant
+      n3:
+        value: ST1_rna_fetal.values.n_table
+        kind: constant
+      n4:
+        value: ST1_rna_invitro.values.n_table
+        kind: constant
+    output: ST1_rna_total.values.n_table
+    note: The Total row (100 %) is the sum of the four group rows.
+  F4C_degs_SP30_vs_D30.total:
+    item: F4C_degs_SP30_vs_D30
+    formula: t = only + shared
+    anchor: &id002
+      quote: with 308 DEGs in common (Figure 4C)
+      where: Results, Transcriptional profile
+    library:
+      formula: sum_of_parts
+      vars:
+        t: t
+        a: only
+        b: shared
+    inputs:
+      only:
+        value: F4C_degs_SP30_vs_D30.values.degs_only_fig
+        kind: constant
+      shared:
+        value: F4C_degs_shared.values.degs_text
+        kind: constant
+    output: F4C_degs_SP30_vs_D30.values.degs_text
+    note: A comparison's DEGs are those in its own Venn region plus the 308 in common.
+  F4C_degs_D90_vs_D30.total:
+    item: F4C_degs_D90_vs_D30
+    formula: t = only + shared
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: t
+        a: only
+        b: shared
+    inputs:
+      only:
+        value: F4C_degs_D90_vs_D30.values.degs_only_fig
+        kind: constant
+      shared:
+        value: F4C_degs_shared.values.degs_text
+        kind: constant
+    output: F4C_degs_D90_vs_D30.values.degs_text
+    note: A comparison's DEGs are those in its own Venn region plus the 308 in common.
+  F4C_degs_shared.venn_union:
+    item: F4C_degs_shared
+    formula: u = a + b + c
+    anchor: *id002
+    library:
+      formula: sum_of_three_parts
+      vars:
+        t: u
+        a: a
+        b: b
+        c: c
+    inputs:
+      a:
+        value: F4C_degs_SP30_vs_D30.values.degs_only_fig
+        kind: constant
+      b:
+        value: F4C_degs_shared.values.degs_text
+        kind: constant
+      c:
+        value: F4C_degs_D90_vs_D30.values.degs_only_fig
+        kind: constant
+    note: 'Intermediate: all DEGs in the two-set Venn diagram (no printed value).'
+  F4C_degs_SP30_vs_D30.venn_pct:
+    item: F4C_degs_SP30_vs_D30
+    formula: p = a/u
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: u
+    inputs:
+      a:
+        value: F4C_degs_SP30_vs_D30.values.degs_only_fig
+        kind: constant
+      u:
+        derived: F4C_degs_shared.venn_union
+        kind: constant
+    output: F4C_degs_SP30_vs_D30.values.degs_only_pct_fig
+    alternatives:
+    - label: 'denominator: the two comparisons'' DEG totals summed (713 + 2,402; shared genes counted twice)'
+      formula: p = a/(713 + 2402)
+    note: The Venn diagram prints a percent per region without naming its denominator; taken as all genes in the diagram.
+  F4C_degs_D90_vs_D30.venn_pct:
+    item: F4C_degs_D90_vs_D30
+    formula: p = a/u
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: u
+    inputs:
+      a:
+        value: F4C_degs_D90_vs_D30.values.degs_only_fig
+        kind: constant
+      u:
+        derived: F4C_degs_shared.venn_union
+        kind: constant
+    output: F4C_degs_D90_vs_D30.values.degs_only_pct_fig
+    alternatives:
+    - label: 'denominator: the two comparisons'' DEG totals summed (713 + 2,402; shared genes counted twice)'
+      formula: p = a/(713 + 2402)
+    note: The Venn diagram prints a percent per region without naming its denominator; taken as all genes in the diagram.
+  F4C_degs_shared.venn_pct:
+    item: F4C_degs_shared
+    formula: p = a/u
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: u
+    inputs:
+      a:
+        value: F4C_degs_shared.values.degs_fig
+        kind: constant
+      u:
+        derived: F4C_degs_shared.venn_union
+        kind: constant
+    output: F4C_degs_shared.values.degs_pct_fig
+    alternatives:
+    - label: 'denominator: the two comparisons'' DEG totals summed (713 + 2,402; shared genes counted twice)'
+      formula: p = a/(713 + 2402)
+    note: The Venn diagram prints a percent per region without naming its denominator; taken as all genes in the diagram.
+  F1_mapk_pi3k_overlap.mapk_only:
+    item: F1_mapk_pi3k_overlap
+    formula: c = 1 - f
+    anchor:
+      quote: 39% of the genes annotated to the MAPK pathway were also shared with the PI3K-AKT pathway
+      where: Results, Signaling pathways downregulated in the adult heart
+    library:
+      formula: complement_fraction
+      vars:
+        c: c
+        f: f
+    inputs:
+      f:
+        value: F1_mapk_pi3k_overlap.values.pct_figS2C
+        kind: constant
+    output: F1_mapk_pi3k_overlap.values.mapk_only_figS2C
+    note: MAPK-pathway genes split into those shared with PI3K-AKT and those not.
+  F3F_mono_SP30_vs_D30.mono_diff:
+    item: F3F_mono_SP30_vs_D30
+    formula: d = mD - mS
+    anchor:
+      quote: the percentage of mononucleated CMs decreased in
+      where: Results, Structural features
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: mD
+        x0: mS
+    inputs:
+      mD:
+        reading: 'fig3f/Mono SP vs DMSO: DMSO'
+        kind: per sample
+      mS:
+        reading: 'fig3f/Mono SP vs DMSO: SP'
+        kind: per sample
+    output: F3F_mono_SP30_vs_D30.values.mono_diff_text
+    alternatives:
+    - label: relative decrease (of the DMSO value)
+      formula: d = (mD - mS)/mD
+    note: '''decreased ... by 10%'' read as percentage points; a relative decrease is the alternative.'
+  F3F_bi_SP30_vs_D30.bi_diff:
+    item: F3F_bi_SP30_vs_D30
+    formula: d = xS - xD
+    anchor: &id003
+      quote: the percentage of binucleation and trinucleation of day 30 SP-treated hiPSC-CMs increased by ~9 and ~1%, respectively
+      where: Results, Structural features
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: xS
+        x0: xD
+    inputs:
+      xS:
+        reading: 'fig3f/Bi SP vs DMSO: SP'
+        kind: per sample
+      xD:
+        reading: 'fig3f/Bi SP vs DMSO: DMSO'
+        kind: per sample
+    output: F3F_bi_SP30_vs_D30.values.bi_diff_text
+    alternatives:
+    - label: relative increase (of the DMSO value)
+      formula: d = (xS - xD)/xD
+    note: '''increased by ~9 and ~1%'' read as percentage points; a relative increase is the alternative.'
+  F3F_tri_SP30_vs_D30.tri_diff:
+    item: F3F_tri_SP30_vs_D30
+    formula: d = xS - xD
+    anchor: *id003
+    library:
+      formula: difference_from_reference
+      vars:
+        d: d
+        x: xS
+        x0: xD
+    inputs:
+      xS:
+        reading: 'fig3f/Tri SP vs DMSO: SP'
+        kind: per sample
+      xD:
+        reading: 'fig3f/Tri SP vs DMSO: DMSO'
+        kind: per sample
+    output: F3F_tri_SP30_vs_D30.values.tri_diff_text
+    alternatives:
+    - label: relative increase (of the DMSO value)
+      formula: d = (xS - xD)/xD
+    note: '''increased by ~9 and ~1%'' read as percentage points; a relative increase is the alternative.'
+  F5C_force_PLZ_PLZ_SP30_vs_PLZ_D30.normalized_force_PLZ_SP30:
+    item: F5C_force_PLZ_PLZ_SP30_vs_PLZ_D30
+    group: PLZ_SP30
+    formula: fn = F/A
+    anchor: &id004
+      quote: The force of contraction was normalized by the surface area of the cell
+      where: Supplemental Experimental Procedures, Traction force microscopy measurements
+      file: mmc1.pdf
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/PLZ SP vs DMSO: SP'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_PLZ_PLZ_SP30_vs_PLZ_D30.normalized_force_PLZ_D30:
+    item: F5C_force_PLZ_PLZ_SP30_vs_PLZ_D30
+    group: PLZ_D30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/PLZ SP vs DMSO: DMSO'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_PLZ_PLZ_D60_vs_PLZ_D30.normalized_force_PLZ_D60:
+    item: F5C_force_PLZ_PLZ_D60_vs_PLZ_D30
+    group: PLZ_D60
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/PLZ 60d vs DMSO: 60d'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_PLZ_PLZ_D60_vs_PLZ_D30.normalized_force_PLZ_D30:
+    item: F5C_force_PLZ_PLZ_D60_vs_PLZ_D30
+    group: PLZ_D30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/PLZ 60d vs DMSO: DMSO'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_PLZ_PLZ_SP30_vs_PLZ_D60.normalized_force_PLZ_SP30:
+    item: F5C_force_PLZ_PLZ_SP30_vs_PLZ_D60
+    group: PLZ_SP30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/PLZ SP vs 60d: SP'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_PLZ_PLZ_SP30_vs_PLZ_D60.normalized_force_PLZ_D60:
+    item: F5C_force_PLZ_PLZ_SP30_vs_PLZ_D60
+    group: PLZ_D60
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/PLZ SP vs 60d: 60d'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_MYL2_MYL2_SP30_vs_MYL2_D30.normalized_force_MYL2_SP30:
+    item: F5C_force_MYL2_MYL2_SP30_vs_MYL2_D30
+    group: MYL2_SP30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/MYL2 SP vs DMSO: SP'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_MYL2_MYL2_SP30_vs_MYL2_D30.normalized_force_MYL2_D30:
+    item: F5C_force_MYL2_MYL2_SP30_vs_MYL2_D30
+    group: MYL2_D30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/MYL2 SP vs DMSO: DMSO'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_MYL2_MYL2_D60_vs_MYL2_D30.normalized_force_MYL2_D60:
+    item: F5C_force_MYL2_MYL2_D60_vs_MYL2_D30
+    group: MYL2_D60
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/MYL2 60d vs DMSO: 60d'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_MYL2_MYL2_D60_vs_MYL2_D30.normalized_force_MYL2_D30:
+    item: F5C_force_MYL2_MYL2_D60_vs_MYL2_D30
+    group: MYL2_D30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/MYL2 60d vs DMSO: DMSO'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_MYL2_MYL2_SP30_vs_MYL2_D60.normalized_force_MYL2_SP30:
+    item: F5C_force_MYL2_MYL2_SP30_vs_MYL2_D60
+    group: MYL2_SP30
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/MYL2 SP vs 60d: SP'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  F5C_force_MYL2_MYL2_SP30_vs_MYL2_D60.normalized_force_MYL2_D60:
+    item: F5C_force_MYL2_MYL2_SP30_vs_MYL2_D60
+    group: MYL2_D60
+    formula: fn = F/A
+    anchor: *id004
+    library:
+      formula: stress_def
+      vars:
+        sigma: fn
+        F: F
+        A: A
+    inputs:
+      F:
+        reading: 'figs5b/MYL2 SP vs 60d: 60d'
+        kind: per sample
+        note: contraction force per cell (Fig. S5B), the same cells as Fig. 5C
+      A:
+        not_stated: true
+        kind: per sample
+        note: surface area of each cell; not printed
+    aggregation: mean of per-sample
+    alternatives:
+    - label: area of the micropatterned island (~20 μm x 140 μm) instead of the cell's own area
+      formula: fn = F/(20*140)
+      note: stated pattern size; the methods say the cell's surface area was used
+    note: 'Per cell: force of contraction divided by that cell''s surface area; plotted per cell.'
+  S5B_force_PLZ_PLZ_SP30_vs_PLZ_D30.contraction_force:
+    item: S5B_force_PLZ_PLZ_SP30_vs_PLZ_D30
+    formula: Fc = Fmax - F0
+    anchor: &id005
+      quote: The force of contraction was defined as the difference in traction force between the cell at its maximum contraction and
+        uncontracted state
+      where: Supplemental Experimental Procedures, Traction force microscopy measurements
+      file: mmc1.pdf
+    library:
+      formula: difference_from_reference
+      vars:
+        d: Fc
+        x: Fmax
+        x0: F0
+    inputs:
+      Fmax:
+        not_stated: true
+        kind: per sample
+        note: total traction force at maximum contraction
+      F0:
+        not_stated: true
+        kind: per sample
+        note: total traction force uncontracted
+    note: Per contraction; the cell's value is the geometric mean over three contractions (no library entry for a geometric mean).
+  S5B_force_PLZ_PLZ_D60_vs_PLZ_D30.contraction_force:
+    item: S5B_force_PLZ_PLZ_D60_vs_PLZ_D30
+    formula: Fc = Fmax - F0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: Fc
+        x: Fmax
+        x0: F0
+    inputs:
+      Fmax:
+        not_stated: true
+        kind: per sample
+        note: total traction force at maximum contraction
+      F0:
+        not_stated: true
+        kind: per sample
+        note: total traction force uncontracted
+    note: Per contraction; the cell's value is the geometric mean over three contractions (no library entry for a geometric mean).
+  S5B_force_PLZ_PLZ_SP30_vs_PLZ_D60.contraction_force:
+    item: S5B_force_PLZ_PLZ_SP30_vs_PLZ_D60
+    formula: Fc = Fmax - F0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: Fc
+        x: Fmax
+        x0: F0
+    inputs:
+      Fmax:
+        not_stated: true
+        kind: per sample
+        note: total traction force at maximum contraction
+      F0:
+        not_stated: true
+        kind: per sample
+        note: total traction force uncontracted
+    note: Per contraction; the cell's value is the geometric mean over three contractions (no library entry for a geometric mean).
+  S5B_force_MYL2_MYL2_SP30_vs_MYL2_D30.contraction_force:
+    item: S5B_force_MYL2_MYL2_SP30_vs_MYL2_D30
+    formula: Fc = Fmax - F0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: Fc
+        x: Fmax
+        x0: F0
+    inputs:
+      Fmax:
+        not_stated: true
+        kind: per sample
+        note: total traction force at maximum contraction
+      F0:
+        not_stated: true
+        kind: per sample
+        note: total traction force uncontracted
+    note: Per contraction; the cell's value is the geometric mean over three contractions (no library entry for a geometric mean).
+  S5B_force_MYL2_MYL2_D60_vs_MYL2_D30.contraction_force:
+    item: S5B_force_MYL2_MYL2_D60_vs_MYL2_D30
+    formula: Fc = Fmax - F0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: Fc
+        x: Fmax
+        x0: F0
+    inputs:
+      Fmax:
+        not_stated: true
+        kind: per sample
+        note: total traction force at maximum contraction
+      F0:
+        not_stated: true
+        kind: per sample
+        note: total traction force uncontracted
+    note: Per contraction; the cell's value is the geometric mean over three contractions (no library entry for a geometric mean).
+  S5B_force_MYL2_MYL2_SP30_vs_MYL2_D60.contraction_force:
+    item: S5B_force_MYL2_MYL2_SP30_vs_MYL2_D60
+    formula: Fc = Fmax - F0
+    anchor: *id005
+    library:
+      formula: difference_from_reference
+      vars:
+        d: Fc
+        x: Fmax
+        x0: F0
+    inputs:
+      Fmax:
+        not_stated: true
+        kind: per sample
+        note: total traction force at maximum contraction
+      F0:
+        not_stated: true
+        kind: per sample
+        note: total traction force uncontracted
+    note: Per contraction; the cell's value is the geometric mean over three contractions (no library entry for a geometric mean).
+  S3J_ratio_w1520_SP30_w1520_vs_D30_w1520.ratio_SP30:
+    item: S3J_ratio_w1520_SP30_w1520_vs_D30_w1520
+    group: SP30_w1520
+    formula: r = v/a
+    anchor: &id006
+      quote: MLC-2v+/MLC-2a+ ratio
+      where: Figure S3J axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3j/MLC-2v 15-20 SP vs DMSO: SP'
+        kind: per sample
+      a:
+        reading: 'figs3j/MLC-2a 15-20 SP vs DMSO: SP'
+        kind: per sample
+    aggregation: not stated
+    note: '% cTnT+MLC-2v+ over % cTnT+MLC-2a+ from the same FACS runs (Fig. S3J left and middle plots).'
+  S3J_ratio_w1520_SP30_w1520_vs_D30_w1520.ratio_D30:
+    item: S3J_ratio_w1520_SP30_w1520_vs_D30_w1520
+    group: D30_w1520
+    formula: r = v/a
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3j/MLC-2v 15-20 SP vs DMSO: DMSO'
+        kind: per sample
+      a:
+        reading: 'figs3j/MLC-2a 15-20 SP vs DMSO: DMSO'
+        kind: per sample
+    aggregation: not stated
+    note: '% cTnT+MLC-2v+ over % cTnT+MLC-2a+ from the same FACS runs (Fig. S3J left and middle plots).'
+  S3J_ratio_w2030_SP30_w2030_vs_D30_w2030.ratio_SP30:
+    item: S3J_ratio_w2030_SP30_w2030_vs_D30_w2030
+    group: SP30_w2030
+    formula: r = v/a
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3j/MLC-2v 20-30 SP vs DMSO: SP'
+        kind: per sample
+      a:
+        reading: 'figs3j/MLC-2a 20-30 SP vs DMSO: SP'
+        kind: per sample
+    aggregation: not stated
+    note: '% cTnT+MLC-2v+ over % cTnT+MLC-2a+ from the same FACS runs (Fig. S3J left and middle plots).'
+  S3J_ratio_w2030_SP30_w2030_vs_D30_w2030.ratio_D30:
+    item: S3J_ratio_w2030_SP30_w2030_vs_D30_w2030
+    group: D30_w2030
+    formula: r = v/a
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3j/MLC-2v 20-30 SP vs DMSO: DMSO'
+        kind: per sample
+      a:
+        reading: 'figs3j/MLC-2a 20-30 SP vs DMSO: DMSO'
+        kind: per sample
+    aggregation: not stated
+    note: '% cTnT+MLC-2v+ over % cTnT+MLC-2a+ from the same FACS runs (Fig. S3J left and middle plots).'
+  S3J_ratio_w2530_SP30_w2530_vs_D30_w2530.ratio_SP30:
+    item: S3J_ratio_w2530_SP30_w2530_vs_D30_w2530
+    group: SP30_w2530
+    formula: r = v/a
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3j/MLC-2v 25-30 SP vs DMSO: SP'
+        kind: per sample
+      a:
+        reading: 'figs3j/MLC-2a 25-30 SP vs DMSO: SP'
+        kind: per sample
+    aggregation: not stated
+    note: '% cTnT+MLC-2v+ over % cTnT+MLC-2a+ from the same FACS runs (Fig. S3J left and middle plots).'
+  S3J_ratio_w2530_SP30_w2530_vs_D30_w2530.ratio_D30:
+    item: S3J_ratio_w2530_SP30_w2530_vs_D30_w2530
+    group: D30_w2530
+    formula: r = v/a
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3j/MLC-2v 25-30 SP vs DMSO: DMSO'
+        kind: per sample
+      a:
+        reading: 'figs3j/MLC-2a 25-30 SP vs DMSO: DMSO'
+        kind: per sample
+    aggregation: not stated
+    note: '% cTnT+MLC-2v+ over % cTnT+MLC-2a+ from the same FACS runs (Fig. S3J left and middle plots).'
+  S3O_if_SP30_vs_D30.ratio_SP30:
+    item: S3O_if_SP30_vs_D30
+    group: SP30
+    formula: r = v/a
+    anchor:
+      quote: Summary IF quantification of (M) MLC-2v, (N) MLC-2a, and (O) MLC-2v/MLC-2a
+      where: Figure S3 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3lo/M SP vs DMSO: SP'
+        kind: per sample
+      a:
+        reading: 'figs3lo/N SP vs DMSO: SP'
+        kind: per sample
+    aggregation: not stated
+    note: '% MLC-2v+ (S3M) over % MLC-2a+ (S3N); the pairing of the three points per group is not shown.'
+  S3O_if_SP30_vs_D30.ratio_D30:
+    item: S3O_if_SP30_vs_D30
+    group: D30
+    formula: r = v/a
+    anchor:
+      quote: Summary IF quantification of (M) MLC-2v, (N) MLC-2a, and (O) MLC-2v/MLC-2a
+      where: Figure S3 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3lo/M SP vs DMSO: DMSO'
+        kind: per sample
+      a:
+        reading: 'figs3lo/N SP vs DMSO: DMSO'
+        kind: per sample
+    aggregation: not stated
+    note: '% MLC-2v+ (S3M) over % MLC-2a+ (S3N); the pairing of the three points per group is not shown.'
+  S3O_if_D60_vs_D30.ratio_D60:
+    item: S3O_if_D60_vs_D30
+    group: D60
+    formula: r = v/a
+    anchor:
+      quote: Summary IF quantification of (M) MLC-2v, (N) MLC-2a, and (O) MLC-2v/MLC-2a
+      where: Figure S3 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3lo/M 60d vs DMSO: 60d'
+        kind: per sample
+      a:
+        reading: 'figs3lo/N 60d vs DMSO: 60d'
+        kind: per sample
+    aggregation: not stated
+    note: '% MLC-2v+ (S3M) over % MLC-2a+ (S3N); the pairing of the three points per group is not shown.'
+  S3O_if_D60_vs_D30.ratio_D30:
+    item: S3O_if_D60_vs_D30
+    group: D30
+    formula: r = v/a
+    anchor:
+      quote: Summary IF quantification of (M) MLC-2v, (N) MLC-2a, and (O) MLC-2v/MLC-2a
+      where: Figure S3 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3lo/M 60d vs DMSO: DMSO'
+        kind: per sample
+      a:
+        reading: 'figs3lo/N 60d vs DMSO: DMSO'
+        kind: per sample
+    aggregation: not stated
+    note: '% MLC-2v+ (S3M) over % MLC-2a+ (S3N); the pairing of the three points per group is not shown.'
+  S3O_if_SP30_vs_D60.ratio_SP30:
+    item: S3O_if_SP30_vs_D60
+    group: SP30
+    formula: r = v/a
+    anchor:
+      quote: Summary IF quantification of (M) MLC-2v, (N) MLC-2a, and (O) MLC-2v/MLC-2a
+      where: Figure S3 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3lo/M SP vs 60d: SP'
+        kind: per sample
+      a:
+        reading: 'figs3lo/N SP vs 60d: SP'
+        kind: per sample
+    aggregation: not stated
+    note: '% MLC-2v+ (S3M) over % MLC-2a+ (S3N); the pairing of the three points per group is not shown.'
+  S3O_if_SP30_vs_D60.ratio_D60:
+    item: S3O_if_SP30_vs_D60
+    group: D60
+    formula: r = v/a
+    anchor:
+      quote: Summary IF quantification of (M) MLC-2v, (N) MLC-2a, and (O) MLC-2v/MLC-2a
+      where: Figure S3 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'figs3lo/M SP vs 60d: 60d'
+        kind: per sample
+      a:
+        reading: 'figs3lo/N SP vs 60d: 60d'
+        kind: per sample
+    aggregation: not stated
+    note: '% MLC-2v+ (S3M) over % MLC-2a+ (S3N); the pairing of the three points per group is not shown.'
+  F2D_SP30_vs_D30.ratio_SP30:
+    item: F2D_SP30_vs_D30
+    group: SP30
+    formula: r = v/a
+    anchor:
+      quote: Graph shows MLC-2v+/MLC-2a+ ratio by FACS on day 30 hiPSC-CMs
+      where: Figure 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'fig2cd/C SP vs DMSO: SP'
+        kind: per sample
+      a:
+        not_stated: true
+        kind: per sample
+        note: '% MLC-2a+ is not shown in Fig. 2'
+    aggregation: not stated
+  F2D_SP30_vs_D30.ratio_D30:
+    item: F2D_SP30_vs_D30
+    group: D30
+    formula: r = v/a
+    anchor:
+      quote: Graph shows MLC-2v+/MLC-2a+ ratio by FACS on day 30 hiPSC-CMs
+      where: Figure 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        reading: 'fig2cd/C SP vs DMSO: DMSO'
+        kind: per sample
+      a:
+        not_stated: true
+        kind: per sample
+        note: '% MLC-2a+ is not shown in Fig. 2'
+    aggregation: not stated
+  S3F_perk_MYL2_MYL2_SP30_vs_MYL2_D30.ratio:
+    item: S3F_perk_MYL2_MYL2_SP30_vs_MYL2_D30
+    formula: r = p/t
+    anchor:
+      quote: p-ERK/total ERK expression
+      where: Figure S3F axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: phospho band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total protein band intensity
+    note: Any further normalisation (to α-tubulin or to DMSO) is not stated.
+  S3F_perk_PLZ_PLZ_SP30_vs_PLZ_D30.ratio:
+    item: S3F_perk_PLZ_PLZ_SP30_vs_PLZ_D30
+    formula: r = p/t
+    anchor:
+      quote: p-ERK/total ERK expression
+      where: Figure S3F axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: phospho band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total protein band intensity
+    note: Any further normalisation (to α-tubulin or to DMSO) is not stated.
+  S3F_perk_L19004_L19004_SP30_vs_L19004_D30.ratio:
+    item: S3F_perk_L19004_L19004_SP30_vs_L19004_D30
+    formula: r = p/t
+    anchor:
+      quote: p-ERK/total ERK expression
+      where: Figure S3F axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: phospho band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total protein band intensity
+    note: Any further normalisation (to α-tubulin or to DMSO) is not stated.
+  S3G_pakt_PLZ_PLZ_SP30_vs_PLZ_D30.ratio:
+    item: S3G_pakt_PLZ_PLZ_SP30_vs_PLZ_D30
+    formula: r = p/t
+    anchor:
+      quote: p-AKT/total AKT expression
+      where: Figure S3G axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: phospho band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total protein band intensity
+    note: Any further normalisation (to α-tubulin or to DMSO) is not stated.
+  S3G_pakt_MYL2.ratio:
+    item: S3G_pakt_MYL2
+    formula: r = p/t
+    anchor:
+      quote: p-AKT/total AKT expression
+      where: Figure S3G axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: phospho band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total protein band intensity
+    note: Any further normalisation (to α-tubulin or to DMSO) is not stated.
+  S3G_pakt_L19004.ratio:
+    item: S3G_pakt_L19004
+    formula: r = p/t
+    anchor:
+      quote: p-AKT/total AKT expression
+      where: Figure S3G axis
+      file: mmc1.pdf
+      kind: figure text
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: phospho band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total protein band intensity
+    note: Any further normalisation (to α-tubulin or to DMSO) is not stated.
+  S3P_ctni_SP30_vs_D30.relative_expression:
+    item: S3P_ctni_SP30_vs_D30
+    formula: not stated
+    anchor:
+      quote: Western blot quantification of ssTnI and cTnI
+      where: Figure S3 legend
+      file: mmc1.pdf
+    no_formula: relative expression from western blot band intensities; the normalisation (to α-tubulin, to total TnI, or to DMSO) is
+      not stated
+    alternatives:
+    - label: band over the α-tubulin band
+    - label: cTnI or ssTnI over cTnI + ssTnI (stoichiometric relationship)
+    - label: fold of the DMSO mean
+  S3P_sstni_SP30_vs_D30.relative_expression:
+    item: S3P_sstni_SP30_vs_D30
+    formula: not stated
+    anchor:
+      quote: Western blot quantification of ssTnI and cTnI
+      where: Figure S3 legend
+      file: mmc1.pdf
+    no_formula: relative expression from western blot band intensities; the normalisation (to α-tubulin, to total TnI, or to DMSO) is
+      not stated
+    alternatives:
+    - label: band over the α-tubulin band
+    - label: cTnI or ssTnI over cTnI + ssTnI (stoichiometric relationship)
+    - label: fold of the DMSO mean
+  F2H_ctni_SP30_vs_D30.relative_expression:
+    item: F2H_ctni_SP30_vs_D30
+    formula: not stated
+    anchor:
+      quote: quantification of stoichiometric relationship
+      where: Figure 2 legend
+    no_formula: relative expression from western blot band intensities; the normalisation (to α-tubulin, to total TnI, or to DMSO) is
+      not stated
+    alternatives:
+    - label: band over the α-tubulin band
+    - label: cTnI or ssTnI over cTnI + ssTnI (stoichiometric relationship)
+    - label: fold of the DMSO mean
+  F2H_sstni_SP30_vs_D30.relative_expression:
+    item: F2H_sstni_SP30_vs_D30
+    formula: not stated
+    anchor:
+      quote: quantification of stoichiometric relationship
+      where: Figure 2 legend
+    no_formula: relative expression from western blot band intensities; the normalisation (to α-tubulin, to total TnI, or to DMSO) is
+      not stated
+    alternatives:
+    - label: band over the α-tubulin band
+    - label: cTnI or ssTnI over cTnI + ssTnI (stoichiometric relationship)
+    - label: fold of the DMSO mean
+  F5M_hk1_SP30_vs_D30.normalized_expression:
+    item: F5M_hk1_SP30_vs_D30
+    formula: not stated
+    anchor: &id007
+      quote: TaqMan probes (Applied Biosystems) against TBP (VIC) and POLR2A (VIC) as housekeeping genes
+      where: Supplemental Experimental Procedures, qRT-PCR
+      file: mmc1.pdf
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  F5N_pkm_SP30_vs_D30.normalized_expression:
+    item: F5N_pkm_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  F5Q_esrrg_SP30_vs_D30.normalized_expression:
+    item: F5Q_esrrg_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  F5R_ppargc1b_SP30_vs_D30.normalized_expression:
+    item: F5R_ppargc1b_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  S5L_ryr2_SP30_vs_D30.normalized_expression:
+    item: S5L_ryr2_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  S5L_atp1a2_SP30_vs_D30.normalized_expression:
+    item: S5L_atp1a2_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  S5P_scn5a_SP30_vs_D30.normalized_expression:
+    item: S5P_scn5a_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  S5Q_hcn4_SP30_vs_D30.normalized_expression:
+    item: S5Q_hcn4_SP30_vs_D30
+    formula: not stated
+    anchor: *id007
+    no_formula: expression normalised to TBP and POLR2A is stated; the calculation (ΔCt or ΔΔCt, efficiency, how the two reference genes
+      are combined) is not
+    alternatives:
+    - label: 2^-ΔCt against the mean Ct of TBP and POLR2A
+      formula: r = 2**(-dct)
+    - label: 2^-ΔΔCt, relative to DMSO
+      formula: r = 2**(-ddct)
+  F5J_atp_SP30_vs_D30.atp_linked:
+    item: F5J_atp_SP30_vs_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: &id008
+      quote: ATP synthesis‐linked O2 consumption and proton leak‐driven respiration were determined by the addition of oligomycin
+      where: Supplemental Experimental Procedures, Metabolic flux analysis
+      file: mmc1.pdf
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_MYL2_MYL2_SP30_vs_MYL2_D30.atp_linked:
+    item: S5F_atp_MYL2_MYL2_SP30_vs_MYL2_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_PLZ_PLZ_SP30_vs_PLZ_D30.atp_linked:
+    item: S5F_atp_PLZ_PLZ_SP30_vs_PLZ_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_L19004_L19004_SP30_vs_L19004_D30.atp_linked:
+    item: S5F_atp_L19004_L19004_SP30_vs_L19004_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  F5J_atp_D60_vs_D30.atp_linked:
+    item: F5J_atp_D60_vs_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_MYL2_MYL2_D60_vs_MYL2_D30.atp_linked:
+    item: S5F_atp_MYL2_MYL2_D60_vs_MYL2_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_PLZ_PLZ_D60_vs_PLZ_D30.atp_linked:
+    item: S5F_atp_PLZ_PLZ_D60_vs_PLZ_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_L19004_L19004_D60_vs_L19004_D30.atp_linked:
+    item: S5F_atp_L19004_L19004_D60_vs_L19004_D30
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  F5J_atp_SP30_vs_D60.atp_linked:
+    item: F5J_atp_SP30_vs_D60
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_MYL2_MYL2_SP30_vs_MYL2_D60.atp_linked:
+    item: S5F_atp_MYL2_MYL2_SP30_vs_MYL2_D60
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_PLZ_PLZ_SP30_vs_PLZ_D60.atp_linked:
+    item: S5F_atp_PLZ_PLZ_SP30_vs_PLZ_D60
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  S5F_atp_L19004_L19004_SP30_vs_L19004_D60.atp_linked:
+    item: S5F_atp_L19004_L19004_SP30_vs_L19004_D60
+    formula: atp = ocr_basal - ocr_oligo
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        atp: atp
+        b: ocr_basal
+        o: ocr_oligo
+    inputs:
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+        note: OCR before oligomycin
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+    note: Which measurement cycles (last, minimum, mean) were used is not stated.
+  F5I_leak_SP30_vs_D30.proton_leak:
+    item: F5I_leak_SP30_vs_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_MYL2_MYL2_SP30_vs_MYL2_D30.proton_leak:
+    item: S5E_leak_MYL2_MYL2_SP30_vs_MYL2_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_PLZ_PLZ_SP30_vs_PLZ_D30.proton_leak:
+    item: S5E_leak_PLZ_PLZ_SP30_vs_PLZ_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_L19004_L19004_SP30_vs_L19004_D30.proton_leak:
+    item: S5E_leak_L19004_L19004_SP30_vs_L19004_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  F5I_leak_D60_vs_D30.proton_leak:
+    item: F5I_leak_D60_vs_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_MYL2_MYL2_D60_vs_MYL2_D30.proton_leak:
+    item: S5E_leak_MYL2_MYL2_D60_vs_MYL2_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_PLZ_PLZ_D60_vs_PLZ_D30.proton_leak:
+    item: S5E_leak_PLZ_PLZ_D60_vs_PLZ_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_L19004_L19004_D60_vs_L19004_D30.proton_leak:
+    item: S5E_leak_L19004_L19004_D60_vs_L19004_D30
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  F5I_leak_SP30_vs_D60.proton_leak:
+    item: F5I_leak_SP30_vs_D60
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_MYL2_MYL2_SP30_vs_MYL2_D60.proton_leak:
+    item: S5E_leak_MYL2_MYL2_SP30_vs_MYL2_D60
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_PLZ_PLZ_SP30_vs_PLZ_D60.proton_leak:
+    item: S5E_leak_PLZ_PLZ_SP30_vs_PLZ_D60
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  S5E_leak_L19004_L19004_SP30_vs_L19004_D60.proton_leak:
+    item: S5E_leak_L19004_L19004_SP30_vs_L19004_D60
+    formula: leak = ocr_oligo - ocr_nonmito
+    anchor: *id008
+    library:
+      formula: mito_stress_test_partition
+      vars:
+        leak: leak
+        o: ocr_oligo
+        n: ocr_nonmito
+    inputs:
+      ocr_oligo:
+        not_stated: true
+        kind: per sample
+        note: OCR after oligomycin
+      ocr_nonmito:
+        not_stated: true
+        kind: per sample
+        note: OCR after rotenone and antimycin A (plotted as non-mitochondrial OCR)
+  F5K_spare_SP30_vs_D30.spare_capacity_pct:
+    item: F5K_spare_SP30_vs_D30
+    formula: src = (ocr_max - ocr_basal)/ocr_basal
+    anchor:
+      quote: The percentage of spare respiratory capacity, an indicator of energy reserve
+      where: Results, Metabolic profile
+    library:
+      formula: relative_change
+      vars:
+        d: src
+        x: ocr_max
+        x0: ocr_basal
+    inputs:
+      ocr_max:
+        not_stated: true
+        kind: per sample
+        note: OCR after CCCP; not plotted
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: maximal over basal OCR x 100 (the Seahorse report generator's spare respiratory capacity as %)
+      formula: src = ocr_max/ocr_basal
+    note: Named operation 'percentage of spare respiratory capacity'; which convention was used is not stated.
+  F5K_spare_D60_vs_D30.spare_capacity_pct:
+    item: F5K_spare_D60_vs_D30
+    formula: src = (ocr_max - ocr_basal)/ocr_basal
+    anchor:
+      quote: The percentage of spare respiratory capacity, an indicator of energy reserve
+      where: Results, Metabolic profile
+    library:
+      formula: relative_change
+      vars:
+        d: src
+        x: ocr_max
+        x0: ocr_basal
+    inputs:
+      ocr_max:
+        not_stated: true
+        kind: per sample
+        note: OCR after CCCP; not plotted
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: maximal over basal OCR x 100 (the Seahorse report generator's spare respiratory capacity as %)
+      formula: src = ocr_max/ocr_basal
+    note: Named operation 'percentage of spare respiratory capacity'; which convention was used is not stated.
+  F5K_spare_SP30_vs_D60.spare_capacity_pct:
+    item: F5K_spare_SP30_vs_D60
+    formula: src = (ocr_max - ocr_basal)/ocr_basal
+    anchor:
+      quote: The percentage of spare respiratory capacity, an indicator of energy reserve
+      where: Results, Metabolic profile
+    library:
+      formula: relative_change
+      vars:
+        d: src
+        x: ocr_max
+        x0: ocr_basal
+    inputs:
+      ocr_max:
+        not_stated: true
+        kind: per sample
+        note: OCR after CCCP; not plotted
+      ocr_basal:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: maximal over basal OCR x 100 (the Seahorse report generator's spare respiratory capacity as %)
+      formula: src = ocr_max/ocr_basal
+    note: Named operation 'percentage of spare respiratory capacity'; which convention was used is not stated.
+  F6F_amp_SP40_vs_D40.dff_amplitude:
+    item: F6F_amp_SP40_vs_D40
+    formula: dff = (F - F0)/F0
+    anchor: &id009
+      quote: code was used to plot ΔF/F0 vs. time
+      where: Supplemental Experimental Procedures, Calcium transient assay
+      file: mmc1.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  F6F_amp_SP40_vs_D60.dff_amplitude:
+    item: F6F_amp_SP40_vs_D60
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  F6F_amp_D60_vs_D40.dff_amplitude:
+    item: F6F_amp_D60_vs_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_MYL2_MYL2_SP40_vs_MYL2_D40.dff_amplitude:
+    item: S5K_amp_MYL2_MYL2_SP40_vs_MYL2_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_MYL2_MYL2_D60_vs_MYL2_D40.dff_amplitude:
+    item: S5K_amp_MYL2_MYL2_D60_vs_MYL2_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_MYL2_MYL2_SP40_vs_MYL2_D60.dff_amplitude:
+    item: S5K_amp_MYL2_MYL2_SP40_vs_MYL2_D60
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_PLZ_PLZ_SP40_vs_PLZ_D40.dff_amplitude:
+    item: S5K_amp_PLZ_PLZ_SP40_vs_PLZ_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_PLZ_PLZ_D60_vs_PLZ_D40.dff_amplitude:
+    item: S5K_amp_PLZ_PLZ_D60_vs_PLZ_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_PLZ_PLZ_SP40_vs_PLZ_D60.dff_amplitude:
+    item: S5K_amp_PLZ_PLZ_SP40_vs_PLZ_D60
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_L19004_L19004_SP40_vs_L19004_D40.dff_amplitude:
+    item: S5K_amp_L19004_L19004_SP40_vs_L19004_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_L19004_L19004_D60_vs_L19004_D40.dff_amplitude:
+    item: S5K_amp_L19004_L19004_D60_vs_L19004_D40
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  S5K_amp_L19004_L19004_SP40_vs_L19004_D60.dff_amplitude:
+    item: S5K_amp_L19004_L19004_SP40_vs_L19004_D60
+    formula: dff = (F - F0)/F0
+    anchor: *id009
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak Fluo-4 fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence; how F0 was taken is not stated
+    note: Amplitude is the maximum ΔF/F0 of the transient.
+  F3H_tt_SP30_vs_D30.tt_density:
+    item: F3H_tt_SP30_vs_D30
+    formula: not stated
+    anchor: not stated
+    no_formula: T-tubule density printed in μm2/μm3 from Imaris filament tracing and volume rendering; the quantity divided and the
+      volume used are not stated
+    alternatives:
+    - label: T-tubule membrane area over cell volume
+      formula: rho = At/V
+  F7E_ina_SP30_vs_D30.current_density:
+    item: F7E_ina_SP30_vs_D30
+    formula: not stated
+    anchor: not stated
+    no_formula: peak INa printed in pA/pF; normalisation to membrane capacitance is implied by the unit, not stated
+    alternatives:
+    - label: peak current over cell capacitance
+      formula: j = I/C
+assumptions:
+  F5J_atp_SP30_vs_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_MYL2_MYL2_SP30_vs_MYL2_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_PLZ_PLZ_SP30_vs_PLZ_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_L19004_L19004_SP30_vs_L19004_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  F5J_atp_D60_vs_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_MYL2_MYL2_D60_vs_MYL2_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_PLZ_PLZ_D60_vs_PLZ_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_L19004_L19004_D60_vs_L19004_D30.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  F5J_atp_SP30_vs_D60.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_MYL2_MYL2_SP30_vs_MYL2_D60.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_PLZ_PLZ_SP30_vs_PLZ_D60.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5F_atp_L19004_L19004_SP30_vs_L19004_D60.atp_linked:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  F5I_leak_SP30_vs_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_MYL2_MYL2_SP30_vs_MYL2_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_PLZ_PLZ_SP30_vs_PLZ_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_L19004_L19004_SP30_vs_L19004_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  F5I_leak_D60_vs_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_MYL2_MYL2_D60_vs_MYL2_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_PLZ_PLZ_D60_vs_PLZ_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_L19004_L19004_D60_vs_L19004_D30.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  F5I_leak_SP30_vs_D60.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_MYL2_MYL2_SP30_vs_MYL2_D60.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_PLZ_PLZ_SP30_vs_PLZ_D60.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+  S5E_leak_L19004_L19004_SP30_vs_L19004_D60.proton_leak:
+    model: mito_stress_test_partition
+    assumptions:
+      oligomycin fully inhibits ATP synthase:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      rotenone and antimycin A abolish mitochondrial respiration:
+        reported:
+          titration: All respiratory modulators were used at ideal concentrations determined through preliminary titration analyses
+      oligomycin does not change proton leak:
+        reported: not stated
+bounds: []
+proposals:
+- formula: sum_of_four_parts
+  kind: derived
+  statement: A whole made of four non-overlapping parts of the same kind is the sum of the four parts.
+  equations:
+  - t = a + b + c + d
+  variables:
+    t: D
+    a: D
+    b: D
+    c: D
+    d: D
+    u: D
+  uses:
+  - formula: sum_of_three_parts
+    subs:
+      t: u
+      a: a
+      b: b
+      c: c
+  - formula: sum_of_parts
+    subs:
+      t: t
+      a: u
+      b: d
+  does_not_apply: overlapping parts, or a part counted twice
+  tests:
+  - given:
+      a: 10.0
+      b: 4.0
+      c: 1.0
+      d: 4.0
+    expect:
+      t: 19.0
+  - given:
+      a: 1.0
+      b: 2.0
+      c: 3.0
+      d: 4.0
+    does_not_apply: 'd counted twice: 14, not 10'
+- formula: mito_stress_test_partition
+  kind: model
+  statement: In a mitochondrial stress test, ATP-linked respiration is the oxygen consumption rate lost on adding oligomycin, and proton-leak
+    respiration is the oligomycin-insensitive rate above the rate left after rotenone and antimycin A.
+  equations:
+  - atp = b - o
+  - leak = o - n
+  variables:
+    atp: D
+    leak: D
+    b: D
+    o: D
+    n: D
+  assumes:
+  - oligomycin fully inhibits ATP synthase
+  - rotenone and antimycin A abolish mitochondrial respiration
+  - oligomycin does not change proton leak
+  does_not_apply: incomplete inhibition by oligomycin or by rotenone and antimycin A; a leak taken as the raw oligomycin rate without
+    subtracting non-mitochondrial respiration
+  tests:
+  - given:
+      b: 100.0
+      o: 40.0
+      n: 10.0
+    expect:
+      atp: 60.0
+      leak: 30.0
+  - given:
+      b: 100.0
+      o: 40.0
+      n: 10.0
+    does_not_apply: 'leak as the raw oligomycin rate (40) ignores non-mitochondrial respiration: 40, not 30'
+  cites:
+    text: Brand MD, Nicholls DG (2011). Assessing mitochondrial dysfunction in cells. Biochem J 435:297-312 (the cell respiratory control
+      experiment, Figure 1)
+    url: https://doi.org/10.1042/BJ20110162

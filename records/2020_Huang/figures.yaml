@@ -1,0 +1,108 @@
+figures:
+  s7_heatmap_cm:
+    file: mmc7.pdf
+    page: 8
+    crop:
+    - 81.72
+    - 94.92
+    - 530.16
+    - 466.92
+    script: figures/s7_heatmap_cm.py
+    unit: F3A_CM
+    kind: heat map
+    groups:
+      MYH7 TDI:
+        item: F3A_CM_MYH7
+        group: tdi
+        unit_of_value: log2(FC)
+      MYH6 TDI:
+        item: F3A_CM_MYH6
+        group: tdi
+        unit_of_value: log2(FC)
+      ATP2A2 TDI:
+        item: F3A_CM_ATP2A2
+        group: tdi
+        unit_of_value: log2(FC)
+      PLN TDI:
+        item: F3A_CM_PLN
+        group: tdi
+        unit_of_value: log2(FC)
+      CACNA1G TDI:
+        item: F3A_CM_CACNA1G
+        group: tdi
+        unit_of_value: log2(FC)
+      SCN1B TDI:
+        item: F3A_CM_SCN1B
+        group: tdi
+        unit_of_value: log2(FC)
+    note: 'Supplementary Fig. S7: per-set log2 fold change (TDI vs untreated) for 12 sets of hiPSC-CMs plus Avg.; cell colours
+      inverted against the colour key (ticks -6, 0, 6). Points are per-set ratios to the untreated counterpart, so the ctrl
+      group has no points of its own. Crossed cells (no data) give no point. Only the six starred genes are read.'
+  s8_heatmap_cmt:
+    file: mmc7.pdf
+    page: 9
+    crop:
+    - 169.5
+    - 72.0
+    - 442.15
+    - 585.14
+    script: figures/s8_heatmap_cmt.py
+    unit: F3A_CMT
+    kind: heat map
+    groups:
+      MYH6 TDI:
+        item: F3A_CMT_MYH6
+        group: tdi
+        unit_of_value: log2(FC)
+      ACTN2 TDI:
+        item: F3A_CMT_ACTN2
+        group: tdi
+        unit_of_value: log2(FC)
+      MYL2 TDI:
+        item: F3A_CMT_MYL2
+        group: tdi
+        unit_of_value: log2(FC)
+      JPH2 TDI:
+        item: F3A_CMT_JPH2
+        group: tdi
+        unit_of_value: log2(FC)
+      PPARA TDI:
+        item: F3A_CMT_PPARA
+        group: tdi
+        unit_of_value: log2(FC)
+      ATP2A2 TDI:
+        item: F3A_CMT_ATP2A2
+        group: tdi
+        unit_of_value: log2(FC)
+      RYR2 TDI:
+        item: F3A_CMT_RYR2
+        group: tdi
+        unit_of_value: log2(FC)
+      PLN TDI:
+        item: F3A_CMT_PLN
+        group: tdi
+        unit_of_value: log2(FC)
+      SCN5A TDI:
+        item: F3A_CMT_SCN5A
+        group: tdi
+        unit_of_value: log2(FC)
+      KCNJ2 TDI:
+        item: F3A_CMT_KCNJ2
+        group: tdi
+        unit_of_value: log2(FC)
+    note: 'Supplementary Fig. S8: per-array log2 fold change (TDI vs untreated) for 3 CMT arrays (3 independent differentiations)
+      plus Avg.; cell colours inverted against the colour key (ticks -2, 0, 2, 4). Points are per-array ratios to the untreated
+      counterpart, so the ctrl group has no points of its own. Only the ten starred genes are read; the figure prints ACTN2
+      as "ACNT2". ATP2A2 array 3 is pure red, off the key (beyond its range) and MYL2 array 3 is darker than the key''s red
+      end, so ATP2A2 and MYL2 give the Avg. only, no points.'
+no_points:
+  F1C: 'first look (small model): Panel C is phase-contrast and fluorescence micrographs only; no plot. (main.pdf p. 3)'
+  S3: 'first look (small model): Bar charts with mean and error bars; no individual points shown. (mmc7.pdf p. 4)'
+  F3BG: 'Fig. 3B–G (main.pdf p. 7, raster): bar charts of mean fold change (control bars at 1) with upper error bars only;
+    no individual points. Supplementary Fig. S9 (mmc7.pdf p. 11) is full-scanned Western blot images, no plotted values.'
+  F4FH_CM: 'first look (small model): Mean lines with SD error bars; thin per-monolayer traces only, no markers. (main.pdf p. 8)'
+  F4IK_CMT: 'first look (small model): Panels I-K show mean lines with SD error bars and thin individual traces, no per-sample markers.
+    (main.pdf p. 8)'
+  F5D: 'first look (small model): Connected mean markers with error bars; no per-sample points. (main.pdf p. 9)'
+  F5FJ: 'first look (small model): Bar charts with error bars; no individual sample markers visible (main.pdf p. 9)'
+  F5LM: 'first look (small model): Panels K-M show traces and mean markers with error bars, not per-sample points (main.pdf p. 9)'

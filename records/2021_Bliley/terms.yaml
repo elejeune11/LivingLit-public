@@ -1,0 +1,1001 @@
+record: 2021_Bliley
+vocabulary_version: 9
+agent: {model: llm, instructions: terms_v3}
+edits:
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:tissue_on_strip
+    label: tissue around a flexible strip
+    parent: platform:engineered_3d
+    definition: An engineered tissue cast around a flexible polymer strip whose ends hold the tissue, so that each contraction bends the strip against a load set by the strip's stiffness.
+    scope: A tissue loaded by bending a single strip (strip load and thickness are qualifiers); not a tissue suspended between two pillars.
+    qualifiers:
+      load: {dimension: text}
+      thickness: {dimension: length}
+- set_scope:
+    id: platform:tissue_between_pillars
+    scope: A tissue suspended between two flexible pillars; not a tissue cast around a single bending strip.
+- add_synonym:
+    id: platform:monolayer
+    text: 2D monolayer
+    anchor: we first investigated 2D monolayers of DSPmut and control cardiomyocytes
+- add_synonym:
+    id: platform:native_tissue
+    text: explanted heart
+    anchor: The right ventricle of the explanted heart showed fat deposition
+# ---------------------------------------------------------------- preparation
+- add_term:
+    field: preparation
+    id: preparation:computational_model
+    label: computational model
+    definition: A numerical simulation of the construct or device (such as a finite element model) in place of a physical sample.
+    scope: Values computed by simulation; not any physical sample, living, fixed or extracted.
+    synonyms:
+    - text: finite element model
+      anchor: The finite element model (fig. S3A) was validated
+- add_term:
+    field: preparation
+    id: preparation:material_specimen
+    label: material test specimen
+    definition: A cell-free piece of a construct's material cut to a standard shape for mechanical testing.
+    scope: Cell-free material specimens; not cells, tissues, extracts or simulations.
+    synonyms:
+    - text: laser-cut dog bones
+      anchor: tensile testing of laser-cut dog bones derived from each respective material
+- add_term:
+    field: preparation
+    id: preparation:cryosection
+    label: cryosection
+    definition: A thin section cut from frozen tissue on a cryostat for staining.
+    scope: Frozen tissue sections; not chemically fixed whole samples, living samples or extracts.
+# ---------------------------------------------------------------- media, coating, purification, substrate
+- add_term:
+    field: hipsc_medium
+    id: hipsc_medium:essential_8
+    label: Essential 8
+    definition: Essential 8 defined medium for pluripotent stem cells.
+    scope: Essential 8 medium; not mTeSR1 or FTDA medium.
+    synonyms:
+    - text: E8
+      anchor: ESCs were maintained in Essential 8 (E8) medium
+- add_synonym:
+    id: purification:metabolic_selection
+    text: lactate-based metabolic selection
+    anchor: spontaneously beating cells were passaged for lactate-based metabolic selection of cardiomyocytes
+- add_qualifier:
+    id: cm_medium:rpmi_1640
+    name: formulation
+    dimension: text
+- add_term:
+    field: substrate
+    id: substrate:collagen_hydrogel
+    label: collagen I hydrogel
+    parent: substrate:hydrogel
+    definition: A hydrogel formed from type I collagen.
+    scope: Collagen I as the gel or a gel component; not fibrin or Matrigel.
+    synonyms:
+    - text: collagen I
+      anchor: Collagen I derived from rat tail
+# ---------------------------------------------------------------- adopted: cells, lines, molecules, disease
+- add_synonym:
+    id: CL:0000746
+    text: cardiomyocytes
+    anchor: differentiated into cardiomyocytes and primary adult cardiac fibroblasts were expanded
+- adopt:
+    field: cell_types
+    id: CL:0002548
+    label: fibroblast of cardiac tissue
+    lookup: "lookup cl 'cardiac fibroblast' (exact synonym of CL:0002548)"
+    synonyms:
+    - text: cardiac fibroblasts
+      anchor: different ratios of cardiomyocytes to cardiac fibroblasts
+- adopt:
+    field: stromal_cell
+    id: CL:2000066
+    label: cardiac ventricle fibroblast
+    lookup: "lookup cl 'cardiac ventricle fibroblast' (exact); 'ventricular fibroblast' gave nothing"
+    synonyms:
+    - text: human ventricular cardiac fibroblasts
+      anchor: Normal human ventricular cardiac fibroblasts were obtained from Lonza
+- adopt:
+    field: cell_line
+    id: CVCL_0057
+    label: HUES 9
+    lookup: "lookup cellosaurus HUES9 (exact; an embryonic stem cell line)"
+    synonyms:
+    - text: HUES9
+      anchor: Cardiomyocyte differentiation of human HUES9 ESCs
+- adopt_own:
+    field: cell_line
+    id: cell_line:dspmut_patient_ipsc
+    label: DSPmut patient hiPSC line (unnamed)
+    scope: The DSPmut patient line of this source only; not its wild-type control line or the IMR90-derived line.
+    definition: The unnamed hiPSC line generated from a patient with arrhythmogenic cardiomyopathy carrying one DSP variant on each allele, called DSPmut by its source.
+    lookup: "lookup cellosaurus DSP and UMCG: no line with the variants c.273+5G>A and c.6687delA; the source gives no line name or accession"
+- adopt_own:
+    field: cell_line
+    id: cell_line:dspmut_control_ipsc
+    label: wild-type control hiPSC line of the DSPmut study (unnamed)
+    scope: The control line paired with the DSPmut patient line only; not the patient line or the IMR90-derived line.
+    definition: The unnamed wild-type hiPSC line used as the control for the DSPmut patient line by the same source.
+    lookup: "lookup cellosaurus UMCG: no line matches; the source names the line only as a control wild-type line, with no name or accession"
+- set_scope:
+    id: cell_line:imr90_ipsc
+    scope: An IMR90-derived iPSC line whose clone is not stated; not the unnamed lines of the DSPmut study.
+- add_synonym:
+    id: CHEBI:91091
+    text: CHIR99201
+    anchor: containing factors CHIR99201
+- add_synonym:
+    id: CHEBI:758024
+    text: bone morphogenetic protein 4
+    anchor: and bone morphogenetic protein 4 (SRP3016, Sigma-Aldrich)
+- adopt:
+    field: differentiation_factors
+    id: CHEBI:235513
+    label: Wnt-C59
+    lookup: "lookup chebi Wnt-C59 (exact)"
+- adopt_own:
+    field: supplements
+    id: supplements:knockout_serum_replacement
+    label: KnockOut Serum Replacement
+    scope: The serum-free replacement; not fetal bovine serum, B27, OxyFluo or nonessential amino acids.
+    definition: A defined, serum-free replacement for fetal bovine serum (Gibco KnockOut Serum Replacement).
+    lookup: "lookup chebi 'knockout serum' and 'serum replacement': no entry (a proprietary mixture)"
+    synonyms:
+    - text: KOSR
+      anchor: knockout serum replacement (KOSR
+- adopt_own:
+    field: treatment
+    id: treatment:cyclic_stretch
+    label: cyclic stretch
+    scope: A mechanical exposure of cultured cells; not viral transduction, metal braces or a drug.
+    definition: Repeated mechanical stretching of cultured cells on a deformable membrane, with stated strain, regimen and duration (qualifiers).
+    lookup: "not a chemical entity; ChEBI holds no mechanical exposures"
+    qualifiers:
+      strain: {dimension: dimensionless}
+      regimen: {dimension: text}
+      duration: {dimension: time}
+- adopt:
+    field: disease_model
+    id: MONDO:0004994
+    label: cardiomyopathy
+    lookup: "lookup mondo 'arrhythmogenic cardiomyopathy', 'arrhythmogenic', 'desmoplakin': only arrhythmogenic right ventricular cardiomyopathy and syndromic forms; adopted the nearest broader class"
+# ---------------------------------------------------------------- maturation, genotype
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:mechanical_loading
+    label: mechanical loading
+    definition: A mechanical load applied to a tissue during culture to mature its cells; the load's size and the culture days are qualifiers.
+    scope: Mechanical regimes during culture; the regime is a narrower term; not electrical stimulation.
+    qualifiers:
+      load: {dimension: text}
+      days: {dimension: text}
+- set_scope:
+    id: maturation_strategy:electrical_stimulation
+    scope: Electrical regimes during culture; the regime's pattern is a narrower term; not mechanical loading.
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:constrained_loading
+    label: constrained loading
+    parent: maturation_strategy:mechanical_loading
+    definition: The tissue is held at a fixed length by a restrained load-bearing element, so it contracts without shortening against the load.
+    scope: Load held fixed (no bending or shortening); not dynamic loading.
+- add_term:
+    field: maturation_strategy
+    id: maturation_strategy:dynamic_loading
+    label: dynamic loading
+    parent: maturation_strategy:mechanical_loading
+    definition: The tissue contracts against a free, elastic load-bearing element that it deforms with each beat.
+    scope: Tissue shortens against an elastic load; not constrained loading.
+- add_term:
+    field: genotype
+    id: genotype:dsp_variant
+    label: DSP variant
+    parent: genotype:gene_variant
+    definition: Cells carrying a variant in DSP, the gene encoding desmoplakin.
+    scope: A variant in DSP; the variant itself and its zygosity are qualifiers; not a PKP2 variant.
+# ---------------------------------------------------------------- measures
+- add_term:
+    field: measure
+    id: measure:strip_bending_force
+    label: strip bending force
+    definition: Force needed to bend a flexible strip by a given displacement, from simulation or calibration of the device.
+    scope: Device force of the strip itself (the force component is a qualifier); not force made by the tissue.
+    dimension: force
+    qualifiers:
+      component: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:applied_tissue_load
+    label: applied tissue load
+    definition: Passive tensile force a loading device applies to the tissue.
+    scope: Load put on the tissue by the device; not active force of the tissue or the device's own bending force.
+    dimension: force
+- add_term:
+    field: measure
+    id: measure:elastic_modulus
+    label: elastic modulus
+    definition: Slope of the stress-strain curve of a specimen in its linear region (the specimen is a qualifier).
+    scope: Passive stiffness of a tissue or material; not active stress.
+    dimension: stress
+    qualifiers:
+      specimen: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:tissue_length
+    label: tissue length
+    definition: Length of an engineered tissue at a stated phase of the beat (qualifier phase).
+    scope: Length of the whole tissue; not sarcomere length or shortening.
+    dimension: length
+    qualifiers:
+      phase: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:contractile_shortening
+    label: contractile shortening
+    definition: Shortening of a tissue during a contraction, as a fraction of its resting length.
+    scope: Active shortening of the whole tissue; not its resting length and not area change.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:stress_trace
+    label: stress trace
+    definition: Stress of a tissue over the time course of contraction and relaxation, shown as a curve (a normalisation is a qualifier).
+    scope: The waveform of stress over time; not a single twitch or diastolic stress value.
+    dimension: stress
+    qualifiers:
+      normalisation: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:diastolic_stress
+    label: diastolic stress
+    definition: Passive tensile stress in a tissue at rest between contractions.
+    scope: Resting (preload) stress; not active twitch stress.
+    dimension: stress
+- add_term:
+    field: measure
+    id: measure:actin_order_parameter
+    label: actin orientational order parameter
+    definition: Orientational order parameter of actin filament angles within the cardiomyocytes of a tissue.
+    scope: Alignment of actin filaments; not the sarcomere orientational order parameter or an angle histogram.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:orientation_distribution
+    label: orientation distribution
+    definition: Histogram of the angles of a stated structure (qualifier structure) in an image.
+    scope: The distribution of angles; not a single order parameter summarising it.
+    dimension: dimensionless
+    qualifiers:
+      structure: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:hyperpolarised_cell_fraction
+    label: fraction of cells with more negative resting membrane potential
+    definition: Fraction of measured cells whose resting membrane potential falls in the more negative of two populations.
+    scope: A fraction of cells; not the resting membrane potential itself.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:tissue_cross_sectional_area
+    label: tissue cross-sectional area
+    definition: Cross-sectional area of an engineered tissue, or of a stated portion of it (qualifier portion).
+    scope: Area of a tissue cross-section; not the projected area of single cells.
+    dimension: area
+    qualifiers:
+      portion: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:twitch_duration
+    label: twitch duration
+    definition: Total duration of one contraction, from its start to the end of relaxation.
+    scope: Whole twitch duration; not time to peak or relaxation time.
+    dimension: time
+- add_term:
+    field: measure
+    id: measure:time_to_partial_contraction
+    label: time to partial contraction
+    definition: Time from the start of a contraction until it reaches a stated fraction of its peak (qualifier level).
+    scope: Time to a stated fraction of contraction; not time to peak force and not relaxation time.
+    dimension: time
+    qualifiers:
+      level: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:relaxation_time_constant
+    label: relaxation time constant
+    parent: measure:relaxation_time
+    definition: Time constant (tau) of an exponential fitted to the decay of a contraction.
+    scope: The fitted decay constant; not the time to a stated level of relaxation.
+    dimension: time
+- add_term:
+    field: measure
+    id: measure:contractile_velocity
+    label: contractile velocity
+    definition: Speed of tissue displacement during contraction.
+    scope: Speed of shortening; not relaxation velocity or conduction velocity.
+    dimension: velocity
+- add_term:
+    field: measure
+    id: measure:relaxation_velocity
+    label: relaxation velocity
+    definition: Speed of tissue displacement during relaxation.
+    scope: Speed of re-lengthening; not contractile velocity or conduction velocity.
+    dimension: velocity
+- add_term:
+    field: measure
+    id: measure:contractile_power
+    label: contractile power
+    definition: Contractile work divided by contraction time.
+    scope: Work per time; not work itself.
+    dimension: power
+- add_term:
+    field: measure
+    id: measure:tissue_breakage
+    label: tissue breakage
+    definition: Fraction of tissues that broke within a stated period.
+    scope: Tissue failure counts; not mechanical strength.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:desmosome_density
+    label: desmosome protein density
+    definition: Qualitative electron-density of desmosomes in transmission electron micrographs.
+    scope: Density of desmosome plaques; not their number and not general ultrastructure grading.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:desmosome_number
+    label: desmosome number per field
+    definition: Number of desmosomes per high-powered electron microscopy field, in sections of a stated orientation (qualifier section).
+    scope: Count of desmosomes; not their density or spacing.
+    dimension: dimensionless
+    qualifiers:
+      section: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:protein_peripheral_localization
+    label: protein localization at the cell periphery
+    definition: Fraction of membrane pixels whose staining of a stated protein (qualifier protein) exceeds the cytosolic maximum, in a stated region (qualifier region).
+    scope: Membrane enrichment of a protein; not mean fluorescence intensity or qualitative staining.
+    dimension: dimensionless
+    qualifiers:
+      protein: {dimension: text}
+      region: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:inter_desmosomal_space
+    label: inter-desmosomal space
+    definition: Distance between the two plaques of a desmosome, measured between the intensity peaks of the two membranes.
+    scope: Gap width within a desmosome; not desmosome number or density.
+    dimension: length
+- add_synonym:
+    id: measure:twitch_stress
+    text: contractile stress
+    anchor: Comparison of contractile stress under paced electrical stimulation at 1 Hz
+- add_synonym:
+    id: measure:twitch_force
+    text: contractile force
+    anchor: Average tissue contractile force at day 28
+- add_synonym:
+    id: measure:contraction_frequency
+    text: beat rate
+    anchor: had faster spontaneous beat rates
+- add_synonym:
+    id: measure:upstroke_velocity
+    text: maximum upstroke velocity
+    anchor: did not show any differences in maximum upstroke velocity
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:strip_bending_force
+    value: {must_match: [platform, preparation, measure.component], may_vary: []}
+    direction: {must_match: [contrast, measure.component], may_vary: []}
+- standing_key:
+    measure: measure:applied_tissue_load
+    value: {must_match: [platform, preparation], may_vary: []}
+    direction: {must_match: [contrast], may_vary: []}
+- standing_key:
+    measure: measure:elastic_modulus
+    value: {must_match: [platform@1, preparation, measure.specimen], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.specimen], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_length
+    value: {must_match: [platform, preparation, measure.phase], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.phase], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_shortening
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:stress_trace
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.normalisation], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.normalisation], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:diastolic_stress
+    value: {must_match: [platform@1, preparation, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:actin_order_parameter
+    value: {must_match: [platform@1, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:orientation_distribution
+    value: {must_match: [platform@1, preparation, measure.structure], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.structure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:hyperpolarised_cell_fraction
+    value: {must_match: [platform@1, preparation, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_cross_sectional_area
+    value: {must_match: [platform@1, preparation, measure.portion], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.portion], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:twitch_duration
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:time_to_partial_contraction
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:relaxation_time_constant
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_velocity
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:relaxation_velocity
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_power
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_breakage
+    value: {must_match: [platform, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:desmosome_density
+    value: {must_match: [platform@1, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:desmosome_number
+    value: {must_match: [platform@1, preparation, measure.section], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.section], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_peripheral_localization
+    value: {must_match: [platform@1, preparation, measure.protein, measure.region], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:inter_desmosomal_space
+    value: {must_match: [platform@1, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+# ---------------------------------------------------------------- re-map v3: mechanical_load
+- add_synonym:
+    id: mechanical_load:isometric
+    text: constrained loading
+    anchor: Heatmap showing log scale geometrical mean of gene expression relative to the 1× constrained loading condition.
+- add_qualifier:
+    id: mechanical_load:isometric
+    name: stiffness
+    dimension: text
+- add_qualifier:
+    id: mechanical_load:isometric
+    name: strip thickness
+    dimension: length
+- add_qualifier:
+    id: mechanical_load:isometric
+    name: days
+    dimension: text
+- add_qualifier:
+    id: mechanical_load:auxotonic
+    name: stiffness
+    dimension: text
+- add_qualifier:
+    id: mechanical_load:auxotonic
+    name: strip thickness
+    dimension: length
+- add_qualifier:
+    id: mechanical_load:auxotonic
+    name: days
+    dimension: text
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:strip_load
+    label: elastic strip load, regime not stated
+    definition: The load of a flexible polymer strip of stated stiffness, where the source does not say whether the strip was held fixed or free to bend (as in characterising the strip itself).
+    scope: A strip's load with no culture regime stated; not a strip held fixed so the tissue cannot shorten (isometric load), not a strip or pillar the tissue bends with each beat (auxotonic), and not externally applied cyclic stretch.
+    qualifiers:
+      stiffness: {dimension: text}
+      strip thickness: {dimension: length}
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:cyclic_stretch
+    label: cyclic stretch
+    definition: Repeated stretching of cultured cells by an external device, such as a deformable membrane, with stated amplitude, frequency, regimen and duration (qualifiers).
+    scope: Stretch imposed by a device; not a load the tissue works against as it contracts (auxotonic or isometric load) and not a strip load whose regime is not stated.
+    synonyms:
+    - text: cyclic stretch
+      anchor: Monolayers were subjected to cyclic stretch regimens using the Flexcell system FX-4000.
+    qualifiers:
+      amplitude: {dimension: dimensionless}
+      frequency: {dimension: text}
+      regimen: {dimension: text}
+      duration: {dimension: time}
+- set_scope:
+    id: mechanical_load:isometric
+    scope: Shortening prevented (rigid or stiffened posts, an immobilised strip, fixed length); not contraction against an elastic, spring-like load (auxotonic), not externally applied cyclic stretch, and not a strip load whose regime is not stated.
+# ---------------------------------------------------------------- re-map v3: standing keys
+- standing_key:
+    measure: measure:twitch_force
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:twitch_stress
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_shortening
+    value: {must_match: [platform@1, preparation, pacing, temperature, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:diastolic_stress
+    value: {must_match: [platform@1, preparation, temperature, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_length
+    value: {must_match: [platform, preparation, mechanical_load, measure.phase], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.phase], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_work
+    value: {must_match: [platform, substrate, preparation, pacing, temperature, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contractile_power
+    value: {must_match: [platform@1, preparation, pacing, temperature, mechanical_load], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:applied_tissue_load
+    value: {must_match: [platform, preparation, mechanical_load], may_vary: []}
+    direction: {must_match: [contrast], may_vary: []}
+- standing_key:
+    measure: measure:stress_trace
+    value: {must_match: [platform@1, preparation, pacing, temperature, mechanical_load, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:time_to_partial_contraction
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_peripheral_localization
+    value: {must_match: [platform@1, preparation, measure.protein, measure.region, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:elastic_modulus
+    value:
+      must_match: [platform@1, preparation, measure.specimen, treatment, genotype, disease_model, cell_types]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.specimen]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_length
+    value:
+      must_match: [platform, preparation, mechanical_load, measure.phase, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.phase]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contractile_shortening
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:stress_trace
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, mechanical_load, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:diastolic_stress
+    value:
+      must_match: [platform@1, preparation, temperature, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:actin_order_parameter
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:orientation_distribution
+    value:
+      must_match: [platform@1, preparation, measure.structure, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.structure]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:hyperpolarised_cell_fraction
+    value:
+      must_match: [platform@1, preparation, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_cross_sectional_area
+    value:
+      must_match: [platform@1, preparation, measure.portion, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.portion]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:twitch_duration
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:time_to_partial_contraction
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relaxation_time_constant
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contractile_velocity
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relaxation_velocity
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contractile_power
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_breakage
+    value:
+      must_match: [platform, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:desmosome_density
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:desmosome_number
+    value:
+      must_match: [platform@1, preparation, measure.section, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.section]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:protein_peripheral_localization
+    value:
+      must_match: [platform@1, preparation, measure.protein, measure.region, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:inter_desmosomal_space
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: platform
+  stated: PDMS strip EHT
+  terms: [platform:tissue_on_strip]
+  note: the strip's load now sits in mechanical_load (stiffness 1×, 4×, 8×, 12×, strip thickness as qualifiers)
+- field: platform
+  stated: control heart tissue
+  terms: [platform:native_tissue]
+  note: the source's 'control heart' compared with the patient's explanted heart; donor age not stated, so not adult or fetal tissue
+- field: mechanical_load
+  stated: dynamic loading
+  terms: [mechanical_load:auxotonic]
+  note: the strip is free to bend and the tissue beats 'in an unconstrained manner against the PDMS strip', shortening each beat; no synonym added because 'dynamic loading' elsewhere can mean imposed cyclic stretch
+- field: mechanical_load
+  stated: PDMS strip load
+  terms: [mechanical_load:strip_load]
+  note: units characterising the strips (finite element model, dog-bone specimens, force transducer, tissue composition); constrained or dynamic culture is not stated there
+- field: preparation
+  stated: intact monolayer
+  terms: [preparation:live_cells]
+  note: living 2D monolayers imaged with a voltage dye
+- field: cell_line
+  stated: DSPmut patient hiPSC line
+  terms: [cell_line:dspmut_patient_ipsc]
+- field: cell_line
+  stated: control wild-type hiPSC line
+  terms: [cell_line:dspmut_control_ipsc]
+- field: disease_model
+  stated: arrhythmogenic cardiomyopathy
+  terms: [MONDO:0004994]
+  no_ontology_term: arrhythmogenic cardiomyopathy (biventricular ACM; MONDO has only the right-ventricular and syndromic forms)
+- field: genotype
+  stated: DSP c.273+5G>A + DSP c.6687delA
+  terms: [genotype:dsp_variant]
+  qualifiers: {gene: DSP, variant: c.273+5G>A + c.6687delA}
+  note: the record's note says one variant on each allele; zygosity is not printed as a word
+- field: cm_medium
+  stated: RPMI medium (without phenol red) containing HEPES
+  terms: [cm_medium:rpmi_1640]
+  qualifiers: {formulation: without phenol red}
+  split:
+  - {words: containing HEPES, field: supplements}
+  note: measurement medium for the voltage-dye recordings
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: tensile force applied to the tissue
+  terms: [measure:applied_tissue_load]
+- field: measure
+  stated: strip bending reaction force (x and z components)
+  terms: [measure:strip_bending_force]
+  qualifiers: {component: x and z}
+  note: the item compares the two components of one simulated force
+- field: measure
+  stated: elastic modulus of PDMS strip
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: PDMS strip}
+- field: measure
+  stated: tissue elastic modulus
+  terms: [measure:elastic_modulus]
+  qualifiers: {specimen: tissue}
+- field: measure
+  stated: diastolic tissue length
+  terms: [measure:tissue_length]
+  qualifiers: {phase: diastolic}
+- field: measure
+  stated: cardiomyocyte stress trace
+  terms: [measure:stress_trace]
+- field: measure
+  stated: normalized cardiomyocyte twitch stress trace
+  terms: [measure:stress_trace]
+  qualifiers: {expressed_as: normalised}
+  note: what the trace is divided by is not printed
+- field: measure
+  stated: orientational order parameter
+  terms: [measure:actin_order_parameter]
+  note: computed from actin filament angles (item method)
+- field: measure
+  stated: actin angle distribution
+  terms: [measure:orientation_distribution]
+  qualifiers: {structure: actin filaments}
+- field: measure
+  stated: MYH6/MYH7 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH6/MYH7, expressed_as: fold, normalised_to: 1× constrained loading condition}
+  note: a ratio of two genes' expression
+- field: measure
+  stated: NPPB mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NPPB, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: TTN-N2B mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TTN-N2B, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: TTN-N2A mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TTN-N2A, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: TNNI3 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: SCN5A mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SCN5A, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: GJA1 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: GJA1}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: DSP mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: DSP}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: JUP mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: JUP}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: PKP2 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PKP2}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: DSG2 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: DSG2}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: DSC2 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: DSC2}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: DES mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: DES}
+  note: the same text is used for Fig. 3D (relative to the 1× constrained loading condition) and for the 2D items of figs. S13D/S15D (normalisation not printed), so no normalisation is mapped
+- field: measure
+  stated: CPT1B mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CPT1B, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: PDK4 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PDK4, expressed_as: fold, normalised_to: 1× constrained loading condition}
+- field: measure
+  stated: desmosomal gene mRNA expression
+  flag:
+    kind: several measures
+    note: one value for the mRNA of several desmosomal genes; each gene is its own measure
+- field: measure
+  stated: proportion of cells with more negative resting membrane potential
+  terms: [measure:hyperpolarised_cell_fraction]
+- field: measure
+  stated: cardiomyocyte cross-sectional area
+  terms: [measure:tissue_cross_sectional_area]
+  qualifiers: {portion: cardiomyocytes}
+  note: the cardiomyocyte share of the tissue cross-section used for stress (mm²), not single-cell area
+- field: measure
+  stated: sarcomere spacing
+  terms: [measure:sarcomere_length]
+- field: measure
+  stated: time to 50% contraction
+  terms: [measure:time_to_partial_contraction]
+  qualifiers: {level: 50%}
+- field: measure
+  stated: time to 90% contraction
+  terms: [measure:time_to_partial_contraction]
+  qualifiers: {level: 90%}
+- field: measure
+  stated: contractile transient decay time constant
+  terms: [measure:relaxation_time_constant]
+- field: measure
+  stated: desmoplakin immunofluorescence
+  terms: [measure:protein_staining]
+  qualifiers: {protein: desmoplakin}
+- field: measure
+  stated: desmosome number per TEM high powered field (transverse sections)
+  terms: [measure:desmosome_number]
+  qualifiers: {section: transverse}
+- field: measure
+  stated: desmosome number per TEM high powered field (longitudinal sections)
+  terms: [measure:desmosome_number]
+  qualifiers: {section: longitudinal}
+- field: measure
+  stated: Desmoplakin whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: desmoplakin}
+  note: figure values are fold change (fig. S13C) but the item also holds the Discussion's % reduction, so expressed_as is left to each value's unit
+- field: measure
+  stated: Desmocollin 2 whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: desmocollin 2}
+  note: figure values are fold change (fig. S13C) but the item also holds the Discussion's % reduction, so expressed_as is left to each value's unit
+- field: measure
+  stated: Plakoglobin whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: plakoglobin, expressed_as: fold}
+  note: fig. S13C prints 'Fold change expression'; what it is divided by is not printed
+- field: measure
+  stated: Desmoglein 2 whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: desmoglein 2, expressed_as: fold}
+  note: fig. S13C prints 'Fold change expression'; what it is divided by is not printed
+- field: measure
+  stated: Plakophillin 2 whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: plakophilin 2, expressed_as: fold}
+  note: fig. S13C prints 'Fold change expression'; what it is divided by is not printed
+- field: measure
+  stated: Desmin whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: desmin, expressed_as: fold}
+  note: fig. S13C prints 'Fold change expression'; what it is divided by is not printed
+- field: measure
+  stated: B-catenin whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: beta-catenin, expressed_as: fold}
+  note: fig. S13C prints 'Fold change expression'; what it is divided by is not printed
+- field: measure
+  stated: Connexin 43 whole-cell protein abundance
+  terms: [measure:protein_level]
+  qualifiers: {protein: connexin 43, expressed_as: fold}
+  note: fig. S13C prints 'Fold change expression'; what it is divided by is not printed
+- field: measure
+  stated: desmosomal whole-cell protein abundance
+  flag:
+    kind: several measures
+    note: one value for a blot of several desmosomal proteins; each protein is its own measure
+- field: measure
+  stated: action potential duration at 50% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD50}
+  note: the legend prints 'Action potential duration at 50% (APD50)'
+- field: measure
+  stated: action potential duration at 90% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD90}
+  note: the legend prints 'Action potential duration at 90% (APD90)'
+- field: measure
+  stated: desmoplakin localization at the cell periphery
+  terms: [measure:protein_peripheral_localization]
+  qualifiers: {protein: desmoplakin, region: cell periphery, expressed_as: fold, normalised_to: control}
+  note: fig. S15C prints that control is set at 1 during each experiment
+- field: measure
+  stated: plakoglobin localization at the cell periphery
+  terms: [measure:protein_peripheral_localization]
+  qualifiers: {protein: plakoglobin, region: cell periphery, expressed_as: fold, normalised_to: control}
+  note: fig. S15C prints that control is set at 1 during each experiment
+- field: measure
+  stated: plakophillin-2 localization at the cell periphery
+  terms: [measure:protein_peripheral_localization]
+  qualifiers: {protein: plakophilin 2, region: cell periphery, expressed_as: fold, normalised_to: control}
+  note: fig. S15C prints that control is set at 1 during each experiment
+- field: measure
+  stated: desmosome number and protein density
+  flag:
+    kind: several measures
+    note: desmosome number and desmosome protein density in one value

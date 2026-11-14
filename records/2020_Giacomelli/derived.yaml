@@ -1,0 +1,1481 @@
+record: 2020_Giacomelli
+formula_library_version: 14
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F4G_dur_cmec.ncd:
+    item: F4G_dur_cmec
+    formula: ncd = cd/sqrt(ibi)
+    anchor: &id001
+      quote: Normalized contraction duration = contraction duration / sqrt (IBI).
+      where: STAR Methods
+    library:
+      formula: bazett_rate_correction
+      vars:
+        dc: ncd
+        d: cd
+        RR: ibi
+    inputs:
+      cd:
+        not_stated: true
+        kind: per sample
+        note: contraction duration of each spontaneously beating MT; not printed
+      ibi:
+        item: F4F_ibi_cmec
+        kind: per sample
+        note: each MT's own inter-beat interval (Fig. 4F); no values printed or read
+    aggregation: mean of per-sample
+    note: IBI unit for the square root not stated; the library form takes durations and IBI in seconds
+  F4G_dur_cmf.ncd:
+    item: F4G_dur_cmf
+    formula: ncd = cd/sqrt(ibi)
+    anchor: *id001
+    library:
+      formula: bazett_rate_correction
+      vars:
+        dc: ncd
+        d: cd
+        RR: ibi
+    inputs:
+      cd:
+        not_stated: true
+        kind: per sample
+        note: contraction duration of each spontaneously beating MT; not printed
+      ibi:
+        item: F4F_ibi_cmf
+        kind: per sample
+        note: each MT's own inter-beat interval (Fig. 4F); no values printed or read
+    aggregation: mean of per-sample
+    note: IBI unit for the square root not stated; the library form takes durations and IBI in seconds
+  F4G_dur_sf.ncd:
+    item: F4G_dur_sf
+    formula: ncd = cd/sqrt(ibi)
+    anchor: *id001
+    library:
+      formula: bazett_rate_correction
+      vars:
+        dc: ncd
+        d: cd
+        RR: ibi
+    inputs:
+      cd:
+        not_stated: true
+        kind: per sample
+        note: contraction duration of each spontaneously beating MT; not printed
+      ibi:
+        item: F4F_ibi_sf
+        kind: per sample
+        note: each MT's own inter-beat interval (Fig. 4F); no values printed or read
+    aggregation: mean of per-sample
+    note: IBI unit for the square root not stated; the library form takes durations and IBI in seconds
+  S4G_caff.baseline:
+    item: S4G_caff
+    formula: m0 = S0/n0
+    anchor: &id002
+      quote: the amplitude of the first peak after caffeine addition was divided by the average of the four peaks before caffeine
+      where: STAR Methods
+    library:
+      formula: mean_def
+      vars:
+        m: m0
+        S: S0
+        n: n0
+    inputs:
+      S0:
+        not_stated: true
+        kind: per sample
+        note: sum of the amplitudes of the four paced transients before caffeine
+      n0:
+        printed: '4'
+        unit: count
+        anchor:
+          quote: After 4 calcium transients, stimulation was stopped
+          where: STAR Methods
+        kind: constant
+  S4G_caff.ratio:
+    item: S4G_caff
+    formula: r = a1/m0
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a1
+        b: m0
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: amplitude of the first peak after caffeine
+      m0:
+        derived: S4G_caff.baseline
+        kind: per sample
+    aggregation: mean of per-sample
+    alternatives:
+    - label: percentage change from baseline
+      formula: d = (a1 - m0)/m0
+      note: the legend prints the result as "percentage, relative to amplitude at baseline"; whether it is the ratio x100
+        or the increase over baseline is not stated (relative_change)
+  F7F_cx43.norm_ctrl_cmecf:
+    item: F7F_cx43
+    group: ctrl_cmecf
+    formula: y = m_ctrl/m_ctrl
+    anchor: &id003
+      quote: normalized to the respective CTRL
+      where: Fig. 7 legend
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: y
+        mx: m_ctrl
+    inputs:
+      m_ctrl:
+        not_stated: true
+        kind: constant
+        note: mean CX43 per cell of the CTRL MTs (n = 3 batches); not printed
+    note: the CTRL group normalised to its own mean
+    output: F7F_cx43.values.cx43_ctrl
+  F7F_cx43.norm_acm_cmecf:
+    item: F7F_cx43
+    group: acm_cmecf
+    formula: y = x/m_ctrl
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: x
+        b: m_ctrl
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: CX43 per cell of each ACM MT batch
+      m_ctrl:
+        not_stated: true
+        kind: constant
+        note: mean of the respective CTRL group
+    aggregation: not stated
+  F7G_cx43.norm_ctrl_sf:
+    item: F7G_cx43
+    group: ctrl_sf
+    formula: y = m_ctrl/m_ctrl
+    anchor: *id003
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: y
+        mx: m_ctrl
+    inputs:
+      m_ctrl:
+        not_stated: true
+        kind: constant
+        note: mean CX43 per cell of the CTRL MTs (n = 3 batches); not printed
+    note: the CTRL group normalised to its own mean
+  F7G_cx43.norm_acm_sf:
+    item: F7G_cx43
+    group: acm_sf
+    formula: y = x/m_ctrl
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: x
+        b: m_ctrl
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: CX43 per cell of each ACM MT batch
+      m_ctrl:
+        not_stated: true
+        kind: constant
+        note: mean of the respective CTRL group
+    aggregation: not stated
+  F7D_pkp2.norm:
+    item: F7D_pkp2
+    formula: y = p/g
+    anchor:
+      quote: GAPDH was used as loading control. Densitometric analysis is shown in the lower panel.
+      where: Fig. 7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: p
+        b: g
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: PKP2 band density
+      g:
+        not_stated: true
+        kind: per sample
+        note: GAPDH band density of the same lane
+    note: readings F7D give the normalised values only; the band densities are not printed
+  S7G_sma.fraction:
+    item: S7G_sma
+    formula: f = a/b
+    anchor: &id004
+      quote: SMA positive and DAPI positive cells to obtain the percentage of SMA positive cells per image
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: SMA positive cells in one image
+      b:
+        not_stated: true
+        kind: per sample
+        note: DAPI positive cells in the same image
+    aggregation: mean of per-sample
+    note: 'printed in %: the fraction x100. Per image, then (not stated) averaged per differentiation'
+  S7I_sma.fraction:
+    item: S7I_sma
+    formula: f = a/b
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: SMA positive cells in one image
+      b:
+        not_stated: true
+        kind: per sample
+        note: DAPI positive cells in the same image
+    aggregation: mean of per-sample
+    note: 'printed in %: the fraction x100. Per image, then (not stated) averaged per differentiation'
+  F2F_align_cmec.index:
+    item: F2F_align_cmec
+    formula: sai = a1/at
+    anchor: &id005
+      quote: The index of sarcomere alignment was obtained by normalizing the area under the first order peak for the total
+        area of the power spectrum profile.
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  F2F_align_sf.index:
+    item: F2F_align_sf
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  S2A_align.index:
+    item: S2A_align
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  S2B_align.index:
+    item: S2B_align
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  F6HI_align.index:
+    item: F6HI_align
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  S6FG_align.index:
+    item: S6FG_align
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  F6LM_align.index:
+    item: F6LM_align
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  S7K_align.index:
+    item: S7K_align
+    formula: sai = a1/at
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: sai
+        a: a1
+        b: at
+    inputs:
+      a1:
+        not_stated: true
+        kind: per sample
+        note: area under the first-order peak of the FFT power spectrum profile
+      at:
+        not_stated: true
+        kind: per sample
+        note: total area of the power spectrum profile
+    aggregation: mean of per-sample
+  F1C_qpcr.rel_expr:
+    item: F1C_qpcr
+    formula: r = 2^(-dct)
+    anchor: &id006
+      quote: Results were analyzed by using the DCt method.
+      where: STAR Methods
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: dct
+    inputs:
+      dct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target minus Ct of the reference (RPL37A); no calibrator sample is named, so the exponent is a DCt,
+          not a DDCt
+    note: 'the DCt method is the comparative Ct method without a calibrator: 2^-DCt'
+  S6B_nos3.rel_expr:
+    item: S6B_nos3
+    formula: r = 2^(-dct)
+    anchor: *id006
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: dct
+    inputs:
+      dct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target minus Ct of the reference (RPL37A); no calibrator sample is named, so the exponent is a DCt,
+          not a DDCt
+    note: 'the DCt method is the comparative Ct method without a calibrator: 2^-DCt'
+  S6B_edn1.rel_expr:
+    item: S6B_edn1
+    formula: r = 2^(-dct)
+    anchor: *id006
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: dct
+    inputs:
+      dct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target minus Ct of the reference (RPL37A); no calibrator sample is named, so the exponent is a DCt,
+          not a DDCt
+    note: 'the DCt method is the comparative Ct method without a calibrator: 2^-DCt'
+  S6K_gja1.rel_expr:
+    item: S6K_gja1
+    formula: r = 2^(-dct)
+    anchor: *id006
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: dct
+    inputs:
+      dct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target minus Ct of the reference (HARP and RPL37A); no calibrator sample is named, so the exponent
+          is a DCt, not a DDCt
+    note: 'the DCt method is the comparative Ct method without a calibrator: 2^-DCt'
+  F5B_basal_cmf.per_dna:
+    item: F5B_basal_cmf
+    formula: y = o/dna
+    anchor: &id007
+      quote: Normalization was performed by lysing the MTs with a chloride-based lysis buffer
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_basal_cmecf.per_dna:
+    item: F5B_basal_cmecf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_basal_acf.per_dna:
+    item: F5B_basal_acf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_basal_sf.per_dna:
+    item: F5B_basal_sf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_atp_cmf.per_dna:
+    item: F5B_atp_cmf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_atp_cmecf.per_dna:
+    item: F5B_atp_cmecf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_atp_acf.per_dna:
+    item: F5B_atp_acf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_atp_sf.per_dna:
+    item: F5B_atp_sf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_spare_cmf.per_dna:
+    item: F5B_spare_cmf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_spare_cmecf.per_dna:
+    item: F5B_spare_cmecf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_spare_acf.per_dna:
+    item: F5B_spare_acf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_spare_sf.per_dna:
+    item: F5B_spare_sf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_leak_cmf.per_dna:
+    item: F5B_leak_cmf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_leak_cmecf.per_dna:
+    item: F5B_leak_cmecf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_leak_acf.per_dna:
+    item: F5B_leak_acf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5B_leak_sf.per_dna:
+    item: F5B_leak_sf
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5C_basal.per_dna:
+    item: F5C_basal
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5C_reserve.per_dna:
+    item: F5C_reserve
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  F5C_capacity.per_dna:
+    item: F5C_capacity
+    formula: y = o/dna
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: o
+        b: dna
+    inputs:
+      o:
+        not_stated: true
+        kind: per sample
+        note: the Seahorse parameter of one well (how it is computed from the injection phases is not stated)
+      dna:
+        not_stated: true
+        kind: per sample
+        note: DNA content of the same well (Picogreen)
+    note: normalisation to DNA content; the parameter itself (e.g. ATP production, spare capacity, glycolytic reserve) as
+      a difference of OCR or ECAR phases is not stated in the paper
+  S5B_lactate.per_protein:
+    item: S5B_lactate
+    formula: q = dq/p
+    anchor: &id008
+      quote: All concentrations were normalized to the total protein mass of each sample.
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_alanine.per_protein:
+    item: S5B_alanine
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_pyroglutamate.per_protein:
+    item: S5B_pyroglutamate
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_glucose.per_protein:
+    item: S5B_glucose
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_pyruvate.per_protein:
+    item: S5B_pyruvate
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_arginine.per_protein:
+    item: S5B_arginine
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_glutamine.per_protein:
+    item: S5B_glutamine
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_proline.per_protein:
+    item: S5B_proline
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S5B_acetate.per_protein:
+    item: S5B_acetate
+    formula: q = dq/p
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: dq
+        b: p
+    inputs:
+      dq:
+        not_stated: true
+        kind: per sample
+        note: net change of the metabolite in the medium (release positive, uptake negative)
+      p:
+        not_stated: true
+        kind: per sample
+        note: total protein mass of the same sample
+    note: printed per group with unit "µmol, corrected for the total protein mass"; no inputs printed
+  S1F_dist_cmf.mean:
+    item: S1F_dist_cmf
+    formula: dbar = S/n
+    anchor: &id009
+      quote: between all cells in the sample was calculated as the average value of all the medians for the whole MT
+      where: STAR Methods
+    library:
+      formula: mean_def
+      vars:
+        m: dbar
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum over nuclei of the median distance to the 12 closest neighbours
+      n:
+        not_stated: true
+        kind: per sample
+        note: number of nuclei in the MT
+  S1F_dist_cmecf.mean:
+    item: S1F_dist_cmecf
+    formula: dbar = S/n
+    anchor: *id009
+    library:
+      formula: mean_def
+      vars:
+        m: dbar
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum over nuclei of the median distance to the 12 closest neighbours
+      n:
+        not_stated: true
+        kind: per sample
+        note: number of nuclei in the MT
+  S1F_dist_acf.mean:
+    item: S1F_dist_acf
+    formula: dbar = S/n
+    anchor: *id009
+    library:
+      formula: mean_def
+      vars:
+        m: dbar
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum over nuclei of the median distance to the 12 closest neighbours
+      n:
+        not_stated: true
+        kind: per sample
+        note: number of nuclei in the MT
+  S1F_dist_sf.mean:
+    item: S1F_dist_sf
+    formula: dbar = S/n
+    anchor: *id009
+    library:
+      formula: mean_def
+      vars:
+        m: dbar
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: sum over nuclei of the median distance to the 12 closest neighbours
+      n:
+        not_stated: true
+        kind: per sample
+        note: number of nuclei in the MT
+  F4B_notch.fraction:
+    item: F4B_notch
+    formula: f = a/b
+    anchor:
+      quote: was obtained using R script by calculating the minimum derivative value of AP traces in the peak region
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: APs whose minimum derivative in the peak region is below the cut-off of 3
+      b:
+        not_stated: true
+        kind: per sample
+        note: APs recorded in the group
+    note: one fraction per group, pooled over cells
+  F7I_pace_2.fraction:
+    item: F7I_pace_2
+    formula: f = a/b
+    anchor: &id010
+      quote: Percentages of MTs that could be paced at different stimulation frequencies in different MT groups
+      where: Fig. 7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: MTs classified as following the stimulation (rate within 15 % and amplitude CV below 28 %)
+      b:
+        not_stated: true
+        kind: per sample
+        note: MTs stimulated in the group (n > 10)
+    note: 'printed in %: the fraction x100, one value per group'
+  F7I_pace_3.fraction:
+    item: F7I_pace_3
+    formula: f = a/b
+    anchor: *id010
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: MTs classified as following the stimulation (rate within 15 % and amplitude CV below 28 %)
+      b:
+        not_stated: true
+        kind: per sample
+        note: MTs stimulated in the group (n > 10)
+    note: 'printed in %: the fraction x100, one value per group'
+  F7I_pace_sf.fraction:
+    item: F7I_pace_sf
+    formula: f = a/b
+    anchor: *id010
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: MTs classified as following the stimulation (rate within 15 % and amplitude CV below 28 %)
+      b:
+        not_stated: true
+        kind: per sample
+        note: MTs stimulated in the group (n > 10)
+    note: 'printed in %: the fraction x100, one value per group'
+  S1E_prolif.fraction:
+    item: S1E_prolif
+    formula: f = a/b
+    anchor: &id011
+      quote: Bar graph showing the percentage of KI67+COL1A1- and (green) and KI67+COL1A+ (yellow) cells in MTs
+      where: Fig. S1 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: KI67+ nuclei of the named COL1A1 status in one MT
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'denominator not stated: all segmented nuclei is implied'
+    aggregation: mean of per-sample
+  S1E_fib.fraction:
+    item: S1E_fib
+    formula: f = a/b
+    anchor: *id011
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: KI67+ nuclei of the named COL1A1 status in one MT
+      b:
+        not_stated: true
+        kind: per sample
+        note: 'denominator not stated: all segmented nuclei is implied'
+    aggregation: mean of per-sample
+  S1C_col1a1.fraction:
+    item: S1C_col1a1
+    formula: not stated
+    anchor: not stated
+    no_formula: the legend names a "bar graph quantification of the same cell populations"; the numerator and denominator
+      of the percentage are not stated
+  S1C_tnni.fraction:
+    item: S1C_tnni
+    formula: not stated
+    anchor: not stated
+    no_formula: the legend names a "bar graph quantification of the same cell populations"; the numerator and denominator
+      of the percentage are not stated
+  S1C_cd31.fraction:
+    item: S1C_cd31
+    formula: not stated
+    anchor: not stated
+    no_formula: the legend names a "bar graph quantification of the same cell populations"; the numerator and denominator
+      of the percentage are not stated
+  S7E_pkp2.per_cell:
+    item: S7E_pkp2
+    formula: y = I/nn
+    anchor: &id012
+      quote: total intensity of the image enclosed by the defined edges was quantified and normalized to the number of nuclei
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: I
+        b: nn
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: total junctional intensity of one image
+      nn:
+        not_stated: true
+        kind: per sample
+        note: number of nuclei in the same image
+  S7E_cx43.per_cell:
+    item: S7E_cx43
+    formula: y = I/nn
+    anchor: *id012
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: I
+        b: nn
+    inputs:
+      I:
+        not_stated: true
+        kind: per sample
+        note: total junctional intensity of one image
+      nn:
+        not_stated: true
+        kind: per sample
+        note: number of nuclei in the same image
+  S6H_cx43.per_cell:
+    item: S6H_cx43
+    formula: y = c/nn
+    anchor:
+      quote: to provide total number of CX43 per cell
+      where: STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: c
+        b: nn
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+        note: CX43 positive spots
+      nn:
+        not_stated: true
+        kind: per sample
+        note: DAPI positive nuclei
+  S4H_amp.norm:
+    item: S4H_amp
+    formula: y = a/a0
+    anchor:
+      quote: contraction amplitude was normalized to baseline
+      where: Fig. S4 legend
+      file: mmc1.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: a
+        b: a0
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: contraction amplitude at one verapamil concentration
+      a0:
+        not_stated: true
+        kind: per sample
+        note: contraction amplitude of the same MT at baseline
+    aggregation: mean of per-sample
+  S4I_relax.norm:
+    item: S4I_relax
+    formula: not stated
+    anchor: not stated
+    no_formula: the axis reads "Norm. Relaxation"; what relaxation time is normalised to (baseline, or beat rate as in Fig.
+      4G) is not stated
+  S1G_vol_cmf.volume:
+    item: S1G_vol_cmf
+    formula: not stated
+    anchor:
+      quote: The volume of each cell was calculated from the semi-axis distance of each MT.
+      where: STAR Methods
+    no_formula: the volume formula is not stated (the ellipsoid volume 4/3*pi*a*b*c is implied by the fitted ellipsoid); no
+      ellipsoid-volume entry in the library
+  S1G_vol_cmecf.volume:
+    item: S1G_vol_cmecf
+    formula: not stated
+    anchor:
+      quote: The volume of each cell was calculated from the semi-axis distance of each MT.
+      where: STAR Methods
+    no_formula: the volume formula is not stated (the ellipsoid volume 4/3*pi*a*b*c is implied by the fitted ellipsoid); no
+      ellipsoid-volume entry in the library
+  S1G_vol_acf.volume:
+    item: S1G_vol_acf
+    formula: not stated
+    anchor:
+      quote: The volume of each cell was calculated from the semi-axis distance of each MT.
+      where: STAR Methods
+    no_formula: the volume formula is not stated (the ellipsoid volume 4/3*pi*a*b*c is implied by the fitted ellipsoid); no
+      ellipsoid-volume entry in the library
+  S1G_vol_sf.volume:
+    item: S1G_vol_sf
+    formula: not stated
+    anchor:
+      quote: The volume of each cell was calculated from the semi-axis distance of each MT.
+      where: STAR Methods
+    no_formula: the volume formula is not stated (the ellipsoid volume 4/3*pi*a*b*c is implied by the fitted ellipsoid); no
+      ellipsoid-volume entry in the library
+assumptions:
+  F1C_qpcr.rel_expr:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S6B_nos3.rel_expr:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S6B_edn1.rel_expr:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S6K_gja1.rel_expr:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds: []
+proposals:
+- formula: bazett_rate_correction
+  kind: definition
+  statement: A rate-corrected duration (Bazett's correction) is the duration divided by the square root of the beat interval,
+    both in seconds.
+  equations:
+  - dc = d/sqrt(RR)
+  variables:
+    dc: time^(1/2)
+    d: time
+    RR: time
+  does_not_apply: 'other rate corrections: Fridericia''s divides by the cube root of the interval, Framingham''s is linear
+    in the interval'
+  tests:
+  - given:
+      d: 0.4
+      RR: 1.0
+    expect:
+      dc: 0.4
+  - given:
+      d: 0.3
+      RR: 0.25
+    expect:
+      dc: 0.6
+  - given:
+      d: 0.3
+      RR: 0.25
+    does_not_apply: Fridericia's correction gives 0.3/0.25^(1/3) = 0.476
+  cites:
+    text: Bazett HC. An analysis of the time-relations of electrocardiograms. Heart 7, 353-370 (1920); reprinted in Ann Noninvasive
+      Electrocardiol 2, 177-194 (1997)
+    url: https://doi.org/10.1111/j.1542-474X.1997.tb00325.x

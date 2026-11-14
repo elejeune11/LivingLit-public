@@ -1,0 +1,1080 @@
+record: 2020_Garbern
+vocabulary_version: 52
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+- adopt:
+    field: cell_line
+    id: CVCL_X737
+    label: BJ RiPS-A
+    lookup: 'lookup cellosaurus ''BJRiPS'' and ''BJ RiPS'': CVCL_X737 BJ RiPS-A is the paper''s BJRiPS-A (Methods, Cell Lines)'
+    synonyms:
+    - text: BJRiPS
+      anchor: BJRiPS-CMs (BJ fibroblast-derived, RNA-induced pluripotent stem cell-derived cardiomyocytes)
+    - text: BJRiPS-A
+      anchor: The BJRiPS-A (BJ fibroblast-derived RNA-induced pluripotent
+- adopt:
+    field: cell_line
+    id: CVCL_RM92
+    label: CBiPSC6.2
+    lookup: lookup cellosaurus 'Gibco Human Episomal iPSC' and 'A18945' (the Gibco episomal line's catalogue number) both resolve exactly to CVCL_RM92
+      CBiPSC6.2
+    synonyms:
+    - text: Gibco iPS
+      anchor: Gibco iPS-CMs (induced pluripotent stem cell-derived cardiomyocytes), n=3 per condition
+- adopt:
+    field: cell_line
+    id: CVCL_EN85
+    label: UCSD142i-86-1
+    lookup: 'lookup cellosaurus ''UCSD142i-86-1'': exact match CVCL_EN85'
+- adopt_own:
+    field: treatment
+    id: treatment:pifithrin_alpha
+    label: pifithrin-α
+    xref:
+    - CHEBI:229924
+    definition: Pifithrin-α, a small-molecule inhibitor of p53 transcriptional activity.
+    scope: The p53 inhibitor, salt form not stated; not nutlin-3a, which activates p53.
+    lookup: 'lookup chebi ''pifithrin'' and ''pifithrin-alpha'': only CHEBI:229924 pifithrin-alpha hydrobromide, a salt the paper does not name;
+      no entry for the parent compound'
+- adopt_own:
+    field: treatment
+    id: treatment:nutlin_3a
+    label: nutlin-3a
+    xref:
+    - CHEBI:46742
+    definition: Nutlin-3a, the active enantiomer of nutlin-3, an MDM2 inhibitor that stabilises p53.
+    scope: The MDM2 inhibitor that raises p53; not pifithrin-α, which inhibits p53.
+    lookup: 'lookup chebi ''nutlin'' and ''nutlin-3a'': CHEBI:46741 Nutlin (class) and CHEBI:46742 Nutlin-3 (racemate) only; no entry for the
+      3a enantiomer'
+- adopt_own:
+    field: treatment
+    id: treatment:fetal_bovine_serum
+    label: fetal bovine serum
+    definition: Serum from bovine fetuses added to the medium of some groups as an exposure.
+    scope: Serum given to some groups and not others; serum in every group is a supplement (supplements:fetal_bovine_serum), not a treatment.
+    synonyms:
+    - text: FBS
+      anchor: we added 10% fetal bovine serum (FBS) to half of
+    lookup: 'lookup chebi ''fetal bovine serum'' and ''serum'': only serum proteins and antisera; the own term supplements:fetal_bovine_serum
+      serves the supplements field and an own id cannot be adopted into a second field'
+- adopt_own:
+    field: treatment
+    id: treatment:chemically_defined_lipid_concentrate
+    label: chemically defined lipid concentrate
+    definition: Gibco Chemically Defined Lipid Concentrate, a defined mixture of fatty acids and other lipids added to the medium.
+    scope: The commercial lipid mixture; not a single named fatty acid (palmitate, oleic acid) and not the ChEBI class fatty acid.
+    synonyms:
+    - text: chemically defined lipids
+      anchor: fatty acids were added in the form of chemically defined lipids
+    lookup: 'lookup chebi ''lipid concentrate'' and ''chemically defined lipid'': no entry (a proprietary mixture)'
+- add_term:
+    field: platform
+    id: platform:muscular_thin_film
+    label: muscular thin film
+    parent: platform:culture_2d
+    definition: A layer of cardiomyocytes on a thin elastic film cut into cantilevers that bend as the cells contract, so force is computed from
+      the film curvature.
+    scope: Cells on free-standing cantilevered films whose bending reports force; not an unpatterned layer on a well bottom (monolayer), micropatterned
+      islands on a fixed surface, a micropost array, a porous mesh insert or a Boyden chamber.
+    synonyms:
+    - text: MTF
+      anchor: MTF, muscular thin film
+    - text: muscular thin films
+      anchor: Gelatin muscular thin films (MTFs) were prepared as previously described
+- add_term:
+    field: substrate
+    id: substrate:gelatin_hydrogel
+    label: gelatin hydrogel
+    definition: A crosslinked gelatin gel forming the surface on which cells are cultured.
+    scope: Crosslinked gelatin as the culture surface; not a gel in which cells are embedded (hydrogel and its kinds), not polyacrylamide, PDMS
+      or glass, and not a thin protein coating such as fibronectin or laminin.
+    synonyms:
+    - text: micromolded gelatin
+      anchor: micromolded gelatin MTFs were prepared on glass
+- add_term:
+    field: preparation
+    id: preparation:dna_extract
+    label: DNA extract
+    definition: DNA purified from a sample for measurement.
+    scope: Purified DNA; not RNA extract, cDNA, a crude lysate, a metabolite extract, or living or fixed samples.
+- add_synonym:
+    id: pacing:electrical_pacing
+    text: electrically stimulated
+    anchor: electrically stimulated with 15 V at a frequency of 0.5 pulses/sec
+- add_term:
+    field: measure
+    id: measure:cell_cycle_phase_fraction
+    label: cell cycle phase fraction
+    dimension: dimensionless
+    definition: Share of cells in a stated cell cycle phase (qualifier phase), read from DNA and RNA content, within a stated population (qualifier
+      population).
+    scope: Cells in one cycle phase (G0, G1, S/G2/M, sub-G1) by DNA and RNA content; not the fraction positive for a proliferation marker such
+      as Ki67 or pH3 (marker-positive cells) and not binucleated cells.
+    qualifiers:
+      phase:
+        dimension: text
+      population:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:non_mitochondrial_ocr
+    label: non-mitochondrial oxygen consumption rate
+    parent: measure:oxygen_consumption_rate
+    dimension: amount_rate
+    definition: Oxygen consumption remaining after the respiratory chain is blocked with rotenone and antimycin A.
+    scope: Oxygen use not by mitochondria; not maximal, spare, ATP-linked or proton-leak respiration, total ATP capacity or the time course.
+    synonyms:
+    - text: nonmitochondrial oxygen consumption rate
+      anchor: respiratory reserve capacity, and nonmitochondrial oxygen consumption rate
+- add_term:
+    field: measure
+    id: measure:ocr_time_course
+    label: oxygen consumption rate time course
+    parent: measure:oxygen_consumption_rate
+    dimension: amount_rate
+    definition: Oxygen consumption rate over the successive injections of a respiration assay, shown as a curve.
+    scope: The curve across injections; not one derived rate (maximal, spare, ATP-linked, proton leak, non-mitochondrial or ATP capacity).
+- add_term:
+    field: measure
+    id: measure:ecar_time_course
+    label: extracellular acidification rate time course
+    parent: measure:extracellular_acidification_rate
+    dimension: rate
+    definition: Extracellular acidification rate over the successive injections of a flux assay (qualifier assay), shown as a curve.
+    scope: The curve across injections; not one derived value (glycolytic rate, capacity or reserve, or non-glycolytic acidification).
+    qualifiers:
+      assay:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:non_glycolytic_acidification
+    label: non-glycolytic acidification
+    parent: measure:extracellular_acidification_rate
+    dimension: rate
+    definition: Extracellular acidification remaining after glycolysis is blocked with 2-deoxyglucose.
+    scope: Acidification not from glycolysis; not the glycolytic rate, capacity or reserve, and not the time course.
+- add_term:
+    field: measure
+    id: measure:glycolytic_rate
+    label: glycolytic rate
+    parent: measure:extracellular_acidification_rate
+    dimension: rate
+    definition: Extracellular acidification after glucose addition minus non-glycolytic acidification, in a glycolysis stress test.
+    scope: Glycolysis at the glucose step; not glycolytic capacity (after oligomycin), glycolytic reserve, non-glycolytic acidification or the
+      time course.
+    synonyms:
+    - text: glycolysis ECAR
+      anchor: the glycolysis ECAR was calculated by subtracting the average
+- add_term:
+    field: measure
+    id: measure:action_potential_downstroke_velocity
+    label: action potential downstroke velocity
+    parent: measure:action_potential
+    dimension: voltage_rate
+    definition: Rate of fall of membrane voltage during repolarisation of the action potential.
+    scope: Slope of the repolarising fall; not the upstroke velocity, a duration or repolarisation time, a rise time, amplitude, peak potential
+      or frequency.
+- add_term:
+    field: measure
+    id: measure:action_potential_repolarisation_time
+    label: action potential repolarisation time
+    parent: measure:action_potential
+    dimension: time
+    definition: Time for the action potential to fall between two stated fractions of its amplitude (qualifier level).
+    scope: An interval within repolarisation (such as 75 % to 25 %); not the duration from the upstroke (action potential duration), the rise
+      time, a slope or a ratio of durations.
+    qualifiers:
+      level:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:pathway_score
+    label: pathway score
+    parent: measure:gene_set_expression
+    dimension: dimensionless
+    definition: One number per sample summarising the expression of a named pathway gene set (qualifier gene_set), as computed by the analysis
+      software.
+    scope: A per-sample summary score of a gene set; not the set's genes shown separately (gene set expression) and not a shift of the set's fold-change
+      distribution.
+- standing_key:
+    measure: measure:cell_cycle_phase_fraction
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.phase
+      - measure.population
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.phase
+      - measure.population
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:non_mitochondrial_ocr
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:ocr_time_course
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:non_glycolytic_acidification
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:glycolytic_rate
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:ecar_time_course
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.assay
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.assay
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:action_potential_downstroke_velocity
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:action_potential_repolarisation_time
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.level
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.level
+      may_vary:
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:pathway_score
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - measure.gene_set
+      - measure.expressed_as
+      - treatment
+      - genotype
+      - disease_model
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.gene_set
+      may_vary:
+      - cell_line
+      - day_of_measurement
+mappings:
+- field: cm_medium
+  stated: RPMI/B27
+  terms:
+  - cm_medium:rpmi_1640
+  split:
+  - words: B27
+    field: supplements
+  note: B27 is a supplement (supplements:b27); the default supplements value names only insulin, so a split request, not a contradiction
+- field: number_of_lines
+  stated: single
+  flag:
+    kind: not a context
+    note: a quantity field holding a word that is neither a number code parses nor a declared state; the reader may write the count as a number
+- field: platform
+  stated: 12-well plate
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    format: 12-well plate
+  note: a culture vessel format; the paper does not say monolayer, so the 2D parent with the vessel as format
+- field: platform
+  stated: 96 well plate
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    format: 96 well plate
+  note: a culture vessel format; the paper does not say monolayer, so the 2D parent with the vessel as format
+- field: platform
+  stated: 4-chamber microscope slides
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    format: 4-chamber microscope slides
+  note: a culture vessel format; the paper does not say monolayer, so the 2D parent with the vessel as format
+- field: platform
+  stated: Seahorse XFe96 microplate
+  terms:
+  - platform:culture_2d
+  qualifiers:
+    format: Seahorse XFe96 microplate
+  note: a culture vessel format; the paper does not say monolayer, so the 2D parent with the vessel as format
+- field: substrate
+  stated: gelatin
+  terms:
+  - substrate:gelatin_hydrogel
+  note: the MTF substrate is a micromolded gelatin gel crosslinked with MTG (Supplemental Methods); "gelatin" alone is not made a synonym because
+    it would also name gelatin coatings
+- field: preparation
+  stated: extracted RNA
+  terms:
+  - preparation:rna_extract
+- field: preparation
+  stated: extracted DNA
+  terms:
+  - preparation:dna_extract
+- field: preparation
+  stated: live cardiomyocytes
+  terms:
+  - preparation:live_cells
+- field: pacing
+  stated: MyoPacer Cell Stimulator
+  terms:
+  - pacing:electrical_pacing
+  note: a stimulator device (MTFs paced 1-4 Hz at 20 V); field or point delivery is not stated, so the broader term
+- field: dissociation_reagent
+  stated: 0.1% trypsin-EDTA
+  terms:
+  - dissociation_reagent:trypsin_edta
+  qualifiers:
+    concentration: 0.1%
+- field: measurement_medium
+  stated: Seahorse assay media
+  terms:
+  - measurement_medium:assay_medium
+  note: XF Base Medium with supplements; not stated to be the XF DMEM Basal Medium product, so the broader assay medium
+- field: measurement_medium
+  stated: RPMI1640 (no phenol red)
+  terms:
+  - measurement_medium:culture_medium
+  qualifiers:
+    medium: RPMI1640 (no phenol red)
+- field: measurement_medium
+  stated: RPMI without phenol red
+  terms:
+  - measurement_medium:culture_medium
+  qualifiers:
+    medium: RPMI without phenol red
+- field: time_point
+  stated: final day of treatment
+  flag:
+    kind: not a context
+    note: a time point in words, neither a number nor a declared state; the day (or day_of_measurement) is for the reader to state
+- field: measure
+  stated: TP53 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TP53
+- field: measure
+  stated: RB1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RB1
+- field: measure
+  stated: RBL2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RBL2
+- field: measure
+  stated: CDKN1a mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDKN1a
+- field: measure
+  stated: CDKN1b mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDKN1b
+- field: measure
+  stated: CDKN2a mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDKN2a
+- field: measure
+  stated: HES1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HES1
+- field: measure
+  stated: MKI67 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MKI67
+- field: measure
+  stated: CCNA1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNA1
+- field: measure
+  stated: CCNB1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNB1
+- field: measure
+  stated: CCNC1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNC1
+- field: measure
+  stated: CCND1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCND1
+- field: measure
+  stated: CDK3 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CDK3
+- field: measure
+  stated: E2F1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: E2F1
+- field: measure
+  stated: TNNI3 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNI3
+- field: measure
+  stated: MYH6 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH6
+- field: measure
+  stated: MYH7 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH7
+- field: measure
+  stated: TNNT2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNT2
+- field: measure
+  stated: TNNI1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TNNI1
+- field: measure
+  stated: PPARGC1a mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PPARGC1a
+- field: measure
+  stated: SLC27A6 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SLC27A6
+- field: measure
+  stated: SLC2A1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SLC2A1
+- field: measure
+  stated: CD36 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CD36
+- field: measure
+  stated: SLC27A1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SLC27A1
+- field: measure
+  stated: LPIN1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: LPIN1
+- field: measure
+  stated: SLC2A4 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SLC2A4
+- field: measure
+  stated: PFK mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PFK
+- field: measure
+  stated: PYGM mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PYGM
+- field: measure
+  stated: KCNJ2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: KCNJ2
+- field: measure
+  stated: CACNA1c mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1c
+- field: measure
+  stated: RYR2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RYR2
+- field: measure
+  stated: ATP2A2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ATP2A2
+- field: measure
+  stated: SCN5A mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN5A
+- field: measure
+  stated: HCN4 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: HCN4
+- field: measure
+  stated: GATA4 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: GATA4
+- field: measure
+  stated: TFAM mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: TFAM
+- field: measure
+  stated: DNML1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: DNML1
+- field: measure
+  stated: MFN1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MFN1
+- field: measure
+  stated: MFN2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MFN2
+- field: measure
+  stated: OPA1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: OPA1
+- field: measure
+  stated: PHB2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: PHB2
+- field: measure
+  stated: IL8 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: IL8
+- field: measure
+  stated: SPP1 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SPP1
+- field: measure
+  stated: CCNA2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNA2
+- field: measure
+  stated: CCND2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCND2
+- field: measure
+  stated: CCNE2 mRNA expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CCNE2
+- field: measure
+  stated: phospho-S6K protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: phospho-S6K
+  note: Western blot band of the phosphorylated protein against a loading control, not phospho/total
+- field: measure
+  stated: phospho-Akt protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: phospho-Akt
+  note: Western blot band of the phosphorylated protein against a loading control, not phospho/total
+- field: measure
+  stated: TNNT2 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNT2
+- field: measure
+  stated: TNNI3 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNI3
+- field: measure
+  stated: TNNI1 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNI1
+- field: measure
+  stated: p53 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: p53
+- field: measure
+  stated: phospho-p53 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: phospho-p53
+  note: Western blot band of the phosphorylated protein against a loading control, not phospho/total
+- field: measure
+  stated: p21 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: p21
+- field: measure
+  stated: GATA4 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: GATA4
+- field: measure
+  stated: NKX2.5 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: NKX2.5
+- field: measure
+  stated: MFN1 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: MFN1
+- field: measure
+  stated: OPA1 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: OPA1
+- field: measure
+  stated: DRP1 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: DRP1
+- field: measure
+  stated: TFAM protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TFAM
+- field: measure
+  stated: CD36 protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: CD36
+- field: measure
+  stated: phospho-AMPK protein
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: phospho-AMPK
+  note: Western blot band of the phosphorylated protein against a loading control, not phospho/total
+- field: measure
+  stated: TNNI3 protein band density
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNI3
+- field: measure
+  stated: p53 protein band density
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: p53
+- field: measure
+  stated: TNNI3 protein band intensity
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: TNNI3
+- field: measure
+  stated: p21 protein band intensity
+  terms:
+  - measure:protein_level
+  qualifiers:
+    protein: p21
+- field: measure
+  stated: cell count per well
+  terms:
+  - measure:cell_number
+  qualifiers:
+    normalised_to: per well (12-well plate)
+- field: measure
+  stated: percentage of TNNT2+ cardiomyocytes
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: TNNT2
+    population: live cells
+- field: measure
+  stated: percentage of Ki67+ cardiomyocytes
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: Ki67
+    population: cardiomyocytes
+- field: measure
+  stated: percentage of pH3+ cardiomyocytes
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: pH3
+    population: cardiomyocytes
+- field: measure
+  stated: percentage of cells in G0 (representative plot)
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: G0
+    population: cells
+  note: '"(representative plot)" says where the numbers are printed, not what was measured'
+- field: measure
+  stated: percentage of cells in G1 (representative plot)
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: G1
+    population: cells
+  note: '"(representative plot)" says where the numbers are printed, not what was measured'
+- field: measure
+  stated: percentage of cells in SG2M (representative plot)
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: SG2M
+    population: cells
+  note: '"(representative plot)" says where the numbers are printed, not what was measured'
+- field: measure
+  stated: percentage of TNNT2+ cells in G0
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: G0
+    population: TNNT2+ cells
+- field: measure
+  stated: percentage of TNNT2+ cells in G1
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: G1
+    population: TNNT2+ cells
+- field: measure
+  stated: percentage of TNNT2+ cells in sub-G1
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: sub-G1
+    population: TNNT2+ cells
+- field: measure
+  stated: percentage of TNNT2+ cells in S/G2/M
+  terms:
+  - measure:cell_cycle_phase_fraction
+  qualifiers:
+    phase: S/G2/M
+    population: TNNT2+ cells
+- field: measure
+  stated: TNNT2 mean fluorescence intensity
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: TNNT2
+  note: flow cytometry geometric MFI per cell
+- field: measure
+  stated: Kir2.1 mean fluorescence intensity
+  terms:
+  - measure:protein_fluorescence_intensity
+  qualifiers:
+    protein: Kir2.1
+  note: flow cytometry geometric MFI, extracellular antibody
+- field: measure
+  stated: relative maximum systolic force
+  terms:
+  - measure:twitch_force
+  qualifiers:
+    expressed_as: fold
+    normalised_to: control
+  note: normalised to control for each batch (Fig. 2F legend)
+- field: measure
+  stated: force of contraction (representative trace)
+  terms:
+  - measure:force_trace
+- field: measure
+  stated: oxygen consumption rate profile
+  terms:
+  - measure:ocr_time_course
+- field: measure
+  stated: MitoTracker Green mean fluorescence intensity
+  terms:
+  - measure:mitochondrial_mass
+- field: measure
+  stated: mitochondrial to nuclear DNA ratio
+  terms:
+  - measure:mitochondrial_dna_content
+  qualifiers:
+    gene: ND1
+  note: nuclear reference gene given as B2M (legend) and LPL (Methods); the reader labelled this
+- field: measure
+  stated: JC-1 red:green fluorescence ratio
+  terms:
+  - measure:mitochondrial_membrane_potential
+- field: measure
+  stated: voltage peak rise time
+  terms:
+  - measure:action_potential_rise_time
+  note: FluoVolt optical voltage signal; no level stated
+- field: measure
+  stated: voltage downstroke velocity
+  terms:
+  - measure:action_potential_downstroke_velocity
+  note: printed in msec; the reader labelled this as a suspected error
+- field: measure
+  stated: voltage CTD25
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: CTD25
+- field: measure
+  stated: voltage CTD75
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: CTD75
+- field: measure
+  stated: voltage T75-25 time
+  terms:
+  - measure:action_potential_repolarisation_time
+  qualifiers:
+    level: T75-25
+- field: measure
+  stated: calcium peak rise time
+  terms:
+  - measure:calcium_transient_rise_time
+- field: measure
+  stated: calcium FWHM time
+  terms:
+  - measure:calcium_transient_fwhm
+- field: measure
+  stated: calcium peak decay time
+  terms:
+  - measure:calcium_transient_decay_time
+- field: measure
+  stated: unsupervised hierarchical clustering of pathway genes
+  terms:
+  - measure:expression_clusters
+- field: measure
+  stated: clustering and principal component analysis of all genes
+  flag:
+    kind: several measures
+    note: a hierarchical clustering and a principal component analysis in one value (Fig. S8A and S8B)
+- field: measure
+  stated: cell cycle pathway score
+  terms:
+  - measure:pathway_score
+  qualifiers:
+    gene_set: Cell Cycle
+- field: measure
+  stated: metabolism of proteins pathway score
+  terms:
+  - measure:pathway_score
+  qualifiers:
+    gene_set: Metabolism of Proteins
+- field: measure
+  stated: extracellular acidification rate profile (Mito Stress Test)
+  terms:
+  - measure:ecar_time_course
+  qualifiers:
+    assay: Mito Stress Test
+- field: measure
+  stated: extracellular acidification rate profile (Glycolysis Stress Test)
+  terms:
+  - measure:ecar_time_course
+  qualifiers:
+    assay: Glycolysis Stress Test
+- field: measure
+  stated: glycolysis
+  terms:
+  - measure:glycolytic_rate
+  note: the Glycolysis Stress Test glycolysis ECAR (Supplemental Methods)

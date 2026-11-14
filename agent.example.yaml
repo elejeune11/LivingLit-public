@@ -1,0 +1,19 @@
+# The agent LivingLit runs for each job. Copy to agent.yaml (git-ignored) and spell your agent's command line.
+# Any headless LLM coding agent works if it can: take a prompt and a brief file, read and write files in this repo,
+# run `livinglit gate` as a shell tool, refuse the paths it is denied, and print one JSON object as its last line:
+#   {"result": "<short report>", "session_id": "<to resume>", "total_cost_usd": 0.0, "num_turns": 0}
+# Only "result" is required; with "session_id" the runner resumes the agent with the gate's output when a gate fails.
+# Placeholders: {prompt} the job prompt, {brief} the path of its brief (readers/instructions/*.md), {session} the
+# session to resume, {path} a folder the job must not read, {model} the first look's model.
+command: my-agent                      # the agent's executable
+job:
+  args: [run, --prompt, "{prompt}", --json, --allow-edits, --allow-shell, "livinglit,uv,pdftotext,python"]
+  new: [--system-prompt-file, "{brief}"]  # first attempt: the job's brief as system prompt
+  resume: [--resume, "{session}"]         # later attempts: the same session, with the gate's problems as prompt
+  deny: [--no-web, --no-subagents]        # tools a job never uses
+  deny_read: "--deny-read={path}"         # one per folder a job never reads: archive, the curated table, other records
+look:                                   # the first look: a small model, read-only, a few turns (07-building)
+  args: [run, --prompt, "{prompt}", --model, "{model}", --json, --read-only, --max-turns, "6"]
+  model: small-model
+clear_env: []                           # variables of a parent agent session to remove before starting a job
+usage_limit: "usage limit"              # output that means "stop and resume later", not a failed attempt

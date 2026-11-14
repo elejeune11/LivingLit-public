@@ -1,0 +1,2715 @@
+# Formula agent (formulas_v3) for 2021_Tsan. Derivations as the paper states them; verdicts come from code.
+record: 2021_Tsan
+formula_library_version: 8
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F2e_fs.fs_mb:
+    item: F2e_fs
+    group: mb
+    formula: fs = dL/L
+    anchor: &id001
+      quote: Note that a different scale was used for Δlength/length (fractional shortening)
+      where: Fig. 2 legend, panel d
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement at peak contraction per 2DMB (ContractQuant); not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI length at rest (inner 50% of the 2DMB) per 2DMB; not released
+    output: F2e_fs.values.fs_mb
+    output_unit: '%'
+    aggregation: mean of per-sample
+    note: maximal fractional shortening per 2DMB, averaged; only the per-2DMB results are released
+  F2e_fs.fs_mono:
+    item: F2e_fs
+    group: mono
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement at peak contraction per 2DMB (ContractQuant); not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI length at rest (inner 50% of the 2DMB) per 2DMB; not released
+    output: F2e_fs.values.fs_mono
+    output_unit: '%'
+    aggregation: mean of per-sample
+    note: maximal fractional shortening per 2DMB, averaged; only the per-2DMB results are released
+  F6e_fs.fs_oxt3:
+    item: F6e_fs
+    group: oxt3
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement at peak contraction per 2DMB (ContractQuant); not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI length at rest (inner 50% of the 2DMB) per 2DMB; not released
+    output: F6e_fs.values.oxt3
+    output_unit: '%'
+    aggregation: mean of per-sample
+    note: maximal fractional shortening per 2DMB, averaged; only the per-2DMB results are released
+  F6e_fs.fs_reg:
+    item: F6e_fs
+    group: reg
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement at peak contraction per 2DMB (ContractQuant); not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI length at rest (inner 50% of the 2DMB) per 2DMB; not released
+    output: F6e_fs.values.reg
+    output_unit: '%'
+    aggregation: mean of per-sample
+    note: maximal fractional shortening per 2DMB, averaged; only the per-2DMB results are released
+  F8b_fs.fs_ko:
+    item: F8b_fs
+    group: ko
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement at peak contraction per 2DMB (ContractQuant); not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI length at rest (inner 50% of the 2DMB) per 2DMB; not released
+    output: F8b_fs.values.ko
+    output_unit: '%'
+    aggregation: mean of per-sample
+    note: maximal fractional shortening per 2DMB, averaged; only the per-2DMB results are released
+  F8b_fs.fs_ctrl:
+    item: F8b_fs
+    group: ctrl
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement at peak contraction per 2DMB (ContractQuant); not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI length at rest (inner 50% of the 2DMB) per 2DMB; not released
+    output: F8b_fs.values.ctrl
+    output_unit: '%'
+    aggregation: mean of per-sample
+    note: maximal fractional shortening per 2DMB, averaged; only the per-2DMB results are released
+  S5_fs.fs:
+    item: S5_fs
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4ab_ml_100v0.fs:
+    item: F4ab_ml_100v0
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4ab_ml_300v100.fs:
+    item: F4ab_ml_300v100
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4ab_ml_500v300.fs:
+    item: F4ab_ml_500v300
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4ab_mb_100v0.fs:
+    item: F4ab_mb_100v0
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4ab_mb_300v100.fs:
+    item: F4ab_mb_300v100
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4ab_mb_500v300.fs:
+    item: F4ab_mb_500v300
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4cd_ml_25v0.fs:
+    item: F4cd_ml_25v0
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4cd_ml_50v25.fs:
+    item: F4cd_ml_50v25
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4cd_ml_100v50.fs:
+    item: F4cd_ml_100v50
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4cd_mb_25v0.fs:
+    item: F4cd_mb_25v0
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4cd_mb_50v25.fs:
+    item: F4cd_mb_50v25
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4cd_mb_100v50.fs:
+    item: F4cd_mb_100v50
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4f_mb_100v0.fs:
+    item: F4f_mb_100v0
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4f_mb_300v100.fs:
+    item: F4f_mb_300v100
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4f_mb_500v300.fs:
+    item: F4f_mb_500v300
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4e_05v025.fs:
+    item: F4e_05v025
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4e_1v05.fs:
+    item: F4e_1v05
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F4e_2v1.fs:
+    item: F4e_2v1
+    formula: fs = dL/L
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: fs
+        a: dL
+        b: L
+    inputs:
+      dL:
+        not_stated: true
+        kind: per sample
+        note: ROI displacement per 2DMB or region; not released
+      L:
+        not_stated: true
+        kind: per sample
+        note: ROI resting length; not released
+    note: no printed value; the per-sample results are released as data
+  F2e_cv.cv_mb:
+    item: F2e_cv
+    group: mb
+    formula: cv = s/m
+    anchor: &id002
+      quote: coefficient of variation 0.21 vs. 1.58
+      where: Results, p. 5
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: s
+        m: m
+    inputs:
+      s:
+        value: F2e_fs.values.fs_mb
+        part: spread
+        kind: constant
+      m:
+        value: F2e_fs.values.fs_mb
+        part: mean
+        kind: constant
+    output: F2e_cv.values.cv_mb
+    note: the ± of the Fig. 2e text values is not named; read here as the SD the CV is built from
+  F2e_cv.cv_mono:
+    item: F2e_cv
+    group: mono
+    formula: cv = s/m
+    anchor: *id002
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: s
+        m: m
+    inputs:
+      s:
+        value: F2e_fs.values.fs_mono
+        part: spread
+        kind: constant
+      m:
+        value: F2e_fs.values.fs_mono
+        part: mean
+        kind: constant
+    output: F2e_cv.values.cv_mono
+    note: the ± of the Fig. 2e text values is not named; read here as the SD the CV is built from
+  F2g_cv.cv_mb:
+    item: F2g_cv
+    group: mb
+    formula: cv = s/m
+    anchor: &id003
+      quote: with a reduced coefficient of variation across replicates (0.13 vs. 0.22
+      where: Results, p. 5
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: s
+        m: m
+    inputs:
+      s:
+        value: F2g_density.values.d_mb
+        part: spread
+        kind: constant
+      m:
+        value: F2g_density.values.d_mb
+        part: mean
+        kind: constant
+    output: F2g_cv.values.cv_mb
+  F2g_cv.cv_single:
+    item: F2g_cv
+    group: single
+    formula: cv = s/m
+    anchor: *id003
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: s
+        m: m
+    inputs:
+      s:
+        value: F2g_density.values.d_single
+        part: spread
+        kind: constant
+      m:
+        value: F2g_density.values.d_single
+        part: mean
+        kind: constant
+    output: F2g_cv.values.cv_single
+  F2e_cv.cv_reduction:
+    item: F2e_cv
+    formula: red = (cv0 - cv1)/cv0
+    anchor:
+      quote: variability across 2DMBs was reduced by 87% compared to standard hPSC-CMs
+      where: Results, p. 5
+    library:
+      formula: relative_decrease
+      vars:
+        s: red
+        x0: cv0
+        x: cv1
+    inputs:
+      cv0:
+        value: F2e_cv.values.cv_mono
+        kind: constant
+      cv1:
+        value: F2e_cv.values.cv_mb
+        kind: constant
+    output: F2e_cv.values.cv_reduction
+    output_unit: '%'
+    alternatives:
+    - label: reduction of SD rather than CV
+      note: '"variability" is not defined; the CVs are printed beside it'
+  F3h_sd.less:
+    item: F3h_sd
+    formula: less = (s0 - s1)/s0
+    anchor:
+      quote: variability across replicates was 73% less in 2DMBs
+      where: Results, p. 5
+    library:
+      formula: relative_decrease
+      vars:
+        s: less
+        x0: s0
+        x: s1
+    inputs:
+      s0:
+        value: F3h_sd.values.sd_mono
+        kind: constant
+      s1:
+        value: F3h_sd.values.sd_mb
+        kind: constant
+    output: F3h_sd.values.less
+    output_unit: '%'
+    note: the released Fig. 3h monolayer amplitudes give SD 1.39 (n = 55), not the printed 1.06
+  TXT1_yield.fold:
+    item: TXT1_yield
+    formula: fold = y1/y0
+    anchor:
+      quote: 110-fold increase in yield vs. single cells
+      where: Results, p. 5
+    library:
+      formula: ratio_def
+      vars:
+        r: fold
+        a: y1
+        b: y0
+    inputs:
+      y1:
+        value: TXT1_yield.values.yield_mb
+        kind: constant
+      y0:
+        value: TXT1_yield.values.yield_single
+        kind: constant
+    output: TXT1_yield.values.fold
+    aggregation: of means
+    note: ratio of the two printed mean yields; the single-cell yield is from prior work (different substrates)
+  TXT1_yield.yield_single:
+    item: TXT1_yield
+    group: single
+    formula: y = c/N
+    anchor:
+      quote: substrate containing 2742 single-cell-scale rectangular micropatterns (0.5 ± 0.3% of micropatterns
+      where: Results, p. 5
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: c
+        b: N
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+        note: single cells meeting quality thresholds per substrate (printed only as the range 5–36)
+      N:
+        printed: '2742'
+        unit: count
+        kind: constant
+        anchor:
+          quote: substrate containing 2742 single-cell-scale rectangular micropatterns
+          where: Results, p. 5
+    output: TXT1_yield.values.yield_single
+    output_unit: '%'
+    aggregation: not stated
+    note: 'a share of micropatterns: the words "of micropatterns" are the stated operation'
+  TXT1_yield.yield_mb:
+    item: TXT1_yield
+    group: mb
+    formula: y = c/N
+    anchor:
+      quote: 55 ± 13% of micropatterns on 2DMB substrates exhibited adherence of 6–12 cells
+      where: Results, p. 5
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: c
+        b: N
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+        note: micropatterns with a 2DMB per substrate; not printed or released
+      N:
+        printed: '4772'
+        unit: count
+        kind: constant
+        anchor:
+          quote: The design consisted of a rectangular array of 4772 rectangles
+          where: Methods, Micropatterned substrate fabrication
+    output: TXT1_yield.values.yield_mb
+    output_unit: '%'
+    aggregation: not stated
+    note: that every substrate carries the full 4772-pattern array is not stated
+  F2g_density.d_mb:
+    item: F2g_density
+    group: mb
+    formula: d = Am/Ac
+    anchor:
+      quote: extracted myofibrillar area normalized to cell or 2DMB area using the MyoQuant algorithm
+      where: Fig. 2 legend, panel g
+    library:
+      formula: ratio_def
+      vars:
+        r: d
+        a: Am
+        b: Ac
+    inputs:
+      Am:
+        not_stated: true
+        kind: per sample
+        note: extracted myofibrillar area per 2DMB or cell (MyoQuant); not released
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell or 2DMB area; not released
+    output: F2g_density.values.d_mb
+    aggregation: mean of per-sample
+  F2g_density.d_single:
+    item: F2g_density
+    group: single
+    formula: d = Am/Ac
+    anchor:
+      quote: extracted myofibrillar area normalized to cell or 2DMB area using the MyoQuant algorithm
+      where: Fig. 2 legend, panel g
+    library:
+      formula: ratio_def
+      vars:
+        r: d
+        a: Am
+        b: Ac
+    inputs:
+      Am:
+        not_stated: true
+        kind: per sample
+        note: extracted myofibrillar area per 2DMB or cell (MyoQuant); not released
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: cell or 2DMB area; not released
+    output: F2g_density.values.d_single
+    aggregation: mean of per-sample
+  TXT2_force.f_mb:
+    item: TXT2_force
+    group: mb
+    formula: f = F/w
+    anchor:
+      quote: Mean uniaxial traction force normalized to cell/2DMB width
+      where: Results, p. 5
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: w
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: total traction force per 2DMB from the modelled look-up table (Supplemental Fig. 3); not printed per 2DMB
+      w:
+        printed: '45'
+        unit: µm
+        kind: constant
+        anchor:
+          quote: a dimension of 308 × 45 µm
+          where: Methods, Micropatterned substrate fabrication
+    output: TXT2_force.values.f_mb
+    aggregation: not stated
+    alternatives:
+    - label: width 44 µm (Supplemental Notes model geometry)
+      formula: f = F/w
+      note: '"308 μm length, 44 μm width, and 10 μm thickness" (Supplemental Notes)'
+    note: that the pattern width (not a measured width) is used is not stated; F comes from a finite-element model with no library entry
+  TXT2_force.f_single:
+    item: TXT2_force
+    group: single
+    formula: f = F/w
+    anchor:
+      quote: Mean uniaxial traction force normalized to cell/2DMB width
+      where: Results, p. 5
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: w
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: traction force per cell by traction force microscopy (method not described in this paper)
+      w:
+        not_stated: true
+        kind: not stated
+        note: single-cell micropattern width; not stated
+    output: TXT2_force.values.f_single
+    aggregation: not stated
+  F6a_ctni.ctni_120:
+    item: F6a_ctni
+    group: t120
+    formula: p = c/(c + s)
+    anchor:
+      quote: The relative proportion at each time point was calculated as cTni/(cTnI+ssTnI)
+      where: Methods, Mass spectrometry
+    library:
+      formula: part_of_whole
+      vars:
+        f: p
+        a: c
+        b: s
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+        note: cTnI abundance (three most abundant unique peptides) per sample; not released
+      s:
+        not_stated: true
+        kind: per sample
+        note: ssTnI abundance per sample; not released
+    output: F6a_ctni.values.ctni_120
+    output_unit: '%'
+    aggregation: not stated
+  F6b_oxt3_v_std.prop:
+    item: F6b_oxt3_v_std
+    formula: p = a/(a + b)
+    anchor:
+      quote: Relative TNNI3 mRNA expression (as a proportion to total of TNNI3 + TNNI1 mRNA)
+      where: Fig. 6 legend, panel b
+    library:
+      formula: part_of_whole
+      vars:
+        f: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TNNI3 mRNA (TaqMan) per sample; quantity not released
+      b:
+        not_stated: true
+        kind: per sample
+        note: TNNI1 mRNA per sample; not released
+    note: no printed value; per-sample proportions are released as data
+  F6b_oxt3_v_t3.prop:
+    item: F6b_oxt3_v_t3
+    formula: p = a/(a + b)
+    anchor:
+      quote: Relative TNNI3 mRNA expression (as a proportion to total of TNNI3 + TNNI1 mRNA)
+      where: Fig. 6 legend, panel b
+    library:
+      formula: part_of_whole
+      vars:
+        f: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TNNI3 mRNA (TaqMan) per sample; quantity not released
+      b:
+        not_stated: true
+        kind: per sample
+        note: TNNI1 mRNA per sample; not released
+    note: no printed value; per-sample proportions are released as data
+  F6b_oxt3_v_ox.prop:
+    item: F6b_oxt3_v_ox
+    formula: p = a/(a + b)
+    anchor:
+      quote: Relative TNNI3 mRNA expression (as a proportion to total of TNNI3 + TNNI1 mRNA)
+      where: Fig. 6 legend, panel b
+    library:
+      formula: part_of_whole
+      vars:
+        f: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: TNNI3 mRNA (TaqMan) per sample; quantity not released
+      b:
+        not_stated: true
+        kind: per sample
+        note: TNNI1 mRNA per sample; not released
+    note: no printed value; per-sample proportions are released as data
+  F5b_tissue_connectivity.prop:
+    item: F5b_tissue_connectivity
+    formula: p = k/K
+    anchor:
+      quote: Data are shown as proportion of DEGs (P-adjusted < 0.001) out of all genes in each category
+      where: Fig. 5 legend, panel b
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: K
+    inputs:
+      k:
+        not_stated: true
+        kind: not stated
+        note: differentially expressed genes in the category; not released
+      K:
+        not_stated: true
+        kind: not stated
+        note: genes in the category; not released
+    note: no printed value; the proportions per GO term are released (Supplementary Data 2)
+  F5b_cardiac_development.prop:
+    item: F5b_cardiac_development
+    formula: p = k/K
+    anchor:
+      quote: Data are shown as proportion of DEGs (P-adjusted < 0.001) out of all genes in each category
+      where: Fig. 5 legend, panel b
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: K
+    inputs:
+      k:
+        not_stated: true
+        kind: not stated
+        note: differentially expressed genes in the category; not released
+      K:
+        not_stated: true
+        kind: not stated
+        note: genes in the category; not released
+    note: no printed value; the proportions per GO term are released (Supplementary Data 2)
+  F5b_electrophysiology.prop:
+    item: F5b_electrophysiology
+    formula: p = k/K
+    anchor:
+      quote: Data are shown as proportion of DEGs (P-adjusted < 0.001) out of all genes in each category
+      where: Fig. 5 legend, panel b
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: K
+    inputs:
+      k:
+        not_stated: true
+        kind: not stated
+        note: differentially expressed genes in the category; not released
+      K:
+        not_stated: true
+        kind: not stated
+        note: genes in the category; not released
+    note: no printed value; the proportions per GO term are released (Supplementary Data 2)
+  F5b_mitochondrial_respiration.prop:
+    item: F5b_mitochondrial_respiration
+    formula: p = k/K
+    anchor:
+      quote: Data are shown as proportion of DEGs (P-adjusted < 0.001) out of all genes in each category
+      where: Fig. 5 legend, panel b
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: K
+    inputs:
+      k:
+        not_stated: true
+        kind: not stated
+        note: differentially expressed genes in the category; not released
+      K:
+        not_stated: true
+        kind: not stated
+        note: genes in the category; not released
+    note: no printed value; the proportions per GO term are released (Supplementary Data 2)
+  F5b_cell_proliferation.prop:
+    item: F5b_cell_proliferation
+    formula: p = k/K
+    anchor:
+      quote: Data are shown as proportion of DEGs (P-adjusted < 0.001) out of all genes in each category
+      where: Fig. 5 legend, panel b
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: k
+        b: K
+    inputs:
+      k:
+        not_stated: true
+        kind: not stated
+        note: differentially expressed genes in the category; not released
+      K:
+        not_stated: true
+        kind: not stated
+        note: genes in the category; not released
+    note: no printed value; the proportions per GO term are released (Supplementary Data 2)
+  F6g_iso_freq.fold_oxt3:
+    item: F6g_iso_freq
+    group: oxt3
+    formula: r = fi/f0
+    anchor:
+      quote: Isoproterenol frequency response (10 nM) was quantified as fold change from baseline for each 2DMB
+      where: Fig. 6 legend, panel g
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: fi
+        b: f0
+    inputs:
+      fi:
+        not_stated: true
+        kind: per sample
+        note: contraction frequency with isoproterenol per 2DMB; not released
+      f0:
+        not_stated: true
+        kind: per sample
+        note: baseline frequency of the same 2DMB; not released
+    output: F6g_iso_freq.values.oxt3
+    aggregation: mean of per-sample
+  F6g_iso_freq.fold_reg:
+    item: F6g_iso_freq
+    group: reg
+    formula: r = fi/f0
+    anchor:
+      quote: Isoproterenol frequency response (10 nM) was quantified as fold change from baseline for each 2DMB
+      where: Fig. 6 legend, panel g
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: fi
+        b: f0
+    inputs:
+      fi:
+        not_stated: true
+        kind: per sample
+        note: contraction frequency with isoproterenol per 2DMB; not released
+      f0:
+        not_stated: true
+        kind: per sample
+        note: baseline frequency of the same 2DMB; not released
+    output: F6g_iso_freq.values.reg
+    aggregation: mean of per-sample
+  F6h_iso_vel.fold_oxt3:
+    item: F6h_iso_vel
+    group: oxt3
+    formula: r = vi/v0
+    anchor:
+      quote: Response of contraction velocity to isoproterenol 10 nM was quantified as fold change from baseline for each 2DMB
+      where: Fig. 6 legend, panel h
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: vi
+        b: v0
+    inputs:
+      vi:
+        not_stated: true
+        kind: per sample
+        note: contraction velocity with isoproterenol per 2DMB; not released
+      v0:
+        not_stated: true
+        kind: per sample
+        note: baseline velocity of the same 2DMB; not released
+    aggregation: mean of per-sample
+    note: the per-2DMB fold changes are released as data (F6h_iso_vel/oxt3); the printed value is the % increase below
+  F6h_iso_vel.increase_oxt3:
+    item: F6h_iso_vel
+    group: oxt3
+    formula: d = r - 1
+    anchor:
+      quote: a positive response of contractile velocity to isoproterenol in 2DMBs in OxPhosT3 only (20 ± 0.2% increase
+      where: Results, p. 8
+    library:
+      formula: relative_change_from_ratio
+      vars:
+        d: d
+        r: r
+    inputs:
+      r:
+        data: F6h_iso_vel/oxt3
+        kind: per sample
+    output: F6h_iso_vel.values.oxt3_increase
+    output_unit: '%'
+    aggregation: mean of per-sample
+  S9_psi.adult_mono:
+    item: S9_psi
+    group: mono
+    formula: a = 1 - p
+    anchor:
+      quote: 33% of TNNT2 transcripts contained exon 5 (PSI 32.6 ± 0.1%) indicating that 67% of transcripts are the adult variant
+      where: Supplemental Fig. 9 legend
+      file: 41467_2021_26496_MOESM1_ESM.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: a
+        f: p
+    inputs:
+      p:
+        value: S9_psi.values.psi_mono
+        kind: constant
+    output: S9_psi.values.adult_mono
+    output_unit: '%'
+  S9_psi.adult_mb:
+    item: S9_psi
+    group: mb
+    formula: a = 1 - p
+    anchor:
+      quote: greater exclusion of exon 5 was present (PSI 17.4 ± 1.0%, p<0.0001) indicating that 83% of transcripts are the adult variant
+      where: Supplemental Fig. 9 legend
+      file: 41467_2021_26496_MOESM1_ESM.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: a
+        f: p
+    inputs:
+      p:
+        value: S9_psi.values.psi_mb
+        kind: constant
+    output: S9_psi.values.adult_mb
+    output_unit: '%'
+  S9_adult_mb.mono:
+    item: S9_adult_mb
+    group: mono
+    formula: a = 1 - p
+    anchor:
+      quote: 33% of TNNT2 transcripts contained exon 5 (PSI 32.6 ± 0.1%) indicating that 67% of transcripts are the adult variant
+      where: Supplemental Fig. 9 legend
+      file: 41467_2021_26496_MOESM1_ESM.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: a
+        f: p
+    inputs:
+      p:
+        value: S9_psi.values.psi_mono
+        kind: constant
+    output: S9_adult_mb.values.mono
+    output_unit: '%'
+  S9_adult_mb.mb:
+    item: S9_adult_mb
+    group: mb
+    formula: a = 1 - p
+    anchor:
+      quote: greater exclusion of exon 5 was present (PSI 17.4 ± 1.0%, p<0.0001) indicating that 83% of transcripts are the adult variant
+      where: Supplemental Fig. 9 legend
+      file: 41467_2021_26496_MOESM1_ESM.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: a
+        f: p
+    inputs:
+      p:
+        value: S9_psi.values.psi_mb
+        kind: constant
+    output: S9_adult_mb.values.mb
+    output_unit: '%'
+  S9_adult_ox.mb:
+    item: S9_adult_ox
+    group: mb
+    formula: a = 1 - p
+    anchor:
+      quote: greater exclusion of exon 5 was present (PSI 17.4 ± 1.0%, p<0.0001) indicating that 83% of transcripts are the adult variant
+      where: Supplemental Fig. 9 legend
+      file: 41467_2021_26496_MOESM1_ESM.pdf
+    library:
+      formula: complement_fraction
+      vars:
+        c: a
+        f: p
+    inputs:
+      p:
+        value: S9_psi.values.psi_mb
+        kind: constant
+    output: S9_adult_ox.values.mb
+    output_unit: '%'
+  F8c_vel.pct:
+    item: F8c_vel
+    formula: pct = (x - x0)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_change
+      vars:
+        d: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8c_vel/ko
+        kind: per sample
+      x0:
+        data: F8c_vel/ctrl
+        kind: per sample
+    output: F8c_vel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow
+  F8d_vel.pct:
+    item: F8d_vel
+    formula: pct = (x - x0)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_change
+      vars:
+        d: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8d_vel/ko
+        kind: per sample
+      x0:
+        data: F8d_vel/ctrl
+        kind: per sample
+    output: F8d_vel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow
+  F8e_vel.pct:
+    item: F8e_vel
+    formula: pct = (x - x0)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_change
+      vars:
+        d: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8e_vel/ko
+        kind: per sample
+      x0:
+        data: F8e_vel/ctrl
+        kind: per sample
+    output: F8e_vel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow
+  F8g_vel.pct:
+    item: F8g_vel
+    formula: pct = (x0 - x)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_decrease
+      vars:
+        s: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8g_vel/ko
+        kind: per sample
+      x0:
+        data: F8g_vel/ctrl
+        kind: per sample
+    output: F8g_vel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow; relaxation velocities are negative,
+      so a lower magnitude is (x0 - x)/x0 > 0
+  F8h_vel.pct:
+    item: F8h_vel
+    formula: pct = (x0 - x)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_decrease
+      vars:
+        s: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8h_vel/ko
+        kind: per sample
+      x0:
+        data: F8h_vel/ctrl
+        kind: per sample
+    output: F8h_vel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow; relaxation velocities are negative,
+      so a lower magnitude is (x0 - x)/x0 > 0
+  F8i_vel.pct:
+    item: F8i_vel
+    formula: pct = (x0 - x)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_decrease
+      vars:
+        s: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8i_vel/ko
+        kind: per sample
+      x0:
+        data: F8i_vel/ctrl
+        kind: per sample
+    output: F8i_vel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow; relaxation velocities are negative,
+      so a lower magnitude is (x0 - x)/x0 > 0
+  F8f_decel.pct:
+    item: F8f_decel
+    formula: pct = (x0 - x)/x0
+    anchor:
+      quote: Summary of relative differences in contraction and relaxation velocities in MYBPC3pr−/− 2DMBs
+      where: Fig. 8 legend, panel j
+    library:
+      formula: relative_decrease
+      vars:
+        s: pct
+        x: x
+        x0: x0
+    inputs:
+      x:
+        data: F8f_decel/ko
+        kind: per sample
+      x0:
+        data: F8f_decel/ctrl
+        kind: per sample
+    output: F8f_decel.values.pct
+    output_unit: '%'
+    note: relative difference of group means (unpaired groups); the direction is the figure arrow; "relative differences" names velocities
+      only, the deceleration time shares the panel
+  F5e_HOPX_deseq.fold:
+    item: F5e_HOPX_deseq
+    formula: fold = 2**(l1 - l0)
+    anchor:
+      quote: we observed a 12-fold increase in HOPX in 2DMBs
+      where: Results, p. 8
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fold
+        la: l1
+        lb: l0
+    inputs:
+      l1:
+        data: F5e_HOPX_mb/mb
+        kind: per sample
+        note: 2DMB replicate log2 fold changes (Fig. 5e source data)
+      l0:
+        data: F5e_HOPX_mb/mono
+        kind: per sample
+        note: monolayer replicate log2 fold changes
+    output: F5e_HOPX_deseq.values.fold
+    alternatives:
+    - label: DESeq2 GLM estimate (by reference, c44)
+      note: the printed fold is DESeq2's estimate from counts; 2 to the difference of mean log2 values is a ratio of geometric means
+  F5e_AXIN2_deseq.fold:
+    item: F5e_AXIN2_deseq
+    formula: fold = 2**(l0 - l1)
+    anchor:
+      quote: AXIN2 (sixfold down
+      where: Results, p. 8
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fold
+        la: l0
+        lb: l1
+    inputs:
+      l1:
+        data: F5e_AXIN2_mb/mb
+        kind: per sample
+        note: 2DMB replicate log2 fold changes (Fig. 5e source data)
+      l0:
+        data: F5e_AXIN2_mb/mono
+        kind: per sample
+        note: monolayer replicate log2 fold changes
+    output: F5e_AXIN2_deseq.values.fold
+    alternatives:
+    - label: DESeq2 GLM estimate (by reference, c44)
+      note: the printed fold is DESeq2's estimate from counts; 2 to the difference of mean log2 values is a ratio of geometric means
+    note: '"fold down" is monolayer over 2DMB'
+  F5e_WNT2_deseq.fold:
+    item: F5e_WNT2_deseq
+    formula: fold = 2**(l0 - l1)
+    anchor:
+      quote: WNT2 (118-fold down
+      where: Results, p. 8
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fold
+        la: l0
+        lb: l1
+    inputs:
+      l1:
+        data: F5e_WNT2_mb/mb
+        kind: per sample
+        note: 2DMB replicate log2 fold changes (Fig. 5e source data)
+      l0:
+        data: F5e_WNT2_mb/mono
+        kind: per sample
+        note: monolayer replicate log2 fold changes
+    output: F5e_WNT2_deseq.values.fold
+    alternatives:
+    - label: DESeq2 GLM estimate (by reference, c44)
+      note: the printed fold is DESeq2's estimate from counts; 2 to the difference of mean log2 values is a ratio of geometric means
+    note: '"fold down" is monolayer over 2DMB'
+  F5e_TBX2_deseq.fold:
+    item: F5e_TBX2_deseq
+    formula: fold = 2**(l0 - l1)
+    anchor:
+      quote: TBX2 was downregulated in 2DMBs (4.3-fold down
+      where: Results, p. 8
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: fold
+        la: l0
+        lb: l1
+    inputs:
+      l1:
+        data: F5e_TBX2_mb/mb
+        kind: per sample
+        note: 2DMB replicate log2 fold changes (Fig. 5e source data)
+      l0:
+        data: F5e_TBX2_mb/mono
+        kind: per sample
+        note: monolayer replicate log2 fold changes
+    output: F5e_TBX2_deseq.values.fold
+    alternatives:
+    - label: DESeq2 GLM estimate (by reference, c44)
+      note: the printed fold is DESeq2's estimate from counts; 2 to the difference of mean log2 values is a ratio of geometric means
+    note: '"fold down" is monolayer over 2DMB'
+  F3a_SCN5A.expr:
+    item: F3a_SCN5A
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: &id004
+          citation: c44
+          anchor:
+            quote: Reads per gene were normalized to the library size for each sample using DESeq2
+            where: Methods, Transcript quantification
+        kind: not stated
+    note: no printed value
+  F3a_KCNJ2.expr:
+    item: F3a_KCNJ2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F3a_HCN4.expr:
+    item: F3a_HCN4
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F3a_CASQ2.expr:
+    item: F3a_CASQ2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F3a_ATP2A2.expr:
+    item: F3a_ATP2A2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F3a_RYR2.expr:
+    item: F3a_RYR2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F3a_GJA1.expr:
+    item: F3a_GJA1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_TNNT2.expr:
+    item: F5a_TNNT2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_MYH7.expr:
+    item: F5a_MYH7
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_MYL2.expr:
+    item: F5a_MYL2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_TNNI3.expr:
+    item: F5a_TNNI3
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_MYH6.expr:
+    item: F5a_MYH6
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_MYL7.expr:
+    item: F5a_MYL7
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_TNNI1.expr:
+    item: F5a_TNNI1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_ACTA2.expr:
+    item: F5a_ACTA2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_NPPA.expr:
+    item: F5a_NPPA
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_NPPB.expr:
+    item: F5a_NPPB
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_HOPX.expr:
+    item: F5a_HOPX
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_GJA1.expr:
+    item: F5a_GJA1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_SCN5A.expr:
+    item: F5a_SCN5A
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_KCNJ2.expr:
+    item: F5a_KCNJ2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_RYR2.expr:
+    item: F5a_RYR2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_ATP2A2.expr:
+    item: F5a_ATP2A2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_CASQ2.expr:
+    item: F5a_CASQ2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_HCN4.expr:
+    item: F5a_HCN4
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_CCNB1.expr:
+    item: F5a_CCNB1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_MKI67.expr:
+    item: F5a_MKI67
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_ADRB1.expr:
+    item: F5a_ADRB1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_ADCY5.expr:
+    item: F5a_ADCY5
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5a_GNAS.expr:
+    item: F5a_GNAS
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_CDK1.expr:
+    item: F5c_CDK1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_CDK2.expr:
+    item: F5c_CDK2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_CCNA2.expr:
+    item: F5c_CCNA2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_CCNB1.expr:
+    item: F5c_CCNB1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_FOXM1.expr:
+    item: F5c_FOXM1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MAD2L1.expr:
+    item: F5c_MAD2L1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MCM2.expr:
+    item: F5c_MCM2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MCM3.expr:
+    item: F5c_MCM3
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MCM4.expr:
+    item: F5c_MCM4
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MCM5.expr:
+    item: F5c_MCM5
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MCM6.expr:
+    item: F5c_MCM6
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MCM7.expr:
+    item: F5c_MCM7
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MKI67.expr:
+    item: F5c_MKI67
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_MYBL2.expr:
+    item: F5c_MYBL2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_PCNA.expr:
+    item: F5c_PCNA
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_PLK1.expr:
+    item: F5c_PLK1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_CDKN1A.expr:
+    item: F5c_CDKN1A
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5c_CDKN2B.expr:
+    item: F5c_CDKN2B
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5d_TNNT2.expr:
+    item: F5d_TNNT2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_MYH7.expr:
+    item: F5d_MYH7
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_MYL2.expr:
+    item: F5d_MYL2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_TNNI3.expr:
+    item: F5d_TNNI3
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_MYH6.expr:
+    item: F5d_MYH6
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_MYL7.expr:
+    item: F5d_MYL7
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_TNNI1.expr:
+    item: F5d_TNNI1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_ACTA2.expr:
+    item: F5d_ACTA2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_NPPA.expr:
+    item: F5d_NPPA
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_NPPB.expr:
+    item: F5d_NPPB
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_HOPX.expr:
+    item: F5d_HOPX
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_GJA1.expr:
+    item: F5d_GJA1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_SCN5A.expr:
+    item: F5d_SCN5A
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_KCNJ2.expr:
+    item: F5d_KCNJ2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_RYR2.expr:
+    item: F5d_RYR2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_ATP2A2.expr:
+    item: F5d_ATP2A2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_CASQ2.expr:
+    item: F5d_CASQ2
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_HCN4.expr:
+    item: F5d_HCN4
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_CCNB1.expr:
+    item: F5d_CCNB1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_MKI67.expr:
+    item: F5d_MKI67
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_ADRB1.expr:
+    item: F5d_ADRB1
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_ADCY5.expr:
+    item: F5d_ADCY5
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5d_GNAS.expr:
+    item: F5d_GNAS
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value; reads were also normalized to TNNT2 (Fig. 5d legend)
+  F5e_HOPX_mb.expr:
+    item: F5e_HOPX_mb
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_HOPX_hco.expr:
+    item: F5e_HOPX_hco
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_HOPX_heart.expr:
+    item: F5e_HOPX_heart
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_WNT2_mb.expr:
+    item: F5e_WNT2_mb
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_WNT2_hco.expr:
+    item: F5e_WNT2_hco
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_WNT2_heart.expr:
+    item: F5e_WNT2_heart
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_AXIN2_mb.expr:
+    item: F5e_AXIN2_mb
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_AXIN2_hco.expr:
+    item: F5e_AXIN2_hco
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_AXIN2_heart.expr:
+    item: F5e_AXIN2_heart
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_TBX2_mb.expr:
+    item: F5e_TBX2_mb
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_TBX2_hco.expr:
+    item: F5e_TBX2_hco
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F5e_TBX2_heart.expr:
+    item: F5e_TBX2_heart
+    formula: not stated
+    anchor: not stated
+    no_formula: 'relative expression (log2 fold change or fold change) from DESeq2-normalized reads: method by citation (c44) only'
+    inputs:
+      reads:
+        by_reference: *id004
+        kind: not stated
+    note: no printed value
+  F7a_HOPX.expr:
+    item: F7a_HOPX
+    formula: not stated
+    anchor:
+      quote: qRT-PCR analysis of micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+      where: Fig. 7 legend, panel a
+    no_formula: fold change by qRT-PCR; the calculation (e.g. 2^-ΔΔCt, reference gene) is not stated
+    inputs:
+      ct:
+        not_stated: true
+        kind: not stated
+        note: Ct values; not stated or released
+    note: no printed value; the released mavacamten fold changes average 1.02–1.17, as for 2^-ΔΔCt with arithmetic averaging of ΔCt
+  F7a_MYH7.expr:
+    item: F7a_MYH7
+    formula: not stated
+    anchor:
+      quote: qRT-PCR analysis of micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+      where: Fig. 7 legend, panel a
+    no_formula: fold change by qRT-PCR; the calculation (e.g. 2^-ΔΔCt, reference gene) is not stated
+    inputs:
+      ct:
+        not_stated: true
+        kind: not stated
+        note: Ct values; not stated or released
+    note: no printed value; the released mavacamten fold changes average 1.02–1.17, as for 2^-ΔΔCt with arithmetic averaging of ΔCt
+  F7a_MYL2.expr:
+    item: F7a_MYL2
+    formula: not stated
+    anchor:
+      quote: qRT-PCR analysis of micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+      where: Fig. 7 legend, panel a
+    no_formula: fold change by qRT-PCR; the calculation (e.g. 2^-ΔΔCt, reference gene) is not stated
+    inputs:
+      ct:
+        not_stated: true
+        kind: not stated
+        note: Ct values; not stated or released
+    note: no printed value; the released mavacamten fold changes average 1.02–1.17, as for 2^-ΔΔCt with arithmetic averaging of ΔCt
+  F7a_SCN5A.expr:
+    item: F7a_SCN5A
+    formula: not stated
+    anchor:
+      quote: qRT-PCR analysis of micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+      where: Fig. 7 legend, panel a
+    no_formula: fold change by qRT-PCR; the calculation (e.g. 2^-ΔΔCt, reference gene) is not stated
+    inputs:
+      ct:
+        not_stated: true
+        kind: not stated
+        note: Ct values; not stated or released
+    note: no printed value; the released mavacamten fold changes average 1.02–1.17, as for 2^-ΔΔCt with arithmetic averaging of ΔCt
+  F7a_KCNJ2.expr:
+    item: F7a_KCNJ2
+    formula: not stated
+    anchor:
+      quote: qRT-PCR analysis of micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+      where: Fig. 7 legend, panel a
+    no_formula: fold change by qRT-PCR; the calculation (e.g. 2^-ΔΔCt, reference gene) is not stated
+    inputs:
+      ct:
+        not_stated: true
+        kind: not stated
+        note: Ct values; not stated or released
+    note: no printed value; the released mavacamten fold changes average 1.02–1.17, as for 2^-ΔΔCt with arithmetic averaging of ΔCt
+  F7a_GJA1.expr:
+    item: F7a_GJA1
+    formula: not stated
+    anchor:
+      quote: qRT-PCR analysis of micron-scale two-dimensional cardiac muscle bundles (2DMBs)
+      where: Fig. 7 legend, panel a
+    no_formula: fold change by qRT-PCR; the calculation (e.g. 2^-ΔΔCt, reference gene) is not stated
+    inputs:
+      ct:
+        not_stated: true
+        kind: not stated
+        note: Ct values; not stated or released
+    note: no printed value; the released mavacamten fold changes average 1.02–1.17, as for 2^-ΔΔCt with arithmetic averaging of ΔCt
+  F3g_rest.ratio:
+    item: F3g_rest
+    formula: R = I340/I380
+    anchor:
+      quote: The background-subtracted emitted light intensity following alternating excitation at 340 nm and 380 nm was reported as
+        fura-2 ratios
+      where: Methods, Intracellular calcium quantification
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: I340
+        b: I380
+    inputs:
+      I340:
+        not_stated: true
+        kind: per sample
+        note: background-subtracted emission at 340 nm excitation; not released
+      I380:
+        not_stated: true
+        kind: per sample
+        note: background-subtracted emission at 380 nm excitation; not released
+    note: no printed value
+  F3h_amp.amp:
+    item: F3h_amp
+    formula: not stated
+    anchor: not stated
+    no_formula: calcium-transient amplitude is not defined (peak minus resting fura-2 ratio is not stated)
+    inputs:
+      R:
+        not_stated: true
+        kind: per sample
+        note: fura-2 ratio trace per sample; not released
+  F3e_apd90.apd:
+    item: F3e_apd90
+    formula: not stated
+    anchor: not stated
+    no_formula: APD90 measured from current-clamp traces; how it was computed is not stated
+    inputs:
+      V:
+        not_stated: true
+        kind: per sample
+        note: membrane potential traces; not released
+  F1g_sigma.sd:
+    item: F1g_sigma
+    formula: not stated
+    anchor:
+      quote: These orientations were fit to a Gaussian distribution for each image to calculate the standard deviation of sarcomere
+        angles per image
+      where: Methods, Image processing
+    no_formula: 'SD from a Gaussian curve fit to the angle distribution of each image: a fit, not a closed formula'
+    inputs:
+      theta:
+        not_stated: true
+        kind: per sample
+        note: sarcomere angles per image
+    note: the released angles give sample SDs 18.3 (2DMB) and 37.6 (standard), against the printed sigma 18 and 37
+  F1h_sd_angle.sd:
+    item: F1h_sd_angle
+    formula: not stated
+    anchor:
+      quote: These orientations were fit to a Gaussian distribution for each image to calculate the standard deviation of sarcomere
+        angles per image
+      where: Methods, Image processing
+    no_formula: 'SD from a Gaussian curve fit to the angle distribution of each image: a fit, not a closed formula'
+    inputs:
+      theta:
+        not_stated: true
+        kind: per sample
+        note: sarcomere angles per image
+    note: no printed value
+  TXT3_power.n_mono:
+    item: TXT3_power
+    group: mono
+    formula: not stated
+    anchor:
+      quote: with alpha = 0.05 and beta = 0.1 is reduced from 205 for
+      where: Results
+    no_formula: power analysis named (two independent samples, alpha 0.05, beta 0.1, 20% difference) but the sample-size formula and
+      the SDs used are not stated
+    inputs:
+      sd:
+        not_stated: true
+        kind: not stated
+        note: observed SD; which panel is not stated
+    output: TXT3_power.values.n_mono
+  TXT3_power.n_mb:
+    item: TXT3_power
+    group: mb
+    formula: not stated
+    anchor:
+      quote: with alpha = 0.05 and beta = 0.1 is reduced from 205 for
+      where: Results
+    no_formula: power analysis named (two independent samples, alpha 0.05, beta 0.1, 20% difference) but the sample-size formula and
+      the SDs used are not stated
+    inputs:
+      sd:
+        not_stated: true
+        kind: not stated
+        note: observed SD; which panel is not stated
+    output: TXT3_power.values.n_mb
+  TXT4_power.n_mono:
+    item: TXT4_power
+    group: mono
+    formula: not stated
+    anchor:
+      quote: beta = 0.1 is reduced from 148 to 12 using 2DMBs
+      where: Results
+    no_formula: power analysis named (two independent samples, alpha 0.05, beta 0.1, 20% difference) but the sample-size formula and
+      the SDs used are not stated
+    inputs:
+      sd:
+        not_stated: true
+        kind: not stated
+        note: observed SD; which panel is not stated
+    output: TXT4_power.values.n_mono
+  TXT4_power.n_mb:
+    item: TXT4_power
+    group: mb
+    formula: not stated
+    anchor:
+      quote: beta = 0.1 is reduced from 148 to 12 using 2DMBs
+      where: Results
+    no_formula: power analysis named (two independent samples, alpha 0.05, beta 0.1, 20% difference) but the sample-size formula and
+      the SDs used are not stated
+    inputs:
+      sd:
+        not_stated: true
+        kind: not stated
+        note: observed SD; which panel is not stated
+    output: TXT4_power.values.n_mb
+assumptions: {}
+bounds:
+- item: F2g_density
+  value: F2g_density.values.d_mb
+  formula: fraction_bounds
+- item: F2g_density
+  value: F2g_density.values.d_single
+  formula: fraction_bounds
+- item: TXT1_yield
+  value: TXT1_yield.values.yield_mb
+  formula: fraction_bounds
+- item: TXT1_yield
+  value: TXT1_yield.values.yield_single
+  formula: fraction_bounds
+- item: TXT1_three
+  value: TXT1_three.values.three
+  formula: fraction_bounds
+- item: S4_yield
+  value: S4_yield.values.y_single
+  formula: fraction_bounds
+- item: S4_yield
+  value: S4_yield.values.y_mb_lo
+  formula: fraction_bounds
+- item: S4_yield
+  value: S4_yield.values.y_mb_hi
+  formula: fraction_bounds
+- item: F6a_ctni
+  value: F6a_ctni.values.ctni_120
+  formula: fraction_bounds
+- item: S9_adult_mb
+  value: S9_adult_mb.values.mono
+  formula: fraction_bounds
+- item: S9_adult_mb
+  value: S9_adult_mb.values.mb
+  formula: fraction_bounds
+- item: S9_adult_ox
+  value: S9_adult_ox.values.mb_oxt3
+  formula: fraction_bounds
+- item: S9_adult_ox
+  value: S9_adult_ox.values.mb
+  formula: fraction_bounds
+- item: S9_psi
+  value: S9_psi.values.psi_mono
+  formula: fraction_bounds
+- item: S9_psi
+  value: S9_psi.values.psi_mb
+  formula: fraction_bounds
+- item: S9_psi
+  value: S9_psi.values.incl_mono
+  formula: fraction_bounds
+- item: S9_psi
+  value: S9_psi.values.adult_mono
+  formula: fraction_bounds
+- item: S9_psi
+  value: S9_psi.values.adult_mb
+  formula: fraction_bounds
+- item: F2e_fs
+  value: F2e_fs.values.fs_mb
+  formula: fraction_bounds
+- item: F2e_fs
+  value: F2e_fs.values.fs_mono
+  formula: fraction_bounds
+- item: F6e_fs
+  value: F6e_fs.values.oxt3
+  formula: fraction_bounds
+- item: F6e_fs
+  value: F6e_fs.values.reg
+  formula: fraction_bounds
+- item: F8b_fs
+  value: F8b_fs.values.ko
+  formula: fraction_bounds
+- item: F8b_fs
+  value: F8b_fs.values.ctrl
+  formula: fraction_bounds
+proposals:
+- formula: part_of_whole
+  kind: derived
+  statement: The share of one part in a whole made of two parts is the part divided by the sum of the two parts.
+  equations:
+  - f = a/(a + b)
+  variables:
+    f: dimensionless
+    a: D
+    b: D
+    t: D
+  assumes:
+  - t = a + b
+  uses:
+  - formula: ratio_def
+    subs:
+      r: f
+      a: a
+      b: t
+  - formula: sum_of_parts
+    subs:
+      t: t
+      a: a
+      b: b
+  does_not_apply: a whole with more than two parts, or parts that overlap (the denominator is then not a + b)
+  tests:
+  - given:
+      a: 1.0
+      b: 3.0
+    expect:
+      f: 0.25
+      t: 4.0
+  - given:
+      a: 2.0
+      b: 2.0
+      t: 6.0
+    does_not_apply: 'a third part of 2 in the whole: 2/6, not 2/4'
+- formula: complement_fraction
+  kind: derived
+  statement: When a whole is split into two exclusive parts, the fraction in one part is one minus the fraction in the other.
+  equations:
+  - c = 1 - f
+  variables:
+    c: dimensionless
+    f: dimensionless
+    t: dimensionless
+  assumes:
+  - t = 1
+  uses:
+  - formula: sum_of_parts
+    subs:
+      t: t
+      a: f
+      b: c
+  does_not_apply: more than two categories, or categories that overlap or leave a remainder
+  tests:
+  - given:
+      f: 0.326
+      t: 1.0
+    expect:
+      c: 0.674
+  - given:
+      f: 0.3
+      t: 1.0
+    does_not_apply: 'three categories (0.3, 0.2, 0.5): the second is 0.2, not 0.7'
+- formula: relative_change_from_ratio
+  kind: derived
+  statement: The relative change of a value from a reference is the ratio of the value to the reference minus one.
+  equations:
+  - d = r - 1
+  variables:
+    d: dimensionless
+    r: dimensionless
+    x: D
+    x0: D
+  uses:
+  - formula: relative_change
+    subs:
+      d: d
+      x: x
+      x0: x0
+  - formula: ratio_def
+    subs:
+      r: r
+      a: x
+      b: x0
+  does_not_apply: a ratio of means compared with a mean of per-sample changes when the reference varies, or a change on a log scale
+  tests:
+  - given:
+      x: 6.0
+      x0: 5.0
+    expect:
+      r: 1.2
+      d: 0.2
+  - given:
+      r: 1.2
+    does_not_apply: a log2 ratio of 1.2 is a change of 2**1.2 - 1 = 1.30, not 0.2

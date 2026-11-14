@@ -1,0 +1,40 @@
+# Written by code from changes.yaml (version 27); never edited.
+formula: sum_of_four_parts
+kind: derived
+statement: A whole made of four non-overlapping parts of the same kind is the sum of the four parts.
+equations:
+- t = a + b + c + d
+variables:
+  t: D
+  a: D
+  b: D
+  c: D
+  d: D
+  u: D
+uses:
+- formula: sum_of_three_parts
+  subs:
+    t: u
+    a: a
+    b: b
+    c: c
+- formula: sum_of_parts
+  subs:
+    t: t
+    a: u
+    b: d
+does_not_apply: overlapping parts, or a part counted twice
+tests:
+- given:
+    a: 10.0
+    b: 4.0
+    c: 1.0
+    d: 4.0
+  expect:
+    t: 19.0
+- given:
+    a: 1.0
+    b: 2.0
+    c: 3.0
+    d: 4.0
+  does_not_apply: 'd counted twice: 14, not 10'

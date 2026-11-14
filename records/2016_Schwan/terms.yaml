@@ -1,0 +1,274 @@
+record: 2016_Schwan
+vocabulary_version: 62
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context fields
+- add_synonym:
+    id: mechanical_load:isometric
+    text: constant length
+    anchor: This ensures that the scaffold is held securely at a constant length throughout seeding and culture.
+- add_term:
+    field: purification
+    id: purification:preplating
+    label: pre-plating
+    parent: null
+    definition: Enrichment of cardiomyocytes by briefly plating a freshly isolated cell suspension so that the faster-adhering non-myocytes attach and the unattached cardiomyocytes are collected.
+    scope: Selection by differential adhesion to a culture plate; not selection by energy substrate (metabolic selection), a transgene (genetic selection), density, antibodies or sorting, and not an unsorted population.
+    qualifiers:
+      duration: {dimension: time}
+- add_term:
+    field: purity_method
+    id: purity_method:marker_staining_readout_not_stated
+    label: marker staining, read-out not stated
+    parent: null
+    definition: Purity judged from staining cells for a stated marker, where the source does not say whether stained cells were imaged or counted in suspension.
+    scope: Use only when the read-out is not stated; stained and imaged cells are immunostaining, cells counted in suspension are flow cytometry, and beating is visual inspection.
+    qualifiers:
+      marker: {dimension: text}
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:protease_type_not_stated
+    label: protease, type not stated
+    parent: null
+    definition: An enzyme named only as a protease, without its type or source enzyme.
+    scope: An unnamed protease; a named enzyme goes to its own term (collagenase, trypsin, TrypLE, Accutase, Accumax, DNase), and a chelating solution to EDTA solution.
+    synonyms:
+    - text: protease
+      anchor: digested using a solution containing Type II collagenase (0.5mg/ml, Worthington Biochemical Corporation) and protease
+    qualifiers:
+      concentration: {dimension: text}
+- add_term:
+    field: substrate
+    id: substrate:electrospun_gelatin
+    label: electrospun gelatin
+    parent: null
+    definition: A scaffold of gelatin fibres made by electrospinning, on and among which cells are seeded.
+    scope: Fibrous electrospun gelatin; not a crosslinked gelatin gel surface (gelatin hydrogel), not an electrospun synthetic polymer such as polycaprolactone, and not decellularized matrix.
+    qualifiers:
+      fiber_orientation: {dimension: text}
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:static_stretch
+    label: static stretch
+    parent: null
+    definition: An external stretch along the tissue's fibre direction imposed once and held for a stated time (qualifiers strain and duration).
+    scope: A step stretch that lengthens the fibres and is held; not repeated stretching (cyclic stretch), not the fixed culture length the tissue contracts against (isometric load), and not a deformation that shears the fibres at constant fibre length (static shear).
+    qualifiers:
+      strain: {dimension: dimensionless}
+      duration: {dimension: time}
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:static_shear
+    label: static shear
+    parent: null
+    definition: An external in-plane deformation imposed once and held so that matrix fibres are sheared past each other while fibre length stays unchanged (qualifiers strain and duration).
+    scope: Shear of the fibres at constant fibre length; not stretch along the fibres (static stretch), not shear stress from flowing medium (fluid shear stress) and not cyclic stretch.
+    qualifiers:
+      strain: {dimension: dimensionless}
+      duration: {dimension: time}
+- add_qualifier:
+    id: platform:native_tissue
+    name: format
+    dimension: text
+- adopt:
+    field: supplements
+    id: CHEBI:41879
+    label: dexamethasone
+    lookup: "livinglit lookup chebi 'dexamethasone' (exact); already adopted in treatment"
+- adopt:
+    field: supplements
+    id: CHEBI:18258
+    label: 3,3',5-triiodo-L-thyronine
+    lookup: "livinglit lookup chebi 'triiodothyronine'; check-id CHEBI:18258; already adopted in treatment (T3)"
+- adopt_own:
+    field: supplements
+    id: supplements:antibiotic_antimycotic
+    label: antibiotic-antimycotic
+    definition: A ready-made culture-medium mixture of antibiotics and an antimycotic, its components not stated by the source.
+    scope: An antibiotic-antimycotic mixture named as one product; penicillin and streptomycin named separately go to their ChEBI ids, and sera, B27 and growth factors to their own terms.
+    lookup: "livinglit lookup chebi 'antibiotic-antimycotic', 'antimycotic', 'antibiotic': no mixture term; only single compounds such as amphotericin B (CHEBI:2682)"
+- adopt_own:
+    field: supplements
+    id: supplements:long_r3_igf_1
+    label: Long R3 IGF-1
+    definition: A recombinant analogue of insulin-like growth factor I with an N-terminal extension and one substituted residue, used as a medium supplement.
+    scope: The Long R3 analogue only; native IGF-1 goes to Insulin-like growth factor I (CHEBI:80343), and other growth factors (bFGF, VEGF, TGFβ-1) to their own terms.
+    lookup: "livinglit lookup chebi 'Long R3 IGF-1', 'IGF-1', 'insulin-like growth factor': only Insulin-like growth factor I (CHEBI:80343), not the analogue"
+# ---------------------------------------------------------------- measures
+- add_synonym:
+    id: measure:twitch_stress
+    text: peak twitch stress
+    anchor: Time in culture significantly impacted EHT peak twitch stress
+- add_synonym:
+    id: measure:twitch_stress_strain_slope
+    text: length-stress gain
+    anchor: The length-stress gain during isometric stretch (slope of the stretch-peak stress relationship
+- add_synonym:
+    id: measure:contraction_time_to_peak
+    text: time to peak stress
+    anchor: including the time to peak stress (TTP)
+- add_synonym:
+    id: measure:tissue_thickness
+    text: EHT thickness
+    anchor: OCT was used to follow EHT thickness and width between 3 and 16 days post-seeding
+- add_term:
+    field: measure
+    id: measure:pluripotency_marker_staining
+    label: pluripotency marker staining
+    parent: measure:protein_staining
+    dimension: categorical
+    definition: Presence of staining for a panel of pluripotency markers (qualifier markers) in undifferentiated stem cells, used to characterise a line.
+    scope: Staining of a pluripotency marker panel in a stem-cell line; staining of one named protein in a tissue stays on protein staining.
+    qualifiers:
+      markers: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:karyotype
+    label: karyotype
+    parent: null
+    dimension: categorical
+    definition: The chromosome complement of a cell line as read by karyotyping, reported as normal or with stated abnormalities.
+    scope: Chromosome number and structure of a line; not gene expression, not marker staining and not a genotype written as a context.
+- standing_key:
+    measure: measure:pluripotency_marker_staining
+    value: {must_match: [cell_line, measure.markers], may_vary: []}
+    direction: {must_match: [contrast, measure.markers], may_vary: [cell_line]}
+- standing_key:
+    measure: measure:karyotype
+    value: {must_match: [cell_line], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [cell_line]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: cm_medium
+  stated: high glucose DMEM
+  terms: [cm_medium:dmem]
+  qualifiers: {glucose: high glucose}
+- field: cm_medium
+  stated: RPMI/B27
+  terms: [cm_medium:rpmi_1640]
+  split:
+  - {words: B27, field: supplements}
+  note: B27 is a supplement; the unit's supplements value does not list it.
+- field: supplements
+  stated: insulin + Long R3 IGF-1 + dexamethasone + thyroid hormone (T3)
+  terms: [CHEBI:145810, supplements:long_r3_igf_1, CHEBI:41879, CHEBI:18258]
+- field: cell_types
+  stated: neonatal rat ventricular myocytes
+  terms: [CL:2000046]
+  split:
+  - {words: rat, field: species}
+  - {words: neonatal, field: donor_age}
+  note: species (rat) and donor_age (1-3 day old) are already filled and agree.
+- field: cell_types
+  stated: NRVM
+  terms: [CL:2000046]
+  split:
+  - {words: rat, field: species}
+  - {words: neonatal, field: donor_age}
+  note: NRVM = neonatal rat ventricular myocytes; the group's species and donor age are not filled.
+- field: cell_types
+  stated: induced pluripotent stem cells
+  terms: [CL:0002248]
+  no_ontology_term: induced pluripotent stem cell (CL has pluripotent stem cell and embryonic stem cell only)
+- field: dissociation_reagent
+  stated: Type II collagenase + protease
+  terms: [dissociation_reagent:collagenase, dissociation_reagent:protease_type_not_stated]
+  qualifiers: {type: II}
+- field: purity_method
+  stated: cardiac troponin T staining
+  terms: [purity_method:marker_staining_readout_not_stated]
+  qualifiers: {marker: cardiac troponin T}
+  note: "'cardiac troponin T staining of a test aliquot': whether imaged or counted by flow is not stated."
+- field: substrate
+  stated: decellularized porcine myocardium
+  terms: [substrate:decellularized_myocardium]
+  qualifiers: {species: porcine}
+- field: mechanical_load
+  stated: stretch loading
+  terms: [mechanical_load:static_stretch]
+  qualifiers: {strain: 10%, duration: 2 hours}
+- field: mechanical_load
+  stated: original culture length
+  terms: [mechanical_load:isometric]
+  note: control EHTs kept in the original frame at culture length, as during culture.
+- field: platform
+  stated: right ventricular trabecula
+  terms: [platform:native_tissue]
+  qualifiers: {region: right ventricle, format: trabecula}
+- field: platform
+  stated: left ventricular muscle strips
+  terms: [platform:native_tissue]
+  qualifiers: {region: left ventricle, format: muscle strip}
+- field: platform
+  stated: thin native rat trabeculae
+  terms: [platform:native_tissue]
+  qualifiers: {format: thin trabecula}
+  split:
+  - {words: rat, field: species}
+  note: the group's species is already rat.
+- field: pacing
+  stated: pacing
+  terms: [pacing:electrical_pacing]
+  note: "cited values 'at 0.5 Hz pacing' / 'at a pacing frequency of 2 Hz'; electrical pacing assumed as the field's only pacing kind in a twitch study; frequency carried by the groups."
+- field: wnt_activation_days
+  stated: twenty-four hours
+  flag:
+    kind: not a context
+    note: "Code cannot read this quantity: number words above 'twelve' are not parsed (matching.NUMBER_WORDS), and the field counts days. The source says CHIR99021 medium was replaced 'Twenty-four hours later (day 1 of differentiation)'; please write it in digits (e.g. '24 hours')."
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: spontaneous beating
+  terms: [measure:beating_presence]
+  qualifiers: {mode: spontaneous}
+- field: measure
+  stated: EHT width
+  terms: [measure:tissue_width]
+- field: measure
+  stated: EHT diameter
+  terms: [measure:tissue_width]
+  note: the term's definition is width (diameter) of a tissue.
+- field: measure
+  stated: cross-sectional area
+  terms: [measure:tissue_cross_sectional_area]
+  note: no synonym added; the bare phrase also names cell cross-sectional area.
+- field: measure
+  stated: sarcomere striations
+  terms: [measure:sarcomere_organisation]
+  qualifiers: {aspect: striation}
+- field: measure
+  stated: cell distribution
+  terms: [measure:cell_spatial_distribution]
+  qualifiers: {population: all cells (nuclei)}
+- field: measure
+  stated: connexin 43 gap junctions
+  terms: [measure:protein_staining]
+  qualifiers: {protein: connexin 43, region: between neighbouring cardiomyocytes}
+- field: measure
+  stated: time to 50% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers: {level: RT50}
+- field: measure
+  stated: BNP expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: BNP, normalised_to: GAPDH, expressed_as: fold}
+- field: measure
+  stated: maximum twitch stress
+  terms: [measure:twitch_stress]
+  note: "'maximum twitch stress of 1.7 mN/mm2 at day 16'; no synonym, since 'maximum' may be the highest over stretch levels."
+- field: measure
+  stated: intracellular calcium transient
+  terms: [measure:calcium_transient_presence]
+  note: a representative trace showing measurable transients; no amplitude or timing reported.
+- field: measure
+  stated: normalized twitch force time course
+  terms: [measure:force_trace]
+  qualifiers: {expressed_as: normalised}
+- field: measure
+  stated: pluripotency markers
+  terms: [measure:pluripotency_marker_staining]
+  qualifiers: {markers: "OCT4, SSEA-4, NANOG, TRA-1-60, alkaline phosphatase"}
+- field: measure
+  stated: twitch kinetics (RT50, TTP)
+  flag:
+    kind: several measures
+    note: one value names two measures, RT50 (relaxation time) and TTP (time to peak); each needs its own evidence item.

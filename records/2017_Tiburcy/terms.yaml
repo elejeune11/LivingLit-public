@@ -1,0 +1,1016 @@
+record: 2017_Tiburcy
+vocabulary_version: 68
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- cell_line
+- adopt:
+    field: cell_line
+    id: CVCL_9772
+    label: WA07
+    lookup: "cellosaurus 'H7' and 'WA07': WA07 (synonym H7, H7-hESC); the paper's H7 is from WiCell"
+    synonyms:
+    - {text: H7, anchor: "including the transgenic derivative HES2-RFP21; H71 (WiCell); hiPS-G1"}
+- adopt:
+    field: cell_line
+    id: CVCL_C812
+    label: WAe009-A-2
+    lookup: "cellosaurus 'H9.2': WAe009-A-2, whose synonyms include H9.2"
+    synonyms:
+    - {text: H9.2, anchor: "ESC (H9.2 and HES3)–derived cardiomyocytes"}
+- adopt:
+    field: cell_line
+    id: CVCL_9004
+    label: Envy
+    lookup: "cellosaurus 'HES3-ENVY' (none) and 'ENVY': Envy (hESC-ENVY), the GFP reporter line derived from HES-3"
+    synonyms:
+    - {text: HES3-ENVY, anchor: "0.25%/1 mmol/l; HES3, HES3-ENVY,"}
+- adopt_own:
+    field: cell_line
+    id: cell_line:hips_g1
+    label: hiPS-G1
+    definition: The hiPSC line hiPS-G1, generated in-house by the Zimmermann lab with Sendai virus reprogramming.
+    scope: The in-house line hiPS-G1; not hiPS-BJ or any Cellosaurus line.
+    lookup: "cellosaurus 'hiPS-G1', 'iPS-G1' and 'G1': no hiPSC entry (only unrelated G1 lines)"
+- adopt_own:
+    field: cell_line
+    id: cell_line:hips_bj
+    label: hiPS-BJ
+    definition: The hiPSC line the source calls hiPS-BJ, reprogrammed from BJ foreskin fibroblasts and obtained from Dr Toshiyuki Araki, New York.
+    scope: The line named hiPS-BJ, clone not identified; not the Cellosaurus BJ iPSC clones 1-3, which the source does not name.
+    lookup: "cellosaurus 'hiPS-BJ', 'iPS-BJ', 'BJ iPS' and 'BJ': several BJ-derived iPSC clones, none named hiPS-BJ or tied to this source"
+- add_synonym:
+    id: cell_line:icell_cardiomyocytes
+    text: iCell CM
+    anchor: "input cardiomyocyte were from identical cardiomyocyte pools (iCell CM; CDI)"
+# ---------------------------------------------------------------- cell_types / stromal_cell
+- adopt:
+    field: cell_types
+    id: CL:0000057
+    label: fibroblast
+    lookup: "cl 'fibroblast': CL:0000057 fibroblast (already adopted in stromal_cell)"
+- adopt:
+    field: cell_types
+    id: CL:1001608
+    label: foreskin fibroblast
+    lookup: "cl 'foreskin fibroblast': CL:1001608 foreskin fibroblast"
+    synonyms:
+    - {text: HFF, anchor: "mixed 1:1 with irradiated human foreskin fibroblast (HFF)"}
+- adopt:
+    field: stromal_cell
+    id: CL:1001608
+    label: foreskin fibroblast
+    lookup: "cl 'foreskin fibroblast': CL:1001608 foreskin fibroblast"
+- adopt:
+    field: cell_types
+    id: CL:0002248
+    label: pluripotent stem cell
+    lookup: "cl 'pluripotent stem cell': CL:0002248"
+    synonyms:
+    - {text: pluripotent stem cells, anchor: "In brief, pluripotent stem cells (PSCs)"}
+- adopt:
+    field: cell_types
+    id: CL:0002552
+    label: fibroblast of gingiva
+    lookup: "cl 'gingival fibroblast' (none) and 'gingiva': CL:0002552 fibroblast of gingiva"
+    synonyms:
+    - {text: gingiva fibroblasts, anchor: "n=3 human gingiva fibroblasts"}
+# ---------------------------------------------------------------- cm_medium
+- add_term:
+    field: cm_medium
+    id: cm_medium:imdm
+    label: IMDM
+    definition: Iscove's modified Dulbecco's medium, a basal medium.
+    scope: IMDM-based medium; not DMEM, α-MEM, RPMI 1640 or a medium named only as EHT medium.
+    synonyms:
+    - {text: Iscove, anchor: "Iscove-Medium with 20% fetal calf serum"}
+# ---------------------------------------------------------------- supplements
+- add_synonym:
+    id: supplements:fetal_bovine_serum
+    text: fetal calf serum
+    anchor: "Iscove-Medium with 20% fetal calf serum"
+- add_qualifier:
+    id: supplements:b27
+    name: formulation
+    dimension: text
+- adopt_own:
+    field: supplements
+    id: supplements:chick_embryo_extract
+    label: chick embryo extract
+    definition: An undefined extract of chick embryos added to culture medium as a growth supplement.
+    scope: Embryo extract; not animal serum (horse serum, fetal bovine serum) or a defined supplement such as B27.
+    lookup: "chebi 'chick embryo extract': no entry (a tissue extract, not a chemical entity)"
+- adopt_own:
+    field: supplements
+    id: supplements:serum_type_not_stated
+    label: serum, type not stated
+    definition: Animal serum added to culture medium where the source does not name the species or kind.
+    scope: Serum named only as serum; horse serum and fetal bovine serum when named, and not KnockOut Serum Replacement or B27.
+    lookup: "chebi 'serum': only antisera and serum proteins, no culture serum"
+    synonyms:
+    - {text: serum, anchor: "in serum-containing EHM. This finding is consistent with"}
+- adopt_own:
+    field: supplements
+    id: supplements:tgfb1
+    label: TGFβ-1
+    definition: Transforming growth factor β1, a growth factor protein added to the culture medium.
+    scope: TGF-β1 as a routine medium addition; not other growth factors (IGF-1, FGF-2, VEGF165).
+    lookup: "chebi 'TGF-beta1', 'transforming growth factor' and 'transforming growth factor beta': no entry"
+- adopt_own:
+    field: supplements
+    id: supplements:vegf165
+    label: VEGF165
+    definition: The 165-amino-acid isoform of vascular endothelial growth factor A, added to the culture medium.
+    scope: VEGF165 as a routine medium addition; not other growth factors (IGF-1, FGF-2, TGF-β1).
+    lookup: "chebi 'VEGF' and 'vascular endothelial growth factor': only VEGF receptor ligands and activators, no VEGF protein"
+- adopt:
+    field: supplements
+    id: CHEBI:80343
+    label: Insulin-like growth factor I
+    lookup: "chebi 'Insulin-like growth factor I': CHEBI:80343 (exact)"
+    synonyms:
+    - {text: IGF-1, anchor: "insulin-like growth factor 1 [IGF-1]"}
+- adopt:
+    field: supplements
+    id: CHEBI:760509
+    label: basic fibroblast growth factor (human)
+    lookup: "chebi 'fibroblast growth factor': CHEBI:760509 (already adopted in differentiation_factors, synonym FGF2)"
+# ---------------------------------------------------------------- treatment
+- adopt:
+    field: treatment
+    id: CHEBI:80343
+    label: Insulin-like growth factor I
+    lookup: "chebi 'Insulin-like growth factor I': CHEBI:80343 (exact)"
+- adopt:
+    field: treatment
+    id: CHEBI:760509
+    label: basic fibroblast growth factor (human)
+    lookup: "chebi 'fibroblast growth factor': CHEBI:760509 (synonym FGF2)"
+- adopt:
+    field: treatment
+    id: CHEBI:749433
+    label: becaplermin
+    lookup: "chebi 'PDGF' and 'platelet-derived growth factor' (no protein entry); 'becaplermin': CHEBI:749433, recombinant human PDGF-BB"
+    synonyms:
+    - {text: PDGF-BB, anchor: "PDGF-BB (10 ng/ml)"}
+- adopt:
+    field: treatment
+    id: CHEBI:33569
+    label: noradrenaline
+    lookup: "chebi 'noradrenaline': CHEBI:33569 (exact); 'norepinephrine' gives only salts"
+    synonyms:
+    - {text: norepinephrine, anchor: "norepinephrine (NE) or endothelin-1 (ET-1)"}
+    - {text: NE, anchor: "norepinephrine (NE) or endothelin-1 (ET-1)"}
+- add_synonym:
+    id: CHEBI:80240
+    text: ET-1
+    anchor: "norepinephrine (NE) or endothelin-1 (ET-1)"
+- adopt:
+    field: treatment
+    id: CHEBI:6904
+    label: metoprolol
+    lookup: "chebi 'metoprolol': CHEBI:6904 (exact)"
+- adopt:
+    field: treatment
+    id: CHEBI:8077
+    label: Phenoxybenzamine
+    lookup: "chebi 'phenoxybenzamine': CHEBI:8077 (exact)"
+- adopt:
+    field: treatment
+    id: CHEBI:73289
+    label: ICI 118551
+    lookup: "chebi 'ICI 118551': CHEBI:73289 (exact)"
+- adopt_own:
+    field: treatment
+    id: treatment:cgp_20712a
+    label: CGP-20712A
+    definition: CGP-20712A, a selective β1-adrenoceptor antagonist.
+    scope: The β1-adrenoceptor antagonist CGP-20712A; not the β2-adrenoceptor antagonist ICI 118551 or other compounds.
+    lookup: "chebi 'CGP 20712A', 'CGP-20712A', 'CGP20712' and 'CGP20712A': no entry"
+- adopt_own:
+    field: treatment
+    id: treatment:tgfb2
+    label: TGF-β2
+    definition: Transforming growth factor β2, a growth factor protein applied to the cultures.
+    scope: TGF-β2; not TGF-β1 or an inhibitor of TGF-β signalling.
+    lookup: "chebi 'TGF-beta 2' and 'transforming growth factor beta': no entry"
+- adopt_own:
+    field: treatment
+    id: treatment:tgf_inhibitor_unnamed
+    label: TGF-β signalling inhibitor (compound not named)
+    definition: An inhibitor of TGF-β signalling that the source does not name.
+    scope: An unnamed TGF-β inhibitor; not TGF-β1 or TGF-β2, and not a named compound such as SB 431542.
+    lookup: "chebi 'TGF-beta receptor': only the role 'TGFbeta receptor antagonist' (CHEBI:91202); the source does not name the compound"
+    synonyms:
+    - {text: TGF-inhibitor, anchor: "TGF-inhibitor (100 nmol/L)"}
+- adopt_own:
+    field: treatment
+    id: treatment:vegf165
+    label: VEGF165
+    definition: The 165-amino-acid isoform of vascular endothelial growth factor A, applied to the cultures.
+    scope: VEGF165 as an exposure a comparison varies; not other growth factors.
+    lookup: "chebi 'VEGF' and 'vascular endothelial growth factor': no VEGF protein entry"
+- adopt_own:
+    field: treatment
+    id: treatment:cardiotrophin_1
+    label: cardiotrophin-1
+    definition: Cardiotrophin-1, an interleukin-6 family cytokine applied to the cultures.
+    scope: Cardiotrophin-1; not neuregulin-1 or other growth factors.
+    lookup: "chebi 'cardiotrophin': no entry"
+- adopt_own:
+    field: treatment
+    id: treatment:egf
+    label: epidermal growth factor
+    definition: Epidermal growth factor, a growth factor protein applied to the cultures.
+    scope: EGF; not other growth factors such as IGF-1 or FGF-2.
+    lookup: "chebi 'epidermal growth factor' and 'EGF': only EGF receptor antagonists and unrelated names"
+    synonyms:
+    - {text: EGF, anchor: "EGF (10 ng/ml)"}
+# ---------------------------------------------------------------- substrate
+- add_qualifier:
+    id: substrate:collagen_hydrogel
+    name: collagen_source
+    dimension: text
+- add_term:
+    field: substrate
+    id: substrate:collagen_type_not_stated
+    label: collagen hydrogel, type not stated
+    parent: substrate:hydrogel
+    definition: A hydrogel formed from collagen whose type the source does not state.
+    scope: Collagen of unstated type as the gel or a gel component; collagen I hydrogel when type I is stated, and not fibrin, Matrigel or Geltrex.
+    qualifiers:
+      collagen_source: {dimension: text}
+      collagen_concentration: {dimension: text}
+- add_term:
+    field: substrate
+    id: substrate:fibronectin
+    label: fibronectin
+    definition: The extracellular matrix protein fibronectin, as a component of the material cells sit in or on.
+    scope: Fibronectin added to a gel or surface; not a hydrogel material itself, glass, PDMS, polyacrylamide, a culture plate or decellularized myocardium.
+    xref: [CHEBI:5058]
+    qualifiers:
+      amount: {dimension: text}
+- add_term:
+    field: substrate
+    id: substrate:laminin
+    label: laminin
+    definition: The basement-membrane protein laminin, as a component of the material cells sit in or on.
+    scope: Laminin added to a gel or surface; not fibronectin, not a hydrogel material itself, glass, PDMS, polyacrylamide, a culture plate or decellularized myocardium.
+    qualifiers:
+      amount: {dimension: text}
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:ring_tissue
+    label: ring-shaped engineered tissue
+    parent: platform:engineered_3d
+    definition: An engineered tissue cast in a circular mould so that it forms a ring (loop), then held on two poles or holders.
+    scope: A ring (loop) of tissue; not a linear tissue between two pillars or anchors, not a tissue around a single strip and not a flat patch.
+    synonyms:
+    - {text: EHM loop, anchor: "Defined, serum-free small EHM loop (2 weeks old) on flexible"}
+- add_term:
+    field: platform
+    id: platform:patch_on_flexible_poles
+    label: tissue patch on flexible poles
+    parent: platform:engineered_3d
+    definition: A flat engineered tissue sheet cast in a mould around the flexible poles of a holder, which hold it under load.
+    scope: A flat sheet held by several flexible poles; not a sheet anchored at its edges by a frame, not a ring, and not a linear tissue between two pillars or anchors.
+    synonyms:
+    - {text: EHM patch, anchor: "Flexible holders for the EHM patch construction were printed"}
+- add_term:
+    field: platform
+    id: platform:cell_aggregate
+    label: cell aggregate
+    definition: A scaffold-free three-dimensional cluster of cells formed by aggregation, without a matrix.
+    scope: Cells aggregated without a matrix; not an engineered tissue cast in a matrix, a 2D culture or native tissue.
+    synonyms:
+    - {text: cardiac aggregate, anchor: "Factorial screen in cardiac aggregate cultures"}
+# ---------------------------------------------------------------- mechanical_load
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:load_regime_not_stated
+    label: mechanical load, regime not stated
+    definition: Culture under a mechanical load where the source does not say whether the load is elastic, fixed-length or cyclic.
+    scope: A load named only as mechanical load; not a stated elastic load (auxotonic), fixed length (isometric), strip load, end anchors, cyclic stretch, or unloaded culture.
+    synonyms:
+    - {text: mechanical load, anchor: "EHM maturation for at least 7 days under mechanical load"}
+# ---------------------------------------------------------------- preparation
+- add_synonym:
+    id: preparation:dissociated_cells
+    text: enzymatic dispersion
+    anchor: evidence.F2a_shape.anchor
+- add_synonym:
+    id: preparation:dissociated_cells
+    text: isolated cardiomyocyte
+    anchor: "Immunostaining of isolated cardiomyocyte from 4-week EHM (hiPS-G1)"
+- add_synonym:
+    id: preparation:rna_extract
+    text: RNA
+    anchor: "Total RNA was subjected to library preparation"
+- add_term:
+    field: preparation
+    id: preparation:collected_medium
+    label: collected culture medium
+    definition: Culture medium collected from a culture to measure what the cells released into it.
+    scope: The medium taken off the cells; not the cells or tissue themselves (living, dissociated, fixed or extracted).
+    synonyms:
+    - {text: culture medium, anchor: evidence.F4f_ne1.anchor}
+- add_term:
+    field: preparation
+    id: preparation:explanted_host_heart
+    label: explanted host heart
+    definition: A host animal's heart removed after a tissue was implanted on it, examined ex vivo by eye or in sections.
+    scope: The excised host heart carrying an implant, not perfused; not a Langendorff-perfused heart, not an implant measured in the living animal, and not the engineered tissue alone.
+    synonyms:
+    - {text: explanted rat heart, anchor: evidence.F5de_graft.anchor}
+# ---------------------------------------------------------------- dissociation_reagent
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:accutase
+    label: Accutase
+    definition: A commercial solution of proteolytic and collagenolytic enzymes used to detach and dissociate cells.
+    scope: The Accutase solution; not Accumax, trypsin, trypsin-EDTA, TrypLE or DNase.
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:tryple
+    label: TrypLE
+    definition: A recombinant trypsin-like protease used in place of animal trypsin to dissociate cells.
+    scope: Recombinant TrypLE; not animal-derived trypsin or trypsin-EDTA, Accutase, Accumax or DNase.
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:dnase
+    label: DNase
+    definition: Deoxyribonuclease added to a dissociation mix to digest DNA released by damaged cells and prevent clumping.
+    scope: DNase as an additive to the dissociation mix; not a protease (trypsin, TrypLE, Accutase, Accumax).
+# ---------------------------------------------------------------- transgene
+- add_term:
+    field: transgene
+    id: transgene:rfp
+    label: red fluorescent protein
+    parent: transgene:fluorescent_reporter
+    definition: A red fluorescent protein expressed as a non-sensing fluorescent marker.
+    scope: RFP as a marker on its own; not GFP, not a fluorescent fusion protein and not a calcium indicator.
+    synonyms:
+    - {text: RFP, anchor: "RFP+ cardiomyocytes vs. GFP+ fibroblasts"}
+# ---------------------------------------------------------------- measurement_medium
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:extracellular_solution
+    label: extracellular solution
+    definition: A physiological salt solution the source calls extracellular solution, used as the bath during measurement.
+    scope: A bath named extracellular solution with its own recipe; not a solution named Tyrode's.
+# ---------------------------------------------------------------- measure
+- add_synonym:
+    id: measure:differentially_expressed_gene_count
+    text: differentially expressed genes
+    anchor: "the differentially expressed genes (P<0.05, corrected by"
+- add_synonym:
+    id: measure:twitch_stress
+    text: FOC per cross sectional area
+    anchor: "FOC per cross-sectional area (CSA) of serum-free EHM from HES2 and hiPS-G1"
+- add_qualifier: {id: measure:beating_onset_time, name: extent, dimension: text}
+- add_qualifier: {id: measure:cell_volume, name: cell_type, dimension: text}
+- add_qualifier: {id: measure:cell_viability, name: cell_type, dimension: text}
+- add_qualifier: {id: measure:cell_number, name: cell_type, dimension: text}
+- add_term:
+    field: measure
+    id: measure:force_composition_relation
+    label: force against cardiomyocyte content
+    definition: Twitch force of tissues plotted against their cardiomyocyte share, summarised by the composition at which force is maximal.
+    scope: How force depends on the cardiomyocyte share across tissues; not the force of one tissue (twitch force) and not the share itself (marker-positive cells).
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:inotropic_response
+    label: inotropic response
+    definition: Change in twitch force on acute exposure to a stated agonist (qualifier agonist).
+    scope: The drug-induced change in force; not twitch force itself, not a potency (EC50) and not the force-frequency relationship.
+    dimension: dimensionless
+    qualifiers:
+      agonist: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:receptor_share_of_inotropic_response
+    label: share of an inotropic response mediated by one receptor
+    parent: measure:inotropic_response
+    definition: Fraction of an agonist's inotropic response removed by blocking one stated receptor (qualifier receptor).
+    scope: The receptor-mediated share of a response; the parent is the response itself.
+    dimension: dimensionless
+    qualifiers:
+      receptor: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:cell_size
+    label: cell size by a proxy signal
+    definition: Size of single cells estimated from a signal that scales with size, such as flow-cytometric scatter or reporter fluorescence (qualifier proxy), in arbitrary units.
+    scope: Size from a proxy signal or a semi-quantitative grade; not a projected area (cell area), a volume (cell volume) or a length.
+    dimension: dimensionless
+    qualifiers:
+      cell_type: {dimension: text}
+      proxy: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:cell_length
+    label: cell length
+    definition: Length of single cells along their long axis.
+    scope: Long-axis length of a cell; not its width, area, volume, aspect ratio or sarcomere length.
+    dimension: length
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:cell_width
+    label: cell width
+    definition: Width of single cells across their long axis.
+    scope: Short-axis width of a cell; not its length, area, volume or aspect ratio.
+    dimension: length
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:cell_aspect_ratio
+    label: cell aspect ratio
+    definition: Ratio of a cell's length to its width.
+    scope: Length over width (1 for a round cell, larger when elongated); not the 0-to-1 cell elongation ratio and not cell length or width alone.
+    dimension: dimensionless
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:tissue_condensation
+    label: tissue condensation
+    definition: Whether a cast cell-matrix mixture compacts into a coherent tissue, judged by eye.
+    scope: Qualitative compaction of a whole construct; not its measured area, thickness or cross-section.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:cell_morphology
+    label: cell morphology
+    definition: Qualitative shape of single cells (rounded, elongated, sarcomeres in register), a stated feature (qualifier feature).
+    scope: Qualitative shape of cells; not measured area, length, width or aspect ratio, and not electron-microscopic ultrastructure.
+    dimension: categorical
+    qualifiers:
+      feature: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:secreted_protein_level
+    label: secreted protein level
+    definition: Amount of a stated protein (qualifier protein) that cells secrete into the culture medium, such as a natriuretic peptide.
+    scope: A protein the cells secrete as part of their function; not an intracellular protein released by damage (released protein level) and not a medium's formulation.
+    dimension: amount
+    qualifiers:
+      protein: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:gene_cluster_size
+    label: number of genes in an expression cluster
+    definition: Count of genes assigned to a stated expression cluster or trajectory class (qualifier cluster).
+    scope: Genes counted in one cluster; not the clustering itself (gene expression clusters), not a count of differentially expressed genes and not a count in a GO term.
+    dimension: dimensionless
+    qualifiers:
+      cluster: {dimension: text}
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:force_composition_relation
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:inotropic_response
+    value: {must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.agonist, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing, measure.agonist], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:receptor_share_of_inotropic_response
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.agonist, measure.receptor, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.agonist, measure.receptor], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_size
+    value: {must_match: [platform@1, preparation, measure.cell_type, measure.proxy, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_length
+    value: {must_match: [platform@1, preparation, measure.cell_type, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_width
+    value: {must_match: [platform@1, preparation, measure.cell_type, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_aspect_ratio
+    value: {must_match: [platform@1, preparation, measure.cell_type, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_condensation
+    value: {must_match: [platform@1, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_morphology
+    value: {must_match: [platform@1, preparation, measure.feature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.feature], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:secreted_protein_level
+    value: {must_match: [platform@1, measure.protein, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:gene_cluster_size
+    value: {must_match: [platform@1, preparation, contrast, measure.cluster, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cluster], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: cell_line
+  stated: HES2-RFP
+  terms: [CVCL_D093]
+  no_ontology_term: "HES2-RFP, the RFP reporter derivative of HES-2, has no Cellosaurus entry; mapped to its parent line"
+  split: [{words: RFP, field: transgene}]
+- field: cell_line
+  stated: HES2-RFP + HES2 + H7 + hiPS-G1
+  terms: [CVCL_D093, CVCL_9772, cell_line:hips_g1]
+  no_ontology_term: "HES2-RFP has no Cellosaurus entry; mapped to HES-2"
+  split: [{words: RFP, field: transgene}]
+- field: cell_line
+  stated: HES2-RFP + iCell CM + hiPS-G1
+  terms: [CVCL_D093, cell_line:icell_cardiomyocytes, cell_line:hips_g1]
+  no_ontology_term: "HES2-RFP has no Cellosaurus entry; mapped to HES-2"
+  split: [{words: RFP, field: transgene}]
+- field: cell_line
+  stated: different ESC and iPSC lines
+  flag: {kind: placeholder, note: "Pooled data from lines the value does not name; the reader should list the lines (Fig. 1f legend) or say which are pooled."}
+- field: hipsc_medium
+  stated: HFF-conditioned medium or TeSR-E8
+  flag: {kind: alternatives, note: "Two media joined by 'or'; the record does not say which line or experiment used which."}
+- field: dissociation_reagent
+  stated: collagenase I and/or trypsin/EDTA
+  flag: {kind: alternatives, note: "'and/or': the supplement assigns collagenase B to H9.2 and lists collagenase I and/or trypsin/EDTA for other lines; which applies to this group is not given."}
+- field: composition
+  stated: undefined cell composition
+  flag: {kind: not a context, note: "A quantity field holding a protocol descriptor, not fractions of cell types; composition is not stated as numbers for this group."}
+- field: composition
+  stated: defined cell composition
+  flag: {kind: not a context, note: "A quantity field holding a protocol descriptor; the defined fractions (e.g. 70:30% CM+HFF) are stated in other units and could be written here."}
+- field: substrate
+  stated: rat collagen + Matrigel
+  terms: [substrate:collagen_hydrogel, substrate:matrigel]
+  qualifiers: {collagen_source: rat tail}
+  note: "Supplement: 'collagen type I from rat tails'."
+- field: substrate
+  stated: bovine collagen
+  terms: [substrate:collagen_type_not_stated]
+  qualifiers: {collagen_source: "bovine, medical grade"}
+- field: substrate
+  stated: bovine collagen + Matrigel
+  terms: [substrate:collagen_type_not_stated, substrate:matrigel]
+  qualifiers: {collagen_source: "bovine, medical grade"}
+- field: substrate
+  stated: bovine collagen + fibronectin
+  terms: [substrate:collagen_type_not_stated, substrate:fibronectin]
+  qualifiers: {collagen_source: "bovine, medical grade"}
+- field: substrate
+  stated: bovine collagen + laminin
+  terms: [substrate:collagen_type_not_stated, substrate:laminin]
+  qualifiers: {collagen_source: "bovine, medical grade"}
+- field: supplements
+  stated: B27 without insulin + TGF-β1 + IGF-1 + FGF-2 + VEGF165
+  terms: [supplements:b27, supplements:tgfb1, CHEBI:80343, CHEBI:760509, supplements:vegf165]
+  qualifiers: {insulin: without}
+- field: supplements
+  stated: B27 plus insulin 2%
+  terms: [supplements:b27]
+  qualifiers: {insulin: with, concentration: 2%}
+- field: supplements
+  stated: B27 plus insulin 4%
+  terms: [supplements:b27]
+  qualifiers: {insulin: with, concentration: 4%}
+- field: supplements
+  stated: B27 minus insulin 2%
+  terms: [supplements:b27]
+  qualifiers: {insulin: without, concentration: 2%}
+- field: supplements
+  stated: B27 minus insulin 4%
+  terms: [supplements:b27]
+  qualifiers: {insulin: without, concentration: 4%}
+- field: supplements
+  stated: 2% B27 with insulin
+  terms: [supplements:b27]
+  qualifiers: {insulin: with, concentration: 2%}
+- field: supplements
+  stated: 4% B27 plus insulin
+  terms: [supplements:b27]
+  qualifiers: {insulin: with, concentration: 4%}
+- field: supplements
+  stated: 2% full B27 + ALL growth factors
+  terms: [supplements:b27, supplements:tgfb1, CHEBI:80343, CHEBI:760509, supplements:vegf165]
+  qualifiers: {concentration: 2%, formulation: full}
+  note: "ALL is defined in the Suppl. Fig. 3 legend as the combination of IGF-1, FGF-2, VEGF165 and TGFβ1."
+- field: supplements
+  stated: 4% full B27 + ALL growth factors
+  terms: [supplements:b27, supplements:tgfb1, CHEBI:80343, CHEBI:760509, supplements:vegf165]
+  qualifiers: {concentration: 4%, formulation: full}
+  note: "ALL = IGF-1, FGF-2, VEGF165, TGFβ1 (Suppl. Fig. 3 legend)."
+- field: supplements
+  stated: 4% B27 without antioxidants + ALL growth factors
+  terms: [supplements:b27, supplements:tgfb1, CHEBI:80343, CHEBI:760509, supplements:vegf165]
+  qualifiers: {concentration: 4%, formulation: without antioxidants}
+  note: "ALL = IGF-1, FGF-2, VEGF165, TGFβ1 (Suppl. Fig. 3 legend)."
+- field: supplements
+  stated: 4% B27 without insulin + ALL growth factors
+  terms: [supplements:b27, supplements:tgfb1, CHEBI:80343, CHEBI:760509, supplements:vegf165]
+  qualifiers: {concentration: 4%, insulin: without}
+  note: "ALL = IGF-1, FGF-2, VEGF165, TGFβ1 (Suppl. Fig. 3 legend)."
+- field: supplements
+  stated: 4% B27 + ALL growth factors
+  terms: [supplements:b27, supplements:tgfb1, CHEBI:80343, CHEBI:760509, supplements:vegf165]
+  qualifiers: {concentration: 4%}
+  note: "ALL = IGF-1, FGF-2, VEGF165, TGFβ1 (Suppl. Fig. 3 legend)."
+- field: platform
+  stated: fusion of five big loops
+  terms: [platform:engineered_3d]
+  note: "Five ring tissues fused into one construct (Fig. 5b); no narrower term fits, so the broader term."
+- field: preparation
+  stated: organ bath
+  terms: [preparation:intact_tissue]
+  note: "The organ bath is the measuring set-up; the tissue is measured whole. Not added as a synonym (not the same thing)."
+- field: preparation
+  stated: cardiomyocytes in EHMs
+  terms: [preparation:intact_tissue]
+  note: "Impaling-electrode recordings in whole EHM."
+- field: measurement_calcium_mM
+  stated: EC50
+  flag: {kind: placeholder, note: "Not a number: the bath calcium was set to each EHM's EC50 for calcium; the record should give the concentration (Suppl. Fig. 8d reports 0.6 mmol/L in another unit) or say it varies per tissue."}
+- field: preparation
+  stated: recorded using a camera
+  flag: {kind: not a context, note: "A recording method, not how the sample was prepared; the patches were imaged whole in culture."}
+- field: pacing
+  stated: 1 Hz
+  terms: [pacing:electrical_pacing]
+  qualifiers: {frequency: 1 Hz}
+- field: pacing
+  stated: ~1.5 Hz
+  terms: [pacing:electrical_pacing]
+  qualifiers: {frequency: ~1.5 Hz}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: normalized force of contraction against output cardiomyocyte percentage
+  terms: [measure:force_composition_relation]
+  qualifiers: {expressed_as: normalised, normalised_to: maximal FOC}
+- field: measure
+  stated: cardiomyocyte purity (actinin+ cells)
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: actinin, population: all cells}
+- field: measure
+  stated: EHM condensation
+  terms: [measure:tissue_condensation]
+- field: measure
+  stated: rounded cardiomyocytes
+  terms: [measure:cell_morphology]
+  qualifiers: {feature: rounded shape}
+- field: measure
+  stated: output cardiomyocyte percentage
+  terms: [measure:marker_positive_cells]
+  qualifiers: {population: all output cells}
+  note: "Marker not stated for this item (Fig. 1b uses actinin+); left out."
+- field: measure
+  stated: force per cardiomyocyte
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: normalised, normalised_to: cardiomyocyte number}
+- field: measure
+  stated: output cardiomyocyte:fibroblast ratio
+  terms: [measure:marker_positive_ratio]
+  qualifiers: {markers: "cardiomyocyte:fibroblast"}
+- field: measure
+  stated: actinin median fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: actinin, region: cardiomyocytes}
+- field: measure
+  stated: time to 50% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 50%}
+- field: measure
+  stated: MLC2A/MLC2V double-positive cardiomyocytes (fraction of CM)
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: MLC2A/MLC2V double-positive, population: cardiomyocytes}
+- field: measure
+  stated: MLC2A single-positive cardiomyocytes (fraction of CM)
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: MLC2A single-positive, population: cardiomyocytes}
+- field: measure
+  stated: MLC2V single-positive cardiomyocytes (fraction of CM)
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: MLC2V single-positive, population: cardiomyocytes}
+- field: measure
+  stated: maximal force of contraction
+  terms: [measure:twitch_force]
+  note: "Maximal FOC of a calcium concentration-response; the phrase is not printed in the source, so no synonym."
+- field: measure
+  stated: NANOG expression relative to pluripotent stem cells
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NANOG, expressed_as: fold, normalised_to: pluripotent stem cells (HES2)}
+- field: measure
+  stated: POU5F1 expression relative to pluripotent stem cells
+  terms: [measure:gene_expression]
+  qualifiers: {gene: POU5F1, expressed_as: fold, normalised_to: pluripotent stem cells (HES2)}
+- field: measure
+  stated: ZFP42 expression relative to pluripotent stem cells
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ZFP42, expressed_as: fold, normalised_to: pluripotent stem cells (HES2)}
+- field: measure
+  stated: FGF4 expression relative to pluripotent stem cells
+  terms: [measure:gene_expression]
+  qualifiers: {gene: FGF4, expressed_as: fold, normalised_to: pluripotent stem cells (HES2)}
+- field: measure
+  stated: TERT expression relative to pluripotent stem cells
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TERT, expressed_as: fold, normalised_to: pluripotent stem cells (HES2)}
+- field: measure
+  stated: Ki67+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67, population: cardiomyocytes}
+- field: measure
+  stated: Ki67+ non-myocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki67, population: non-myocytes}
+- field: measure
+  stated: normalized force of contraction
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: normalised}
+- field: measure
+  stated: cardiomyocyte actinin content
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: actinin, region: cardiomyocytes}
+  note: "Semi-quantitative grade from flow cytometry."
+- field: measure
+  stated: cardiomyocyte size
+  terms: [measure:cell_size]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: non-myocyte size
+  terms: [measure:cell_size]
+  qualifiers: {cell_type: non-myocytes}
+- field: measure
+  stated: CM/NM ratio
+  terms: [measure:marker_positive_ratio]
+  qualifiers: {markers: "cardiomyocyte:non-myocyte"}
+- field: measure
+  stated: free calcium of culture medium
+  terms: [measure:medium_component_concentration]
+  qualifiers: {component: free calcium}
+- field: measure
+  stated: onset of local contractions
+  terms: [measure:beating_onset_time]
+  qualifiers: {reference: casting, extent: local}
+- field: measure
+  stated: onset of whole-construct contractions
+  terms: [measure:beating_onset_time]
+  qualifiers: {reference: casting, extent: whole construct}
+- field: measure
+  stated: cardiomyocyte volume
+  terms: [measure:cell_volume]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: cardiomyocyte aspect ratio
+  terms: [measure:cell_aspect_ratio]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: cardiomyocyte width
+  terms: [measure:cell_width]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: cardiomyocyte length
+  terms: [measure:cell_length]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: M-band organization
+  terms: [measure:protein_staining]
+  qualifiers: {protein: myomesin, region: M-band}
+- field: measure
+  stated: MLC2V organization
+  terms: [measure:protein_staining]
+  qualifiers: {protein: MLC2V}
+- field: measure
+  stated: n-cadherin+ intercalated disk-like structures
+  terms: [measure:protein_staining]
+  qualifiers: {protein: N-cadherin, region: intercalated disk-like structures}
+- field: measure
+  stated: elongated cardiomyocyte phenotype with sarcomeres in registry
+  terms: [measure:cell_morphology]
+  qualifiers: {feature: elongation with sarcomeres in register}
+- field: measure
+  stated: sarcomere band organization (Z-, I-, A-, H-, M-bands)
+  terms: [measure:ultrastructure]
+  qualifiers: {feature: sarcomere bands}
+- field: measure
+  stated: maximal FOC per cross sectional area
+  terms: [measure:twitch_stress]
+- field: measure
+  stated: output cardiomyocyte number
+  terms: [measure:cell_number]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: cross sectional area
+  terms: [measure:tissue_cross_sectional_area]
+  note: "CSA of the EHM; 'cross sectional area' alone could be a cell's, so no synonym."
+- field: measure
+  stated: absolute force of contraction
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: absolute}
+- field: measure
+  stated: force of contraction (% of FOC at 1 Hz)
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: "% of baseline", normalised_to: FOC at 1 Hz}
+- field: measure
+  stated: spontaneous frequency
+  terms: [measure:contraction_frequency]
+  note: "Spontaneous rate in the impaling-electrode table (Fig. 2f); an electrical rate, mapped to the beat-rate term."
+- field: measure
+  stated: action potential duration at 20% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: 20% repolarization}
+- field: measure
+  stated: action potential duration at 50% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: 50% repolarization}
+- field: measure
+  stated: action potential duration at 90% repolarization
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: 90% repolarization}
+- field: measure
+  stated: maximal upstroke velocity (dV/dtmax)
+  terms: [measure:upstroke_velocity]
+- field: measure
+  stated: fraction of pacemaker cells
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: pacemaker}
+- field: measure
+  stated: enriched genes after log2 fold change filter
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: enriched after log2 fold-change filter}
+- field: measure
+  stated: cardiomyocyte transcriptome (genes)
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: cardiomyocyte-enriched transcripts}
+- field: measure
+  stated: fibroblast transcriptome (genes)
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: fibroblast-enriched transcripts}
+- field: measure
+  stated: RPKM of the 29 most abundantly expressed transcripts
+  flag: {kind: several measures, note: "Expression of 29 different transcripts in one item; each gene is its own measure (gene qualifier)."}
+- field: measure
+  stated: adult CM genes (continuous increase)
+  terms: [measure:gene_cluster_size]
+  qualifiers: {cluster: adult CM genes (continuous increase)}
+- field: measure
+  stated: embryonic CM genes (continuous decrease)
+  terms: [measure:gene_cluster_size]
+  qualifiers: {cluster: embryonic CM genes (continuous decrease)}
+- field: measure
+  stated: genes without clear trajectory
+  terms: [measure:gene_cluster_size]
+  qualifiers: {cluster: genes without clear trajectory}
+- field: measure
+  stated: adult CM genes with enhanced transcription
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: "adult CM genes, up"}
+- field: measure
+  stated: embryonic CM genes with reduced transcription
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: "embryonic CM genes, down"}
+- field: measure
+  stated: frequency of cardiomyocyte maturation genes at fetal-adult expression levels
+  terms: [measure:annotation_share]
+  qualifiers: {category: fetal-adult expression level, gene_set: cardiomyocyte maturation genes}
+- field: measure
+  stated: differentially expressed cardiomyocyte maturation genes
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: cardiomyocyte maturation genes}
+- field: measure
+  stated: ventricular cardiac muscle tissue morphogenesis genes (GO:0055010)
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: "GO:0055010"}
+- {field: measure, stated: MYH7 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: MYH7, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: MYL2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: MYL2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: TTN transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: TTN, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: CKM transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: CKM, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: TNNI3 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: TNNI3, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: TNNT1 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: TNNT1, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ACTN2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ACTN2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: MYOM2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: MYOM2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: SCN5A transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: SCN5A, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: SCN2B transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: SCN2B, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: KCNQ1 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: KCNQ1, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: KCNJ4 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: KCNJ4, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: KCNJ12 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: KCNJ12, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: RYR2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: RYR2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: CASQ2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: CASQ2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ATP2A2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ATP2A2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: PLN transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: PLN, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: TRDN transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: TRDN, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRA1A transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRA1A, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRA1B transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRA1B, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRA1D transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRA1D, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRA2A transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRA2A, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRA2B transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRA2B, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRA2C transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRA2C, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRB1 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRB1, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRB2 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRB2, expressed_as: normalised, normalised_to: RPKM}}
+- {field: measure, stated: ADRB3 transcript abundance (RPKM), terms: [measure:gene_expression], qualifiers: {gene: ADRB3, expressed_as: normalised, normalised_to: RPKM}}
+- field: measure
+  stated: inotropic response to isoprenaline (% change in FOC)
+  terms: [measure:inotropic_response]
+  qualifiers: {agonist: isoprenaline, expressed_as: "% change"}
+- field: measure
+  stated: EC50 of isoprenaline
+  terms: [measure:ec50]
+  qualifiers: {agonist: isoprenaline, response: force of contraction}
+- field: measure
+  stated: inotropic effect of isoprenaline (normalized FOC)
+  terms: [measure:inotropic_response]
+  qualifiers: {agonist: isoprenaline, expressed_as: normalised}
+- field: measure
+  stated: fraction of acute inotropic effect mediated via ADRB1
+  terms: [measure:receptor_share_of_inotropic_response]
+  qualifiers: {agonist: isoprenaline, receptor: ADRB1}
+- field: measure
+  stated: cardiomyocyte size (RFP MFI, fold)
+  terms: [measure:cell_size]
+  qualifiers: {cell_type: cardiomyocytes, proxy: RFP median fluorescence intensity, expressed_as: fold}
+- field: measure
+  stated: cardiomyocyte number
+  terms: [measure:cell_number]
+  qualifiers: {cell_type: cardiomyocytes}
+- field: measure
+  stated: fibroblast number
+  terms: [measure:cell_number]
+  qualifiers: {cell_type: fibroblasts}
+- field: measure
+  stated: NT-proBNP secretion per cardiomyocyte
+  terms: [measure:secreted_protein_level]
+  qualifiers: {protein: NT-proBNP, expressed_as: normalised, normalised_to: cardiomyocyte number}
+- field: measure
+  stated: maximal FOC (fold of control)
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: fold, normalised_to: untreated control EHM}
+- field: measure
+  stated: response to ISO (fold of control)
+  terms: [measure:inotropic_response]
+  qualifiers: {agonist: isoprenaline, expressed_as: fold, normalised_to: untreated control EHM}
+- field: measure
+  stated: CM viability (fold of control)
+  terms: [measure:cell_viability]
+  qualifiers: {cell_type: cardiomyocytes, expressed_as: fold, normalised_to: untreated control EHM}
+- field: measure
+  stated: CM size (fold of control)
+  terms: [measure:cell_size]
+  qualifiers: {cell_type: cardiomyocytes, expressed_as: fold, normalised_to: untreated control EHM}
+- field: measure
+  stated: actinin+ fraction of fixed RFP+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: actinin, population: fixed RFP+ cells}
+- field: measure
+  stated: correlation of cardiomyocyte median area with FSC median live
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: cardiomyocyte median area vs FSC median (live)}
+- field: measure
+  stated: correlation of cardiomyocyte median area with RFP MFI live
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: cardiomyocyte median area vs RFP MFI (live)}
+- field: measure
+  stated: correlation of cardiomyocyte median area with SSC median live
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: cardiomyocyte median area vs SSC median (live)}
+- field: measure
+  stated: correlation of cardiomyocyte median area with SSC median fixed
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: cardiomyocyte median area vs SSC median (fixed)}
+- field: measure
+  stated: change in FOC compared to untreated (%)
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: "% change", normalised_to: untreated EHM}
+- field: measure
+  stated: change in acute isoprenaline response compared to untreated (%)
+  terms: [measure:inotropic_response]
+  qualifiers: {agonist: isoprenaline, expressed_as: "% change", normalised_to: untreated EHM}
+- field: measure
+  stated: change in cardiomyocyte size compared to untreated (%)
+  terms: [measure:cell_size]
+  qualifiers: {cell_type: cardiomyocytes, expressed_as: "% change", normalised_to: untreated EHM}
+- field: measure
+  stated: EHM patch thickness
+  terms: [measure:tissue_thickness]
+- field: measure
+  stated: EHM patch size
+  flag: {kind: several measures, note: "Patch dimensions (mm) and cardiomyocyte number in one item; the record itself labels the cell count a suspected error."}
+- field: measure
+  stated: graft formation
+  terms: [measure:engraftment]
+- field: measure
+  stated: graft structural organization (cTnT, actinin)
+  terms: [measure:protein_staining]
+  qualifiers: {protein: cTnT and actinin, region: graft}
+- field: measure
+  stated: graft vascularization (CD31)
+  terms: [measure:protein_staining]
+  qualifiers: {protein: CD31, region: graft}
+- field: measure
+  stated: correlation of loop FOC with patch fractional area change
+  terms: [measure:between_measure_correlation]
+  qualifiers: {measures: loop FOC vs patch fractional area change}

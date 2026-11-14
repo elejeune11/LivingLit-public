@@ -1,0 +1,27 @@
+# Written by code from changes.yaml (version 7); never edited.
+formula: circular_cross_section_area
+kind: model
+statement: The cross-sectional area of a cylindrical specimen computed from one measured diameter, A = pi*d^2/4, treating
+  the section as a circle.
+equations:
+- A = pi*d**2/4
+variables:
+  A: area
+  d: length
+assumes:
+- circular cross-section
+- uniform diameter along the length
+does_not_apply: flattened, elliptical or rectangular sections (strips, sheets), or a diameter that varies along the specimen
+tests:
+- given:
+    d: 2.0
+  expect:
+    A: 3.14159265
+- given:
+    d: 2.0
+  does_not_apply: a square section of side 2 has area 4, not pi
+cites:
+  text: 'Gere JM, Goodno BJ. Mechanics of Materials (Cengage), Appendix: Properties of plane areas, circle (A = pi d^2/4)'
+  anchor:
+    quote: assuming circular cross-sectional geometry
+    where: Methods, Measurement of Contractile Function

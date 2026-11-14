@@ -1,0 +1,278 @@
+record: 2022_Strimaityte
+vocabulary_version: 57
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# --- platform
+- add_synonym:
+    id: platform:micropatterned_single_cell
+    text: micropatterned single
+    anchor: random single, (f) random cluster, (g) micropatterned single, (h) iCMF
+- add_synonym:
+    id: platform:muscle_bundle_2d
+    text: iCMF
+    anchor: random single, (f) random cluster, (g) micropatterned single, (h) iCMF
+# --- preparation
+- add_synonym:
+    id: preparation:live_cells
+    text: live-cell
+    anchor: Micropatterned hiPSC-CMs were live-cell labeled with 5 μM Fluo-4 AM
+# --- measures: synonyms
+- add_synonym:
+    id: measure:contractile_velocity
+    text: contraction speed
+    anchor: (i) contraction speed, and (j) normalized contraction speed to day 11 of each cell isotype.
+- add_synonym:
+    id: measure:contraction_time_to_peak
+    text: contraction time-to-peak
+    anchor: The contraction duration and contraction time-to-peak (TTP)
+- add_synonym:
+    id: measure:relaxation_time
+    text: contraction relaxation time
+    anchor: (g) contraction relaxation time, (h) normalized
+# --- measures: qualifiers
+- add_qualifier:
+    id: measure:t_tubules
+    name: aspect
+    dimension: text
+# --- measures: new terms
+- add_term:
+    field: measure
+    id: measure:beating_synchrony
+    label: beating synchrony
+    parent: null
+    definition: Whether the cells of one culture or construct beat together, judged from videos of their motion.
+    scope: Synchrony of contractile motion within one culture; not the counted fraction of constructs beating synchronously, not synchrony of calcium transients and not the presence or regularity of beating.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:contraction_direction
+    label: direction of contraction
+    parent: null
+    definition: Whether cells or a construct contract along one axis or in several directions, judged from videos of their motion.
+    scope: Qualitative directionality of contractile motion; not the measured fraction of motion along the tissue axis, not structural anisotropy and not contraction amplitude.
+    dimension: categorical
+- add_term:
+    field: measure
+    id: measure:calcium_wavefront_shape_fraction
+    label: fraction of cells with a calcium wavefront shape
+    parent: null
+    definition: Share of cells whose calcium transient wavefront in confocal line scans has a stated shape (qualifier shape, with the source's criterion).
+    scope: A counted share of cells by wavefront shape; not irregular calcium events reported as present or absent, not arrhythmia incidence and not synchrony between cells.
+    dimension: dimensionless
+    qualifiers:
+      shape: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:gene_expression_ratio
+    label: ratio of two genes' expression
+    parent: measure:gene_expression
+    definition: The relative mRNA level of one gene divided by that of another (qualifier gene names both, as printed).
+    scope: A ratio of two genes' relative levels; not the level of one gene (the parent), not allele-specific expression and not a microRNA level.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:pacing_interval_deviation
+    label: deviation of beat interval from pacing cycle length
+    parent: measure:pacing_entrainment
+    definition: Relative difference, in percent, between the measured interval of successive transients or beats and the interval set by the pacing frequency.
+    scope: A graded measure of how closely beats follow the stimulus at one frequency; not a yes/no or share-of-cells entrainment (the parent) and not the maximum capture rate.
+    dimension: dimensionless
+# --- standing keys for new measures
+- standing_key:
+    measure: measure:beating_synchrony
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contraction_direction
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_wavefront_shape_fraction
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.shape, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.shape]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:gene_expression_ratio
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.gene, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.gene]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:pacing_interval_deviation
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# --- context
+- field: purification
+  stated: glucose starvation
+  terms: [purification:metabolic_selection]
+  qualifiers:
+    substrate: glucose-free RPMI + B27 with insulin
+  note: Selection by glucose withdrawal; the paper names no lactate, so this is not a synonym of the lactate-based definition.
+- field: cm_medium
+  stated: RPMI + B27 with insulin
+  terms: [cm_medium:rpmi_1640]
+  split:
+  - words: B27 with insulin
+    field: supplements
+- field: platform
+  stated: random single
+  terms: [platform:culture_2d]
+  qualifiers:
+    cell_contact: single cells
+    format: unpatterned (random)
+  note: Unpatterned single hiPSC-CMs on the same hydrogel; not a monolayer.
+- field: platform
+  stated: random cluster
+  terms: [platform:culture_2d]
+  qualifiers:
+    cell_contact: cell clusters
+    format: unpatterned (random)
+  note: Unpatterned clusters of interconnected hiPSC-CMs at the same density; the paper does not call it a monolayer.
+- field: genotype
+  stated: heterozygous MYBPC3+/−
+  terms: [genotype:mybpc3_variant]
+  qualifiers:
+    gene: MYBPC3
+    variant: MYBPC3+/−
+    zygosity: heterozygous
+- field: genotype
+  stated: homozygous MYBPC3−/−
+  terms: [genotype:mybpc3_variant]
+  qualifiers:
+    gene: MYBPC3
+    variant: MYBPC3−/−
+    zygosity: homozygous
+- field: cell_types
+  stated: undifferentiated hiPSCs
+  terms: [CL:0002248]
+  no_ontology_term: induced pluripotent stem cell (CL has only pluripotent stem cell)
+  note: lookup cl 'induced pluripotent stem cell' and 'pluripotent stem cell' gave only CL:0002248.
+# --- measures
+- field: measure
+  stated: sarcomere alignment of Z-lines
+  terms: [measure:sarcomere_organisation]
+  qualifiers:
+    aspect: Z-line alignment
+  note: Judged from α-actinin images; no values or quantification method printed.
+- field: measure
+  stated: sarcomere regularity
+  terms: [measure:sarcomere_organisation]
+  qualifiers:
+    aspect: regularity
+  note: Assessed from FFT images of α-actinin staining; no score or formula printed, so not the Fourier power score.
+- field: measure
+  stated: contraction direction
+  terms: [measure:contraction_direction]
+- field: measure
+  stated: cells with straight-line calcium transient wavefront
+  terms: [measure:calcium_wavefront_shape_fraction]
+  qualifiers:
+    shape: 'straight line (PTP/TD100 < 5% variance)'
+- field: measure
+  stated: T-tubule distribution regularity
+  terms: [measure:t_tubules]
+  qualifiers:
+    aspect: distribution regularity
+- field: measure
+  stated: samples with striated T-tubules colocalized with α-actinin at the Z-line
+  terms: [measure:constructs_with_feature]
+  qualifiers:
+    criterion: striated T-tubules colocalized with α-actinin at the Z-line
+- field: measure
+  stated: gap junction (Cx43) distribution
+  terms: [measure:protein_staining]
+  qualifiers:
+    protein: Cx43
+- field: measure
+  stated: adherens junction (N-cadherin) distribution
+  terms: [measure:protein_staining]
+  qualifiers:
+    protein: N-cadherin
+- field: measure
+  stated: TNNT2 relative gene expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNT2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: ratio of MYH7/MYH6 relative expression
+  terms: [measure:gene_expression_ratio]
+  qualifiers: {gene: MYH7/MYH6, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: GJA1 relative gene expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: GJA1, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: CDH2 relative gene expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CDH2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: RYR2 relative gene expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: RYR2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: CAV3 relative gene expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CAV3, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: BIN1 relative gene expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: BIN1, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: time interval between adjacent calcium transient peaks
+  terms: [measure:inter_beat_interval]
+  note: Interval between calcium transient peaks during pacing; the paper's words differ from the stated text, so no synonym.
+- field: measure
+  stated: relative percent variation between the measured interval and the input frequency
+  terms: [measure:pacing_interval_deviation]
+  qualifiers: {expressed_as: '% change'}
+- field: measure
+  stated: contraction amplitude
+  terms: [measure:contraction_motion_amplitude]
+  note: Sony SI8000 motion amplitude in a.u.; the motion metric is not stated.
+- field: measure
+  stated: normalized contraction amplitude
+  terms: [measure:contraction_motion_amplitude]
+  qualifiers: {expressed_as: normalised, normalised_to: day 11 of each cell isotype}
+- field: measure
+  stated: normalized contraction duration
+  terms: [measure:twitch_duration]
+  qualifiers: {expressed_as: normalised, normalised_to: day 11 of each cell isotype}
+- field: measure
+  stated: normalized contraction time-to-peak
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {expressed_as: normalised, normalised_to: day 11 of each cell isotype}
+- field: measure
+  stated: normalized contraction relaxation time
+  terms: [measure:relaxation_time]
+  qualifiers: {expressed_as: normalised, normalised_to: day 11 of each cell isotype}
+- field: measure
+  stated: normalized contraction speed
+  terms: [measure:contractile_velocity]
+  qualifiers: {expressed_as: normalised, normalised_to: day 11 of each cell isotype}
+- field: measure
+  stated: TNNT2-positive cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TNNT2}
+- field: measure
+  stated: iCMF length
+  terms: [measure:tissue_length]
+  note: Length of the micropatterned multicellular fiber (6−10 cells); no beat phase stated.

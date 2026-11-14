@@ -1,0 +1,379 @@
+record: 2016_Lind
+formula_library_version: 26
+agent: {model: llm, instructions: formulas_v3}
+
+derived:
+  # ---- material properties (Supplementary Information (3), (4))
+  S3_youngs_modulus.modulus_tpu:
+    item: S3_youngs_modulus
+    group: tpu
+    measure: measure:elastic_modulus
+    formula: "E = sigma/eps"
+    anchor: {quote: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 1.62 ± 0.04 MPa (n=3)", where: "Supplementary Information (3)", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: linear_elastic_stress_strain, vars: {E: E, sigma: sigma, eps: eps}}
+    inputs:
+      sigma: {not_stated: true, kind: per sample, note: "stress-strain curves of Supplementary Fig. S3 only; not read"}
+      eps: {not_stated: true, kind: per sample, note: "strain up to 1 %"}
+    output: S3_youngs_modulus.values.tpu_supp
+    aggregation: mean of per-sample
+    note: The modulus is the slope of a linear fit to stress against strain up to 1 % strain, averaged over n = 3 test samples.
+  S3_youngs_modulus.modulus_cbtpu:
+    item: S3_youngs_modulus
+    group: cbtpu
+    measure: measure:elastic_modulus
+    formula: "E = sigma/eps"
+    anchor: {quote: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 8.77 ± 0.95 MPa (n=3)", where: "Supplementary Information (3)", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: linear_elastic_stress_strain, vars: {E: E, sigma: sigma, eps: eps}}
+    inputs:
+      sigma: {not_stated: true, kind: per sample, note: "stress-strain curves of Supplementary Fig. S3 only; not read"}
+      eps: {not_stated: true, kind: per sample, note: "strain up to 1 %"}
+    output: S3_youngs_modulus.values.cbtpu_supp
+    aggregation: mean of per-sample
+  S3_youngs_modulus.modulus_pdms:
+    item: S3_youngs_modulus
+    group: pdms
+    measure: measure:elastic_modulus
+    formula: "E = sigma/eps"
+    anchor: {quote: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 1.280 ± 0.085 MPa (n=3)", where: "Supplementary Information (3)", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: linear_elastic_stress_strain, vars: {E: E, sigma: sigma, eps: eps}}
+    inputs:
+      sigma: {not_stated: true, kind: per sample, note: "raw stress corrected by total sample mass against a supplier density of 1.13 g/cm3; the correction formula is not stated"}
+      eps: {not_stated: true, kind: per sample, note: "strain up to 1 %"}
+    output: S3_youngs_modulus.values.pdms_supp
+    aggregation: mean of per-sample
+    note: "PDMS stress was corrected for trapped air: 'Raw stress values were corrected according to total mass of sample'; how is not stated."
+  S4_resistivity.resistivity_cbtpu:
+    item: S4_resistivity
+    group: cbtpu
+    measure: measure:material_resistivity
+    formula: "not stated"
+    anchor: {quote: "Resistivity was determined using linear fit to data to resistance x area vs. length.", where: "Supplementary Information (4)", file: NIHMS819005-supplement-1.pdf}
+    no_formula: "a fit slope (resistance × area against line length); a linear-regression slope is not a library entry, and the resistances of Supplementary Fig. S4a are not read"
+    output: S4_resistivity.values.cbtpu_supp
+  S4_resistivity.resistivity_agpa:
+    item: S4_resistivity
+    group: agpa
+    measure: measure:material_resistivity
+    formula: "not stated"
+    anchor: {quote: "Resistivity was determined using linear fit to data to resistance x area vs. length.", where: "Supplementary Information (4)", file: NIHMS819005-supplement-1.pdf}
+    no_formula: "a fit slope (resistance × area against line length); a linear-regression slope is not a library entry, and the resistances of Supplementary Fig. S4b are not read"
+    output: S4_resistivity.values.agpa_supp
+  S4_conductivity.conductivity_cbtpu:
+    item: S4_conductivity
+    group: cbtpu
+    measure: measure:material_conductivity
+    formula: "kappa = 1/rho"
+    anchor: {quote: "resistivity of 1.19 Ω·cm, equivalent to a conductivity of 0.841 S/cm", where: "Supplementary Fig. S4a legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: reciprocal_def, vars: {r: kappa, b: rho}}
+    inputs:
+      rho: {value: S4_resistivity.values.cbtpu_supp, kind: constant}
+    output: S4_conductivity.values.cbtpu_legend
+    note: "'equivalent to' a conductivity names the reciprocal; 1 S = 1/Ω."
+  S4_conductivity.conductivity_agpa:
+    item: S4_conductivity
+    group: agpa
+    measure: measure:material_conductivity
+    formula: "kappa = 1/rho"
+    anchor: {quote: "Slope of fitted line indicates resistivity of 6.60·10-5 Ω·cm,", where: "Supplementary Fig. S4b legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: reciprocal_def, vars: {r: kappa, b: rho}}
+    inputs:
+      rho: {value: S4_resistivity.values.agpa_supp, kind: constant}
+    output: S4_conductivity.values.agpa_legend
+    note: "The legend continues 'equivalent to a conductivity of 1.52·10^4 S/cm' (superscript lost in extraction)."
+  F3ad_gauge_factor.gauge_factor:
+    item: F3ad_gauge_factor
+    measure: measure:gauge_factor
+    formula: "GF = rr/eps"
+    anchor: {quote: "Orange dotted line indicates a linear fit to part of the cycles with increasing strain, yielding a gauge factor of 2.56", where: "Fig. 3d legend"}
+    library: {formula: ratio_def, vars: {r: GF, a: rr, b: eps}}
+    inputs:
+      rr: {not_stated: true, kind: per sample, note: "relative resistance change ΔR/R0; Fig. 3d curve not read"}
+      eps: {not_stated: true, kind: per sample, note: "applied strain, triangular to 0.1 %"}
+    output: F3ad_gauge_factor.values.gf_supp
+    aggregation: mean of per-sample
+    note: "The gauge relation as the Supplementary Information prints it (Eq. 24): ΔR/R = GF·ε; GF is the slope of a linear fit over increasing-strain parts of cycles, averaged over n = 4 samples."
+
+  # ---- conduction (Fig. 2g,h)
+  F2g_velocity_ratio.anisotropy_s60:
+    item: F2g_velocity_ratio
+    group: s60
+    measure: measure:conduction_anisotropy_ratio
+    formula: "r = vpara/vortho"
+    anchor: {quote: "Ratio between action potential (AP) propagation speed parallel and orthogonal to the grooves", where: "Fig. 2g legend"}
+    library: {formula: ratio_def, vars: {r: r, a: vpara, b: vortho}}
+    inputs:
+      vpara: {not_stated: true, kind: per sample, note: "per-tissue speeds not printed; Fig. 2h prints one representative tissue per spacing"}
+      vortho: {not_stated: true, kind: per sample}
+    output: F2g_velocity_ratio.values.ratio_s60_text
+    aggregation: mean of per-sample
+    note: "Fig. 2g plots one ratio per tissue (open circles) and a bar at their mean, so the printed 2.7 is a mean of per-tissue ratios."
+  F2h_vpara.velocity:
+    item: F2h_vpara
+    measure: measure:conduction_velocity
+    formula: "not stated"
+    anchor: {quote: "Post-processing of data was conducted with custom MATLAB (MathWorks) code, as previously described21", where: "Methods, Optical mapping experiments"}
+    no_formula: "method stated only by citation [21]; distances and activation times behind Vpara are not printed"
+    inputs:
+      v: {by_reference: {citation: cit21, anchor: {quote: "Post-processing of data was conducted with custom MATLAB (MathWorks) code, as previously described21", where: "Methods, Optical mapping experiments"}}, kind: not stated}
+  F2h_vortho.velocity:
+    item: F2h_vortho
+    measure: measure:conduction_velocity
+    formula: "not stated"
+    anchor: {quote: "Post-processing of data was conducted with custom MATLAB (MathWorks) code, as previously described21", where: "Methods, Optical mapping experiments"}
+    no_formula: "method stated only by citation [21]; distances and activation times behind Vortho are not printed"
+    inputs:
+      v: {by_reference: {citation: cit21, anchor: {quote: "Post-processing of data was conducted with custom MATLAB (MathWorks) code, as previously described21", where: "Methods, Optical mapping experiments"}}, kind: not stated}
+
+  # ---- sarcomere structure (by reference to [19])
+  F2d_oop.oop:
+    item: F2d_oop
+    measure: measure:sarcomere_order_parameter
+    formula: "not stated"
+    anchor: {quote: "evaluated with custom MATLAB (MathWorks) code, as previously described19", where: "Methods, Tissue immunostaining and structural analysis"}
+    no_formula: "OOP is computed as described in [19]; the formula is stated only by citation"
+    inputs:
+      oop: {by_reference: {citation: cit19, anchor: {quote: "evaluated with custom MATLAB (MathWorks) code, as previously described19", where: "Methods, Tissue immunostaining and structural analysis"}}, kind: not stated}
+  F4e_oop.oop:
+    item: F4e_oop
+    measure: measure:sarcomere_order_parameter
+    formula: "not stated"
+    anchor: {quote: "evaluated with custom MATLAB (MathWorks) code, as previously described19", where: "Methods, Tissue immunostaining and structural analysis"}
+    no_formula: "OOP is computed as described in [19]; the formula is stated only by citation"
+    inputs:
+      oop: {by_reference: {citation: cit19, anchor: {quote: "evaluated with custom MATLAB (MathWorks) code, as previously described19", where: "Methods, Tissue immunostaining and structural analysis"}}, kind: not stated}
+  F4f_spd.spd:
+    item: F4f_spd
+    measure: measure:sarcomere_packing_density
+    formula: "not stated"
+    anchor: {quote: "evaluated with custom MATLAB (MathWorks) code, as previously described19", where: "Methods, Tissue immunostaining and structural analysis"}
+    no_formula: "SPD is computed as described in [19]; the formula is stated only by citation"
+    inputs:
+      spd: {by_reference: {citation: cit19, anchor: {quote: "evaluated with custom MATLAB (MathWorks) code, as previously described19", where: "Methods, Tissue immunostaining and structural analysis"}}, kind: not stated}
+
+  # ---- sensor readout: relative resistance change, conversion to stress, twitch
+  S14m_readout.relative_change:
+    item: S14m_readout
+    measure: measure:sensor_resistance
+    formula: "rr = (R - R0)/R0"
+    anchor: {quote: "quantifying relative resistance changes upon tissue contraction, applying peak detection and comparison with local baseline", where: "Methods, Data acquisition"}
+    library: {formula: relative_change, vars: {d: rr, x: R, x0: R0}}
+    inputs:
+      R: {not_stated: true, kind: per sample, note: "peak resistance"}
+      R0: {not_stated: true, kind: per sample, note: "local baseline resistance; the script's default gauge resistance is 125 kΩ"}
+    note: "'relative resistance change' (ΔR/R0) is a named operation; no values printed (Supplementary Fig. S14m plotted only)."
+  F3gh_gauge_stress.stress:
+    item: F3gh_gauge_stress
+    measure: measure:twitch_stress
+    formula: "sigma = C*rr"
+    anchor: {quote: "through a linear conversion factor C as described in Supplementary Information", where: "Fig. 3f legend"}
+    library: {formula: ratio_def, vars: {r: C, a: sigma, b: rr}}
+    inputs:
+      C:
+        printed: "3.107528138998242e+004"
+        unit: kPa
+        anchor: {quote: "Stress_conv_factor = 3.107528138998242e+004;", where: "Supplementary Information, Custom MATLAB scripts", file: NIHMS819005-supplement-1.pdf}
+        kind: constant
+        note: "the script's default factor, 'calculated from standard gauge resistance of 125k'; C itself comes from the modified Stoney model (Supplementary Eq. 25), which the library does not hold"
+      rr: {not_stated: true, kind: per sample, note: "relative resistance change of each beat, against local baseline"}
+    alternatives:
+      - {label: per-cantilever C, note: "wire layer thickness was corrected from each cantilever's loop resistance 'when comparing absolute stresses', so C may differ per cantilever"}
+    note: "Fig. 3f prints 'σ tissue = C × ΔR/R0'. The same conversion makes the stresses of F3i, F3j, F4b, S16, S17 and S20."
+  F3gh_gauge_stress.twitch:
+    item: F3gh_gauge_stress
+    measure: measure:twitch_stress
+    formula: "st = ssys - sdia"
+    anchor: {quote: "we obtained tissue twitch stress (σ ), the differences between the systolic and diastolic stress", where: "p. 306, main text"}
+    library: {formula: difference_from_reference, vars: {d: st, x: ssys, x0: sdia}}
+    inputs:
+      ssys: {not_stated: true, kind: per sample}
+      sdia: {not_stated: true, kind: per sample}
+    note: "The printed 7–15 kPa is a range over tissues, not one derived value, so no output is named."
+  F3gh_optical_stress.stress:
+    item: F3gh_optical_stress
+    measure: measure:twitch_stress
+    formula: "sigma = K*c"
+    anchor: {quote: "A linear conversion factor can be established between relative change in resistance, radius of curvature and tissue stress", where: "Supplementary Fig. S12 legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: ratio_def, vars: {r: K, a: sigma, b: c}}
+    inputs:
+      K: {not_stated: true, kind: constant, note: "curvature-to-stress factor of the modified Stoney model (script variable curvature2stress_averaged); its value is not printed"}
+      c: {not_stated: true, kind: per sample, note: "cantilever curvature from optical tracking"}
+  S14n_stress.stress_s40:
+    item: S14n_stress
+    group: s40
+    measure: measure:twitch_stress
+    formula: "sigma = C*rr"
+    anchor: {quote: "the mechanical model was modified based on profilometer data for 40 µm and 80 µm samples", where: "Supplementary Fig. S14 legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: ratio_def, vars: {r: C, a: sigma, b: rr}}
+    inputs:
+      C: {not_stated: true, kind: constant, note: "40 µm conversion factor (sinusoid 40 µm wavelength, 6 µm amplitude, 17 µm sheet); value not printed"}
+      rr: {not_stated: true, kind: per sample}
+  S14n_stress.stress_s60:
+    item: S14n_stress
+    group: s60
+    measure: measure:twitch_stress
+    formula: "sigma = C*rr"
+    anchor: {quote: "through a linear conversion factor C as described in Supplementary Information", where: "Fig. 3f legend"}
+    library: {formula: ratio_def, vars: {r: C, a: sigma, b: rr}}
+    inputs:
+      C:
+        printed: "3.107528138998242e+004"
+        unit: kPa
+        anchor: {quote: "Stress_conv_factor = 3.107528138998242e+004;", where: "Supplementary Information, Custom MATLAB scripts", file: NIHMS819005-supplement-1.pdf}
+        kind: constant
+        note: "the standard (60 µm) factor, assuming the default script factor is the one used here"
+      rr: {not_stated: true, kind: per sample}
+  S14n_stress.stress_s80:
+    item: S14n_stress
+    group: s80
+    measure: measure:twitch_stress
+    formula: "sigma = C*rr"
+    anchor: {quote: "the mechanical model was modified based on profilometer data for 40 µm and 80 µm samples", where: "Supplementary Fig. S14 legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: ratio_def, vars: {r: C, a: sigma, b: rr}}
+    inputs:
+      C: {not_stated: true, kind: constant, note: "80 µm conversion factor (sinusoid 80 µm wavelength, 22 µm amplitude, 2 µm sheet); value not printed"}
+      rr: {not_stated: true, kind: per sample}
+  S14n_stress.stress_s100:
+    item: S14n_stress
+    group: s100
+    measure: measure:twitch_stress
+    formula: "sigma = C*rr"
+    anchor: {quote: "the conversion factor for 80 µm was applied", where: "Supplementary Fig. S14 legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: ratio_def, vars: {r: C, a: sigma, b: rr}}
+    inputs:
+      C: {not_stated: true, kind: constant, note: "the 80 µm factor, by the paper's choice, not one modelled for 100 µm"}
+      rr: {not_stated: true, kind: per sample}
+  F4b_stress.fold_d4_d2:
+    item: F4b_stress
+    measure: measure:twitch_stress
+    formula: "r = s4/s2"
+    anchor: {quote: "increased by a factor of four from day 2 to 4", where: "p. 307, main text"}
+    library: {formula: ratio_def, vars: {r: r, a: s4, b: s2}}
+    inputs:
+      s4: {not_stated: true, kind: not stated, note: "day-4 mean stress; Fig. 4b bars not read"}
+      s2: {not_stated: true, kind: not stated, note: "day-2 mean stress"}
+    output: F4b_stress.values.fold_d4_d2_text
+    aggregation: not stated
+
+  # ---- normalised stress for dose-response curves
+  F3i_stress.normalised:
+    item: F3i_stress
+    measure: measure:twitch_stress
+    formula: "sn = (s - smin)/(smax - smin)"
+    anchor: {quote: "stress normalized between maximal and minimal values, tissue paced at 1 Hz", where: "Fig. 3i legend"}
+    library: {formula: ratio_of_differences, vars: {r: sn, x1: s, x2: smin, y1: smax, y2: smin}}
+    inputs:
+      s: {not_stated: true, kind: per sample}
+      smin: {not_stated: true, kind: not stated, note: "per tissue or per curve not stated"}
+      smax: {not_stated: true, kind: not stated}
+    note: "Fig. 3i y axis prints (σ −σ min)/(σ max−σ min)."
+  F3j_stress.normalised:
+    item: F3j_stress
+    measure: measure:twitch_stress
+    formula: "sn = (s - smin)/(smax - smin)"
+    anchor: {quote: "stress normalized between maximal and minimal values, tissue paced at 2 Hz", where: "Fig. 3j legend"}
+    library: {formula: ratio_of_differences, vars: {r: sn, x1: s, x2: smin, y1: smax, y2: smin}}
+    inputs:
+      s: {not_stated: true, kind: per sample}
+      smin: {not_stated: true, kind: not stated}
+      smax: {not_stated: true, kind: not stated}
+  F4j_stress.normalised:
+    item: F4j_stress
+    measure: measure:twitch_stress
+    formula: "sn = (s - smin)/(smax - smin)"
+    anchor: {quote: "Stress normalized between maximal and minimal values.", where: "Fig. 4j,k legend"}
+    library: {formula: ratio_of_differences, vars: {r: sn, x1: s, x2: smin, y1: smax, y2: smin}}
+    inputs:
+      s: {not_stated: true, kind: per sample, note: "stress taken as proportional to ΔR/R0 (σ ∼ ΔR/R0); the unknown constant cancels in the normalisation"}
+      smin: {not_stated: true, kind: not stated}
+      smax: {not_stated: true, kind: not stated}
+  F4k_stress.normalised:
+    item: F4k_stress
+    measure: measure:twitch_stress
+    formula: "sn = (s - smin)/(smax - smin)"
+    anchor: {quote: "Stress normalized between maximal and minimal values.", where: "Fig. 4j,k legend"}
+    library: {formula: ratio_of_differences, vars: {r: sn, x1: s, x2: smin, y1: smax, y2: smin}}
+    inputs:
+      s: {not_stated: true, kind: per sample, note: "stress taken as proportional to ΔR/R0 (σ ∼ ΔR/R0)"}
+      smin: {not_stated: true, kind: not stated}
+      smax: {not_stated: true, kind: not stated}
+  S17_stress_ec50.normalised:
+    item: S17_stress_ec50
+    measure: measure:twitch_stress
+    formula: "sn = s/s0"
+    anchor: {quote: "Stress normalized to initial stress prior to drug exposure.", where: "Supplementary Fig. S17c legend", file: NIHMS819005-supplement-1.pdf}
+    library: {formula: ratio_def, vars: {r: sn, a: s, b: s0}}
+    inputs:
+      s: {not_stated: true, kind: per sample}
+      s0: {not_stated: true, kind: per sample, note: "each tissue's stress before drug exposure"}
+    note: "The normalised curve is the one the EC50 is fitted to; no normalised value is printed."
+
+  # ---- apparent EC50s: curve fits, model not stated
+  F3i_ec50.ec50:
+    item: F3i_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an apparent EC50 from a dose–response fit; the fit model is not stated and curve fits are not library entries"
+    output: F3i_ec50.values.ec50_legend
+  F3j_ec50.ec50:
+    item: F3j_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an apparent EC50 from a dose–response fit; the fit model is not stated and curve fits are not library entries"
+    output: F3j_ec50.values.ec50_legend
+  S17_rate_ec50.ec50:
+    item: S17_rate_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an apparent EC50 from a dose–response fit; the fit model is not stated and curve fits are not library entries"
+    output: S17_rate_ec50.values.ec50_legend
+  S17_stress_ec50.ec50:
+    item: S17_stress_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an apparent EC50 from a dose–response fit; the fit model is not stated and curve fits are not library entries"
+    output: S17_stress_ec50.values.ec50_legend
+  S18_rate_ec50.ec50:
+    item: S18_rate_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an EC50 from the maximum observed beat rate against dose; the fit model is not stated and curve fits are not library entries"
+    output: S18_rate_ec50.values.ec50_legend
+  F4j_ec50.ec50:
+    item: F4j_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an apparent EC50 from a dose–response fit; the fit model is not stated and curve fits are not library entries"
+    output: F4j_ec50.values.ec50_legend
+  F4k_ec50.ec50:
+    item: F4k_ec50
+    measure: measure:ec50
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "an apparent EC50 from a dose–response fit; the fit model is not stated and curve fits are not library entries"
+    output: F4k_ec50.values.ec50_legend
+
+assumptions:
+  S3_youngs_modulus.modulus_tpu:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material: {reported: {fit: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 1.62 ± 0.04 MPa (n=3)"}}
+      small strain: {reported: {fit: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 1.62 ± 0.04 MPa (n=3)"}}
+  S3_youngs_modulus.modulus_cbtpu:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material: {reported: {fit: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 8.77 ± 0.95 MPa (n=3)"}}
+      small strain: {reported: {fit: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 8.77 ± 0.95 MPa (n=3)"}}
+  S3_youngs_modulus.modulus_pdms:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material: {reported: {fit: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 1.280 ± 0.085 MPa (n=3)"}}
+      small strain: {reported: {fit: "Linear fit to data in range up to 1%, gave an averaged Young’s modulus of 1.280 ± 0.085 MPa (n=3)"}}
+
+bounds: []
+proposals: []

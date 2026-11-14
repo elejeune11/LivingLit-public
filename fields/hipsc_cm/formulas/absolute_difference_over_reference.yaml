@@ -1,0 +1,41 @@
+# Written by code from changes.yaml (version 32); never edited.
+formula: absolute_difference_over_reference
+kind: derived
+statement: The absolute difference of two like quantities divided by a reference of the same kind, |a - b|/m (e.g. the beat-to-beat
+  difference in active stress over the mean active stress), is a ratio of the absolute difference to the reference.
+equations:
+- r = Abs(a - b)/m
+variables:
+  r: dimensionless
+  a: D
+  b: D
+  m: D
+  dn: D
+assumes:
+- dn = Abs(a - b)
+uses:
+- formula: ratio_def
+  subs:
+    r: r
+    a: dn
+    b: m
+does_not_apply: a signed difference (a - b)/m, a difference over the sum of the two (|a - b|/(a + b)), or a mean of per-pair
+  ratios compared with the ratio of means
+tests:
+- given:
+    a: 3.0
+    b: 1.0
+    m: 4.0
+  expect:
+    r: 0.5
+- given:
+    a: 1.0
+    b: 3.0
+    m: 4.0
+  expect:
+    r: 0.5
+- given:
+    a: 1.0
+    b: 3.0
+    m: 4.0
+  does_not_apply: the signed form gives -0.5

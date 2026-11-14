@@ -1,0 +1,1162 @@
+# Derivations as the methods state them (formula agent, instructions formulas_v3).
+record: 2018_Ronaldson-Bouchard
+formula_library_version: 0
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1e_stress.stress:
+    item: F1e_stress
+    formula: s = F/A
+    anchor: &id001
+      quote: Twitch forces were calculated as the average of the difference between cyclic peak maximum and minimum force and normalized
+        to the cross-sectional area
+      where: Methods, Direct measurements of force
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_line_fct.stress:
+    item: F1e_line_fct
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_line_e_ctrl_c2a.stress:
+    item: F1e_line_e_ctrl_c2a
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_line_e_ctrl_wtc.stress:
+    item: F1e_line_e_ctrl_wtc
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_line_e_int_c2a.stress:
+    item: F1e_line_e_int_c2a
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_line_e_int_wtc.stress:
+    item: F1e_line_e_int_wtc
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_line_e_int_imr.stress:
+    item: F1e_line_e_int_imr
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_regimes_c2a.stress:
+    item: F1e_regimes_c2a
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_regimes_wtc.stress:
+    item: F1e_regimes_wtc
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F1e_regimes_imr.stress:
+    item: F1e_regimes_imr
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F3i_stress.stress:
+    item: F3i_stress
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  F3j_stress.stress:
+    item: F3j_stress
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  ED9k_stress.stress:
+    item: ED9k_stress
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  ED9k_line_int.stress:
+    item: ED9k_line_int
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  ED9k_line_int_thap.stress:
+    item: ED9k_line_int_thap
+    formula: s = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: 'twitch force: mean over cycles of (peak maximum - minimum force); not printed'
+      A:
+        not_stated: true
+        kind: per sample
+        note: measured at the tissue centre after force measurements; values not printed
+    alternatives:
+    - label: area from a measured diameter assuming a circular cross-section (shape not stated)
+      formula: s = 4*F/(pi*d**2)
+  ED2f_cv.cv_e_int:
+    item: ED2f_cv
+    group: e_int
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: dividing the distance between the centres of these regions by the difference between their peak maxima
+      where: Methods, Conduction velocity
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: distance between the two region centres; not printed
+      t1:
+        not_stated: true
+        kind: per sample
+        note: time of peak maximum in region 1
+      t2:
+        not_stated: true
+        kind: per sample
+        note: time of peak maximum in region 2
+    output: ED2f_cv.values.e_int
+    aggregation: mean of per-sample
+    note: 'the printed value is mean ± s.e.m. over n = 4–5 tissues, i.e. a mean of per-tissue velocities; per-tissue d, t1, t2
+      are not printed, so code cannot rebuild it'
+  ED4d_freq.frequency:
+    item: ED4d_freq
+    formula: f = 1/T
+    anchor: &id002
+      quote: Beat frequencies were determined by inverting beat periods
+      where: Methods, Contractility analysis
+    library:
+      formula: frequency_def
+      vars:
+        f: f
+        T: T
+    inputs:
+      T:
+        not_stated: true
+        kind: per sample
+        note: beat period between pairs of local maxima; not printed
+    alternatives:
+    - label: mean of per-beat inverse periods vs inverse of the mean period (not stated)
+  ED4d_e_int_w3_vs_ctrl.frequency:
+    item: ED4d_e_int_w3_vs_ctrl
+    formula: f = 1/T
+    anchor: *id002
+    library:
+      formula: frequency_def
+      vars:
+        f: f
+        T: T
+    inputs:
+      T:
+        not_stated: true
+        kind: per sample
+        note: beat period between pairs of local maxima; not printed
+    alternatives:
+    - label: mean of per-beat inverse periods vs inverse of the mean period (not stated)
+  ED4d_e_int_w4_vs_ctrl.frequency:
+    item: ED4d_e_int_w4_vs_ctrl
+    formula: f = 1/T
+    anchor: *id002
+    library:
+      formula: frequency_def
+      vars:
+        f: f
+        T: T
+    inputs:
+      T:
+        not_stated: true
+        kind: per sample
+        note: beat period between pairs of local maxima; not printed
+    alternatives:
+    - label: mean of per-beat inverse periods vs inverse of the mean period (not stated)
+  ED4d_regimes.frequency:
+    item: ED4d_regimes
+    formula: f = 1/T
+    anchor: *id002
+    library:
+      formula: frequency_def
+      vars:
+        f: f
+        T: T
+    inputs:
+      T:
+        not_stated: true
+        kind: per sample
+        note: beat period between pairs of local maxima; not printed
+    alternatives:
+    - label: mean of per-beat inverse periods vs inverse of the mean period (not stated)
+  ED10d_freq.frequency:
+    item: ED10d_freq
+    formula: f = 1/T
+    anchor: *id002
+    library:
+      formula: frequency_def
+      vars:
+        f: f
+        T: T
+    inputs:
+      T:
+        not_stated: true
+        kind: per sample
+        note: beat period between pairs of local maxima; not printed
+    alternatives:
+    - label: mean of per-beat inverse periods vs inverse of the mean period (not stated)
+  ED4e_ratio.ratio_e_ctrl:
+    item: ED4e_ratio
+    group: e_ctrl
+    formula: r = v/a
+    anchor:
+      quote: MLC2v+:MLC2a+ ratio, an indicator of cardiomyocyte maturity
+      where: main text, p. 239
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        value: ED4e_mlc2v.values.e_ctrl
+        kind: constant
+      a:
+        value: ED4e_mlc2a.values.e_ctrl
+        kind: constant
+    output: ED4e_ratio.values.e_ctrl
+  ED4e_ratio.ratio_e_int:
+    item: ED4e_ratio
+    group: e_int
+    formula: r = v/a
+    anchor:
+      quote: MLC2v+:MLC2a+ ratio, an indicator of cardiomyocyte maturity
+      where: main text, p. 239
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        value: ED4e_mlc2v.values.e_int
+        kind: constant
+      a:
+        value: ED4e_mlc2a.values.e_int
+        kind: constant
+    output: ED4e_ratio.values.e_int
+  ED4e_ratio.ratio_l_ctrl:
+    item: ED4e_ratio
+    group: l_ctrl
+    formula: r = v/a
+    anchor:
+      quote: MLC2v+:MLC2a+ ratio, an indicator of cardiomyocyte maturity
+      where: main text, p. 239
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        value: ED4e_mlc2v.values.l_ctrl
+        kind: constant
+      a:
+        value: ED4e_mlc2a.values.l_ctrl
+        kind: constant
+    output: ED4e_ratio.values.l_ctrl
+  ED4e_ratio.ratio_l_int:
+    item: ED4e_ratio
+    group: l_int
+    formula: r = v/a
+    anchor:
+      quote: MLC2v+:MLC2a+ ratio, an indicator of cardiomyocyte maturity
+      where: main text, p. 239
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: a
+    inputs:
+      v:
+        value: ED4e_mlc2v.values.l_int
+        kind: constant
+      a:
+        value: ED4e_mlc2a.values.l_int
+        kind: constant
+    output: ED4e_ratio.values.l_int
+  ED5d_sarc.percentage:
+    item: ED5d_sarc
+    formula: p = ns/n
+    anchor:
+      quote: the percentage of cells containing sarcomeres of DAPI-positive cells was calculated
+      where: Methods, Fraction of cells containing sarcomeres
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: ns
+        b: n
+    inputs:
+      ns:
+        not_stated: true
+        kind: per sample
+        note: DAPI-positive cells positive for alpha-actinin
+      n:
+        not_stated: true
+        kind: per sample
+        note: DAPI-positive cells
+    output_unit: '%'
+  F2c_mito.percent_area:
+    item: F2c_mito
+    formula: p = Am/At
+    anchor:
+      quote: The per cent area of mitochondria in early-stage intensity-trained tissues
+      where: main text, p. 240
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: Am
+        b: At
+    inputs:
+      Am:
+        not_stated: true
+        kind: per sample
+        note: area covered by mitochondria
+      At:
+        not_stated: true
+        kind: per sample
+        note: area analysed (reference area not stated)
+    output: F2c_mito.values.e_int
+    aggregation: mean of per-sample
+    note: the printed value is a mean over samples of per-sample fractions (released data hold one percentage per sample)
+  ED5c_area.pct_change:
+    item: ED5c_area
+    formula: p = (Ac - Ar)/Ar
+    anchor:
+      quote: per cent change between the contracted and relaxed state
+      where: Methods, Change in tissue area
+    library:
+      formula: relative_change
+      vars:
+        d: p
+        x: Ac
+        x0: Ar
+    inputs:
+      Ac:
+        not_stated: true
+        kind: per sample
+        note: projected area, contracted
+      Ar:
+        not_stated: true
+        kind: per sample
+        note: projected area, relaxed
+    alternatives:
+    - label: change relative to the contracted area (reference state not stated)
+      formula: p = (Ar - Ac)/Ac
+  ED5c_area.normalized:
+    item: ED5c_area
+    formula: q = p/p6
+    anchor:
+      quote: Data represent the ratio of the change in area for a given time point and the change in area at day 6
+      where: Extended Data Fig. 5 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: q
+        a: p
+        b: p6
+    inputs:
+      p:
+        derived: ED5c_area.pct_change
+        kind: per sample
+      p6:
+        not_stated: true
+        kind: not stated
+        note: change in area at day 6; per tissue or group mean not stated
+    alternatives:
+    - label: each tissue normalised to its own day-6 value
+    - label: normalised to the group mean at day 6
+  ED2a_expr.fold_change:
+    item: ED2a_expr
+    formula: fc = x/x0
+    anchor:
+      quote: fold change relative to late-stage tissues at the start of stimulation
+      where: Extended Data Fig. 2a legend
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: x
+        b: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: relative expression; quantification model not stated
+      x0:
+        not_stated: true
+        kind: constant
+        note: late-stage tissues at the start of stimulation
+    alternatives:
+    - label: 2^-ddCt (Livak), not stated
+    note: the heat map shows log2 of the fold change (record finding)
+  F1b_conduction.log2_fold_change:
+    item: F1b_conduction
+    formula: l = log(x/x0)/log(2)
+    anchor:
+      quote: log2-fold change normalized to late-stage week 1 tissue gene expression
+      where: Methods, RT-PCR
+    no_formula: no library entry for a log2 transform of a ratio; quantification model (e.g. 2^-ddCt) and reference (per sample or group
+      mean) not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: constant
+        note: late-stage week 1 tissue expression
+  F1b_maturation.log2_fold_change:
+    item: F1b_maturation
+    formula: l = log(x/x0)/log(2)
+    anchor:
+      quote: log2-fold change normalized to late-stage week 1 tissue gene expression
+      where: Methods, RT-PCR
+    no_formula: no library entry for a log2 transform of a ratio; quantification model (e.g. 2^-ddCt) and reference (per sample or group
+      mean) not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: constant
+        note: late-stage week 1 tissue expression
+  F1b_structural.log2_fold_change:
+    item: F1b_structural
+    formula: l = log(x/x0)/log(2)
+    anchor:
+      quote: log2-fold change normalized to late-stage week 1 tissue gene expression
+      where: Methods, RT-PCR
+    no_formula: no library entry for a log2 transform of a ratio; quantification model (e.g. 2^-ddCt) and reference (per sample or group
+      mean) not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: constant
+        note: late-stage week 1 tissue expression
+  F1b_energetics.log2_fold_change:
+    item: F1b_energetics
+    formula: l = log(x/x0)/log(2)
+    anchor:
+      quote: log2-fold change normalized to late-stage week 1 tissue gene expression
+      where: Methods, RT-PCR
+    no_formula: no library entry for a log2 transform of a ratio; quantification model (e.g. 2^-ddCt) and reference (per sample or group
+      mean) not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: constant
+        note: late-stage week 1 tissue expression
+  F1b_calcium.log2_fold_change:
+    item: F1b_calcium
+    formula: l = log(x/x0)/log(2)
+    anchor:
+      quote: log2-fold change normalized to late-stage week 1 tissue gene expression
+      where: Methods, RT-PCR
+    no_formula: no library entry for a log2 transform of a ratio; quantification model (e.g. 2^-ddCt) and reference (per sample or group
+      mean) not stated
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+      x0:
+        not_stated: true
+        kind: constant
+        note: late-stage week 1 tissue expression
+  ED2b_SCN5A.fold_change:
+    item: ED2b_SCN5A
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED2b_RYR2.fold_change:
+    item: ED2b_RYR2
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED2b_CACNA1C.fold_change:
+    item: ED2b_CACNA1C
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED2b_ATP2A2.fold_change:
+    item: ED2b_ATP2A2
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED2b_MYH7_MYH6.fold_change:
+    item: ED2b_MYH7_MYH6
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_ATP2A2.fold_change:
+    item: ED9c_ATP2A2
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_ATP2A2_regimes.fold_change:
+    item: ED9c_ATP2A2_regimes
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_ATP2A2_const_w4_vs_fct.fold_change:
+    item: ED9c_ATP2A2_const_w4_vs_fct
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_ATP2A2_int_w4_vs_fct.fold_change:
+    item: ED9c_ATP2A2_int_w4_vs_fct
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_SLC8A1.fold_change:
+    item: ED9c_SLC8A1
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_SLC8A1_regimes.fold_change:
+    item: ED9c_SLC8A1_regimes
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_SLC8A1_const_w4_vs_fct.fold_change:
+    item: ED9c_SLC8A1_const_w4_vs_fct
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  ED9c_SLC8A1_int_w4_vs_fct.fold_change:
+    item: ED9c_SLC8A1_int_w4_vs_fct
+    formula: not stated
+    anchor:
+      quote: fold change normalized to glyceraldehyde-3-phosphate dehydrogenase (GAPDH) gene expression
+      where: Methods, RT-PCR
+    no_formula: '''fold change normalized to GAPDH'': the calibrator group and the quantification model are not stated'
+    alternatives:
+    - label: 2^-ddCt against an unstated calibrator group (Livak)
+    - label: 2^-dCt against GAPDH only
+  F3bc_fdar.calcium:
+    item: F3bc_fdar
+    formula: c = (F - F0)/F0
+    anchor: &id003
+      quote: normalized to the baseline at each frequency as (F–F0)/F0
+      where: Methods, Continuous recordings of force and calcium
+    library:
+      formula: relative_change
+      vars:
+        d: c
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence at each frequency
+  ED3jk_ca_disp.calcium:
+    item: ED3jk_ca_disp
+    formula: c = (F - F0)/F0
+    anchor: *id003
+    library:
+      formula: relative_change
+      vars:
+        d: c
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence at each frequency
+  F3g_calcium.calcium:
+    item: F3g_calcium
+    formula: c = (F - F0)/F0
+    anchor:
+      quote: (F – F0)/F0
+      where: Fig. 3 axis label
+      kind: figure text
+    library:
+      formula: relative_change
+      vars:
+        d: c
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: fluorescence
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence (choice not stated for drug doses)
+  ED3jk_ca_disp.displacement:
+    item: ED3jk_ca_disp
+    formula: y = x/x1
+    anchor:
+      quote: surrogate force (k) as determined by tissue displacement, normalized to 1 Hz
+      where: Extended Data Fig. 3 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: y
+        a: x
+        b: x1
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: displacement at each frequency
+      x1:
+        not_stated: true
+        kind: per sample
+        note: displacement at 1 Hz
+  ED10a_doses.calcium:
+    item: ED10a_doses
+    formula: not stated
+    anchor: not stated
+    no_formula: the only statement is the raster axis label 'F-F0/F0' (not text; as printed it reads F - F0/F0); the methods give (F–F0)/F0
+      only for the frequency recordings
+    alternatives:
+    - label: (F - F0)/F0 as in the frequency recordings
+      formula: c = (F - F0)/F0
+  ED10a_iso_001_vs_baseline.calcium:
+    item: ED10a_iso_001_vs_baseline
+    formula: not stated
+    anchor: not stated
+    no_formula: the only statement is the raster axis label 'F-F0/F0' (not text; as printed it reads F - F0/F0); the methods give (F–F0)/F0
+      only for the frequency recordings
+    alternatives:
+    - label: (F - F0)/F0 as in the frequency recordings
+      formula: c = (F - F0)/F0
+  ED10a_iso_100_vs_baseline.calcium:
+    item: ED10a_iso_100_vs_baseline
+    formula: not stated
+    anchor: not stated
+    no_formula: the only statement is the raster axis label 'F-F0/F0' (not text; as printed it reads F - F0/F0); the methods give (F–F0)/F0
+      only for the frequency recordings
+    alternatives:
+    - label: (F - F0)/F0 as in the frequency recordings
+      formula: c = (F - F0)/F0
+  ED10a_iso_1mM_vs_baseline.calcium:
+    item: ED10a_iso_1mM_vs_baseline
+    formula: not stated
+    anchor: not stated
+    no_formula: the only statement is the raster axis label 'F-F0/F0' (not text; as printed it reads F - F0/F0); the methods give (F–F0)/F0
+      only for the frequency recordings
+    alternatives:
+    - label: (F - F0)/F0 as in the frequency recordings
+      formula: c = (F - F0)/F0
+  ED3gi_force.fold:
+    item: ED3gi_force
+    formula: fc = F6/F1
+    anchor:
+      quote: increased approximately twofold over the range of stimulation frequencies
+      where: main text, p. 239
+    library:
+      formula: ratio_def
+      vars:
+        r: fc
+        a: F6
+        b: F1
+    inputs:
+      F6:
+        not_stated: true
+        kind: per sample
+        note: force of group e_int_6hz; no value, data row or reading (source is the MOESM9 continuous traces)
+      F1:
+        not_stated: true
+        kind: per sample
+        note: force of group e_int_1hz; no value, data row or reading
+    output: ED3gi_force.values.fold
+    note: the fold value lies between groups e_int_6hz and e_int_1hz (record 'between'), so the derivation carries no group
+  F3e_prp.change:
+    item: F3e_prp
+    formula: c = (Fp - Fs)/Fs
+    anchor:
+      quote: analysing the change in twitch tension from the first beat upon re-initiation of electrical stimulation
+      where: Methods, Direct measurements of force
+    library:
+      formula: relative_change
+      vars:
+        d: c
+        x: Fp
+        x0: Fs
+    inputs:
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: twitch tension of the first beat after rest
+      Fs:
+        not_stated: true
+        kind: per sample
+        note: reference twitch tension (pre-rest steady state assumed; not stated)
+    output_unit: '%'
+    alternatives:
+    - label: absolute change Fp - Fs (axis says %, reference not stated)
+  F3f_force.change:
+    item: F3f_force
+    formula: not stated
+    anchor: not stated
+    no_formula: how the change in force with isoproterenol was computed (absolute, relative, reference) is not stated
+  ED5a_elong.elongation:
+    item: ED5a_elong
+    formula: e = 1 - R
+    anchor:
+      quote: the aspect ratio was defined as (1 − Roundness)
+      where: Methods, Cell morphology
+    no_formula: a paper-specific definition (ImageJ Roundness); no library entry
+    inputs:
+      R:
+        not_stated: true
+        kind: per sample
+        note: ImageJ Roundness
+  F3h_ec50.hill_fit:
+    item: F3h_ec50
+    formula: not stated
+    anchor:
+      quote: fit the Hill equation for sigmoid curves to the data
+      where: Methods, Dose–response curves
+    no_formula: a curve fit (Hill equation; form and constraints not written) is not closed-form algebra in the library
+assumptions: {}
+bounds: []
+proposals:
+- formula: ratio_def
+  kind: definition
+  statement: A ratio (including a fold change, a fraction and a normalised value) is one quantity divided by another.
+  equations:
+  - r = a/b
+  variables:
+    r: D/D2
+    a: D
+    b: D2
+  does_not_apply: a difference, a log ratio, or a mean of per-sample ratios compared with a ratio of means
+  tests:
+  - given:
+      a: 6.0
+      b: 2.0
+    expect:
+      r: 3.0
+  - given:
+      a: 6.0
+      b: 2.0
+    does_not_apply: log2 ratio (1.585) is not the ratio
+  cites:
+    text: 'ISO 80000-1:2022 Quantities and units, Part 1: General (quotients of quantities; quantities of dimension one)'
+    url: https://www.iso.org/standard/76921.html
+- formula: stress_def
+  kind: definition
+  statement: Normal stress is the normal force divided by the area it acts on.
+  equations:
+  - sigma = F/A
+  variables:
+    sigma: stress
+    F: force
+    A: area
+  does_not_apply: shear force, or an area other than the one carrying the force (e.g. a per-cell or per-myofibril area)
+  tests:
+  - given:
+      F: 2.0
+      A: 4.0
+    expect:
+      sigma: 0.5
+  cites:
+    text: 'ISO 80000-4:2019 Quantities and units, Part 4: Mechanics (normal stress)'
+    url: https://www.iso.org/standard/64975.html
+- formula: conduction_velocity_def
+  kind: definition
+  statement: Conduction velocity is the distance between two sites divided by the difference of their activation times.
+  equations:
+  - v = d/(t2 - t1)
+  variables:
+    v: velocity
+    d: length
+    t1: time
+    t2: time
+  does_not_apply: propagation not along the line between the two sites (curved or oblique wavefront)
+  tests:
+  - given:
+      d: 1.0
+      t1: 0.0
+      t2: 0.5
+    expect:
+      v: 2.0
+  cites:
+    text: 'ISO 80000-3:2019 Quantities and units, Part 3: Space and time (velocity, speed = ds/dt)'
+    url: https://www.iso.org/standard/64974.html
+- formula: frequency_def
+  kind: definition
+  statement: The frequency of a periodic event is the inverse of its period.
+  equations:
+  - f = 1/T
+  variables:
+    f: frequency
+    T: time
+  does_not_apply: irregular beating, where the mean of inverse periods differs from the inverse of the mean period
+  tests:
+  - given:
+      T: 0.5
+    expect:
+      f: 2.0
+  cites:
+    text: 'ISO 80000-3:2019 Quantities and units, Part 3: Space and time (frequency f = 1/T)'
+    url: https://www.iso.org/standard/64974.html
+- formula: relative_change
+  kind: derived
+  statement: The relative change of a value from a reference, (x - x0)/x0, is the ratio of the difference to the reference.
+  equations:
+  - d = (x - x0)/x0
+  variables:
+    d: dimensionless
+    x: D
+    x0: D
+    dx: D
+  assumes:
+  - dx = x - x0
+  uses:
+  - formula: ratio_def
+    subs:
+      r: d
+      a: dx
+      b: x0
+  does_not_apply: a change expressed relative to a value other than the reference subtracted (e.g. % of peak)
+  tests:
+  - given:
+      x: 3.0
+      x0: 2.0
+    expect:
+      d: 0.5

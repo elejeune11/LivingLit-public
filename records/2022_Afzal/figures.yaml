@@ -1,0 +1,165 @@
+figures:
+  S9b:
+    file: mmc1.pdf
+    page: 14
+    crop:
+    - 160
+    - 278
+    - 240
+    - 372
+    script: figures/S9b.py
+    unit: S9b
+    kind: raster
+    groups:
+      Tnni1 d30:
+        item: S9b_tnni1
+        group: d30
+        unit_of_value: relative gene expression
+      Tnni1 CMM:
+        item: S9b_tnni1
+        group: cmm
+        unit_of_value: relative gene expression
+      Tnni3 d30:
+        item: S9b_tnni3
+        group: d30
+        unit_of_value: relative gene expression
+      Tnni3 CMM:
+        item: S9b_tnni3
+        group: cmm
+        unit_of_value: relative gene expression
+    note: 'Raster bars with translucent per-sample discs. d30 bars: discs overlap one another, bar only (countable false).
+      CMM bars: six standalone discs each, read as points. Axis calibrated from the five major ticks (0-4).'
+  S12ab:
+    file: mmc1.pdf
+    page: 18
+    crop:
+    - 195
+    - 125
+    - 280
+    - 232
+    script: figures/S12ab.py
+    unit: S12ab
+    kind: raster
+    groups:
+      d30:
+        item: S12b_amp
+        group: d30
+        unit_of_value: ΔF/F
+      CMM:
+        item: S12b_amp
+        group: cmm
+        unit_of_value: ΔF/F
+    note: Fig. S12b only (S12a means and SDs are printed under its panel). Raster scatter of translucent discs (n~30 per group)
+      that overlap one another heavily in both columns, so no points are read (countable false); each group's black mean line
+      is read. The SD whisker caps differ from the discs under them by a few grey levels and are not read. Axis calibrated
+      from the six major ticks (0-2.5).
+  F7ijk:
+    file: main.pdf
+    page: 14
+    crop:
+    - 95
+    - 580
+    - 355
+    - 690
+    script: figures/F7ijk.py
+    unit: F7hk
+    kind: raster
+    groups:
+      I d30:
+        item: F7i_d30_et1_d30
+        group: d30
+        unit_of_value: s-1
+      I endo+d30:
+        item: F7i_d30_et1_d30
+        group: d30_et1
+        unit_of_value: s-1
+      I CMM:
+        item: F7i_cmm_et1_cmm
+        group: cmm
+        unit_of_value: s-1
+      I endo+CMM:
+        item: F7i_cmm_et1_cmm
+        group: cmm_et1
+        unit_of_value: s-1
+      J d30:
+        item: F7j_d30_et1_d30
+        group: d30
+        unit_of_value: ΔF/F
+      J endo+d30:
+        item: F7j_d30_et1_d30
+        group: d30_et1
+        unit_of_value: ΔF/F
+      J CMM:
+        item: F7j_cmm_et1_cmm
+        group: cmm
+        unit_of_value: ΔF/F
+      J endo+CMM:
+        item: F7j_cmm_et1_cmm
+        group: cmm_et1
+        unit_of_value: ΔF/F
+      K d30:
+        item: F7k_d30_et1_d30
+        group: d30
+        unit_of_value: BPM
+      K d30+endo:
+        item: F7k_d30_et1_d30
+        group: d30_et1
+        unit_of_value: BPM
+      K CMM:
+        item: F7k_cmm_et1_cmm
+        group: cmm
+        unit_of_value: BPM
+      K CMM+endo:
+        item: F7k_cmm_et1_cmm
+        group: cmm_et1
+        unit_of_value: BPM
+    note: 'Fig. 7I-K. I and J: open bars (mean + SD, legend) with ~39 coloured discs per bar that overlap one another heavily,
+      so no points are read (countable false); each bar top (mean) and visible upper SD cap are read. The upper caps of J
+      d30 and J CMM lie wholly under their discs and are not read. K: four violins with 4-5 small dots each; several dots
+      sit on the violin outline or the median dashes, so no points are read (countable false); each dashed median line is
+      read. Fig. 7H (peak amplitude) is four bars with SD whiskers and no individual points, not read. Axes calibrated from
+      the major ticks (I 0.8-1.3, J 0-0.6, K 0-150).'
+no_points:
+  F6n: Fig. 6N bar panel (main.pdf p. 12, raster) is six bars (APD50 and APD90 as % of control for lidocaine, dofetilide,
+    nifedipine; n=30) with SD whiskers and ***; the rest of 6N is averaged AP traces. Fig. S12h (mmc1.pdf p. 18) is two bars
+    (DMSO, lidocaine beat frequency, % of control) with SD whiskers; S12i-k are voltage traces. No individual points. No released
+    file holds these values (mmc2.xlsx is GO terms; code_github holds network files only).
+  F1ef: 'first look (small model): Panel F is bars only; panel E is a 3D AFM image. (main.pdf p. 3)'
+  F1jk: 'first look (small model): J is a heatmap; K''s dots are per-gene statistics, not per-sample markers. (main.pdf p. 3)'
+  F1m: Fig. 1M (main.pdf p. 3) is four bars (d30, d60, CMM, Adult; Adult = 100%) with tiny error caps and significance bars;
+    no individual points. Fig. 1L is a PCA scatter (model output, not items).
+  F2i: 'Fig. 2I (main.pdf p. 5, raster) is a heat map (4 genes x 8 surfaces, d30 = 1.00) with each cell''s RQ printed in it;
+    no individual points, no error bars. Fig. S6a (mmc1.pdf p. 10) is an image table of Tukey-adjusted P values. All 32 printed
+    RQ and 112 P values are already in the record and were checked against 300-400 dpi renders: all match.'
+  F2h: Fig. 2H (main.pdf p. 5, raster) is grouped bars (d30, ANW, d30+matrix, CMM; d30 = 1) on a log2 RQ axis for 15 genes,
+    each with an error bar and significance dots; no individual points.
+  S7: 'first look (small model): Bar charts with error bars and significance stars; no per-sample markers. (mmc1.pdf p. 12)'
+  F3hi: Fig. 3H-I (main.pdf p. 6, raster) and Fig. S9c-d bar panels (mmc1.pdf p. 14, raster) are two bars each (d30, CMM)
+    with error caps and ***; no individual points. S9c/S9d histograms are pooled per-cell flow-cytometry distributions, not
+    per-sample markers. No released file holds these values (code_github holds network files only).
+  F3ef: 'first look (small model): Panels E and F are bars with error bars; no individual sample markers visible (main.pdf p. 7)'
+  S10fg: Fig. S10f-g (mmc1.pdf p. 16, raster) are three bars each (d30, d60, CMM) for beating duration (ms) and frequency
+    (beats/min) with upper SD caps and *** brackets; no individual points. Fig. 3O (main.pdf p. 8) is a PIV velocity-vector
+    overlay image, not a plot of values. No released file holds these values (mmc2.xlsx is GO terms; code_github holds network
+    files only).
+  F3jm: 'first look (small model): Bars with SD error bars for 3 replicates; no individual points visible. (main.pdf p. 7)'
+  F4bc: 'first look (small model): Panels B and C show mean curves and bars with error bars, no per-sample dots. (main.pdf p. 10)'
+  F4de: 'first look (small model): Panels D and E are bar charts with error bars; no individual sample markers. (main.pdf p. 10)'
+  F4hi: 'first look (small model): Panel H is a blot; panel I is bars with SD whiskers, no dots. (main.pdf p. 10)'
+  F5d: 'first look (small model): Panel D shows bars with error bars only; no per-sample markers visible. (main.pdf p. 11)'
+  F5eg: 'first look (small model): Histogram plus bars with error bars; no per-sample markers visible. (main.pdf p. 11)'
+  F5hi: 'first look (small model): Panel I is bars with error bars; H is an immunoblot image. (main.pdf p. 11)'
+  F6de: 'first look (small model): Panel E shows bars with error bars only; no individual points visible. (main.pdf p. 12)'
+  F6fg: 'first look (small model): Panel G shows bars with SD error bars and n=60; no individual markers visible. (main.pdf p. 12)'
+  F6k: Fig. 6K (main.pdf p. 12, raster) is six bars (d30, CMM for APD90, APD50, APD20; y axis APD (ms), 0-800) with upper
+    and lower SD/SEM whiskers and **, *, n.s brackets; no individual points. Fig. S12c (mmc1.pdf p. 18) is an image table
+    of MDP, APA, time to peak and MDR means +/- spread, already in the record as printed. No released file holds these values
+    (mmc2.xlsx is GO terms; code_github holds network files only).
+  F6hi: 'first look (small model): Panel I is bars with error bars; H is traces; no per-sample markers visible (main.pdf p. 12)'
+  F6lm: 'first look (small model): Panel L shows traces; M shows mean bars with SD error bars, no dots. (main.pdf p. 12)'
+  F7d: 'first look (small model): Single mean marker with error-bar crosshairs per condition; no individual samples. (main.pdf p.
+    14)'
+  F7ef: Fig. 7E (main.pdf p. 14, raster) is one mean marker per group (d30, CMM, endo+d30, endo+CMM) at State4 and State3
+    (OCR, pmol/min) with SEM whiskers and significance brackets; Fig. 7F is one mean marker per group (RCR ratio) with short
+    SEM caps. No individual points. No printed table or released file holds these values (mmc2.xlsx is GO terms; code_github
+    holds network files only).

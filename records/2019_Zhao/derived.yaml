@@ -1,0 +1,1515 @@
+record: 2019_Zhao
+formula_library_version: 14
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  S4O_force_cell.per_cm_riegler:
+    item: S4O_force_cell
+    group: riegler
+    formula: f = F/N
+    anchor: &id001
+      quote: Active force/Input CM
+      where: Fig. S4O table header (supplement 4)
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: S4O_force.values.force_riegler
+        part: mean
+        kind: constant
+      N:
+        value: S4O_input.values.input_riegler
+        kind: constant
+    output: S4O_force_cell.values.force_cell_riegler
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_cell.per_cm_mannhardt:
+    item: S4O_force_cell
+    group: mannhardt
+    formula: f = F/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: S4O_force.values.force_mannhardt
+        part: mean
+        kind: constant
+      N:
+        value: S4O_input.values.input_mannhardt
+        kind: constant
+    output: S4O_force_cell.values.force_cell_mannhardt
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_cell.per_cm_jackman:
+    item: S4O_force_cell
+    group: jackman
+    formula: f = F/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: S4O_force.values.force_jackman
+        part: mean
+        kind: constant
+      N:
+        value: S4O_input.values.input_jackman
+        kind: constant
+    output: S4O_force_cell.values.force_cell_jackman
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_cell.per_cm_tiburcy:
+    item: S4O_force_cell
+    group: tiburcy
+    formula: f = F/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: S4O_force.values.force_tiburcy
+        part: mean
+        kind: constant
+      N:
+        value: S4O_input.values.input_tiburcy
+        kind: constant
+    output: S4O_force_cell.values.force_cell_tiburcy
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_cell.per_cm_ronaldson:
+    item: S4O_force_cell
+    group: ronaldson
+    formula: f = F/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        not_stated: true
+        kind: constant
+        note: no active force printed for this row
+      N:
+        value: S4O_input.values.input_ronaldson
+        kind: constant
+    output: S4O_force_cell.values.force_cell_ronaldson
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_cell.per_cm_bw_1Hz:
+    item: S4O_force_cell
+    group: bw_1Hz
+    formula: f = F/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: S4O_force.values.force_bw_1Hz
+        part: mean
+        kind: constant
+      N:
+        value: S4O_input.values.input_bw_1Hz
+        kind: constant
+    output: S4O_force_cell.values.force_cell_bw_1Hz
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_cell.per_cm_bw_PRP:
+    item: S4O_force_cell
+    group: bw_PRP
+    formula: f = F/N
+    anchor: *id001
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        value: S4O_force.values.force_bw_PRP
+        part: mean
+        kind: constant
+      N:
+        value: S4O_input.values.input_bw_PRP
+        kind: constant
+    output: S4O_force_cell.values.force_cell_bw_PRP
+    output_unit: nN
+    note: Printed unit nN/Cell is nN per one CM (the count is dimensionless), given as nN for code's unit table. Column header names
+      the operation (active force divided by input number of CMs); the force is a group mean and the CM count one constant, so the ratio
+      of means equals the mean of ratios.
+  S4O_force_area.area:
+    item: S4O_force_area
+    formula: not stated
+    anchor:
+      quote: Average tissue width (diameter) and width of the tissue on the polymer wire (Tw) were measured
+      where: Journal version, STAR Methods
+    no_formula: the tissue width (diameter) is measured but how the cross-sectional area was computed from it is not stated, and no
+      width or area is printed
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+        note: average tissue width (diameter), per tissue, not printed
+    alternatives:
+    - label: circular section from the measured diameter (circular_cross_section_area)
+      formula: A = pi*d**2/4
+  S4O_force_area.stress_bw_1Hz:
+    item: S4O_force_area
+    group: bw_1Hz
+    formula: s = F/A
+    anchor:
+      quote: the force per cross-sectional area (or per cell) is on the order of those reported
+      where: Discussion
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        value: S4O_force.values.force_bw_1Hz
+        part: mean
+        kind: per sample
+      A:
+        derived: S4O_force_area.area
+        kind: per sample
+    output: S4O_force_area.values.force_area_bw_1Hz
+    aggregation: not stated
+    note: Only the Biowire II rows are derived here; the other studies' force per area carry an unexplained asterisk and are read as
+      taken from those studies.
+  S4O_force_area.stress_bw_PRP:
+    item: S4O_force_area
+    group: bw_PRP
+    formula: s = F/A
+    anchor:
+      quote: the force per cross-sectional area (or per cell) is on the order of those reported
+      where: Discussion
+    library:
+      formula: stress_def
+      vars:
+        sigma: s
+        F: F
+        A: A
+    inputs:
+      F:
+        value: S4O_force.values.force_bw_PRP
+        part: mean
+        kind: per sample
+      A:
+        derived: S4O_force_area.area
+        kind: per sample
+    output: S4O_force_area.values.force_area_bw_PRP
+    aggregation: not stated
+    note: Only the Biowire II rows are derived here; the other studies' force per area carry an unexplained asterisk and are read as
+      taken from those studies.
+  S4O_force.calibration:
+    item: S4O_force
+    formula: not stated
+    anchor:
+      quote: were fit to a third-degree polynomial equation, generating a force-displacement calibration curve for each custom probe
+        tip
+      where: Journal version, STAR Methods
+    no_formula: force from POMaC wire deflection by an empirical third-degree polynomial calibration per probe tip, interpolated by
+      tissue width on the wire (FEM-backed); coefficients not printed; not closed-form library algebra
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: maximum wire deflection, per tissue
+      Tw:
+        not_stated: true
+        kind: per sample
+        note: width of the tissue on the wire, per tissue
+  F2G_dil_10uM.active:
+    item: F2G_dil_10uM
+    formula: Fa = Ft - Fp
+    anchor: &id002
+      quote: The active force was calculated as the difference between the total and passive tension
+      where: Journal version, STAR Methods
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F2G_dil_20uM.active:
+    item: F2G_dil_20uM
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F4A_force.active:
+    item: F4A_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4B_b1_3v1.active:
+    item: S4B_b1_3v1
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4B_b2_3v1.active:
+    item: S4B_b2_3v1
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4B_b2_3v2.active:
+    item: S4B_b2_3v2
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4B_b3_3v1.active:
+    item: S4B_b3_3v1
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4B_b3_3v2.active:
+    item: S4B_b3_3v2
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4B_b4_3v1.active:
+    item: S4B_b4_3v1
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4GJ_force.active:
+    item: S4GJ_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4KN_force.active:
+    item: S4KN_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  S4O_force.active_bw_1Hz:
+    item: S4O_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        derived: S4O_force.calibration
+        kind: per sample
+        note: total tension, at peak contraction
+      Fp:
+        derived: S4O_force.calibration
+        kind: per sample
+        note: passive tension, at rest
+    group: bw_1Hz
+    output: S4O_force.values.force_bw_1Hz
+    aggregation: not stated
+  S4O_force.active_bw_PRP:
+    item: S4O_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        derived: S4O_force.calibration
+        kind: per sample
+        note: total tension, at peak contraction
+      Fp:
+        derived: S4O_force.calibration
+        kind: per sample
+        note: passive tension, at rest
+    group: bw_PRP
+    output: S4O_force.values.force_bw_PRP
+    aggregation: not stated
+  F5_nif_A_force.active:
+    item: F5_nif_A_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F5_nif_V_force.active:
+    item: F5_nif_V_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F5_thap_A_force.active:
+    item: F5_thap_A_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F5_thap_V_force.active:
+    item: F5_thap_V_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F6F_AF_D_NA_A.active:
+    item: F6F_AF_D_NA_A
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F6F_AF_F_NA_A.active:
+    item: F6F_AF_F_NA_A
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F6F_AF_D_NA_B.active:
+    item: F6F_AF_D_NA_B
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F6F_AF_D_AF_E.active:
+    item: F6F_AF_D_AF_E
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F6G_force.active:
+    item: F6G_force
+    formula: Fa = Ft - Fp
+    anchor: *id002
+    library:
+      formula: sum_of_parts
+      vars:
+        t: Ft
+        a: Fa
+        b: Fp
+    inputs:
+      Ft:
+        not_stated: true
+        kind: per sample
+        note: total tension at peak contraction, from wire deflection
+      Fp:
+        not_stated: true
+        kind: per sample
+        note: passive tension at rest, from wire deflection
+  F4B_3Hz.normalized:
+    item: F4B_3Hz
+    formula: r = F/F1
+    anchor: &id003
+      quote: Summary of active forces normalized to the force at 1 Hz
+      where: Fig. 4 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  F4C_V_St_3Hz_V_UnSt_3Hz.normalized:
+    item: F4C_V_St_3Hz_V_UnSt_3Hz
+    formula: r = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  F4C_V_St_2Hz_V_St_1Hz.normalized:
+    item: F4C_V_St_2Hz_V_St_1Hz
+    formula: r = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  F4C_V_St_2Hz_V_St_1Hz.own_control_V_St_1Hz:
+    item: F4C_V_St_2Hz_V_St_1Hz
+    group: V_St_1Hz
+    formula: r = F1/F1
+    anchor: *id003
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+    inputs:
+      F1:
+        not_stated: true
+        kind: per sample
+        note: 'the tissue''s active force at 1 Hz: the stated r = F/F1 with F = F1'
+    aggregation: mean of per-sample
+    note: 'The 1 Hz group is each tissue normalized to itself: mean 1, SD 0; this item tests another group against it.'
+  F4C_V_St_3Hz_V_St_1Hz.normalized:
+    item: F4C_V_St_3Hz_V_St_1Hz
+    formula: r = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  F4C_V_St_3Hz_V_St_1Hz.own_control_V_St_1Hz:
+    item: F4C_V_St_3Hz_V_St_1Hz
+    group: V_St_1Hz
+    formula: r = F1/F1
+    anchor: *id003
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+    inputs:
+      F1:
+        not_stated: true
+        kind: per sample
+        note: 'the tissue''s active force at 1 Hz: the stated r = F/F1 with F = F1'
+    aggregation: mean of per-sample
+    note: 'The 1 Hz group is each tissue normalized to itself: mean 1, SD 0; this item tests another group against it.'
+  F4C_V_St_3Hz_V_St_2Hz.normalized:
+    item: F4C_V_St_3Hz_V_St_2Hz
+    formula: r = F/F1
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  S4GJ_norm.normalized:
+    item: S4GJ_norm
+    formula: r = F/F1
+    anchor: &id004
+      quote: all measurements were normalized to the 1Hz baseline values
+      where: Journal version, STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  S4GJ_norm.own_control_St_1Hz:
+    item: S4GJ_norm
+    group: St_1Hz
+    formula: r = F1/F1
+    anchor: *id004
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+    inputs:
+      F1:
+        not_stated: true
+        kind: per sample
+        note: 'the tissue''s active force at 1 Hz: the stated r = F/F1 with F = F1'
+    aggregation: mean of per-sample
+    note: 'The 1 Hz group is each tissue normalized to itself: mean 1, SD 0; this item tests another group against it.'
+  S4KN_norm.normalized:
+    item: S4KN_norm
+    formula: r = F/F1
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: F
+        b: F1
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: active force at the group's pacing rate, per tissue
+      F1:
+        not_stated: true
+        kind: per sample
+        note: the same tissue's active force at 1 Hz
+    aggregation: not stated
+  S4KN_norm.own_control_St_1Hz:
+    item: S4KN_norm
+    group: St_1Hz
+    formula: r = F1/F1
+    anchor: *id004
+    library:
+      formula: normalized_to_own_control
+      vars:
+        my: r
+    inputs:
+      F1:
+        not_stated: true
+        kind: per sample
+        note: 'the tissue''s active force at 1 Hz: the stated r = F/F1 with F = F1'
+    aggregation: mean of per-sample
+    note: 'The 1 Hz group is each tissue normalized to itself: mean 1, SD 0; this item tests another group against it.'
+  F4B_3Hz.diff:
+    item: F4B_3Hz
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: normalized force amplitudes, measured with 3Hz pacing, are about 30% larger in conditioned atrial biowires
+      where: Results
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        derived: F4B_3Hz.normalized
+        kind: per sample
+        note: A_St_3Hz; bars not read (F4BC no points)
+      x0:
+        derived: F4B_3Hz.normalized
+        kind: per sample
+        note: A_UnSt_3Hz; bars not read
+    output: F4B_3Hz.values.diff_text
+    aggregation: of means
+    note: '''30% larger'' compares two group means of different tissues, so the change is of means.'
+  F4D_V.normalized_prp:
+    item: F4D_V
+    formula: r = Fprp/Flast
+    anchor:
+      quote: Summary results for PRP normalized to the last pacing frequency
+      where: Fig. 4D legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fprp
+        b: Flast
+    inputs:
+      Fprp:
+        not_stated: true
+        kind: per sample
+        note: post-rest force, per tissue
+      Flast:
+        not_stated: true
+        kind: per sample
+        note: force at the last pacing frequency before rest, per tissue
+    aggregation: mean of per-sample
+    alternatives:
+    - label: 'Methods: normalized to the 1 Hz baseline'
+      formula: r = Fprp/F1
+    note: The figure plots one ratio per tissue (readings F4D/Ventricular ST and UnST) and their mean.
+  F4D_prp_6Hz.fold:
+    item: F4D_prp_6Hz
+    formula: r = Fprp/F6
+    anchor:
+      quote: force after pacing at 6Hz was 2.5-fold higher (p = 0.044) than the force at 6 Hz pacing
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fprp
+        b: F6
+    inputs:
+      Fprp:
+        not_stated: true
+        kind: per sample
+        note: post-rest force, per tissue (V_St)
+      F6:
+        not_stated: true
+        kind: per sample
+        note: force at 6 Hz, per tissue (V_St); not plotted
+    output: F4D_prp_6Hz.values.fold_text
+    aggregation: not stated
+    note: If 6 Hz was the last pacing frequency, this is the quantity plotted per tissue in Fig. 4D (Ventricular ST readings, mean read
+      2.48).
+  F4D_prp_1Hz.fold:
+    item: F4D_prp_1Hz
+    formula: r = Fprp/F1
+    anchor:
+      quote: was 21-fold higher (p < 0.0001) than the force measured at 1 Hz
+      where: Results
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fprp
+        b: F1
+    inputs:
+      Fprp:
+        not_stated: true
+        kind: per sample
+        note: post-rest force, per tissue (V_St)
+      F1:
+        not_stated: true
+        kind: per sample
+        note: force at 1 Hz, per tissue (V_St); not plotted
+    output: F4D_prp_1Hz.values.fold_text
+    aggregation: not stated
+  F4ratio_V_St_A_St.ratio_V_St:
+    item: F4ratio_V_St_A_St
+    group: V_St
+    formula: r = a30/a90
+    anchor: &id005
+      quote: APD30/APD90 ratios (APD30/90)
+      where: Fig. 4 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        not_stated: true
+        kind: per sample
+        note: APD30 per cell; F4GM bars not read
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell; F4GM bars not read
+    aggregation: not stated
+    output: F4ratio_V_St_A_St.values.ratio_V
+  F4ratio_V_St_A_St.ratio_A_St:
+    item: F4ratio_V_St_A_St
+    group: A_St
+    formula: r = a30/a90
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        not_stated: true
+        kind: per sample
+        note: APD30 per cell; F4GM bars not read
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell; F4GM bars not read
+    aggregation: not stated
+    output: F4ratio_V_St_A_St.values.ratio_A
+  F4ratio_V_UnSt_A_UnSt.ratio_V_UnSt:
+    item: F4ratio_V_UnSt_A_UnSt
+    group: V_UnSt
+    formula: r = a30/a90
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        not_stated: true
+        kind: per sample
+        note: APD30 per cell; F4GM bars not read
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell; F4GM bars not read
+    aggregation: not stated
+  F4ratio_V_UnSt_A_UnSt.ratio_A_UnSt:
+    item: F4ratio_V_UnSt_A_UnSt
+    group: A_UnSt
+    formula: r = a30/a90
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        not_stated: true
+        kind: per sample
+        note: APD30 per cell; F4GM bars not read
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell; F4GM bars not read
+    aggregation: not stated
+  F7GI_ratio_mid_atr.ratio_mid:
+    item: F7GI_ratio_mid_atr
+    group: mid
+    formula: r = a30/a90
+    anchor:
+      quote: APD30/90 from atrial, mid, and ventricular regions were compared
+      where: Fig. 7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        reading: F7GI/H Mid Region
+        kind: per sample
+        note: APD30 group mean read from Fig. 7H
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell is not plotted in Fig. 7
+    aggregation: not stated
+    note: The ratio's own group mean is read too (F7GI/I ...); APD90 is never shown, so the chain cannot close.
+  F7GI_ratio_mid_atr.ratio_atr:
+    item: F7GI_ratio_mid_atr
+    group: atr
+    formula: r = a30/a90
+    anchor:
+      quote: APD30/90 from atrial, mid, and ventricular regions were compared
+      where: Fig. 7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        reading: F7GI/H Atrial End vs Mid
+        kind: per sample
+        note: APD30 group mean read from Fig. 7H
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell is not plotted in Fig. 7
+    aggregation: not stated
+    note: The ratio's own group mean is read too (F7GI/I ...); APD90 is never shown, so the chain cannot close.
+  F7GI_ratio_ven_atr.ratio_ven:
+    item: F7GI_ratio_ven_atr
+    group: ven
+    formula: r = a30/a90
+    anchor:
+      quote: APD30/90 from atrial, mid, and ventricular regions were compared
+      where: Fig. 7 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a30
+        b: a90
+    inputs:
+      a30:
+        reading: F7GI/H Ventricular End
+        kind: per sample
+        note: APD30 group mean read from Fig. 7H
+      a90:
+        not_stated: true
+        kind: per sample
+        note: APD90 per cell is not plotted in Fig. 7
+    aggregation: not stated
+    note: The ratio's own group mean is read too (F7GI/I ...); APD90 is never shown, so the chain cannot close.
+  F7E_amp_ven_atr.dff0_ven:
+    item: F7E_amp_ven_atr
+    group: ven
+    formula: r = Fpk/F0
+    anchor: &id006
+      quote: The ratio of peak tissue fluorescence intensity to baseline intensity, dF/F0 was calculated
+      where: Journal version, STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence of the region of interest
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence of the same region
+    output: F7E_amp_ven_atr.values.amp_ven
+    aggregation: not stated
+    alternatives: &id007
+    - label: 'dF/F0 as the name reads: (peak - baseline)/baseline (relative_change)'
+      formula: r = (Fpk - F0)/F0
+  F7E_amp_ven_atr.dff0_atr:
+    item: F7E_amp_ven_atr
+    group: atr
+    formula: r = Fpk/F0
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence of the region of interest
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence of the same region
+    output: F7E_amp_ven_atr.values.amp_atr
+    aggregation: not stated
+    alternatives: *id007
+  F7E_amp_mid_atr.dff0_mid:
+    item: F7E_amp_mid_atr
+    group: mid
+    formula: r = Fpk/F0
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+        note: peak fluorescence of the region of interest
+      F0:
+        not_stated: true
+        kind: per sample
+        note: baseline fluorescence of the same region
+    output: F7E_amp_mid_atr.values.amp_mid
+    aggregation: not stated
+    alternatives: *id007
+  F5_nif_A_ca.dff0:
+    item: F5_nif_A_ca
+    formula: r = Fpk/F0
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+      F0:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    alternatives: *id007
+  F5_nif_V_ca.dff0:
+    item: F5_nif_V_ca
+    formula: r = Fpk/F0
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+      F0:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    alternatives: *id007
+  F5_thap_A_ca.dff0:
+    item: F5_thap_A_ca
+    formula: r = Fpk/F0
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+      F0:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    alternatives: *id007
+  F5_thap_V_ca.dff0:
+    item: F5_thap_V_ca
+    formula: r = Fpk/F0
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Fpk
+        b: F0
+    inputs:
+      Fpk:
+        not_stated: true
+        kind: per sample
+      F0:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    alternatives: *id007
+  F7L_sero.normalized:
+    item: F7L_sero
+    formula: r = a/a0
+    anchor:
+      quote: Change in Ca2+ transient amplitude in response to serotonin normalized to the baseline
+      where: Fig. 7L legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: a0
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: Ca2+ transient amplitude with serotonin
+      a0:
+        not_stated: true
+        kind: per sample
+        note: the same tissue end's baseline amplitude
+    aggregation: not stated
+    alternatives:
+    - label: '''change'' as relative change (relative_change)'
+      formula: r = (a - a0)/a0
+  F7N_cv.normalized:
+    item: F7N_cv
+    formula: r = v/v0
+    anchor:
+      quote: Quantification of the conduction velocity upon ranolazine application after normalization to the baseline
+      where: Fig. 7N legend
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: v
+        b: v0
+    inputs:
+      v:
+        not_stated: true
+        kind: per sample
+        note: CV with ranolazine
+      v0:
+        not_stated: true
+        kind: per sample
+        note: the same end's baseline CV
+    aggregation: not stated
+  F4F_A.cv:
+    item: F4F_A
+    formula: not stated
+    anchor: not stated
+    no_formula: optical mapping is described, but how conduction velocity was computed from the recordings is not stated
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+      t:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: distance over activation time difference (conduction_velocity_def)
+      formula: v = d/t
+  F4F_V.cv:
+    item: F4F_V
+    formula: not stated
+    anchor: not stated
+    no_formula: optical mapping is described, but how conduction velocity was computed from the recordings is not stated
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+      t:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: distance over activation time difference (conduction_velocity_def)
+      formula: v = d/t
+  TXT2_cv.cv:
+    item: TXT2_cv
+    formula: not stated
+    anchor: not stated
+    no_formula: optical mapping is described, but how conduction velocity was computed from the recordings is not stated
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+      t:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: distance over activation time difference (conduction_velocity_def)
+      formula: v = d/t
+  TXT3_cv.cv:
+    item: TXT3_cv
+    formula: not stated
+    anchor: not stated
+    no_formula: optical mapping is described, but how conduction velocity was computed from the recordings is not stated
+    inputs:
+      d:
+        not_stated: true
+        kind: per sample
+      t:
+        not_stated: true
+        kind: per sample
+    alternatives:
+    - label: distance over activation time difference (conduction_velocity_def)
+      formula: v = d/t
+  F6H_viab.viability:
+    item: F6H_viab
+    formula: v = c/(c + p)
+    anchor:
+      quote: Viability was calculated as the average intensity of CFDA divided by the sum of average intensities of CFDA and PI
+      where: Journal version, STAR Methods
+    library:
+      formula: part_of_whole
+      vars:
+        f: v
+        a: c
+        b: p
+    inputs:
+      c:
+        not_stated: true
+        kind: per sample
+        note: average CFDA intensity
+      p:
+        not_stated: true
+        kind: per sample
+        note: average PI intensity
+  F6I_actinin.ratio:
+    item: F6I_actinin
+    formula: r = a/n
+    anchor:
+      quote: quantified by average intensity of a-actinin divided by the average intensity of DAPI counterstain
+      where: Journal version, STAR Methods
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: n
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: average a-actinin intensity
+      n:
+        not_stated: true
+        kind: per sample
+        note: average DAPI intensity
+  F2D_E.modulus:
+    item: F2D_E
+    formula: not stated
+    anchor:
+      quote: using a modified ASTM D638-10 Standard Test Method for Tensile Properties of Plastics as described
+      where: Journal version, STAR Methods
+    no_formula: the modulus method is stated only by citation (modified ASTM D638-10, Zhang et al., 2016)
+    inputs:
+      method:
+        by_reference:
+          citation: zhang2016
+          anchor:
+            quote: using a modified ASTM D638-10 Standard Test Method for Tensile Properties of Plastics as described
+            where: Journal version, STAR Methods
+        kind: not stated
+  F5_ic50_force.ic50:
+    item: F5_ic50_force
+    formula: not stated
+    anchor:
+      quote: Prism 6.0 was used to calculate the IC50
+      where: Journal version, STAR Methods
+    no_formula: IC50 from a dose-response curve fit in Prism; the model is not stated and a curve fit is not closed-form library algebra
+  F5_ic50_ca.ic50:
+    item: F5_ic50_ca
+    formula: not stated
+    anchor:
+      quote: Prism 6.0 was used to calculate the IC50
+      where: Journal version, STAR Methods
+    no_formula: IC50 from a dose-response curve fit in Prism; the model is not stated and a curve fit is not closed-form library algebra
+assumptions: {}
+bounds:
+- item: S5A_notch
+  value: S5A_notch.values.notch_BJ1D
+  formula: fraction_bounds
+- item: S5A_notch
+  value: S5A_notch.values.notch_iCell
+  formula: fraction_bounds
+- item: F3B_pca
+  value: F3B_pca.values.pc1_figure
+  formula: fraction_bounds
+- item: F3B_pca
+  value: F3B_pca.values.pc2_text
+  formula: fraction_bounds
+- item: F3B_pca
+  value: F3B_pca.values.pc3_text
+  formula: fraction_bounds
+- item: F6A_EF
+  value: F6A_EF.values.EF_NA_A
+  formula: fraction_bounds
+- item: F6A_EF
+  value: F6A_EF.values.EF_NA_B
+  formula: fraction_bounds
+- item: F6A_EF
+  value: F6A_EF.values.EF_NA_C
+  formula: fraction_bounds
+- item: F6A_EF
+  value: F6A_EF.values.EF_AF_D
+  formula: fraction_bounds
+- item: F6A_EF
+  value: F6A_EF.values.EF_AF_E
+  formula: fraction_bounds
+- item: F6A_EF
+  value: F6A_EF.values.EF_AF_F
+  formula: fraction_bounds
+proposals: []

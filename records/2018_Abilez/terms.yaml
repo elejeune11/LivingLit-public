@@ -1,0 +1,268 @@
+record: 2018_Abilez
+vocabulary_version: 47
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---- synonyms (the paper's exact words for an existing term)
+- add_synonym:
+    id: platform:engineered_3d
+    text: engineered heart muscle
+    anchor: Engineered heart muscle (EHM) formation depends on passive stretch
+- add_synonym:
+    id: mechanical_load:unloaded
+    text: no tension
+    anchor: containing only one post (control with no tension)
+- add_synonym:
+    id: measure:anchor_detachment
+    text: detachment from posts
+    anchor: The greatest detachment from posts was evident in the controls
+- add_synonym:
+    id: measure:sarcomere_organisation
+    text: sarcomeric banding
+    anchor: with sarcomeric banding patterns visible at all lengths
+- add_synonym:
+    id: measure:tissue_length
+    text: EHM length
+    anchor: the EHM length is indicated by L
+# ---- qualifiers
+- add_qualifier:
+    id: mechanical_load:end_anchored
+    name: inter_post_distance
+    dimension: length
+- add_qualifier:
+    id: mechanical_load:unloaded
+    name: posts
+    dimension: text
+- add_qualifier:
+    id: preparation:cryosection
+    name: thickness
+    dimension: length
+- add_qualifier:
+    id: measure:action_potential
+    name: population
+    dimension: text
+- add_qualifier:
+    id: measure:maximum_diastolic_potential
+    name: population
+    dimension: text
+- add_qualifier:
+    id: measure:sarcomere_organisation
+    name: aspect
+    dimension: text
+# ---- new measure term
+- add_term:
+    field: measure
+    id: measure:compaction_extent
+    label: extent of compaction
+    parent: measure:tissue_condensation
+    definition: How far a cast cell-matrix construct has shrunk from its initial size, as a percentage, judged from images.
+    scope: A graded or percentage extent of compaction of a whole construct; a yes/no judgement of condensation stays on
+      the parent, and a measured projected area is tissue projected area.
+    dimension: dimensionless
+    synonyms:
+    - text: extent of compaction
+      anchor: (F) extent of compaction
+- standing_key:
+    measure: measure:compaction_extent
+    value:
+      must_match: [platform@1, mechanical_load, substrate, day_of_measurement]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, substrate, day_of_measurement]
+mappings:
+# ---- context
+- field: insulin_day
+  stated: D7
+  flag:
+    kind: not a context
+    note: Printed 'D7' (RPMI + B27+ from D7); a quantity field, and code does not read 'D7' as a number. Please write it
+      as 'day 7'.
+- field: cm_medium
+  stated: RPMI + B27+
+  terms: [cm_medium:rpmi_1640]
+  split:
+  - {words: B27+, field: supplements}
+  note: B27 with insulin is a supplement, not the base medium.
+- field: platform
+  stated: glass cover slips
+  terms: [platform:culture_2d]
+  qualifiers: {format: glass cover slips}
+  split:
+  - {words: glass, field: substrate}
+  note: Single cells plated sparsely on Matrigel-coated 8 mm glass cover slips for patch clamp.
+- field: platform
+  stated: 1D
+  terms: [platform:monolayer]
+  note: The paper calls its monolayer controls '1D' ('As a 1D control, monolayers of cardiomyocytes'); no synonym added,
+    since '1D' elsewhere may name a fibre or linear format.
+- field: platform
+  stated: 3D
+  terms: [platform:engineered_3d]
+  note: Fibroblast-only EHMs ('1D and 3D controls consisting of only fibroblasts'); '3D' alone is broader than engineered
+    tissue, so no synonym.
+- field: mechanical_load
+  stated: passive stretch
+  terms: [mechanical_load:end_anchored]
+  note: EHMs held between two PDMS posts 5, 7 or 9 mm apart; post stiffness and load regime are not stated. No synonym,
+    as 'passive stretch' names other regimes elsewhere.
+- field: preparation
+  stated: 12 µm sections
+  terms: [preparation:cryosection]
+  qualifiers: {thickness: 12 µm}
+  note: Samples frozen at -80 °C and cut at -20 °C into 12 µm sections.
+- field: cell_types
+  stated: rat neonatal derived-CMs
+  terms: [CL:0000746]
+  split:
+  - {words: rat, field: species}
+  - {words: neonatal, field: donor_age}
+  note: CL:0002495 'fetal cardiomyocyte' carries 'neonatal cardiomyocyte' as a synonym but conflates fetal and neonatal;
+    the age is in donor_age (neonatal) and the species in species (rat), both already stated.
+# ---- measures
+- field: measure
+  stated: fraction of ventricular-like cells
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: ventricular-like}
+- field: measure
+  stated: fraction of atrial-like cells
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: atrial-like}
+- field: measure
+  stated: fraction of nodal-like cells
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: nodal-like}
+- field: measure
+  stated: maximum diastolic potential of ventricular-like cells
+  terms: [measure:maximum_diastolic_potential]
+  qualifiers: {population: ventricular-like cells}
+- field: measure
+  stated: maximal upstroke velocity of ventricular-like cells
+  terms: [measure:upstroke_velocity]
+  qualifiers: {population: ventricular-like cells}
+- field: measure
+  stated: troponin-T positive cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: troponin-T}
+- field: measure
+  stated: EHM condensation
+  terms: [measure:tissue_condensation]
+- field: measure
+  stated: detachment from reservoir wall
+  terms: [measure:constructs_with_feature]
+  qualifiers: {criterion: detachment from reservoir wall}
+  note: Percent of EHMs meeting a predetermined criterion, observed daily.
+- field: measure
+  stated: opacity
+  terms: [measure:constructs_with_feature]
+  qualifiers: {criterion: opacity}
+  note: Percent of EHMs meeting a predetermined criterion, observed daily.
+- field: measure
+  stated: V-neck formation
+  terms: [measure:constructs_with_feature]
+  qualifiers: {criterion: V-neck formation}
+  note: Percent of EHMs with a tension-induced V-neck at the anchoring posts.
+- field: measure
+  stated: troponin-T distribution across EHM width
+  terms: [measure:protein_staining]
+  qualifiers: {protein: troponin-T, region: across EHM width}
+- field: measure
+  stated: FSP-1 and CD31 distribution across EHM width
+  flag:
+    kind: several measures
+    note: Staining of two proteins (FSP-1, fibroblasts; CD31, endothelial cells) in one item; one item per protein.
+- field: measure
+  stated: FSP-1 and CD31 positive cells
+  flag:
+    kind: several measures
+    note: Two markers (FSP-1, CD31) in one item; one item per marker.
+- field: measure
+  stated: tissue morphology organization
+  terms: [measure:tissue_anisotropy]
+  note: '"Most organized morphology" of immunostained sections, judged by eye.'
+- field: measure
+  stated: sarcomere alignment with the primary direction of stretch
+  terms: [measure:sarcomere_organisation]
+  qualifiers: {aspect: alignment with the primary direction of stretch}
+- field: measure
+  stated: cardiomyocyte alignment
+  terms: [measure:tissue_anisotropy]
+  note: Troponin-T-stained sections at days 1, 5 and 9, alignment judged from images.
+- field: measure
+  stated: sarcomeres
+  terms: [measure:sarcomere_organisation]
+  qualifiers: {aspect: presence of sarcomeres}
+- field: measure
+  stated: EHM compaction
+  terms: [measure:tissue_condensation]
+  note: '"Better compaction" with fibroblasts, judged from images.'
+- field: measure
+  stated: VE-cadherin positive structures
+  terms: [measure:endothelial_network_formation]
+  qualifiers: {marker: VE-cadherin}
+  note: VE-cadherin-positive structures with branching morphology in control EHMs.
+- field: measure
+  stated: calcium transient amplitude
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: fold, normalised_to: F0 at the first frame}
+  note: f/f0 with f0 at the first frame; axis 'Relative Fluo4 Intensity'.
+- field: measure
+  stated: calcium transient time to peak
+  terms: [measure:calcium_transient_rise_time]
+  note: Time-to-peak from the x-intercept of the second derivative; no level stated.
+- field: measure
+  stated: calcium transient TD50
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: TD50}
+- field: measure
+  stated: calcium transient waveform properties
+  flag:
+    kind: several measures
+    note: '"Similar waveform properties" covers amplitude, time to peak, beating rate and TD50 together; one item per measure.'
+- field: measure
+  stated: ADRB1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ADRB1, expressed_as: fold}
+  note: &qpcr 2^−ΔΔCt against GAPDH, relative to iPSC; EHM+ also normalised by the 3:1 CM:fibroblast ratio, so normalised_to
+    is left to the values.
+- field: measure
+  stated: CAV3 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CAV3, expressed_as: fold}
+  note: *qpcr
+- field: measure
+  stated: KCNJ2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: KCNJ2, expressed_as: fold}
+  note: *qpcr
+- field: measure
+  stated: ADRB2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ADRB2, expressed_as: fold}
+  note: *qpcr
+- field: measure
+  stated: TNNT2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNT2, expressed_as: fold}
+  note: *qpcr
+- field: measure
+  stated: CACNA1C expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CACNA1C, expressed_as: fold}
+  note: *qpcr
+- field: measure
+  stated: ADRB1 and CAV3 expression
+  flag:
+    kind: several measures
+    note: Two genes with two folds (3-fold ADRB1, over 15-fold CAV3) in one item; one item per gene.
+- field: measure
+  stated: ADRB1, CAV3, CACNA1C and TNNT2 expression in fibroblasts
+  flag:
+    kind: several measures
+    note: Four genes in one item; one item per gene (and fibroblasts are the groups' cell type, not part of the measure).
+- field: measure
+  stated: cardiac gene expression
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: the six cardiac genes of Fig. 7B}
+  note: '"Highest levels of gene expression" at day 50, summarised over the Fig. 7B genes.'

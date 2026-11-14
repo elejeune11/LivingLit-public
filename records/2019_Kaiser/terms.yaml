@@ -1,0 +1,262 @@
+record: 2019_Kaiser
+vocabulary_version: 65
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:mould_cast_hydrogel
+    label: hydrogel cast in a mould, format not stated
+    parent: null
+    definition: A hydrogel, with or without cells, cast and kept in a mould whose holding format (free disc, trough with end posts or anchors) the stated words do not give.
+    scope: Use when only the casting mould is named; not a stated tissue between pillars, anchors or wires, not a stated flat cast patch, not a cell aggregate, and not a material sample stated as cell-free (cell-free material sample).
+    synonyms:
+    - text: custom PDMS molds
+      anchor: Compression testing was performed on 5 mm diameter hydrogel discs cast 1.88 ± 0.06 mm thick, prepared using custom PDMS molds.
+    qualifiers:
+      trough: {dimension: text}
+      shape: {dimension: text}
+# ---------------------------------------------------------------- preparation
+- add_synonym:
+    id: preparation:hydrated_gel_specimen
+    text: acellular hydrogels
+    anchor: were used to prepare cellularized and acellular hydrogels, respectively, for tensile mechanics and compaction characterization
+- add_synonym:
+    id: preparation:intact_tissue
+    text: tissue constructs
+    anchor: analyzed for beating cellularized cardiac tissue constructs
+# ---------------------------------------------------------------- mechanical load
+- add_synonym:
+    id: mechanical_load:isometric
+    text: isometric compaction
+    anchor: Remodeling by resident cells and associated stresses resulting from isometric compaction (due to the custom-designed tissue molds
+# ---------------------------------------------------------------- purification
+- add_synonym:
+    id: purification:metabolic_selection
+    text: lactate purification
+    anchor: Cardiomyocytes designated for lactate puriﬁcation were harvested on day 15
+# ---------------------------------------------------------------- substrate
+- add_term:
+    field: substrate
+    id: substrate:collagen_sponge
+    label: collagen sponge
+    parent: null
+    definition: A pre-formed porous sponge of collagen (such as the Davol Ultrafoam haemostat) into which cells are seeded.
+    scope: A pre-formed porous collagen scaffold; not a collagen I hydrogel cast from solution (collagen I hydrogel), not a decellularized matrix and not a synthetic porous polymer.
+    synonyms:
+    - text: Davol ultrafoam
+      anchor: Davol ultrafoam + Matrigel
+- add_term:
+    field: substrate
+    id: substrate:poly_glycerol_sebacate
+    label: poly(glycerol sebacate)
+    parent: null
+    definition: The biodegradable elastomer poly(glycerol sebacate) (PGS), used as a solid or porous scaffold.
+    scope: A synthetic elastomer scaffold; not polycaprolactone, not PDMS and not a hydrogel or collagen sponge.
+    synonyms:
+    - text: PGS
+      anchor: porous PGS coated with laminin
+    qualifiers:
+      form: {dimension: text}
+# ---------------------------------------------------------------- adopted fields
+- add_synonym:
+    id: CVCL_RM92
+    text: Gibco human episomal iPSCs
+    anchor: Gibco human episomal iPSCs or GCaMP6 WTC hiPSCs from The Gladstone Institutes
+- adopt:
+    field: cell_line
+    id: CVCL_E6IL
+    label: UCSFi001-A-79
+    lookup: lookup cellosaurus 'WTC GCaMP' and 'GCaMP6' give CVCL_E6IL UCSFi001-A-79 (synonym WTC11-AAVS1-GCaMP6-C1), the WTC-11 GCaMP6 line of the Conklin lab (Gladstone); the paper thanks Bruce Conklin for the GCaMP6 line
+    synonyms:
+    - text: GCaMP6 WTC hiPSCs
+      anchor: Gibco human episomal iPSCs or GCaMP6 WTC hiPSCs from The Gladstone Institutes
+- adopt:
+    field: cell_types
+    id: CL:0000056
+    label: myoblast
+    lookup: lookup cl 'myoblast' gives CL:0000056 myoblast (exact); C2C12 is a mouse skeletal myoblast line
+- adopt:
+    field: treatment
+    id: CHEBI:749537
+    label: aprotinin
+    lookup: lookup chebi 'aprotinin' gives CHEBI:749537 aprotinin (exact); already adopted for supplements
+# ---------------------------------------------------------------- measures
+- add_synonym:
+    id: measure:compressive_modulus
+    text: compressive Young's modulus
+    anchor: (B) Unconﬁned compressive Young’s modulus of hydrogel formulations shown from least to most
+- add_synonym:
+    id: measure:elastic_modulus
+    text: tensile Young's modulus
+    anchor: Predictive modeling for tensile Young’s modulus of cardiac tissue constructs associates increased
+- add_synonym:
+    id: measure:tissue_projected_area
+    text: visible construct area
+    anchor: represents the model’s prediction of visible construct area in mm2 (a metric of compaction)
+- add_synonym:
+    id: measure:twitch_stress
+    text: peak active stress
+    anchor: 'Table S12: Lactate purified peak active stress model fit.'
+- add_term:
+    field: measure
+    id: measure:max_stress_rise_rate
+    label: maximal rate of stress rise
+    parent: measure:max_force_rise_rate
+    definition: Maximal rate of rise of active stress (force per cross-sectional area) during a twitch, in stress per time.
+    scope: Rate of rise of a tissue's active stress in force per area per time; rates of force rise in force per time stay on the parent, and rates of a cell layer's tension in force per length are maximal rate of tension rise.
+    dimension: stress_rate
+- add_term:
+    field: measure
+    id: measure:beating_uniformity
+    label: beating uniformity
+    parent: measure:beating_presence
+    definition: A visual grade of how much of a construct beats (none, localized regional beating, or uniform beating throughout the tissue).
+    scope: A graded extent of beating within one construct; a share of constructs that beat is fraction of constructs beating, and whether a construct beats at all stays on the parent.
+    dimension: categorical
+    synonyms:
+    - text: uniform beating
+      anchor: or 2 for uniform beating throughout tissue
+- standing_key:
+    measure: measure:max_stress_rise_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:beating_uniformity
+    value:
+      must_match: [platform@1, preparation, pacing, day_of_measurement, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- Table 1 (literature compositions)
+- field: cell_types
+  stated: neonatal rat CM
+  terms: [CL:0000746]
+  split:
+  - {words: rat, field: species}
+  - {words: neonatal, field: donor_age}
+  note: Cardiomyocytes; species and age belong to their own fields.
+- field: cell_types
+  stated: hESC/iPSC-CM
+  terms: [CL:0000746]
+  note: Cardiomyocytes from human embryonic or induced pluripotent stem cells; both readings are cardiac muscle cells, so no inference is made.
+- field: cell_types
+  stated: neonatal rat CM + C2C12
+  terms: [CL:0000746, CL:0000056]
+  split:
+  - {words: rat, field: species}
+  - {words: neonatal, field: donor_age}
+  - {words: C2C12, field: cell_line}
+  note: C2C12 is a mouse myoblast line, mapped to myoblast.
+- field: cell_types
+  stated: hiPSC-CM or neonatal rat/mouse
+  flag:
+    kind: alternatives
+    note: The table cell names hiPSC-CM or neonatal rat or mouse cardiomyocytes for one cited study; which applies is not one context.
+- field: substrate
+  stated: porous PGS coated with laminin
+  terms: [substrate:poly_glycerol_sebacate, substrate:laminin]
+  qualifiers: {form: porous}
+  note: Porous PGS scaffold with a laminin coating.
+# ---------------------------------------------------------------- this study
+- field: preparation
+  stated: discs
+  terms: [preparation:excised_tissue_sample]
+  note: Native rat myocardium cut as discs for compression; "discs" alone is not added as a synonym (hydrogel discs are cast specimens).
+- field: preparation
+  stated: strips
+  terms: [preparation:excised_tissue_sample]
+  note: Native rat myocardium cut as 2 mm × 10 mm strips for tension; "strips" alone is not added as a synonym.
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: cTnT+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cTnT}
+- field: measure
+  stated: SMA+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: SMA}
+- field: measure
+  stated: cTnT+ and SMA+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: cTnT and SMA, population: double positive}
+  note: One Table S2 column, the share of cells positive for both markers; not two measures.
+- field: measure
+  stated: SMA+ only cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: SMA, population: SMA+ only (cTnT negative)}
+- field: measure
+  stated: force upstroke velocity
+  terms: [measure:max_stress_rise_rate]
+  note: Printed in mN/mm2/s (stress per time); "force upstroke velocity" is not added as a synonym because it may be force per time elsewhere.
+- field: measure
+  stated: force upstroke velocity normalized by peak stress
+  terms: [measure:max_stress_rise_rate]
+  qualifiers: {expressed_as: normalised, normalised_to: peak stress}
+- field: measure
+  stated: force upstroke velocity normalized by stress amplitude
+  terms: [measure:max_stress_rise_rate]
+  qualifiers: {expressed_as: normalised, normalised_to: stress amplitude}
+- field: measure
+  stated: time to 50% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 50%}
+- field: measure
+  stated: time to 90% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 90%}
+- field: measure
+  stated: calcium transient upstroke velocity
+  terms: [measure:calcium_transient_rise_rate]
+  note: Printed in intensity/s (rate of GCaMP6 signal rise).
+- field: measure
+  stated: calcium transient time to 50% decay
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 50%}
+- field: measure
+  stated: calcium transient time to 90% decay
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: 90%}
+- field: measure
+  stated: peak twitch stress against strain
+  terms: [measure:frank_starling_response]
+  note: Fig. S6 example of twitch stress rising with strain; the value is the R2 of that relation.
+- field: measure
+  stated: alpha-actinin-positive cardiomyocyte content
+  flag:
+    kind: several measures
+    note: The paper glosses the content as "(cell number or size)", two measures (a count and a cell size) in one value.
+- field: measure
+  stated: cardiomyocyte alignment
+  terms: [measure:tissue_anisotropy]
+  note: Qualitative alignment of cardiomyocytes in frozen sections (data not shown).
+- field: measure
+  stated: connexin 43 expression and gap junction distribution
+  flag:
+    kind: several measures
+    note: Expression level of Cx43 and the distribution of gap junctions are two measures.
+- field: measure
+  stated: construct failure by necking and breaking
+  terms: [measure:constructs_with_feature]
+  qualifiers: {criterion: failure by necking and breaking}
+- field: measure
+  stated: construct compaction and beating
+  flag:
+    kind: several measures
+    note: Failure to compact and failure to resume beating are two measures (compaction and beating).
+- field: measure
+  stated: construct midpoint diameter
+  terms: [measure:tissue_width]
+  qualifiers: {portion: midpoint}
+- field: measure
+  stated: minimum construct diameter
+  terms: [measure:tissue_width]
+  qualifiers: {portion: narrowest point}

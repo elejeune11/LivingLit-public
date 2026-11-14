@@ -1,0 +1,37 @@
+# Written by code from changes.yaml (version 27); never edited.
+formula: mito_stress_test_partition
+kind: model
+statement: In a mitochondrial stress test, ATP-linked respiration is the oxygen consumption rate lost on adding oligomycin,
+  and proton-leak respiration is the oligomycin-insensitive rate above the rate left after rotenone and antimycin A.
+equations:
+- atp = b - o
+- leak = o - n
+variables:
+  atp: D
+  leak: D
+  b: D
+  o: D
+  n: D
+assumes:
+- oligomycin fully inhibits ATP synthase
+- rotenone and antimycin A abolish mitochondrial respiration
+- oligomycin does not change proton leak
+does_not_apply: incomplete inhibition by oligomycin or by rotenone and antimycin A; a leak taken as the raw oligomycin rate
+  without subtracting non-mitochondrial respiration
+tests:
+- given:
+    b: 100.0
+    o: 40.0
+    n: 10.0
+  expect:
+    atp: 60.0
+    leak: 30.0
+- given:
+    b: 100.0
+    o: 40.0
+    n: 10.0
+  does_not_apply: 'leak as the raw oligomycin rate (40) ignores non-mitochondrial respiration: 40, not 30'
+cites:
+  text: Brand MD, Nicholls DG (2011). Assessing mitochondrial dysfunction in cells. Biochem J 435:297-312 (the cell respiratory
+    control experiment, Figure 1)
+  url: https://doi.org/10.1042/BJ20110162

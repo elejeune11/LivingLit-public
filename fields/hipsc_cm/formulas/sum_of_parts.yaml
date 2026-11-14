@@ -1,0 +1,31 @@
+# Written by code from changes.yaml (version 8); never edited.
+formula: sum_of_parts
+kind: definition
+statement: A whole made of two non-overlapping parts of the same kind is the sum of the parts; a difference (change, consumption,
+  production) is that sum solved for one part.
+equations:
+- t = a + b
+variables:
+  t: D
+  a: D
+  b: D
+does_not_apply: overlapping parts (an item counted in both), or quantities of different kinds or units
+tests:
+- given:
+    a: 133.0
+    b: 123.0
+  expect:
+    t: 256.0
+- given:
+    a: 0.5
+    b: 0.25
+  expect:
+    t: 0.75
+- given:
+    a: 133.0
+    b: 123.0
+  does_not_apply: 'overlapping parts: 10 items in both give a whole of 246, not 256'
+cites:
+  text: 'ISO 80000-1:2022 Quantities and units, Part 1: General (quantities of the same kind can be added; the sum is a quantity
+    of that kind)'
+  url: https://www.iso.org/standard/76921.html

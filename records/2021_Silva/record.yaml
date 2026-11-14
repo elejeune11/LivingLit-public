@@ -1,0 +1,5121 @@
+# Record of 2021_Silva (record reader, instructions record_v7)
+id: 2021_Silva
+field_set: 3
+source:
+  title: Co-emergence of cardiac and gut tissues promotes cardiomyocyte maturation within human iPSC-derived organoids
+  doi: 10.1016/j.stem.2021.11.007
+  year: '2021'
+  first_author: Ana C. Silva
+  last_author: Todd C. McDevitt
+  lab: McDevitt lab, Gladstone Institutes
+  journal: Cell Stem Cell
+  files:
+  - main.pdf
+  - mmc1.pdf
+  missing:
+  - Video S1
+  - Video S2
+  - Video S5
+  - Video S6
+  - Video S7
+  not_used:
+  - file: mmc12.pdf
+    why: article plus supplemental information in one PDF; the same text as main.pdf followed by mmc1.pdf
+  - file: mmc2.xlsx
+    why: 'Table S1: Seurat cluster marker gene lists (p_val, avg_logFC, pct.1, pct.2, p_val_adj per gene); no group values'
+  - file: mmc3.xlsx
+    why: 'Table S2: in vivo cell classifier gene features and weights per cell type; no group values'
+default_context:
+  cell_line: GCaMP-WTC11
+  number_of_lines: not stated
+  species: human
+  transgene: GCaMP6f
+  genotype: not stated
+  disease_model: not stated
+  donor_age: not stated
+  differentiation_factors:
+    value: CHIR-99021 + IWP2
+    qualifiers:
+      CHIR-99021: 12 µM
+      IWP2: 5 µM
+  hipsc_medium: mTeSR1
+  hipsc_coating: GFR Matrigel
+  wnt_activation_days: 24 h
+  wnt_inhibition_days: 48 h
+  confluency: 100% confluency
+  purification: not stated
+  purity_method: not stated
+  purity: not stated
+  substrate: not stated
+  stromal_cell: not stated
+  endothelial_cell: not stated
+  composition: not stated
+  maturation_strategy: not stated
+  treatment: not applicable
+  mechanical_load: not stated
+  time_point: not applicable
+  incubator_atmosphere: not stated
+units:
+  F1E:
+    where: Fig. 1E
+    title: Multilineage microtissues increase in surface area throughout a 30-day culture
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: &id002
+        value: 2.4x104 cells/well
+        qualifiers:
+          differentiation: 3x104 cells/cm2
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: intact spheroids
+    groups:
+      conv_d7:
+        label: Conventional, day 7
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 7
+      conv_d10:
+        label: Conventional, day 10
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 10
+      conv_d20:
+        label: Conventional, day 20
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 20
+      conv_d30:
+        label: Conventional, day 30
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+      ml_d7:
+        label: Multilineage, day 7
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: &id001
+            value: ascorbic acid
+            qualifiers:
+              concentration: 100 µM
+            suspected_error:
+              what: ascorbic acid concentration of the multilineage medium printed in two units
+              why: Methods print '100µM L-Ascorbic Acid'; Results and Fig. S4 legend print 'AA = 100 µg/mL' (about 570 µM) for multilineage medium
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 7
+      ml_d10:
+        label: Multilineage, day 10
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 10
+      ml_d20:
+        label: Multilineage, day 20
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 20
+      ml_d30:
+        label: Multilineage, day 30
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+  F1H:
+    where: Fig. 1H; Fig. S1B
+    title: Multilineage microtissues exhibit more actively cycling (Ki67+) cardiomyocytes and non-cardiomyocytes than conventional microtissues
+    context:
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: fixed
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      day_of_measurement: not stated
+    note: panels show day 20 and day 30; the comparison is stated without a day
+    groups:
+      conv:
+        label: Conventional
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+      ml:
+        label: Multilineage
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+  F2C:
+    where: Fig. 2C
+    title: Multilineage organoids display an increase in surface area until day 100 of culture
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: intact spheroids
+    groups:
+      conv_d7:
+        label: Conventional, day 7
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 7
+      conv_d10:
+        label: Conventional, day 10
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 10
+      conv_d20:
+        label: Conventional, day 20
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 20
+      conv_d30:
+        label: Conventional, day 30
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+      conv_d40:
+        label: Conventional, day 40
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 40
+      conv_d50:
+        label: Conventional, day 50
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 50
+      conv_d60:
+        label: Conventional, day 60
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 60
+      conv_d70:
+        label: Conventional, day 70
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 70
+      conv_d80:
+        label: Conventional, day 80
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 80
+      ml_d7:
+        label: Multilineage, day 7
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 7
+      ml_d10:
+        label: Multilineage, day 10
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 10
+      ml_d20:
+        label: Multilineage, day 20
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 20
+      ml_d30:
+        label: Multilineage, day 30
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+      ml_d40:
+        label: Multilineage, day 40
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 40
+      ml_d50:
+        label: Multilineage, day 50
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 50
+      ml_d60:
+        label: Multilineage, day 60
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 60
+      ml_d70:
+        label: Multilineage, day 70
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 70
+      ml_d80:
+        label: Multilineage, day 80
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 80
+      ml_d90:
+        label: Multilineage, day 90
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 90
+      ml_d100:
+        label: Multilineage, day 100
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 100
+  F2GH:
+    where: Fig. 2G–2H
+    title: Spontaneous calcium flux transients of the smooth muscle cells (ROI 1) and cardiomyocytes (ROI 2) of a multilineage organoid
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+      temperature: 37 °C
+      pacing: none
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: not stated
+      preparation: intact spheroids
+      day_of_measurement: not stated
+    groups:
+      smc:
+        label: ROI 1 (smooth muscle cells)
+        other_conditions:
+        - text: smooth muscle cells (ROI 1)
+          anchor:
+            quote: spontaneous calcium flux transients of the smooth muscle cells (ROI 1)
+            where: Fig. 2G–H legend
+  F2J:
+    where: Fig. 2J
+    title: The number of actively cycling cells (Ki67+) decreases over time in multilineage organoids
+    context:
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: fixed
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+    groups:
+      ml_d30:
+        label: day 30
+        context:
+          day_of_measurement: day 30
+      ml_d100:
+        label: day 100
+        context:
+          day_of_measurement: day 100
+  F3:
+    where: Fig. 3A, 3G–3H; Fig. S2G
+    title: Single-cell transcriptomic analysis at day 100 reveals high cellular heterogeneity of multilineage organoids
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: dissociated cells
+      day_of_measurement: day 100
+    groups:
+      ml_d100:
+        label: day-100 multilineage organoids
+  S3B:
+    where: Fig. S3B
+    title: Calcium handling response to electrical stimulation (1 year-old multilineage organoids)
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+      temperature: 37 °C
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: intact spheroids
+      pacing:
+        value: electrical field stimulation
+        qualifiers:
+          frequency: 0.5-4Hz
+      day_of_measurement: day 365
+    groups:
+      ml_d365:
+        label: 1 year-old multilineage organoids
+  F4A:
+    where: Fig. 4A
+    title: Multilineage organoids demonstrated a reduction in spontaneous beating throughout culture
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      temperature: not stated
+      pacing: none
+      measurement_medium: not stated
+      measurement_calcium_mM: not stated
+      preparation: intact spheroids
+    groups:
+      conv_d10:
+        label: Conventional, day 10
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 10
+      conv_d20:
+        label: Conventional, day 20
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 20
+      conv_d30:
+        label: Conventional, day 30
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+      conv_d40:
+        label: Conventional, day 40
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 40
+      conv_d50:
+        label: Conventional, day 50
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 50
+      conv_d60:
+        label: Conventional, day 60
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 60
+      conv_d70:
+        label: Conventional, day 70
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 70
+      conv_d80:
+        label: Conventional, day 80
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 80
+      ml_d10:
+        label: Multilineage, day 10
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 10
+      ml_d20:
+        label: Multilineage, day 20
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 20
+      ml_d30:
+        label: Multilineage, day 30
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+      ml_d40:
+        label: Multilineage, day 40
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 40
+      ml_d50:
+        label: Multilineage, day 50
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 50
+      ml_d60:
+        label: Multilineage, day 60
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 60
+      ml_d70:
+        label: Multilineage, day 70
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 70
+      ml_d80:
+        label: Multilineage, day 80
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 80
+      ml_d90:
+        label: Multilineage, day 90
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 90
+      ml_d100:
+        label: Multilineage, day 100
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 100
+  F4C:
+    where: Fig. 4B–4C
+    title: Cardiomyocytes in multilineage organoids display mature calcium flux features such as higher amplitude, Vmax upstroke and downstroke
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      temperature: 37 °C
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: intact spheroids
+      pacing:
+        value: electrical field stimulation
+        qualifiers:
+          frequency: 1 Hz
+    groups:
+      conv_d30:
+        label: Conventional, day 30
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+      conv_d40:
+        label: Conventional, day 40
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 40
+      conv_d50:
+        label: Conventional, day 50
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 50
+      conv_d60:
+        label: Conventional, day 60
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 60
+      conv_d70:
+        label: Conventional, day 70
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 70
+      conv_d80:
+        label: Conventional, day 80
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 80
+      ml_d30:
+        label: Multilineage, day 30
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+      ml_d40:
+        label: Multilineage, day 40
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 40
+      ml_d50:
+        label: Multilineage, day 50
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 50
+      ml_d70:
+        label: Multilineage, day 70
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 70
+      ml_d80:
+        label: Multilineage, day 80
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 80
+      ml_d90:
+        label: Multilineage, day 90
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 90
+      ml_d100:
+        label: Multilineage, day 100
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 100
+  F4D:
+    where: Fig. 4D
+    title: Cardiomyocytes' ability to respond to electrical stimuli throughout culture time
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      temperature: 37 °C
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: intact spheroids
+      day_of_measurement: not applicable
+    note: days 30–100 are the x axis of each panel; values carry x
+    groups:
+      conv_0p5hz:
+        label: Conventional, 0.5Hz stimulation
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 0.5Hz
+      conv_1hz:
+        label: Conventional, 1 Hz stimulation
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 1 Hz
+      conv_2hz:
+        label: Conventional, 2 Hz stimulation
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 2 Hz
+      conv_3hz:
+        label: Conventional, 3 Hz stimulation
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 3 Hz
+      conv_4hz:
+        label: Conventional, 4 Hz stimulation
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 4 Hz
+      ml_0p5hz:
+        label: Multilineage, 0.5Hz stimulation
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 0.5Hz
+      ml_1hz:
+        label: Multilineage, 1 Hz stimulation
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 1 Hz
+      ml_2hz:
+        label: Multilineage, 2 Hz stimulation
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 2 Hz
+      ml_3hz:
+        label: Multilineage, 3 Hz stimulation
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 3 Hz
+      ml_4hz:
+        label: Multilineage, 4 Hz stimulation
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 4 Hz
+  S4AB:
+    where: Fig. S4A–S4B
+    title: Calcium handling response of day 80 conventional and multilineage spheroids subjected to electrical field stimulation at increasing frequencies
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      temperature: 37 °C
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: intact spheroids
+      day_of_measurement: day 80
+    groups:
+      conv_0p5hz:
+        label: Conventional, 0.5Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 0.5Hz
+      conv_1hz:
+        label: Conventional, 1 Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 1 Hz
+      conv_2hz:
+        label: Conventional, 2 Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 2 Hz
+      conv_3hz:
+        label: Conventional, 3 Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 3 Hz
+      conv_4hz:
+        label: Conventional, 4 Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 4 Hz
+      conv_6hz:
+        label: Conventional, 6 Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 6 Hz
+      conv_8hz:
+        label: Conventional, 8 Hz
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 8 Hz
+      ml_0p5hz:
+        label: Multilineage, 0.5Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 0.5Hz
+      ml_1hz:
+        label: Multilineage, 1 Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 1 Hz
+      ml_2hz:
+        label: Multilineage, 2 Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 2 Hz
+      ml_3hz:
+        label: Multilineage, 3 Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 3 Hz
+      ml_4hz:
+        label: Multilineage, 4 Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 4 Hz
+      ml_6hz:
+        label: Multilineage, 6 Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 6 Hz
+      ml_8hz:
+        label: Multilineage, 8 Hz
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          pacing:
+            value: electrical field stimulation
+            qualifiers:
+              frequency: 8 Hz
+  F4EG:
+    where: Fig. 4E–4G
+    title: Cardiomyocyte structural feature metrics and sarcomere classification
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: &id003
+        value: 2.4x104 cells/well
+        qualifiers:
+          differentiation: 3x104 cells/cm2
+          replating: 0.03x106 cells/cm2
+      dissociation_reagent: &id004
+        value: Accutase
+        qualifiers:
+          replating: 0.25% Trypsin
+      replating_coating: GFR Matrigel
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: fixed
+    groups:
+      conv_d30:
+        label: Conventional, day 30
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+      ml_d30:
+        label: Multilineage, day 30
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+      ml_d80:
+        label: Multilineage, day 80
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 80
+  F4I:
+    where: Fig. 4H–4I
+    title: Sarcomere length of day-100 multilineage organoid cardiomyocytes
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: fixed
+      day_of_measurement: day 100
+    groups:
+      ml_d100:
+        label: Multilineage, day 100
+  F4J:
+    where: Fig. 4J (table)
+    title: Electrophysiological characteristics of cardiomyocyte subtypes
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id003
+      dissociation_reagent: *id004
+      replating_coating: GFR Matrigel
+      temperature: 35 ± 1 °C
+      pacing: none
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: dissociated cells
+    groups:
+      conv_d30_v:
+        label: Conventional day 30 Vent.
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+        other_conditions:
+        - text: ventricular cardiomyocytes
+          anchor: &id005
+            quote: Representative electrophysiological traces of ventricular and atrial/nodal cardiomyocytes
+            where: Fig. 4L legend
+      conv_d30_an:
+        label: Conventional day 30 Atrial/Nodal
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+        other_conditions:
+        - text: atrial/nodal cardiomyocytes
+          anchor: *id005
+      ml_d30_v:
+        label: Multilineage day 30 Vent.
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+        other_conditions:
+        - text: ventricular cardiomyocytes
+          anchor: *id005
+      ml_d30_an:
+        label: Multilineage day 30 Atrial/Nodal
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+        other_conditions:
+        - text: atrial/nodal cardiomyocytes
+          anchor: *id005
+      ml_d60_v:
+        label: Multilineage day 60 Vent.
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 60
+        other_conditions:
+        - text: ventricular cardiomyocytes
+          anchor: *id005
+      ml_d60_an:
+        label: Multilineage day 60 Atrial/Nodal
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 60
+        other_conditions:
+        - text: atrial/nodal cardiomyocytes
+          anchor: *id005
+  F4K:
+    where: Fig. 4K
+    title: Percentage of ventricular and atrial/nodal cardiomyocytes dissociated from conventional microtissues and multilineage organoids
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id003
+      dissociation_reagent: *id004
+      replating_coating: GFR Matrigel
+      temperature: 35 ± 1 °C
+      pacing: none
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: dissociated cells
+    groups:
+      conv_d30:
+        label: Conventional, day 30
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: day 7
+          culture_calcium_mM: 0.42 mM
+          day_of_measurement: day 30
+      ml_d30:
+        label: Multilineage, day 30
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 30
+      ml_d60:
+        label: Multilineage, day 60
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id001
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+          day_of_measurement: day 60
+  S4D:
+    where: Fig. S4D (table)
+    title: Electrophysiological properties of day-30 cardiomyocytes differentiated in 2D in various media conditions
+    context:
+      platform: monolayer
+      cell_types: not stated
+      cm_day_at_formation: not applicable
+      seeding_density: &id007
+        value: 3x104 cells/cm2
+        qualifiers:
+          replating: 0.03x106 cells/cm2
+      dissociation_reagent: &id008
+        value: 0.25% Trypsin
+      replating_coating: GFR Matrigel
+      day_of_measurement: day 30
+      temperature: 35 ± 1 °C
+      pacing: none
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: dissociated cells
+    groups:
+      conv_v:
+        label: Conventional Vent.
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: not stated
+          culture_calcium_mM: 0.42 mM
+        other_conditions:
+        - text: ventricular cardiomyocytes
+          anchor: *id005
+      conv_an:
+        label: Conventional Atrial/Nodal
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: not stated
+          culture_calcium_mM: 0.42 mM
+        other_conditions:
+        - text: atrial/nodal cardiomyocytes
+          anchor: *id005
+      suppl_v:
+        label: Conventional Suppl. Vent.
+        context:
+          cm_medium: RPMI1640
+          supplements: &id009
+            value: B27 supplement with insulin + ascorbic acid
+            qualifiers:
+              concentration: 100 μg/ml
+            anchor:
+              quote: conventional cardiac media supplemented with AA and calcium (AA = 100 µg/mL, Ca2+ = 0.63 mM)
+              where: Results, Multilineage organoids promote atrial/nodal
+          insulin_day: not stated
+          culture_calcium_mM: 0.63 mM
+        other_conditions:
+        - text: ventricular cardiomyocytes
+          anchor: *id005
+      ml_v:
+        label: Multilineage Vent.
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: &id006
+            value: ascorbic acid
+            qualifiers:
+              concentration: 100 μg/ml
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+        other_conditions:
+        - text: ventricular cardiomyocytes
+          anchor: *id005
+      ml_an:
+        label: Multilineage Atrial/Nodal
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id006
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+        other_conditions:
+        - text: atrial/nodal cardiomyocytes
+          anchor: *id005
+    note: 'Conventional Suppl. Atrial/Nodal (n=0) is left out: no cells, values printed as ''-'''
+  S4F:
+    where: Fig. S4E–S4F
+    title: Percentage of ventricular and atrial/nodal cardiomyocytes across the different media conditions
+    context:
+      platform: monolayer
+      cell_types: not stated
+      cm_day_at_formation: not applicable
+      seeding_density: *id007
+      dissociation_reagent: *id008
+      replating_coating: GFR Matrigel
+      day_of_measurement: day 30
+      temperature: 35 ± 1 °C
+      pacing: none
+      measurement_medium: Tyrode's solution
+      measurement_calcium_mM: 1.8 mM
+      preparation: dissociated cells
+    groups:
+      conv:
+        label: Conv.
+        context:
+          cm_medium: RPMI1640
+          supplements: B27 supplement with insulin
+          insulin_day: not stated
+          culture_calcium_mM: 0.42 mM
+      suppl:
+        label: Conv. Supplemented
+        context:
+          cm_medium: RPMI1640
+          supplements: *id009
+          insulin_day: not stated
+          culture_calcium_mM: 0.63 mM
+      ml:
+        label: Multilineage
+        context:
+          cm_medium: Advanced DMEM/F12
+          supplements: *id006
+          insulin_day: not stated
+          culture_calcium_mM: 1.05 mM
+  F5:
+    where: Fig. 5B–5G; Fig. S5H–S5K
+    title: Multilineage organoid progenitor cells have a transcriptomic profile that supports the co-development of cardiac and gut tissues
+    context:
+      platform: monolayer
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: not applicable
+      seeding_density: 3x104 cells/cm2
+      dissociation_reagent: not applicable
+      replating_coating: not applicable
+      cm_medium: RPMI1640
+      supplements: B27 supplement minus insulin
+      insulin_day: not applicable
+      culture_calcium_mM: not stated
+      day_of_measurement: day 5
+      preparation: lysed with Trizol
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+    groups:
+      cardiac_prog:
+        label: cardiac microtissue progenitors
+        other_conditions:
+        - text: progenitor cells that gave rise to cardiac
+          anchor: &id010
+            quote: Day 5 progenitor cells that gave rise to cardiac (n = 2), multilineage (n = 1), or gut organoids (n = 2)
+            where: STAR Methods, Bulk RNA sequencing
+      ml_prog:
+        label: multilineage organoid progenitors
+        other_conditions:
+        - text: progenitor cells that gave rise to multilineage
+          anchor: *id010
+      gut_prog:
+        label: gut organoid progenitors
+        other_conditions:
+        - text: progenitor cells that gave rise to gut organoids
+          anchor: *id010
+    note: the three progenitor populations come from separate differentiation batches under the same stated conditions; they are grouped by the spheroid outcome
+  S1E:
+    where: Fig. S1E
+    title: Total volume, cardiac core volume, and ratio of cardiac:total volume of the multilineage organoids at days 10 and 30 of culture
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: fixed
+    groups:
+      ml_d10:
+        label: day 10
+        context:
+          day_of_measurement: day 10
+      ml_d30:
+        label: day 30
+        context:
+          day_of_measurement: day 30
+  S1IJ:
+    where: Fig. S1I–S1J
+    title: The dynamics of the percentage area occupied by cells positive for MYH7, SMA and Pecam-1 markers, and by ventricular cardiomyocytes (MLC2v)
+    context:
+      platform: spheroid
+      cell_types: mesendoderm progenitor cells
+      cm_day_at_formation: day 5
+      seeding_density: *id002
+      dissociation_reagent: Accutase
+      replating_coating: not applicable
+      cm_medium: Advanced DMEM/F12
+      supplements: *id001
+      insulin_day: not stated
+      culture_calcium_mM: 1.05 mM
+      temperature: not applicable
+      pacing: not applicable
+      measurement_medium: not applicable
+      measurement_calcium_mM: not applicable
+      preparation: fixed
+    groups:
+      ml_d30:
+        label: day 30
+        context:
+          day_of_measurement: day 30
+      ml_d50:
+        label: day 50
+        context:
+          day_of_measurement: day 50
+      ml_d60:
+        label: day 60
+        context:
+          day_of_measurement: day 60
+      ml_d80:
+        label: day 80
+        context:
+          day_of_measurement: day 80
+      ml_d100:
+        label: day 100
+        context:
+          day_of_measurement: day 100
+evidence:
+  F1E_area_d10:
+    unit: F1E
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage microtissues greater than conventional at day 10
+    compares:
+    - ml_d10
+    - conv_d10
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: &id011
+      quote: Multilineage microtissues increase in surface area throughout a 30-day culture. Representative experiment.
+      where: Fig. 1E legend
+    note: the **** mark sits at this day in Fig. 1E
+  F1E_area_d20:
+    unit: F1E
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage microtissues greater than conventional at day 20
+    compares:
+    - ml_d20
+    - conv_d20
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id011
+    note: the **** mark sits at this day in Fig. 1E
+  F1E_area_d30:
+    unit: F1E
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage microtissues greater than conventional at day 30
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id011
+    note: the **** mark sits at this day in Fig. 1E
+  F1E_area_d7:
+    unit: F1E
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area at day 7, no significance mark
+    groups:
+    - ml_d7
+    - conv_d7
+    anchor: *id011
+  F1E_size_ratio:
+    unit: F1E
+    measure: size
+    finding: Multilineage microtissues about 3 times the size of conventional by day 30
+    groups:
+    - ml_d30
+    - conv_d30
+    values:
+      ratio_text:
+        printed: ~3
+        unit: fold
+        kind: ratio
+        between:
+        - ml_d30
+        - conv_d30
+        spread: none
+    anchor:
+      quote: multilineage microtissues growing to approximately 3 times the size of conventional microtissues by 30 days
+      where: Results, Formation of heart-like compartments
+    note: printed as 'approximately 3 times'
+  F1H_ki67:
+    unit: F1H
+    measure: Ki67+ cardiomyocytes and non-cardiomyocytes
+    method: immunostaining of paraffin sections (slow/fast TnI, Ki67, Vim)
+    finding: More actively cycling (Ki67+) cells in multilineage than conventional microtissues (images, no quantification)
+    compares:
+    - ml
+    - conv
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Multilineage microtissues exhibit more actively cycling (Ki67+) cardiomyocytes and non-cardiomyocytes than conventional microtissues.
+        where: Fig. 1H legend
+    anchor:
+      quote: Multilineage microtissues exhibit more actively cycling (Ki67+) cardiomyocytes and non-cardiomyocytes than conventional microtissues.
+      where: Fig. 1H legend
+    note: qualitative, from images; no test printed
+  F2C_area_d10:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 10
+    compares:
+    - ml_d10
+    - conv_d10
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: &id012
+      quote: Multilineage organoids display an increase in surface area until day 100 of culture. Representative experiment.
+      where: Fig. 2C legend
+    note: the **** bar spans days 10 to 50 in Fig. 2C
+  F2C_area_d20:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 20
+    compares:
+    - ml_d20
+    - conv_d20
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id012
+    note: the **** bar spans days 10 to 50 in Fig. 2C
+  F2C_area_d30:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 30
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id012
+    note: the **** bar spans days 10 to 50 in Fig. 2C
+  F2C_area_d40:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 40
+    compares:
+    - ml_d40
+    - conv_d40
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id012
+    note: the **** bar spans days 10 to 50 in Fig. 2C
+  F2C_area_d50:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 50
+    compares:
+    - ml_d50
+    - conv_d50
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id012
+    note: the **** bar spans days 10 to 50 in Fig. 2C
+  F2C_area_d60:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 60
+    compares:
+    - ml_d60
+    - conv_d60
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '**p < 0.005'
+    anchor: *id012
+    note: the mark sits at day 60 in Fig. 2C
+  F2C_area_d70:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area of multilineage organoids greater than conventional at day 70
+    compares:
+    - ml_d70
+    - conv_d70
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '****p < 0.0001'
+    anchor: *id012
+    note: the mark sits at day 70 in Fig. 2C
+  F2C_area_unmarked:
+    unit: F2C
+    measure: surface area
+    method: brightfield images; surface area quantified
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    finding: Surface area at days 7, 80 (both media), 90 and 100 (multilineage), no significance mark
+    groups:
+    - ml_d7
+    - conv_d7
+    - ml_d80
+    - conv_d80
+    - ml_d90
+    - ml_d100
+    anchor: *id012
+  F2C_diameter_d100:
+    unit: F2C
+    measure: diameter
+    finding: Average multilineage organoid reached 2 mm in diameter after 100 days
+    groups:
+    - ml_d100
+    values:
+      diameter_text:
+        printed: '2'
+        unit: mm
+        kind: mean
+        group: ml_d100
+    anchor:
+      quote: with the average organoid reaching 2 mm in diameter after 100 days
+      where: Results, Long-term culture
+  F2GH_smc_duration:
+    unit: F2GH
+    method: light sheet fluorescence microscopy of GCaMP calcium transients
+    groups: &id013
+    - smc
+    anchor: &id014
+      quote: The SMC tissue displayed slow and infrequent calcium transients
+      where: Results, Long-term culture
+    measure: calcium transient duration
+    finding: SMC calcium transients last about 5 s
+    values:
+      duration_text:
+        printed: ~5
+        unit: s
+        kind: value
+        group: smc
+        spread: none
+    note: printed '~5 s duration per transient'; the ~ is lost in text extraction
+  F2GH_smc_frequency:
+    unit: F2GH
+    method: light sheet fluorescence microscopy of GCaMP calcium transients
+    groups: *id013
+    anchor: *id014
+    measure: calcium transient frequency
+    finding: 1–3 SMC calcium transients per minute
+    values:
+      freq_lo_text:
+        printed: '1'
+        unit: transients/minute
+        kind: value
+        group: smc
+        spread: none
+      freq_hi_text:
+        printed: '3'
+        unit: transients/minute
+        kind: value
+        group: smc
+        spread: none
+  F2GH_smc_contraction:
+    unit: F2GH
+    method: light sheet fluorescence microscopy of GCaMP calcium transients
+    groups: *id013
+    anchor:
+      quote: that corresponded to large contractions (>100 µm) that resembled peristalsis
+      where: Results, Long-term culture
+    measure: contraction size
+    finding: SMC transients corresponded to large contractions over 100 µm
+    values:
+      contraction_text:
+        printed: '>100'
+        unit: µm
+        kind: value
+        group: smc
+        spread: none
+  F2J_ki67:
+    unit: F2J
+    measure: Ki67+ cells
+    method: immunostaining (slow/fast TnI, Ki67, Vim)
+    finding: Actively cycling cells decline over time (images, no quantification)
+    compares:
+    - ml_d100
+    - ml_d30
+    stated_direction:
+      direction: down
+      anchor:
+        quote: The number of actively cycling cells (Ki67+) decreases over time in multilineage organoids.
+        where: Fig. 2J legend
+    anchor:
+      quote: Ki67 immunostaining demonstrated a decline in the number of actively cycling cells over time (Figure 2J)
+      where: Results, Long-term culture
+    note: qualitative, from images at days 30–100; no test printed
+  F3A_cells:
+    unit: F3
+    measure: cells analysed by scRNA-seq
+    method: scRNA-seq; Seurat clustering
+    software: CellRanger v3.0.2, Seurat v3.1
+    groups:
+    - ml_d100
+    finding: 3439 cells in the UMAP of all populations
+    values:
+      cells_fig:
+        printed: '3439'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: ''
+      where: Fig. 3A (figure label, image)
+      kind: unit
+    n:
+      printed: n = 5-8
+      counts: organoids dissociated
+  F3G_ventricular_markers:
+    unit: F3
+    measure: cardiomyocytes expressing IRX4 or MYH7
+    method: scRNA-seq cardiomyocyte sub-clustering
+    software: Seurat v3.1
+    groups:
+    - ml_d100
+    finding: A minority of cardiomyocytes (30%) expressed IRX4 or MYH7
+    values:
+      pct_text:
+        printed: '30'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: A minority of cardiomyocytes (30%) expressed the ventricular cardiomyocyte markers IRX4 or MYH7
+      where: Results, Long-term culture
+  F3H_atrial_cm:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: &id015
+    - ml_d100
+    n: &id016
+      printed: 3012 cells
+      counts: cells classified
+    measure: cells classified as atrial cardiomyocytes
+    finding: 98% of organoid cardiomyocytes classified atrial (39.87% of cells)
+    values:
+      pct_of_cm_text:
+        printed: '98'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cm_table:
+        printed: '98.44'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cm_results:
+        printed: '>90'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cells_fig:
+        printed: '39.87'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '1201'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: The classifier estimated that 98% of the organoid cardiomyocytes were atrial cardiomyocytes
+      where: Results, Long-term culture
+    note: 'pct_of_cm_results: ''enrichment of atrial/nodal cardiomyocytes (>90% at day 100; Figures 3H and S2G)''; pct_of_cells_fig and the S2G counts from images'
+  F3H_ventricular_cm:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as ventricular cardiomyocytes
+    finding: 1% of cardiomyocytes classified ventricular
+    values:
+      pct_of_cm_text:
+        printed: '1'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cm_table:
+        printed: '1.07'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cells_fig:
+        printed: '0.43'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '13'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: Ventricular cells represented only 1% of the cardiomyocytes
+      where: Results, Long-term culture
+  F3H_cardiomyocytes:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as cardiomyocytes (unspecified)
+    finding: 0.2% of cells classified as cardiomyocytes
+    values:
+      pct_of_cm_table:
+        printed: '0.49'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cells_fig:
+        printed: '0.2'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '6'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: ''
+      where: Fig. S2G (table, image)
+      kind: unit
+  F3H_fibroblast:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as fibroblast-like
+    finding: 44% of cells classified fibroblast-like
+    values:
+      pct_of_cells_text:
+        printed: '44'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cells_fig:
+        printed: '43.89'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '1322'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: The cell classifier also identified fibroblast and SMC/fibroblast-like cells, as expected, which represented 44% and 11% of the cells analyzed
+      where: Results, Long-term culture
+  F3H_smc_fibroblast:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as SMC/fibroblast-like
+    finding: 11% of cells classified SMC/fibroblast-like
+    values:
+      pct_of_cells_text:
+        printed: '11'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cells_fig:
+        printed: '11.42'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '344'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: The cell classifier also identified fibroblast and SMC/fibroblast-like cells, as expected, which represented 44% and 11% of the cells analyzed
+      where: Results, Long-term culture
+  F3H_subepicardial:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as subepicardial cells
+    finding: 3.29% of cells classified subepicardial
+    values:
+      pct_of_cells_fig:
+        printed: '3.29'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '99'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: ''
+      where: Fig. 3H (figure label, image); Fig. S2G
+      kind: unit
+  F3H_cap_endo_peri:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as capillary endothelium/pericytes/adventia
+    finding: 0.1% of cells classified capillary endothelium/pericytes/adventia
+    values:
+      pct_of_cells_text:
+        printed: '0.1'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      pct_of_cells_fig:
+        printed: '0.13'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '4'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: Although the capillary endothelium/pericytes/adventia cells corresponded to only 0.1% of the cells
+      where: Results, Long-term culture
+  F3H_cap_endo:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as capillary endothelium
+    finding: 0.07% of cells classified capillary endothelium
+    values:
+      pct_of_cells_fig:
+        printed: '0.07'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '2'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: ''
+      where: Fig. 3H (figure label, image); Fig. S2G
+      kind: unit
+  F3H_erythrocytes:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as erythrocytes
+    finding: 0.70% of cells classified erythrocytes
+    values:
+      pct_of_cells_fig:
+        printed: '0.70'
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+      count_table:
+        printed: '21'
+        unit: cells
+        kind: count
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: ''
+      where: Fig. 3H (figure label, image); Fig. S2G
+      kind: unit
+  F3H_subepi_capillary:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: cells classified as sub-epicardial or capillary endothelium/pericytes/adventia
+    finding: together less than 4% of cells
+    values:
+      pct_of_cells_text:
+        printed: <4
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: which together constituted less than 4% of the total cells evaluated
+      where: Results, Long-term culture
+    note: printed 'less than 4%'
+  F3H_probability:
+    unit: F3
+    method: scRNA-seq (10x Genomics); multiclass logistic regression classifier trained on human fetal heart cells (Asp et al., 2019)
+    software: CellRanger v3.0.2, Seurat v3.1, SCTransform 3.1.5.9, sklearn 0.22.2.post1
+    groups: *id015
+    n: *id016
+    measure: classifier prediction probability
+    finding: Prediction probabilities per assigned cell type
+    values:
+      atrial_text:
+        printed: '0.91'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      atrial_fig:
+        printed: '0.91'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      ventricular_text:
+        printed: '0.69'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+        suspected_error:
+          what: ventricular CM prediction probability printed twice with different values
+          why: text prints 'prediction probability = 0.69'; Fig. 3H prints 'Ventricular CM 0.43% (0.60)'
+      ventricular_fig:
+        printed: '0.60'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      fibroblast_text:
+        printed: '0.85'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      fibroblast_fig:
+        printed: '0.85'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      smc_fibroblast_text:
+        printed: '0.75'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      smc_fibroblast_fig:
+        printed: '0.75'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      cap_endo_peri_text:
+        printed: '1.00'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      cap_endo_peri_fig:
+        printed: '1.00'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      cardiomyocytes_fig:
+        printed: '0.90'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      subepicardial_fig:
+        printed: '0.63'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      erythrocytes_fig:
+        printed: '0.44'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+      cap_endo_fig:
+        printed: '0.59'
+        unit: probability
+        kind: value
+        group: ml_d100
+        spread: none
+    anchor:
+      quote: Ventricular cells represented only 1% of the cardiomyocytes (prediction probability = 0.69)
+      where: Results, Long-term culture
+    suspected_error:
+      what: ventricular prediction probability
+      why: text 0.69, Fig. 3H 0.60
+  S3B_contraction:
+    unit: S3B
+    measure: contractile behavior
+    method: GCaMP calcium imaging under field stimulation
+    groups:
+    - ml_d365
+    finding: Contraction observed only when electrical stimulation was applied (no values)
+    anchor:
+      quote: Contractile behavior was observed only when electrical stimulation was applied
+      where: Results, Long-term culture
+    note: the frequency range '0.5-4Hz' is read from the S3B legend, extracted as '0.54Hz'
+  F4A_spontaneous:
+    unit: F4A
+    measure: spontaneous beating
+    finding: Spontaneous beating falls from 100% at day 10 to 37% at day 100 in multilineage organoids; 100% of conventional microtissues beat
+    groups:
+    - conv_d10
+    - conv_d20
+    - conv_d30
+    - conv_d40
+    - conv_d50
+    - conv_d60
+    - conv_d70
+    - conv_d80
+    - ml_d10
+    - ml_d20
+    - ml_d30
+    - ml_d40
+    - ml_d50
+    - ml_d60
+    - ml_d70
+    - ml_d80
+    - ml_d90
+    - ml_d100
+    values:
+      ml_d10_text:
+        printed: '100'
+        unit: '%'
+        kind: percent
+        group: ml_d10
+        spread: none
+        suspected_error:
+          what: day-10 multilineage value
+          why: Fig. 4A appears to plot the day-10 multilineage point well below 100% (by eye; for the figures reader to check)
+      ml_d100_text:
+        printed: 37 ± 16
+        unit: '%'
+        kind: percent
+        group: ml_d100
+        spread: SEM
+        spread_source: legend
+      conv_text:
+        printed: '100'
+        unit: '%'
+        kind: percent
+        over:
+        - conv_d10
+        - conv_d20
+        - conv_d30
+        - conv_d40
+        - conv_d50
+        - conv_d60
+        - conv_d70
+        - conv_d80
+        spread: none
+    anchor:
+      quote: multilineage organoids demonstrated a decrease in spontaneous calcium activity over time, from 100% at day 10 to 37% ± 16% at day 100
+      where: Results, Multilineage organoids promote atrial/nodal
+    note: 'conv_text: ''Over time, 100% of conventional microtissues exhibited spontaneous contractility'''
+  F4C_amplitude_d30:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: &id017
+      printed: n = 4-18 per condition
+      counts: microtissues
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude differs between multilineage and conventional at day 30 (1 Hz)
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: &id018
+      quote: Cardiomyocytes in multilineage organoids display mature calcium flux features such as higher amplitude, Vmax upstroke and downstroke
+      where: Fig. 4C legend
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_amplitude_d40:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude differs between multilineage and conventional at day 40 (1 Hz)
+    compares:
+    - ml_d40
+    - conv_d40
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_amplitude_d50:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude differs between multilineage and conventional at day 50 (1 Hz)
+    compares:
+    - ml_d50
+    - conv_d50
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_amplitude_d70:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude differs between multilineage and conventional at day 70 (1 Hz)
+    compares:
+    - ml_d70
+    - conv_d70
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '**p < 0.01'
+      p_values:
+      - &id019
+        p: '**p < 0.005'
+        anchor:
+          quote: versus multilineage, **p < 0.01, **p < 0.005, ***p < 0.001, ****p < 0.0001
+          where: Fig. 4C legend
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_amplitude_d80:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude differs between multilineage and conventional at day 80 (1 Hz)
+    compares:
+    - ml_d80
+    - conv_d80
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_amplitude_unmarked:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient amplitude
+    finding: calcium transient amplitude at day 60 (conventional), 90 and 100 (multilineage), no mark
+    groups:
+    - conv_d60
+    - ml_d90
+    - ml_d100
+    anchor: *id018
+  F4C_upstroke_d30:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum upstroke velocity
+    finding: calcium transient maximum upstroke velocity differs between multilineage and conventional at day 30 (1 Hz)
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '***p < 0.001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_upstroke_d40:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum upstroke velocity
+    finding: calcium transient maximum upstroke velocity differs between multilineage and conventional at day 40 (1 Hz)
+    compares:
+    - ml_d40
+    - conv_d40
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_upstroke_d50:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum upstroke velocity
+    finding: calcium transient maximum upstroke velocity differs between multilineage and conventional at day 50 (1 Hz)
+    compares:
+    - ml_d50
+    - conv_d50
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_upstroke_d70:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum upstroke velocity
+    finding: calcium transient maximum upstroke velocity differs between multilineage and conventional at day 70 (1 Hz)
+    compares:
+    - ml_d70
+    - conv_d70
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '**p < 0.01'
+      p_values:
+      - *id019
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_upstroke_d80:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum upstroke velocity
+    finding: calcium transient maximum upstroke velocity differs between multilineage and conventional at day 80 (1 Hz)
+    compares:
+    - ml_d80
+    - conv_d80
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_upstroke_unmarked:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum upstroke velocity
+    finding: calcium transient maximum upstroke velocity at day 60 (conventional), 90 and 100 (multilineage), no mark
+    groups:
+    - conv_d60
+    - ml_d90
+    - ml_d100
+    anchor: *id018
+  F4C_downstroke_d30:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum downstroke velocity
+    finding: calcium transient maximum downstroke velocity differs between multilineage and conventional at day 30 (1 Hz)
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_downstroke_d40:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum downstroke velocity
+    finding: calcium transient maximum downstroke velocity differs between multilineage and conventional at day 40 (1 Hz)
+    compares:
+    - ml_d40
+    - conv_d40
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '***p < 0.001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_downstroke_d50:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum downstroke velocity
+    finding: calcium transient maximum downstroke velocity differs between multilineage and conventional at day 50 (1 Hz)
+    compares:
+    - ml_d50
+    - conv_d50
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '****p < 0.0001'
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_downstroke_d70:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum downstroke velocity
+    finding: calcium transient maximum downstroke velocity differs between multilineage and conventional at day 70 (1 Hz)
+    compares:
+    - ml_d70
+    - conv_d70
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '**p < 0.01'
+      p_values:
+      - *id019
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_downstroke_d80:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum downstroke velocity
+    finding: calcium transient maximum downstroke velocity differs between multilineage and conventional at day 80 (1 Hz)
+    compares:
+    - ml_d80
+    - conv_d80
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test (Methods)
+      p: '**p < 0.01'
+      p_values:
+      - *id019
+    anchor: *id018
+    note: mark read from the figure; the amplitude **** bar spans days 30–50, the upstroke **** bar days 40–50, the downstroke ** bar days 70–80
+  F4C_downstroke_unmarked:
+    unit: F4C
+    method: GCaMP fluorescence in a circular ROI of the beating core; metrics by custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    n: *id017
+    measure: calcium transient maximum downstroke velocity
+    finding: calcium transient maximum downstroke velocity at day 60 (conventional), 90 and 100 (multilineage), no mark
+    groups:
+    - conv_d60
+    - ml_d90
+    - ml_d100
+    anchor: *id018
+  F4D_beat_rate:
+    unit: F4D
+    measure: beat rate
+    method: GCaMP calcium imaging under field stimulation; custom Python script
+    software: custom Python script (github.com/david-a-joy/multilineage-organoid)
+    groups:
+    - conv_0p5hz
+    - conv_1hz
+    - conv_2hz
+    - conv_3hz
+    - conv_4hz
+    - ml_0p5hz
+    - ml_1hz
+    - ml_2hz
+    - ml_3hz
+    - ml_4hz
+    finding: Multilineage organoids follow higher stimulation frequencies with time in culture (points only)
+    anchor:
+      quote: Cardiomyocytes' ability to respond to electrical stimuli throughout culture time.
+      where: Fig. 4D legend
+  S4A_beat_rate:
+    unit: S4AB
+    measure: beat rate
+    method: GCaMP calcium imaging under field stimulation
+    groups:
+    - conv_0p5hz
+    - conv_1hz
+    - conv_2hz
+    - conv_3hz
+    - conv_4hz
+    - conv_6hz
+    - conv_8hz
+    - ml_0p5hz
+    - ml_1hz
+    - ml_2hz
+    - ml_3hz
+    - ml_4hz
+    - ml_6hz
+    - ml_8hz
+    finding: Beat rate of day-80 spheroids at each stimulation frequency (points only)
+    anchor:
+      quote: Calcium handling response of day 80 conventional and multilineage spheroids subjected to electrical field stimulation
+      where: Fig. S4A legend
+      file: mmc1.pdf
+  S4B_responding:
+    unit: S4AB
+    measure: spheroids responding to electrical field stimulation
+    method: GCaMP calcium imaging under field stimulation
+    groups:
+    - conv_0p5hz
+    - conv_1hz
+    - conv_2hz
+    - conv_3hz
+    - conv_4hz
+    - conv_6hz
+    - conv_8hz
+    - ml_0p5hz
+    - ml_1hz
+    - ml_2hz
+    - ml_3hz
+    - ml_4hz
+    - ml_6hz
+    - ml_8hz
+    finding: 33% of day-80 conventional microtissues could be paced at 2 Hz
+    values:
+      conv_2hz_text:
+        printed: 33 ± 21
+        unit: '%'
+        kind: percent
+        group: conv_2hz
+        spread: SEM
+        spread_source: legend
+    anchor:
+      quote: 33% ± 21% of day-80 conventional microtissues could be paced at 2 Hz
+      where: Results, Multilineage organoids promote atrial/nodal
+  F4F_area_d80_vs_d30:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: &id020
+      printed: Day-30 conventional (n = 10 per condition) and day-30 and 80 multilineage microtissues (n = 5-10 per condition)
+      counts: microtissues dissociated; points are cells
+    measure: cardiomyocyte area
+    finding: Cardiomyocyte area differs between day-80 and day-30 multilineage organoids
+    compares:
+    - ml_d80
+    - ml_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test
+      p: '####p < 0.0001'
+    anchor: &id021
+      quote: '*Conventional microtissues vs multilineage organoids; #multilineage organoids day 30 vs 80; *p < 0.05, **p < 0.01'
+      where: Fig. 4F legend
+  F4F_perimeter_d80_vs_d30:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte perimeter
+    finding: Cardiomyocyte perimeter differs between day-80 and day-30 multilineage organoids
+    compares:
+    - ml_d80
+    - ml_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test
+      p: '####p < 0.0001'
+    anchor: *id021
+  F4F_circularity_d80_vs_d30:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte circularity
+    finding: Cardiomyocyte circularity differs between day-80 and day-30 multilineage organoids
+    compares:
+    - ml_d80
+    - ml_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test
+      p: '####p < 0.0001'
+    anchor: *id021
+  F4F_aspect_ratio_d80_vs_d30:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte aspect ratio
+    finding: Cardiomyocyte aspect ratio differs between day-80 and day-30 multilineage organoids
+    compares:
+    - ml_d80
+    - ml_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test
+      p: '####p < 0.0001'
+    anchor: *id021
+  F4F_circularity_ml_vs_conv:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte circularity
+    finding: Circularity differs between day-30 multilineage and conventional
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test
+      p: '**p < 0.01'
+    anchor: *id021
+  F4F_aspect_ratio_ml_vs_conv:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte aspect ratio
+    finding: Aspect ratio differs between day-30 multilineage and conventional
+    compares:
+    - ml_d30
+    - conv_d30
+    stats:
+      test: t-Student test when normality was verified (D'Agostino-Pearson omnibus normality test), otherwise Independent Samples Mann-Whitney U test
+      p: '*p < 0.05'
+    anchor: *id021
+  F4F_area_ml_vs_conv_unmarked:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte area
+    finding: Cardiomyocyte area at day 30, no significance mark between media
+    groups:
+    - ml_d30
+    - conv_d30
+    anchor: *id021
+  F4F_perimeter_ml_vs_conv_unmarked:
+    unit: F4EG
+    method: cTnT immunostaining of dissociated cells; per-cell area, perimeter, circularity and aspect ratio
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id020
+    measure: cardiomyocyte perimeter
+    finding: Cardiomyocyte perimeter at day 30, no significance mark between media
+    groups:
+    - ml_d30
+    - conv_d30
+    anchor: *id021
+  F4G_sarcomere_class:
+    unit: F4EG
+    measure: sarcomere class
+    method: sarcomere development score 1–4 per cell; percentage per class per sample
+    definition: 1) unaligned sarcomeres and absence of a striped pattern; 2) continuous sarcomeres, well ordered but not in parallel; 3) continuous sarcomeres, organized
+      mostly in parallel, but with less-defined striped pattern; 4) continuous sarcomeres with striped pattern, organized mostly in parallel
+    groups:
+    - conv_d30
+    - ml_d30
+    - ml_d80
+    finding: Distribution of sarcomere classes (no test)
+    anchor:
+      quote: Cardiomyocyte sarcomere classification (from class 1 [immature, undefined sarcomeres] to class 4 [mature, parallel, striped sarcomeres]).
+      where: Fig. 4G legend
+  F4I_sarcomere_length:
+    unit: F4I
+    measure: sarcomere length
+    method: transmission electron microscopy; measured from 5 independent regions of the cardiac compartment
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    groups:
+    - ml_d100
+    finding: Sarcomere length 1.75 ± 0.13 µm
+    values:
+      length_text:
+        printed: 1.75 ± 0.13
+        unit: µm
+        kind: mean
+        group: ml_d100
+        spread: SEM
+        spread_source: legend
+    n:
+      printed: Multilineage organoids (n = 2); 5 independent regions
+      counts: organoids; regions measured
+    anchor:
+      quote: sarcomere length in cardiomyocytes reached 1.75 ± 0.13
+      where: Results, Multilineage organoids promote atrial/nodal
+  F4J_ADP50:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4J
+    measure: ADP50
+    finding: ADP50 per subtype and condition (table, no test)
+    groups: &id022
+    - conv_d30_v
+    - conv_d30_an
+    - ml_d30_v
+    - ml_d30_an
+    - ml_d60_v
+    - ml_d60_an
+    values:
+      conv_d30_v_table:
+        printed: 340.9 ± 83.0
+        unit: ms
+        kind: mean
+        group: conv_d30_v
+        spread: SEM
+        spread_source: methods
+      conv_d30_an_table:
+        printed: 119.2 ± 37.0
+        unit: ms
+        kind: mean
+        group: conv_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d30_v_table:
+        printed: 334 ± 114
+        unit: ms
+        kind: mean
+        group: ml_d30_v
+        spread: SEM
+        spread_source: methods
+      ml_d30_an_table:
+        printed: 210 ± 29
+        unit: ms
+        kind: mean
+        group: ml_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d60_v_table:
+        printed: 497 ± 551
+        unit: ms
+        kind: mean
+        group: ml_d60_v
+        spread: SEM
+        spread_source: methods
+      ml_d60_an_table:
+        printed: 236 ± 121
+        unit: ms
+        kind: mean
+        group: ml_d60_an
+        spread: SEM
+        spread_source: methods
+    n:
+      printed: Vent. (n=3) Atrial/Nodal (n=4) Vent. (n=3) Atrial/Nodal (n=8) Vent. (n=2) Atrial/Nodal (n=8)
+      counts: cells
+      per_group: &id023
+        conv_d30_v: '3'
+        conv_d30_an: '4'
+        ml_d30_v: '3'
+        ml_d30_an: '8'
+        ml_d60_v: '2'
+        ml_d60_an: '8'
+    anchor:
+      quote: ''
+      where: Fig. 4J (table, image)
+      kind: unit
+    suspected_error:
+      what: row label 'ADP50'
+      why: the text lists APD90/APD50 among parameters; 'ADP50' is likely APD50 misspelt
+  F4J_Max_up_dVdT:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4J
+    measure: Max up dV/dT
+    finding: Max up dV/dT per subtype and condition (table, no test)
+    groups: *id022
+    values:
+      conv_d30_v_table:
+        printed: 23.7 ± 8.0
+        unit: V/s
+        kind: mean
+        group: conv_d30_v
+        spread: SEM
+        spread_source: methods
+      conv_d30_an_table:
+        printed: 11.2 ± 7.0
+        unit: V/s
+        kind: mean
+        group: conv_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d30_v_table:
+        printed: 7.9 ± 0.6
+        unit: V/s
+        kind: mean
+        group: ml_d30_v
+        spread: SEM
+        spread_source: methods
+      ml_d30_an_table:
+        printed: 3.1 ± 0.2
+        unit: V/s
+        kind: mean
+        group: ml_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d60_v_table:
+        printed: 8.2 ± 3.3
+        unit: V/s
+        kind: mean
+        group: ml_d60_v
+        spread: SEM
+        spread_source: methods
+      ml_d60_an_table:
+        printed: 4.0 ± 1.8
+        unit: V/s
+        kind: mean
+        group: ml_d60_an
+        spread: SEM
+        spread_source: methods
+    n:
+      printed: Vent. (n=3) Atrial/Nodal (n=4) Vent. (n=3) Atrial/Nodal (n=8) Vent. (n=2) Atrial/Nodal (n=8)
+      counts: cells
+      per_group: *id023
+    anchor:
+      quote: ''
+      where: Fig. 4J (table, image)
+      kind: unit
+  F4J_Frequency:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4J
+    measure: Frequency
+    finding: Frequency per subtype and condition (table, no test)
+    groups: *id022
+    values:
+      conv_d30_v_table:
+        printed: 0.78 ± 0.27
+        unit: Hz
+        kind: mean
+        group: conv_d30_v
+        spread: SEM
+        spread_source: methods
+      conv_d30_an_table:
+        printed: 1.18 ± 0.12
+        unit: Hz
+        kind: mean
+        group: conv_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d30_v_table:
+        printed: 0.83 ± 0.18
+        unit: Hz
+        kind: mean
+        group: ml_d30_v
+        spread: SEM
+        spread_source: methods
+      ml_d30_an_table:
+        printed: 0.77 ± 0.07
+        unit: Hz
+        kind: mean
+        group: ml_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d60_v_table:
+        printed: 0.89 ± 0.81
+        unit: Hz
+        kind: mean
+        group: ml_d60_v
+        spread: SEM
+        spread_source: methods
+      ml_d60_an_table:
+        printed: 0.90 ± 0.46
+        unit: Hz
+        kind: mean
+        group: ml_d60_an
+        spread: SEM
+        spread_source: methods
+    n:
+      printed: Vent. (n=3) Atrial/Nodal (n=4) Vent. (n=3) Atrial/Nodal (n=8) Vent. (n=2) Atrial/Nodal (n=8)
+      counts: cells
+      per_group: *id023
+    anchor:
+      quote: ''
+      where: Fig. 4J (table, image)
+      kind: unit
+  F4J_Peak:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4J
+    measure: Peak
+    finding: Peak per subtype and condition (table, no test)
+    groups: *id022
+    values:
+      conv_d30_v_table:
+        printed: 47.6 ± 6.5
+        unit: mV
+        kind: mean
+        group: conv_d30_v
+        spread: SEM
+        spread_source: methods
+      conv_d30_an_table:
+        printed: 33.6 ± 5.0
+        unit: mV
+        kind: mean
+        group: conv_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d30_v_table:
+        printed: 35.7 ± 4.1
+        unit: mV
+        kind: mean
+        group: ml_d30_v
+        spread: SEM
+        spread_source: methods
+      ml_d30_an_table:
+        printed: 20.1 ± 2.6
+        unit: mV
+        kind: mean
+        group: ml_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d60_v_table:
+        printed: 38.02 ± 18.7
+        unit: mV
+        kind: mean
+        group: ml_d60_v
+        spread: SEM
+        spread_source: methods
+      ml_d60_an_table:
+        printed: 23.58 ± 11.7
+        unit: mV
+        kind: mean
+        group: ml_d60_an
+        spread: SEM
+        spread_source: methods
+    n:
+      printed: Vent. (n=3) Atrial/Nodal (n=4) Vent. (n=3) Atrial/Nodal (n=8) Vent. (n=2) Atrial/Nodal (n=8)
+      counts: cells
+      per_group: *id023
+    anchor:
+      quote: ''
+      where: Fig. 4J (table, image)
+      kind: unit
+  F4J_MDP:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4J
+    measure: MDP
+    finding: MDP per subtype and condition (table, no test)
+    groups: *id022
+    values:
+      conv_d30_v_table:
+        printed: -66.9 ± 3.2
+        unit: mV
+        kind: mean
+        group: conv_d30_v
+        spread: SEM
+        spread_source: methods
+      conv_d30_an_table:
+        printed: -57.9 ± 4.3
+        unit: mV
+        kind: mean
+        group: conv_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d30_v_table:
+        printed: -63.0 ± 2.7
+        unit: mV
+        kind: mean
+        group: ml_d30_v
+        spread: SEM
+        spread_source: methods
+      ml_d30_an_table:
+        printed: -56.7 ± 2.6
+        unit: mV
+        kind: mean
+        group: ml_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d60_v_table:
+        printed: -65.76 ± 0.26
+        unit: mV
+        kind: mean
+        group: ml_d60_v
+        spread: SEM
+        spread_source: methods
+      ml_d60_an_table:
+        printed: -56.8 ± 6.4
+        unit: mV
+        kind: mean
+        group: ml_d60_an
+        spread: SEM
+        spread_source: methods
+    n:
+      printed: Vent. (n=3) Atrial/Nodal (n=4) Vent. (n=3) Atrial/Nodal (n=8) Vent. (n=2) Atrial/Nodal (n=8)
+      counts: cells
+      per_group: *id023
+    anchor:
+      quote: ''
+      where: Fig. 4J (table, image)
+      kind: unit
+  F4J_Amplitude:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4J
+    measure: Amplitude
+    finding: Amplitude per subtype and condition (table, no test)
+    groups: *id022
+    values:
+      conv_d30_v_table:
+        printed: 114.6 ± 7.2
+        unit: mV
+        kind: mean
+        group: conv_d30_v
+        spread: SEM
+        spread_source: methods
+      conv_d30_an_table:
+        printed: 91.5 ± 9.1
+        unit: mV
+        kind: mean
+        group: conv_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d30_v_table:
+        printed: 98.7 ± 2.3
+        unit: mV
+        kind: mean
+        group: ml_d30_v
+        spread: SEM
+        spread_source: methods
+      ml_d30_an_table:
+        printed: 76.8 ± 4.5
+        unit: mV
+        kind: mean
+        group: ml_d30_an
+        spread: SEM
+        spread_source: methods
+      ml_d60_v_table:
+        printed: 103.8 ± 18.4
+        unit: mV
+        kind: mean
+        group: ml_d60_v
+        spread: SEM
+        spread_source: methods
+      ml_d60_an_table:
+        printed: 80.44 ± 12.4
+        unit: mV
+        kind: mean
+        group: ml_d60_an
+        spread: SEM
+        spread_source: methods
+    n:
+      printed: Vent. (n=3) Atrial/Nodal (n=4) Vent. (n=3) Atrial/Nodal (n=8) Vent. (n=2) Atrial/Nodal (n=8)
+      counts: cells
+      per_group: *id023
+    anchor:
+      quote: ''
+      where: Fig. 4J (table, image)
+      kind: unit
+  F4K_atrial_nodal:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: F4K
+    measure: atrial/nodal cardiomyocytes
+    definition:
+      citation: ma2011
+      anchor:
+        quote: hiPSC-derived cardiomyocytes were classified as either ventricular or nodal/atrial subtype after considering multiple action potential parameters
+        where: STAR Methods, Patch clamp analysis
+    groups:
+    - conv_d30
+    - ml_d30
+    - ml_d60
+    finding: Atrial/nodal share 57% (conventional day 30), 73% (multilineage day 30), 80% (multilineage day 60); no test
+    values:
+      conv_d30_text:
+        printed: '57'
+        unit: '%'
+        kind: percent
+        group: conv_d30
+        spread: none
+      ml_d30_text:
+        printed: '73'
+        unit: '%'
+        kind: percent
+        group: ml_d30
+        spread: none
+      ml_d60_text:
+        printed: '80'
+        unit: '%'
+        kind: percent
+        group: ml_d60
+        spread: none
+    anchor:
+      quote: 'revealed a higher proportion of atrial and nodal-like (atrial/nodal) cardiomyocytes (day 30: 73%) than found in conventional microtissues (day 30: 57%)'
+      where: Results, Multilineage organoids promote atrial/nodal
+  S4D_ADP50:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4D
+    measure: ADP50
+    finding: ADP50 of 2D cardiomyocytes per medium and subtype (table, no test)
+    groups: &id024
+    - conv_v
+    - conv_an
+    - suppl_v
+    - ml_v
+    - ml_an
+    values:
+      conv_v_table:
+        printed: 177.0 ± 73
+        unit: ms
+        kind: mean
+        group: conv_v
+        spread: SEM
+        spread_source: methods
+      conv_an_table:
+        printed: 98.2 ± 36.6
+        unit: ms
+        kind: mean
+        group: conv_an
+        spread: SEM
+        spread_source: methods
+      suppl_v_table:
+        printed: 208.9 ± 60.2
+        unit: ms
+        kind: mean
+        group: suppl_v
+        spread: SEM
+        spread_source: methods
+      ml_v_table:
+        printed: 286.8 ± 119.1
+        unit: ms
+        kind: mean
+        group: ml_v
+        spread: SEM
+        spread_source: methods
+      ml_an_table:
+        printed: '221.0'
+        unit: ms
+        kind: value
+        group: ml_an
+        spread: none
+    n:
+      printed: Vent. (n=17) Atrial/Nodal (n=5) Vent. (n=19) Atrial/Nodal (n=0) Vent. (n=12) Atrial/Nodal (n=1)
+      counts: cells
+      per_group: &id025
+        conv_v: '17'
+        conv_an: '5'
+        suppl_v: '19'
+        ml_v: '12'
+        ml_an: '1'
+    anchor:
+      quote: ''
+      where: Fig. S4D (table, image)
+      file: mmc1.pdf
+      kind: unit
+    suspected_error:
+      what: row label 'ADP50'
+      why: likely APD50 misspelt (as in Fig. 4J)
+  S4D_Max_up_dVdT:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4D
+    measure: Max up dV/dT
+    finding: Max up dV/dT of 2D cardiomyocytes per medium and subtype (table, no test)
+    groups: *id024
+    values:
+      conv_v_table:
+        printed: 17.5 ± 10.7
+        unit: V/s
+        kind: mean
+        group: conv_v
+        spread: SEM
+        spread_source: methods
+      conv_an_table:
+        printed: 8.45 ± 5.1
+        unit: V/s
+        kind: mean
+        group: conv_an
+        spread: SEM
+        spread_source: methods
+      suppl_v_table:
+        printed: 21.1 ± 14.67
+        unit: V/s
+        kind: mean
+        group: suppl_v
+        spread: SEM
+        spread_source: methods
+      ml_v_table:
+        printed: 16.5 ± 8.2
+        unit: V/s
+        kind: mean
+        group: ml_v
+        spread: SEM
+        spread_source: methods
+      ml_an_table:
+        printed: '4.7'
+        unit: V/s
+        kind: value
+        group: ml_an
+        spread: none
+    n:
+      printed: Vent. (n=17) Atrial/Nodal (n=5) Vent. (n=19) Atrial/Nodal (n=0) Vent. (n=12) Atrial/Nodal (n=1)
+      counts: cells
+      per_group: *id025
+    anchor:
+      quote: ''
+      where: Fig. S4D (table, image)
+      file: mmc1.pdf
+      kind: unit
+  S4D_Frequency:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4D
+    measure: Frequency
+    finding: Frequency of 2D cardiomyocytes per medium and subtype (table, no test)
+    groups: *id024
+    values:
+      conv_v_table:
+        printed: 0.95 ± 0.32
+        unit: Hz
+        kind: mean
+        group: conv_v
+        spread: SEM
+        spread_source: methods
+      conv_an_table:
+        printed: 1.75 ± 0.25
+        unit: Hz
+        kind: mean
+        group: conv_an
+        spread: SEM
+        spread_source: methods
+      suppl_v_table:
+        printed: 1.0 ± 0.4
+        unit: Hz
+        kind: mean
+        group: suppl_v
+        spread: SEM
+        spread_source: methods
+      ml_v_table:
+        printed: 0.6 ± 0.3
+        unit: Hz
+        kind: mean
+        group: ml_v
+        spread: SEM
+        spread_source: methods
+      ml_an_table:
+        printed: '1.1'
+        unit: Hz
+        kind: value
+        group: ml_an
+        spread: none
+    n:
+      printed: Vent. (n=17) Atrial/Nodal (n=5) Vent. (n=19) Atrial/Nodal (n=0) Vent. (n=12) Atrial/Nodal (n=1)
+      counts: cells
+      per_group: *id025
+    anchor:
+      quote: ''
+      where: Fig. S4D (table, image)
+      file: mmc1.pdf
+      kind: unit
+  S4D_Peak:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4D
+    measure: Peak
+    finding: Peak of 2D cardiomyocytes per medium and subtype (table, no test)
+    groups: *id024
+    values:
+      conv_v_table:
+        printed: 33.25 ± 8.35
+        unit: mV
+        kind: mean
+        group: conv_v
+        spread: SEM
+        spread_source: methods
+      conv_an_table:
+        printed: 20.14 ± 6.7
+        unit: mV
+        kind: mean
+        group: conv_an
+        spread: SEM
+        spread_source: methods
+      suppl_v_table:
+        printed: 40.7 ± 5.5
+        unit: mV
+        kind: mean
+        group: suppl_v
+        spread: SEM
+        spread_source: methods
+      ml_v_table:
+        printed: 40.1 ± 5.5
+        unit: mV
+        kind: mean
+        group: ml_v
+        spread: SEM
+        spread_source: methods
+      ml_an_table:
+        printed: '22.5'
+        unit: mV
+        kind: value
+        group: ml_an
+        spread: none
+    n:
+      printed: Vent. (n=17) Atrial/Nodal (n=5) Vent. (n=19) Atrial/Nodal (n=0) Vent. (n=12) Atrial/Nodal (n=1)
+      counts: cells
+      per_group: *id025
+    anchor:
+      quote: ''
+      where: Fig. S4D (table, image)
+      file: mmc1.pdf
+      kind: unit
+  S4D_MDP:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4D
+    measure: MDP
+    finding: MDP of 2D cardiomyocytes per medium and subtype (table, no test)
+    groups: *id024
+    values:
+      conv_v_table:
+        printed: -71.63 ± 5.2
+        unit: mV
+        kind: mean
+        group: conv_v
+        spread: SEM
+        spread_source: methods
+      conv_an_table:
+        printed: -68.0 ± 2.1
+        unit: mV
+        kind: mean
+        group: conv_an
+        spread: SEM
+        spread_source: methods
+      suppl_v_table:
+        printed: -68.3± 6.1
+        unit: mV
+        kind: mean
+        group: suppl_v
+        spread: SEM
+        spread_source: methods
+      ml_v_table:
+        printed: -63.2 ± 6.6
+        unit: mV
+        kind: mean
+        group: ml_v
+        spread: SEM
+        spread_source: methods
+      ml_an_table:
+        printed: '-62.6'
+        unit: mV
+        kind: value
+        group: ml_an
+        spread: none
+    n:
+      printed: Vent. (n=17) Atrial/Nodal (n=5) Vent. (n=19) Atrial/Nodal (n=0) Vent. (n=12) Atrial/Nodal (n=1)
+      counts: cells
+      per_group: *id025
+    anchor:
+      quote: ''
+      where: Fig. S4D (table, image)
+      file: mmc1.pdf
+      kind: unit
+  S4D_Amplitude:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4D
+    measure: Amplitude
+    finding: Amplitude of 2D cardiomyocytes per medium and subtype (table, no test)
+    groups: *id024
+    values:
+      conv_v_table:
+        printed: 104.9 ± 4.2
+        unit: mV
+        kind: mean
+        group: conv_v
+        spread: SEM
+        spread_source: methods
+      conv_an_table:
+        printed: 88.1 ± 6.0
+        unit: mV
+        kind: mean
+        group: conv_an
+        spread: SEM
+        spread_source: methods
+      suppl_v_table:
+        printed: 109.1 ± 8.5
+        unit: mV
+        kind: mean
+        group: suppl_v
+        spread: SEM
+        spread_source: methods
+      ml_v_table:
+        printed: 103.4 ± 5.7
+        unit: mV
+        kind: mean
+        group: ml_v
+        spread: SEM
+        spread_source: methods
+      ml_an_table:
+        printed: '85.2'
+        unit: mV
+        kind: value
+        group: ml_an
+        spread: none
+    n:
+      printed: Vent. (n=17) Atrial/Nodal (n=5) Vent. (n=19) Atrial/Nodal (n=0) Vent. (n=12) Atrial/Nodal (n=1)
+      counts: cells
+      per_group: *id025
+    anchor:
+      quote: ''
+      where: Fig. S4D (table, image)
+      file: mmc1.pdf
+      kind: unit
+  S4F_ventricular:
+    method: perforated patch clamp, current clamp, spontaneously beating cells; parameters in Clampfit 10
+    software: pClamp 10 / Clampfit 10
+    unit: S4F
+    measure: ventricular cardiomyocytes
+    definition:
+      citation: ma2011
+      anchor:
+        quote: hiPSC-derived cardiomyocytes were classified as either ventricular or nodal/atrial subtype after considering multiple action potential parameters
+        where: STAR Methods, Patch clamp analysis
+    groups:
+    - conv
+    - suppl
+    - ml
+    finding: 2D multilineage medium yielded mainly ventricular-like cells (97%); no atrial/nodal cells in supplemented conventional medium
+    values:
+      ml_text:
+        printed: '97'
+        unit: '%'
+        kind: percent
+        group: ml
+        spread: none
+        suspected_error:
+          what: 97% ventricular in 2D multilineage medium
+          why: Fig. S4D lists Vent. (n=12) and Atrial/Nodal (n=1) for multilineage medium, which is 12 of 13 cells
+    anchor:
+      quote: but yielded mainly ventricular-like cells (97%) (Figures S4D–S4F)
+      where: Results, Multilineage organoids promote atrial/nodal
+  F5C_mds:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: &id026
+      printed: cardiac (n = 2), multilineage (n = 1), or gut organoids (n = 2)
+      counts: samples
+      per_group:
+        cardiac_prog: '2'
+        ml_prog: '1'
+        gut_prog: '2'
+    measure: transcriptome similarity (multidimensional scaling)
+    groups:
+    - cardiac_prog
+    - ml_prog
+    - gut_prog
+    finding: Multilineage progenitors roughly equidistant from cardiac and gut progenitors
+    anchor:
+      quote: the progenitors of multilineage organoids represented a unique transcriptional state, roughly equidistant from both cardiac and gut progenitors
+      where: Results, Multilineage organoids express cardiac and gut
+  F5D_muscle_vs_cardiac:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: muscle development genes and cardiac transcription factors (MYH6, MYOM1, TTN, MEF2C, NKX2-5, ISL1)
+    compares:
+    - ml_prog
+    - cardiac_prog
+    finding: Muscle genes higher in multilineage than cardiac progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Compared to cardiac microtissue progenitors, multilineage organoid progenitors were enriched in genes related to muscle tissue development and function
+          (MYH6, MYOM1, TTN)
+        where: Results, Multilineage organoids express cardiac and gut
+    anchor:
+      quote: Compared to cardiac microtissue progenitors, multilineage organoid progenitors were enriched in genes related to muscle tissue development and function
+        (MYH6, MYOM1, TTN)
+      where: Results, Multilineage organoids express cardiac and gut
+    note: no statistic or P printed
+  F5E_muscle_vs_gut:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: muscle tissue development genes (ACTC1, MYH6, MYOM1)
+    compares:
+    - ml_prog
+    - gut_prog
+    finding: Muscle genes higher in multilineage than gut progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Compared to gut organoid progenitors, multilineage progenitors exhibited a gene expression enrichment of the muscle tissue development program (ACTC1,
+          MYH6, MYOM1)
+        where: Results, Multilineage organoids express cardiac and gut
+    anchor:
+      quote: Compared to gut organoid progenitors, multilineage progenitors exhibited a gene expression enrichment of the muscle tissue development program (ACTC1,
+        MYH6, MYOM1)
+      where: Results, Multilineage organoids express cardiac and gut
+    note: no statistic or P printed
+  F5F_tbx_vs_gut:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: T-box transcription factors (TBX2, TBX5, TBX18, TBX20)
+    compares:
+    - ml_prog
+    - gut_prog
+    finding: TBX genes higher in multilineage than gut progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: The multilineage organoid progenitors expressed higher levels of Tbox (TBX) transcription factors (TBX2, TBX5, TBX18, TBX20)
+        where: Results, Multilineage organoids express cardiac and gut
+    anchor:
+      quote: The multilineage organoid progenitors expressed higher levels of Tbox (TBX) transcription factors (TBX2, TBX5, TBX18, TBX20)
+      where: Results, Multilineage organoids express cardiac and gut
+    note: no statistic or P printed
+  F5F_atrial_nodal_vs_cardiac:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: TBX18, TBX5 and HEY1
+    compares:
+    - ml_prog
+    - cardiac_prog
+    finding: TBX18, TBX5, HEY1 higher in multilineage than cardiac progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: compared to the cardiac progenitors, the multilineage progenitors expressed higher levels of TBX genes related to sinoatrial node formation (TBX18)
+          and chamber formation and septation (TBX5)
+        where: Results, Multilineage organoids express cardiac and gut
+    anchor:
+      quote: compared to the cardiac progenitors, the multilineage progenitors expressed higher levels of TBX genes related to sinoatrial node formation (TBX18) and
+        chamber formation and septation (TBX5)
+      where: Results, Multilineage organoids express cardiac and gut
+    note: no statistic or P printed
+  F5F_epicardial_vs_cardiac:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: cardiac TFs and epicardial-related genes (ISL1, NKX2-5, TBX5, TBX18, CDH1, ALDH1A2, SEMA3D)
+    compares:
+    - ml_prog
+    - cardiac_prog
+    finding: Cardiac TFs and epicardial genes higher in multilineage than cardiac progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: epicardial-related genes (TBX18, CDH1, ALDH1A2, SEMA3D) at higher levels than cardiac progenitors (Figure 5F, top)
+        where: Results, Multilineage organoids express cardiac and gut
+    anchor:
+      quote: epicardial-related genes (TBX18, CDH1, ALDH1A2, SEMA3D) at higher levels than cardiac progenitors (Figure 5F, top)
+      where: Results, Multilineage organoids express cardiac and gut
+    note: no statistic or P printed
+  F5F_gut_tube_vs_gut:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: gut tube development genes (SOX17, ONECUT2)
+    compares:
+    - ml_prog
+    - gut_prog
+    finding: SOX17, ONECUT2 lower in multilineage than gut progenitors
+    stated_direction:
+      direction: down
+      anchor:
+        quote: also expressed genes involved in gut tube development (SOX17, ONECUT2), although at lesser levels than gut organoid progenitors (notably for SOX17)
+        where: Results, Multilineage organoids express cardiac and gut
+    anchor:
+      quote: also expressed genes involved in gut tube development (SOX17, ONECUT2), although at lesser levels than gut organoid progenitors (notably for SOX17)
+      where: Results, Multilineage organoids express cardiac and gut
+    note: no statistic or P printed
+  F5G_fgf10_nppb_vs_cardiac:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: secreted factor genes FGF10 and NPPB
+    compares:
+    - ml_prog
+    - cardiac_prog
+    finding: FGF10 and NPPB higher in multilineage than cardiac progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: multilineage progenitors expressed higher levels of FGF10 and NPPB than the cardiac tissue progenitors (Figure 5G, top; Figure S5K)
+        where: Results, paracrine factors
+    anchor:
+      quote: multilineage progenitors expressed higher levels of FGF10 and NPPB than the cardiac tissue progenitors (Figure 5G, top; Figure S5K)
+      where: Results, paracrine factors
+    note: no statistic or P printed
+  F5G_cardiac_factors_vs_gut:
+    unit: F5
+    method: bulk RNA-seq; HiSat2 alignment, featureCounts, GFOLD differential expression, 'l' normalization
+    software: HiSat2, featureCounts, GFOLD
+    n: *id026
+    measure: cardiac-enriched secreted factor genes (IGF1, ANGPT1, DCN, LUM)
+    compares:
+    - ml_prog
+    - gut_prog
+    finding: IGF1, ANGPT1, DCN, LUM higher in multilineage than gut progenitors
+    stated_direction:
+      direction: up
+      anchor:
+        quote: Multilineage progenitors also expressed higher levels of cardiac-enriched factors than the gut progenitors, such as the growth factors IGF1 and ANGPT1
+        where: Results, paracrine factors
+    anchor:
+      quote: Multilineage progenitors also expressed higher levels of cardiac-enriched factors than the gut progenitors, such as the growth factors IGF1 and ANGPT1
+      where: Results, paracrine factors
+    note: no statistic or P printed
+  S1E_total_volume:
+    unit: S1E
+    method: whole-mount immunostaining (TBX18, cTnT, phalloidin); light sheet microscopy with multi-view reconstruction
+    software: Imaris 8.3
+    n: &id027
+      printed: multilineage organoids (n = 5)
+      counts: organoids
+    measure: total volume
+    compares:
+    - ml_d30
+    - ml_d10
+    finding: Total volume greater at day 30 than day 10
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '**p<0.005'
+      p_values:
+      - p: '** p < 0.01'
+        anchor:
+          quote: Independent Samples Mann-Whitney U test, two-tailed was used. * p < 0.05, ** p < 0.01.
+          where: STAR Methods, Whole-spheroid structural analysis
+    anchor: &id028
+      quote: Total volume (blue), cardiac core volume (yellow), and ratio of cardiac:total volume (black) of the multilineage organoids at days
+      where: Fig. S1E legend
+      file: mmc1.pdf
+  S1E_cardiac_volume:
+    unit: S1E
+    method: whole-mount immunostaining (TBX18, cTnT, phalloidin); light sheet microscopy with multi-view reconstruction
+    software: Imaris 8.3
+    n: *id027
+    measure: cardiac core volume
+    compares:
+    - ml_d30
+    - ml_d10
+    finding: Cardiac core volume greater at day 30 than day 10
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '*p<0.05'
+    anchor: *id028
+  S1E_ratio:
+    unit: S1E
+    method: whole-mount immunostaining (TBX18, cTnT, phalloidin); light sheet microscopy with multi-view reconstruction
+    software: Imaris 8.3
+    n: *id027
+    measure: ratio of cardiac to total volume
+    groups:
+    - ml_d10
+    - ml_d30
+    finding: Cardiac:full volume ratio at days 10 and 30, no mark
+    anchor: *id028
+  S1I_sma_d100_vs_d30:
+    unit: S1IJ
+    method: immunostaining of paraffin sections; thresholded area occupied by each marker
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: &id029
+      printed: multilineage organoids (n = 5-16)
+      counts: organoids
+    measure: '% area SMA+'
+    compares:
+    - ml_d100
+    - ml_d30
+    finding: SMA+ area differs at day 100 from day 30
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '*p<0.05'
+    anchor: &id030
+      quote: The dynamics of the percentage area occupied by cells positive for MYH7, SMA and Pecam-1 markers throughout the time in culture
+      where: Fig. S1I legend
+      file: mmc1.pdf
+  S1I_sma_d100_vs_d60:
+    unit: S1IJ
+    method: immunostaining of paraffin sections; thresholded area occupied by each marker
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id029
+    measure: '% area SMA+'
+    compares:
+    - ml_d100
+    - ml_d60
+    finding: SMA+ area differs at day 100 from day 60 (##)
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: significant, threshold not stated
+    anchor: *id030
+    note: '''##'' printed; the legend gives thresholds for * and ** only'
+  S1I_pecam_d60_vs_d30:
+    unit: S1IJ
+    method: immunostaining of paraffin sections; thresholded area occupied by each marker
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id029
+    measure: '% area Pecam-1+'
+    compares:
+    - ml_d60
+    - ml_d30
+    finding: Pecam-1+ area differs at day 60 from day 30
+    stats:
+      test: Independent Samples Mann-Whitney U test, two-tailed
+      p: '**p<0.005'
+      p_values:
+      - p: '** p < 0.01'
+        anchor:
+          quote: '* versus day 30; #versus day 60; * p < 0.05, ** p < 0.01.'
+          where: STAR Methods, Histology
+    anchor: *id030
+  S1I_myh7:
+    unit: S1IJ
+    method: immunostaining of paraffin sections; thresholded area occupied by each marker
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id029
+    measure: '% area MYH7+'
+    groups:
+    - ml_d30
+    - ml_d60
+    - ml_d80
+    - ml_d100
+    finding: MYH7+ area over time, no mark
+    anchor: *id030
+  S1I_unmarked:
+    unit: S1IJ
+    method: immunostaining of paraffin sections; thresholded area occupied by each marker
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id029
+    measure: '% area SMA+ and Pecam-1+'
+    groups:
+    - ml_d30
+    - ml_d60
+    - ml_d80
+    finding: SMA+ and Pecam-1+ area at other days, no mark
+    anchor: *id030
+  S1J_mlc2v:
+    unit: S1IJ
+    method: immunostaining of paraffin sections; thresholded area occupied by each marker
+    software: ImageJ version 2.0.0-rc-54/1.51 h
+    n: *id029
+    measure: '% area MLC2v+ over total cardiomyocyte area'
+    groups:
+    - ml_d30
+    - ml_d50
+    - ml_d60
+    - ml_d80
+    - ml_d100
+    finding: MLC2v+ area over time, no test
+    anchor:
+      quote: The dynamics of the percentage area occupied by ventricular cardiomyocytes (MLC2v) over the total cardiac area
+      where: Fig. S1J legend
+      file: mmc1.pdf
+claims:
+  C_abs_recapitulates:
+    kind: stated
+    quote: we describe a human multilineage iPSC-derived organoid that recapitulates cooperative cardiac and gut development and maturation, with extensive cellular
+      and structural complexity in both tissues
+    where: Summary
+    rests_on:
+    - F2C_area_d70
+    - F3H_atrial_cm
+    - F3A_cells
+    - F2GH_smc_duration
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: overstated
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: development and complexity are shown mostly by images; 'cooperative' rests on no test
+  C_abs_endoderm_contributed:
+    kind: stated
+    quote: We demonstrate that the presence of endoderm tissue (gut/intestine) in the organoids contributed to the development of cardiac tissue features characteristic
+      of stages after heart tube formation
+    where: Summary
+    strength: demonstrate ... contributed (causal)
+    rests_on:
+    - F4K_atrial_nodal
+    - S4F_ventricular
+    - F4C_amplitude_d40
+    - F4F_aspect_ratio_ml_vs_conv
+    - F1E_area_d30
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: does not follow
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: multilineage and conventional groups differ in medium as well as in gut tissue; the 2D medium control addresses subtype only, not 3D maturation; no tissue
+      with the same medium and no gut is compared
+  C_abs_features_list:
+    kind: stated
+    quote: including cardiomyocyte expansion, compartmentalization, enrichment of atrial/nodal cells, myocardial compaction, and fetal-like functional maturation
+    where: Summary
+    restates: C_abs_endoderm_contributed
+    rests_on:
+    - F1H_ki67
+    - S1E_cardiac_volume
+    - F4K_atrial_nodal
+    - F4C_upstroke_d40
+    - F4I_sarcomere_length
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: cannot judge
+    note: myocardial compaction is not quantified anywhere
+  C_hl_coemergence:
+    kind: stated
+    quote: Mesendoderm progenitor aggregates yield co-emergence of cardiac and gut tissues
+    where: Highlights
+    rests_on:
+    - F3H_atrial_cm
+    - F5C_mds
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: overstated
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: the paper states not all differentiations yield multilineage organoids
+  C_hl_gut_supports:
+    kind: stated
+    quote: Gut tissue supports physiologic maturation of human atrial/ nodal cardiomyocytes
+    where: Highlights
+    rests_on:
+    - F4K_atrial_nodal
+    - F4J_Peak
+    - S4F_ventricular
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: no test of gut presence against absence at equal medium; atrial/nodal maturation is not compared
+  C_size_3x:
+    kind: stated
+    quote: with multilineage microtissues growing to approximately 3 times the size of conventional microtissues by 30 days
+    where: Results, Formation of heart-like compartments
+    asserts_direction: up
+    rests_on:
+    - F1E_area_d30
+    - F1E_size_ratio
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: '''Representative experiment''; n not stated'
+  C_ki67_growth:
+    kind: stated
+    quote: Cardiac growth appeared to result from cardiomyocyte proliferation, based upon immunostaining for Ki67
+    where: Results, Formation of heart-like compartments
+    rests_on:
+    - F1H_ki67
+    - S1E_cardiac_volume
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_recap_embryonic:
+    kind: stated
+    quote: multilineage organoids undergo a sequence of morphogenic events that recapitulates the development of the human embryonic heart (specifically of atrial
+      tissue) and gut
+    where: Results, Long-term culture
+    rests_on:
+    - F2C_area_d70
+    - S1J_mlc2v
+    - F2J_ki67
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  C_classifier_similarity:
+    kind: stated
+    quote: the in vivo cell classifier corroborated the cellular complexity of the multilineage organoids first observed by histological analysis and suggested a
+      high transcriptomic similarity
+    where: Results, Long-term culture
+    rests_on:
+    - F3H_atrial_cm
+    - F3H_fibroblast
+    - F3H_probability
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_favor_atrial:
+    kind: stated
+    quote: indicating that multilineage organoids favor the differentiation and maturation of atrial cardiomyocytes
+    where: Results, Long-term culture
+    rests_on:
+    - F3G_ventricular_markers
+    - F3H_atrial_cm
+    judgement:
+      direction: follows
+      support: follows
+      comparison: cannot judge
+      scope: follows
+      replication: cannot judge
+      strength: overstated
+      presence: follows
+    note: no comparison group is sequenced; 'maturation' rests on marker expression only
+  C_stim_only:
+    kind: stated
+    quote: Contractile behavior was observed only when electrical stimulation was applied, a feature consistent with functionally mature iPSC-derived cardiomyocytes
+    where: Results, Long-term culture
+    rests_on:
+    - S3B_contraction
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  C_spont_decrease:
+    kind: stated
+    quote: multilineage organoids demonstrated a decrease in spontaneous calcium activity over time, from 100% at day 10 to 37% ± 16% at day 100
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4A_spontaneous
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: no test along time; the day-10 value looks inconsistent with the plotted point
+  C_up_to_8hz:
+    kind: stated
+    quote: an ability to respond to higher frequencies of electrical stimulation, up to 8 Hz after 80 days of culture
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - S4A_beat_rate
+    - S4B_responding
+    - F4D_beat_rate
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_ca_increase:
+    kind: stated
+    quote: after 30 days, multilineage organoids demonstrated progressively increasing amplitude and maximum stroke velocities under 1-Hz stimulation, consistent
+      with greater functional maturation than the conventional microtissues
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4C_amplitude_d40
+    - F4C_amplitude_d50
+    - F4C_amplitude_d70
+    - F4C_amplitude_d80
+    - F4C_upstroke_d40
+    - F4C_upstroke_d50
+    - F4C_upstroke_d70
+    - F4C_upstroke_d80
+    - F4C_downstroke_d40
+    - F4C_downstroke_d50
+    - F4C_downstroke_d70
+    - F4C_downstroke_d80
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: the difference from conventional is tested per day; 'progressively increasing' over time is not tested
+  C_ca_legend:
+    kind: stated
+    quote: Cardiomyocytes in multilineage organoids display mature calcium flux features such as higher amplitude, Vmax upstroke and downstroke
+    where: Fig. 4C legend
+    restates: C_ca_increase
+    rests_on:
+    - F4C_amplitude_d40
+    - F4C_upstroke_d40
+    - F4C_downstroke_d40
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: '''mature'' is not defined against a reference'
+  C_conv_no_change:
+    kind: stated
+    quote: conventional microtissues exhibited no dramatic changes over time in kinetic calcium-handling properties (amplitude and stroke velocities) under 1-Hz stimulation,
+      reflecting relatively immature function
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4C_amplitude_unmarked
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  C_struct_d30:
+    kind: stated
+    quote: greater structural maturation of individual cardiomyocytes from day-30 multilineage organoids than conventional microtissues, as determined by greater
+      surface area and perimeter, elongated morphology
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4F_area_ml_vs_conv_unmarked
+    - F4F_perimeter_ml_vs_conv_unmarked
+    - F4F_aspect_ratio_ml_vs_conv
+    - F4F_circularity_ml_vs_conv
+    - F4G_sarcomere_class
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: area and perimeter carry no significance mark at day 30; cells are plotted as replicates
+  C_struct_d80:
+    kind: stated
+    quote: More elongated cardiomyocytes with highly aligned and defined sarcomeres were isolated from day-80 multilineage organoids, reflecting additional structural
+      maturation over time
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4F_aspect_ratio_d80_vs_d30
+    - F4F_circularity_d80_vs_d30
+    - F4G_sarcomere_class
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: sarcomere classes are not tested
+  C_sarcomere_length:
+    kind: stated
+    quote: sarcomere length in cardiomyocytes reached 1.75 ± 0.13
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4I_sarcomere_length
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+    note: 2 organoids, 5 regions
+  C_lit_sarcomere:
+    kind: literature
+    quote: a value previously reported only in engineered human iPSCderived cardiac tissues subjected to a constant regimen of 2Hz electrical stimulation
+    where: Results, Multilineage organoids promote atrial/nodal
+    cites:
+    - ronaldson2018
+  C_intrinsic:
+    kind: stated
+    quote: thus highlighting the intrinsic ability of the multilineage organoid model to promote cellular maturation of cardiac muscle cells
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4I_sarcomere_length
+    - F4F_aspect_ratio_d80_vs_d30
+    judgement:
+      direction: follows
+      support: follows
+      comparison: cannot judge
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_an_proportion:
+    kind: stated
+    quote: 'Electrophysiology analysis revealed a higher proportion of atrial and nodal-like (atrial/nodal) cardiomyocytes (day 30: 73%) than found in conventional
+      microtissues (day 30: 57%)'
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4K_atrial_nodal
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: no test; 11 and 7 cells
+  C_an_increase:
+    kind: stated
+    quote: 'the number of atrial/nodal cardiomyocytes increased over time (multilineage organoids day 30: 73%, day'
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4K_atrial_nodal
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: no test; 11 and 10 cells
+  C_specify_mature:
+    kind: stated
+    quote: These results reflect the ability of multilineage organoids to specify and mature atrial/nodal cardiomyocytes
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F4K_atrial_nodal
+    - F4J_Peak
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: maturation of atrial/nodal cells is not compared with any reference
+  C_lit_challenging:
+    kind: literature
+    quote: which has been challenging to achieve by alternative 3D differentiation methods
+    where: Results, Multilineage organoids promote atrial/nodal
+  C_suppl_media:
+    kind: stated
+    quote: The AAand Ca2+-supplemented conventional cardiac media enhanced ventricular cardiomyocyte maturation by promoting an increase in peak, amplitude, and upstroke
+      velocity
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - S4D_Peak
+    - S4D_Amplitude
+    - S4D_Max_up_dVdT
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: table of means, no test
+  C_suppl_no_an:
+    kind: stated
+    quote: cardiomyocyte subtypes (no atrial/nodal cells were identified)
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - S4F_ventricular
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_ml2d_ventricular:
+    kind: stated
+    quote: Cardiomyocytes differentiated in multilineage medium (in 2D monolayers) exhibited comparable maturation to those in the supplemented conventional media,
+      but yielded mainly ventricular-like cells (97%)
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - S4F_ventricular
+    - S4D_Peak
+    - S4D_Amplitude
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: 97% conflicts with the S4D cell counts (12 of 13)
+  C_media_not_sufficient:
+    kind: stated
+    quote: although the media components promoted functional cardiomyocyte maturation, they alone were not sufficient to direct atrial/nodal specification
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - S4F_ventricular
+    - S4D_Peak
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: 2D monolayers differ from 3D organoids in format as well as in gut tissue
+  C_gut_critical:
+    kind: stated
+    quote: appears to be a critical factor responsible for enrichment of atrial/nodal cardiomyocytes (>90% at day 100; Figures 3H and S2G) and the physiological maturation
+      of cardiac tissue
+    where: Results, Multilineage organoids promote atrial/nodal
+    rests_on:
+    - F3H_atrial_cm
+    - S4F_ventricular
+    - F4K_atrial_nodal
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: classifier assignment (day 100) and patch-clamp subtype (2D, day 30) are different measures; no gut-free 3D tissue in multilineage medium is compared
+  C_progenitor_equidistant:
+    kind: stated
+    quote: the progenitors of multilineage organoids represented a unique transcriptional state, roughly equidistant from both cardiac and gut progenitors
+    where: Results, Multilineage organoids express cardiac and gut
+    rests_on:
+    - F5C_mds
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: one multilineage progenitor sample
+  C_mixed_profile:
+    kind: stated
+    quote: multilineage organoid progenitors displayed a mixed transcriptomic profile of cardiac and gut progenitors, which could account for their ability to give
+      rise to organoids
+    where: Results, Multilineage organoids express cardiac and gut
+    rests_on:
+    - F5D_muscle_vs_cardiac
+    - F5E_muscle_vs_gut
+    - F5F_gut_tube_vs_gut
+    - F5F_tbx_vs_gut
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+  C_secreted_factors:
+    kind: stated
+    quote: multilineage progenitors expressed increased levels of secreted factor genes relevant to both cardiac and gut tissue morphogenesis compared to either individual
+      tissue alone
+    where: Results, paracrine factors
+    asserts_direction: up
+    rests_on:
+    - F5G_fgf10_nppb_vs_cardiac
+    - F5G_cardiac_factors_vs_gut
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: follows
+      presence: follows
+    note: no statistic printed; n = 1 multilineage sample
+  C_paracrine_maturation:
+    kind: stated
+    quote: the co-development of gut alongside cardiac cells potentially contributes to more structurally and functionally mature cardiac tissue via the secretion
+      of key cardio-inductive molecules
+    where: Results, paracrine factors
+    rests_on:
+    - F5G_fgf10_nppb_vs_cardiac
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: does not follow
+    note: secretion is not measured; progenitor mRNA only
+  C_fig2_title:
+    kind: stated
+    quote: Long-term culture of multilineage organoids recapitulates early heart and gut development
+    where: Fig. 2 title
+    restates: C_recap_embryonic
+    rests_on:
+    - F2C_area_d70
+    - F2J_ki67
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+  C_fig4_title:
+    kind: stated
+    quote: Cardiomyocytes from multilineage organoids display phenotypic and functional maturation throughout culture, and preferentially specify into atrial/nodal-like
+      cells
+    where: Fig. 4 title
+    rests_on:
+    - F4C_amplitude_d40
+    - F4F_aspect_ratio_d80_vs_d30
+    - F4K_atrial_nodal
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: cannot judge
+      strength: follows
+      presence: follows
+  C_fig5_title:
+    kind: stated
+    quote: Multilineage organoid progenitor cells have a transcriptomic profile that supports the co-development of cardiac and gut tissues
+    where: Fig. 5 title
+    rests_on:
+    - F5C_mds
+    - F5D_muscle_vs_cardiac
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: overstated
+      presence: follows
+  C_disc_only_ml:
+    kind: stated
+    quote: only multilineage organoids exhibited significant growth and preserved the exterior epicardial layer over the long term, as well as a preferential differentiation
+      into atrial/nodal cells
+    where: Discussion
+    rests_on:
+    - F2C_area_d70
+    - F1E_area_d30
+    - F4K_atrial_nodal
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+    note: growth is tested; epicardial layer and atrial/nodal preference are not
+  C_disc_gut_improved:
+    kind: stated
+    quote: The presence of gut tissue developing alongside the cardiac tissue improved the phenotypic and functional maturation of the organoid cardiomyocytes
+    where: Discussion
+    rests_on:
+    - F4C_amplitude_d40
+    - F4F_aspect_ratio_ml_vs_conv
+    judgement:
+      direction: follows
+      support: follows
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: gut presence is confounded with culture medium
+  C_lit_only_ronaldson:
+    kind: literature
+    quote: To date, such mature features have been achieved in vitro only by subjecting early contractile iPSC-derived cardiomyocytes on a 3D collagen gel to an increasing
+      regimen of electrical stimulation
+    where: Discussion
+    cites:
+    - ronaldson2018
+  C_disc_day20:
+    kind: stated
+    quote: whereas at day 20, multilineage organoids contained equivalent amounts of ventricular (MLC2V+) and atrial/nodal (MLC2V ) cardiomyocytes
+    where: Discussion
+    rests_on:
+    - S1J_mlc2v
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: does not follow
+    note: the cited Figures 2D and 2E start at day 30; no day-20 quantification is shown
+  C_disc_hindgut_secretes:
+    kind: stated
+    quote: the mid-hindgut endoderm secretes factors that impact the development of the heart and specifically promotes atrial/nodal specification, as validated with
+      a human in vivo cell classifier
+    where: Discussion
+    rests_on:
+    - F3H_atrial_cm
+    judgement:
+      direction: follows
+      support: does not follow
+      comparison: does not follow
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+    note: introduced as speculation, then 'validated' by a classifier that measures identity, not secretion or its effect
+  C_lit_smc_transplant:
+    kind: literature
+    quote: SMCs have so far only been observed in gut organoids after in vivo transplantation
+    where: Discussion
+    cites:
+    - munera2017
+  C_disc_no_ecm:
+    kind: stated
+    quote: our organoid model creates a microenvironment permissive for gut tissue formation in the absence of exogenous extracellular matrix components or morphogenic
+      signaling cues
+    where: Discussion
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  C_disc_progenitors:
+    kind: stated
+    quote: multilineage organoids result from progenitors with enriched expression of heart-patterning TFs, the cardiomyocyte contractile machinery, and SOX17, a
+      definitive endoderm master regulator
+    where: Discussion
+    rests_on:
+    - F5F_atrial_nodal_vs_cardiac
+    - F5D_muscle_vs_cardiac
+    opposes:
+    - F5F_gut_tube_vs_gut
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: overstated
+      presence: follows
+    note: SOX17 is lower than in gut progenitors; 'result from' is causal on one sample
+  C_lit_first_step:
+    kind: literature
+    quote: The cardiac and gut (multilineage) organoid presented here constitutes a first step toward the generation of organoids that recapitulate the co-development
+    where: Introduction
+  C_attr_drakhlis:
+    kind: attributed
+    quote: these models recapitulated cardiac morphogenesis only up to heart tube formation and consisted of primitive tissues lacking markers of cardiac and endoderm
+      tissue maturation
+    where: Discussion
+    cites:
+    - drakhlis2021
+citations:
+  lian2012:
+    label: Lian et al., 2012
+    text: Lian X et al. Robust cardiomyocyte differentiation from human pluripotent stem cells via temporal modulation of canonical Wnt signaling. PNAS 109, E1848
+    doi: 10.1073/pnas.1200250109
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: following a chemically-defined, serum-free protocol modulating Wnt/b-catenin signaling (Lian et al., 2012)
+      where: STAR Methods, Differentiation
+  bao2016:
+    label: Bao et al., 2016
+    text: Bao X et al. Long-term self-renewing human epicardial cells generated from pluripotent stem cells under defined xeno-free conditions. Nat Biomed Eng 1,
+      0003
+    doi: 10.1038/s41551-016-0003
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: epicardial-permissive medium (Advanced DMEM/F12 (GIBCO) with 100µM L-Ascorbic Acid (Sigma)) (Bao et al., 2016)
+      where: STAR Methods, spheroid formation
+  hookway2016:
+    label: Hookway et al., 2016
+    text: Hookway TA et al. Aggregate formation and suspension culture of human pluripotent stem cells and differentiated progeny. Methods 101, 11-20
+    doi: 10.1016/j.ymeth.2015.11.027
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: aggregated as previous described (Hookway et al., 2016)
+      where: STAR Methods, spheroid formation
+  huebsch2015:
+    label: Huebsch et al., 2015
+    text: Huebsch N et al. Automated Video-Based Analysis of Contractility and Calcium Flux in hiPSC-CMs. Tissue Eng Part C 21, 467-479
+    doi: 10.1089/ten.tec.2014.0283
+    year: '2015'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: genetically modified with fast green fluorescent calcium indicator GCaMP6f (Huebsch et al., 2015; Mandegar et al., 2016)
+      where: STAR Methods, Cell line
+  mandegar2016:
+    label: Mandegar et al., 2016
+    text: Mandegar MA et al. CRISPR Interference Efficiently Induces Specific and Reversible Gene Silencing in Human iPSCs. Cell Stem Cell 18, 541-553
+    doi: 10.1016/j.stem.2016.01.022
+    year: '2016'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: genetically modified with fast green fluorescent calcium indicator GCaMP6f (Huebsch et al., 2015; Mandegar et al., 2016)
+      where: STAR Methods, Cell line
+  turaga2020:
+    label: Turaga et al., 2020
+    text: Turaga D et al. Single-Cell Determination of Cardiac Microtissue Structure and Function Using Light Sheet Microscopy. Tissue Eng Part C 26, 207-215
+    doi: 10.1089/ten.TEC.2020.0020
+    year: '2020'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: stitched with multi-view reconstruction to provide isotropic resolution throughout the sample, as previously described (Turaga et al., 2020)
+      where: STAR Methods, Whole-spheroid structural analysis
+  ma2011:
+    label: Ma et al., 2011
+    text: 'Ma J et al. High purity human-induced pluripotent stem cell-derived cardiomyocytes: electrophysiological properties of action potentials and ionic currents.
+      AJP Heart 301, H2006'
+    doi: 10.1152/ajpheart.00694.2011
+    year: '2011'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: MDP, peak, amplitude, frequency, and dV/dTMax (Ma et al., 2011;Churko et al., 2018)
+      where: STAR Methods, Patch clamp analysis
+  churko2018:
+    label: Churko et al., 2018
+    text: Churko JM et al. Defining human cardiac transcription factor hierarchies using integrated single-cell heterogeneity analysis. Nat Commun 9, 4906
+    doi: 10.1038/s41467-018-07333-4
+    year: '2018'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: MDP, peak, amplitude, frequency, and dV/dTMax (Ma et al., 2011;Churko et al., 2018)
+      where: STAR Methods, Patch clamp analysis
+  nguyen2014:
+    label: Nguyen et al., 2014
+    text: Nguyen DC et al. Microscale generation of cardiospheres promotes robust enrichment of cardiomyocytes derived from human pluripotent stem cells. Stem Cell
+      Reports 3, 260-268
+    doi: 10.1016/j.stemcr.2014.06.002
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: organized mostly in parallel (Figure S4C) (Nguyen et al., 2014;Judge et al., 2017)
+      where: STAR Methods, Cardiomyocyte structure analysis
+  judge2017:
+    label: Judge et al., 2017
+    text: Judge LM et al. A BAG3 chaperone complex maintains cardiomyocyte function during proteotoxic stress. JCI Insight 2, 94623
+    doi: 10.1172/jci.insight.94623
+    year: '2017'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: organized mostly in parallel (Figure S4C) (Nguyen et al., 2014;Judge et al., 2017)
+      where: STAR Methods, Cardiomyocyte structure analysis
+  asp2019:
+    label: Asp et al., 2019
+    text: Asp M et al. A Spatiotemporal Organ-Wide Gene Expression and Cell Atlas of the Developing Human Heart. Cell 179, 1647-1660
+    year: '2019'
+    purpose:
+    - borrows_data
+    anchor:
+      quote: A multiclass logistic regression (lr) model was trained on in vivo cardiac cell types (Asp et al., 2019)
+      where: STAR Methods, Classification of In Vivo Cardiac Cell Types
+  schindelin2012:
+    label: Schindelin et al., 2012
+    text: 'Schindelin J et al. Fiji: an open-source platform for biological-image analysis. Nat Methods 9, 676-682'
+    doi: 10.1038/nmeth.2019
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: quantified using ImageJ version 2.0.0-rc-54/1.51 h software (Schindelin et al., 2012)
+      where: STAR Methods, spheroid formation
+  stuart2019:
+    label: Stuart et al., 2019
+    text: Stuart T et al. Comprehensive Integration of Single-Cell Data. Cell 177, 1888-1902
+    year: '2019'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: downstream analysis was performed with Seurat v.3.1 (Stuart et al., 2019)
+      where: STAR Methods, Single-cell RNA sequencing
+  hafemeister2019:
+    label: Hafemeister and Satija, 2019
+    text: Hafemeister C, Satija R. Normalization and variance stabilization of single-cell RNA-seq data using regularized negative binomial regression. Genome Biol
+      20, 296
+    doi: 10.1186/s13059-019-1874-1
+    year: '2019'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: we ran SCTransform (default, version 3.1.5.9) (Hafemeister and Satija, 2019)
+      where: STAR Methods, Classification of In Vivo Cardiac Cell Types
+  kim2019:
+    label: Kim et al., 2019
+    text: Kim D et al. Graph-based genome alignment and genotyping with HISAT2 and HISAT-genotype. Nat Biotechnol 37, 907-915
+    doi: 10.1038/s41587-019-0201-4
+    year: '2019'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: The sequences were aligned to grch38 using HiSat2 (Kim et al., 2019)
+      where: STAR Methods, Bulk RNA sequencing
+  liao2014:
+    label: Liao et al., 2014
+    text: 'Liao Y et al. featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics 30, 923-930'
+    doi: 10.1093/bioinformatics/btt656
+    year: '2014'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: reads were quantified using featureCounts (Liao et al., 2014)
+      where: STAR Methods, Bulk RNA sequencing
+  feng2012:
+    label: Feng et al., 2012
+    text: 'Feng J et al. GFOLD: a generalized fold change for ranking differentially expressed genes from RNA-seq data. Bioinformatics 28, 2782-2788'
+    doi: 10.1093/bioinformatics/bts515
+    year: '2012'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: differential expression was determined using GFOLD (Feng et al., 2012)
+      where: STAR Methods, Bulk RNA sequencing
+  zhang2019:
+    label: Zhang et al., 2019
+    text: Zhang Z et al. Novel Data Transformations for RNA-seq Differential Expression Analysis. Sci Rep 9, 4820
+    doi: 10.1038/s41598-019-41315-w
+    year: '2019'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Relative gene expression level was determined using the ''l'' normalization algorithm (Zhang et al., 2019)
+      where: STAR Methods, Bulk RNA sequencing
+  lundy2013:
+    label: Lundy et al., 2013
+    text: Lundy SD et al. Structural and functional maturation of cardiomyocytes derived from human pluripotent stem cells. Stem Cells Dev 22, 1991-2002
+    doi: 10.1089/scd.2012.0490
+    year: '2013'
+    purpose:
+    - borrows_method
+    anchor:
+      quote: elongated morphology, and highly aligned and defined sarcomeres (Figures 4E–4G; Lundy et al., 2013)
+      where: Results, Multilineage organoids promote atrial/nodal
+  ronaldson2018:
+    label: Ronaldson-Bouchard et al., 2018
+    text: Ronaldson-Bouchard K et al. Advanced maturation of human cardiac tissue grown from pluripotent stem cells. Nature 556, 239-243
+    doi: 10.1038/s41586-018-0016-3
+    year: '2018'
+    purpose:
+    - contrasts
+    - borrows_value
+    anchor:
+      quote: subjected to a constant regimen of 2Hz electrical stimulation (Figure 4I; Ronaldson-Bouchard et al., 2018)
+      where: Results, Multilineage organoids promote atrial/nodal
+  munera2017:
+    label: Múnera et al., 2017
+    text: Múnera JO et al. Differentiation of Human Pluripotent Stem Cells into Colonic Organoids via Transient Activation of BMP Signaling. Cell Stem Cell 21, 51-64
+    year: '2017'
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: SMCs have so far only been observed in gut organoids after in vivo transplantation (Múnera et al., 2017)
+      where: Discussion
+  drakhlis2021:
+    label: Drakhlis et al., 2021
+    text: Drakhlis L et al. Human heart-forming organoids recapitulate early heart and foregut development. Nat Biotechnol 39, 737-746
+    doi: 10.1038/s41587-021-00815-9
+    year: '2021'
+    purpose:
+    - contrasts
+    anchor:
+      quote: Drakhlis et al. (2021) obtained a human organoid model based on iPSC aggregates encapsulated in Matrigel, without elongation, similarly to our system
+      where: Discussion
+cross_references:
+- cited: Figure 3L
+  shows: Fig. 3 has panels A–I; the classifier assignment is Fig. 3H
+  anchor:
+    quote: assignment of 98% of cardiomyocytes as atrial-like cells by the in vivo cell classifier at day 100 (Figures 3L and S2G)
+    where: Results, Multilineage organoids promote atrial/nodal
+- cited: Figures 2D and 2E (day 20)
+  shows: Fig. 2D–E show days 30 to 100; no day-20 section is shown
+  anchor:
+    quote: whereas at day 20, multilineage organoids contained equivalent amounts of ventricular
+    where: Discussion
+- cited: Figure S3 (Table S2 legend)
+  shows: Fig. S3 shows 1-year-old organoids; the classifier is in Fig. 3H and Fig. S2G–H
+  anchor:
+    quote: In vivo cell classifier gene features and weights for each cell type prediction. Related to Figure 3 and Figure S3.
+    where: Table S2 legend
+    file: mmc1.pdf
+context_anchors:
+- field: cell_line
+  value: GCaMP-WTC11
+  anchor:
+    quote: GCaMP-WTC11 iPSCs were differentiated to mesendoderm-derived progenitor cells
+    where: STAR Methods, Differentiation
+- field: cell_types
+  value: mesendoderm progenitor cells
+  anchor:
+    quote: Mesendoderm progenitor cells were dissociated at differentiation day 5 with Accutase
+    where: STAR Methods, spheroid formation
+- field: cm_day_at_formation
+  value: day 5
+  anchor:
+    quote: Mesendoderm progenitor cells were dissociated at differentiation day 5 with Accutase
+    where: STAR Methods, spheroid formation
+- field: cm_medium
+  value: Advanced DMEM/F12
+  anchor:
+    quote: epicardial-permissive medium (Advanced DMEM/F12 (GIBCO) with 100µM L-Ascorbic Acid (Sigma))
+    where: STAR Methods, spheroid formation
+- field: cm_medium
+  value: RPMI1640
+  anchor:
+    quote: RPMI/B27+ (RPMI1640 medium with B27 supplement with insulin
+    where: STAR Methods, spheroid formation
+- field: confluency
+  value: 100% confluency
+  anchor:
+    quote: fed with mTeSR1 medium until 100% confluency was reached
+    where: STAR Methods, Differentiation
+- field: culture_calcium_mM
+  value: 0.42 mM
+  anchor:
+    quote: conventional cardiac media (Ca2+ = 0.42 mM), multilineage media (AA = 100 µg/mL, Ca2+ = 1.05 mM)
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: culture_calcium_mM
+  value: 0.63 mM
+  anchor:
+    quote: conventional cardiac media supplemented with AA and calcium (AA = 100 µg/mL, Ca2+ = 0.63 mM)
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: culture_calcium_mM
+  value: 1.05 mM
+  anchor:
+    quote: conventional cardiac media (Ca2+ = 0.42 mM), multilineage media (AA = 100 µg/mL, Ca2+ = 1.05 mM)
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: day_of_measurement
+  value: day 10
+  anchor:
+    quote: from 100% at day 10 to 37% ± 16% at day 100
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: day_of_measurement
+  value: day 100
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 20
+  anchor:
+    quote: whereas at day 20, multilineage organoids contained equivalent amounts of ventricular
+    where: Discussion
+- field: day_of_measurement
+  value: day 30
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 365
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 40
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 5
+  anchor:
+    quote: On day 5, cells were either dissociated for tissue formation
+    where: STAR Methods, Differentiation
+- field: day_of_measurement
+  value: day 50
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 60
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 7
+  anchor:
+    quote: On day 7 of the differentiation protocol
+    where: STAR Methods, spheroid formation
+- field: day_of_measurement
+  value: day 70
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 80
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: day_of_measurement
+  value: day 90
+  anchor:
+    quote: At day 30, 40, 50, 60, 70, 80, 90*, 100*, and 365*
+    where: STAR Methods, Calcium imaging
+- field: differentiation_factors
+  value: CHIR-99021 + IWP2
+  anchor:
+    quote: supplemented with 12 µM CHIR-99021 (Selleckchem). Exactly 24 h later, the medium was changed to fresh RPMI/B27-. On day 3, cells were fed with RPMI/B27-
+      supplemented with 5 µM IWP2
+    where: STAR Methods, Differentiation
+- field: differentiation_factors.CHIR-99021
+  value: 12 µM
+  anchor:
+    quote: supplemented with 12 µM CHIR-99021 (Selleckchem)
+    where: STAR Methods, Differentiation
+- field: differentiation_factors.IWP2
+  value: 5 µM
+  anchor:
+    quote: supplemented with 5 µM IWP2 (Sellekchem) for 48 h
+    where: STAR Methods, Differentiation
+- field: dissociation_reagent
+  value: 0.25% Trypsin
+  anchor:
+    quote: dissociated by successive 20 min incubations in 0.25% Trypsin
+    where: STAR Methods, Patch clamp analysis
+- field: dissociation_reagent
+  value: Accutase
+  anchor:
+    quote: Mesendoderm progenitor cells were dissociated at differentiation day 5 with Accutase
+    where: STAR Methods, spheroid formation
+- field: dissociation_reagent.replating
+  value: 0.25% Trypsin
+  anchor:
+    quote: dissociated by successive 20 min incubations in 0.25% Trypsin
+    where: STAR Methods, Patch clamp analysis
+- field: hipsc_coating
+  value: GFR Matrigel
+  anchor:
+    quote: coated with 80 µg/mL growth factor-reduced (GFR) Matrigel
+    where: STAR Methods, Cell line
+- field: hipsc_medium
+  value: mTeSR1
+  anchor:
+    quote: fed daily with mTeSR1 medium (StemCell Technologies)
+    where: STAR Methods, Cell line
+- field: insulin_day
+  value: day 7
+  anchor:
+    quote: On day 7 of the differentiation protocol, 2 days after tissue aggregation, medium was changed to either conventional cardiac-permissive medium, RPMI/B27+
+    where: STAR Methods, spheroid formation
+- field: measurement_calcium_mM
+  value: 1.8 mM
+  anchor:
+    quote: 5.5 mM d-glucose, and 1.8 mM CaCl2
+    where: STAR Methods, Calcium imaging
+- field: measurement_medium
+  value: Tyrode's solution
+  anchor:
+    quote: were equilibrated in Tyrode's solution
+    where: STAR Methods, Calcium imaging
+- field: pacing
+  value: electrical field stimulation
+  anchor:
+    quote: Electrical field stimulation between 0.5Hz and 8Hz was applied with the MyoPacer
+    where: STAR Methods, Calcium imaging
+- field: pacing.frequency
+  value: 0.5-4Hz
+  anchor:
+    quote: Calcium handling response to electrical stimulation (0.5-4Hz)
+    where: Fig. S3B legend
+    file: mmc1.pdf
+- field: pacing.frequency
+  value: 0.5Hz
+  anchor:
+    quote: Electrical field stimulation between 0.5Hz and 8Hz was applied
+    where: STAR Methods, Calcium imaging
+- field: pacing.frequency
+  value: 1 Hz
+  anchor:
+    quote: kinetic calcium-handling properties (amplitude and stroke velocities) under 1-Hz stimulation
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: pacing.frequency
+  value: 2 Hz
+  anchor:
+    quote: of day-80 conventional microtissues could be paced at 2 Hz
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: pacing.frequency
+  value: 3 Hz
+  anchor:
+    quote: 3Hz stimulation
+    where: Fig. 4D panel title (image); Fig. S4A axis
+    kind: unit
+- field: pacing.frequency
+  value: 4 Hz
+  anchor:
+    quote: 4Hz stimulation
+    where: Fig. 4D panel title (image); Fig. S4A axis
+    kind: unit
+- field: pacing.frequency
+  value: 6 Hz
+  anchor:
+    quote: 6 Hz
+    where: Fig. S4A–B axis (image)
+    kind: unit
+- field: pacing.frequency
+  value: 8 Hz
+  anchor:
+    quote: up to 8 Hz after 80 days of culture
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: platform
+  value: monolayer
+  anchor:
+    quote: patch-clamp analyses on iPSC-cardiomyocytes differentiated in monolayers
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: platform
+  value: spheroid
+  anchor:
+    quote: We began by generating spheroids from mesendoderm progenitors differentiated for 5 days
+    where: Results, Formation of heart-like compartments
+- field: preparation
+  value: dissociated cells
+  anchor:
+    quote: we performed electrophysiological and structural analysis of the intact spheroids and dissociated cells
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: preparation
+  value: fixed
+  anchor:
+    quote: Coverslips were then fixed in 4% paraformaldehyde
+    where: STAR Methods, Cardiomyocyte structure analysis
+- field: preparation
+  value: intact spheroids
+  anchor:
+    quote: we performed electrophysiological and structural analysis of the intact spheroids and dissociated cells
+    where: Results, Multilineage organoids promote atrial/nodal
+- field: preparation
+  value: lysed with Trizol
+  anchor:
+    quote: were lysed with Trizol (Ambion)
+    where: STAR Methods, Bulk RNA sequencing
+- field: replating_coating
+  value: GFR Matrigel
+  anchor:
+    quote: Dissociated cells at a density of 0.03x106 cells/cm2 were seeded onto GFR Matrigel-coated glass coverslips
+    where: STAR Methods, Patch clamp analysis
+- field: seeding_density
+  value: 2.4x104 cells/well
+  anchor:
+    quote: pyramidal agarose wells at a density of 2.4x104 cells/well
+    where: STAR Methods, spheroid formation
+- field: seeding_density
+  value: 3x104 cells/cm2
+  anchor:
+    quote: iPSCs were seeded at a density of 3x104 cells/cm2
+    where: STAR Methods, Differentiation
+- field: seeding_density.differentiation
+  value: 3x104 cells/cm2
+  anchor:
+    quote: iPSCs were seeded at a density of 3x104 cells/cm2
+    where: STAR Methods, Differentiation
+- field: seeding_density.replating
+  value: 0.03x106 cells/cm2
+  anchor:
+    quote: Dissociated cells at a density of 0.03x106 cells/cm2 were seeded
+    where: STAR Methods, Patch clamp analysis
+- field: species
+  value: human
+  anchor:
+    quote: WTC11 human induced pluripotent stem cells (iPSCs) genetically modified with fast green fluorescent calcium indicator GCaMP6f
+    where: STAR Methods, Cell line
+- field: supplements
+  value: B27 supplement minus insulin
+  anchor:
+    quote: RPMI1640 medium with B27 Supplement minus insulin
+    where: STAR Methods, Differentiation
+- field: supplements
+  value: B27 supplement with insulin
+  anchor:
+    quote: RPMI/B27+ (RPMI1640 medium with B27 supplement with insulin
+    where: STAR Methods, spheroid formation
+- field: supplements
+  value: ascorbic acid
+  anchor:
+    quote: epicardial-permissive medium (Advanced DMEM/F12 (GIBCO) with 100µM L-Ascorbic Acid (Sigma))
+    where: STAR Methods, spheroid formation
+- field: supplements.concentration
+  value: 100 µM
+  anchor:
+    quote: epicardial-permissive medium (Advanced DMEM/F12 (GIBCO) with 100µM L-Ascorbic Acid (Sigma))
+    where: STAR Methods, spheroid formation
+- field: supplements.concentration
+  value: 100 μg/ml
+  anchor:
+    quote: multilineage-permissive media (AA=100 μg/ml, Ca2+=1.05mM)
+    where: Fig. S4D legend
+    file: mmc1.pdf
+- field: temperature
+  value: 35 ± 1 °C
+  anchor:
+    quote: Experiments were performed at 35 ± 1 C. Action potentials were recorded
+    where: STAR Methods, Patch clamp analysis
+- field: temperature
+  value: 37 °C
+  anchor:
+    quote: for at least 30min at 37 C and then imaged
+    where: STAR Methods, Calcium imaging
+- field: transgene
+  value: GCaMP6f
+  anchor:
+    quote: WTC11 human induced pluripotent stem cells (iPSCs) genetically modified with fast green fluorescent calcium indicator GCaMP6f
+    where: STAR Methods, Cell line
+- field: wnt_activation_days
+  value: 24 h
+  anchor:
+    quote: Exactly 24 h later, the medium was changed to fresh RPMI/B27-
+    where: STAR Methods, Differentiation
+- field: wnt_inhibition_days
+  value: 48 h
+  anchor:
+    quote: supplemented with 5 µM IWP2 (Sellekchem) for 48 h
+    where: STAR Methods, Differentiation

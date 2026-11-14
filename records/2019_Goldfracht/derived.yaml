@@ -1,0 +1,327 @@
+record: 2019_Goldfracht
+formula_library_version: 20
+agent:
+  model: llm
+  instructions: formulas_v3
+
+derived:
+
+  # ---------------------------------------------------------------- force normalised to cross-sectional area
+  F4C_max_foc.specific_force:
+    item: F4C_max_foc
+    group: eht30
+    measure: "maximal specific force of contraction"
+    formula: "sigma = F/A"
+    anchor:
+      quote: "Considering a mean cross sectional area of 1.3 ± 0.1 mm2 the maximal specific force of contraction (FOC) of ECM-EHT amounted to 0.46 ± 0.06 mN/mm2"
+      where: "Results, Contractile function of the ECM-EHTs"
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: "absolute maximal FOC (mN) is not printed"}
+      A: {value: TXT1_csa.values.csa_mean, part: mean, kind: not stated,
+          note: "'Considering a mean cross sectional area' suggests one mean CSA for all tissues; per-tissue CSA not excluded"}
+    output: F4C_max_foc.values.foc_mean
+    aggregation: not stated
+    alternatives:
+      - {label: "A constant: every tissue's force divided by the mean CSA (1.3 mm2)", formula: "sigma = F/A"}
+      - {label: "A per sample: each tissue's force divided by its own CSA", formula: "sigma = F/A"}
+    note: "the CSA's n and method are not stated; the implied absolute force is about 0.46 × 1.3 ≈ 0.6 mN (derived by LivingLit, not printed)"
+
+  F4B_foc.foc_csa:
+    item: F4B_foc
+    measure: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    formula: "sigma = F/A"
+    anchor:
+      quote: "FOC (normalized to cross sectional area, CSA) of ECM-EHT at L0 and Lmax"
+      where: "Fig. 4 legend"
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: "absolute FOC at L0 and Lmax is not printed"}
+      A: {value: TXT1_csa.values.csa_mean, part: mean, kind: not stated}
+    aggregation: not stated
+    note: "the normalised group means are read in readings.yaml (fig4b_foc/L0, fig4b_foc/Lmax); no printed output value"
+
+  F4C_inotropy.foc_csa:
+    item: F4C_inotropy
+    measure: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    formula: "sigma = F/A"
+    anchor:
+      quote: "Effects of increasing extracellular Ca2+ concentration on FOC of ECM-EHTs (normalized per cross sectional area, CSA)."
+      where: "Fig. 4 legend"
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {value: TXT1_csa.values.csa_mean, part: mean, kind: not stated}
+    aggregation: not stated
+
+  S4_foc_day.foc_csa:
+    item: S4_foc_day
+    measure: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    formula: "sigma = F/A"
+    anchor:
+      quote: "Force of contraction (FOC) measurements (normalized to cross sectional area, CSA) of 7d"
+      where: "Supplementary Figure 4 legend"
+      file: mmc1.pdf
+    library: {formula: stress_def, vars: {sigma: sigma, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: not stated,
+          note: "the printed mean CSA (1.3 mm2) is given for the 30 d tissues; the 7 d tissues' CSA is not stated"}
+    aggregation: not stated
+
+  # ---------------------------------------------------------------- percent change from pre-treatment
+  F4D_foc_iso.foc_change:
+    item: F4D_foc_iso
+    group: iso
+    measure: "force of contraction"
+    formula: "d = (x - x0)/x0"
+    anchor:
+      quote: "FOC (percent change from pre-treatment) of ECM-EHTs after application of 1 mM isoproterenol (Iso)"
+      where: "Fig. 4 legend"
+    library: {formula: relative_change, vars: {d: d, x: x, x0: x0}}
+    inputs:
+      x: {not_stated: true, kind: per sample, note: "FOC after isoproterenol"}
+      x0: {not_stated: true, kind: per sample, note: "FOC before treatment, at the EC50 calcium concentration"}
+    output: F4D_foc_iso.values.foc_change
+    aggregation: not stated
+
+  F4D_foc_carb.foc_change:
+    item: F4D_foc_carb
+    group: carb
+    measure: "force of contraction"
+    formula: "not stated"
+    anchor:
+      quote: "induced an antagonistic effect by reducing the isoproterenol-induced increase in FOC by 10% (Fig. 4D)"
+      where: "Results, Contractile function of the ECM-EHTs"
+    no_formula: "'reducing the isoproterenol-induced increase in FOC by 10%' does not say whether 10 is a difference of percent changes (percentage points) or a relative reduction of the increase; the inputs are not printed"
+    inputs:
+      d_iso: {derived: F4D_foc_iso.foc_change, kind: not stated}
+      d_carb: {not_stated: true, kind: per sample, note: "percent change from pre-treatment after isoproterenol then carbamylcholine (Fig. 4D)"}
+    output: F4D_foc_carb.values.foc_change
+    alternatives:
+      - {label: "percentage points: difference of the two percent changes (42 % → about 32 %)", formula: "r = d_iso - d_carb"}
+      - {label: "relative reduction of the isoproterenol-induced increase", formula: "r = (d_iso - d_carb)/d_iso"}
+
+  # ---------------------------------------------------------------- relative decrease of conduction velocity
+  F7B_cv_lidocaine.cv_change:
+    item: F7B_cv_lidocaine
+    measure: "conduction velocity (CV)"
+    formula: "s = (x0 - x)/x0"
+    anchor:
+      quote: "with an average decrease in the mean CV by 38% (P < 0.05, n = 5, Fig. 7B)"
+      where: "Results, Optical mapping of EHTs"
+    library: {formula: relative_decrease, vars: {s: s, x: x, x0: x0}}
+    inputs:
+      x: {not_stated: true, kind: per sample, note: "CV after lidocaine (Fig. 7B, not read)"}
+      x0: {not_stated: true, kind: per sample, note: "baseline CV (Fig. 7B, not read)"}
+    output: F7B_cv_lidocaine.values.cv_change
+    aggregation: not stated
+    note: "'average decrease in the mean CV' can be the mean of per-tissue decreases or the decrease of the group means"
+
+  F7C_cv_carbenoxolone.cv_change:
+    item: F7C_cv_carbenoxolone
+    measure: "conduction velocity (CV)"
+    formula: "s = (x0 - x)/x0"
+    anchor:
+      quote: "50% reduction in the average CV values when compared to the baseline values"
+      where: "Results, Optical mapping of EHTs"
+    library: {formula: relative_decrease, vars: {s: s, x: x, x0: x0}}
+    inputs:
+      x: {not_stated: true, kind: per sample, note: "CV after carbenoxolone (Fig. 7C, not read)"}
+      x0: {not_stated: true, kind: per sample, note: "baseline CV (Fig. 7C, not read)"}
+    output: F7C_cv_carbenoxolone.values.cv_change
+    aggregation: not stated
+
+  # ---------------------------------------------------------------- conduction velocity from activation maps
+  TXT2_cv.cv:
+    item: TXT2_cv
+    group: eht
+    measure: "conduction velocity (CV)"
+    formula: "not stated"
+    anchor: "not stated"
+    no_formula: "CV was computed from activation maps (local activation time at (dF/dt)max) by custom software from B.-R. Choi; distances, activation times and the CV algorithm are not stated"
+    inputs:
+      d: {not_stated: true, kind: per sample}
+      dt: {not_stated: true, kind: per sample}
+    output: TXT2_cv.values.cv_mean
+
+  # ---------------------------------------------------------------- percentages of counts (categorical frequencies)
+  TXT3_arrhythmia_rate.pct:
+    item: TXT3_arrhythmia_rate
+    group: eht
+    measure: "percentage of ECM-EHTs in which arrhythmias were triggered"
+    formula: "f = k/n"
+    anchor:
+      quote: "we were also able to trigger arrhythmias in 58% of the ECM-EHTs (n = 12)"
+      where: "Results, Optical mapping of EHTs"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant, note: "number of tissues with arrhythmias"}
+      n: {printed: "12", unit: count, kind: constant,
+          anchor: {quote: "in 58% of the ECM-EHTs (n = 12)", where: "Results, Optical mapping of EHTs"}}
+    output: TXT3_arrhythmia_rate.values.pct
+
+  TXT3_termination.pct:
+    item: TXT3_termination
+    group: eht
+    measure: "percentage of arrhythmic ECM-EHTs terminated by field stimulation"
+    formula: "f = k/n"
+    anchor:
+      quote: "In 85% of the ECM-EHTs developing reentrant arrhythmias, we were able to terminate the arrhythmias"
+      where: "Results, Optical mapping of EHTs"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant, note: "number of arrhythmic tissues in which the arrhythmia was terminated"}
+      n: {printed: "7", unit: count, kind: constant,
+          anchor: {quote: "(n = 7, Movie S5)", where: "Fig. 6 legend"}}
+    output: TXT3_termination.values.pct
+    note: "n = 7 is consistent with 58 % of 12 tissues (7/12) developing arrhythmias; 6/7 is 85.7 %, 85 printed"
+
+  F7F_lqts_dofetilide.lqts_pct:
+    item: F7F_lqts_dofetilide
+    group: lqt_dof
+    measure: "percentage of ECM-EHTs that developed arrhythmias"
+    formula: "f = k/n"
+    anchor:
+      quote: "in the vast majority (75%, n = 8) of the LQTS2-EHTs studied"
+      where: "Results, Optical mapping of EHTs"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant}
+      n: {printed: "8", unit: count, kind: constant,
+          anchor: {quote: "(75%, n = 8)", where: "Results, Optical mapping of EHTs"}}
+    output: F7F_lqts_dofetilide.values.lqts_pct
+
+  F7F_lqts_dofetilide.ctrl_pct:
+    item: F7F_lqts_dofetilide
+    group: ctrl_dof
+    measure: "percentage of ECM-EHTs that developed arrhythmias"
+    formula: "f = k/n"
+    anchor:
+      quote: "In contrast only 12.5% (n = 8) of control ECM-EHTs tested developed arrhythmic activity following dofetilide application"
+      where: "Results, Optical mapping of EHTs"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant}
+      n: {printed: "8", unit: count, kind: constant,
+          anchor: {quote: "only 12.5% (n = 8) of control", where: "Results, Optical mapping of EHTs"}}
+    output: F7F_lqts_dofetilide.values.ctrl_pct
+
+  F5F_cpvt_vs_ctrl.cpvt_pct:
+    item: F5F_cpvt_vs_ctrl
+    group: cpvt_eht
+    measure: "percentage of cells displaying abnormal [Ca2+]i transients"
+    formula: "f = k/n"
+    anchor:
+      quote: "Quantification of the percentage of cells displaying"
+      where: "Fig. 5 legend"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant}
+      n: {not_stated: true, kind: constant,
+          note: "the printed n = 50 counts analysed sites; 19.1 % of 50 is not a whole number, so the denominator is not stated"}
+    output: F5F_cpvt_vs_ctrl.values.cpvt_pct
+
+  F5F_cpvt_vs_ctrl.ctrl_pct:
+    item: F5F_cpvt_vs_ctrl
+    group: ctrl_eht
+    measure: "percentage of cells displaying abnormal [Ca2+]i transients"
+    formula: "f = k/n"
+    anchor:
+      quote: "Quantification of the percentage of cells displaying"
+      where: "Fig. 5 legend"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant}
+      n: {not_stated: true, kind: constant,
+          note: "the printed n = 50 counts analysed sites; 2.7 % of 50 is not a whole number, so the denominator is not stated"}
+    output: F5F_cpvt_vs_ctrl.values.ctrl_pct
+
+  S1A_purity.cTnT_pos:
+    item: S1A_purity
+    group: cm
+    measure: "percentage of cardiac troponin T (cTnT) positive cells"
+    formula: "f = k/n"
+    anchor:
+      quote: "analyzing the percentage of cells that expressed cTNT"
+      where: "Methods, Generation of hiPSC-CMs"
+    library: {formula: ratio_def, vars: {r: f, a: k, b: n}}
+    inputs:
+      k: {not_stated: true, kind: constant, note: "cTnT-positive events after gating"}
+      n: {not_stated: true, kind: constant, note: "gated events"}
+    output: S1A_purity.values.cTnT_pos
+
+  # ---------------------------------------------------------------- qPCR: expression ratios
+  F1E_MYH7_MYH6_time.ratio:
+    item: F1E_MYH7_MYH6_time
+    measure: "MYH7/MYH6 expression ratio"
+    formula: "q = a/b"
+    anchor:
+      quote: "an increase in the ratio of expression of MYH7/MYH6"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    library: {formula: ratio_def, vars: {r: q, a: a, b: b}}
+    inputs:
+      a: {item: F1E_MYH7_time, kind: per sample}
+      b: {item: F1E_MYH6_time, kind: per sample}
+    aggregation: not stated
+
+  F1E_MYL2_MYL7_time.ratio:
+    item: F1E_MYL2_MYL7_time
+    measure: "MYL2/MYL7 expression ratio"
+    formula: "q = a/b"
+    anchor:
+      quote: "an increase in the ratio of expression of MYL2/MYL7"
+      where: "Results, Combining cardiac-specific ECM hydrogel with hiPSCs-CMs"
+    library: {formula: ratio_def, vars: {r: q, a: a, b: b}}
+    inputs:
+      a: {item: F1E_MYL2_time, kind: per sample}
+      b: {not_stated: true, kind: per sample, note: "MYL7 expression is not an evidence item"}
+    aggregation: not stated
+
+  # ---------------------------------------------------------------- qPCR: normalised to GAPDH
+  F1E_MYL2_time.norm:
+    item: F1E_MYL2_time
+    measure: "MYL2 relative gene expression"
+    formula: "e = g/h"
+    anchor: &gapdh
+      quote: "Expression levels were normalized to the housekeeping gene GAPDH."
+      where: "Methods, RNA isolation and RT-qPCR"
+    library: &gapdhlib {formula: ratio_def, vars: {r: e, a: g, b: h}}
+    inputs: &gapdhin
+      g: {not_stated: true, kind: per sample, note: "target gene expression"}
+      h: {not_stated: true, kind: per sample, note: "GAPDH expression"}
+    alternatives: &gapdhalt
+      - {label: "2^-ΔΔCt relative to a calibrator group (not stated which)", note: "a 'normalized to' ratio of expression is 2^-ΔCt; a calibrator would make it 2^-ΔΔCt (ddct_relative_expression)"}
+  F1E_MYH7_time.norm:
+    {item: F1E_MYH7_time, measure: "MYH7 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_CASQ2_time.norm:
+    {item: F1E_CASQ2_time, measure: "CASQ2 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_NKX25_time.norm:
+    {item: F1E_NKX25_time, measure: "NKX2.5 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_TNNT2_time.norm:
+    {item: F1E_TNNT2_time, measure: "TNNT2 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_MYH6_time.norm:
+    {item: F1E_MYH6_time, measure: "MYH6 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_CACNA1C_time.norm:
+    {item: F1E_CACNA1C_time, measure: "CACNA1C relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_MYL2_platform.norm:
+    {item: F1E_MYL2_platform, measure: "MYL2 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_TNNT2_platform.norm:
+    {item: F1E_TNNT2_platform, measure: "TNNT2 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_CASQ2_platform.norm:
+    {item: F1E_CASQ2_platform, measure: "CASQ2 relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+  F1E_CACNA1C_platform.norm:
+    {item: F1E_CACNA1C_platform, measure: "CACNA1C relative gene expression", formula: "e = g/h", anchor: *gapdh, library: *gapdhlib, inputs: *gapdhin, alternatives: *gapdhalt}
+
+assumptions: {}
+
+bounds:
+  - {item: S1A_purity, value: S1A_purity.values.cTnT_pos, formula: fraction_bounds}
+  - {item: F5F_cpvt_vs_ctrl, value: F5F_cpvt_vs_ctrl.values.cpvt_pct, formula: fraction_bounds}
+  - {item: F5F_cpvt_vs_ctrl, value: F5F_cpvt_vs_ctrl.values.ctrl_pct, formula: fraction_bounds}
+  - {item: TXT3_arrhythmia_rate, value: TXT3_arrhythmia_rate.values.pct, formula: fraction_bounds}
+  - {item: TXT3_termination, value: TXT3_termination.values.pct, formula: fraction_bounds}
+  - {item: F7F_lqts_dofetilide, value: F7F_lqts_dofetilide.values.lqts_pct, formula: fraction_bounds}
+  - {item: F7F_lqts_dofetilide, value: F7F_lqts_dofetilide.values.ctrl_pct, formula: fraction_bounds}
+
+proposals: []

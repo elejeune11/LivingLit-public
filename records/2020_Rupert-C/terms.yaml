@@ -1,0 +1,314 @@
+record: 2020_Rupert-C
+vocabulary_version: 66
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- synonyms (context)
+- add_synonym:
+    id: CL:2000066
+    text: hCFs
+    anchor: Tissues were formed by combining 1 × 106 hiPSC-cardiomyocytes and 0-15% hCFs
+- add_synonym:
+    id: CL:0002551
+    text: NHDFs
+    anchor: Tissues were formed by combining 1 × 106 hiPSC-cardiomyocytes and 0-15% hCFs or 0-20% NHDFs
+- add_synonym:
+    id: CL:0000746
+    text: hiPSC-cardiomyocytes
+    anchor: Tissues were formed by combining 1 × 106 hiPSC-cardiomyocytes and 0-15% hCFs
+- add_synonym:
+    id: CVCL_RM92
+    text: Human Episomal Induced Pluripotent Stem Cells
+    anchor: Human Episomal Induced Pluripotent Stem Cells (hiPSCs) were purchased from Thermo Fisher
+- add_synonym:
+    id: hipsc_coating:vitronectin
+    text: truncated human vitronectin
+    anchor: cultured on plates coated with truncated human vitronectin in Essential 8 Medium
+- add_synonym:
+    id: platform:engineered_3d
+    text: engineered cardiac tissues
+    anchor: Because adult human cardiac ﬁbroblasts (hCFs) are a novel cell type to include in our engineered cardiac tissues (ECTs)
+- add_synonym:
+    id: substrate:polyacrylamide
+    text: polyacrylamide gels
+    anchor: HCFs cultured on soft 12.5 kPa polyacrylamide gels or stiﬀ 50 GPa glass
+- add_synonym:
+    id: substrate:glass
+    text: glass coverslips
+    anchor: hCFs seeded on glass coverslips were treated with 10 ng/mL TGF-β1 for 48 hours
+- add_synonym:
+    id: substrate:culture_plate
+    text: tissue culture plastic
+    anchor: cells were maintained on tissue culture plastic with a stiﬀness of approximately 100 MPa
+- add_synonym:
+    id: substrate:collagen_hydrogel
+    text: rat tail collagen-1
+    anchor: with 2.5 mg/mL rat tail collagen-1 at a 50%/50% vol/vol ratio
+- add_synonym:
+    id: preparation:rna_extract
+    text: mRNA
+    anchor: mRNA was collected from p4 and p9 hCFs and p8 neonatal human dermal ﬁbroblasts
+- add_synonym:
+    id: preparation:intact_tissue
+    text: intact
+    anchor: Intact engineered tissues were exposed to 0.1 mM to 4mM Ca2+ under 1 Hz pacing
+- add_synonym:
+    id: transgene:gfp
+    text: pLenti-GFP-EF1 α
+    anchor: Passage 5 hCFs were incubated with pLenti-GFP-EF1 α lentiviral particles at a MOI of 3
+# ---------------------------------------------------------------- synonyms (measures)
+- add_synonym:
+    id: measure:twitch_stress
+    text: maximum active stress
+    anchor: Maximum active stress of tissues was normalized to control
+# ---------------------------------------------------------------- new measure terms
+- add_term:
+    field: measure
+    id: measure:alternans_amplitude
+    label: alternans amplitude
+    definition: Size of the beat-to-beat alternation in amplitude of a stated signal (qualifier signal), as a share of the full-amplitude beat, during pacing.
+    scope: The amplitude of alternation between strong and weak beats; not the pacing frequency at which alternans begins (alternans onset frequency), not how many tissues show alternans (arrhythmia incidence) and not beat-to-beat change in beat interval.
+    dimension: dimensionless
+    qualifiers:
+      signal:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:alternans_onset_frequency
+    label: alternans onset frequency
+    definition: The pacing frequency at which alternans amplitude first reaches a stated threshold (qualifier threshold).
+    scope: A threshold pacing frequency for alternans; not the highest frequency still captured (maximum capture rate) and not the alternans amplitude itself.
+    dimension: frequency
+    qualifiers:
+      threshold:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:hill_coefficient
+    label: Hill coefficient
+    definition: Steepness of a concentration-response relation for a stated agonist (qualifier agonist) and readout (qualifier response).
+    scope: The slope parameter of a concentration-response fit; not the concentration of half or stated response (EC50) and not a regression slope between two measures.
+    dimension: dimensionless
+    qualifiers:
+      agonist:
+        dimension: text
+      response:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:between_measure_relation
+    label: relation between two measures
+    definition: One stated measure plotted against another across samples or conditions (qualifier measures), with no slope or correlation coefficient stated.
+    scope: A plotted relation with no statistic; a fitted slope is the regression slope between two measures and a coefficient is the correlation between two measures.
+    dimension: categorical
+    qualifiers:
+      measures:
+        dimension: text
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:alternans_amplitude
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.signal, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing, measure.signal]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:alternans_onset_frequency
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.threshold, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing, measure.threshold]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:hill_coefficient
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.agonist, measure.response, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.agonist, measure.response]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:between_measure_relation
+    value:
+      must_match: [platform@1, preparation, measure.measures, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.measures]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: preparation
+  stated: strips
+  terms: [preparation:intact_tissue]
+  note: live engineered tissues cut in half and mounted on a force transducer (Methods 2.6); no synonym, as 'strips' alone is too generic
+- field: day_of_measurement
+  stated: day three
+  flag:
+    kind: not a context
+    note: a quantity with its number in words that code does not parse ('day three'); the reader should write it as a number ('day 3'). A quantity field takes no terms.
+- field: dissociation_reagent
+  stated: trypsin + EDTA
+  terms: [dissociation_reagent:trypsin_edta]
+  note: 0.25% trypsin in 0.5 mM EDTA is one reagent, so the trypsin-EDTA term, not the set {trypsin, EDTA}
+- field: pacing
+  stated: stimulation
+  terms: [pacing:electrical_pacing]
+  note: 1 Hz stimulation during optical mapping; the mode is not stated there (field stimulation is stated for culture); no synonym, 'stimulation' alone is too generic
+- field: measurement_medium
+  stated: perfusate
+  terms: [measurement_medium:extracellular_solution]
+  note: an unnamed bicarbonate-buffered saline (130 NaCl, 24 NaHCO3, 1.25 CaCl2 ...) perfused during optical mapping; no synonym, 'perfusate' could be culture medium elsewhere
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: αSMA/vimentin fluorescence intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers:
+    protein: αSMA/vimentin
+    expressed_as: fold
+  note: Expression of αSMA normalized by vimentin; the group each fold is against (glass, control, p4 hCFs) is on the values
+- field: measure
+  stated: ACTA2 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: ACTA2
+    expressed_as: fold
+- field: measure
+  stated: GJA1 mRNA expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: GJA1
+    expressed_as: fold
+- field: measure
+  stated: tissue compaction and syncytial beating
+  flag:
+    kind: several measures
+    note: compaction (a structural outcome) and syncytial beating (a functional one) in one item
+- field: measure
+  stated: cardiomyocyte compaction and local fiber alignment
+  flag:
+    kind: several measures
+    note: compaction and fibre alignment are two measures
+- field: measure
+  stated: GFP+ hCF distribution and vimentin
+  flag:
+    kind: several measures
+    note: spatial distribution of GFP+ hCFs and vimentin staining are two measures
+- field: measure
+  stated: αSMA single positive cells
+  terms: [measure:marker_positive_cells]
+  qualifiers:
+    marker: αSMA single positive
+  note: flow cytometry for cTnT and αSMA; αSMA+ cTnT− cells
+- field: measure
+  stated: cross-sectional area
+  terms: [measure:tissue_cross_sectional_area]
+  note: values are mm2 or % change against control; each value carries its own expressed_as. No synonym ('cross-sectional area' is also used for cells)
+- field: measure
+  stated: time to 50% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers:
+    level: 50%
+- field: measure
+  stated: time to 90% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers:
+    level: 90%
+- field: measure
+  stated: slope of time to 50% relaxation against contractile stress
+  terms: [measure:between_measure_slope]
+  qualifiers:
+    measures: time to 50% relaxation; contractile stress
+- field: measure
+  stated: slope of time to 90% relaxation against contractile stress
+  terms: [measure:between_measure_slope]
+  qualifiers:
+    measures: time to 90% relaxation; contractile stress
+- field: measure
+  stated: slope of upstroke velocity against contractile stress
+  terms: [measure:between_measure_slope]
+  qualifiers:
+    measures: contraction upstroke velocity; contractile stress
+- field: measure
+  stated: upstroke velocity against contractile stress
+  terms: [measure:between_measure_relation]
+  qualifiers:
+    measures: contraction upstroke velocity; contractile stress
+- field: measure
+  stated: alternans onset frequency against maximum capture rate
+  terms: [measure:between_measure_relation]
+  qualifiers:
+    measures: alternans onset frequency; maximum capture rate
+- field: measure
+  stated: normalized alternans amplitude against normalized full-force contraction amplitude
+  terms: [measure:between_measure_correlation]
+  qualifiers:
+    measures: normalized alternans amplitude; normalized full-force contraction amplitude
+  note: the printed value is R2
+- field: measure
+  stated: fraction of beats following 1 Hz stimulation
+  terms: [measure:pacing_entrainment]
+  note: 1 Hz is the pacing frequency (context), not part of the measure
+- field: measure
+  stated: spontaneous rate
+  terms: [measure:contraction_frequency]
+  note: spontaneous beats seen in force traces during 1 Hz pacing; no synonym, the phrase is not printed as such in the paper's text
+- field: measure
+  stated: action potential shape
+  terms: [measure:action_potential]
+  note: the whole waveform described qualitatively (ventricular-like plateau vs pacemaker-like triangular)
+- field: measure
+  stated: percentage of tissues exhibiting alternans
+  terms: [measure:arrhythmia_incidence]
+  qualifiers:
+    outcome: alternans
+    counted: tissues
+- field: measure
+  stated: alternans onset frequency
+  terms: [measure:alternans_onset_frequency]
+  qualifiers:
+    threshold: alternans amplitude ≥5% of the total force amplitude
+- field: measure
+  stated: alternans amplitude
+  terms: [measure:alternans_amplitude]
+  qualifiers:
+    signal: force
+- field: measure
+  stated: Ca2+ transient alternans amplitude
+  terms: [measure:alternans_amplitude]
+  qualifiers:
+    signal: Ca2+ transient
+- field: measure
+  stated: contractile stress normalized to control
+  terms: [measure:twitch_stress]
+  qualifiers:
+    expressed_as: normalised
+    normalised_to: control (non-hCF-containing tissues)
+- field: measure
+  stated: number of tissues beating in syncytium
+  terms: [measure:synchronous_beating_fraction]
+  note: counts of tissues beating or not beating in syncytium under 1 Hz field stimulation
+- field: measure
+  stated: tissue holes
+  terms: [measure:tissue_morphology]
+  qualifiers:
+    feature: holes
+- field: measure
+  stated: stress against extracellular calcium
+  terms: [measure:twitch_stress]
+  note: contractile stress at each extracellular Ca2+ concentration (0.1 to 4 mM) under 1 Hz pacing; the concentration is the value's x
+- field: measure
+  stated: EC50 of extracellular calcium
+  terms: [measure:ec50]
+  qualifiers:
+    agonist: extracellular Ca2+
+    response: contractile stress at 1.5 times baseline force
+  note: defined as the Ca2+ concentration reaching 1.5 times baseline force, not half-maximal; the response qualifier keeps it apart from half-maximal EC50s
+- field: measure
+  stated: Hill coefficient
+  terms: [measure:hill_coefficient]
+  qualifiers:
+    agonist: extracellular Ca2+
+    response: contractile stress

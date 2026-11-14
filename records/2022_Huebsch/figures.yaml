@@ -1,0 +1,877 @@
+figures:
+  ED2G_m7:
+    file: journal_version.pdf
+    page: 20
+    crop:
+    - 50
+    - 480
+    - 235
+    - 585
+    script: figures/ED2G_m7.py
+    unit: ED2GH
+    kind: raster
+    groups:
+      Standard Media:
+        item: ED2G_m7
+        group: sm
+        unit_of_value: prevalence of beating (1Hz pacing)
+      Media 7:
+        item: ED2G_m7
+        group: m7
+        unit_of_value: prevalence of beating (1Hz pacing)
+    note: 'Panel g. Mean and SD only: Standard Media''s red squares touch (11 blobs, one of them two squares; n = 12 printed);
+      Media 7''s black squares lie on its black bar.'
+  ED2G_m8:
+    file: journal_version.pdf
+    page: 20
+    crop:
+    - 50
+    - 480
+    - 235
+    - 585
+    script: figures/ED2G_m8.py
+    unit: ED2GH
+    kind: raster
+    groups:
+      Standard Media:
+        item: ED2G_m8
+        group: sm
+        unit_of_value: prevalence of beating (1Hz pacing)
+      Media 8:
+        item: ED2G_m8
+        group: m8
+        unit_of_value: prevalence of beating (1Hz pacing)
+    note: 'Panel g, same crop as ED2G_m7 (one entry per item). Media 8: four touching black triangles at 0 cover its mean
+      and SD lines; nothing read.'
+  ED2H_mm:
+    file: journal_version.pdf
+    page: 20
+    crop:
+    - 235
+    - 480
+    - 410
+    - 585
+    script: figures/ED2H_mm.py
+    unit: ED2GH
+    kind: raster
+    groups:
+      Standard Media:
+        item: ED2H_mm
+        group: sm
+        unit_of_value: sec
+      Maturation Media:
+        item: ED2H_mm
+        group: mm
+        unit_of_value: sec
+    note: 'Panel h. Standard Media mean and SD only (its squares touch in two places); Maturation Media: 9 standing-alone
+      circles against n = 10 printed.'
+  F2E_mps:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 85
+    - 170
+    - 262
+    - 300
+    script: figures/F2E_mps.py
+    unit: F2E
+    kind: vector
+    groups:
+      SM MPS:
+        item: F2E_mps
+        group: mps_sm
+        unit_of_value: s
+      MM MPS:
+        item: F2E_mps
+        group: mps_mm
+        unit_of_value: s
+    note: 'Panel e, APD80 (s). Vector markers counted: SM MPS 12, MM MPS 13 (legend: n = 12–16 per group). Mean is where the
+      error bar''s two halves meet (the bar''s top edge is half a line width above).'
+  F2E_platform:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 85
+    - 170
+    - 262
+    - 300
+    script: figures/F2E_platform.py
+    unit: F2E
+    kind: vector
+    groups:
+      MM MPS:
+        item: F2E_platform
+        group: mps_mm
+        unit_of_value: s
+      SM 2D:
+        item: F2E_platform
+        group: d2_sm
+        unit_of_value: s
+      MM 2D:
+        item: F2E_platform
+        group: d2_mm
+        unit_of_value: s
+    note: Panel e, same crop as F2E_mps (one entry per item). SM 2D 16 open squares; MM 2D 11 open circles, one fewer than
+      the legend's lower bound (n = 12–16 per group); no hidden duplicate circle in the path.
+  F2F_mps:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 275
+    - 175
+    - 445
+    - 315
+    script: figures/F2F_mps.py
+    unit: F2F
+    kind: vector
+    groups:
+      SM MPS:
+        item: F2F_mps
+        group: mps_sm
+        unit_of_value: s
+      MM MPS:
+        item: F2F_mps
+        group: mps_mm
+        unit_of_value: s
+    note: 'Panel f, APD80 (s), SCVI20. Vector markers counted: SM MPS 35, MM MPS 29 (legend: n = 29–35 per MPS group). Mean
+      and mean + s.d. of the points agree with the bar''s mean and upper cap within 0.0005 s.'
+  F2F_mm_vs_2dsm:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 275
+    - 175
+    - 445
+    - 315
+    script: figures/F2F_mm_vs_2dsm.py
+    unit: F2F
+    kind: vector
+    groups:
+      MM MPS:
+        item: F2F_mm_vs_2dsm
+        group: mps_mm
+        unit_of_value: s
+      SM 2D:
+        item: F2F_mm_vs_2dsm
+        group: d2_sm
+        unit_of_value: s
+    note: 'Panel f, same crop as F2F_mps (one entry per item). MM MPS 29 filled circles, SM 2D 15 open squares (legend: n
+      = 29–35 per MPS group, 15–16 per 2D group).'
+  F2F_2d:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 275
+    - 175
+    - 445
+    - 315
+    script: figures/F2F_2d.py
+    unit: F2F
+    kind: vector
+    groups:
+      SM 2D:
+        item: F2F_2d
+        group: d2_sm
+        unit_of_value: s
+      MM 2D:
+        item: F2F_2d
+        group: d2_mm
+        unit_of_value: s
+    note: 'Panel f, same crop as F2F_mps (one entry per item). SM 2D 15 open squares, MM 2D 16 open circles drawn as one compound
+      path (legend: n = 15–16 per 2D group). Mean and mean + s.d. of the points agree with the bars within 0.0005 s.'
+  F2G:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 80
+    - 325
+    - 180
+    - 440
+    script: figures/F2G.py
+    unit: F2GH
+    kind: vector
+    groups:
+      SM:
+        item: F2G
+        group: sm
+        unit_of_value: F/F0
+      MM:
+        item: F2G
+        group: mm
+        unit_of_value: F/F0
+    note: 'Panel g, F/F0 (WTC MPS). Open bars at the mean with black s.d. bars; vector markers counted: SM 16 red squares
+      (each drawn as a fill and an outline path), MM 15 blue circles (legend: n = 15–16 per group). Mean and mean + s.d. of
+      the points agree with the bars within 0.00003. Mean is where the error bar''s two halves meet (the bar''s top edge is
+      half a line width below it on the page).'
+  F2J:
+    file: journal_version.pdf
+    page: 4
+    crop:
+    - 393
+    - 320
+    - 500
+    - 440
+    script: figures/F2J.py
+    unit: F2IJ
+    kind: vector
+    groups:
+      SM:
+        item: F2J
+        group: sm
+        unit_of_value: ms–1
+      MM:
+        item: F2J
+        group: mm
+        unit_of_value: ms–1
+    note: 'Panel j, dF/dt (ms–1), SCVI20 MPS, log y axis calibrated from the four labelled decade ticks (minor ticks unlabelled,
+      not used). Open bars at the mean with black s.d. bars; vector markers counted: SM 67 red squares (each a fill and an
+      outline path), MM 67 blue circles (legend: n = 67–70 per group). Mean is where the error bar''s two halves meet.'
+  F3C_mps:
+    file: journal_version.pdf
+    page: 5
+    crop:
+    - 115
+    - 160
+    - 248
+    - 272
+    script: figures/F3C_mps.py
+    unit: F3C
+    kind: vector
+    groups:
+      SM MPS:
+        item: F3C_mps
+        group: mps_sm
+        unit_of_value: Intensity (raw RFU)
+      MM MPS:
+        item: F3C_mps
+        group: mps_mm
+        unit_of_value: Intensity (raw RFU)
+    note: 'Panel c, MitoTracker Red intensity (raw RFU), WTC. Y axis calibrated from four tick paths (0–3,000). SM MPS 3 filled
+      red squares, MM MPS 3 filled blue circles (legend: n = 3 per group). Mean is where the error bar''s two halves meet.'
+  F3C_2d:
+    file: journal_version.pdf
+    page: 5
+    crop:
+    - 115
+    - 160
+    - 248
+    - 272
+    script: figures/F3C_2d.py
+    unit: F3C
+    kind: vector
+    groups:
+      SM 2D:
+        item: F3C_2d
+        group: d2_sm
+        unit_of_value: Intensity (raw RFU)
+      MM 2D:
+        item: F3C_2d
+        group: d2_mm
+        unit_of_value: Intensity (raw RFU)
+    note: 'Panel c, same crop as F3C_mps (one entry per item). SM 2D 3 open red squares (one path of three rectangles), MM
+      2D 3 open blue circles (one compound path) (legend: n = 3 per group).'
+  F3D_mps:
+    file: journal_version.pdf
+    page: 5
+    crop:
+    - 250
+    - 160
+    - 382
+    - 272
+    script: figures/F3D_mps.py
+    unit: F3D
+    kind: vector
+    groups:
+      SM MPS:
+        item: F3D_mps
+        group: mps_sm
+        unit_of_value: Intensity (raw RFU)
+      MM MPS:
+        item: F3D_mps
+        group: mps_mm
+        unit_of_value: Intensity (raw RFU)
+    note: 'Panel d, MitoTracker Red intensity (raw RFU), SCVI20. Y axis calibrated from four tick paths (0–6,000). SM MPS
+      filled red squares, MM MPS filled blue circles (legend: n = 4–5 per group). Mean is where the error bar''s two halves
+      meet.'
+  F3D_2d:
+    file: journal_version.pdf
+    page: 5
+    crop:
+    - 250
+    - 160
+    - 382
+    - 272
+    script: figures/F3D_2d.py
+    unit: F3D
+    kind: vector
+    groups:
+      SM 2D:
+        item: F3D_2d
+        group: d2_sm
+        unit_of_value: Intensity (raw RFU)
+      MM 2D:
+        item: F3D_2d
+        group: d2_mm
+        unit_of_value: Intensity (raw RFU)
+    note: 'Panel d, same crop as F3D_mps (one entry per item). SM 2D open red squares (one path of four rectangles), MM 2D
+      open blue circles (one compound path) (legend: n = 4–5 per group).'
+  F3E_mps:
+    file: journal_version.pdf
+    page: 5
+    crop:
+    - 382
+    - 160
+    - 485
+    - 292
+    script: figures/F3E_mps.py
+    unit: F3E
+    kind: vector
+    groups:
+      SM MPS:
+        item: F3E_mps
+        group: sm
+        unit_of_value: Intensity (raw RFU)
+      MM MPS:
+        item: F3E_mps
+        group: mm
+        unit_of_value: Intensity (raw RFU)
+    note: 'Panel e, MitoTracker Red intensity (raw RFU), G15.AO. Y axis calibrated from five tick paths (0–4,000). SM MPS
+      filled red squares, MM MPS filled blue circles (legend: n = 3 per group). Mean is where the error bar''s two halves
+      meet.'
+  F5A_cacnb2_mm:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 40
+    - 55
+    - 300
+    - 200
+    script: figures/F5A_cacnb2_mm.py
+    unit: F5A
+    kind: vector
+    groups:
+      SM monolayer:
+        item: F5A_cacnb2_mm
+        group: sm
+        unit_of_value: Expression relative to GAPDH
+      MM monolayer:
+        item: F5A_cacnb2_mm
+        group: mm
+        unit_of_value: Expression relative to GAPDH
+    note: 'Panel a, CACNB2 (WTC monolayers). Log y axis calibrated from its five major ticks (0.0001–1). SM filled red
+      squares, MM filled blue circles; legend: median ± s.d., n = 4 wells per condition. Only 2 SM squares are drawn
+      (n = 4) and 3 MM circles. The bar''s central value (where the error bar''s halves meet) is stored as median, as the
+      legend names it.'
+  F5A_cacnb2_adult:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 40
+    - 55
+    - 300
+    - 200
+    script: figures/F5A_cacnb2_adult.py
+    unit: F5A
+    kind: vector
+    groups:
+      SM monolayer:
+        item: F5A_cacnb2_adult
+        group: sm
+        unit_of_value: Expression relative to GAPDH
+      Adult heart total RNA:
+        item: F5A_cacnb2_adult
+        group: adult
+        unit_of_value: Expression relative to GAPDH
+    note: 'Panel a, same crop as F5A_cacnb2_mm (one entry per item). Adult heart total RNA: six green triangles, one
+      commercial pooled RNA sample (the triangles are not wells; no n is printed for it).'
+  F5B_hcn4_sm:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 300
+    - 55
+    - 560
+    - 200
+    script: figures/F5B_hcn4_sm.py
+    unit: F5B
+    kind: vector
+    groups:
+      SM monolayer:
+        item: F5B_hcn4_sm
+        group: sm
+        unit_of_value: Expression relative to GAPDH
+      Adult heart total RNA:
+        item: F5B_hcn4_sm
+        group: adult
+        unit_of_value: Expression relative to GAPDH
+    note: 'Panel b, HCN4 (SCVI20 monolayers), bars 9-11 of 24. Log y axis calibrated from its five major ticks
+      (0.0001-1; axis line and ticks are separate paths). SM filled red squares; legend: median ± s.d., n = 4 wells per
+      condition. The bar''s central value (where the error bar''s halves meet) is stored as median, as the legend names it.'
+  F5B_hcn4_mm:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 300
+    - 55
+    - 560
+    - 200
+    script: figures/F5B_hcn4_mm.py
+    unit: F5B
+    kind: vector
+    groups:
+      MM monolayer:
+        item: F5B_hcn4_mm
+        group: mm
+        unit_of_value: Expression relative to GAPDH
+      Adult heart total RNA:
+        item: F5B_hcn4_mm
+        group: adult
+        unit_of_value: Expression relative to GAPDH
+    note: 'Panel b, same crop as F5B_hcn4_sm (one entry per item). MM filled blue circles; adult heart green triangles are
+      one commercial pooled RNA sample (not wells; no n is printed for it).'
+  F5E:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 335
+    - 200
+    - 530
+    - 348
+    script: figures/F5E.py
+    unit: F5E
+    kind: vector
+    groups:
+      SLN SM MPS: {item: F5E_SLN, group: sm, unit_of_value: Expression relative to GAPDH}
+      SLN MM MPS: {item: F5E_SLN, group: mm, unit_of_value: Expression relative to GAPDH}
+      HCN2 SM MPS: {item: F5E_HCN2, group: sm, unit_of_value: Expression relative to GAPDH}
+      HCN2 MM MPS: {item: F5E_HCN2, group: mm, unit_of_value: Expression relative to GAPDH}
+      CACNB2 SM MPS: {item: F5E_CACNB2, group: sm, unit_of_value: Expression relative to GAPDH}
+      CACNB2 MM MPS: {item: F5E_CACNB2, group: mm, unit_of_value: Expression relative to GAPDH}
+      KCNIP2 SM MPS: {item: F5E_KCNIP2, group: sm, unit_of_value: Expression relative to GAPDH}
+      KCNIP2 MM MPS: {item: F5E_KCNIP2, group: mm, unit_of_value: Expression relative to GAPDH}
+      MYH7 SM MPS: {item: F5E_MYH7, group: sm, unit_of_value: Expression relative to GAPDH}
+      MYH7 MM MPS: {item: F5E_MYH7, group: mm, unit_of_value: Expression relative to GAPDH}
+      MYL2 SM MPS: {item: F5E_MYL2, group: sm, unit_of_value: Expression relative to GAPDH}
+      MYL2 MM MPS: {item: F5E_MYL2, group: mm, unit_of_value: Expression relative to GAPDH}
+      KCND2 SM MPS: {item: F5E_KCND2, group: sm, unit_of_value: Expression relative to GAPDH}
+      KCND2 MM MPS: {item: F5E_KCND2, group: mm, unit_of_value: Expression relative to GAPDH}
+      ALDH1A1 SM MPS: {item: F5E_ALDH1A1, group: sm, unit_of_value: Expression relative to GAPDH}
+      ALDH1A1 MM MPS: {item: F5E_ALDH1A1, group: mm, unit_of_value: Expression relative to GAPDH}
+    note: 'Panel e, WTC MPS, eight genes, two white bars each. Log y axis calibrated from its major ticks (0.0001-10).
+      SM filled red squares, MM filled blue circles; legend: error bars mean ± s.e.m., n = 4 per group (each a pool of
+      6-10 MPS). The bar''s central value (where the error bar''s halves meet) is stored as mean; error is the upper
+      end of the s.e.m. bar.'
+  F5F:
+    file: journal_version.pdf
+    page: 7
+    crop:
+    - 335
+    - 348
+    - 530
+    - 495
+    script: figures/F5F.py
+    unit: F5F
+    kind: vector
+    groups:
+      MYL2 SM MPS: {item: F5F_MYL2, group: sm, unit_of_value: Expression relative to GAPDH}
+      MYL2 MM MPS: {item: F5F_MYL2, group: mm, unit_of_value: Expression relative to GAPDH}
+    note: 'Panel f, SCVI20 MPS, six genes, two outline bars each; only MYL2 is read (the one item group of the unit that
+      needs figure values). Log y axis calibrated from its major ticks (0.0001-10). SM filled red squares, MM filled blue
+      circles; legend: error bars mean ± s.e.m., n = 4 per group (each a pool of 6-10 MPS). The bar''s central value is
+      stored as mean; error is the upper end of the s.e.m. bar.'
+  F7G_ver_2dsm:
+    file: journal_version.pdf
+    page: 11
+    crop: [75, 315, 300, 450]
+    script: figures/F7G_ver_2dsm.py
+    unit: F7
+    kind: vector
+    groups:
+      2D SM: {item: F7G_ver_2dsm, group: d2_sm, unit_of_value: Safety margin based on prevalence}
+      MPS standard media: {item: F7G_ver_2dsm, group: mps_sm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, log y axis calibrated from its seven major ticks (10^-1 to 10^5). White bars with points; no error
+      bars are drawn although the legend says mean ± s.e.m. The bar value is the outer edge of its outline (half the
+      1.015 pt line width above the fill top): there the bar agrees with the arithmetic mean of its points within 1.5%
+      in all 18 bars of g and h. Verapamil: 3 points per group (2D SM triangles 3, MPS SM 3), legend n = 4.'
+  F7G_ver_sm_mm:
+    file: journal_version.pdf
+    page: 11
+    crop: [75, 315, 300, 450]
+    script: figures/F7G_ver_sm_mm.py
+    unit: F7
+    kind: vector
+    groups:
+      MPS standard media: {item: F7G_ver_sm_mm, group: mps_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F7G_ver_sm_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F7G_ver_2dsm (one entry per item). Verapamil: 3 red squares, 3 blue circles drawn
+      (legend n = 4).'
+  F7G_ver_2d_mm:
+    file: journal_version.pdf
+    page: 11
+    crop: [75, 315, 300, 450]
+    script: figures/F7G_ver_2d_mm.py
+    unit: F7
+    kind: vector
+    groups:
+      2D SM: {item: F7G_ver_2d_mm, group: d2_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F7G_ver_2d_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F7G_ver_2dsm (one entry per item). Verapamil: 3 black triangles, 3 blue circles drawn
+      (legend n = 4).'
+  F7G_alf_2d_mm:
+    file: journal_version.pdf
+    page: 11
+    crop: [75, 315, 300, 450]
+    script: figures/F7G_alf_2d_mm.py
+    unit: F7
+    kind: vector
+    groups:
+      2D SM: {item: F7G_alf_2d_mm, group: d2_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F7G_alf_2d_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F7G_ver_2dsm (one entry per item). Alfuzosin: 3 black triangles, 3 blue circles
+      (legend n = 3).'
+  F7G_alf_sm_mm:
+    file: journal_version.pdf
+    page: 11
+    crop: [75, 315, 300, 450]
+    script: figures/F7G_alf_sm_mm.py
+    unit: F7
+    kind: vector
+    groups:
+      MPS standard media: {item: F7G_alf_sm_mm, group: mps_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F7G_alf_sm_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F7G_ver_2dsm (one entry per item). Alfuzosin: 3 red squares, 3 blue circles (legend
+      n = 3).'
+  F7G_flecainide:
+    file: journal_version.pdf
+    page: 11
+    crop: [75, 315, 300, 450]
+    script: figures/F7G_flecainide.py
+    unit: F7
+    kind: vector
+    groups:
+      2D SM: {item: F7G_flecainide, group: d2_sm, unit_of_value: Safety margin based on prevalence}
+      MPS standard media: {item: F7G_flecainide, group: mps_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F7G_flecainide, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F7G_ver_2dsm (one entry per item). Flecainide: 4 points in each group (legend n = 3
+      for flecainide, n = 4 for verapamil; the drawn counts are the other way round).'
+  F7H_alf_2d_sm:
+    file: journal_version.pdf
+    page: 11
+    crop: [305, 315, 530, 450]
+    script: figures/F7H_alf_2d_sm.py
+    unit: F7
+    kind: vector
+    groups:
+      2D SM: {item: F7H_alf_2d_sm, group: d2_sm, unit_of_value: Safety margin based on cAPD80}
+      MPS standard media: {item: F7H_alf_2d_sm, group: mps_sm, unit_of_value: Safety margin based on cAPD80}
+    note: 'Panel h, read as panel g (see F7G_ver_2dsm). Alfuzosin: 3 black triangles, 3 red squares (legend n = 3).'
+  F7H_alf_sm_mm:
+    file: journal_version.pdf
+    page: 11
+    crop: [305, 315, 530, 450]
+    script: figures/F7H_alf_sm_mm.py
+    unit: F7
+    kind: vector
+    groups:
+      MPS standard media: {item: F7H_alf_sm_mm, group: mps_sm, unit_of_value: Safety margin based on cAPD80}
+      MPS maturation media: {item: F7H_alf_sm_mm, group: mps_mm, unit_of_value: Safety margin based on cAPD80}
+    note: 'Panel h, same crop as F7H_alf_2d_sm (one entry per item). Alfuzosin: 3 red squares, 3 blue circles (legend
+      n = 3).'
+  F8G_fle_sm_mm:
+    file: journal_version.pdf
+    page: 12
+    crop: [75, 305, 305, 445]
+    script: figures/F8G_fle_sm_mm.py
+    unit: F8
+    kind: vector
+    groups:
+      MPS standard media: {item: F8G_fle_sm_mm, group: mps_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F8G_fle_sm_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, log y axis calibrated from its seven major ticks (10^-3 to 10^3). Open bars with points and s.e.m.
+      bars (legend: mean ± s.e.m., n = 3-5 per group). The bar value is the outline''s outer edge (half the 0.987 pt
+      line width above the top line), as in Fig. 7g,h: there it agrees within 1.2% with the arithmetic mean of the
+      drawn points and with the linear midpoint of the s.e.m. caps in all 18 bars of g and h. error is the upper
+      cap line. Flecainide: 5 red squares, 4 blue circles.'
+  F8G_ver_2d_mm:
+    file: journal_version.pdf
+    page: 12
+    crop: [75, 305, 305, 445]
+    script: figures/F8G_ver_2d_mm.py
+    unit: F8
+    kind: vector
+    groups:
+      2D SM: {item: F8G_ver_2d_mm, group: d2_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F8G_ver_2d_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F8G_fle_sm_mm (one entry per item). Verapamil: 4 black triangles, 5 blue circles
+      (the MPS standard media bar between them, not read, shows 6 red squares against n = 3-5).'
+  F8G_alf_2d_mm:
+    file: journal_version.pdf
+    page: 12
+    crop: [75, 305, 305, 445]
+    script: figures/F8G_alf_2d_mm.py
+    unit: F8
+    kind: vector
+    groups:
+      2D SM: {item: F8G_alf_2d_mm, group: d2_sm, unit_of_value: Safety margin based on prevalence}
+      MPS maturation media: {item: F8G_alf_2d_mm, group: mps_mm, unit_of_value: Safety margin based on prevalence}
+    note: 'Panel g, same crop as F8G_fle_sm_mm (one entry per item). Alfuzosin: 3 black triangles, 3 blue circles.'
+  F8H_alf_2d_sm:
+    file: journal_version.pdf
+    page: 12
+    crop: [305, 305, 545, 445]
+    script: figures/F8H_alf_2d_sm.py
+    unit: F8
+    kind: vector
+    groups:
+      2D SM: {item: F8H_alf_2d_sm, group: d2_sm, unit_of_value: Safety margin based on cAPD80}
+      MPS standard media: {item: F8H_alf_2d_sm, group: mps_sm, unit_of_value: Safety margin based on cAPD80}
+    note: 'Panel h, read as panel g (see F8G_fle_sm_mm). The axis is labelled "based on cAPD80"; the legend and the
+      record say APD80. Alfuzosin: 3 black triangles, 6 red squares (legend n = 3-5).'
+  F8H_alf_2d_mm:
+    file: journal_version.pdf
+    page: 12
+    crop: [305, 305, 545, 445]
+    script: figures/F8H_alf_2d_mm.py
+    unit: F8
+    kind: vector
+    groups:
+      2D SM: {item: F8H_alf_2d_mm, group: d2_sm, unit_of_value: Safety margin based on cAPD80}
+      MPS maturation media: {item: F8H_alf_2d_mm, group: mps_mm, unit_of_value: Safety margin based on cAPD80}
+    note: 'Panel h, same crop as F8H_alf_2d_sm (one entry per item). Alfuzosin: 3 black triangles, 4 blue circles.'
+  ED3E_capd80:
+    file: journal_version.pdf
+    page: 22
+    crop: [330, 200, 440, 335]
+    script: figures/ED3E_capd80.py
+    unit: ED3EF
+    kind: raster
+    groups:
+      MM: {item: ED3E_capd80, group: mm, unit_of_value: msec}
+      SM: {item: ED3E_capd80, group: sm, unit_of_value: msec}
+    note: 'Panel e. MM: 10 red squares, each standing alone, read as points with mean and SD (legend prints n = 16 for
+      MM, 10 for SM). SM: blue circles touch in four clusters (about 16 circles), so mean and SD only. The plotted MM bar
+      lies above SM, against the item''s finding "MM shortens cAPD80"; read as printed.'
+  ED3G_mm:
+    file: journal_version.pdf
+    page: 22
+    crop: [75, 383, 240, 515]
+    script: figures/ED3G_mm.py
+    unit: ED3GH
+    kind: raster
+    groups:
+      MM: {item: ED3G_mm, group: mm, unit_of_value: msec}
+      SM: {item: ED3G_mm, group: sm, unit_of_value: msec}
+    note: 'Panel g (see _util.read_ed3g). SM: red squares touch (legend n = 12), so mean and SD only. MM: blue circles
+      touch (legend n = 13) and hide both SD caps, so mean only, with a wide interval (circles merge with the bar top).'
+  ED3G_m2:
+    file: journal_version.pdf
+    page: 22
+    crop: [75, 383, 240, 515]
+    script: figures/ED3G_m2.py
+    unit: ED3GH
+    kind: raster
+    groups:
+      M2: {item: ED3G_m2, group: m2, unit_of_value: msec}
+      SM: {item: ED3G_m2, group: sm, unit_of_value: msec}
+    note: 'Panel g, same crop as ED3G_mm (one entry per item). M2: 3 black down triangles, each apart from the others
+      (no n printed for M2), read as points with mean and SD.'
+  ED3G_m4:
+    file: journal_version.pdf
+    page: 22
+    crop: [75, 383, 240, 515]
+    script: figures/ED3G_m4.py
+    unit: ED3GH
+    kind: raster
+    groups:
+      M4: {item: ED3G_m4, group: m4, unit_of_value: msec}
+      SM: {item: ED3G_m4, group: sm, unit_of_value: msec}
+    note: 'Panel g, same crop as ED3G_mm. M4: 4 black circles (no n printed), two on the SD cap ends and two on the bar
+      top corners; the upper SD cap merges with the circles across the bar''s width, so M4 gives points and mean only.'
+  ED3G_m1:
+    file: journal_version.pdf
+    page: 22
+    crop: [75, 383, 240, 515]
+    script: figures/ED3G_m1.py
+    unit: ED3GH
+    kind: raster
+    groups:
+      M1: {item: ED3G_m1, group: m1, unit_of_value: msec}
+      MM: {item: ED3G_m1, group: mm, unit_of_value: msec}
+    note: 'Panel g, same crop as ED3G_mm. M1: 5 black triangles (no n printed), three on the error-bar line (one at the
+      bar top, one on the lower cap), read as points with mean and SD.'
+  ED3H_m2:
+    file: journal_version.pdf
+    page: 22
+    crop: [245, 383, 415, 515]
+    script: figures/ED3H_m2.py
+    unit: ED3GH
+    kind: raster
+    groups:
+      M2: {item: ED3H_m2, group: m2, unit_of_value: Prevalence of Beating (1Hz Pacing)}
+      SM: {item: ED3H_m2, group: sm, unit_of_value: Prevalence of Beating (1Hz Pacing)}
+    note: 'Panel h (see _util.read_ed3h). SM: red squares touch in pairs (legend n = 12), mean and SD only. M2: 4 black
+      down triangles near 0, two straddling the x axis line (no n printed), read as points with mean and SD.'
+  ED4A:
+    file: journal_version.pdf
+    page: 23
+    crop: [40, 55, 555, 305]
+    script: figures/ED4A.py
+    unit: ED4
+    kind: raster
+    groups:
+      WTC SM: {item: ED4A_wtc, group: wtc_sm, unit_of_value: msec}
+      WTC MM: {item: ED4A_wtc, group: wtc_mm, unit_of_value: msec}
+      SCVI20 SM: {item: ED4A_scvi20, group: scvi20_sm, unit_of_value: msec}
+      SCVI20 MM: {item: ED4A_scvi20, group: scvi20_mm, unit_of_value: msec}
+      SCVI273 SM: {item: ED4A_scvi273, group: scvi273_sm, unit_of_value: msec}
+      SCVI273 MM: {item: ED4A_scvi273, group: scvi273_mm, unit_of_value: msec}
+      G15A0 SM: {item: ED4A_g15, group: g15_sm, unit_of_value: msec}
+      G15A0 MM: {item: ED4A_g15, group: g15_mm, unit_of_value: msec}
+    note: 'Panel a, cAPD80 (msec), raster (about 300 dpi); see _util.read_ed4. Points where every marker of the group stands alone: SCVI273 SM 10 red squares, G15A0 SM 8 red squares, G15A0 MM 8 blue circles. WTC SM, WTC MM, SCVI20 SM, SCVI20 MM and SCVI273 MM markers touch: bar only. No n is printed (legend: a randomly selected subset of data). The legend does not name the error bar (SD or s.e.m.). Bar tops are found at the bar corners; SCVI20 SM has both corners covered by markers (no mean); upper caps hidden by markers are left out.'
+  ED4B:
+    file: journal_version.pdf
+    page: 23
+    crop: [40, 305, 555, 560]
+    script: figures/ED4B.py
+    unit: ED4
+    kind: raster
+    groups:
+      WTC SM: {item: ED4B_wtc, group: wtc_sm, unit_of_value: Hz}
+      WTC MM: {item: ED4B_wtc, group: wtc_mm, unit_of_value: Hz}
+      SCVI20 SM: {item: ED4B_scvi20, group: scvi20_sm, unit_of_value: Hz}
+      SCVI20 MM: {item: ED4B_scvi20, group: scvi20_mm, unit_of_value: Hz}
+      SCVI273 SM: {item: ED4B_scvi273, group: scvi273_sm, unit_of_value: Hz}
+      SCVI273 MM: {item: ED4B_scvi273, group: scvi273_mm, unit_of_value: Hz}
+      G15A0 SM: {item: ED4B_g15, group: g15_sm, unit_of_value: Hz}
+      G15A0 MM: {item: ED4B_g15, group: g15_mm, unit_of_value: Hz}
+    note: 'Panel b, spontaneous beating frequency (Hz), raster; see _util.read_ed4. Points: WTC MM 5 blue circles, G15A0 SM 8 red squares, G15A0 MM 8 blue circles. WTC SM, SCVI20 SM, SCVI20 MM, SCVI273 SM and SCVI273 MM markers touch: bar only. No n printed; error bar not named. WTC SM has both bar corners covered by squares (no mean, no error).'
+  ED5F:
+    file: journal_version.pdf
+    page: 24
+    crop: [280, 150, 410, 290]
+    script: figures/ED5F.py
+    unit: ED5FG
+    kind: raster
+    groups:
+      SM: {item: ED5F_ocr, group: sm, unit_of_value: "% change from baseline"}
+      MM: {item: ED5F_ocr, group: mm, unit_of_value: "% change from baseline"}
+    note: 'Panel f, reserve OCR, raster (about 300 dpi); see _util.read_ed5. MM: 4 blue open circles (n = 4 printed). SM: the two lowest red squares overlap (one blob two markers tall), so bar only (3 blobs for n = 4). The legend does not name the error bar (SD or s.e.m.).'
+  ED5G:
+    file: journal_version.pdf
+    page: 24
+    crop: [410, 150, 540, 290]
+    script: figures/ED5G.py
+    unit: ED5FG
+    kind: raster
+    groups:
+      SM: {item: ED5G_atp, group: sm, unit_of_value: "% change from baseline"}
+      MM: {item: ED5G_atp, group: mm, unit_of_value: "% change from baseline"}
+    note: 'Panel g, ATP capacity, raster (about 300 dpi); see _util.read_ed5. 4 red open squares (SM) and 4 blue open circles (MM), n = 4 printed. Error-bar lines and caps cut several rings into pieces; pieces are joined into one-marker boxes and the box centre is the point. The legend does not name the error bar.'
+  S4B_ff0:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 5
+    crop: [240, 60, 355, 210]
+    script: figures/S4B_ff0.py
+    unit: S4
+    kind: vector
+    groups:
+      SM: {item: S4B_ff0, group: sm, unit_of_value: "normalized F/F0"}
+      MM: {item: S4B_ff0, group: mm, unit_of_value: "normalized F/F0"}
+    note: 'Panel B, normalized F/F0; see _util.read_supp_groups. Open bars at the mean with mean ± s.d. bars ("Bars depict mean and standard deviation"); every line is its own path. Vector markers counted: SM 3 red squares, MM 6 blue circles (legend: SM n = 3, MM n = 6). Mean is where the error bar''s two halves meet.'
+  S4C_tau75:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 5
+    crop: [380, 60, 485, 210]
+    script: figures/S4C_tau75.py
+    unit: S4
+    kind: vector
+    groups:
+      SM: {item: S4C_tau75, group: sm, unit_of_value: "normalized cτ75"}
+      MM: {item: S4C_tau75, group: mm, unit_of_value: "normalized cτ75"}
+    note: 'Panel C, normalized cτ75 (axis printed "Normalized ct75"); read as S4B_ff0. SM 3 red squares, MM 4 blue circles (legend: SM n=3, MM n=4).'
+  S4D_upstroke:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 5
+    crop: [95, 215, 215, 360]
+    script: figures/S4D_upstroke.py
+    unit: S4
+    kind: vector
+    groups:
+      SM: {item: S4D_upstroke, group: sm, unit_of_value: "normalized upstroke duration (Ca2+)"}
+      MM: {item: S4D_upstroke, group: mm, unit_of_value: "normalized upstroke duration (Ca2+)"}
+    note: 'Panel D, normalized upstroke duration (Ca2+); read as S4B_ff0. SM 3 red squares, MM 4 blue circles; the legend prints "SM: n=3, SCVI20: n=4" (the figure''s x axis labels the second group MM).'
+  S5A_rate:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 6
+    crop: [95, 60, 215, 210]
+    script: figures/S5A_rate.py
+    unit: S5
+    kind: vector
+    groups:
+      SM: {item: S5A_rate, group: sm, unit_of_value: "normalized beat rate"}
+      MM: {item: S5A_rate, group: mm, unit_of_value: "normalized beat rate"}
+    note: 'Panel A, normalized beat rate; read as S4B_ff0 (legend: SM n = 5, MM n = 5).'
+  S5C_tau75:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 6
+    crop: [380, 60, 485, 210]
+    script: figures/S5C_tau75.py
+    unit: S5
+    kind: vector
+    groups:
+      SM: {item: S5C_tau75, group: sm, unit_of_value: "normalized cτ75"}
+      MM: {item: S5C_tau75, group: mm, unit_of_value: "normalized cτ75"}
+    note: 'Panel C, normalized cτ75 (axis printed "Normalized c75"); read as S4B_ff0 (legend: SM n = 5, MM n = 5; p=0.01).'
+  S5D_upstroke:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 6
+    crop: [95, 215, 215, 365]
+    script: figures/S5D_upstroke.py
+    unit: S5
+    kind: vector
+    groups:
+      SM: {item: S5D_upstroke, group: sm, unit_of_value: "normalized upstroke duration (Ca2+)"}
+      MM: {item: S5D_upstroke, group: mm, unit_of_value: "normalized upstroke duration (Ca2+)"}
+    note: 'Panel D, normalized upstroke duration (Ca2+); read as S4B_ff0; the y axis starts at 1.4 (legend: SM n = 5, MM n =5).'
+  S7A_upstroke:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 8
+    crop: [76, 72, 290, 250]
+    script: figures/S7A_upstroke.py
+    unit: S7
+    kind: raster
+    groups:
+      SM 100nM: {item: S7A_upstroke, group: sm_100, unit_of_value: "normalized Ca++ upstroke"}
+      MM 100nM: {item: S7A_upstroke, group: mm_100, unit_of_value: "normalized Ca++ upstroke"}
+      SM 1uM: {item: S7A_upstroke, group: sm_1, unit_of_value: "normalized Ca++ upstroke"}
+      MM 1uM: {item: S7A_upstroke, group: mm_1, unit_of_value: "normalized Ca++ upstroke"}
+    note: 'Panel A; one embedded image; bars are mean + SD (legend); MM 1uM error bar drawn in blue, its circles separated by erosion (legend: SM n=5-6, MM n=3-5 per group).'
+  S7B_tau75:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 8
+    crop: [306, 72, 506, 242]
+    script: figures/S7B_tau75.py
+    unit: S7
+    kind: raster
+    groups:
+      SM 100nM: {item: S7B_tau75, group: sm_100, unit_of_value: "normalized Ca++ τ75"}
+      MM 100nM: {item: S7B_tau75, group: mm_100, unit_of_value: "normalized Ca++ τ75"}
+      SM 1uM: {item: S7B_tau75, group: sm_1, unit_of_value: "normalized Ca++ τ75"}
+      MM 1uM: {item: S7B_tau75, group: mm_1, unit_of_value: "normalized Ca++ τ75"}
+    note: 'Panel B; two pairs of touching red squares split as stacked pairs; MM 1uM error bar drawn in blue (legend: SM n=5-6, MM n=3-5 per group).'
+  S7C_amplitude:
+    file: NIHMS1896910-supplement-Supplementary_Figures.pdf
+    page: 8
+    crop: [76, 256, 290, 407]
+    script: figures/S7C_amplitude.py
+    unit: S7
+    kind: raster
+    groups:
+      SM 1uM: {item: S7C_amplitude, group: sm_1, unit_of_value: "normalized Ca++ amplitude"}
+      MM 1uM: {item: S7C_amplitude, group: mm_1, unit_of_value: "normalized Ca++ amplitude"}
+    note: 'Panel C, 1uM groups only (the item compares them; x label 1uM, legend 1mM); every marker stands alone (legend: SM n=5-6, MM n=3-5 per group).'
+no_points:
+  ED2BF: 'first look (small model): Panels B-F show group means with SEM error bars only, no individual points (journal_version.pdf
+    p. 20)'
+  F4C: 'first look (small model): Panel c shows mean ± SEM curves with error bars, not per-sample points. (nihms-1896910.pdf p.
+    44)'

@@ -1,0 +1,728 @@
+record: 2019_Kaiser
+formula_library_version: 32
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  T3_stress.stress:
+    item: T3_stress
+    measure: peak active stress
+    formula: sigma = F/A
+    anchor: &id001
+      quote: Peak active stress is calculated at 0.3 strain, normalized for cross-sectional area
+      where: Methods 2.6.2
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak twitch force (Fmax, Fig. S6B) at 30% strain per construct; not printed
+      A:
+        not_stated: true
+        kind: per sample
+        note: initial dimensions from bright-field images after mounting; the shape and formula of the cross-sectional area
+          are not stated
+    aggregation: mean of per-sample
+    note: 'Fig. S6 legend: peak force (Fmax) is normalized to cross-sectional area to calculate stress.'
+  T3_stress_g11_vs_g4.stress:
+    item: T3_stress_g11_vs_g4
+    measure: peak active stress
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak twitch force (Fmax, Fig. S6B) at 30% strain per construct; not printed
+      A:
+        not_stated: true
+        kind: per sample
+        note: initial dimensions from bright-field images after mounting; the shape and formula of the cross-sectional area
+          are not stated
+    aggregation: mean of per-sample
+    note: 'Fig. S6 legend: peak force (Fmax) is normalized to cross-sectional area to calculate stress.'
+  TS3_stress_G11_vs_G4.stress:
+    item: TS3_stress_G11_vs_G4
+    measure: peak active stress
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak twitch force (Fmax, Fig. S6B) at 30% strain per construct; not printed
+      A:
+        not_stated: true
+        kind: per sample
+        note: initial dimensions from bright-field images after mounting; the shape and formula of the cross-sectional area
+          are not stated
+    aggregation: mean of per-sample
+    note: 'Fig. S6 legend: peak force (Fmax) is normalized to cross-sectional area to calculate stress.'
+  TS3_stress_GP.stress:
+    item: TS3_stress_GP
+    measure: peak active stress
+    formula: sigma = F/A
+    anchor: *id001
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak twitch force (Fmax, Fig. S6B) at 30% strain per construct; not printed
+      A:
+        not_stated: true
+        kind: per sample
+        note: initial dimensions from bright-field images after mounting; the shape and formula of the cross-sectional area
+          are not stated
+    aggregation: mean of per-sample
+    note: 'Fig. S6 legend: peak force (Fmax) is normalized to cross-sectional area to calculate stress.'
+  F1_rat.modulus:
+    item: F1_rat
+    measure: Young's modulus
+    formula: E = ds/de
+    anchor:
+      quote: Young’s modulus was determined from the linear portion of the stress−strain curve
+      where: Methods 2.7
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        E: E
+        sigma: ds
+        eps: de
+    inputs:
+      ds:
+        not_stated: true
+        kind: per sample
+        note: stress change across the fitted linear region; curves not released
+      de:
+        not_stated: true
+        kind: per sample
+        note: strain change across the fitted linear region (usually between 0 and 5% strain)
+    alternatives:
+    - label: secant from zero strain
+      formula: E = s/e
+      note: slope over the stated region is taken as stated; a secant through the origin is the unstated alternative
+    aggregation: mean of per-sample
+  F1_range.modulus:
+    item: F1_range
+    measure: Young's modulus
+    formula: E = ds/de
+    anchor:
+      quote: Compressive Young’s modulus was determined from a near-linear portion of the stress−strain curve
+      where: Methods 2.6.1
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        E: E
+        sigma: ds
+        eps: de
+    inputs:
+      ds:
+        not_stated: true
+        kind: per sample
+        note: stress change across the fitted linear region; curves not released
+      de:
+        not_stated: true
+        kind: per sample
+        note: strain change across the fitted linear region (usually between 0 and 5% strain)
+    alternatives:
+    - label: secant from zero strain
+      formula: E = s/e
+      note: slope over the stated region is taken as stated; a secant through the origin is the unstated alternative
+    aggregation: mean of per-sample
+  F2B_range.modulus:
+    item: F2B_range
+    measure: Young's modulus
+    formula: E = ds/de
+    anchor:
+      quote: Tensile Young’s modulus was determined from the linear region of the stress−strain curve
+      where: Methods 2.6.1
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        E: E
+        sigma: ds
+        eps: de
+    inputs:
+      ds:
+        not_stated: true
+        kind: per sample
+        note: stress change across the fitted linear region; curves not released
+      de:
+        not_stated: true
+        kind: per sample
+        note: strain change across the fitted linear region (usually between 15 and 25% strain)
+    alternatives:
+    - label: secant from zero strain
+      formula: E = s/e
+      note: slope over the stated region is taken as stated; a secant through the origin is the unstated alternative
+    aggregation: mean of per-sample
+  F2D.modulus:
+    item: F2D
+    measure: Young's modulus
+    formula: E = ds/de
+    anchor:
+      quote: Young’s modulus was determined from the linear region of the stress−strain curve, usually between 15 and 25%
+        strain
+      where: Methods 2.7
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        E: E
+        sigma: ds
+        eps: de
+    inputs:
+      ds:
+        not_stated: true
+        kind: per sample
+        note: stress change across the fitted linear region; curves not released
+      de:
+        not_stated: true
+        kind: per sample
+        note: strain change across the fitted linear region (usually between 15 and 25% strain)
+    alternatives:
+    - label: secant from zero strain
+      formula: E = s/e
+      note: slope over the stated region is taken as stated; a secant through the origin is the unstated alternative
+    aggregation: mean of per-sample
+  T3_E.modulus:
+    item: T3_E
+    measure: Young's modulus
+    formula: E = ds/de
+    anchor:
+      quote: Young’s modulus was determined from the linear region of the stress−strain curve, usually between 15 and 25%
+        strain
+      where: Methods 2.6.2
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        E: E
+        sigma: ds
+        eps: de
+    inputs:
+      ds:
+        not_stated: true
+        kind: per sample
+        note: stress change across the fitted linear region; curves not released
+      de:
+        not_stated: true
+        kind: per sample
+        note: strain change across the fitted linear region (usually between 15 and 25% strain)
+    alternatives:
+    - label: secant from zero strain
+      formula: E = s/e
+      note: slope over the stated region is taken as stated; a secant through the origin is the unstated alternative
+    aggregation: mean of per-sample
+  T3_stress_fold.max_fold:
+    item: T3_stress_fold
+    measure: peak active stress
+    formula: r = a/b
+    anchor:
+      quote: Peak twitch stress varies between groups as much as 5-fold (Table 3)
+      where: Results 3.3
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: T3_stress_g11_vs_g4.values.g11_table
+        part: mean
+        kind: constant
+        note: largest Table 3 mean (group 11)
+      b:
+        value: T3_stress_g11_vs_g4.values.g4_table
+        part: mean
+        kind: constant
+        note: smallest Table 3 mean (group 4)
+    output: T3_stress_fold.values.max_fold
+    aggregation: of means
+    note: '''as much as'' read as the largest over the smallest group mean of Table 3 (groups 1, 4, 7, 11).'
+  F2D.anisotropic_ratio:
+    item: F2D
+    measure: tensile Young's modulus
+    formula: r = a/b
+    anchor:
+      quote: anisotropic ratio of approximately 2:1
+      where: Results 3.1
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        value: F2D.values.long_results
+        part: mean
+        kind: constant
+      b:
+        value: F2D.values.trans_results
+        part: mean
+        kind: constant
+    output: F2D.values.anisotropic_ratio
+    aggregation: of means
+  TS2_SMA_only.sma_only_unpurified1:
+    item: TS2_SMA_only
+    group: unpurified1
+    measure: SMA+ only cells
+    formula: o = s - c
+    anchor:
+      quote: SMA+ only (%)
+      where: Table S2
+      file: ab8b01112_si_001.pdf
+      kind: table cell
+    library:
+      formula: difference_from_reference
+      vars:
+        d: o
+        x: s
+        x0: c
+    inputs:
+      s:
+        value: TS2_SMA.values.unpurified1_table
+        kind: constant
+      c:
+        value: TS2_cTnT_SMA.values.unpurified1_table
+        kind: constant
+    output: TS2_SMA_only.values.unpurified1_table
+    note: the column name 'SMA+ only' beside 'SMA+' and 'cTnT+ and SMA+' names the set difference; the paper does not say
+      whether it was gated directly or subtracted
+  TS2_SMA_only.sma_only_unpurified2:
+    item: TS2_SMA_only
+    group: unpurified2
+    measure: SMA+ only cells
+    formula: o = s - c
+    anchor:
+      quote: SMA+ only (%)
+      where: Table S2
+      file: ab8b01112_si_001.pdf
+      kind: table cell
+    library:
+      formula: difference_from_reference
+      vars:
+        d: o
+        x: s
+        x0: c
+    inputs:
+      s:
+        value: TS2_SMA.values.unpurified2_table
+        kind: constant
+      c:
+        value: TS2_cTnT_SMA.values.unpurified2_table
+        kind: constant
+    output: TS2_SMA_only.values.unpurified2_table
+    note: the column name 'SMA+ only' beside 'SMA+' and 'cTnT+ and SMA+' names the set difference; the paper does not say
+      whether it was gated directly or subtracted
+  TS2_SMA_only.sma_only_unpurified3:
+    item: TS2_SMA_only
+    group: unpurified3
+    measure: SMA+ only cells
+    formula: o = s - c
+    anchor:
+      quote: SMA+ only (%)
+      where: Table S2
+      file: ab8b01112_si_001.pdf
+      kind: table cell
+    library:
+      formula: difference_from_reference
+      vars:
+        d: o
+        x: s
+        x0: c
+    inputs:
+      s:
+        value: TS2_SMA.values.unpurified3_table
+        kind: constant
+      c:
+        value: TS2_cTnT_SMA.values.unpurified3_table
+        kind: constant
+    output: TS2_SMA_only.values.unpurified3_table
+    note: the column name 'SMA+ only' beside 'SMA+' and 'cTnT+ and SMA+' names the set difference; the paper does not say
+      whether it was gated directly or subtracted
+  TS2_SMA_only.sma_only_lactate:
+    item: TS2_SMA_only
+    group: lactate
+    measure: SMA+ only cells
+    formula: o = s - c
+    anchor:
+      quote: SMA+ only (%)
+      where: Table S2
+      file: ab8b01112_si_001.pdf
+      kind: table cell
+    library:
+      formula: difference_from_reference
+      vars:
+        d: o
+        x: s
+        x0: c
+    inputs:
+      s:
+        value: TS2_SMA.values.lactate_table
+        kind: constant
+      c:
+        value: TS2_cTnT_SMA.values.lactate_table
+        kind: constant
+    output: TS2_SMA_only.values.lactate_table
+    note: the column name 'SMA+ only' beside 'SMA+' and 'cTnT+ and SMA+' names the set difference; the paper does not say
+      whether it was gated directly or subtracted
+  TS2_SMA_only.sma_only_gcamp:
+    item: TS2_SMA_only
+    group: gcamp
+    measure: SMA+ only cells
+    formula: o = s - c
+    anchor:
+      quote: SMA+ only (%)
+      where: Table S2
+      file: ab8b01112_si_001.pdf
+      kind: table cell
+    library:
+      formula: difference_from_reference
+      vars:
+        d: o
+        x: s
+        x0: c
+    inputs:
+      s:
+        value: TS2_SMA.values.gcamp_table
+        kind: constant
+      c:
+        value: TS2_cTnT_SMA.values.gcamp_table
+        kind: constant
+    output: TS2_SMA_only.values.gcamp_table
+    note: the column name 'SMA+ only' beside 'SMA+' and 'cTnT+ and SMA+' names the set difference; the paper does not say
+      whether it was gated directly or subtracted
+  T3_Vup_norm.vup_norm_g1:
+    item: T3_Vup_norm
+    group: g1
+    measure: force upstroke velocity normalized by peak stress
+    formula: vn = v/s
+    anchor:
+      quote: similar between groups when Vup is normalized by peak stress
+      where: Results 3.3
+    library:
+      formula: ratio_def
+      vars:
+        r: vn
+        a: v
+        b: s
+    inputs:
+      v:
+        value: T3_Vup.values.g1_table
+        part: mean
+        kind: per sample
+      s:
+        value: T3_stress.values.g1_table
+        part: mean
+        kind: per sample
+    output_unit: 1/s
+    aggregation: not stated
+    note: normalized values are not printed, so there is no output to judge
+  T3_Vup_norm.vup_norm_g7:
+    item: T3_Vup_norm
+    group: g7
+    measure: force upstroke velocity normalized by peak stress
+    formula: vn = v/s
+    anchor:
+      quote: similar between groups when Vup is normalized by peak stress
+      where: Results 3.3
+    library:
+      formula: ratio_def
+      vars:
+        r: vn
+        a: v
+        b: s
+    inputs:
+      v:
+        value: T3_Vup.values.g7_table
+        part: mean
+        kind: per sample
+      s:
+        value: T3_stress.values.g7_table
+        part: mean
+        kind: per sample
+    output_unit: 1/s
+    aggregation: not stated
+    note: normalized values are not printed, so there is no output to judge
+  T3_Vup_norm.vup_norm_g4:
+    item: T3_Vup_norm
+    group: g4
+    measure: force upstroke velocity normalized by peak stress
+    formula: vn = v/s
+    anchor:
+      quote: similar between groups when Vup is normalized by peak stress
+      where: Results 3.3
+    library:
+      formula: ratio_def
+      vars:
+        r: vn
+        a: v
+        b: s
+    inputs:
+      v:
+        value: T3_Vup_g11_vs_g4.values.g4_table
+        part: mean
+        kind: per sample
+      s:
+        value: T3_stress_g11_vs_g4.values.g4_table
+        part: mean
+        kind: per sample
+    output_unit: 1/s
+    aggregation: not stated
+    note: normalized values are not printed, so there is no output to judge
+  T3_Vup_norm.vup_norm_g11:
+    item: T3_Vup_norm
+    group: g11
+    measure: force upstroke velocity normalized by peak stress
+    formula: vn = v/s
+    anchor:
+      quote: similar between groups when Vup is normalized by peak stress
+      where: Results 3.3
+    library:
+      formula: ratio_def
+      vars:
+        r: vn
+        a: v
+        b: s
+    inputs:
+      v:
+        value: T3_Vup_g11_vs_g4.values.g11_table
+        part: mean
+        kind: per sample
+      s:
+        value: T3_stress_g11_vs_g4.values.g11_table
+        part: mean
+        kind: per sample
+    output_unit: 1/s
+    aggregation: not stated
+    note: normalized values are not printed, so there is no output to judge
+  TS3_fVup_norm.vup_norm_G4:
+    item: TS3_fVup_norm
+    group: G4
+    measure: force upstroke velocity normalized by peak stress
+    formula: vn = v/s
+    anchor:
+      quote: when Vup is normalized for stress amplitude
+      where: Results 3.4
+    library:
+      formula: ratio_def
+      vars:
+        r: vn
+        a: v
+        b: s
+    inputs:
+      v:
+        value: TS3_fVup_G11_vs_G4.values.G4_table
+        part: mean
+        kind: per sample
+      s:
+        value: TS3_stress_G11_vs_G4.values.G4_table
+        part: mean
+        kind: per sample
+    output_unit: 1/s
+    aggregation: not stated
+    note: normalized values are not printed, so there is no output to judge
+  TS3_fVup_norm.vup_norm_G11:
+    item: TS3_fVup_norm
+    group: G11
+    measure: force upstroke velocity normalized by peak stress
+    formula: vn = v/s
+    anchor:
+      quote: when Vup is normalized for stress amplitude
+      where: Results 3.4
+    library:
+      formula: ratio_def
+      vars:
+        r: vn
+        a: v
+        b: s
+    inputs:
+      v:
+        value: TS3_fVup_G11_vs_G4.values.G11_table
+        part: mean
+        kind: per sample
+      s:
+        value: TS3_stress_G11_vs_G4.values.G11_table
+        part: mean
+        kind: per sample
+    output_unit: 1/s
+    aggregation: not stated
+    note: normalized values are not printed, so there is no output to judge
+  T3_Vup.vup:
+    item: T3_Vup
+    measure: force upstroke velocity
+    formula: not stated
+    anchor: &id002
+      quote: The rate of force or calcium rise is reported as upstroke velocity, Vup
+      where: Methods 2.6.2
+    no_formula: 'rate of rise from the twitch trace: whether it is the maximum slope or amplitude over time to peak is not
+      stated'
+  T3_Vup_g11_vs_g4.vup:
+    item: T3_Vup_g11_vs_g4
+    measure: force upstroke velocity
+    formula: not stated
+    anchor: *id002
+    no_formula: 'rate of rise from the twitch trace: whether it is the maximum slope or amplitude over time to peak is not
+      stated'
+  TS3_fVup_G11_vs_G4.vup:
+    item: TS3_fVup_G11_vs_G4
+    measure: force upstroke velocity
+    formula: not stated
+    anchor: *id002
+    no_formula: 'rate of rise from the twitch trace: whether it is the maximum slope or amplitude over time to peak is not
+      stated'
+  TS3_fVup_GP.vup:
+    item: TS3_fVup_GP
+    measure: force upstroke velocity
+    formula: not stated
+    anchor: *id002
+    no_formula: 'rate of rise from the twitch trace: whether it is the maximum slope or amplitude over time to peak is not
+      stated'
+  TS3_cVup_G11_vs_G4.vup:
+    item: TS3_cVup_G11_vs_G4
+    measure: calcium upstroke velocity
+    formula: not stated
+    anchor: *id002
+    no_formula: 'rate of rise of the calcium signal in normalized calcium amplitude/time: neither the normalization (e.g.
+      F/F0) nor the slope taken is stated'
+  TS3_cVup_GP.vup:
+    item: TS3_cVup_GP
+    measure: calcium upstroke velocity
+    formula: not stated
+    anchor: *id002
+    no_formula: 'rate of rise of the calcium signal in normalized calcium amplitude/time: neither the normalization (e.g.
+      F/F0) nor the slope taken is stated'
+assumptions:
+  F1_rat.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported:
+          fit_range: usually between 0 and 5% strain
+      small strain:
+        reported:
+          fit_range: usually between 0 and 5% strain
+  F1_range.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported:
+          fit_range: usually between 0 and 5% strain
+      small strain:
+        reported:
+          fit_range: usually between 0 and 5% strain
+  F2B_range.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported:
+          fit_range: usually between 15 and 25% strain
+          nonlinearity: both the hydrogels and native myocardium stress/strain curves demonstrated the strain-stiﬀening phenomenon
+      small strain:
+        reported:
+          fit_range: usually between 15 and 25% strain
+  F2D.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported:
+          fit_range: usually between 15 and 25% strain
+          nonlinearity: Note distinct toe regions under 20% strain
+      small strain:
+        reported:
+          fit_range: usually between 15 and 25% strain
+  T3_E.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported:
+          fit_range: usually between 15 and 25% strain
+      small strain:
+        reported:
+          fit_range: usually between 15 and 25% strain
+bounds:
+- item: TS2_cTnT
+  value: TS2_cTnT.values.unpurified1_table
+  formula: fraction_bounds
+- item: TS2_cTnT
+  value: TS2_cTnT.values.unpurified2_table
+  formula: fraction_bounds
+- item: TS2_cTnT
+  value: TS2_cTnT.values.unpurified3_table
+  formula: fraction_bounds
+- item: TS2_cTnT
+  value: TS2_cTnT.values.lactate_table
+  formula: fraction_bounds
+- item: TS2_cTnT
+  value: TS2_cTnT.values.gcamp_table
+  formula: fraction_bounds
+- item: TS2_SMA
+  value: TS2_SMA.values.unpurified1_table
+  formula: fraction_bounds
+- item: TS2_SMA
+  value: TS2_SMA.values.unpurified2_table
+  formula: fraction_bounds
+- item: TS2_SMA
+  value: TS2_SMA.values.unpurified3_table
+  formula: fraction_bounds
+- item: TS2_SMA
+  value: TS2_SMA.values.lactate_table
+  formula: fraction_bounds
+- item: TS2_SMA
+  value: TS2_SMA.values.gcamp_table
+  formula: fraction_bounds
+- item: TS2_cTnT_SMA
+  value: TS2_cTnT_SMA.values.unpurified1_table
+  formula: fraction_bounds
+- item: TS2_cTnT_SMA
+  value: TS2_cTnT_SMA.values.unpurified2_table
+  formula: fraction_bounds
+- item: TS2_cTnT_SMA
+  value: TS2_cTnT_SMA.values.unpurified3_table
+  formula: fraction_bounds
+- item: TS2_cTnT_SMA
+  value: TS2_cTnT_SMA.values.lactate_table
+  formula: fraction_bounds
+- item: TS2_cTnT_SMA
+  value: TS2_cTnT_SMA.values.gcamp_table
+  formula: fraction_bounds
+- item: TS2_SMA_only
+  value: TS2_SMA_only.values.unpurified1_table
+  formula: fraction_bounds
+- item: TS2_SMA_only
+  value: TS2_SMA_only.values.unpurified2_table
+  formula: fraction_bounds
+- item: TS2_SMA_only
+  value: TS2_SMA_only.values.unpurified3_table
+  formula: fraction_bounds
+- item: TS2_SMA_only
+  value: TS2_SMA_only.values.lactate_table
+  formula: fraction_bounds
+- item: TS2_SMA_only
+  value: TS2_SMA_only.values.gcamp_table
+  formula: fraction_bounds
+proposals: []

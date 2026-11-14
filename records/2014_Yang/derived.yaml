@@ -1,0 +1,483 @@
+record: 2014_Yang
+formula_library_version: 24
+agent:
+  model: llm
+  instructions: formulas_v3
+
+derived:
+  # ---------------------------------------------------------------- Fig. 1C–E morphology
+  F1D_circularity.circ_control:
+    item: F1D_circularity
+    group: control
+    formula: C = 4*pi*A/P**2
+    anchor: &circ {quote: 'we assessed the "circularity index" (Circularity = 4π · Area / Perimeter2) [26]', where: Results 3.1}
+    library: {formula: circularity_def, vars: {c: C, A: A, P: P}}
+    inputs:
+      A: {value: F1C_area.values.area_control, part: mean, kind: per sample, note: each cell's area; the printed value is the group mean}
+      P: {not_stated: true, kind: per sample, note: 'cell perimeter, not printed'}
+    output: F1D_circularity.values.circ_control
+    aggregation: mean of per-sample
+    note: '"Each cell was analyzed for cell size and circularity index" (Methods 2.3): computed per cell, then averaged'
+  F1D_circularity.circ_t3:
+    item: F1D_circularity
+    group: t3
+    formula: C = 4*pi*A/P**2
+    anchor: *circ
+    library: {formula: circularity_def, vars: {c: C, A: A, P: P}}
+    inputs:
+      A: {value: F1C_area.values.area_t3, part: mean, kind: per sample, note: each cell's area; the printed value is the group mean}
+      P: {not_stated: true, kind: per sample, note: 'cell perimeter, not printed'}
+    output: F1D_circularity.values.circ_t3
+    aggregation: mean of per-sample
+  F1E_sarcomere.sarc_control:
+    item: F1E_sarcomere
+    group: control
+    formula: s = Lm/N
+    anchor: &sarc {quote: 'we selected myofibrils with at least ten continuous, well-recognized α-actinin+ bands and divided the length
+        value by the number of sarcomeres', where: Methods 2.3}
+    library: {formula: ratio_def, vars: {r: s, a: Lm, b: N}}
+    inputs:
+      Lm: {not_stated: true, kind: per sample, note: length of the selected myofibril}
+      N: {not_stated: true, kind: per sample, note: number of sarcomeres in it (at least ten)}
+    output: F1E_sarcomere.values.sarc_control_results
+    aggregation: not stated
+  F1E_sarcomere.sarc_t3:
+    item: F1E_sarcomere
+    group: t3
+    formula: s = Lm/N
+    anchor: *sarc
+    library: {formula: ratio_def, vars: {r: s, a: Lm, b: N}}
+    inputs:
+      Lm: {not_stated: true, kind: per sample}
+      N: {not_stated: true, kind: per sample}
+    output: F1E_sarcomere.values.sarc_t3_results
+    aggregation: not stated
+
+  # ---------------------------------------------------------------- Fig. 1F and RUES2 qPCR fold changes
+  F1F_amhc.fold:
+    item: F1F_amhc
+    formula: r = Et/Ec
+    anchor: &f1f {quote: we observed α-MHC up-regulation (7.3 ± 1.9-fold vs. control), where: Results 3.1}
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: per sample, note: 'α-MHC expression of T3 samples, normalised to HPRT ("Samples were normalized
+          using hypoxanthine-guanine phosphoribosylthransferase (HPRT) as a housekeeping gene", Methods 2.4)'}
+      Ec: {not_stated: true, kind: per sample, note: 'α-MHC expression of control samples, normalised to HPRT'}
+    output: F1F_amhc.values.amhc_fold
+    aggregation: not stated
+    alternatives: &ddct
+    - {label: comparative Ct (2^-ΔΔCt), formula: r = 2**(-ddct), note: 'library ddct_relative_expression; how the HPRT-normalised
+        values were computed from Ct values is not stated'}
+    note: fold of T3 over untreated control; n, test and P are not printed for Fig. 1F
+  F1F_bmhc.fold:
+    item: F1F_bmhc
+    formula: r = Et/Ec
+    anchor: {quote: β-MHC down-regulation (0.5 ± 0.2-fold vs. control), where: Results 3.1}
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: per sample, note: 'β-MHC expression of T3 samples, normalised to HPRT'}
+      Ec: {not_stated: true, kind: per sample, note: 'β-MHC expression of control samples, normalised to HPRT'}
+    output: F1F_bmhc.values.bmhc_fold
+    aggregation: not stated
+    alternatives: *ddct
+  F1F_serca.fold:
+    item: F1F_serca
+    formula: r = Et/Ec
+    anchor: {quote: an increase of sarcoendoplasmic reticulum ATPase (SERCA2a) expression (3.9 ± 0.9-fold vs. control), where: Results
+        3.1}
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: per sample, note: 'SERCA2a expression of T3 samples, normalised to HPRT'}
+      Ec: {not_stated: true, kind: per sample, note: 'SERCA2a expression of control samples, normalised to HPRT'}
+    output: F1F_serca.values.serca_fold
+    aggregation: not stated
+    alternatives: *ddct
+  TXT3_amhc_2p5d.fold:
+    item: TXT3_amhc_2p5d
+    formula: r = Et/Ec
+    anchor: &rues {quote: We observed a 4.35-fold and a 10.78-fold upregulation of α-MHC after 2.5 and 14 days treatment, where: Results
+        3.1}
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: not stated, note: RUES2-derived cardiomyocytes after 2.5 days of T3}
+      Ec: {not_stated: true, kind: not stated, note: 'the control is implied, not described'}
+    output: TXT3_amhc_2p5d.values.amhc_2p5d
+    alternatives: *ddct
+  TXT3_amhc_14d.fold:
+    item: TXT3_amhc_14d
+    formula: r = Et/Ec
+    anchor: *rues
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: not stated, note: RUES2-derived cardiomyocytes after 14 days of T3}
+      Ec: {not_stated: true, kind: not stated}
+    output: TXT3_amhc_14d.values.amhc_14d
+    alternatives: *ddct
+  TXT3_bmhc_2p5d.fold:
+    item: TXT3_bmhc_2p5d
+    formula: r = Et/Ec
+    anchor: &ruesb {quote: whereas the expression of β-MHC decreased 0.73-fold and 0.48-fold, where: Results 3.1}
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: not stated}
+      Ec: {not_stated: true, kind: not stated}
+    output: TXT3_bmhc_2p5d.values.bmhc_2p5d
+    alternatives: *ddct
+    note: '"decreased 0.73-fold" is read as a ratio of 0.73 (as recorded), not a decrease by 0.73'
+  TXT3_bmhc_14d.fold:
+    item: TXT3_bmhc_14d
+    formula: r = Et/Ec
+    anchor: *ruesb
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: not stated}
+      Ec: {not_stated: true, kind: not stated}
+    output: TXT3_bmhc_14d.values.bmhc_14d
+    alternatives: *ddct
+  TXT3_serca_2p5d.fold:
+    item: TXT3_serca_2p5d
+    formula: r = Et/Ec
+    anchor: &ruess {quote: An increase of 1.88-fold (2.5 days) and 3.93-fold (14 days) was detected for SERCA2a, where: Results 3.1}
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: not stated}
+      Ec: {not_stated: true, kind: not stated}
+    output: TXT3_serca_2p5d.values.serca_2p5d
+    alternatives: *ddct
+  TXT3_serca_14d.fold:
+    item: TXT3_serca_14d
+    formula: r = Et/Ec
+    anchor: *ruess
+    library: {formula: ratio_def, vars: {r: r, a: Et, b: Ec}}
+    inputs:
+      Et: {not_stated: true, kind: not stated}
+      Ec: {not_stated: true, kind: not stated}
+    output: TXT3_serca_14d.values.serca_14d
+    alternatives: *ddct
+
+  # ---------------------------------------------------------------- Fig. 2 and Results 3.2 percentages
+  F2C_brdu.pct_control:
+    item: F2C_brdu
+    group: control
+    formula: f = Nb/Nt
+    anchor: &brdu {quote: 'The total number of hiPSC-CM nuclei, as well as the BrdU-positive cardiomyocyte nuclei, were counted in
+        three separate experiments', where: Results 3.2}
+    library: {formula: ratio_def, vars: {r: f, a: Nb, b: Nt}}
+    inputs:
+      Nb: {not_stated: true, kind: per sample, note: BrdU-positive cardiomyocyte nuclei}
+      Nt: {not_stated: true, kind: per sample, note: total cardiomyocyte nuclei (n > 2000 per group over three experiments)}
+    output: F2C_brdu.values.brdu_control
+    aggregation: not stated
+    note: whether the percentage is of pooled counts or a mean of per-experiment percentages is not stated
+  F2C_brdu.pct_t3:
+    item: F2C_brdu
+    group: t3
+    formula: f = Nb/Nt
+    anchor: *brdu
+    library: {formula: ratio_def, vars: {r: f, a: Nb, b: Nt}}
+    inputs:
+      Nb: {not_stated: true, kind: per sample}
+      Nt: {not_stated: true, kind: per sample}
+    output: F2C_brdu.values.brdu_t3
+    aggregation: not stated
+  TXT4_binucleation.pct:
+    item: TXT4_binucleation
+    formula: f = Nbi/Nc
+    anchor: {quote: 'No differences were found in the percentage of binucleated cells between groups, with both around 12%.', where: Results
+        3.2}
+    library: {formula: ratio_def, vars: {r: f, a: Nbi, b: Nc}}
+    inputs:
+      Nbi: {not_stated: true, kind: not stated, note: binucleated cells}
+      Nc: {not_stated: true, kind: not stated, note: cells counted}
+    output: TXT4_binucleation.values.binuc_both
+    note: one value printed for both groups; the counting method is not described
+
+  # ---------------------------------------------------------------- Fig. 3 micropost force
+  F3C_force.post_force:
+    item: F3C_force
+    formula: F = k*delta
+    anchor: {quote: Twitch forces were subsequently calculated by multiplying the deflection of the posts by the bending stiffness
+        of the microposts, where: Methods 2.6, file: nihms-586803.pdf}
+    library: {formula: hooke_spring, vars: {F: F, k: k, x: delta}}
+    inputs:
+      k:
+        printed: '38.4'
+        unit: nN/μm
+        anchor: {quote: 'The stiffness of each micropost, which is based upon the dimensions of the microposts and the material properties
+            of PDMS, was 38.4 nN/μm.', where: Methods 2.6}
+        kind: constant
+      delta: {not_stated: true, kind: per sample, note: "horizontal distance between the centroids of the post's tip and base, per post
+          and frame"}
+    note: force at one post (Eq. 1); per-post forces are not printed. The paper's Eq. 1 is an image in the manuscript; the text defines
+      F, k and δ
+  F3C_force.total_control:
+    item: F3C_force
+    group: control
+    formula: not stated
+    anchor: &sum {quote: The total twitch force was then determined by adding together the forces measured at each post beneath the
+        individual cardiomyocytes., where: Methods 2.6}
+    no_formula: a sum over the posts beneath each cell, whose number varies per cell and is not stated; no fixed-arity library entry
+      covers it
+    inputs:
+      F: {derived: F3C_force.post_force, kind: per sample}
+      Np: {not_stated: true, kind: per sample, note: number of posts beneath the cell}
+    output: F3C_force.values.force_control_text
+    aggregation: mean of per-sample
+    alternatives:
+    - {label: one constant stiffness, formula: Ft = k*dsum, note: 'with k one constant, the summed force is k times the summed
+        deflection (hooke_spring with x = summed deflection)'}
+    note: whether the force is the peak of the summed trace or the sum of per-post peaks is not stated; which frame (peak twitch)
+      is not stated
+  F3C_force.total_t3:
+    item: F3C_force
+    group: t3
+    formula: not stated
+    anchor: *sum
+    no_formula: a sum over the posts beneath each cell, whose number varies per cell and is not stated; no fixed-arity library entry
+      covers it
+    inputs:
+      F: {derived: F3C_force.post_force, kind: per sample}
+      Np: {not_stated: true, kind: per sample}
+    output: F3C_force.values.force_t3_text
+    aggregation: mean of per-sample
+  F3_video_control.total:
+    item: F3_video_control
+    group: control
+    formula: not stated
+    anchor: *sum
+    no_formula: a sum over the posts beneath the cell, number of posts not stated
+    inputs:
+      F: {derived: F3C_force.post_force, kind: per sample}
+      Np: {not_stated: true, kind: per sample}
+    output: F3_video_control.values.force_video_control
+  F3_video_t3.total:
+    item: F3_video_t3
+    group: t3
+    formula: not stated
+    anchor: *sum
+    no_formula: a sum over the posts beneath the cell, number of posts not stated
+    inputs:
+      F: {derived: F3C_force.post_force, kind: per sample}
+      Np: {not_stated: true, kind: per sample}
+    output: F3_video_t3.values.force_video_t3
+  F3C_force.post_stiffness:
+    item: F3C_force
+    formula: not stated
+    anchor: {quote: 'The stiffness of each micropost, which is based upon the dimensions of the microposts and the material properties
+        of PDMS, was 38.4 nN/μm.', where: Methods 2.6}
+    no_formula: the stiffness is said to rest on the post dimensions and PDMS properties; no formula and no modulus is stated, and
+      the stiffness is a printed condition (Methods 2.6), not an evidence value, so it has no output path
+    inputs:
+      d:
+        printed: '2.3'
+        unit: μm
+        anchor: &dims {quote: The microposts used in this study were 6.45 μm in height and 2.3 μm in diameter, where: Methods 2.6}
+        kind: constant
+      L:
+        printed: '6.45'
+        unit: μm
+        anchor: *dims
+        kind: constant
+      E: {not_stated: true, kind: constant, note: "Young's modulus of PDMS, not printed"}
+    alternatives:
+    - {label: small-deflection cantilever of solid circular section, formula: k = 3*pi*E*d**4/(64*L**3), note: 'cantilever_tip_stiffness
+        with circular_second_moment_diameter; the micropost methods cited ([21], [23]) are not read here'}
+
+  # ---------------------------------------------------------------- Fig. 4 calcium transients
+  F4B_amplitude.amp_control:
+    item: F4B_amplitude
+    group: control
+    formula: not stated
+    anchor: not stated
+    no_formula: the amplitude is printed in F/F0 units (0.24) but how it was computed from the fura-2 signal (340/380 ratio, peak
+      minus baseline, or relative to baseline) is not stated
+    inputs:
+      Fp: {not_stated: true, kind: per sample, note: peak signal}
+      F0: {not_stated: true, kind: per sample, note: baseline signal}
+    output: F4B_amplitude.values.amp_control
+    aggregation: not stated
+    alternatives: &amp
+    - {label: relative to baseline, formula: a = (Fp - F0)/F0, note: library relative_change}
+    - {label: peak over baseline, formula: a = Fp/F0, note: 'library ratio_def; a value of 0.24 is below 1, so this reading would need
+        a baseline above the peak'}
+  F4B_amplitude.amp_t3:
+    item: F4B_amplitude
+    group: t3
+    formula: not stated
+    anchor: not stated
+    no_formula: the amplitude is printed in F/F0 units (0.20) but how it was computed from the fura-2 signal is not stated
+    inputs:
+      Fp: {not_stated: true, kind: per sample}
+      F0: {not_stated: true, kind: per sample}
+    output: F4B_amplitude.values.amp_t3
+    aggregation: not stated
+    alternatives: *amp
+  F4C_upstroke.vmax:
+    item: F4C_upstroke
+    formula: not stated
+    anchor: not stated
+    no_formula: maximal upstroke velocity is the maximum of the transient's time derivative, not a closed-form step; the analysis
+      (IonOptix, cited [24]) is not stated
+    inputs:
+      trace: {not_stated: true, kind: per sample}
+  F4D_decay_velocity.vmax:
+    item: F4D_decay_velocity
+    formula: not stated
+    anchor: not stated
+    no_formula: maximal decay velocity is the maximum of the transient's negative time derivative, not a closed-form step; the analysis
+      is not stated
+    inputs:
+      trace: {not_stated: true, kind: per sample}
+
+  # ---------------------------------------------------------------- Results 3.5 and Supplemental Fig. 1
+  TXT5_mtdna.ratio:
+    item: TXT5_mtdna
+    formula: q = Nm/Nn
+    anchor: {quote: Mitochondrial DNA (mtDNA) to nuclear DNA (nDNA) ratio was estimated by qPCR., where: Methods 2.4}
+    library: {formula: ratio_def, vars: {r: q, a: Nm, b: Nn}}
+    inputs:
+      Nm:
+        by_reference:
+          citation: r20
+          anchor: {quote: 'The primer sequences for ND1 and LPL were adapted from [20].', where: Methods 2.4}
+        kind: per sample
+        note: mtDNA copies (ND1 amplicon); how copies follow from Ct is not stated
+      Nn: {not_stated: true, kind: per sample, note: nuclear DNA copies (LPL amplicon)}
+    output: TXT5_mtdna.values.mtdna_both
+    alternatives:
+    - {label: from Ct difference, formula: q = 2**(ct_n - ct_m), note: 'a common qPCR estimate; a factor 2 for the diploid nuclear
+        genome is sometimes applied; neither is stated'}
+  S1E_mito_volume.fraction:
+    item: S1E_mito_volume
+    formula: f = Pm/Pt
+    anchor: {quote: the crosspoints that overlapped with mitochondria was counted and then divided by the total points, where: 'Supplement,
+        Electron Microscopy', file: NIHMS586803-supplement-01.docx}
+    library: {formula: ratio_def, vars: {r: f, a: Pm, b: Pt}}
+    inputs:
+      Pm: {not_stated: true, kind: per sample, note: crosspoints overlapping mitochondria}
+      Pt: {not_stated: true, kind: constant, note: 'total points; a grid of 20 horizontal and 20 perpendicular lines is stated, the
+          count of points is not printed'}
+    output: S1E_mito_volume.values.mitovol_both
+    note: one value (~7%) printed for both groups
+  F5B_basal.basal_control:
+    item: F5B_basal
+    group: control
+    formula: m = S/n
+    anchor: &basal {quote: The baseline OCR was defined as the average values measured from time point 1 to 5 (0–15 min) during the
+        experiments., where: Methods 2.8}
+    library: {formula: mean_def, vars: {m: m, S: S, n: n}}
+    inputs:
+      S: {not_stated: true, kind: per sample, note: sum of the cell-number-normalised OCR over time points 1 to 5}
+      n: {not_stated: true, kind: constant, note: number of time points (points 1 to 5)}
+    note: no basal OCR value is printed (Fig. 5B bars only); feeds the reserve capacity
+  F5B_basal.basal_t3:
+    item: F5B_basal
+    group: t3
+    formula: m = S/n
+    anchor: *basal
+    library: {formula: mean_def, vars: {m: m, S: S, n: n}}
+    inputs:
+      S: {not_stated: true, kind: per sample}
+      n: {not_stated: true, kind: constant}
+  F5B_maximal.maximal_control:
+    item: F5B_maximal
+    group: control
+    formula: Omax = Ofccp - Ora
+    anchor: &max {quote: Maximal OCR was the OCR difference between uncoupler FCCP and (rotenone + antimycin A), where: Methods 2.8}
+    library: {formula: sum_of_parts, vars: {t: Ofccp, a: Omax, b: Ora}}
+    inputs:
+      Ofccp: {not_stated: true, kind: per sample, note: OCR after FCCP}
+      Ora: {not_stated: true, kind: per sample, note: OCR after rotenone and antimycin A (the non-mitochondrial OCR)}
+    note: the paper's difference, mapped to the library's sum solved for one part; no absolute value printed
+  F5B_maximal.maximal_t3:
+    item: F5B_maximal
+    group: t3
+    formula: Omax = Ofccp - Ora
+    anchor: *max
+    library: {formula: sum_of_parts, vars: {t: Ofccp, a: Omax, b: Ora}}
+    inputs:
+      Ofccp: {not_stated: true, kind: per sample}
+      Ora: {not_stated: true, kind: per sample}
+  F5B_maximal.fold:
+    item: F5B_maximal
+    formula: r = Mt/Mc
+    anchor: {quote: the relative T3 treated/untreated control levels were used to compare and summarize independent biological replicates
+        (n = 6), where: Methods 2.8}
+    library: {formula: ratio_def, vars: {r: r, a: Mt, b: Mc}}
+    inputs:
+      Mt: {derived: F5B_maximal.maximal_t3, kind: per sample}
+      Mc: {derived: F5B_maximal.maximal_control, kind: per sample}
+    output: F5B_maximal.values.maxocr_fold
+    aggregation: not stated
+    note: relative T3/control per biological replicate (n = 6); whether 1.5 is a mean of per-replicate ratios is not stated
+  F5B_reserve.reserve_control:
+    item: F5B_reserve
+    group: control
+    formula: R = Ofccp - B
+    anchor: &res {quote: respiratory reserve capacity being the difference between FCCP and baseline OCR values, where: Methods 2.8}
+    library: {formula: sum_of_parts, vars: {t: Ofccp, a: R, b: B}}
+    inputs:
+      Ofccp: {not_stated: true, kind: per sample, note: OCR after FCCP}
+      B: {derived: F5B_basal.basal_control, kind: per sample}
+    note: the paper's difference, mapped to the library's sum solved for one part; no value printed
+  F5B_reserve.reserve_t3:
+    item: F5B_reserve
+    group: t3
+    formula: R = Ofccp - B
+    anchor: *res
+    library: {formula: sum_of_parts, vars: {t: Ofccp, a: R, b: B}}
+    inputs:
+      Ofccp: {not_stated: true, kind: per sample}
+      B: {derived: F5B_basal.basal_t3, kind: per sample}
+  F5_nonmito_fraction.fraction:
+    item: F5_nonmito_fraction
+    formula: f = Onm/Otot
+    anchor: {quote: 'for both control and T3-treated cells, non-mitochondrial OCR was 20-30% of total OCR', where: Results 3.5}
+    library: {formula: ratio_def, vars: {r: f, a: Onm, b: Otot}}
+    inputs:
+      Onm: {not_stated: true, kind: per sample, note: non-mitochondrial OCR (after rotenone and antimycin A)}
+      Otot: {not_stated: true, kind: per sample, note: '"total OCR": which reading (baseline or other) is not stated'}
+    note: a range (20 and 30 %) over both groups, so no single output; the bounds below apply to both ends
+
+assumptions:
+  F3C_force.post_force:
+    model: hooke_spring
+    assumptions:
+      linear spring: {reported: not stated}
+      small deflection:
+        reported: not stated
+        note: post height 6.45 μm is printed (Methods 2.6); no deflection is printed
+
+bounds:
+- {item: F2C_brdu, value: F2C_brdu.values.brdu_control, formula: fraction_bounds}
+- {item: F2C_brdu, value: F2C_brdu.values.brdu_t3, formula: fraction_bounds}
+- {item: TXT4_binucleation, value: TXT4_binucleation.values.binuc_both, formula: fraction_bounds}
+- {item: S1E_mito_volume, value: S1E_mito_volume.values.mitovol_both, formula: fraction_bounds}
+- {item: F5_nonmito_fraction, value: F5_nonmito_fraction.values.nonmito_frac_low, formula: fraction_bounds}
+- {item: F5_nonmito_fraction, value: F5_nonmito_fraction.values.nonmito_frac_high, formula: fraction_bounds}
+
+proposals:
+- formula: circularity_def
+  kind: definition
+  statement: The circularity (form factor) of a planar outline is 4π times its area divided by the square of its perimeter; 1
+    for a circle, towards 0 for an elongated outline.
+  equations:
+  - c = 4*pi*A/P**2
+  variables:
+    c: dimensionless
+    A: area
+    P: length
+  does_not_apply: the ISO 9276-6 'circularity' defined as the square root of this form factor, aspect ratio, or roundness from
+    the major axis
+  tests:
+  - given: {A: 3.141592653589793, P: 6.283185307179586}
+    expect: {c: 1.0}
+  - given: {A: 1.0, P: 4.0}
+    expect: {c: 0.7853981633974483}
+  - given: {A: 1.0, P: 4.0}
+    does_not_apply: 'the square-root form sqrt(4πA/P^2) gives 0.886 for a square, not 0.785'
+  cites:
+    text: 'Rasband, ImageJ User Guide, Analyze > Set Measurements: Shape descriptors (Circularity = 4π × area / perimeter²; 1.0
+      a perfect circle, approaching 0 an increasingly elongated shape)'
+    url: https://imagej.net/ij/docs/menus/analyze.html
+    anchor: {quote: 'we assessed the "circularity index" (Circularity = 4π · Area / Perimeter2) [26]', where: Results 3.1}

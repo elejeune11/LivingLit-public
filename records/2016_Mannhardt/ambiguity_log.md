@@ -1,0 +1,82 @@
+## Record reader
+
+- **Paper-wide values repeated in every unit.** S6A/S6B compare the in-house line with iCell and Cor.4U, so cell line, differentiation protocol, purity and day at formation differ between groups in those units. The rule says a field set in an engineered group can't also be in `default_context`. As a result these fields, along with platform, temperature, calcium and day (which vary between units), are written into every unit's context. That leaves only 10 fields in the default and makes the record long (open decision, tab 8).
+- **Unmarked Dunnett pairs.** Fig. 6D, S6G/H, S7E/G show asterisks only on significant levels; unmarked levels print no "n.s.". I wrote a pair item only for each marked level (`*p < 0.05`) and one measurement item over all levels per parameter. The other Dunnett pairs are not itemised, because no P state is printed for them.
+- **Which panels were tested?** The figures say statistics were run only "for experiments with ≥3 independent experiments", but S6C–H and S7 print only pooled n ranges (n=8-20/2-3, n=4-23/1-3). So for an unmarked panel I can't tell whether it was tested. Those panels have measurement items only.
+- **Spread of text values.** The Methods say "Data in the text are expressed as mean ± SD", so text ± values are recorded as SD (spread_source methods). Several of them look like SEM: baseline force 0.152 ± 0.006 mN with n = 75, and beat rate 61 ± 2 bpm. The "which spread" check should decide.
+- **Minus signs lost in extraction.** In "FDAR −18%", "T1 −2% ± 2%" and "T2 −20% ± 4%" the minus is printed on the page but extracts as a control character. Values are written with "−" as printed. Quotes avoid the sign.
+- **µ extracted as "m".** pdftotext renders µM/µm as "mM"/"mm" (e.g. "10 mM ryanodine" is 10 µM on the page). Values and contexts use µ as printed on the page.
+- **T1/T2 definition.** The Methods say 80% of peak height, Fig. S3 says "at 20% peak height", and Fig. 6 says "relaxation time at 80% relaxation". The definition string records the Methods version and names the conflict.
+- **No context field for preload, rest or time since baseline.** In F4E (preload/length), F4F (rest pause) and F6A (3 h time control), what varies is not any field in field.yaml. Groups have empty contexts, and the varied condition is in the label and a unit note. Code will see identical groups.
+- **Curves without labelled levels.** In F4A (calcium CRC) and F4B (pacing 0.6–3.0 Hz) the x levels are not labelled, so each is one group. EC50/Hill slope attach to it.
+- **S6B commercial-line CRCs.** These use three cell-source groups. Drug and concentration range sit in item context, not as concentration groups, because the paper prints no test across levels or lines.
+- **Values with no group.** ATX-II "556% ± 31% of baseline" doesn't name a concentration, so the value carries no group, `between` or `over`. It looks lower than the plotted maximum (~650%), but I left that for the figures reader.
+- **Ajmaline (S7D) axis.** The coefficients on the axis labels are not legible in the embedded image, only the exponents. Groups are labelled "level k of 6" with the exponent, not guessed.
+- **Out-of-order axis labels.** S6H's last label repeats 1×10⁻⁹ M, and S7M repeats 1×10⁻⁵ M. Both are recorded as printed, with a "(last position)" group and suspected_error.
+- **Fig. S5F (image table).** EHT values are this paper's, plus one from Stoehr et al. 2014 (other study). Each NFH cell is a separate other-study group with its own citation. The table's FDAR (−14%) disagrees with the text (−18%), and they sit in different units, so I set suspected_error on the S5F value.
+- **Table S1 (dataset, 29,258 probes).** Not itemised per probe. One summary item carries the printed counts (5,687 genes FDR < 5%, 277 probes < 0.1% FDR). Per-probe values are left to the data reader if needed.
+- **Table S2.** Clusters are gene sets, not experimental groups, so items have no groups. There is one item per cluster with the cluster N and each row's p-value (image table, anchored to the unit). The cluster Ns (57+20+68+82+32 = 259) don't sum to the 277 probes. They may count genes rather than probes, so I didn't flag it.
+- **S2B significance.** Five bars carry "n.s."; the others carry no mark and no test is stated. Those are recorded as pairs with `p: not stated`.
+- **Purity.** The context uses the measured differentiation efficiency (87% ± 9%, n = 20). The Discussion's "60%–90% purity" is in a note.
+- **Citations not in the reference lists.** Frank et al. 2012, Zweigerdt et al. 2011 and Lanier et al. 2012 are cited in the Supplemental Procedures but appear in neither reference list. They are recorded with text "not in the reference lists".
+- **The "end of differentiation" day.** Fig. S1D says day 21, while cells go into EHTs at day 14. Recorded as suspected_error on S1D_markers.
+- **Ryanodine "positive inotropic at high concentration".** In the figures (5G, S5E), force at 10 µM stays below baseline. So the claim is judged direction "does not follow", with suspected_error on F5G_force_high.
+
+## Figures and data reader
+
+- **Data (Table S1, `stemcr_515_mmc2.xlsb`, sheet `results`).** It holds 5,687 probe rows (log2, quantile-normalized means and SDs per group, plus pairwise p-values), not all 29,258 probes. I wrote 129 rows for the S2A/S2B genes with exactly one probe: ADRB1, CACNB2, CACNB3, DMD, KCNJ2, PLN, RYR2, SCN1B, SCN2A, TNNC1 and TNNT1. That is the mean and SD per group, and for pair items the p-value of that pair (2D vs CM in column P, EHT vs CM in column N, EHT vs 2D in column R). The p row sits on the item's condition group. Units are log2 expression, while the figure plots linear AU; the plotted values look like 2^mean (CACNB2 CM 2^7.44 ≈ 170). For genes with two probes (CACNA1C, KCNH2, KCNJ5, KCNQ1, MYL2) I couldn't tell which probe was plotted. HCN4, ACTN2, NCX1/SLC8A1 and SERCA2/ATP2A2 are not in the sheet. These genes are read from the figures instead. One mismatch: S2A marks PLN 2D vs CM with "*", but the sheet's p for that pair is 0.159. They are different tests (two-way ANOVA with Bonferroni vs. the array p), so I noted it rather than marking anything.
+- **All figures are raster** (main article 300 dpi, supplement 220 dpi, one embedded image per page). Tick labels are not text, so scripts pass the printed tick values. Code finds the axis line, its ticks, the group tick marks under the x-axis, the red mean lines, bar tops, caps and markers.
+- **Read (43 entries).** Scatter-with-mean rows S5A–E, S6C–H and S7A–O (frequency, force, T1 and T2 each) and F3C/F3D/F6B–D: means from the red lines. Points are kept only where every marker of a group stands alone and the count equals the printed exact n. That held for F3D (16, 2 groups), F6B ATX (20, 2 groups), F6B TTX (16, 1 group) and F6C Bay K (8, 2 groups); in each case the mean of the points matches the red line within 1.3%. Ranged n (12–16, 8–20, 4–23) gives means only. Bars (mean ± SEM caps): F3B, F4C, F4D, F4F, S4, S2A (genes not in the data), S2B (fold change, not in the data; group `_` because a fold change belongs to the pair). F4E curve (7 discs, slack = first point). F7 (10 labelled compounds, log-log, x = APD90 value).
+- **Checks against print.** F3B reads 47.2/60.0/20.0 bpm, printed 47, 60, 20. F4D Iso force 140.5%, T1 97.9% and T2 79.8%, printed +41%, −2% and −20%; CCh T2 is +31% vs Iso. F4E slack reads 43.1%, printed 43%. F7 reads 3, 10, 100, 300, 1,000 (×2), 10⁴, 3×10⁴, 10⁵ and 3×10⁵ nM. **F6B ATX-II at 1×10⁻⁷ M reads 656% (points 655.8%), while the text prints 556% ± 31%** (no concentration named), which looks like a slip in the text or another dataset. The F4E "max" group is not linked: the last plotted point is about 95%, while the text says 100% by definition.
+- **Suspect reading.** In F3D at 1×10⁻⁶ M, one point reads 1.5%. Its marker sits on the x-axis line, so only its top half is seen and its centre reads high (it is likely 0).
+- **Record vs figure.** S7K (paracetamol) plots only 5 concentrations in frequency, T1 and T2 (no 1×10⁻³ M), so those groups are not linked. S2B does not plot HCN4, although the record has an S2B_HCN4 item. S7H T1/T2 lose the 100 tick under markers, so they are calibrated on the other 5 ticks.
+- **Not readable.** F4A (CRC): the small markers merge with the fitted curve and the caps. F3A and S6B: the coloured series overlap, with same-colour error bars. F4B: the scatter overlaps and has no mean. F1, F5A–H and S6A: mean traces drawn with dense SEM bars, so the peak mean can't be separated from mean + SEM. S1A: two bars come before the "2" label (the first touching the second), there are axis breaks before day 20, bars hang from 10⁰, and the tick labels are partly illegible, so mapping bars to d0–d20 is ambiguous. S1D: 15 gene bars but the record has one group (`end`). S2C is a heat map of z-scores with no group values. S2D is western blots. S5F and Table S2 are image tables.
+- **Shared parts.** Raster ticks are antialiased over 2–3 rows, and light-grey axes (S7 right half) needed relative ink thresholds. These live in this paper's `_util.py`.
+
+## Vocabulary agent
+
+Vocabulary version 11, instructions `terms_v3`.
+
+- **T1/T2 level.** Experimental Procedures say contraction and relaxation time "at 80% of peak height"; the Fig. S3 legend says "at 20% peak height". Both likely describe the same cut (20% above baseline); mapped with `level: 80% of peak height` as printed in the Methods. A person may want one spelling across EHT papers.
+- **Force rates in mN/s.** "maximal contraction/relaxation velocity" are printed in mN/s (dF/dt), so they are not the existing `contractile_velocity`/`relaxation_velocity` (displacement speed). Added `max_force_rise_rate` and `max_force_decay_rate` (dimension `force_rate`), without synonyms, because "contraction velocity" is a displacement speed in other papers.
+- **Record issues for the reader (not fixed):**
+  - `confluency: confluent` and `day_of_measurement: end of differentiation` (S1BC) are words in quantity fields: flagged *not a context*. Fig. S1D legend gives "end (day 21) of differentiation".
+  - `F4A_force` has the measure "relative force" but its values are the calcium EC50 and Hill slope; `ec50` with `response: force` would fit the values. Mapped by the stated words (twitch force, `expressed_as: normalised`).
+  - `platform: native tissue` (S2D) and `non-failing human heart tissue` (S5F) name the same NFH benchmark in two wordings; both map to `platform:native_tissue`.
+  - "fibrin EHT": the platform part maps to `tissue_between_pillars`; "fibrin" is sent back as a split request to `substrate` (which already agrees).
+  - Five measure values flagged *several measures*: sarcomeric organisation + alignment; caveolin-3 + junctophilin-2 staining; cell-type marker summary (S1D); ion-channel/cardiac marker summary (ST1); the THV vs APD90 correlation (F7).
+- **Ids not found.** No Cellosaurus entry for iCell cardiomyocytes or for the unnamed in-house reference line (Moretti et al. 2010 control); no ChEBI entry for DS-07, ATX-II, NS-1643 or horse serum: all `adopt_own`. FGF2 adopted as CHEBI:760509 *basic fibroblast growth factor (human)*; 1-thioglycerol as CHEBI:74537 *monothioglycerol*; rolipram as the racemate CHEBI:104872.
+- **Normalisations.** S1A qPCR is "normalized to GUSB and expression levels at day 0" → `expressed_as: fold`, `normalised_to: GUSB and day 0`. S2A expression levels print no reference → `expressed_as: normalised` with no `normalised_to`. S2D blots use ERK as loading control → `normalised_to: ERK`.
+- **Skinned preparations** occur only in the S5F table image, so the new `preparation:skinned_tissue` carries no synonym.
+- **Spec guess.** Keys for the differentiation-stage measures (embryoid body diameter, cardiomyocyte yield) have empty value `must_match`: platform, preparation, pacing and temperature do not apply before tissues are made.
+
+## Orchestrator
+- T1/T2 `level` left unset: Methods print 80% of peak height and Fig. S3 prints 20%. Two printed levels conflict, so neither is chosen (flag, never infer). Keys requiring `measure.level` will block these measures.
+
+## Formula agent
+
+Instructions `formulas_v3`, formula library v5. 60 derivations: 40 with a library formula (relative_change, relative_decrease, ratio_def, and the proposed ratio_from_log2_values), 20 with no formula (force by citation, qPCR normalisation, curve fits, r^2). No model is used, so there are no assumption reports; the library has no bound entries, so no bounds.
+
+Places the spec or gate left me guessing:
+- Force from post deflection is stated only by citation (Hansen et al. 2010) and no post stiffness is printed. I wrote one derivation (TXT2_force.force, by reference) for all the video-optical force items, not one per item.
+- Normalised items without printed values: Fig. 5 relative force (9 items) got ratio_def derivations with inputs not stated, so they appear on the completeness list. The scatter items of Figs. 3C/D, 6 and S5-S7 (readings in % of the baseline mean) got none: no absolute inputs and no printed outputs, so nothing could be rebuilt.
+- S2B fold changes have no printed value, so `output` is empty and code cannot judge them. For the 9 genes without Table S1 rows, I used the Fig. S2A bar readings (EHT over 2D). For the 11 genes in Table S1, I used the log2 group means from data.yaml through the proposal ratio_from_log2_values (r = 2^(la - lb)). That gives a ratio of geometric means, and the paper says "mean fold change", so the linear mean of per-sample ratios is listed as an alternative.
+- F6B_ATX_T2 556% ± 31% of baseline names no concentration. I took 100 nM (c1e7, the largest effect plotted) and labelled 30 nM as an alternative. The readings are already % of the baseline mean, so I set aggregation `of means` (constant denominator).
+- S5F image-table values have no extractable text. Their derivations reuse the main-text anchors of the same comparison (FDAR, PRP, isoprenaline +41%, Frank-Starling 43% to 100%).
+- PRP anchor: the sentence is split by the Fig. 5 legend in the extracted text, so the anchor is only its second half ("after the pacing pause revealed a PRP of +17%").
+
+Derivations I think the paper got wrong (observations for code; verdicts come from audit):
+- F3B_ryd: the Discussion says ryanodine reduced beating "by 50%". The printed rates (47 to 20 bpm) give 57% (interval 56-59%).
+- F4C_T2 FDAR: the Results print 18%. The Fig. 4C T2 bars (1.0 to 2.0 Hz) give -14.2%, which matches Fig. S5F's -14%.
+- S5F_fs +57%: as a relative increase, 43% to 100% of maximum force is +133%. The +57% looks like a difference of percentage points (100 - 43), written as a labelled alternative.
+- F6B_ATX_T2: the 556% ± 31% is not seen at any plotted concentration (readings: 340% at 30 nM, 656% at 100 nM).
+- S2B readings against S2A readings: CACNA1C bar 2.58 vs 2.22 from the S2A bars, KCNH2 1.49 vs 1.64. SERCA2 is plotted as -1.57, a signed down-fold convention (-1/0.71 = -1.42), not a ratio.
+
+## Vocabulary agent (key checkpoint)
+
+Re-map checkpoint after 10 papers (03-vocabulary, Earlier papers; 05-across-sources, Standing keys), after the independent check of release v5-rebuild-10. 9 standing_key edits revise the keys of the measures this paper first added.
+
+- Value keys now require treatment, genotype and disease_model for every measure whose value a drug, variant or disease can change. Left unchanged: method, device, design and yield measures (analysis time, required sample size, micropattern yield, usable constructs, post spring constant, applied load, strip bending force, between-sample variability, identified protein count, PCA variance, medium composition, signal-to-noise, embryoid body diameter, cardiomyocyte yield, beating onset).
+- Direction keys of force and beat-rate measures now require pacing (paced against spontaneous), so a spontaneous and a paced isoprenaline response do not meet.
+- Guess: kinetic times (twitch duration, relaxation and calcium decay times) are also rate dependent, but their direction keys were not given pacing; the request named rate and force only.
+- Concern for a person: genotype and disease_model are 'not stated' for most healthy lines, and an unstated must-match field blocks a value comparison. A dry run of the revised keys leaves 2 cross-paper value agree/differ verdicts of 104 (44 with treatment alone). The relaxation report will name genotype; whether an unstated genotype of a healthy line should count as wild type is a design decision.

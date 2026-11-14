@@ -1,0 +1,20 @@
+# Written by code from changes.yaml (version 7); never edited.
+formula: fraction_bounds
+kind: bound
+statement: A fraction of a whole (a part divided by the whole it belongs to) lies between 0 and 1 (0 % and 100 %).
+equations:
+- f >= 0
+- f <= 1
+variables:
+  f: dimensionless
+does_not_apply: ratios of distinct quantities (fold changes, normalised values, % of baseline above 100 %)
+tests:
+- given:
+    f: 0.4
+- given:
+    f: 1.2
+  does_not_apply: a fold change of 1.2 is not a fraction of a whole
+cites:
+  text: 'NIST Special Publication 811 (2008), Guide for the Use of the International System of Units (SI), section 7.10: quantities
+    of dimension one, such as mass fraction and volume fraction'
+  url: https://www.nist.gov/pml/special-publication-811

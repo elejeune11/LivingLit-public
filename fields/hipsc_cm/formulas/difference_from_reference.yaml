@@ -1,0 +1,33 @@
+# Written by code from changes.yaml (version 26); never edited.
+formula: difference_from_reference
+kind: derived
+statement: The change of a value from a reference, d = x - x0 (an absolute or percentage-point change), is the sum of parts
+  x = x0 + d solved for d.
+equations:
+- d = x - x0
+variables:
+  d: D
+  x: D
+  x0: D
+uses:
+- formula: sum_of_parts
+  subs:
+    t: x
+    a: x0
+    b: d
+does_not_apply: a change expressed relative to the reference ((x - x0)/x0) or as a ratio (x/x0)
+tests:
+- given:
+    x: 3.0
+    x0: 2.0
+  expect:
+    d: 1.0
+- given:
+    x: 5.5
+    x0: 3.6
+  expect:
+    d: 1.9
+- given:
+    x: 3.0
+    x0: 2.0
+  does_not_apply: 'relative change: (3 - 2)/2 = 0.5, not 1'

@@ -1,0 +1,575 @@
+record: 2020_Richards
+vocabulary_version: 37
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context: synonyms
+- add_synonym: {id: dissociation_reagent:tryple, text: trypLE Express, anchor: "cells were detached using trypLE Express"}
+- add_synonym: {id: CL:0002548, text: cardiac FB, anchor: "only, cardiac FB only) were fabricated"}
+- add_synonym: {id: CL:2000066, text: Human cardiac ventricular fibroblasts, anchor: "Human cardiac ventricular fibroblasts (FBs)"}
+- add_synonym: {id: CL:0002618, field: endothelial_cell, text: Human umbilical vein endothelial cells, anchor: "Human umbilical vein endothelial cells (HUVECs)"}
+- add_synonym: {id: platform:cell_aggregate, text: spheroid, anchor: "prepared for spheroid/organoid fabrication"}
+- add_synonym: {id: preparation:intact_tissue, text: live organoids, anchor: "live organoids also showed decreased NADH autofluorescence"}
+- add_synonym: {id: preparation:cryosection, text: frozen sections, anchor: "vimentin+ area in organoid frozen sections"}
+- add_synonym: {id: CHEBI:28748, text: DOX, anchor: "doses of DOX"}
+- add_synonym: {id: species:pig, text: porcine, anchor: "a time-course porcine myocardial infarction study"}
+# ---------------------------------------------------------------- context: adopted ids
+- adopt:
+    field: cell_line
+    id: CVCL_VC63
+    label: CDIi002-A
+    lookup: "cellosaurus '01434' (exact synonym of CDIi002-A, the CDI donor line of iCell Cardiomyocytes)"
+    synonyms: [{text: iCell Cardiomyocytes iPSC donor 01434, anchor: "iCell Cardiomyocytes iPSC donor 01434 (i.e."}]
+- adopt:
+    field: cell_line
+    id: CVCL_VE12
+    label: CDIi004-A
+    lookup: "cellosaurus '11713' (exact synonym of CDIi004-A, a CDI donor line)"
+    synonyms: [{text: iCell Cardiomyocytes iPSC donor 11713, anchor: "iCell Cardiomyocytes iPSC donor 11713 were"}]
+- adopt:
+    field: cell_types
+    id: CL:0002570
+    label: mesenchymal stem cell of adipose tissue
+    lookup: "cl 'mesenchymal stem cell of adipose' (exact); 'adipose' gave adipocytes and adipose immune cells only"
+    synonyms:
+    - {text: hADSCs, anchor: "Human adipose-derived stem cells (hADSCs)"}
+    - {text: Human adipose-derived stem cells, anchor: "Human adipose-derived stem cells (hADSCs)"}
+- adopt:
+    field: cell_types
+    id: CL:2000066
+    label: cardiac ventricle fibroblast
+    lookup: "already adopted for stromal_cell; second field for the organoid's cell types"
+- adopt:
+    field: supplements
+    id: CHEBI:18050
+    label: L-glutamine
+    lookup: "chebi 'L-glutamine' (exact); the paper prints 'glutamine' as a medium supplement"
+    synonyms: [{text: glutamine, anchor: "10% FBS, 1% glutamine, and 1% non-essential amino acids"}]
+- adopt:
+    field: treatment
+    id: CHEBI:137113
+    label: JQ1
+    lookup: "chebi 'JQ1' (exact)"
+- adopt:
+    field: disease_model
+    id: MONDO:0024644
+    label: myocardial ischemia
+    lookup: "mondo 'ischemic cardiomyopathy' and 'ischaemic' found no ischaemic cardiomyopathy class; 'ischemic heart disease' gives myocardial ischemia (exact synonym)"
+- adopt_own:
+    field: disease_model
+    id: disease_model:non_failing_heart
+    label: non-failing heart
+    definition: Heart tissue from a donor without heart failure, used as the reference for diseased hearts.
+    scope: A donor heart without heart failure, used as a reference; not a disease such as cardiac hypertrophy or left ventricular hypertrophy.
+    lookup: "mondo 'non-failing' and 'healthy' returned nothing; a non-failing donor heart is the absence of the disease studied, not a MONDO disease"
+- add_term:
+    field: species
+    id: species:mouse
+    label: mouse
+    definition: Mus musculus.
+    scope: Mouse cells, tissue or hearts; not human, rat, rabbit or pig.
+    xref: [NCBITaxon:10090]
+    synonyms: [{text: mice, anchor: "microarray data from mice 1 week after MI"}]
+# ---------------------------------------------------------------- context: own terms and qualifiers
+- add_term:
+    field: cm_medium
+    id: cm_medium:mixed_cell_type_medium
+    label: mixture of cell-type-specific media
+    definition: A medium made by combining each input cell type's own medium in the ratio of the cell types seeded.
+    scope: A blend of several cell types' media for a multicellular construct (components as a qualifier); not one basal medium such as DMEM, RPMI 1640, IMDM, α-MEM or BPEL, and not a medium named only as EHT medium.
+    qualifiers: {components: {dimension: text}}
+- add_term:
+    field: cm_medium
+    id: cm_medium:icell_maintenance_medium
+    label: iCell Cardiomyocytes Maintenance Medium
+    definition: The commercial maintenance medium Cellular Dynamics International sells for its iCell cardiomyocytes.
+    scope: The vendor's proprietary medium for iCell cardiomyocytes, base not stated; not DMEM, RPMI 1640, IMDM, α-MEM, BPEL, a medium named only as EHT medium or a mixture of cell-type-specific media.
+- add_term:
+    field: replating_coating
+    id: replating_coating:non_adhesive_agarose
+    label: non-adhesive agarose mold
+    definition: A non-adhesive agarose hydrogel with recesses into which cells are seeded so that they aggregate rather than attach.
+    scope: A non-adhesive surface for aggregation; not an adhesive coating such as Matrigel, Geltrex, fibronectin, gelatin or vitronectin.
+- add_qualifier: {id: platform:native_tissue, name: region, dimension: text}
+- add_qualifier: {id: CHEBI:33569, name: noradrenaline_concentration, dimension: concentration}
+- add_qualifier: {id: CHEBI:4480, name: bdm_concentration, dimension: concentration}
+- add_qualifier: {id: CHEBI:28748, name: doxorubicin_concentration, dimension: concentration}
+- add_qualifier: {id: CHEBI:137113, name: jq1_concentration, dimension: concentration}
+- add_qualifier: {id: CHEBI:6904, name: metoprolol_concentration, dimension: concentration}
+# ---------------------------------------------------------------- measures
+- add_qualifier: {id: measure:gene_expression, name: scale, dimension: text}
+- add_term:
+    field: measure
+    id: measure:hypoxia_probe_signal
+    label: hypoxia probe signal
+    dimension: dimensionless
+    definition: Fluorescence of a live-cell probe that brightens as oxygen falls, read as a proxy for local hypoxia in a region (qualifier region).
+    scope: A probe's signal for low oxygen; not a measured oxygen concentration, not NADH autofluorescence and not the immunostaining intensity of a protein.
+    qualifiers: {region: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:nadh_autofluorescence
+    label: NADH autofluorescence
+    dimension: dimensionless
+    definition: Autofluorescence of NADH in living tissue, as a readout of its metabolic state in a region (qualifier region).
+    scope: Endogenous NADH fluorescence; not a hypoxia probe signal, not an oxygen consumption rate and not a metabolite measured in extracts.
+    qualifiers: {region: {dimension: text}}
+    synonyms: [{text: NADH index, anchor: "The NADH index"}]
+- add_term:
+    field: measure
+    id: measure:shared_de_gene_count
+    label: number of shared differentially expressed genes
+    parent: measure:differentially_expressed_gene_count
+    dimension: dimensionless
+    definition: Count of genes differentially expressed in each of two or more compared datasets (the overlap of their differentially expressed genes).
+    scope: The overlap between comparisons (direction as qualifier regulation); not the number of differentially expressed genes in one comparison.
+    qualifiers: {regulation: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:normalized_enrichment_score
+    label: normalized enrichment score
+    dimension: dimensionless
+    definition: Gene set enrichment analysis score of an annotation (qualifier annotation) on a ranked gene list (qualifier ranking), normalised for gene set size.
+    scope: An enrichment score of a ranked list; not an enrichment p-value of a gene set and not a count of genes.
+    qualifiers: {annotation: {dimension: text}, ranking: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:synchronous_beating_fraction
+    label: fraction of constructs beating synchronously
+    dimension: dimensionless
+    definition: Share of constructs whose cells beat in synchrony rather than in separate, unsynchronised regions.
+    scope: A count over constructs of synchronised beating; not the presence of beating, not the synchrony of calcium transients within one construct and not a beat rate.
+- add_term:
+    field: measure
+    id: measure:calcium_transient_synchrony
+    label: synchrony of calcium transients between cells
+    dimension: categorical
+    definition: Whether calcium transients of separate cells or regions in one construct occur together, judged from their traces.
+    scope: Synchrony between cells within a construct; not the fraction of constructs beating synchronously and not a calcium transient amplitude or time.
+- add_term:
+    field: measure
+    id: measure:cell_death
+    label: cell death
+    dimension: dimensionless
+    definition: Share of cells that have died under a stated condition, judged from images or a death assay.
+    scope: Dead cells (rises as cells die); not cell viability, its complement measured as living cells, and not apoptosis by a marker stain (marker-positive cells).
+# ---------------------------------------------------------------- standing keys for the new measures
+- standing_key:
+    measure: measure:hypoxia_probe_signal
+    value: {must_match: [platform@1, preparation, temperature, incubator_atmosphere, treatment, genotype, disease_model, measure.region, measure.expressed_as, measure.level], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.region, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:nadh_autofluorescence
+    value: {must_match: [platform@1, preparation, temperature, treatment, genotype, disease_model, measure.region, measure.expressed_as, measure.level], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.region, measure.level], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:shared_de_gene_count
+    value: {must_match: [measure.gene_set, measure.regulation, species, platform@1, disease_model], may_vary: [cell_line, day_of_measurement]}
+    direction: {must_match: [contrast, measure.gene_set, measure.regulation], may_vary: [cell_line, species]}
+- standing_key:
+    measure: measure:normalized_enrichment_score
+    value: {must_match: [measure.annotation, measure.ranking, species, platform@1], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.annotation, measure.ranking], may_vary: [cell_line, species]}
+- standing_key:
+    measure: measure:synchronous_beating_fraction
+    value: {must_match: [platform@1, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_synchrony
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_death
+    value: {must_match: [platform@1, cm_medium, incubator_atmosphere, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: platform
+  stated: cardiac organoid
+  terms: [platform:cell_aggregate]
+  note: scaffold-free microtissue self-assembled in agarose micromolds from >2 cell types; no synonym, since 'cardiac organoid' elsewhere also names self-organising organoids differentiated in place
+- field: platform
+  stated: left ventricle
+  terms: [platform:native_tissue]
+  qualifiers: {region: left ventricle}
+- field: cell_types
+  stated: hiPSC-CMs + FBs + HUVECs + hADSCs
+  terms: [CL:0000746, CL:2000066, CL:0002618, CL:0002570]
+  note: FBs are the paper's human cardiac ventricular fibroblasts (Methods, Cell culture); 'FBs' is not added as a synonym because it is broader than the term
+- field: stromal_cell
+  stated: human cardiac ventricular FBs
+  terms: [CL:2000066]
+- field: cm_medium
+  stated: organoid medium
+  terms: [cm_medium:mixed_cell_type_medium]
+  qualifiers: {components: "ratiometric combination of cell-specific media; CM component glucose-containing F12/DMEM with 10% FBS, 1% glutamine and 1% non-essential amino acids"}
+- field: cm_medium
+  stated: cardiomyocyte media
+  terms: [cm_medium:icell_maintenance_medium]
+  note: Fig. S14 legend names the cardiomyocyte media as iCell Cardiomyocytes Maintenance Medium; 'cardiomyocyte media' is too generic to be a synonym
+- field: supplements
+  stated: 10% FBS + 1% glutamine + 1% non-essential amino acids
+  terms: [supplements:fetal_bovine_serum, CHEBI:18050, supplements:nonessential_amino_acids]
+  note: the percentages (10%, 1%, 1%) stay in the record; one value names three supplements and a qualifier dict cannot hold a concentration for each
+- field: replating_coating
+  stated: non-adhesive agarose hydrogel molds
+  terms: [replating_coating:non_adhesive_agarose]
+- field: replating_coating
+  stated: gelatin-coated 96-well plates
+  terms: [replating_coating:gelatin]
+  split: [{words: 96-well plates, field: platform}]
+- field: preparation
+  stated: medium
+  terms: [preparation:collected_medium]
+  note: L-lactate measured in the medium of D10 organoids (Fig. 3g); 'medium' alone is too generic for a synonym
+- field: measurement_medium
+  stated: low-phosphate DMEM buffer
+  terms: [measurement_medium:assay_medium]
+  note: the Seahorse assay buffer replacing organoid media for the test; vendor not named, so not mapped to Seahorse XF DMEM
+- field: measurement_medium
+  stated: medium
+  terms: [measurement_medium:culture_medium]
+  qualifiers: {medium: media}
+  note: "micropipette aspiration 'was performed in media'; the paper does not say which"
+- field: measurement_medium
+  stated: calcium buffer from the Fluo-4 Direct Calcium Assay Kit
+  terms: [measurement_medium:assay_medium]
+- field: transgene
+  stated: GCaMP6 adenovirus
+  terms: [transgene:gcamp6]
+  qualifiers: {vector: adenovirus}
+- field: species
+  stated: pigs
+  terms: [species:pig]
+- field: disease_model
+  stated: ischaemic cardiomyopathy
+  terms: [MONDO:0024644, MONDO:0004994]
+  no_ontology_term: ischaemic cardiomyopathy (MONDO has myocardial ischemia and cardiomyopathy but no class for their combination)
+- field: disease_model
+  stated: non-failing
+  terms: [disease_model:non_failing_heart]
+- field: day_of_measurement
+  stated: D0
+  flag: {kind: not a context, note: "code's quantity parser does not read 'D0' (the digit follows a letter), so it is neither a quantity nor a term; the same day is printed 'Day 0' at units.S5 and in Methods ('Day 0 (D0) of the experiment'). Please write 'Day 0'. (No flag kind fits: this is a parse failure of a valid day, not a context problem.)"}
+# ---------------------------------------------------------------- treatment
+- field: treatment
+  stated: 1 µM noradrenaline
+  terms: [CHEBI:33569]
+  qualifiers: {noradrenaline_concentration: 1 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + oligomycin + FCCP + rotenone + antimycin A
+  terms: [CHEBI:33569, CHEBI:25675, CHEBI:75458, CHEBI:28201, CHEBI:2762]
+  qualifiers: {noradrenaline_concentration: 1 µM}
+  note: the Seahorse stress-test injections are acute; noradrenaline is the 10-day infarction exposure
+- field: treatment
+  stated: 30 mM 2,3-butanedione monoxime
+  terms: [CHEBI:4480]
+  qualifiers: {bdm_concentration: 30 mM}
+- field: treatment
+  stated: 1 µM noradrenaline + 30 mM 2,3-butanedione monoxime
+  terms: [CHEBI:33569, CHEBI:4480]
+  qualifiers: {noradrenaline_concentration: 1 µM, bdm_concentration: 30 mM}
+- field: treatment
+  stated: 1 µM noradrenaline + 10 nM JQ1
+  terms: [CHEBI:33569, CHEBI:137113]
+  qualifiers: {noradrenaline_concentration: 1 µM, jq1_concentration: 10 nM}
+- field: treatment
+  stated: 1 µM noradrenaline + 10 nM JQ1 + 30 mM 2,3-butanedione monoxime
+  terms: [CHEBI:33569, CHEBI:137113, CHEBI:4480]
+  qualifiers: {noradrenaline_concentration: 1 µM, jq1_concentration: 10 nM, bdm_concentration: 30 mM}
+- field: treatment
+  stated: 1 µM noradrenaline + 10 µM metoprolol
+  terms: [CHEBI:33569, CHEBI:6904]
+  qualifiers: {noradrenaline_concentration: 1 µM, metoprolol_concentration: 10 µM}
+- field: treatment
+  stated: 0 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 0 µM}
+  note: the vehicle point of the DOX dose series, kept on doxorubicin so the dose contrast is on the number
+- field: treatment
+  stated: 1 µM noradrenaline + 0 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 0 µM}
+- field: treatment
+  stated: 0.1 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 0.1 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + 0.1 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 0.1 µM}
+- field: treatment
+  stated: 0.5 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 0.5 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + 0.5 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 0.5 µM}
+- field: treatment
+  stated: 1.0 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 1.0 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + 1.0 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 1.0 µM}
+- field: treatment
+  stated: 5.0 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 5.0 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + 5.0 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 5.0 µM}
+- field: treatment
+  stated: 10.0 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 10.0 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + 10.0 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 10.0 µM}
+- field: treatment
+  stated: 50.0 µM DOX
+  terms: [CHEBI:28748]
+  qualifiers: {doxorubicin_concentration: 50.0 µM}
+- field: treatment
+  stated: 1 µM noradrenaline + 50.0 µM DOX
+  terms: [CHEBI:33569, CHEBI:28748]
+  qualifiers: {noradrenaline_concentration: 1 µM, doxorubicin_concentration: 50.0 µM}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: organoid diameter
+  terms: [measure:tissue_width]
+- field: measure
+  stated: hypoxia stain radial density
+  terms: [measure:hypoxia_probe_signal]
+  qualifiers: {region: radial density profile}
+- field: measure
+  stated: number of shared upregulated fibrosis-related genes
+  terms: [measure:shared_de_gene_count]
+  qualifiers: {gene_set: fibrosis-related genes, regulation: upregulated}
+- field: measure
+  stated: number of shared downregulated fibrosis-related genes
+  terms: [measure:shared_de_gene_count]
+  qualifiers: {gene_set: fibrosis-related genes, regulation: downregulated}
+- field: measure
+  stated: number of shared upregulated calcium-handling genes
+  terms: [measure:shared_de_gene_count]
+  qualifiers: {gene_set: calcium-handling genes, regulation: upregulated}
+- field: measure
+  stated: number of shared downregulated calcium-handling genes
+  terms: [measure:shared_de_gene_count]
+  qualifiers: {gene_set: calcium-handling genes, regulation: downregulated}
+- field: measure
+  stated: proportion of total variance of a principal component
+  terms: [measure:pca_variance_explained]
+- field: measure
+  stated: normalized enrichment score of a GO term on PC3 gene loadings
+  terms: [measure:normalized_enrichment_score]
+  qualifiers: {ranking: PC3 gene loadings}
+- field: measure
+  stated: normalized enrichment score of a GO term on PC4 gene loadings
+  terms: [measure:normalized_enrichment_score]
+  qualifiers: {ranking: PC4 gene loadings}
+- field: measure
+  stated: pathway enrichment of carbon metabolism
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: carbon metabolism}
+- field: measure
+  stated: pathway enrichment of citrate cycle (TCA)
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: citrate cycle (TCA)}
+- field: measure
+  stated: pathway enrichment of glycolysis/gluconeogenesis
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: glycolysis/gluconeogenesis}
+- field: measure
+  stated: pathway enrichment of ECM-receptor interaction
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: ECM-receptor interaction}
+- field: measure
+  stated: pathway enrichment of dilated cardiomyopathy
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: dilated cardiomyopathy}
+- field: measure
+  stated: enrichment of ion transport
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: ion transport}
+- field: measure
+  stated: enrichment of calcium signalling pathway
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: calcium signalling pathway}
+- field: measure
+  stated: enrichment of arrhythmogenic right ventricular cardiomyopathy
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: arrhythmogenic right ventricular cardiomyopathy}
+- field: measure
+  stated: oxygen consumption rate response to FCCP
+  terms: [measure:maximal_oxygen_consumption_rate]
+  qualifiers: {expressed_as: fold, normalised_to: OCR before FCCP}
+  note: "'approximately twofold increase in the oxygen consumption rate' after FCCP"
+- field: measure
+  stated: peak OCR after addition of FCCP
+  terms: [measure:maximal_oxygen_consumption_rate]
+  qualifiers: {expressed_as: normalised, normalised_to: non-mitochondrial respiration}
+- field: measure
+  stated: extracellular acidification rate after oligomycin
+  terms: [measure:glycolytic_capacity]
+  qualifiers: {expressed_as: "% change", normalised_to: control organoids}
+  note: "'a ~30% increase in the extracellular acidification rate (ECAR)' of infarct against control organoids"
+- field: measure
+  stated: peak ECAR after addition of oligomycin
+  terms: [measure:glycolytic_capacity]
+  qualifiers: {expressed_as: normalised, normalised_to: non-mitochondrial respiration}
+  note: normalisation taken from the record's method for Fig. 3d,f; check against the figure axis
+- field: measure
+  stated: normalized l-lactate level
+  terms: [measure:spent_medium_concentration]
+  qualifiers: {component: L-lactate, expressed_as: normalised, normalised_to: control medium}
+- field: measure
+  stated: LDHA/LDHB ratio of transcripts per million
+  terms: [measure:gene_expression]
+  qualifiers: {gene: LDHA, expressed_as: normalised, normalised_to: LDHB transcripts per million}
+- field: measure
+  stated: SLC16A1/SLC16A3 ratio of transcripts per million
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SLC16A1, expressed_as: normalised, normalised_to: SLC16A3 transcripts per million}
+- field: measure
+  stated: ITGB3 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITGB3, expressed_as: absolute}
+- field: measure
+  stated: COL1A1 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: COL1A1, expressed_as: absolute}
+- field: measure
+  stated: TGFB1 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TGFB1, expressed_as: absolute}
+- field: measure
+  stated: MMP2 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MMP2, expressed_as: absolute}
+- field: measure
+  stated: ATP2A2 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ATP2A2, expressed_as: absolute}
+- field: measure
+  stated: RYR2 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: RYR2, expressed_as: absolute}
+- field: measure
+  stated: CACNA1C expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CACNA1C, expressed_as: absolute}
+- field: measure
+  stated: SLC8A1 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SLC8A1, expressed_as: absolute}
+- field: measure
+  stated: ITPR3 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITPR3, expressed_as: absolute}
+- field: measure
+  stated: ACTN2 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ACTN2, expressed_as: absolute}
+- field: measure
+  stated: TNNT2 expression (TPM)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNT2, expressed_as: absolute}
+- field: measure
+  stated: LDHA log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: LDHA, expressed_as: fold, scale: log}
+  note: normalised_to left out; each study's own control or sham is the reference
+- field: measure
+  stated: LDHB log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: LDHB, expressed_as: fold, scale: log}
+- field: measure
+  stated: ITGB3 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITGB3, expressed_as: fold, scale: log}
+- field: measure
+  stated: COL1A1 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: COL1A1, expressed_as: fold, scale: log}
+- field: measure
+  stated: TGFB1 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TGFB1, expressed_as: fold, scale: log}
+- field: measure
+  stated: MMP2 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MMP2, expressed_as: fold, scale: log}
+- field: measure
+  stated: ATP2A2 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ATP2A2, expressed_as: fold, scale: log}
+- field: measure
+  stated: CACNA1C log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CACNA1C, expressed_as: fold, scale: log}
+- field: measure
+  stated: RYR2 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: RYR2, expressed_as: fold, scale: log}
+- field: measure
+  stated: SLC8A1 log-fold change
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SLC8A1, expressed_as: fold, scale: log}
+- field: measure
+  stated: vimentin radial density (integrated intensity)
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: vimentin, region: radial density profile, expressed_as: normalised}
+- field: measure
+  stated: αSA radial density (integrated intensity)
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: α-sarcomeric actinin, region: radial density profile, expressed_as: normalised}
+- field: measure
+  stated: calcium transient amplitude (∆F/F0)
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: "% change"}
+- field: measure
+  stated: contraction amplitude (fractional area change)
+  terms: [measure:fractional_area_change]
+- field: measure
+  stated: normalized contraction amplitude (fractional area change)
+  terms: [measure:fractional_area_change]
+  qualifiers: {expressed_as: normalised, normalised_to: vehicle control of each group}
+- field: measure
+  stated: change in elastic modulus relative to control
+  terms: [measure:elastic_modulus]
+  qualifiers: {normalised_to: control at D10}
+  note: expressed_as left to the printed unit (difference, % or fold is not said in the legend)
+- field: measure
+  stated: percentage of organoids with synchronized beating
+  terms: [measure:synchronous_beating_fraction]
+- field: measure
+  stated: synchronization of calcium transients between CM ROIs
+  terms: [measure:calcium_transient_synchrony]
+- field: measure
+  stated: normalized TUNEL index
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TUNEL, expressed_as: normalised, normalised_to: vehicle control of each group}
+- field: measure
+  stated: TUNEL index
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: TUNEL}
+- field: measure
+  stated: αSA+ sarcomeric banding
+  terms: [measure:sarcomere_organisation]
+- field: measure
+  stated: normalized fibrillar αSMA+ covered area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: fibrillar αSMA, expressed_as: normalised, normalised_to: total αSMA+ area and organoid cross-sectional area}
+- field: measure
+  stated: normalized vimentin-covered area
+  terms: [measure:stained_area_ratio]
+  qualifiers: {protein: vimentin, expressed_as: normalised, normalised_to: vehicle control of each group}
+- field: measure
+  stated: normalized absorbance (XTT cell viability)
+  terms: [measure:cell_viability]
+  qualifiers: {expressed_as: normalised, normalised_to: 0 µM dose}

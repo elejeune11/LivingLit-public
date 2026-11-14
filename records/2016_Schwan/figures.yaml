@@ -1,0 +1,73 @@
+figures:
+  fig4c_gain:
+    file: srep32068.pdf
+    page: 5
+    crop:
+    - 385
+    - 50
+    - 560
+    - 160
+    script: figures/fig4c_gain.py
+    unit: F4ac
+    kind: vector
+    groups:
+      Day9:
+        item: F4c_gain_d23_d9
+        group: d9
+        unit_of_value: mN/mm2 per unit engineering strain
+      Day16:
+        item: F4c_gain_omnibus
+        group: d16
+        unit_of_value: mN/mm2 per unit engineering strain
+      Day23:
+        item: F4c_gain_d23_d9
+        group: d23
+        unit_of_value: mN/mm2 per unit engineering strain
+    note: Fig. 4c individual EHT gains with mean and SEM; axis title 'Length-Tension Gain' carries no unit, the unit is the
+      legend's 'increase in mN/mm2 per unit engineering strain'. Tick labels are outlined glyphs, matched by eye to the three
+      tick lines (0, 3.25, 6.5). Fig. 4b (F4b_stress d16) plots means with error bars only, no individual points, and is not
+      read.
+  fig5c_twitch:
+    file: srep32068.pdf
+    page: 7
+    crop:
+    - 400
+    - 55
+    - 550
+    - 370
+    script: figures/fig5c_twitch.py
+    unit: F5
+    kind: vector
+    groups:
+      stress_long:
+        item: F5c_stress
+        group: long
+        unit_of_value: mN/mm2
+      stress_trans:
+        item: F5c_stress
+        group: trans
+        unit_of_value: mN/mm2
+      ttp_long:
+        item: F5c_ttp
+        group: long
+        unit_of_value: s
+      ttp_trans:
+        item: F5c_ttp
+        group: trans
+        unit_of_value: s
+      rt50_long:
+        item: F5c_rt50
+        group: long
+        unit_of_value: s
+      rt50_trans:
+        item: F5c_rt50
+        group: trans
+        unit_of_value: s
+    note: Fig. 5c individual EHT peak stress, TTP and RT50 (Long. black circles, Trans. green squares) with mean and SEM lines;
+      three stacked subpanels each with its own y axis. Tick labels are outlined glyphs, matched by eye to each axis's three
+      tick lines (0/1/2 mN/mm2; 0.09/0.12/0.15 s; 0.07/0.09/0.11 s).
+no_points:
+  S3: 'first look (small model): Bar chart with mean bars and error bars; no per-sample markers (srep32068-s1.pdf p. 8)'
+  S4: 'first look (small model): Bars, polar curve, and mean-with-error-bar lines; no per-sample markers (srep32068-s1.pdf p. 9)'
+  F6_NRVM: 'first look (small model): Bars with error bars only; no individual sample markers visible. (srep32068.pdf p. 8)'
+  F6_iPSC: 'first look (small model): Bar charts with mean and error bars; no individual sample markers. (srep32068.pdf p. 8)'

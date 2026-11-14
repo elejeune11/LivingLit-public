@@ -1,0 +1,564 @@
+record: 2015_Guyette
+vocabulary_version: 52
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- platform
+- add_synonym: {id: platform:native_tissue, text: cadaveric human myocardium,
+    anchor: "cadaveric human myocardium (C; n=5 hearts)"}
+- add_synonym: {id: platform:native_tissue, text: donated human hearts,
+    anchor: donated human hearts that were not suitable for transplantation}
+- add_term:
+    field: platform
+    id: platform:decellularized_cardiac_matrix
+    label: decellularized cardiac matrix
+    definition: Donor heart tissue whose cells have been removed by detergent perfusion, leaving the extracellular matrix, studied without seeded cells.
+    scope: An acellular matrix studied as it is; not native heart tissue with its cells, not a matrix reseeded with cells (an engineered tissue), and not a cell-free blank well.
+    synonyms:
+    - {text: decellularized cardiac matrix, anchor: revealing that the decellularized cardiac matrix retains an intact vascular hierarchy}
+- add_term:
+    field: platform
+    id: platform:whole_heart_perfusion_decellularization
+    label: whole heart during perfusion-decellularization
+    parent: platform:decellularized_cardiac_matrix
+    definition: A whole donor heart in an organ chamber while decellularization solutions are perfused through its coronary arteries.
+    scope: The heart while it is being decellularized; the matrix after decellularization is the parent.
+- add_term:
+    field: platform
+    id: platform:recellularized_matrix
+    label: recellularized decellularized matrix
+    parent: platform:engineered_3d
+    definition: An engineered tissue made by seeding cells onto or into a decellularized native heart matrix.
+    scope: Cells on a native decellularized matrix; not cells cast in a hydrogel between pillars, wires, anchors or around a strip, and not a scaffold-free aggregate.
+- add_term:
+    field: platform
+    id: platform:recellularized_matrix_slice
+    label: recellularized matrix slice
+    parent: platform:recellularized_matrix
+    definition: A thin section cut from a decellularized heart matrix and reseeded with cells in a culture well (thickness as a qualifier).
+    scope: A thin reseeded matrix section; not a reseeded matrix fiber or a reseeded whole heart.
+    qualifiers: {thickness: {dimension: length}}
+- add_term:
+    field: platform
+    id: platform:recellularized_matrix_fiber
+    label: recellularized matrix fiber
+    parent: platform:recellularized_matrix
+    definition: A cylindrical strip cut from a decellularized heart matrix and reseeded with cells (length and diameter as qualifiers).
+    scope: A reseeded cylindrical strip of matrix; not a thin slice or a whole heart.
+    qualifiers: {length: {dimension: length}, diameter: {dimension: length}}
+- add_term:
+    field: platform
+    id: platform:recellularized_whole_heart
+    label: recellularized whole heart
+    parent: platform:recellularized_matrix
+    definition: A whole decellularized heart reseeded with cells and cultured in a perfusion bioreactor (bioreactor as a qualifier).
+    scope: A whole reseeded heart; not a slice or fiber cut from the matrix.
+    qualifiers: {bioreactor: {dimension: text}}
+# ---------------------------------------------------------------- preparation
+- add_term:
+    field: preparation
+    id: preparation:excised_tissue_sample
+    label: excised tissue sample
+    definition: A piece cut from a heart or matrix and measured as cut, without dissociation, extraction or sectioning.
+    scope: A cut piece of tissue or acellular matrix, living or not; not living whole tissue or a construct measured whole (intact tissue), not a material specimen cut to a standard test shape, and not a section, extract or dissociated cells.
+    synonyms:
+    - {text: full-thickness samples, anchor: Full-thickness samples of approximately 25 x 25 mm}
+- add_term:
+    field: preparation
+    id: preparation:blood_sample
+    label: blood sample
+    definition: Blood drawn from an animal or person, or a fraction of it, for analysis.
+    scope: Blood or a blood fraction; not culture medium or perfusate collected from a culture.
+- add_term:
+    field: preparation
+    id: preparation:whole_blood
+    label: whole blood
+    parent: preparation:blood_sample
+    definition: Blood with its cells, as drawn, analysed without separation.
+    scope: Blood with its cells; not serum.
+    synonyms:
+    - {text: whole blood, anchor: Whole blood was collected from each rat}
+- add_term:
+    field: preparation
+    id: preparation:serum
+    label: serum
+    parent: preparation:blood_sample
+    definition: The liquid left after blood has clotted and the cells are removed.
+    scope: Cell-free clotted blood fluid; not whole blood.
+    synonyms:
+    - {text: sera, anchor: Sera was collected from each rat}
+# ---------------------------------------------------------------- measurement medium, mechanical load, purification
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:pbs
+    label: phosphate-buffered saline
+    definition: A phosphate-buffered isotonic salt solution used as the bath during a measurement.
+    scope: Plain phosphate-buffered saline; not a physiological solution with calcium and glucose (Tyrode's, Krebs) and not culture medium.
+    synonyms:
+    - {text: PBS, anchor: Room temperature PBS was used to float the samples}
+- add_synonym: {id: measurement_medium:culture_medium, text: media bath, anchor: "placed in a warmed (37°C) media bath"}
+- add_synonym: {id: mechanical_load:cyclic_stretch, text: matrix strain stimulation,
+    anchor: with matrix strain stimulation starting on day 7 of culture}
+- add_term:
+    field: purification
+    id: purification:unsorted
+    label: unsorted
+    definition: Cardiomyocytes used as differentiated, without a stated enrichment or sorting step.
+    scope: No enrichment step; not metabolic, genetic, density-gradient, immunomagnetic or fluorescence-activated selection.
+    synonyms:
+    - {text: unsorted, anchor: seeded with 1.5x106 human iPS-derived cardiomyocytes (unsorted)}
+# ---------------------------------------------------------------- hipsc medium, cell types
+- add_synonym: {id: hipsc_medium:mtesr1, text: mTeSR™1, anchor: in mTeSR™1 media}
+- add_synonym: {id: CL:0000746, field: cell_types, text: iPS-derived cardiomyocytes,
+    anchor: seeded with 1.5x106 human iPS-derived cardiomyocytes (unsorted)}
+- adopt_own:
+    field: cell_types
+    id: cell_types:differentiating_ipsc
+    label: differentiating iPSC culture
+    definition: Induced pluripotent stem cells sampled during directed cardiac differentiation, from the pluripotent state onward.
+    scope: A differentiating culture sampled over time; not one progenitor stage (mesendoderm progenitor cells), not finished cardiomyocytes and not the non-cardiomyocyte fraction.
+    lookup: "Searched the pinned CL for 'differentiating' and 'induced pluripotent stem cell': no class for a cell population in the course of differentiation; CL:0002248 pluripotent stem cell covers only day 0."
+    synonyms:
+    - {text: differentiating iPS cells, anchor: differentiating iPS cells were scrapped off of culture plates}
+# ---------------------------------------------------------------- treatment (decellularization solutions)
+- adopt_own:
+    field: treatment
+    id: treatment:endonuclease
+    label: endonuclease
+    definition: An enzyme that cleaves nucleic acids within the chain, used here to remove residual DNA from a decellularized matrix.
+    scope: A nucleic-acid-cleaving enzyme applied to tissue or matrix; not a nucleic acid delivered to cells (siRNA, miRNA mimics) and not a vehicle such as PBS.
+    lookup: "Searched the pinned ChEBI for 'endonuclease', 'nuclease' and 'deoxyribonuclease': only CHEBI:749527 desoxyribonuclease (a narrower, named enzyme) and enzyme-inhibitor roles; the paper does not name the enzyme."
+- adopt:
+    field: treatment
+    id: CHEBI:8984
+    label: sodium dodecyl sulfate
+    lookup: "lookup chebi 'sodium dodecyl sulfate': exact label CHEBI:8984"
+    synonyms:
+    - {text: SDS, anchor: "Hearts were perfusion-decellularized with 1% SDS (168 hours), deionized H2O (24 hours), 1% Triton-X100 (24"}
+- add_qualifier: {id: CHEBI:8984, name: concentration, dimension: concentration}
+- adopt:
+    field: treatment
+    id: CHEBI:9750
+    label: Triton X-100
+    lookup: "lookup chebi 'Triton X-100': exact label CHEBI:9750"
+    synonyms:
+    - {text: Triton-X100, anchor: "Hearts were perfusion-decellularized with 1% SDS (168 hours), deionized H2O (24 hours), 1% Triton-X100 (24"}
+- add_qualifier: {id: CHEBI:9750, name: concentration, dimension: concentration}
+- adopt:
+    field: treatment
+    id: CHEBI:15377
+    label: water
+    lookup: "lookup chebi 'water': exact label CHEBI:15377"
+    synonyms:
+    - {text: deionized H2O, anchor: "Hearts were perfusion-decellularized with 1% SDS (168 hours), deionized H2O (24 hours), 1% Triton-X100 (24"}
+# ---------------------------------------------------------------- qualifiers on existing measures
+- add_qualifier: {id: measure:elastic_modulus, name: axis, dimension: text}
+- add_qualifier: {id: measure:fractional_area_change, name: structure, dimension: text}
+- add_qualifier: {id: measure:contraction_frequency, name: structure, dimension: text}
+- add_qualifier: {id: measure:relaxation_time_constant, name: signal, dimension: text}
+- add_synonym: {id: measure:fractional_area_change, text: area strain,
+    anchor: cardiomyocytes achieved 0.59±0.26% area strain at a natural frequency of 1.36±0.32 Hz}
+# ---------------------------------------------------------------- new measures: donor cohort
+- add_term:
+    field: measure
+    id: measure:donor_count
+    label: number of donors
+    dimension: dimensionless
+    definition: Count of tissue donors in a cohort, optionally split by a stated category (qualifier by).
+    scope: A count of donors or donor hearts; not cells per construct or constructs per substrate.
+    qualifiers: {by: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:donor_age
+    label: donor age
+    dimension: time
+    definition: Age of the donors of a tissue cohort, reported as a statistic over the cohort.
+    scope: A cohort statistic in a donor table; the donor age of a sample's own tissue or line is the donor_age context field, and age at diagnosis is a patient measure.
+- add_term:
+    field: measure
+    id: measure:donor_height
+    label: donor height
+    dimension: length
+    definition: Body height of the donors of a tissue cohort.
+    scope: Donor body height; not a tissue dimension (tissue length, thickness or width).
+- add_term:
+    field: measure
+    id: measure:donor_weight
+    label: donor weight
+    dimension: mass
+    definition: Body weight of the donors of a tissue cohort.
+    scope: Donor body weight; not a heart or ventricle weight ratio.
+- add_term:
+    field: measure
+    id: measure:donor_body_mass_index
+    label: donor body mass index
+    dimension: mass_per_area
+    definition: Body mass divided by the square of height, for the donors of a tissue cohort.
+    scope: Donor body mass index; not left ventricular mass index.
+- add_term:
+    field: measure
+    id: measure:cold_ischemia_time
+    label: cold ischemia time
+    dimension: time
+    definition: Time a donor organ spends cold and without blood supply between recovery and processing.
+    scope: Organ storage time before processing; not a time within a functional recording (relaxation, contraction or onset times).
+# ---------------------------------------------------------------- new measures: decellularized matrix
+- add_term:
+    field: measure
+    id: measure:residual_detergent
+    label: residual detergent in tissue
+    dimension: concentration
+    definition: Amount of a stated detergent (qualifier detergent) left in a decellularized tissue after washing.
+    scope: Detergent left in a matrix; not a compound remaining in a solution and not a medium component.
+    qualifiers: {detergent: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:tissue_dna_content
+    label: tissue DNA content
+    dimension: dimensionless
+    definition: Mass of DNA per mass of tissue, measured to judge how completely cells were removed.
+    scope: Total (nuclear) DNA per tissue mass; not mitochondrial DNA copy number and not DNA staining intensity.
+- add_term:
+    field: measure
+    id: measure:ecm_component_content
+    label: extracellular matrix component content
+    dimension: dimensionless
+    definition: Mass of a stated extracellular matrix component (qualifier component), such as collagen, elastin or glycosaminoglycans, per mass of tissue by a biochemical assay.
+    scope: A biochemical assay of one matrix component per tissue mass; not a proteomic share of the matrisome and not a protein level against a loading reference.
+    qualifiers: {component: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:matrisome_share
+    label: share of the matrisome
+    dimension: dimensionless
+    definition: Fraction of the total matrisome abundance in a proteomic analysis contributed by a stated protein or protein family (qualifier component).
+    scope: A protein's or family's share of the matrix proteins; not a biochemical assay per tissue mass (ECM component content) and not a protein class's abundance in the whole proteome.
+    qualifiers: {component: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:elastic_anisotropy_ratio
+    label: anisotropy ratio
+    dimension: dimensionless
+    definition: Difference of the elastic moduli along two orthogonal axes divided by their sum.
+    scope: A number from two moduli; not a categorical structural anisotropy from images and not an orientation order parameter.
+# ---------------------------------------------------------------- new measures: host response (blood, antibodies)
+- add_term:
+    field: measure
+    id: measure:blood_count_parameter
+    label: blood count parameter
+    dimension: dimensionless
+    definition: A parameter of a haematology analysis of a blood sample; each child names one parameter.
+    scope: Blood analysis of a host; not cells of a culture or construct.
+- add_term:
+    field: measure
+    id: measure:wbc_differential
+    label: white blood cell differential
+    parent: measure:blood_count_parameter
+    dimension: dimensionless
+    definition: Share of white blood cells that are of a stated type (qualifier cell_type).
+    scope: Shares among white blood cells; not red cell or platelet parameters.
+    qualifiers: {cell_type: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:hematocrit
+    label: hematocrit
+    parent: measure:blood_count_parameter
+    dimension: dimensionless
+    definition: Fraction of blood volume occupied by red blood cells.
+    scope: Red cell volume fraction; not red cell count, haemoglobin concentration or a white cell share.
+- add_term:
+    field: measure
+    id: measure:red_blood_cell_count
+    label: red blood cell count
+    parent: measure:blood_count_parameter
+    dimension: number_per_volume
+    definition: Number of red blood cells per volume of blood.
+    scope: A red cell count; not hematocrit (a volume fraction) or platelet count.
+- add_term:
+    field: measure
+    id: measure:mean_corpuscular_volume
+    label: mean corpuscular volume
+    parent: measure:blood_count_parameter
+    dimension: volume
+    definition: Mean volume of one red blood cell.
+    scope: Mean red cell volume; not the width of the red cell volume distribution or mean platelet volume.
+- add_term:
+    field: measure
+    id: measure:red_cell_distribution_width
+    label: red cell distribution width
+    parent: measure:blood_count_parameter
+    dimension: volume
+    definition: Width of the distribution of red blood cell volumes.
+    scope: The spread of red cell volumes; not their mean (mean corpuscular volume).
+- add_term:
+    field: measure
+    id: measure:hemoglobin_concentration
+    label: hemoglobin concentration
+    parent: measure:blood_count_parameter
+    dimension: mass_per_volume
+    definition: Mass of haemoglobin per volume of blood.
+    scope: Haemoglobin per blood volume; not per red cell volume (mean corpuscular hemoglobin concentration).
+- add_term:
+    field: measure
+    id: measure:mean_corpuscular_hemoglobin_concentration
+    label: mean corpuscular hemoglobin concentration
+    parent: measure:blood_count_parameter
+    dimension: mass_per_volume
+    definition: Mass of haemoglobin per volume of packed red blood cells.
+    scope: Haemoglobin per red cell volume; not per blood volume (hemoglobin concentration).
+- add_term:
+    field: measure
+    id: measure:platelet_count
+    label: platelet count
+    parent: measure:blood_count_parameter
+    dimension: number_per_volume
+    definition: Number of platelets per volume of blood.
+    scope: A platelet count; not red cell count or mean platelet volume.
+- add_term:
+    field: measure
+    id: measure:mean_platelet_volume
+    label: mean platelet volume
+    parent: measure:blood_count_parameter
+    dimension: volume
+    definition: Mean volume of one platelet.
+    scope: Mean platelet volume; not platelet count or red cell volume.
+- add_term:
+    field: measure
+    id: measure:hla_antibody_reactivity
+    label: HLA antibody reactivity
+    dimension: dimensionless
+    definition: Reactivity of a host's serum antibodies against human leukocyte antigens, read on single-antigen beads as fluorescence or as the number of reactive beads.
+    scope: Host antibodies against HLA; not marker-positive cell fractions in an explant and not blood count parameters.
+# ---------------------------------------------------------------- new measures: perfusion and vasculature
+- add_term:
+    field: measure
+    id: measure:coronary_flow_rate
+    label: coronary flow rate
+    dimension: volume_rate
+    definition: Volume of perfusate flowing through the coronary vasculature per unit time.
+    scope: Flow through coronary vessels; not cardiac output (blood pumped by the heart) and not vascular resistance.
+- add_term:
+    field: measure
+    id: measure:vascular_resistance
+    label: vascular resistance
+    dimension: hydraulic_resistance
+    definition: Perfusion pressure divided by flow rate through a vascular bed.
+    scope: Resistance of a vascular bed to flow; not flow rate itself and not electrical tissue resistivity.
+- add_term:
+    field: measure
+    id: measure:vessel_diameter
+    label: vessel diameter
+    dimension: length
+    definition: Diameter of blood vessels in a tissue or matrix, summarised as stated (qualifier statistic, such as a distribution or the smallest seen).
+    scope: Vessel calibre; not vessel count per area and not the diameter of tubular structures formed in culture.
+    qualifiers: {statistic: {dimension: text}}
+# ---------------------------------------------------------------- new measures: whole-heart function and medium chemistry
+- add_term:
+    field: measure
+    id: measure:lv_developed_pressure
+    label: left ventricular developed pressure
+    dimension: pressure
+    definition: Rise of left ventricular pressure above its diastolic or preload level during a contraction.
+    scope: Peak minus baseline chamber pressure; not peak systolic pressure (left ventricular systolic pressure) and not wall stress.
+- add_term:
+    field: measure
+    id: measure:lv_pressure_rise_rate_max
+    label: maximal rate of left ventricular pressure rise
+    dimension: pressure_rate
+    definition: Largest positive rate of change of left ventricular pressure (dP/dt max) during a contraction.
+    scope: Rate of chamber pressure rise; not the rate of force rise of a tissue and not the rate of pressure decline.
+- add_term:
+    field: measure
+    id: measure:lv_pressure_decline_rate_max
+    label: maximal rate of left ventricular pressure decline
+    dimension: pressure_rate
+    definition: Largest rate of fall of left ventricular pressure (dP/dt min) during relaxation.
+    scope: Rate of chamber pressure decline; not the rate of force decline of a tissue and not the rate of pressure rise.
+- add_term:
+    field: measure
+    id: measure:medium_ph
+    label: medium pH
+    dimension: dimensionless
+    definition: pH of a culture medium or perfusate sample.
+    scope: Acidity of a medium sample; not extracellular acidification rate and not a gas partial pressure.
+- add_term:
+    field: measure
+    id: measure:medium_gas_partial_pressure
+    label: gas partial pressure in medium
+    dimension: pressure
+    definition: Partial pressure of a stated gas (qualifier gas) dissolved in a medium or perfusate sample.
+    scope: A dissolved gas pressure; not oxygen saturation, not a concentration of a solute and not an incubator gas level.
+    qualifiers: {gas: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:medium_oxygen_saturation
+    label: oxygen saturation of medium
+    dimension: dimensionless
+    definition: Percentage of oxygen-binding capacity that is saturated in a medium or perfusate sample, as reported by a blood-gas analyser.
+    scope: A saturation fraction; not an oxygen partial pressure and not oxygen consumption rate.
+# ---------------------------------------------------------------- standing keys for the measures added here
+- standing_key: {measure: measure:donor_count, value: {must_match: [platform@1, measure.by]}, direction: {must_match: [contrast, measure.by]}}
+- standing_key: {measure: measure:donor_age, value: {must_match: [platform@1]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:donor_height, value: {must_match: [platform@1]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:donor_weight, value: {must_match: [platform@1]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:donor_body_mass_index, value: {must_match: [platform@1]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:cold_ischemia_time, value: {must_match: [platform@1]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:residual_detergent, value: {must_match: [platform@1, preparation, measure.detergent, treatment], may_vary: [species]}, direction: {must_match: [contrast, measure.detergent], may_vary: [species]}}
+- standing_key: {measure: measure:tissue_dna_content, value: {must_match: [platform@1, preparation, treatment, measure.expressed_as, measure.normalised_to], may_vary: [species]}, direction: {must_match: [contrast], may_vary: [species]}}
+- standing_key: {measure: measure:ecm_component_content, value: {must_match: [platform@1, preparation, treatment, measure.component, measure.expressed_as, measure.normalised_to], may_vary: [species]}, direction: {must_match: [contrast, measure.component], may_vary: [species]}}
+- standing_key: {measure: measure:matrisome_share, value: {must_match: [platform@1, preparation, treatment, measure.component], may_vary: [species]}, direction: {must_match: [contrast, measure.component], may_vary: [species]}}
+- standing_key: {measure: measure:elastic_anisotropy_ratio, value: {must_match: [platform@1, preparation, temperature, treatment], may_vary: [species]}, direction: {must_match: [contrast], may_vary: [species]}}
+- standing_key: {measure: measure:blood_count_parameter, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:wbc_differential, value: {must_match: [platform@1, preparation, time_point, treatment, species, measure.cell_type]}, direction: {must_match: [contrast, measure.cell_type]}}
+- standing_key: {measure: measure:hematocrit, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:red_blood_cell_count, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:mean_corpuscular_volume, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:red_cell_distribution_width, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:hemoglobin_concentration, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:mean_corpuscular_hemoglobin_concentration, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:platelet_count, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:mean_platelet_volume, value: {must_match: [platform@1, preparation, time_point, treatment, species]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:hla_antibody_reactivity, value: {must_match: [platform@1, preparation, time_point, treatment, measure.expressed_as, measure.normalised_to]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:coronary_flow_rate, value: {must_match: [platform@1, temperature, treatment], may_vary: [species]}, direction: {must_match: [contrast], may_vary: [species]}}
+- standing_key: {measure: measure:vascular_resistance, value: {must_match: [platform@1, temperature, treatment], may_vary: [species]}, direction: {must_match: [contrast], may_vary: [species]}}
+- standing_key: {measure: measure:vessel_diameter, value: {must_match: [platform@1, preparation, measure.statistic], may_vary: [species]}, direction: {must_match: [contrast, measure.statistic], may_vary: [species]}}
+- standing_key: {measure: measure:lv_developed_pressure, value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}, direction: {must_match: [contrast], may_vary: [cell_line]}}
+- standing_key: {measure: measure:lv_pressure_rise_rate_max, value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}, direction: {must_match: [contrast], may_vary: [cell_line]}}
+- standing_key: {measure: measure:lv_pressure_decline_rate_max, value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}, direction: {must_match: [contrast], may_vary: [cell_line]}}
+- standing_key: {measure: measure:medium_ph, value: {must_match: [platform@1, preparation, time_point]}, direction: {must_match: [contrast]}}
+- standing_key: {measure: measure:medium_gas_partial_pressure, value: {must_match: [platform@1, preparation, time_point, measure.gas]}, direction: {must_match: [contrast, measure.gas]}}
+- standing_key: {measure: measure:medium_oxygen_saturation, value: {must_match: [platform@1, preparation, time_point]}, direction: {must_match: [contrast]}}
+mappings:
+# ---------------------------------------------------------------- context
+- {field: platform, stated: decellularized human cardiac matrix, terms: [platform:decellularized_cardiac_matrix],
+   split: [{words: human, field: species}], note: "species is already 'human' in the same contexts"}
+- {field: platform, stated: decellularized porcine cardiac matrix, terms: [platform:decellularized_cardiac_matrix],
+   split: [{words: porcine, field: species}], note: "species is already 'porcine' in the same groups"}
+- {field: platform, stated: custom organ chamber, terms: [platform:whole_heart_perfusion_decellularization],
+   note: "whole donor hearts perfused with decellularization solutions in the chamber (Results, Perfusion-Decellularization)"}
+- {field: platform, stated: myocardial slice, terms: [platform:recellularized_matrix_slice],
+   note: "a 200 µm section of decellularized matrix reseeded with iPS-CMs; 'myocardial slice' alone would be broader (native slices), so no synonym"}
+- {field: platform, stated: cardiac fiber, terms: [platform:recellularized_matrix_fiber],
+   note: "a reseeded cylindrical strip of decellularized matrix; no synonym, the words are broader than the term"}
+- {field: platform, stated: whole-heart scaffold, terms: [platform:recellularized_whole_heart],
+   note: "the reseeded whole acellular heart in the bioreactor (F7, T1); 'scaffold' alone could be acellular, so no synonym"}
+- {field: preparation, stated: digested, terms: [preparation:dna_extract],
+   note: "tissue digested for DNA quantification (phenol/chloroform, PicoGreen); 'digested' is broader, so no synonym"}
+- {field: preparation, stated: RNA extracted, terms: [preparation:rna_extract]}
+- {field: preparation, stated: adhered slices, terms: [preparation:intact_tissue],
+   note: "reseeded matrix slices measured whole; not preparation tissue_slice, which is an organotypic native slice"}
+- {field: preparation, stated: mounted lengthwise, terms: [preparation:intact_tissue],
+   note: "whole reseeded fibers mounted in the force setup"}
+- {field: preparation, stated: media samples, terms: [preparation:collected_medium],
+   note: "fresh baseline medium and coronary-sinus perfusate both sampled; the broader term covers both"}
+- {field: substrate, stated: decellularized human cardiac matrix, terms: [substrate:decellularized_myocardium],
+   qualifiers: {species: human}}
+- {field: species, stated: murine, terms: [species:mouse],
+   note: "'murine' read as mouse (native murine embryonic heart tissue, a cited benchmark); no synonym because 'murine' can include rat"}
+- {field: treatment, stated: 1% SDS, terms: [CHEBI:8984], qualifiers: {concentration: 1%}}
+- {field: treatment, stated: 1% Triton-X100, terms: [CHEBI:9750], qualifiers: {concentration: 1%}}
+- {field: donor_age, stated: postnatal, flag: {kind: alternatives, note: "'postnatal' is not a declared donor_age state and the record's own suspected error gives a second wording ('adult-derived induced pluripotent stem cells', Introduction and Discussion); re-read which one the line's donor is, and use a declared state or an age"}}
+# ---------------------------------------------------------------- measures: donor cohort
+- {field: measure, stated: number of donor hearts, terms: [measure:donor_count]}
+- {field: measure, stated: number of hearts decellularized and kept as controls, terms: [measure:donor_count], qualifiers: {by: allocation (decellularized or control)}}
+- {field: measure, stated: donor sex, terms: [measure:donor_count], qualifiers: {by: sex}}
+- {field: measure, stated: cause of death (DCD or DBD), terms: [measure:donor_count], qualifiers: {by: cause of death}}
+# ---------------------------------------------------------------- measures: matrix
+- {field: measure, stated: residual SDS, terms: [measure:residual_detergent], qualifiers: {detergent: SDS}}
+- {field: measure, stated: double-stranded DNA content, terms: [measure:tissue_dna_content],
+   note: "F1B is per wet tissue weight and S2 per dry weight; normalised_to is left to the values"}
+- {field: measure, stated: insoluble collagen, terms: [measure:ecm_component_content], qualifiers: {component: insoluble collagen, normalised_to: tissue wet weight}}
+- {field: measure, stated: soluble collagen, terms: [measure:ecm_component_content], qualifiers: {component: soluble collagen, normalised_to: tissue wet weight}}
+- {field: measure, stated: alpha-elastin, terms: [measure:ecm_component_content], qualifiers: {component: alpha-elastin, normalised_to: tissue wet weight}}
+- {field: measure, stated: sulfated glycosaminoglycans, terms: [measure:ecm_component_content], qualifiers: {component: sulfated glycosaminoglycans, normalised_to: tissue wet weight}}
+- {field: measure, stated: extracellular matrix components, flag: {kind: several measures, note: "one item for all four ECM assays (insoluble and soluble collagen, alpha-elastin, s-GAGs) in DCD vs DBD hearts; split into one item per component"}}
+- {field: measure, stated: number of unique proteins, terms: [measure:identified_protein_count]}
+- {field: measure, stated: number of matrisome proteins, terms: [measure:protein_subset_count], qualifiers: {criterion: matrisome (ECM or basement membrane)}}
+- {field: measure, stated: relative abundance of collagens in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: collagens}}
+- {field: measure, stated: relative abundance of laminins in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: laminins}}
+- {field: measure, stated: relative abundance of fibrillins in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: fibrillins}}
+- {field: measure, stated: relative abundance of proteoglycans in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: proteoglycans}}
+- {field: measure, stated: relative abundance of other in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: other}}
+- {field: measure, stated: relative abundance of collagen VI (α3) in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: collagen VI (α3)}}
+- {field: measure, stated: relative abundance of collagen VI (α1) in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: collagen VI (α1)}}
+- {field: measure, stated: relative abundance of collagen VI (α2) in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: collagen VI (α2)}}
+- {field: measure, stated: relative abundance of collagen IV (α2) in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: collagen IV (α2)}}
+- {field: measure, stated: relative abundance of collagen IV (α1) in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: collagen IV (α1)}}
+- {field: measure, stated: relative abundance of laminin γ1 in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: laminin γ1}}
+- {field: measure, stated: relative abundance of laminin α2 in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: laminin α2}}
+- {field: measure, stated: relative abundance of laminin β2 in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: laminin β2}}
+- {field: measure, stated: relative abundance of fibrillin-1 in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: fibrillin-1}}
+- {field: measure, stated: relative abundance of heparan sulfate (Hep. S.) in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: heparan sulfate}}
+- {field: measure, stated: relative abundance of lumican in the matrisome, terms: [measure:matrisome_share], qualifiers: {component: lumican}}
+- {field: measure, stated: "elastic modulus, base/apex axis", terms: [measure:elastic_modulus], qualifiers: {axis: base/apex}}
+- {field: measure, stated: "elastic modulus, septum/free-wall axis", terms: [measure:elastic_modulus], qualifiers: {axis: septum/free-wall}}
+# ---------------------------------------------------------------- measures: host response
+- {field: measure, stated: CD68+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CD68, population: macrophages}}
+- {field: measure, stated: CD68+/CD80+ (M1) cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CD68 and CD80, population: M1 macrophages}}
+- {field: measure, stated: CD68+/CD163+ (M2) cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CD68 and CD163, population: M2 macrophages}}
+- {field: measure, stated: cells counted per high-power field, terms: [measure:cells_per_field]}
+- {field: measure, stated: lymphocytes (% of WBCs), terms: [measure:wbc_differential], qualifiers: {cell_type: lymphocytes}}
+- {field: measure, stated: monocytes (% of WBCs), terms: [measure:wbc_differential], qualifiers: {cell_type: monocytes}}
+- {field: measure, stated: granulocytes (% of WBCs), terms: [measure:wbc_differential], qualifiers: {cell_type: granulocytes}}
+- {field: measure, stated: red blood cells, terms: [measure:red_blood_cell_count]}
+- {field: measure, stated: mean cell volume of RBCs, terms: [measure:mean_corpuscular_volume]}
+- {field: measure, stated: red cell width, terms: [measure:red_cell_distribution_width]}
+- {field: measure, stated: mean cell hemoglobin concentration, terms: [measure:mean_corpuscular_hemoglobin_concentration]}
+- {field: measure, stated: total platelet count, terms: [measure:platelet_count]}
+- {field: measure, stated: HLA single antigen bead reactivity, terms: [measure:hla_antibody_reactivity],
+   qualifiers: {normalised_to: sham}}
+# ---------------------------------------------------------------- measures: vasculature
+- {field: measure, stated: vessel density, terms: [measure:vessel_count_density],
+   note: "vessels per mm2 in 2D µCT images; 'vessel density' alone could mean vessel area fraction, so no synonym"}
+- {field: measure, stated: vessel diameter distribution, terms: [measure:vessel_diameter], qualifiers: {statistic: distribution}}
+- {field: measure, stated: smallest vessel diameter in 3D reconstruction, terms: [measure:vessel_diameter], qualifiers: {statistic: smallest in 3D reconstruction}}
+# ---------------------------------------------------------------- measures: differentiation
+- {field: measure, stated: OCT4 expression, terms: [measure:gene_expression], qualifiers: {gene: OCT4, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: SOX2 expression, terms: [measure:gene_expression], qualifiers: {gene: SOX2, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: NANOG expression, terms: [measure:gene_expression], qualifiers: {gene: NANOG, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: MIXL1 expression, terms: [measure:gene_expression], qualifiers: {gene: MIXL1, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: T expression, terms: [measure:gene_expression], qualifiers: {gene: T, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: ISL1 expression, terms: [measure:gene_expression], qualifiers: {gene: ISL1, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: TBX2 expression, terms: [measure:gene_expression], qualifiers: {gene: TBX2, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: GATA4 expression, terms: [measure:gene_expression], qualifiers: {gene: GATA4, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: NKX2.5 expression, terms: [measure:gene_expression], qualifiers: {gene: NKX2.5, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: MEF2C expression, terms: [measure:gene_expression], qualifiers: {gene: MEF2C, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: TBX5 expression, terms: [measure:gene_expression], qualifiers: {gene: TBX5, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: MYH6 expression, terms: [measure:gene_expression], qualifiers: {gene: MYH6, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: MYH7 expression, terms: [measure:gene_expression], qualifiers: {gene: MYH7, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: MYL2 expression, terms: [measure:gene_expression], qualifiers: {gene: MYL2, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: TNNT2 expression, terms: [measure:gene_expression], qualifiers: {gene: TNNT2, expressed_as: fold, normalised_to: undifferentiated iPS cells}}
+- {field: measure, stated: differentiation efficiency (α-actinin-positive cells), terms: [measure:marker_positive_cells], qualifiers: {marker: α-actinin}}
+# ---------------------------------------------------------------- measures: slices and fibers
+- {field: measure, stated: area strain of cardiomyocytes, terms: [measure:fractional_area_change], qualifiers: {structure: cardiomyocytes at the slice surface}}
+- {field: measure, stated: area strain of matrix, terms: [measure:fractional_area_change], qualifiers: {structure: matrix below the slice surface}}
+- {field: measure, stated: natural beat frequency of cardiomyocytes, terms: [measure:contraction_frequency], qualifiers: {structure: cardiomyocytes at the slice surface}}
+- {field: measure, stated: natural beat frequency of matrix deformation, terms: [measure:contraction_frequency], qualifiers: {structure: matrix below the slice surface}}
+- {field: measure, stated: beat frequency (HDM-captured), terms: [measure:contraction_frequency]}
+- {field: measure, stated: dominant frequency, terms: [measure:contraction_frequency],
+   note: "highest FFT peak of the force pulse set (Online Methods)"}
+- {field: measure, stated: contractile force amplitude, terms: [measure:twitch_force]}
+- {field: measure, stated: contraction period, terms: [measure:inter_beat_interval],
+   note: "'Periods were calculated as the time distance between consecutive p[eaks]' (Online Methods)"}
+- {field: measure, stated: time to 50% relaxation, terms: [measure:relaxation_time], qualifiers: {level: 50%}}
+- {field: measure, stated: time to 90% relaxation, terms: [measure:relaxation_time], qualifiers: {level: 90%}}
+- {field: measure, stated: action potential duration at 80% repolarization, terms: [measure:action_potential_duration], qualifiers: {level: APD80}}
+# ---------------------------------------------------------------- measures: whole heart
+- {field: measure, stated: regional contractile force, terms: [measure:twitch_force],
+   note: "cantilever force on a region of the epicardial surface of the reseeded heart"}
+- {field: measure, stated: developed LV pressure, terms: [measure:lv_developed_pressure]}
+- {field: measure, stated: maximum dP/dt, terms: [measure:lv_pressure_rise_rate_max]}
+- {field: measure, stated: minimum dP/dt, terms: [measure:lv_pressure_decline_rate_max]}
+- {field: measure, stated: tau (relaxation time constant), terms: [measure:relaxation_time_constant], qualifiers: {signal: LV pressure}}
+- {field: measure, stated: tissue repopulation of the target region, terms: [measure:tissue_area_fraction],
+   qualifiers: {component: MHC-positive tissue in the target region},
+   note: "MHC-positive areas of sections interpolated from base to apex over the 5 cm3 target region"}
+- {field: measure, stated: cell viability (TUNEL), terms: [measure:cell_viability]}
+- {field: measure, stated: number of cardiomyocytes injected, terms: [measure:cell_number], qualifiers: {stage: injected, cell_type: iPS-derived cardiomyocytes}}
+- {field: measure, stated: pH, terms: [measure:medium_ph]}
+- {field: measure, stated: pCO2, terms: [measure:medium_gas_partial_pressure], qualifiers: {gas: CO2}}
+- {field: measure, stated: pO2, terms: [measure:medium_gas_partial_pressure], qualifiers: {gas: O2}}
+- {field: measure, stated: sO2%, terms: [measure:medium_oxygen_saturation]}
+- {field: measure, stated: HCO3, terms: [measure:spent_medium_concentration], qualifiers: {component: bicarbonate}}
+- {field: measure, stated: TCO2, terms: [measure:spent_medium_concentration], qualifiers: {component: total CO2}}
+- {field: measure, stated: Lac, terms: [measure:spent_medium_concentration], qualifiers: {component: lactate}}
+- {field: measure, stated: Glu, terms: [measure:spent_medium_concentration], qualifiers: {component: glucose}}

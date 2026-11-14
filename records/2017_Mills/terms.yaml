@@ -1,0 +1,1259 @@
+# Vocabulary agent output for 2017_Mills (03-vocabulary); applied by the orchestrator.
+record: 2017_Mills
+vocabulary_version: 68
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+- add_term:
+    field: purification
+    id: purification:density_gradient_separation
+    label: density gradient separation
+    parent: null
+    definition: Cardiomyocytes separated from other cells by centrifugation through a density gradient (e.g. Percoll).
+    scope: Use for physical separation by density; metabolic selection and genetic selection enrich by survival, not density.
+    synonyms:
+    - {text: Percoll gradients, anchor: separated with Percoll gradients}
+# ---------------------------------------------------------------- cell lines
+- adopt:
+    field: cell_line
+    id: CVCL_7158
+    label: HES-3
+    lookup: 'Cellosaurus ''HES3'': exact synonym of HES-3 (CVCL_7158); the paper calls it the hESC line HES3 (WiCell)'
+- adopt:
+    field: cell_line
+    id: CVCL_9773
+    label: WA09
+    lookup: 'Cellosaurus ''H9'': three exact hits (CVCL_1240 HT clone H9, a T-cell line; CVCL_E9X7 HU-3 clone H9; CVCL_9773
+      WA09, synonym H9); the paper names H9 an hESC line from WiCell, which is WA09'
+    synonyms:
+    - text: H9
+      anchor: the human embryonic stem cell (hESC) line H9
+- adopt:
+    field: cell_line
+    id: CVCL_0A07
+    label: ATCC-BXS0116
+    lookup: 'Cellosaurus ''ATCC-BXS0116'': exact label match; the paper prints ATCCBXS0116 (ATCC, Sendai-reprogrammed CD34+
+      cells)'
+# ---------------------------------------------------------------- cell types
+- add_synonym:
+    id: CL:0000746
+    text: hPSC-CM
+    anchor: human pluripotent stem cell-derived cardiomyocytes (hPSC-CMs)
+- adopt:
+    field: cell_types
+    id: CL:0000499
+    label: stromal cell
+    lookup: 'CL ''stromal cell'': exact label match CL:0000499'
+- adopt:
+    field: stromal_cell
+    id: CL:0000499
+    label: stromal cell
+    lookup: 'CL ''stromal cell'': exact label match CL:0000499; CL has no CD90+ stromal cell class'
+- add_qualifier:
+    id: CL:2000046
+    name: species
+    dimension: text
+# ---------------------------------------------------------------- platform
+- add_term:
+    field: platform
+    id: platform:heart_dyno
+    label: Heart-Dyno
+    parent: platform:tissue_between_pillars
+    definition: A 96-well PDMS culture insert in which a cardiac organoid forms in a collagen I and Matrigel gel around two
+      elastic poles that load it and whose deflection gives its force.
+    scope: The Heart-Dyno insert format; other two-pillar tissues stay on the parent.
+    synonyms:
+    - text: Heart-Dyno
+      anchor: The Heart-Dyno is designed to facilitate automated formation of dense muscle bundles
+# ---------------------------------------------------------------- substrate
+- add_qualifier:
+    id: substrate:collagen_hydrogel
+    name: collagen_concentration
+    dimension: text
+- add_qualifier:
+    id: substrate:matrigel
+    name: matrigel_fraction
+    dimension: text
+# ---------------------------------------------------------------- media and supplements
+- add_term:
+    field: cm_medium
+    id: cm_medium:alpha_mem
+    label: α-MEM
+    definition: Minimum essential medium alpha modification, a basal medium.
+    scope: α-MEM-based medium; not DMEM, not RPMI 1640 and not a medium named only as EHT medium.
+- add_qualifier:
+    id: cm_medium:dmem
+    name: formulation
+    dimension: text
+- adopt:
+    field: supplements
+    id: CHEBI:167162
+    label: L-ascorbic acid 2-phosphate
+    lookup: 'ChEBI ''L-ascorbic acid 2-phosphate'': exact label match; the paper uses the sesquimagnesium salt hydrate, which
+      ChEBI 257 has only as other salts (CHEBI:81686 magnesium, CHEBI:81687 sodium), so the parent acid is adopted'
+- add_qualifier:
+    id: supplements:b27
+    name: concentration
+    dimension: text
+# ---------------------------------------------------------------- treatment
+- adopt:
+    field: treatment
+    id: CHEBI:17234
+    label: glucose
+    lookup: 'ChEBI ''glucose'': exact label match CHEBI:17234 (D-glucose CHEBI:17634 not chosen: the paper says glucose)'
+- adopt:
+    field: treatment
+    id: CHEBI:7896
+    label: hexadecanoate
+    lookup: 'ChEBI ''palmitate'' gave only esters; ''palmitic acid'' gave only labelled or oxo forms; ''hexadecanoate'' (the
+      palmitate anion) is exact, CHEBI:7896; ''hexadecanoic acid'' CHEBI:15756 is the acid, the paper says palmitate'
+    synonyms:
+    - text: palmitate
+      anchor: an increase in force in the presence of palmitate
+- adopt:
+    field: treatment
+    id: CHEBI:28262
+    label: dimethyl sulfoxide
+    lookup: 'ChEBI ''dimethyl sulfoxide'': exact label match CHEBI:28262'
+    synonyms:
+    - text: DMSO
+      anchor: treated with DMSO or compound 6.28 for 2 d
+- adopt:
+    field: treatment
+    id: CHEBI:91091
+    label: CHIR 99021
+    lookup: already adopted for differentiation_factors (CHIR99021); here a treatment varied between groups
+- add_qualifier:
+    id: CHEBI:91091
+    name: concentration
+    dimension: concentration
+- adopt:
+    field: treatment
+    id: CHEBI:28748
+    label: doxorubicin
+    lookup: 'ChEBI ''doxorubicin'': exact label match CHEBI:28748'
+- adopt_own:
+    field: treatment
+    id: treatment:tgfb1
+    label: TGFβ-1
+    definition: The growth factor transforming growth factor beta 1 added to the culture medium.
+    scope: The growth factor TGFβ-1 as an exposure; not another growth factor, a small molecule, a nucleic acid or a viral vector.
+    lookup: 'ChEBI ''transforming growth factor beta 1'', ''TGF-beta1'', ''transforming growth factor'' and ''TGF'': no entry
+      for the protein (only CHEBI:91202 TGFbeta receptor antagonist)'
+- adopt_own:
+    field: treatment
+    id: treatment:nrg1
+    label: neuregulin-1
+    definition: The growth factor neuregulin-1 added to the culture medium.
+    scope: The growth factor neuregulin-1 as an exposure; not another growth factor, a small molecule, a nucleic acid or a viral vector.
+    lookup: 'ChEBI ''neuregulin'', ''neuregulin-1'' and ''NRG1'': only CHEBI:758072 human neuregulin-1 recombinant (177-237),
+      a named fragment the paper does not state (NRG-1, RnD Systems); not adopted'
+    synonyms:
+    - text: NRG1
+      anchor: 100 ng/ml NRG1 miR-199a miR-590
+- add_qualifier:
+    id: treatment:nrg1
+    name: concentration
+    dimension: concentration
+- adopt_own:
+    field: treatment
+    id: treatment:mir_199a_3p_mimic
+    label: miR-199a-3p mimic
+    definition: A transfected synthetic mimic of the microRNA hsa-miR-199a-3p.
+    scope: A transfected miR-199a-3p mimic; not another microRNA mimic, the scrambled control, a compound or a viral vector.
+    lookup: 'ChEBI ''microRNA'', ''miR-199a'' and ''oligonucleotide'': no entry for a named microRNA mimic (CHEBI:7754
+      oligonucleotide is far broader)'
+    synonyms:
+    - text: miR-199a
+      anchor: 100 ng/ml NRG1 miR-199a miR-590
+- adopt_own:
+    field: treatment
+    id: treatment:mir_590_3p_mimic
+    label: miR-590-3p mimic
+    definition: A transfected synthetic mimic of the microRNA hsa-miR-590-3p.
+    scope: A transfected miR-590-3p mimic; not another microRNA mimic, the scrambled control, a compound or a viral vector.
+    lookup: 'ChEBI ''microRNA'', ''miR-590'' and ''oligonucleotide'': no entry for a named microRNA mimic'
+    synonyms:
+    - text: miR-590
+      anchor: 100 ng/ml NRG1 miR-199a miR-590
+- adopt_own:
+    field: treatment
+    id: treatment:scramble_mir_control
+    label: scramble miR control
+    definition: A transfected non-targeting scrambled microRNA used as the control for microRNA mimics.
+    scope: The non-targeting RNA control for microRNA mimics; not a mimic itself, a compound or a viral vector.
+    lookup: 'ChEBI ''microRNA'', ''scramble'' and ''oligonucleotide'': no entry for a scrambled control RNA'
+- adopt_own:
+    field: treatment
+    id: treatment:compound_6_28
+    label: compound 6.28
+    definition: The small-molecule GSK3 and MST1 inhibitor the paper calls compound 6.28.
+    scope: The small molecule compound 6.28; not a growth factor, a nucleic acid or a viral vector.
+    lookup: ChEBI searched for 'compound 6.28'; the paper gives no other name, so no ChEBI id can be chosen
+# ---------------------------------------------------------------- transgene
+- add_term:
+    field: transgene
+    id: transgene:overexpressed_gene
+    label: overexpressed gene
+    definition: An introduced gene for a cellular protein, often a constitutively active mutant, overexpressed to change
+      cell behaviour.
+    scope: A gene introduced to change what the cells do; not a reporter, an indicator, a recombinase or an empty vector.
+    qualifiers:
+      vector: {dimension: text}
+      MOI: {dimension: text}
+      dose: {dimension: text}
+- add_term:
+    field: transgene
+    id: transgene:ctnnb1_dn90
+    label: ΔN90 β-catenin
+    parent: transgene:overexpressed_gene
+    definition: Human CTNNB1 lacking amino acids 2 to 90, a constitutively active β-catenin.
+    scope: Constitutively active β-catenin; not a YAP1 mutant.
+- add_term:
+    field: transgene
+    id: transgene:yap1_s127a
+    label: YAP1(S127A)
+    parent: transgene:overexpressed_gene
+    definition: Human YAP1 with serine 127 replaced by alanine, a constitutively active YAP1.
+    scope: The human S127A mutant; not the murine S112A mutant and not β-catenin.
+- add_term:
+    field: transgene
+    id: transgene:yap1_s112a
+    label: YAP1(S112A)
+    parent: transgene:overexpressed_gene
+    definition: Murine Yap1 with serine 112 replaced by alanine, a constitutively active YAP1.
+    scope: The murine S112A mutant; not the human S127A mutant and not β-catenin.
+- add_term:
+    field: transgene
+    id: transgene:empty_vector
+    label: empty vector
+    definition: A viral vector carrying no transgene (only its multiple cloning site), used as a control.
+    scope: A vector with no insert; not a reporter, an indicator, a recombinase or an overexpressed gene.
+    qualifiers:
+      vector: {dimension: text}
+      MOI: {dimension: text}
+      dose: {dimension: text}
+# ---------------------------------------------------------------- measures: synonyms and qualifiers
+- add_synonym:
+    id: measure:twitch_force
+    text: force of contraction
+    anchor: stimuli that alter the force of contraction
+- add_synonym:
+    id: measure:contraction_frequency
+    text: rate of contraction
+    anchor: Isoprenaline increased the rate of contraction in both media
+- add_synonym:
+    id: measure:action_potential_amplitude
+    text: AP amplitude
+    anchor: a large AP amplitude (>85 mV)
+- add_qualifier:
+    id: measure:ec50
+    name: agonist
+    dimension: text
+- add_qualifier:
+    id: measure:marker_positive_cells
+    name: population
+    dimension: text
+- add_qualifier:
+    id: measure:differentially_expressed_gene_count
+    name: gene_set
+    dimension: text
+- add_qualifier:
+    id: measure:enrichment_p_value
+    name: gene_set
+    dimension: text
+# ---------------------------------------------------------------- measures: new terms
+- add_term:
+    field: measure
+    id: measure:calcium_transient_rise_rate
+    label: calcium transient rising slope
+    definition: Rate at which the calcium-dye signal rises during the upstroke of the calcium transient.
+    scope: Slope of the rise in signal per time; not the rise time, the amplitude or the decay.
+    dimension: rate
+- add_term:
+    field: measure
+    id: measure:calcium_transient_decay_constant
+    label: calcium transient decay time constant
+    parent: measure:calcium_transient_decay_time
+    definition: Time constant (tau) of an exponential fitted to the decay of the calcium transient.
+    scope: The fitted decay constant; not the time to a stated level of decay, and not a decay time expressed relative
+      to a reference.
+    dimension: time
+- set_scope:
+    id: measure:relative_calcium_transient_decay_time
+    scope: A decay time expressed relative to a reference (qualifiers expressed_as, normalised_to); not the fitted decay
+      time constant.
+- add_term:
+    field: measure
+    id: measure:action_potential_peak_potential
+    label: action potential peak potential
+    parent: measure:action_potential
+    definition: The most positive membrane voltage reached during the action potential.
+    scope: The absolute voltage at the peak (overshoot); not the amplitude from rest to peak, the duration or the upstroke
+      velocity.
+    dimension: voltage
+- add_term:
+    field: measure
+    id: measure:clamped_membrane_potential
+    label: clamped membrane potential
+    definition: The membrane voltage at which a cell is held by continuous current injection between elicited action potentials.
+    scope: A voltage set by injected current in current clamp; not the free resting membrane potential.
+    dimension: voltage
+    synonyms:
+    - text: clamped membrane potential
+      anchor: CMP, clamped membrane potential
+- add_term:
+    field: measure
+    id: measure:expression_profile_correlation
+    label: correlation of expression profiles
+    definition: Correlation coefficient between the expression profiles of two samples over many genes or proteins (qualifier
+      profile says what was correlated).
+    scope: Similarity of whole profiles between samples; not the expression of one gene and not a correlation between two
+      staining signals.
+    dimension: dimensionless
+    qualifiers:
+      profile: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:go_term_gene_count
+    label: number of genes in a GO term
+    definition: Count of genes of a stated gene set that fall in a stated Gene Ontology term (qualifiers gene_set and go_term).
+    scope: Genes counted within one annotation; not a whole-transcriptome count of differentially expressed genes and not
+      an enrichment p-value.
+    dimension: dimensionless
+    qualifiers:
+      go_term: {dimension: text}
+      gene_set: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:differentially_expressed_protein_count
+    label: number of differentially expressed proteins
+    definition: Count of proteins whose abundance differs between compared conditions at a stated threshold.
+    scope: A count over a whole proteome comparison; not a gene count and not the level of one protein.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:maximal_oxygen_consumption_rate
+    label: maximal oxygen consumption rate
+    parent: measure:oxygen_consumption_rate
+    definition: Oxygen consumption rate after uncoupling (for example with FCCP), the maximal respiration.
+    scope: Uncoupled, maximal respiration; not the spare capacity above basal.
+    dimension: amount_rate
+    synonyms:
+    - text: maximal oxygen consumption rate
+      anchor: higher maximal oxygen consumption rate
+- add_term:
+    field: measure
+    id: measure:spare_respiratory_capacity
+    label: spare respiratory capacity
+    parent: measure:oxygen_consumption_rate
+    definition: Maximal oxygen consumption rate minus basal oxygen consumption rate.
+    scope: The reserve above basal respiration; not the maximal rate itself.
+    dimension: amount_rate
+    synonyms:
+    - text: reserve metabolic capacity
+      anchor: Reserve metabolic capacity is higher in hCOs cultured in MM
+- add_term:
+    field: measure
+    id: measure:fatty_acid_oxidation_rate
+    label: fatty acid oxidation rate
+    definition: Rate at which cells oxidise fatty acids, for example the etomoxir-sensitive oxygen consumption rate.
+    scope: Respiration or substrate use attributed to fatty acids; not total oxygen consumption and not glycolysis.
+    dimension: amount_rate
+    synonyms:
+    - text: fatty acid oxidation
+      anchor: Fatty acid oxidation is higher in hCOs cultured in MM
+- add_term:
+    field: measure
+    id: measure:mitochondrial_dna_content
+    label: mitochondrial DNA content
+    definition: Amount of mitochondrial DNA relative to nuclear DNA, a proxy for mitochondrial content.
+    scope: mtDNA copy number; not mitochondrial area fraction from images and not respiration.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:metabolite_abundance
+    label: metabolite abundance
+    definition: Amount of a stated metabolite (qualifier metabolite) measured in a sample.
+    scope: Intracellular metabolite levels; not the concentration of a component in a medium formulation.
+    dimension: dimensionless
+    qualifiers:
+      metabolite: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:intensity_correlation
+    label: correlation between staining intensities
+    definition: Correlation coefficient between two staining intensities measured over the same samples (qualifier signals).
+    scope: Co-variation of two signals across samples; not the similarity of expression profiles.
+    dimension: dimensionless
+    qualifiers:
+      signals: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:dna_lesion_staining_intensity
+    label: DNA lesion staining intensity
+    definition: Mean fluorescence intensity of immunostaining for a stated DNA lesion (qualifier lesion) within a stated
+      region (qualifier region).
+    scope: Staining of a modified base or DNA lesion; not staining of a protein.
+    dimension: dimensionless
+    qualifiers:
+      lesion: {dimension: text}
+      region: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:dna_staining_intensity
+    label: DNA staining intensity
+    definition: Total fluorescence of a DNA stain over a tissue, a proxy for its cell number.
+    scope: DNA stain over a whole tissue; not staining of a protein or a DNA lesion.
+    dimension: dimensionless
+- add_term:
+    field: measure
+    id: measure:tissue_projected_area
+    label: tissue projected area
+    definition: Area of an engineered tissue in an image taken from above.
+    scope: Projected area of a whole tissue; not its cross-section and not the area of single cells.
+    dimension: area
+- add_term:
+    field: measure
+    id: measure:released_protein_level
+    label: released protein level
+    definition: Level of a stated intracellular protein (qualifier protein) released into the culture medium, a marker of
+      cell damage.
+    scope: Protein measured in the conditioned medium; not a medium's formulation and not the protein inside the cells.
+    dimension: dimensionless
+    qualifiers:
+      protein: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:post_spring_constant
+    label: post spring constant
+    definition: Force per unit deflection of the elastic post or pole that loads an engineered tissue.
+    scope: Stiffness of the loading device; not a property of the tissue.
+    dimension: stiffness
+- add_term:
+    field: measure
+    id: measure:cardiomyocyte_subtype_proportion
+    label: proportion of cardiomyocyte subtypes
+    definition: Shares of cardiomyocytes classed as ventricular-, atrial- or nodal-like, usually from action potential shape
+      (qualifier subtype for one class).
+    scope: Classification of cells into electrophysiological subtypes; not a fraction positive for a marker.
+    dimension: dimensionless
+    qualifiers:
+      subtype: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:ic50
+    label: IC50
+    definition: Concentration of a compound giving half-maximal inhibition of a stated target (qualifier target).
+    scope: An inhibitory potency; not the concentration giving half the maximal response of a readout (EC50).
+    dimension: concentration
+    qualifiers:
+      target: {dimension: text}
+    synonyms:
+    - text: IC50
+      anchor: inhibits both GSK3A/B (IC50 of 13 and 16 nM, respectively)
+- add_term:
+    field: measure
+    id: measure:principal_component_score
+    label: principal component score
+    definition: Coordinate of a sample on a stated principal component (qualifier component) of an analysis over a stated
+      gene set (qualifier gene_set).
+    scope: Where one sample lies in a principal component analysis; not the variance a component explains.
+    dimension: dimensionless
+    qualifiers:
+      component: {dimension: text}
+      gene_set: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:tissue_viability
+    label: tissue viability
+    definition: Fraction of engineered tissues that are live, intact and without deformities.
+    scope: Survival of whole tissues; not the fraction of living cells (cell viability) and not breakage counts alone.
+    dimension: dimensionless
+    synonyms:
+    - text: tissue viability
+      anchor: Culture of hCO maintains high tissue viability in CTRL medium or MM
+# ---------------------------------------------------------------- standing keys (new measures)
+- standing_key:
+    measure: measure:calcium_transient_rise_rate
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_decay_constant
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:action_potential_peak_potential
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:clamped_membrane_potential
+    value: {must_match: [platform@1, preparation, pacing, temperature], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:expression_profile_correlation
+    value: {must_match: [platform@1, preparation, measure.profile], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.profile], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:go_term_gene_count
+    value: {must_match: [platform@1, preparation, measure.go_term, measure.gene_set], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.go_term], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:differentially_expressed_protein_count
+    value: {must_match: [platform@1, preparation], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:maximal_oxygen_consumption_rate
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:spare_respiratory_capacity
+    value: {must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:fatty_acid_oxidation_rate
+    value: {must_match: [platform@1, preparation, pacing, temperature, method, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitochondrial_dna_content
+    value: {must_match: [platform@1, preparation, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:metabolite_abundance
+    value: {must_match: [platform@1, preparation, measure.metabolite, measure.expressed_as, measure.normalised_to], may_vary: [
+        cell_line]}
+    direction: {must_match: [contrast, measure.metabolite], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:intensity_correlation
+    value: {must_match: [platform@1, preparation, measure.signals], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.signals], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:dna_lesion_staining_intensity
+    value: {must_match: [platform@1, preparation, measure.lesion, measure.region, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.lesion, measure.region], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:dna_staining_intensity
+    value: {must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_projected_area
+    value: {must_match: [platform@2, preparation, measure.expressed_as], may_vary: [cell_line]}
+    direction: {must_match: [platform@1, contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:released_protein_level
+    value: {must_match: [platform@1, measure.protein, measure.expressed_as, measure.normalised_to], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:post_spring_constant
+    value: {must_match: [platform], may_vary: [cell_line]}
+    direction: {must_match: [contrast, platform]}
+- standing_key:
+    measure: measure:cardiomyocyte_subtype_proportion
+    value: {must_match: [platform@1, preparation, measure.subtype], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.subtype], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:ic50
+    value: {must_match: [measure.target, treatment]}
+    direction: {must_match: [contrast, measure.target]}
+- standing_key:
+    measure: measure:principal_component_score
+    value: {must_match: [platform@1, preparation, measure.component, measure.gene_set], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.component, measure.gene_set], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_viability
+    value: {must_match: [platform@2, day_of_measurement], may_vary: [cell_line]}
+    direction: {must_match: [platform@1, contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_transient_rise_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_transient_decay_constant
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:action_potential_peak_potential
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:clamped_membrane_potential
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:expression_profile_correlation
+    value:
+      must_match: [platform@1, preparation, measure.profile, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.profile]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:go_term_gene_count
+    value:
+      must_match: [platform@1, preparation, measure.go_term, measure.gene_set, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.go_term]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:differentially_expressed_protein_count
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:maximal_oxygen_consumption_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:spare_respiratory_capacity
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:fatty_acid_oxidation_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, method, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:mitochondrial_dna_content
+    value:
+      must_match: [platform@1, preparation, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:metabolite_abundance
+    value:
+      must_match: [platform@1, preparation, measure.metabolite, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.metabolite]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:intensity_correlation
+    value:
+      must_match: [platform@1, preparation, measure.signals, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.signals]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:dna_lesion_staining_intensity
+    value:
+      must_match: [platform@1, preparation, measure.lesion, measure.region, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.lesion, measure.region]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:dna_staining_intensity
+    value:
+      must_match: [platform@1, preparation, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_projected_area
+    value:
+      must_match: [platform@2, preparation, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [platform@1, contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:released_protein_level
+    value:
+      must_match: [platform@1, measure.protein, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.protein]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:cardiomyocyte_subtype_proportion
+    value:
+      must_match: [platform@1, preparation, measure.subtype, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.subtype]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:ic50
+    value:
+      must_match: [measure.target, treatment, genotype, disease_model]
+      may_vary: []
+    direction:
+      must_match: [contrast, measure.target]
+      may_vary: []
+- standing_key:
+    measure: measure:principal_component_score
+    value:
+      must_match: [platform@1, preparation, measure.component, measure.gene_set, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.component, measure.gene_set]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:tissue_viability
+    value:
+      must_match: [platform@2, day_of_measurement, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [platform@1, contrast]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: stromal_cell
+  stated: CD90+ stromal cell
+  terms: [CL:0000499]
+  no_ontology_term: CD90+ stromal cell (CL has no stromal cell class defined by CD90)
+  note: CD90+ is the marker the paper uses for the stromal population; mapped to the broader CL stromal cell.
+- field: cell_line
+  stated: ATCC-BXS0116 hiPSC
+  terms: [CVCL_0A07]
+  note: '"hiPSC" says what the line is; the accession is the line.'
+- field: platform
+  stated: Heart-Dyno hCO
+  terms: [platform:heart_dyno]
+  note: hCO is the paper's name for the cardiac organoid formed in the Heart-Dyno; not added as a synonym because other
+    papers use hCO for other organoid formats.
+- field: platform
+  stated: human adult heart
+  terms: [platform:adult_heart_tissue]
+  note: The paper's own and borrowed adult heart samples (S8B re-read moved these words from cell_types to platform).
+- field: platform
+  stated: human fetal ventricle
+  terms: [platform:fetal_heart_tissue]
+  note: Fetal ventricle from GSE62913; the ventricle is part of the fetal heart tissue the term names.
+- field: cell_types
+  stated: neonatal rat ventricular cardiomyocyte
+  terms: [CL:2000046]
+  qualifiers: {species: rat}
+  note: CL classes are species-neutral, so the species is a qualifier; "neonatal" is already in donor_age.
+- field: replating_coating
+  stated: Matrigel or laminin
+  flag:
+    kind: alternatives
+    note: 'the paper prints "plated on growth factor-reduced Matrigel or laminin (Sigma)coated coverslips": which coating
+      each cell had is not stated.'
+- field: substrate
+  stated: 1.6 mg/mL collagen matrix
+  terms: [substrate:collagen_hydrogel]
+  qualifiers: {collagen_concentration: 1.6 mg/mL}
+- field: substrate
+  stated: 3.2 mg/mL collagen matrix
+  terms: [substrate:collagen_hydrogel]
+  qualifiers: {collagen_concentration: 3.2 mg/mL}
+- field: substrate
+  stated: 2.6 mg/mL collagen plus 9% (vol/vol) Matrigel matrix
+  terms: [substrate:collagen_hydrogel, substrate:matrigel]
+  qualifiers: {collagen_concentration: 2.6 mg/mL, matrigel_fraction: 9% (vol/vol)}
+- field: cm_medium
+  stated: α-MEM with 10% FBS
+  terms: [cm_medium:alpha_mem]
+  split:
+  - words: 10% FBS
+    field: supplements
+  note: FBS is a supplement, not part of the base medium (cm_medium scope).
+- field: cm_medium
+  stated: DMEM without glucose, glutamine and phenol red
+  terms: [cm_medium:dmem]
+  qualifiers: {glucose: without glucose, formulation: 'without glucose, glutamine and phenol red'}
+- field: supplements
+  stated: 4% B27 + GlutaMAX + L-ascorbic acid 2 phosphate + Penicillin/Streptomycin
+  terms: [supplements:b27, CHEBI:73788, CHEBI:167162, CHEBI:17334, CHEBI:17076]
+  qualifiers: {concentration: 4%}
+  note: The paper's "4% B27 (with or without insulin)"; insulin is the compared factor and is recorded once, as the treatment qualifier insulin.
+- field: treatment
+  stated: nifidipine
+  terms: [CHEBI:7565]
+  note: Spelled "nifidipine" in the figure as the record states (read from the Fig. S1B image; the word is not in the
+    extracted text, so no synonym is added); nifedipine is the compound.
+- field: treatment
+  stated: 5 μM CHIR
+  terms: [CHEBI:91091]
+  qualifiers: {concentration: 5 μM}
+  note: CHIR is the paper's short name for CHIR99021 in Fig. S8 labels.
+- field: treatment
+  stated: 100 ng/ml NRG1
+  terms: [treatment:nrg1]
+  qualifiers: {concentration: 100 ng/ml}
+- field: transgene
+  stated: Ad-YAP1(S112A)
+  terms: [transgene:yap1_s112a]
+  qualifiers: {vector: adenovirus}
+  note: An adenovirus carrying murine Yap1(S112A) (CMV-YAP(S112A)); MOI 10 is the record's own qualifier.
+- field: transgene
+  stated: AAV6-GFP
+  terms: [transgene:gfp]
+  qualifiers: {vector: AAV6}
+- field: transgene
+  stated: AAV6-MCS
+  terms: [transgene:empty_vector]
+  qualifiers: {vector: AAV6}
+- field: transgene
+  stated: AAV6-ΔN90β-catenin
+  terms: [transgene:ctnnb1_dn90]
+  qualifiers: {vector: AAV6}
+- field: transgene
+  stated: AAV6-YAP1(S127A)
+  terms: [transgene:yap1_s127a]
+  qualifiers: {vector: AAV6}
+- field: transgene
+  stated: AAV6-ΔN90β-catenin + AAV6-YAP1(S127A)
+  terms: [transgene:ctnnb1_dn90, transgene:yap1_s127a]
+  qualifiers: {vector: AAV6}
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: 50% activation time
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: 50%}
+  note: 'The paper defines activation time as "time from 50% activation to peak (Ta)".'
+- field: measure
+  stated: 50% relaxation time
+  terms: [measure:relaxation_time]
+  qualifiers: {level: 50%}
+  note: 'The paper defines relaxation time as "time from peak to 50% relaxation (Tr)".'
+- field: measure
+  stated: 50% contraction duration
+  terms: [measure:twitch_duration]
+  qualifiers: {level: 50%}
+- field: measure
+  stated: MLC2v expression
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: MLC2v, expressed_as: fold}
+  note: Whole-mount immunostaining intensity relative to a reference condition; the reference is printed per value as its
+    unit, so normalised_to is left out.
+- field: measure
+  stated: Ki-67 relative intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: Ki-67, expressed_as: fold}
+  note: The reference differs between panels (CTRL medium in Fig. 1H/K; the 0 mM glucose, 0 μM palmitate condition in
+    Fig. 5), so normalised_to is left out of this mapping, which serves all of them.
+- field: measure
+  stated: force of contraction (normalised)
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: normalised}
+  note: Fig. 2C plots force normalised to each hCO's baseline; what it is divided by is not printed in the record's value,
+    so normalised_to is left out.
+- field: measure
+  stated: calcium EC50 for force of contraction
+  terms: [measure:ec50]
+  qualifiers: {response: force of contraction, agonist: calcium}
+- field: measure
+  stated: calcium transient peak amplitude
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: fold}
+  note: Printed as F/F0.
+- field: measure
+  stated: calcium transient time to peak
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: to peak}
+- field: measure
+  stated: calcium transient rising slope
+  terms: [measure:calcium_transient_rise_rate]
+  qualifiers: {expressed_as: fold}
+  note: Printed in F/F0/s.
+- field: measure
+  stated: calcium transient time to relax
+  terms: [measure:calcium_transient_decay_time]
+  note: The level of decay is not printed.
+- field: measure
+  stated: calcium transient tau decay
+  terms: [measure:calcium_transient_decay_constant]
+- field: measure
+  stated: maximum depolarisation
+  terms: [measure:action_potential_peak_potential]
+  note: Printed in mV with positive values (38 mV CTRL), the overshoot of the action potential, not its amplitude (S3D
+    gives amplitudes near 100 mV).
+- field: measure
+  stated: APD50
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD50}
+- field: measure
+  stated: APD90
+  terms: [measure:action_potential_duration]
+  qualifiers: {level: APD90}
+- field: measure
+  stated: Pearson correlation coefficient of log2(cpm)
+  terms: [measure:expression_profile_correlation]
+  qualifiers: {profile: log2(cpm)}
+  note: RNA-seq; Pearson is the statistic, kept in the stated text and method.
+- field: measure
+  stated: Pearson correlation coefficient of log2(iBAQ)
+  terms: [measure:expression_profile_correlation]
+  qualifiers: {profile: log2(iBAQ)}
+  note: Proteomics.
+- field: measure
+  stated: number of genes identified in the GO term
+  terms: [measure:go_term_gene_count]
+  qualifiers: {gene_set: transcripts regulated between CTRL medium and MM}
+  note: The GO terms are the values' x labels.
+- field: measure
+  stated: MYH7 expression relative to CTRL (RNA-seq)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7, expressed_as: fold, normalised_to: CTRL}
+- field: measure
+  stated: IRX4 expression relative to CTRL (RNA-seq)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: IRX4, expressed_as: fold, normalised_to: CTRL}
+- field: measure
+  stated: MYBPC3 expression relative to CTRL (RNA-seq)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYBPC3, expressed_as: fold, normalised_to: CTRL}
+- field: measure
+  stated: MYH7 expression relative to CTRL (proteomics)
+  terms: [measure:protein_level]
+  qualifiers: {protein: MYH7, expressed_as: fold, normalised_to: CTRL}
+- field: measure
+  stated: IRX4 expression relative to CTRL (proteomics)
+  terms: [measure:protein_level]
+  qualifiers: {protein: IRX4, expressed_as: fold, normalised_to: CTRL}
+- field: measure
+  stated: MYBPC3 expression relative to CTRL (proteomics)
+  terms: [measure:protein_level]
+  qualifiers: {protein: MYBPC3, expressed_as: fold, normalised_to: CTRL}
+- field: measure
+  stated: number of differentially regulated transcripts
+  terms: [measure:differentially_expressed_gene_count]
+- field: measure
+  stated: number of differentially regulated proteins
+  terms: [measure:differentially_expressed_protein_count]
+- field: measure
+  stated: maximum oxygen consumption rate
+  terms: [measure:maximal_oxygen_consumption_rate]
+- field: measure
+  stated: carbon metabolite abundance
+  terms: [measure:metabolite_abundance]
+  qualifiers: {expressed_as: fold, normalised_to: 'MM, per DNA intensity'}
+  note: Fold higher in CTRL medium than MM, each normalised to DNA intensity; the metabolites are the values' x labels.
+- field: measure
+  stated: Ki-67+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: Ki-67, population: cardiomyocytes}
+- field: measure
+  stated: pH3+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: pH3, population: cardiomyocytes}
+- field: measure
+  stated: GFP+ cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: GFP, population: cardiomyocytes}
+- field: measure
+  stated: α-actinin+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: α-actinin, population: cells}
+- field: measure
+  stated: CD90+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: CD90, population: cells}
+- field: measure
+  stated: activated β-catenin relative intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: activated β-catenin, expressed_as: fold, normalised_to: '0 mM glucose, 0 μM palmitate condition'}
+- field: measure
+  stated: correlation of Ki-67 intensity with activated β-catenin intensity
+  terms: [measure:intensity_correlation]
+  qualifiers: {signals: Ki-67 and activated β-catenin}
+- field: measure
+  stated: 8-OxoG nuclear intensity
+  terms: [measure:dna_lesion_staining_intensity]
+  qualifiers: {lesion: 8-OxoG, region: nuclear}
+- field: measure
+  stated: pATM nuclear intensity
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: pATM, region: nuclear}
+- field: measure
+  stated: number of YAP/TAZ target genes repressed
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {gene_set: repressed YAP/TAZ targets}
+- field: measure
+  stated: GO term enrichment of the repressed YAP/TAZ targets
+  terms: [measure:go_term_gene_count]
+  qualifiers: {gene_set: repressed YAP/TAZ targets}
+  note: The value is the number of genes in the top GO term (10 genes, with its P); the GO term is the value's x label.
+- field: measure
+  stated: GO term enrichment of proteins regulated by compound 6.28
+  terms: [measure:enrichment_p_value]
+  qualifiers: {gene_set: proteins regulated by compound 6.28}
+  note: No values recorded; Fig. 7K reports GO term enrichment of the proteomics hits.
+- field: measure
+  stated: BIRC5 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: BIRC5, expressed_as: fold}
+  note: qPCR, 2^−ΔΔCt against the DMSO control.
+- field: measure
+  stated: relative DNA intensity
+  terms: [measure:dna_staining_intensity]
+  qualifiers: {expressed_as: normalised}
+  note: What it is divided by is not printed.
+- field: measure
+  stated: relative hCO area
+  terms: [measure:tissue_projected_area]
+  qualifiers: {expressed_as: '% change'}
+  note: Printed as an 11 ± 2.5% increase (α-actinin area of the hCO).
+- field: measure
+  stated: cardiomyocyte area
+  terms: [measure:cell_area]
+- field: measure
+  stated: lactate dehydrogenase level
+  terms: [measure:released_protein_level]
+  qualifiers: {protein: lactate dehydrogenase, expressed_as: fold, normalised_to: −VE}
+- field: measure
+  stated: cardiac troponin I level
+  terms: [measure:released_protein_level]
+  qualifiers: {protein: cardiac troponin I}
+- field: measure
+  stated: pole spring constant
+  terms: [measure:post_spring_constant]
+- field: measure
+  stated: proportion of ventricular-, atrial- and nodal-like cells
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  note: One stacked distribution over three subtypes; no single subtype, so no subtype qualifier.
+- field: measure
+  stated: IC50 of compound 6.28
+  terms: [measure:ic50]
+  note: The targets (GSK3A, GSK3B, MST1) are the values' x labels; the compound is the group's treatment.
+- field: measure
+  stated: principal component 1 of maturation transcripts
+  terms: [measure:principal_component_score]
+  qualifiers: {component: principal component 1, gene_set: maturation transcripts}
+- field: measure
+  stated: TTN/N2B expression relative to CTRL
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TTN/N2B, expressed_as: fold, normalised_to: CTRL}
+  note: A ratio of two transcripts (isoforms or genes) as printed; the gene qualifier keeps the printed pair.
+- field: measure
+  stated: MYH7/6 expression relative to CTRL
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7/6, expressed_as: fold, normalised_to: CTRL}
+  note: A ratio of two genes as printed.
+- field: measure
+  stated: TNNI3/1 expression relative to CTRL
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3/1, expressed_as: fold, normalised_to: CTRL}
+  note: A ratio of two genes as printed.
+- field: measure
+  stated: MYL2/MYL7 expression relative to CTRL
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYL2/MYL7, expressed_as: fold, normalised_to: CTRL}
+  note: A ratio of two genes as printed.
+- field: measure
+  stated: miR-199a expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: miR-199a, expressed_as: fold, normalised_to: scramble control}
+- field: measure
+  stated: miR-590 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: miR-590, expressed_as: fold, normalised_to: scramble control}
+- field: measure
+  stated: PARP1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PARP1, expressed_as: fold}
+- field: measure
+  stated: RAD50 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: RAD50, expressed_as: fold}
+- field: measure
+  stated: TUBB3 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TUBB3, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: GATA1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: GATA1, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: FOXA2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: FOXA2, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: NKX2_5 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: NKX2_5, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: TBX5 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TBX5, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: TNNT1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNT1, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: DDR2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: DDR2, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: THY1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: THY1, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: PDGFRA expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PDGFRA, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: TCF21 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TCF21, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: WT1 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: WT1, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: TBX18 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TBX18, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: ALDH1A2 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ALDH1A2, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: PTPRC expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: PTPRC, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: ITGAM expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ITGAM, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: SOX7 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SOX7, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: VWF expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: VWF, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: CDH5 expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CDH5, expressed_as: normalised, normalised_to: library size (log2 counts per million)}
+- field: measure
+  stated: genes in the GO term defense response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: defense response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term immune response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: immune response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term inflammatory response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: inflammatory response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term cell adhesion
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: cell adhesion, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term biological adhesion
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: biological adhesion, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term response to wounding
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: response to wounding, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term chemotaxis
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: chemotaxis, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term taxis
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: taxis, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term positive regulation of immune system process
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: positive regulation of immune system process, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term behavior
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: behavior, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term locomotory behavior
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: locomotory behavior, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term cell-cell adhesion
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: cell-cell adhesion, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term humoral immune response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: humoral immune response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term leukocyte migration
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: leukocyte migration, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term regulation of cytokine production
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: regulation of cytokine production, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term positive regulation of immune response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: positive regulation of immune response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term activation of immune response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: activation of immune response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term positive regulation of response to stimulus
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: positive regulation of response to stimulus, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term chemical homeostasis
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: chemical homeostasis, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term leukocyte chemotaxis
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: leukocyte chemotaxis, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term response to bacterium
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: response to bacterium, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term innate immune response
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: innate immune response, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term regulation of tumor necrosis factor production
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: regulation of tumor necrosis factor production, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term cell chemotaxis
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: cell chemotaxis, gene_set: genes more abundant in human adult heart than hCO}
+- field: measure
+  stated: genes in the GO term cellular ion homeostasis
+  terms: [measure:go_term_gene_count]
+  qualifiers: {go_term: cellular ion homeostasis, gene_set: genes more abundant in human adult heart than hCO}

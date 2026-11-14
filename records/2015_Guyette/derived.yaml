@@ -1,0 +1,1381 @@
+record: 2015_Guyette
+formula_library_version: 20
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F1B_dna.reduction:
+    item: F1B_dna
+    measure: double-stranded DNA content
+    formula: R = (pre - post)/pre
+    anchor:
+      quote: demonstrated a 99.05% reduction in double-stranded DNA (3.27±3.12 ng/mg wet tissue; P<0.05)
+      where: Results, Perfusion-Decellularization
+    library:
+      formula: relative_decrease
+      vars:
+        s: R
+        x0: pre
+        x: post
+    inputs:
+      pre:
+        value: F1B_dna.values.pre
+        part: mean
+        kind: per sample
+      post:
+        value: F1B_dna.values.post
+        part: mean
+        kind: per sample
+    output: F1B_dna.values.reduction
+    aggregation: not stated
+    note: a reduction from the pre to the post mean (n=3 hearts); whether per heart or of means is not stated
+  F1D_total.reduction_text:
+    item: F1D_total
+    measure: number of unique proteins
+    formula: R = (C - D)/C
+    anchor:
+      quote: Proteomics analysis indicated an 89.14% reduction of the cadaveric cardiac proteome (967 proteins)
+      where: Results, Perfusion-Decellularization
+    library:
+      formula: relative_decrease
+      vars:
+        s: R
+        x0: C
+        x: D
+    inputs:
+      C:
+        value: F1D_total.values.C_text
+        kind: constant
+      D:
+        value: F1D_total.values.D_text
+        kind: constant
+    output: F1D_total.values.reduction_text
+    note: counts of unique proteins in the pooled cadaveric and decellularized lists
+  F1D_total.reduction_discussion:
+    item: F1D_total
+    measure: number of unique proteins
+    formula: R = (C - D)/C
+    anchor:
+      quote: revealed an 89.14% reduction of total protein content to 105 proteins
+      where: Discussion
+    library:
+      formula: relative_decrease
+      vars:
+        s: R
+        x0: C
+        x: D
+    inputs:
+      C:
+        value: F1D_total.values.C_text
+        kind: constant
+      D:
+        value: F1D_total.values.D_discussion
+        kind: constant
+    output: F1D_total.values.reduction_discussion
+    note: counts of unique proteins in the pooled cadaveric and decellularized lists
+  F5F_slice_murine.pct:
+    item: F5F_slice_murine
+    measure: contractile force amplitude
+    formula: pct = Fs/Fm
+    anchor:
+      quote: achieving 33.8% of native murine embryonic heart tissue (53.0±15.5 µN)
+      where: Results, Recellularization of Myocardial Slices and Fibers
+    library:
+      formula: ratio_def
+      vars:
+        r: pct
+        a: Fs
+        b: Fm
+    inputs:
+      Fs:
+        value: F5F_slice_murine.values.s
+        part: mean
+        kind: constant
+      Fm:
+        value: F5F_slice_murine.values.ref
+        part: mean
+        kind: constant
+        note: a cited value (ref. 31), printed in this paper
+    output: F5F_slice_murine.values.pct
+    alternatives:
+    - label: paced slices (2 Hz) over the murine reference
+      formula: pct = Fp/Fm
+      note: Fp = F5F_slice_2Hz.values.Hz2 (10.30 µN)
+    note: the sentence follows the unpaced slice force (14.93 µN); which slice force was divided is not stated
+  F1H_C_zero.anisotropy:
+    item: F1H_C_zero
+    group: C
+    measure: anisotropy ratio
+    formula: AR = Abs(Ex - Ey)/(Ex + Ey)
+    anchor: &id001
+      quote: anisotropy ratio = |Ex – Ey| / (Ex + Ey)
+      where: Online Methods, Biaxial Mechanical Testing
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: normalized_absolute_difference
+      vars:
+        r: AR
+        a: Ex
+        b: Ey
+    inputs:
+      Ex:
+        item: F1G_SFW
+        part: mean
+        kind: per sample
+        note: which orthogonal axis is x is not stated; the formula is symmetric
+      Ey:
+        item: F1G_BA
+        part: mean
+        kind: per sample
+    output: F1H_C_zero.values.C
+    aggregation: mean of per-sample
+    note: '''an anisotropy ratio was calculated for each tissue sample''; per-sample moduli are not released'
+  F1H_D_zero.anisotropy:
+    item: F1H_D_zero
+    group: D
+    measure: anisotropy ratio
+    formula: AR = Abs(Ex - Ey)/(Ex + Ey)
+    anchor: *id001
+    library:
+      formula: normalized_absolute_difference
+      vars:
+        r: AR
+        a: Ex
+        b: Ey
+    inputs:
+      Ex:
+        item: F1G_SFW
+        part: mean
+        kind: per sample
+        note: which orthogonal axis is x is not stated; the formula is symmetric
+      Ey:
+        item: F1G_BA
+        part: mean
+        kind: per sample
+    output: F1H_D_zero.values.D
+    aggregation: mean of per-sample
+    note: '''an anisotropy ratio was calculated for each tissue sample''; per-sample moduli are not released'
+  F1H_D_C.anisotropy_C:
+    item: F1H_D_C
+    group: C
+    measure: anisotropy ratio
+    formula: AR = Abs(Ex - Ey)/(Ex + Ey)
+    anchor: *id001
+    library:
+      formula: normalized_absolute_difference
+      vars:
+        r: AR
+        a: Ex
+        b: Ey
+    inputs:
+      Ex:
+        item: F1G_SFW
+        part: mean
+        kind: per sample
+        note: which orthogonal axis is x is not stated; the formula is symmetric
+      Ey:
+        item: F1G_BA
+        part: mean
+        kind: per sample
+    output: F1H_D_C.values.C
+    aggregation: mean of per-sample
+    note: '''an anisotropy ratio was calculated for each tissue sample''; per-sample moduli are not released'
+  F1H_D_C.anisotropy_D:
+    item: F1H_D_C
+    group: D
+    measure: anisotropy ratio
+    formula: AR = Abs(Ex - Ey)/(Ex + Ey)
+    anchor: *id001
+    library:
+      formula: normalized_absolute_difference
+      vars:
+        r: AR
+        a: Ex
+        b: Ey
+    inputs:
+      Ex:
+        item: F1G_SFW
+        part: mean
+        kind: per sample
+        note: which orthogonal axis is x is not stated; the formula is symmetric
+      Ey:
+        item: F1G_BA
+        part: mean
+        kind: per sample
+    output: F1H_D_C.values.D
+    aggregation: mean of per-sample
+    note: '''an anisotropy ratio was calculated for each tissue sample''; per-sample moduli are not released'
+  F1G_BA.modulus:
+    item: F1G_BA
+    measure: elastic modulus, base/apex axis
+    formula: E = sigma/eps
+    anchor:
+      quote: moduli were calculated as the slope of the linear region of the stress-strain curve
+      where: Online Methods, Biaxial Mechanical Testing
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        sigma: sigma
+        E: E
+        eps: eps
+    inputs:
+      sigma:
+        not_stated: true
+        kind: per sample
+        note: stress = force / cross-sectional area; per-sample curves not released
+      eps:
+        not_stated: true
+        kind: per sample
+        note: strain = change in length / length at tare load
+    aggregation: mean of per-sample
+    note: a slope over the linear region, i.e. a change in stress over a change in strain
+  F1G_SFW.modulus:
+    item: F1G_SFW
+    measure: elastic modulus, septum/free-wall axis
+    formula: E = sigma/eps
+    anchor:
+      quote: moduli were calculated as the slope of the linear region of the stress-strain curve
+      where: Online Methods, Biaxial Mechanical Testing
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: linear_elastic_stress_strain
+      vars:
+        sigma: sigma
+        E: E
+        eps: eps
+    inputs:
+      sigma:
+        not_stated: true
+        kind: per sample
+        note: stress = force / cross-sectional area; per-sample curves not released
+      eps:
+        not_stated: true
+        kind: per sample
+        note: strain = change in length / length at tare load
+    aggregation: mean of per-sample
+    note: a slope over the linear region, i.e. a change in stress over a change in strain
+  ST1_bmi.bmi_text:
+    item: ST1_bmi
+    group: donors
+    measure: donor body mass index
+    formula: BMI = W/H**2
+    anchor:
+      quote: an average body mass index of 27.76±6.09 kg/m2
+      where: Results, Perfusion-Decellularization
+    library:
+      formula: ratio_to_square
+      vars:
+        r: BMI
+        a: W
+        h: H
+    inputs:
+      W:
+        value: ST1_weight.values.weight_text
+        part: mean
+        kind: per sample
+      H:
+        value: ST1_height.values.height_text
+        part: mean
+        kind: per sample
+    output: ST1_bmi.values.bmi_text
+    aggregation: mean of per-sample
+    alternatives:
+    - label: of means
+      formula: BMI = W/H**2
+      note: mean weight over squared mean height, 27.9 kg/m2; not equal to a mean of per-donor BMIs
+    note: BMI is per donor (Online Table I lists it per heart); the mean is a mean of per-donor values. The paper does not
+      say whether it computed BMI or took it from donor records
+  ST1_bmi.bmi_table:
+    item: ST1_bmi
+    group: donors
+    measure: donor body mass index
+    formula: BMI = W/H**2
+    anchor:
+      quote: an average body mass index of 27.76±6.09 kg/m2
+      where: Results, Perfusion-Decellularization
+    library:
+      formula: ratio_to_square
+      vars:
+        r: BMI
+        a: W
+        h: H
+    inputs:
+      W:
+        value: ST1_weight.values.weight_table
+        part: mean
+        kind: per sample
+      H:
+        value: ST1_height.values.height_table
+        part: mean
+        kind: per sample
+    output: ST1_bmi.values.bmi_table
+    aggregation: mean of per-sample
+    alternatives:
+    - label: of means
+      formula: BMI = W/H**2
+      note: mean weight over squared mean height, 27.9 kg/m2; not equal to a mean of per-donor BMIs
+    note: BMI is per donor (Online Table I lists it per heart); the mean is a mean of per-donor values. The paper does not
+      say whether it computed BMI or took it from donor records
+  F3_res_death.resistance:
+    item: F3_res_death
+    measure: vascular resistance
+    formula: R = P/Q
+    anchor:
+      quote: Mean vascular resistance calculated under constant pressure perfusion
+      where: Figure 3 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: P
+        b: Q
+    inputs:
+      P:
+        printed: '60'
+        unit: mmHg
+        kind: constant
+        anchor:
+          quote: constant pressure of 60 mmHg at room temperature
+          where: Online Methods, Human Heart Preparation and Decellularization
+          file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+      Q:
+        item: F3_flow_death
+        kind: per sample
+        note: flow rates are plotted only (Figure 3A); not read
+    aggregation: not stated
+    note: the resistance formula is not printed; 'vascular resistance' names pressure over flow
+  F3_res_solution.resistance:
+    item: F3_res_solution
+    measure: vascular resistance
+    formula: R = P/Q
+    anchor:
+      quote: Mean vascular resistance calculated under constant pressure perfusion
+      where: Figure 3 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: R
+        a: P
+        b: Q
+    inputs:
+      P:
+        printed: '60'
+        unit: mmHg
+        kind: constant
+        anchor:
+          quote: constant pressure of 60 mmHg at room temperature
+          where: Online Methods, Human Heart Preparation and Decellularization
+          file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+      Q:
+        item: F3_flow_solution
+        kind: per sample
+        note: flow rates are plotted only (Figure 3A); not read
+    aggregation: not stated
+    note: the resistance formula is not printed; 'vascular resistance' names pressure over flow
+  F5I_cv.cv:
+    item: F5I_cv
+    group: fib
+    measure: conduction velocity
+    formula: v = d/(t2 - t1)
+    anchor:
+      quote: with a conduction velocity of 32±56 cm/s
+      where: Results, Recellularization of Myocardial Slices and Fibers
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: v
+        d: d
+        t1: t1
+        t2: t2
+    inputs:
+      d: &id002
+        not_stated: true
+        kind: per sample
+      t1: *id002
+      t2: *id002
+    output: F5I_cv.values.cv
+    aggregation: not stated
+    note: how distance and activation times were taken from the voltage maps is not stated
+  F2B_cd68.percent:
+    item: F2B_cd68
+    measure: CD68 cells
+    formula: f = npos/ntot
+    anchor:
+      quote: as a percentage of total identified cells in the field (3–5 fields averaged per explant)
+      where: Figure 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: npos
+        b: ntot
+    inputs:
+      npos: *id002
+      ntot: *id002
+    aggregation: mean of per-sample
+    note: per field, averaged over 3-5 fields per explant, then over explants; counts not printed
+  F2B_cd80.percent:
+    item: F2B_cd80
+    measure: CD80 cells
+    formula: f = npos/ntot
+    anchor:
+      quote: as a percentage of total identified cells in the field (3–5 fields averaged per explant)
+      where: Figure 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: npos
+        b: ntot
+    inputs:
+      npos: *id002
+      ntot: *id002
+    aggregation: mean of per-sample
+    note: per field, averaged over 3-5 fields per explant, then over explants; counts not printed
+  F2B_cd163.percent:
+    item: F2B_cd163
+    measure: CD163 cells
+    formula: f = npos/ntot
+    anchor:
+      quote: as a percentage of total identified cells in the field (3–5 fields averaged per explant)
+      where: Figure 2 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: npos
+        b: ntot
+    inputs:
+      npos: *id002
+      ntot: *id002
+    aggregation: mean of per-sample
+    note: per field, averaged over 3-5 fields per explant, then over explants; counts not printed
+  F3H_epi.density:
+    item: F3H_epi
+    measure: vessel density
+    formula: rho = nv/A
+    anchor:
+      quote: Vessel densities were determined for each 2D image and normalized to the analyzed tissue area
+      where: Online Methods, Microfil Preparation, µCT, and Analysis of Coronary Microvasculature
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rho
+        a: nv
+        b: A
+    inputs:
+      nv: *id002
+      A: *id002
+    aggregation: mean of per-sample
+    note: per image, then averaged within sub-regions
+  F3H_mid.density:
+    item: F3H_mid
+    measure: vessel density
+    formula: rho = nv/A
+    anchor:
+      quote: Vessel densities were determined for each 2D image and normalized to the analyzed tissue area
+      where: Online Methods, Microfil Preparation, µCT, and Analysis of Coronary Microvasculature
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rho
+        a: nv
+        b: A
+    inputs:
+      nv: *id002
+      A: *id002
+    aggregation: mean of per-sample
+    note: per image, then averaged within sub-regions
+  F3H_endo.density:
+    item: F3H_endo
+    measure: vessel density
+    formula: rho = nv/A
+    anchor:
+      quote: Vessel densities were determined for each 2D image and normalized to the analyzed tissue area
+      where: Online Methods, Microfil Preparation, µCT, and Analysis of Coronary Microvasculature
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rho
+        a: nv
+        b: A
+    inputs:
+      nv: *id002
+      A: *id002
+    aggregation: mean of per-sample
+    note: per image, then averaged within sub-regions
+  F4C_purity.eff:
+    item: F4C_purity
+    group: cms
+    measure: differentiation efficiency (α-actinin-positive cells)
+    formula: eff = ppos - pneg
+    anchor:
+      quote: the percentage of α-actinin-positive cells subtracted by negative control
+      where: Online Methods, Cell Characterization – Flow Cytometry
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ppos
+        a: eff
+        b: pneg
+    inputs:
+      ppos: *id002
+      pneg: *id002
+    output: F4C_purity.values.eff
+    note: printed as a bound (>85%), so there is no single value to rebuild
+  F1B_dna.content:
+    item: F1B_dna
+    formula: c = m/w
+    anchor:
+      quote: Normalized to tissue wet weight.
+      where: Figure 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue wet weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight
+  F1C_inscol.content:
+    item: F1C_inscol
+    formula: c = m/w
+    anchor:
+      quote: Normalized to tissue wet weight.
+      where: Figure 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue wet weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  F1C_solcol.content:
+    item: F1C_solcol
+    formula: c = m/w
+    anchor:
+      quote: Normalized to tissue wet weight.
+      where: Figure 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue wet weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  F1C_elastin.content:
+    item: F1C_elastin
+    formula: c = m/w
+    anchor:
+      quote: Normalized to tissue wet weight.
+      where: Figure 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue wet weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  F1C_sgag.content:
+    item: F1C_sgag
+    formula: c = m/w
+    anchor:
+      quote: Normalized to tissue wet weight.
+      where: Figure 1 legend
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue wet weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  S2_ecm_inscol.content:
+    item: S2_ecm_inscol
+    formula: c = m/w
+    anchor:
+      quote: normalized to dry weight (lyophilized tissue) in Supplemental Figure II
+      where: Online Methods, SDS, DNA, GAG, Collagen, and Elastin Quantification
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue dry weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  S2_ecm_solcol.content:
+    item: S2_ecm_solcol
+    formula: c = m/w
+    anchor:
+      quote: normalized to dry weight (lyophilized tissue) in Supplemental Figure II
+      where: Online Methods, SDS, DNA, GAG, Collagen, and Elastin Quantification
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue dry weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  S2_ecm_elastin.content:
+    item: S2_ecm_elastin
+    formula: c = m/w
+    anchor:
+      quote: normalized to dry weight (lyophilized tissue) in Supplemental Figure II
+      where: Online Methods, SDS, DNA, GAG, Collagen, and Elastin Quantification
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue dry weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  S2_ecm_sgag.content:
+    item: S2_ecm_sgag
+    formula: c = m/w
+    anchor:
+      quote: normalized to dry weight (lyophilized tissue) in Supplemental Figure II
+      where: Online Methods, SDS, DNA, GAG, Collagen, and Elastin Quantification
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue dry weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight; three locations per heart averaged
+  S2_dna_prepost.content:
+    item: S2_dna_prepost
+    formula: c = m/w
+    anchor:
+      quote: normalized to dry weight (lyophilized tissue) in Supplemental Figure II
+      where: Online Methods, SDS, DNA, GAG, Collagen, and Elastin Quantification
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: c
+        a: m
+        b: w
+    inputs:
+      m: *id002
+      w:
+        not_stated: true
+        kind: per sample
+        note: tissue dry weight
+    aggregation: mean of per-sample
+    note: total mass of the component extracted over sample weight
+  F4A_OCT4.expression:
+    item: F4A_OCT4
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_SOX2.expression:
+    item: F4A_SOX2
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_NANOG.expression:
+    item: F4A_NANOG
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_MIXL1.expression:
+    item: F4A_MIXL1
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_T.expression:
+    item: F4A_T
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_ISL1.expression:
+    item: F4A_ISL1
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_TBX2.expression:
+    item: F4A_TBX2
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_GATA4.expression:
+    item: F4A_GATA4
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_NKX25.expression:
+    item: F4A_NKX25
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_MEF2C.expression:
+    item: F4A_MEF2C
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_TBX5.expression:
+    item: F4A_TBX5
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_MYH6.expression:
+    item: F4A_MYH6
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_MYH7.expression:
+    item: F4A_MYH7
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_MYL2.expression:
+    item: F4A_MYL2
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F4A_TNNT2.expression:
+    item: F4A_TNNT2
+    formula: r = 2**(-ddct)
+    anchor:
+      quote: analyzed using the delta-delta CT method with respect to sample’s internal 18S signal and fold-differences to
+        undifferentiated iPS cells
+      where: Online Methods, Cell Characterization – Quantitative RT-PCR
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: r
+        ddct: ddct
+    inputs:
+      ddct:
+        not_stated: true
+        kind: per sample
+        note: Ct values not printed
+    aggregation: not stated
+  F7C_tau.tau:
+    item: F7C_tau
+    group: wh
+    measure: tau (relaxation time constant)
+    formula: not stated
+    anchor:
+      quote: Tau was calculated by fitting an exponential decay equation to the pressure trace between minimum dP/dt and the
+        start of the next pressure pulse
+      where: Online Methods, Data Analysis
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    no_formula: a curve fit whose decay equation is not printed; stated by citation (Online Methods ref. 19)
+    inputs:
+      trace:
+        not_stated: true
+        kind: per sample
+        note: the fit is cited to Online Methods ref. 19, which the record does not list
+  F7C_peak.developed:
+    item: F7C_peak
+    group: wh
+    measure: developed LV pressure
+    formula: Pdev = Abs(Ppeak - Pbase)
+    anchor:
+      quote: Pulse peak pressure was calculated as the absolute value between baseline and pulse peak
+      where: Online Methods, Data Analysis
+      file: NIHMS733623-supplement-306874DR2_Online_Data_Supplement.pdf
+    no_formula: no library entry for an absolute difference; baseline and peak pressures are not printed
+    inputs:
+      Ppeak: *id002
+      Pbase: *id002
+    aggregation: mean of per-sample
+  F5B_cells.strain:
+    item: F5B_cells
+    measure: area strain
+    formula: not stated
+    anchor:
+      quote: we first used high spatial-resolution imaging (high-density mapping)
+      where: Results, Recellularization of Myocardial Slices
+    no_formula: area strain computed by high-density mapping, stated only by citation (ref. 26; Online Methods refs. 11-13)
+    inputs:
+      displacements:
+        by_reference:
+          citation: c26
+          anchor:
+            quote: we first used high spatial-resolution imaging (high-density mapping)26
+            where: Results, Recellularization of Myocardial Slices
+        kind: per sample
+  F5B_matrix.strain:
+    item: F5B_matrix
+    measure: area strain
+    formula: not stated
+    anchor:
+      quote: we first used high spatial-resolution imaging (high-density mapping)
+      where: Results, Recellularization of Myocardial Slices
+    no_formula: area strain computed by high-density mapping, stated only by citation (ref. 26; Online Methods refs. 11-13)
+    inputs:
+      displacements:
+        by_reference:
+          citation: c26
+          anchor:
+            quote: we first used high spatial-resolution imaging (high-density mapping)26
+            where: Results, Recellularization of Myocardial Slices
+        kind: per sample
+  F5D_strain.strain:
+    item: F5D_strain
+    measure: area strain
+    formula: not stated
+    anchor:
+      quote: we first used high spatial-resolution imaging (high-density mapping)
+      where: Results, Recellularization of Myocardial Slices
+    no_formula: area strain computed by high-density mapping, stated only by citation (ref. 26; Online Methods refs. 11-13)
+    inputs:
+      displacements:
+        by_reference:
+          citation: c26
+          anchor:
+            quote: we first used high spatial-resolution imaging (high-density mapping)26
+            where: Results, Recellularization of Myocardial Slices
+        kind: per sample
+assumptions:
+  F1G_BA.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported: moduli were calculated as the slope of the linear region of the stress-strain curve
+      small strain:
+        reported: not stated
+  F1G_SFW.modulus:
+    model: linear_elastic_stress_strain
+    assumptions:
+      linear elastic material:
+        reported: moduli were calculated as the slope of the linear region of the stress-strain curve
+      small strain:
+        reported: not stated
+  F4A_OCT4.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_SOX2.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_NANOG.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_MIXL1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_T.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_ISL1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_TBX2.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_GATA4.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_NKX25.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_MEF2C.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_TBX5.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_MYH6.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_MYH7.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_MYL2.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F4A_TNNT2.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- item: F1B_dna
+  value: F1B_dna.values.reduction
+  formula: fraction_bounds
+- item: F1D_total
+  value: F1D_total.values.reduction_text
+  formula: fraction_bounds
+- item: F1D_total
+  value: F1D_total.values.reduction_discussion
+  formula: fraction_bounds
+- item: F1H_C_zero
+  value: F1H_C_zero.values.C
+  formula: fraction_bounds
+- item: F1H_D_zero
+  value: F1H_D_zero.values.D
+  formula: fraction_bounds
+- item: F1H_D_C
+  value: F1H_D_C.values.C
+  formula: fraction_bounds
+- item: F1H_D_C
+  value: F1H_D_C.values.D
+  formula: fraction_bounds
+- item: F2B_cd68
+  value: F2B_cd68.values.C
+  formula: fraction_bounds
+- item: F2B_cd68
+  value: F2B_cd68.values.D
+  formula: fraction_bounds
+- item: F2B_cd68
+  value: F2B_cd68.values.P
+  formula: fraction_bounds
+- item: F2B_cd80
+  value: F2B_cd80.values.C
+  formula: fraction_bounds
+- item: F2B_cd80
+  value: F2B_cd80.values.D
+  formula: fraction_bounds
+- item: F2B_cd80
+  value: F2B_cd80.values.P
+  formula: fraction_bounds
+- item: F2B_cd163
+  value: F2B_cd163.values.C
+  formula: fraction_bounds
+- item: F2B_cd163
+  value: F2B_cd163.values.D
+  formula: fraction_bounds
+- item: F2B_cd163
+  value: F2B_cd163.values.P
+  formula: fraction_bounds
+- item: F7F_coverage
+  value: F7F_coverage.values.heart50_table
+  formula: fraction_bounds
+- item: F7F_coverage
+  value: F7F_coverage.values.heart62_table
+  formula: fraction_bounds
+- item: F7F_coverage
+  value: F7F_coverage.values.heart65_table
+  formula: fraction_bounds
+- item: T1_so2
+  value: T1_so2.values.base_table
+  formula: fraction_bounds
+- item: T1_so2
+  value: T1_so2.values.cult_table
+  formula: fraction_bounds
+- item: F1E_collagens
+  value: F1E_collagens.values.C
+  formula: fraction_bounds
+- item: F1E_collagens
+  value: F1E_collagens.values.D
+  formula: fraction_bounds
+- item: F1E_laminins
+  value: F1E_laminins.values.C
+  formula: fraction_bounds
+- item: F1E_laminins
+  value: F1E_laminins.values.D
+  formula: fraction_bounds
+- item: F1E_fibrillins
+  value: F1E_fibrillins.values.C
+  formula: fraction_bounds
+- item: F1E_fibrillins
+  value: F1E_fibrillins.values.D
+  formula: fraction_bounds
+- item: F1E_proteoglycans
+  value: F1E_proteoglycans.values.C
+  formula: fraction_bounds
+- item: F1E_proteoglycans
+  value: F1E_proteoglycans.values.D
+  formula: fraction_bounds
+- item: F1E_other
+  value: F1E_other.values.C
+  formula: fraction_bounds
+- item: F1E_other
+  value: F1E_other.values.D
+  formula: fraction_bounds
+proposals:
+- formula: normalized_absolute_difference
+  kind: derived
+  statement: The absolute difference of two like quantities divided by their sum, |a - b|/(a + b), is a ratio of the absolute
+    difference to the sum.
+  equations:
+  - r = Abs(a - b)/(a + b)
+  variables:
+    r: dimensionless
+    a: D
+    b: D
+    dn: D
+    sm: D
+  assumes:
+  - dn = Abs(a - b)
+  - sm = a + b
+  uses:
+  - formula: ratio_def
+    subs:
+      r: r
+      a: dn
+      b: sm
+  does_not_apply: a signed normalized difference (a - b)/(a + b), or a difference over the mean (a + b)/2
+  tests:
+  - given:
+      a: 3.0
+      b: 1.0
+    expect:
+      r: 0.5
+  - given:
+      a: 1.0
+      b: 3.0
+    expect:
+      r: 0.5
+  - given:
+      a: 1.0
+      b: 3.0
+    does_not_apply: the signed form gives -0.5
+- formula: ratio_to_square
+  kind: derived
+  statement: A quantity divided by the square of another, a/h^2 (e.g. body mass index), is a ratio whose denominator is a
+    square.
+  equations:
+  - r = a/h**2
+  variables:
+    r: D/D2**2
+    a: D
+    h: D2
+    b: D2**2
+  assumes:
+  - b = h**2
+  uses:
+  - formula: ratio_def
+    subs:
+      r: r
+      a: a
+      b: b
+  does_not_apply: a ratio to the first power of h, or a mean of per-sample ratios compared with the mean of a over the squared
+    mean of h
+  tests:
+  - given:
+      a: 81.0
+      h: 1.8
+    expect:
+      r: 25.0
+  - given:
+      a: 81.0
+      h: 1.8
+    does_not_apply: a/h gives 45

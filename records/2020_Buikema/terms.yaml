@@ -1,0 +1,335 @@
+record: 2020_Buikema
+vocabulary_version: 54
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- cell lines (Cellosaurus)
+- adopt:
+    field: cell_line
+    id: CVCL_C6U9
+    label: SCVI-111
+    lookup: "cellosaurus 'CVI-111' and 'SCVI-111': CVCL_C6U9 SCVI-111 (Stanford CVI line; the paper drops the leading S)"
+    synonyms:
+    - {text: CVI-111, anchor: "four different iPSC lines (CVI-111, CVI-113, CVI-202 and CVI-273)"}
+- adopt:
+    field: cell_line
+    id: CVCL_A8QC
+    label: SCVI-113
+    lookup: "cellosaurus 'SCVI-113': CVCL_A8QC"
+    synonyms:
+    - {text: CVI-113, anchor: "four different iPSC lines (CVI-111, CVI-113, CVI-202 and CVI-273)"}
+- adopt:
+    field: cell_line
+    id: CVCL_C6UA
+    label: SCVI-202
+    lookup: "cellosaurus 'SCVI-202': CVCL_C6UA"
+    synonyms:
+    - {text: CVI-202, anchor: "four different iPSC lines (CVI-111, CVI-113, CVI-202 and CVI-273)"}
+- add_synonym: {id: CVCL_A5GC, text: CVI-273, anchor: "four different iPSC lines (CVI-111, CVI-113, CVI-202 and CVI-273)"}
+- adopt:
+    field: cell_line
+    id: CVCL_W566
+    label: Ctrl1-12
+    lookup: "cellosaurus 'iLB-C1-30m-r12': CVCL_W566 Ctrl1-12, synonym iLB-C1-30 m-r12 (parent line of the eGFP-anillin reporter lines)"
+    synonyms:
+    - {text: iLB-C1-30 m-r12, anchor: "hiPSCs (iLB-C1-30 m-r12)"}
+# ---------------------------------------------------------------- media, supplements, reagents
+- add_synonym: {id: hipsc_medium:essential_8, text: essential eight (E8), anchor: "supplemented with the essential eight (E8) (Thermo Fisher) growth factors"}
+- add_synonym: {id: supplements:knockout_serum_replacement, text: Knock Out Replacement Serum, anchor: "10% Knock Out Replacement Serum and Thiozovivin 1.0 mM were added to the differentiation media"}
+- adopt_own:
+    field: supplements
+    id: supplements:thiazovivin
+    label: thiazovivin
+    definition: A small-molecule ROCK inhibitor added to improve survival of dissociated cells.
+    scope: A named small-molecule ROCK inhibitor added after passaging; not a serum or serum replacement (KnockOut Serum Replacement), a growth factor or a medium kit.
+    lookup: "chebi 'thiazovivin', 'Thiozovivin', 'Tzv': no ChEBI entry in the pinned release"
+    synonyms:
+    - {text: Thiozovivin, anchor: "10% Knock Out Replacement Serum and Thiozovivin 1.0 mM were added to the differentiation media"}
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:tryple_select
+    label: TrypLE Select
+    parent: dissociation_reagent:tryple
+    definition: The TrypLE Select formulation of recombinant trypsin-like protease.
+    scope: TrypLE named as the Select formulation; the parent TrypLE when the formulation is not named.
+    synonyms:
+    - {text: TrypLE Select Enzyme, anchor: "were treated with TrypLE Select Enzyme 10X (Invitrogen) at 37 C for 10-40 minutes"}
+# ---------------------------------------------------------------- substrate, platform, medium, preparation
+- add_synonym: {id: substrate:culture_plate, text: tissue culture plastic (TCP), anchor: "or on tissue culture plastic (TCP) (GPa)"}
+- add_synonym: {id: substrate:fibrin_hydrogel, text: bovine fibrinogen, anchor: "resuspended in culture medium containing bovine fibrinogen (5 mg/ml)"}
+- add_synonym: {id: platform:engineered_3d, text: engineered heart tissues, anchor: "Mass-produced (Figure 6D) engineered heart tissues from expanded hiPSC-CMs"}
+- add_synonym: {id: measurement_medium:culture_medium, text: culture medium, anchor: "Contractility measurements were performed in culture medium as described previously"}
+- add_synonym: {id: preparation:intact_tissue, text: muscle strip, anchor: "led to the formation of a muscle strip"}
+# ---------------------------------------------------------------- transgene
+- add_term:
+    field: transgene
+    id: transgene:anillin_egfp_fusion
+    label: eGFP-anillin fusion
+    parent: transgene:fluorescent_fusion_protein
+    definition: Anillin fused to enhanced green fluorescent protein, a reporter of cell cycle progression and cytokinesis.
+    scope: A cell cycle reporter fusion; not a sarcomeric (α-actinin-2, troponin I1), junctional (connexin-43, N-cadherin), calcium-handling (SERCA2) or exosome (CD63) fusion.
+    synonyms:
+    - {text: eGFP-anillin expression cassette, anchor: "The previously described eGFP-anillin expression cassette (Hesse et al., 2012) was inserted"}
+# ---------------------------------------------------------------- treatments (ChEBI)
+- add_synonym: {id: CHEBI:91091, field: treatment, text: CHIR, anchor: "in the presence of CHIR99021 (CHIR) (2.0 mM)"}
+- adopt:
+    field: treatment
+    id: CHEBI:235513
+    label: Wnt-C59
+    lookup: "already adopted for differentiation_factors; second field"
+    synonyms:
+    - {text: C59, anchor: "treatment with C59, a small-molecule Wnt antagonist"}
+- adopt:
+    field: treatment
+    id: CHEBI:32293
+    label: verteporfin
+    lookup: "chebi 'verteporfin': CHEBI:32293, exact"
+- adopt:
+    field: treatment
+    id: CHEBI:228251
+    label: PNU-74654
+    lookup: "chebi 'PNU74654': CHEBI:228251 PNU-74654"
+    synonyms:
+    - {text: PNU74654, anchor: "in the presence of PNU74654, a specific TCF/LEF b-catenin signaling blocker"}
+- adopt:
+    field: treatment
+    id: CHEBI:67271
+    label: MK-2206
+    lookup: "chebi 'MK2206': CHEBI:67271 MK-2206"
+    synonyms:
+    - {text: MK2206, anchor: "highly selective AKT phosphorylation inhibitor MK2206"}
+- adopt:
+    field: treatment
+    id: CHEBI:85993
+    label: palbociclib
+    lookup: "chebi 'palbociclib': CHEBI:85993, exact"
+- adopt_own:
+    field: treatment
+    id: treatment:r_spondin_1
+    label: R-spondin 1
+    definition: A secreted protein that potentiates canonical Wnt signalling by stabilising Wnt receptors.
+    scope: The Wnt potentiator R-spondin 1 given as a treatment; not a Wnt ligand (Wnt3a, scFv-DKK1c) or a Wnt inhibitor (Dkk1).
+    lookup: "chebi 'R-spondin', 'R-spondin 1': not in the pinned release"
+    synonyms:
+    - {text: RSPO, anchor: "R-Spondin 1 (RSPO) (25nM)"}
+- adopt_own:
+    field: treatment
+    id: treatment:scfv_dkk1c
+    label: scFv-DKK1c
+    definition: A recombinant Wnt surrogate ligand joining a Frizzled-binding single-chain antibody fragment to the LRP5/6-binding C-terminal domain of DKK1.
+    scope: An engineered Wnt agonist; not Wnt3a, not R-spondin 1 and not the Wnt inhibitor Dkk1.
+    lookup: "chebi 'scFv-DKK1c', 'Wnt surrogate': not in the pinned release; not DKK1 itself (treatment:dkk1 inhibits Wnt)"
+- adopt_own:
+    field: treatment
+    id: treatment:concentrated_conditioned_medium
+    label: concentrated conditioned medium factors
+    definition: Factors concentrated from medium conditioned by another cell culture and added to fresh medium.
+    scope: Secreted factors from another culture's medium (its source as a qualifier); not exosomes isolated as such, not serum and not a named growth factor.
+    lookup: "chebi 'conditioned medium': no ChEBI entry; a mixture"
+- add_qualifier: {id: treatment:concentrated_conditioned_medium, name: source, dimension: text}
+- adopt_own:
+    field: treatment
+    id: treatment:medium_alone
+    label: medium alone, no added factor
+    definition: The control group kept in the same culture medium without the factors given to the treated groups.
+    scope: A no-addition control (the paper's name for it as a qualifier); not a vehicle or solvent control (vehicle, PBS, DMSO) and not removal of an energy substrate.
+    lookup: "chebi 'medium', 'vehicle': no ChEBI entry for a no-addition control; not a vehicle (treatment:vehicle_not_stated)"
+- add_qualifier: {id: treatment:medium_alone, name: control, dimension: text}
+- add_qualifier: {id: CHEBI:91091, name: sequence, dimension: text}
+- add_qualifier: {id: CHEBI:91091, name: dose, dimension: text}
+# ---------------------------------------------------------------- measures
+- add_synonym: {id: measure:cell_number, text: total cell number, anchor: "the total cell number increased by 8-, 8-, and 4-fold at each passage"}
+- add_term:
+    field: measure
+    id: measure:culture_surface_area
+    label: culture surface area
+    definition: Total surface area of culture vessels needed to hold the cells of an expanding culture.
+    scope: Area of culture vessels in use; not the area of a cell (cell area) or of a tissue (tissue projected area).
+    dimension: area
+- add_term:
+    field: measure
+    id: measure:mitotic_phase_fraction
+    label: share of cells in a mitotic phase
+    parent: measure:cell_cycle_phase_fraction
+    definition: Share of proliferating cells in a stated phase of mitosis (qualifier phase), scored from images of chromatin and mitotic markers.
+    scope: Phases of mitosis (prophase to cytokinesis) scored by imaging; the parent is cycle phases read from DNA and RNA content.
+    dimension: dimensionless
+- standing_key:
+    measure: measure:culture_surface_area
+    value: {must_match: [platform@1, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:mitotic_phase_fraction
+    value: {must_match: [platform@1, preparation, measure.phase, measure.population, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.phase, measure.population], may_vary: [cell_line, day_of_measurement]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: hipsc_medium
+  stated: DMEM/F12 + essential eight (E8)
+  terms: [hipsc_medium:essential_8]
+  note: "the paper names E8 as DMEM/F12 supplemented with the essential eight growth factors; DMEM/F12 is E8's base, not a second medium"
+- field: cm_medium
+  stated: RPMI 1640 + B27
+  terms: [cm_medium:rpmi_1640]
+  split: [{words: B27, field: supplements}]
+- field: treatment
+  stated: fresh expansion media (B27 + CHIR) + concentrated factors
+  terms: [CHEBI:91091, treatment:concentrated_conditioned_medium]
+  qualifiers: {source: conditioned medium of densely plated hiPSC-CMs}
+  split: [{words: B27, field: supplements}]
+- field: platform
+  stated: 48-well-plate
+  terms: [platform:culture_2d]
+  qualifiers: {format: 48-well plate}
+- field: platform
+  stated: 6-well-plate
+  terms: [platform:culture_2d]
+  qualifiers: {format: 6-well plate}
+- field: preparation
+  stated: dispersed with TrypLE Select Enzyme
+  terms: [preparation:dissociated_cells]
+  split: [{words: TrypLE Select Enzyme, field: dissociation_reagent}]
+- field: replating_coating
+  stated: micro-patterned Matrigel
+  terms: [replating_coating:matrigel]
+  split: [{words: micro-patterned, field: platform}]
+- field: platform
+  stated: micropatterned surfaces
+  terms: [platform:micropatterned_single_cell]
+  note: "the paper micropatterns single cells to a 7:1 rectangle ('micropatterned as single cells'); no synonym, the wording is generic"
+- field: treatment
+  stated: CHIR followed by C59
+  terms: [CHEBI:91091, CHEBI:235513]
+  qualifiers: {sequence: 'CHIR, then C59 in place of CHIR'}
+- field: treatment
+  stated: CHIR followed by CHIR withdraw
+  terms: [CHEBI:91091]
+  qualifiers: {sequence: 'CHIR, then CHIR withdrawn'}
+- field: preparation
+  stated: cell lysate
+  terms: [preparation:lysate]
+  note: "F3IK is qPCR on extracted RNA; the record's wording is not in the paper"
+- field: treatment
+  stated: media alone
+  terms: [treatment:medium_alone]
+  qualifiers: {control: media alone (CTR)}
+- field: preparation
+  stated: heart sections
+  terms: [preparation:cryosection]
+  qualifiers: {thickness: 10 mm}
+  note: "methods: hearts embedded in OCT, cryo-sectioned at 10 (printed mm) and lightly fixed; no synonym, 'heart sections' is broader than cryosection"
+- field: treatment
+  stated: CHIR99021 50mg/kg
+  terms: [CHEBI:91091]
+  qualifiers: {dose: 50mg/kg}
+# ---------------------------------------------------------------- measures: cell numbers and fractions
+- {field: measure, stated: fold increase in cell number, terms: [measure:cell_number], qualifiers: {expressed_as: fold}}
+- {field: measure, stated: fold increase cell number, terms: [measure:cell_number], qualifiers: {expressed_as: fold}}
+- {field: measure, stated: total cell number (x 10^6), terms: [measure:cell_number]}
+- {field: measure, stated: fold increase in total CM number, terms: [measure:cell_number], qualifiers: {cell_type: cardiomyocytes, expressed_as: fold}}
+- {field: measure, stated: fold increase in TnT+ cells, terms: [measure:cell_number], qualifiers: {cell_type: TnT+ cells, expressed_as: fold}}
+- {field: measure, stated: fold increase TnT+ cells, terms: [measure:cell_number], qualifiers: {cell_type: TnT+ cells, expressed_as: fold}}
+- {field: measure, stated: fold increase in TnT cell number, terms: [measure:cell_number], qualifiers: {cell_type: TnT+ cells, expressed_as: fold}}
+- field: measure
+  stated: relative TnT+ cell number
+  terms: [measure:cell_number]
+  qualifiers: {cell_type: TnT+ cells}
+  note: "expressed_as left to the values: the legend says fold increase, one value is printed as % change"
+- {field: measure, stated: fold increase in pAKT T308 cell number, terms: [measure:cell_number], qualifiers: {cell_type: pAKT T308+ cells, expressed_as: fold}}
+- {field: measure, stated: total culture surface (cm2), terms: [measure:culture_surface_area]}
+- {field: measure, stated: Ki67+/TnT+ (%), terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67, population: TnT+ cells}}
+- {field: measure, stated: '% Ki67+/TnT+ cells', terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67, population: TnT+ cells}}
+- {field: measure, stated: pHH3+/TnT+ (%), terms: [measure:marker_positive_cells], qualifiers: {marker: pHH3, population: TnT+ cells}}
+- {field: measure, stated: '% pHH3+/TnT+ cells', terms: [measure:marker_positive_cells], qualifiers: {marker: pHH3, population: TnT+ cells}}
+- field: measure
+  stated: relative pHH3+/TnT+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: pHH3, population: TnT+ cells}
+  note: "relative to control; expressed_as left to the values"
+- {field: measure, stated: percent TnT+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: TnT}}
+- {field: measure, stated: percent CCND2+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CCND2}}
+- {field: measure, stated: percent pHH3+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: pHH3}}
+- {field: measure, stated: '% pHH3+ cells', terms: [measure:marker_positive_cells], qualifiers: {marker: pHH3}}
+- {field: measure, stated: percent Ki67+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67}}
+- {field: measure, stated: '% Ki67+ cells', terms: [measure:marker_positive_cells], qualifiers: {marker: Ki67}}
+- {field: measure, stated: '% Isl1+ cells', terms: [measure:marker_positive_cells], qualifiers: {marker: ISL1}}
+- {field: measure, stated: '% Caspase 3+ cells', terms: [measure:marker_positive_cells], qualifiers: {marker: caspase 3}}
+- {field: measure, stated: '% anillin-eGFP+ nuclei', terms: [measure:marker_positive_cells], qualifiers: {marker: anillin-eGFP, population: ACTN2+ cardiomyocyte nuclei}}
+- {field: measure, stated: '% binucleated cells', terms: [measure:binucleated_cell_fraction]}
+- {field: measure, stated: mitosis index, terms: [measure:mitotic_phase_fraction], qualifiers: {population: proliferating hiPSC-CMs}, note: "Fig. 2L: proliferating hiPSC-CMs at distinct mitotic phases; phase per value"}
+- {field: measure, stated: percentage of cells in different cell cycle phases, terms: [measure:cell_cycle_phase_fraction], qualifiers: {population: hiPSC-CMs}, note: "phases (G1, S, G2/M) by single-cell RNA cell-cycle scoring; phase per value"}
+# ---------------------------------------------------------------- measures: structure and size
+- {field: measure, stated: percent of sarcomere area by sarcomere angle, terms: [measure:orientation_distribution], qualifiers: {structure: z-disc-registered sarcomeric α-actinin}}
+- field: measure
+  stated: cell size (relative pixels/area)
+  terms: [measure:cell_size]
+  qualifiers: {cell_type: cardiomyocytes, proxy: WGA-outlined pixels per area}
+  note: "relative to control"
+- field: measure
+  stated: YAP nuclear/cytoplasmic ratio (pixel intensity)
+  terms: [measure:protein_fluorescence_intensity]
+  qualifiers: {protein: YAP, region: nucleus, normalised_to: cytoplasmic intensity, expressed_as: normalised}
+# ---------------------------------------------------------------- measures: contraction and calcium
+- {field: measure, stated: contraction force (nN), terms: [measure:twitch_force]}
+- {field: measure, stated: contraction force (mN), terms: [measure:twitch_force]}
+- {field: measure, stated: contraction velocity (um/s), terms: [measure:contractile_velocity]}
+- {field: measure, stated: relaxation velocity (um/s), terms: [measure:relaxation_velocity]}
+- {field: measure, stated: contraction duration (s), terms: [measure:twitch_duration]}
+- {field: measure, stated: beating rate (beats/minute), terms: [measure:contraction_frequency]}
+- {field: measure, stated: time to peak (T1), terms: [measure:contraction_time_to_peak]}
+- {field: measure, stated: relaxation time (s), terms: [measure:relaxation_time]}
+- {field: measure, stated: resting length (mm), terms: [measure:tissue_length], qualifiers: {phase: resting}}
+- field: measure
+  stated: contraction velocity (mN/s)
+  terms: [measure:max_force_rise_rate]
+  note: "printed unit mN/s is force per time: the rate of force rise, not a displacement speed"
+- {field: measure, stated: Ca2+ transient frequency (BPM), terms: [measure:calcium_transient_frequency]}
+- {field: measure, stated: Ca2+ transient amplitude (DeltaF/F0), terms: [measure:calcium_transient_amplitude], qualifiers: {expressed_as: '% change'}}
+- {field: measure, stated: Ca2+ transient decay tau (ms), terms: [measure:calcium_transient_decay_constant]}
+# ---------------------------------------------------------------- measures: expression
+- {field: measure, stated: MYL2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYL2}}
+- {field: measure, stated: MYH7 gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYH7}}
+- {field: measure, stated: MYOM2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYOM2}}
+- {field: measure, stated: GJA1 gene expression, terms: [measure:gene_expression], qualifiers: {gene: GJA1}}
+- {field: measure, stated: RYR2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: RYR2}}
+- {field: measure, stated: COX6A2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: COX6A2}}
+- {field: measure, stated: CKMT gene expression, terms: [measure:gene_expression], qualifiers: {gene: CKMT}}
+- {field: measure, stated: AXIN2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: AXIN2}}
+- {field: measure, stated: LEF1 gene expression, terms: [measure:gene_expression], qualifiers: {gene: LEF1}}
+- {field: measure, stated: CCND2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: CCND2}}
+- {field: measure, stated: MYOM1 gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYOM1}}
+- {field: measure, stated: TNNI3 gene expression, terms: [measure:gene_expression], qualifiers: {gene: TNNI3}}
+- {field: measure, stated: TNNT2 gene expression, terms: [measure:gene_expression], qualifiers: {gene: TNNT2}}
+- {field: measure, stated: TNNI1 gene expression, terms: [measure:gene_expression], qualifiers: {gene: TNNI1}}
+- {field: measure, stated: AXIN2 normalized gene expression, terms: [measure:gene_expression], qualifiers: {gene: AXIN2}}
+- {field: measure, stated: LEF1 normalized gene expression, terms: [measure:gene_expression], qualifiers: {gene: LEF1}}
+- {field: measure, stated: CCND2 normalized gene expression, terms: [measure:gene_expression], qualifiers: {gene: CCND2}}
+- {field: measure, stated: MYL2 normalized gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYL2}}
+- {field: measure, stated: MYH7 normalized gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYH7}}
+- {field: measure, stated: MYOM1 normalized gene expression, terms: [measure:gene_expression], qualifiers: {gene: MYOM1}}
+- {field: measure, stated: average expression of selected mature cardiac genes, terms: [measure:gene_set_expression], qualifiers: {gene_set: selected mature cardiac genes, normalised_to: CTR}}
+- {field: measure, stated: normalized LEF/TCF luciferase expression, terms: [measure:reporter_activity], qualifiers: {reporter: TCF/LEF (TOPFlash) firefly luciferase}}
+- {field: measure, stated: pAkt1/2/3 T308 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-AKT1/2/3 (T308)}, note: "phospho-kinase array spot"}
+- {field: measure, stated: pAKT T308 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-AKT1/2/3 (T308)}, note: "western blot"}
+- {field: measure, stated: pAkt1/2/3 T473 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-AKT1/2/3 (T473)}, note: "phospho-kinase array spot; the array site is S473, printed T473"}
+- {field: measure, stated: pHSP27 S78/82 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-HSP27 (S78/S82)}}
+- {field: measure, stated: p70S6K T389 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-p70S6K (T389)}}
+- {field: measure, stated: p70S6K T421/S424 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-p70S6K (T421/S424)}}
+- {field: measure, stated: pP27 T198 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-p27 (T198)}}
+- {field: measure, stated: pGSK3 S21/S9 protein expression, terms: [measure:protein_level], qualifiers: {protein: phospho-GSK-3α/β (S21/S9)}}
+- {field: measure, stated: b-Catenin total protein expression, terms: [measure:protein_level], qualifiers: {protein: total β-catenin}}
+# ---------------------------------------------------------------- flags
+- field: measure
+  stated: spontaneous action potentials, calcium transients, beating frequency and amplitude
+  flag: {kind: several measures, note: "a no-difference summary over action potentials, calcium transients, beat frequency and amplitude; each is its own measure"}
+- field: measure
+  stated: expression of maturation, excitation, contractility and metabolism markers
+  flag: {kind: several measures, note: "a summary over seven genes (MYL2, MYH7, MYOM2, GJA1, RYR2, COX6A2, CKMT), each recorded as its own item"}
+- field: measure
+  stated: cells captured, mean reads per cell and median genes per cell
+  flag: {kind: several measures, note: "three sequencing quality counts in one item"}
+- field: measure
+  stated: normalized gene expression of NANOG, MESP1, ISL1, MEF2C, TBX5 and GATA4
+  flag: {kind: several measures, note: "six genes in one item; gene expression is keyed per gene"}
+- field: measure
+  stated: fold increase kinase expression
+  flag: {kind: several measures, note: "43 kinases of the phospho-kinase array in one item; protein level is one protein per value"}

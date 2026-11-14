@@ -1,0 +1,290 @@
+record: 2016_Schwan
+formula_library_version: 31
+agent: {model: llm, instructions: formulas_v3}
+derived:
+  # ------------------------------------------------------------------ stress = force / cross-sectional area (Methods)
+  F4b_stress.stress_d9:
+    item: F4b_stress
+    group: d9
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: twitch force of the day-9 EHTs is not printed}
+      A: {item: F3c_csa, kind: per sample, note: "mean of five OCT cross-sections per EHT; F3c groups c9/c16/c23 are the day-9/16/23 EHTs"}
+    output: F4b_stress.values.stress_d9
+    aggregation: mean of per-sample
+    note: "'To calculate the stress developed by each EHT, an estimation of the cross-sectional area of each construct is necessary': stress per EHT, then averaged. Stretch level of the printed mean not stated."
+  F4b_stress.stress_d23:
+    item: F4b_stress
+    group: d23
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: twitch force of the day-23 EHTs is not printed}
+      A: {item: F3c_csa, kind: per sample, note: "F3c group c23"}
+    output: F4b_stress.values.stress_d23
+    aggregation: mean of per-sample
+  S2b_ffr.stress:
+    item: S2b_ffr
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample, note: "per-EHT OCT area; F3c prints only ~0.1 mm2 at day 16, not per day of S2b"}
+    aggregation: mean of per-sample
+    note: plotted only; no printed value to rebuild
+  F4e_stress.stress:
+    item: F4e_stress
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample, note: cross-sectional area of the T3 and control EHTs at days 5-15 is not printed}
+    aggregation: mean of per-sample
+    note: plotted only; no printed value to rebuild
+  F5c_stress.stress:
+    item: F5c_stress
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample, note: cross-sectional area of the longitudinal and transverse EHTs is not printed}
+    aggregation: mean of per-sample
+    note: per-EHT stresses are read in fig5c_twitch; force and area are not
+  S4d_stress.stress:
+    item: S4d_stress
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample}
+    aggregation: mean of per-sample
+    note: plotted only; no printed value to rebuild
+  S4c_fl.stress:
+    item: S4c_fl
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample}
+    aggregation: mean of per-sample
+    note: plotted only; no printed value to rebuild
+  F7b_stress.stress:
+    item: F7b_stress
+    group: hesc
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample}
+    output: F7b_stress.values.maxstress_hesc
+    note: the printed 1.7 mN/mm2 is a maximum over n = 3 EHTs, so one EHT's force over its own area
+  F7d_stress.stress_mean:
+    item: F7d_stress
+    group: hipsc
+    formula: "s = F/A"
+    anchor: {quote: "hiPSC-CM EHTs produced an average peak stress (force divided by cross-sectional area) of 2.2", where: "Results, p. 7"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {item: F7d_force, kind: per sample, note: "raw force 0.3 ± 0.09 mN, same n = 8 EHTs"}
+      A: {not_stated: true, kind: per sample, note: cross-sectional area of the hiPSC-CM EHTs is not printed}
+    output: F7d_stress.values.stress_hipsc_text
+    aggregation: mean of per-sample
+    alternatives:
+      - {label: of means, note: "stress of the mean force over the mean area; the area is not printed"}
+  F7d_stress.stress_max:
+    item: F7d_stress
+    group: hipsc
+    formula: "s = F/A"
+    anchor: {quote: "hiPSC-CM EHTs produced an average peak stress (force divided by cross-sectional area) of 2.2", where: "Results, p. 7"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: "the EHT with maximum stress is not said to be the one with maximum force (0.86 mN)"}
+      A: {not_stated: true, kind: per sample}
+    output: F7d_stress.values.maxstress_hipsc
+  S5_stress.stress_base:
+    item: S5_stress
+    group: baseline
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {value: F7d_force.values.force_hipsc, part: mean, kind: per sample, note: "the baseline EHTs are the n = 8 hiPSC-CM EHTs of Fig. 7d (same 2.2 ± 0.76 and RT50/TTP)"}
+      A: {not_stated: true, kind: per sample}
+    output: S5_stress.values.stress_base
+    aggregation: mean of per-sample
+  S5_stress.stress_iso:
+    item: S5_stress
+    group: iso
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample, note: force under isoproterenol is not printed}
+      A: {not_stated: true, kind: per sample}
+    output: S5_stress.values.stress_iso
+    aggregation: mean of per-sample
+  TXT2_stress.stress:
+    item: TXT2_stress
+    group: nrvm
+    formula: "s = F/A"
+    anchor: {quote: "The peak stress (mN/mm2) was computed offline by dividing measured force by the cross-sectional area of the EHT",
+             where: "Methods, Mechanical testing"}
+    library: {formula: stress_def, vars: {sigma: s, F: F, A: A}}
+    inputs:
+      F: {not_stated: true, kind: per sample}
+      A: {not_stated: true, kind: per sample}
+    output: TXT2_stress.values.stress_nrvm
+    aggregation: mean of per-sample
+    note: no figure or n given for the ~1 mN/mm2 average
+
+  # ------------------------------------------------------------------ fold and percentage comparisons
+  F4b_stress.fold_d23_d9:
+    item: F4b_stress
+    formula: "r = s23/s9"
+    anchor: {quote: "Between day 9 and day 23, peak stress increased 2.4 fold", where: "Results, p. 6"}
+    library: {formula: ratio_def, vars: {r: r, a: s23, b: s9}}
+    inputs:
+      s23: {value: F4b_stress.values.stress_d23, part: mean, kind: per sample}
+      s9: {value: F4b_stress.values.stress_d9, part: mean, kind: per sample}
+    output: F4b_stress.values.fold_d23_d9
+    aggregation: of means
+    note: the fold is between the two printed group means (0.20 and 0.49 mN/mm2) printed in the same sentence
+  F5c_stress.pct_long_vs_trans:
+    item: F5c_stress
+    formula: "d = (sl - st)/st"
+    anchor: {quote: "produced on average a peak stress that was 240% greater than transverse controls", where: "Results, p. 6"}
+    library: {formula: relative_change, vars: {d: d, x: sl, x0: st}}
+    inputs:
+      sl: {reading: fig5c_twitch/stress_long, kind: per sample}
+      st: {reading: fig5c_twitch/stress_trans, kind: per sample}
+    output: F5c_stress.values.pct_long_vs_trans
+    aggregation: not stated
+    alternatives:
+      - {label: "'240% greater' meaning 2.4 times", formula: "r = sl/st", note: "ratio_def; a common loose use of 'X% greater'"}
+  F5c_stress.frac_trans_of_long:
+    item: F5c_stress
+    formula: "f = st/sl"
+    anchor: {quote: "produced only a fraction (~30%) of the peak tension observed in longitudinally-oriented samples", where: "Discussion, p. 9"}
+    library: {formula: ratio_def, vars: {r: f, a: st, b: sl}}
+    inputs:
+      st: {reading: fig5c_twitch/stress_trans, kind: per sample}
+      sl: {reading: fig5c_twitch/stress_long, kind: per sample}
+    output: F5c_stress.values.frac_trans_of_long_discussion
+    aggregation: not stated
+    note: "the Discussion says 'peak tension'; the Results compare peak stress for the same EHTs (Fig. 5c)"
+  F5c_ttp.pct_trans_vs_long:
+    item: F5c_ttp
+    formula: "d = (tt - tl)/tl"
+    anchor: {quote: "TTP was 11% longer in transverse EHTs", where: "Results, p. 6"}
+    library: {formula: relative_change, vars: {d: d, x: tt, x0: tl}}
+    inputs:
+      tt: {reading: fig5c_twitch/ttp_trans, kind: per sample}
+      tl: {reading: fig5c_twitch/ttp_long, kind: per sample}
+    output: F5c_ttp.values.pct_trans_vs_long
+    aggregation: not stated
+
+  # ------------------------------------------------------------------ length-stress gain
+  F4c_gain_omnibus.gain:
+    item: F4c_gain_omnibus
+    formula: "not stated"
+    anchor: {quote: "The length-stress gain during isometric stretch (slope of the stretch-peak stress relationship, Fig. 4c) was calculated for each scaffold using engineering strain as the unit for stretch",
+             where: "Methods, Mechanical testing"}
+    no_formula: "slope of a stress-strain relationship per EHT; the fitting method (least squares, end points) is not stated and the library has no regression-slope entry"
+    inputs:
+      s: {not_stated: true, kind: per sample, note: peak stress at each stretch level per EHT is not printed}
+      eps: {not_stated: true, kind: per sample, note: "engineering strain; 0.1 mm steps on a 6 mm culture length up to 6.6 mm"}
+    note: per-EHT gains are read in fig4c_gain
+  F4c_gain_omnibus.strain:
+    item: F4c_gain_omnibus
+    formula: "e = (L - L0)/L0"
+    anchor: {quote: "until reaching a length of 6.6 mm (representing 10% total stretch)", where: "Methods, Mechanical testing"}
+    library: {formula: relative_change, vars: {d: e, x: L, x0: L0}}
+    inputs:
+      L: {printed: "6.6", unit: mm, anchor: {quote: "until reaching a length of 6.6 mm (representing 10% total stretch)", where: "Methods, Mechanical testing"}, kind: constant}
+      L0: {printed: "6", unit: mm, anchor: {quote: "EHTs were stretched until reaching their culture length (6 mm)", where: "Methods, Mechanical testing"}, kind: constant}
+    note: "engineering strain as named in the Methods; the printed 10% is not a record value, so no output"
+
+  # ------------------------------------------------------------------ BNP expression, 2^-ddCt (Supplementary Methods)
+  ST1_NRVM_control.ddct:
+    item: ST1_NRVM_control
+    group: control
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "Gene expression was determined through delta-delta CT method", where: "Supplementary Methods, Real-time quantitative PCR", file: srep32068-s1.pdf}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: Ct values are not printed}
+    note: each of the 16 printed fold values; calibrator not stated (control values scatter around 1, consistent with the control mean as calibrator)
+  ST1_NRVM_stretch.ddct:
+    item: ST1_NRVM_stretch
+    group: stretch
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "Gene expression was determined through delta-delta CT method", where: "Supplementary Methods, Real-time quantitative PCR", file: srep32068-s1.pdf}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: Ct values are not printed}
+  ST1_NRVM_shear.ddct:
+    item: ST1_NRVM_shear
+    group: shear
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "Gene expression was determined through delta-delta CT method", where: "Supplementary Methods, Real-time quantitative PCR", file: srep32068-s1.pdf}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: Ct values are not printed}
+  ST1_iPSC_control.ddct:
+    item: ST1_iPSC_control
+    group: control
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "Gene expression was determined through delta-delta CT method", where: "Supplementary Methods, Real-time quantitative PCR", file: srep32068-s1.pdf}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: Ct values are not printed}
+  ST1_iPSC_stretch.ddct:
+    item: ST1_iPSC_stretch
+    group: stretch
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "Gene expression was determined through delta-delta CT method", where: "Supplementary Methods, Real-time quantitative PCR", file: srep32068-s1.pdf}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: Ct values are not printed}
+  ST1_iPSC_shear.ddct:
+    item: ST1_iPSC_shear
+    group: shear
+    formula: "r = 2^(-ddct)"
+    anchor: {quote: "Gene expression was determined through delta-delta CT method", where: "Supplementary Methods, Real-time quantitative PCR", file: srep32068-s1.pdf}
+    library: {formula: ddct_relative_expression, vars: {r: r, ddct: ddct}}
+    inputs:
+      ddct: {not_stated: true, kind: per sample, note: Ct values are not printed}
+
+assumptions:
+  ST1_NRVM_control.ddct: &ddct_report
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %: {reported: not stated}
+      equal amplification efficiencies of target and reference: {reported: not stated}
+  ST1_NRVM_stretch.ddct: *ddct_report
+  ST1_NRVM_shear.ddct: *ddct_report
+  ST1_iPSC_control.ddct: *ddct_report
+  ST1_iPSC_stretch.ddct: *ddct_report
+  ST1_iPSC_shear.ddct: *ddct_report
+
+bounds:
+  - {item: F5c_stress, value: F5c_stress.values.frac_trans_of_long_discussion, formula: fraction_bounds}

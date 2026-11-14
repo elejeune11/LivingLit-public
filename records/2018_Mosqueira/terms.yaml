@@ -1,0 +1,491 @@
+record: 2018_Mosqueira
+vocabulary_version: 50
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- adopted fields
+- adopt_own:
+    field: differentiation_factors
+    id: differentiation_factors:ky02111
+    label: KY02111
+    definition: The small-molecule Wnt signalling inhibitor KY02111, used in cardiac differentiation.
+    scope: KY02111, a Wnt inhibitor; not IWP4 or IWR-1 (other Wnt inhibitors), not Wnt3a, VEGF or DS-07.
+    lookup: searched the pinned ChEBI for KY02111, KY 02111, KY-02111 and KY0211; no entry
+    synonyms:
+    - text: KY0211
+      anchor: KY0211 (R&D #4731) and XAV939 (R&D #3748), both at 100μM
+- adopt_own:
+    field: cell_line
+    id: cell_line:at1
+    label: AT1
+    definition: The AT1 hiPSC line of the Denning lab, reprogrammed by lentivirus from dental-pulp fibroblasts of a female donor.
+    scope: The Denning-lab AT1 line and lines gene-edited from it; not REBL-PAT or any other own line.
+    lookup: searched the pinned Cellosaurus for AT1 and for dental pulp iPSC; AT1 there is SUP-B26 (a leukaemia line), not this hiPSC line
+- adopt_own:
+    field: cell_line
+    id: cell_line:rebl_pat
+    label: REBL-PAT
+    definition: The REBL-PAT hiPSC line of the Denning lab, reprogrammed with Sendai virus from a skin biopsy of a male donor.
+    scope: The Denning-lab REBL-PAT line and lines gene-edited from it; not AT1 or any other own line.
+    lookup: searched the pinned Cellosaurus for REBL-PAT, REBL PAT and REBL; no entry
+- adopt:
+    field: cell_line
+    id: CVCL_B205
+    label: HUES 7
+    lookup: Cellosaurus search for HUES7 (exact synonym of HUES 7)
+    synonyms:
+    - text: HUES7
+      anchor: male HUES7 hESC
+- adopt:
+    field: disease_model
+    id: MONDO:0005045
+    label: hypertrophic cardiomyopathy
+    lookup: MONDO search for hypertrophic cardiomyopathy (exact label)
+- adopt:
+    field: treatment
+    id: CHEBI:51450
+    label: bosentan
+    lookup: ChEBI search for bosentan (exact label; bosentan hydrate not chosen)
+- adopt_own:
+    field: treatment
+    id: treatment:vehicle_not_stated
+    label: vehicle, solvent not stated
+    definition: A vehicle control whose solvent the source does not name.
+    scope: A vehicle exposure with an unnamed solvent; a named solvent (DMSO, PBS) maps to that solvent, and no exposure is the state none.
+    lookup: a vehicle is a role, not a compound; ChEBI has no entry for an unnamed vehicle (searched vehicle)
+- add_qualifier:
+    id: CHEBI:28262
+    name: concentration
+    dimension: concentration
+# ---------------------------------------------------------------- own context fields
+- add_term:
+    field: purity_method
+    id: purity_method:immunostaining
+    label: immunostaining
+    definition: Counting marker-positive cells in fixed cultures by immunostaining and imaging.
+    scope: Purity from stained, imaged cells; not flow cytometry of cells in suspension.
+    qualifiers:
+      marker: {dimension: text}
+- set_scope:
+    id: purity_method:flow_cytometry
+    scope: Purity counted on cells in suspension by flow cytometry; not immunostaining of fixed cultures.
+- add_synonym:
+    id: replating_coating:vitronectin
+    text: Vitronectin-N
+    anchor: seeding into Vitronectin-N (VN, Lifetech #A14700)-coated vessels
+- add_synonym:
+    id: measurement_medium:tyrode_solution
+    text: Tyrode's
+    anchor: Extracellular solution (Tyrode’s) contained (mM)
+- add_synonym:
+    id: measurement_medium:seahorse_xf_dmem
+    text: XF base medium
+    anchor: medium was exchanged for XF base medium (Agilent Technologies #102353)
+- add_qualifier:
+    id: measurement_medium:hbss
+    name: formulation
+    dimension: text
+- add_synonym:
+    id: pacing:electrical_pacing
+    text: electrically paced
+    anchor: EHTs were electrically paced (2 V, 1-2.5 Hz, impulse duration 4 ms)
+- add_synonym:
+    id: preparation:dissociated_cells
+    text: dissociated hPSC-CMs
+    anchor: Mitochondria of dissociated hPSC-CMs were stained using 100nM MitoTracker green FM
+- add_term:
+    field: transgene
+    id: transgene:r_geco1
+    label: R-GECO1
+    parent: transgene:calcium_indicator
+    definition: The red-fluorescent genetically encoded calcium indicator R-GECO1.
+    scope: R-GECO1, a red indicator; not the green GCaMP indicators (GCaMP5G, GCaMP6f, GCaMP6).
+- add_term:
+    field: genotype
+    id: genotype:myh7_variant
+    label: MYH7 variant
+    parent: genotype:gene_variant
+    definition: A variant of MYH7, the gene of β-myosin heavy chain, with variant and zygosity as qualifiers.
+    scope: A variant in MYH7; not in MYH6, MYBPC3, PKP2, DSP, RBM20, SCN5A or TTN.
+- add_term:
+    field: genotype
+    id: genotype:myh6_variant
+    label: MYH6 variant
+    parent: genotype:gene_variant
+    definition: A variant of MYH6, the gene of α-myosin heavy chain, with variant and zygosity as qualifiers.
+    scope: A variant in MYH6; not in MYH7, MYBPC3, PKP2, DSP, RBM20, SCN5A or TTN.
+# ---------------------------------------------------------------- measures
+- add_synonym:
+    id: measure:basal_mitochondrial_respiration
+    text: basal respiration
+    anchor: where basal respiration, maximal respiration and ATP production increased by 3-, 2.75-, and 3-fold, respectively
+- add_term:
+    field: measure
+    id: measure:marker_intensity_class_fraction
+    label: fraction of cells in a marker intensity class
+    parent: measure:marker_positive_cells
+    dimension: dimensionless
+    definition: Fraction of cells whose staining intensity for a stated marker (qualifier marker) falls in a stated class (qualifier intensity_class, such as negative, medium or high) set by thresholds.
+    scope: Cells binned by how strongly they stain for one marker; not the plain positive fraction (marker-positive cells) and not cells counted by visible sarcomeres (sarcomere containing cells).
+    qualifiers:
+      intensity_class: {dimension: text}
+- set_scope:
+    id: measure:sarcomere_containing_cells
+    scope: Cells counted by visible sarcomeres; not cells binned by the staining intensity of a marker (fraction of cells in a marker intensity class).
+- add_term:
+    field: measure
+    id: measure:mononucleated_cell_fraction
+    label: mononucleated cell fraction
+    dimension: dimensionless
+    definition: Fraction of cells with one nucleus.
+    scope: Share of cells with one nucleus; not binucleated or multinucleated cell fractions and not a marker-positive fraction.
+- add_term:
+    field: measure
+    id: measure:multinucleated_cell_fraction
+    label: multinucleated cell fraction
+    dimension: dimensionless
+    definition: Fraction of cells with more than two nuclei.
+    scope: Share of cells with more than two nuclei; not binucleated (two nuclei) or mononucleated cell fractions.
+- set_scope:
+    id: measure:binucleated_cell_fraction
+    scope: Share of cells with two nuclei; not mononucleated or multinucleated (more than two nuclei) cell fractions, not the fraction of cells positive for a marker and not the distance between nuclei.
+- add_term:
+    field: measure
+    id: measure:disarrayed_sarcomere_cell_fraction
+    label: fraction of cells with disarrayed sarcomeres
+    dimension: dimensionless
+    definition: Fraction of cells whose sarcomeres are classed as disarrayed, by eye or by an image classifier.
+    scope: A counted share of cells with sarcomeric disarray; not a graded description of sarcomere organisation, not an order parameter and not the fraction of cells that show sarcomeres.
+- add_term:
+    field: measure
+    id: measure:reactive_oxygen_species_level
+    label: reactive oxygen species level
+    dimension: dimensionless
+    definition: Level of reactive oxygen species in cells, read as the fluorescence of a ROS-sensitive probe (qualifier probe) in a stated compartment (qualifier compartment).
+    scope: ROS from a ROS-sensitive dye; not mitochondrial mass from a mitochondrial dye and not mitochondrial membrane potential.
+    qualifiers:
+      probe: {dimension: text}
+      compartment: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:abnormal_calcium_event_frequency
+    label: frequency of abnormal calcium events
+    dimension: dimensionless
+    definition: Number of calcium transient events in a recording classed as abnormal by a stated criterion (qualifier criterion), such as delayed afterdepolarisation-like events.
+    scope: A count of abnormal events within recordings; not the share of hearts or tissues with an arrhythmia (arrhythmia incidence) and not a present-or-absent judgement of irregular transients (calcium transient irregularity).
+    qualifiers:
+      criterion: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:ap_repolarisation_phase_ratio
+    label: ratio of late to early repolarisation duration
+    parent: measure:action_potential
+    dimension: dimensionless
+    definition: The duration of a late repolarisation interval divided by that of an early one, such as (APD80−APD70)/(APD40−APD30), a shape index used to class cardiomyocyte subtypes.
+    scope: A ratio of two differences between action potential durations; not one duration divided by another (ratio of action potential durations), not a duration, an amplitude, a peak potential, a rise time, a velocity, a frequency or a repolarisation time.
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:marker_intensity_class_fraction
+    value:
+      must_match: [platform@1, preparation, measure.marker, measure.intensity_class, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.marker, measure.intensity_class]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:mononucleated_cell_fraction
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:multinucleated_cell_fraction
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:disarrayed_sarcomere_cell_fraction
+    value:
+      must_match: [platform@1, preparation, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:reactive_oxygen_species_level
+    value:
+      must_match: [platform@1, preparation, measure.probe, measure.compartment, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.compartment]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:abnormal_calcium_event_frequency
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.criterion, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:ap_repolarisation_phase_ratio
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, method, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: purity_method
+  stated: α-actinin immunostaining
+  terms: [purity_method:immunostaining]
+  qualifiers: {marker: α-actinin}
+- field: cm_medium
+  stated: RPMI+B27
+  terms: [cm_medium:rpmi_1640]
+  split: [{words: B27, field: supplements}]
+- field: cm_medium
+  stated: RPMI+B27 without phenol red
+  terms: [cm_medium:rpmi_1640]
+  qualifiers: {formulation: without phenol red}
+  split: [{words: B27, field: supplements}]
+- field: dissociation_reagent
+  stated: Collagenase II
+  terms: [dissociation_reagent:collagenase]
+  qualifiers: {type: II}
+- field: genotype
+  stated: MYH7 heterozygote (MUT/WT)
+  terms: [genotype:myh7_variant]
+  qualifiers: {zygosity: heterozygous, variant: R453C}
+  note: the paper's edited variant is R453C-βMHC (9123-MYH7, C>T) throughout; MUT names it
+- field: genotype
+  stated: MYH7 homozygote (MUT/MUT)
+  terms: [genotype:myh7_variant]
+  qualifiers: {zygosity: homozygous, variant: R453C}
+  note: the paper's edited variant is R453C-βMHC (9123-MYH7, C>T) throughout; MUT names it
+- field: genotype
+  stated: homozygote + MYH6WT/fs
+  terms: [genotype:myh7_variant, genotype:myh6_variant]
+  qualifiers: {variant: MYH7 R453C; MYH6 frameshift, zygosity: MYH7 homozygous; MYH6 heterozygous, consequence: MYH6 off-target frameshift}
+  note: qualifiers name the gene they belong to, because one mapping carries one qualifier set for both terms
+- field: genotype
+  stated: MYH7 knockout (MYH7-KO)
+  terms: [genotype:myh7_variant]
+  qualifiers: {consequence: knockout}
+- field: genotype
+  stated: MYH7-mutant
+  terms: [genotype:myh7_variant]
+  note: the RNA-seq "diseased" group; zygosity not stated in this value
+- field: genotype
+  stated: gene-edited
+  flag: {kind: several conditions, note: 'the 11 gene-edited lines of three parental lines carry different MYH7 genotypes (heterozygous, homozygous, knockout, +MYH6 frameshift); one value names several genotypes'}
+- field: treatment
+  stated: vehicle (0.1% DMSO)
+  terms: [CHEBI:28262]
+  qualifiers: {concentration: 0.1%}
+  note: the vehicle control; DMSO is the exposure
+- field: treatment
+  stated: vehicle
+  terms: [treatment:vehicle_not_stated]
+  note: vehicle of the ranolazine experiment; the solvent is not named for it
+- field: measurement_medium
+  stated: Ca2+/Mg2+ -rich HBSS
+  terms: [measurement_medium:hbss]
+  qualifiers: {formulation: with Ca2+/Mg2+}
+- field: platform
+  stated: human engineered heart tissue
+  terms: [platform:tissue_between_pillars]
+  qualifiers: {posts: silicone posts}
+  note: 'Fig. 6A: fibrin-based hEHT attached to silicone posts; the generic phrase is not made a synonym'
+- field: platform
+  stated: 2D monolayers and 3D-engineered heart tissues
+  flag: {kind: several conditions, note: 'the RNA-seq unit pools 2D monolayers and 3D EHTs (culture format a controlling factor); two platforms in one value'}
+- field: platform
+  stated: hPSC colonies
+  terms: [platform:culture_2d]
+  qualifiers: {format: undifferentiated hPSC colonies}
+- field: preparation
+  stated: engineered heart tissue
+  terms: [preparation:intact_tissue]
+  split: [{words: engineered heart tissue, field: platform}]
+- field: preparation
+  stated: synchronous monolayers
+  terms: [preparation:live_cells]
+  split: [{words: monolayers, field: platform}]
+- field: pacing
+  stated: trigger applied
+  terms: [pacing:current_clamp_stimulation]
+  note: current injection in current-clamp patch clamp, 1 Hz (group qualifier)
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: cardiomyocyte purity
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: α-actinin}
+- field: measure
+  stated: 'MUT: WT MYH7 allele expression ratio'
+  terms: [measure:allele_specific_expression]
+  qualifiers: {gene: MYH7, allele: 'MUT: WT ratio'}
+- field: measure
+  stated: cardiomyocyte volume
+  terms: [measure:cell_volume]
+  qualifiers: {cell_type: cardiomyocytes}
+  note: median volume per line, from calibrated forward scatter
+- field: measure
+  stated: median cardiomyocyte volume
+  terms: [measure:cell_volume]
+  qualifiers: {cell_type: cardiomyocytes}
+  note: the median of each line; the values carry expressed_as % change
+- field: measure
+  stated: percentage of cardiomyocytes, all categories
+  flag: {kind: several measures, note: 'Supplementary Table 4 "(all categories)": every BNP bin (Fig. 3B) or every nucleation class (Fig. 3D) at once; the same wording names two different sets of measures'}
+- field: measure
+  stated: percentage of cardiomyocytes, BNP negative
+  terms: [measure:marker_intensity_class_fraction]
+  qualifiers: {marker: BNP, intensity_class: negative, population: cardiomyocytes}
+- field: measure
+  stated: percentage of cardiomyocytes, BNP medium
+  terms: [measure:marker_intensity_class_fraction]
+  qualifiers: {marker: BNP, intensity_class: medium, population: cardiomyocytes}
+- field: measure
+  stated: percentage of cardiomyocytes, BNP high
+  terms: [measure:marker_intensity_class_fraction]
+  qualifiers: {marker: BNP, intensity_class: high, population: cardiomyocytes}
+- field: measure
+  stated: cardiomyocytes expressing medium/high BNP
+  terms: [measure:marker_intensity_class_fraction]
+  qualifiers: {marker: BNP, intensity_class: medium or high, population: cardiomyocytes}
+- field: measure
+  stated: percentage of cardiomyocytes, mononucleated
+  terms: [measure:mononucleated_cell_fraction]
+- field: measure
+  stated: percentage of cardiomyocytes, binucleated
+  terms: [measure:binucleated_cell_fraction]
+- field: measure
+  stated: percentage of cardiomyocytes, multinucleated
+  terms: [measure:multinucleated_cell_fraction]
+- field: measure
+  stated: bi- and multi-nucleated cardiomyocytes
+  flag: {kind: several measures, note: 'the item''s values give binucleated (1.9–3.6%) and multinucleated (1.1–1.9%) increases; two measures in one value'}
+- field: measure
+  stated: cardiomyocytes with disarrayed sarcomeres
+  terms: [measure:disarrayed_sarcomere_cell_fraction]
+- field: measure
+  stated: basal respiration, maximal respiration and ATP production
+  flag: {kind: several measures, note: 'three Seahorse parameters (3-, 2.75- and 3-fold) in one item'}
+- field: measure
+  stated: basal respiration and ATP production
+  flag: {kind: several measures, note: 'two Seahorse parameters in one item (Supplementary Fig. 6B, D)'}
+- field: measure
+  stated: 'ND1: β-actin DNA ratio'
+  terms: [measure:mitochondrial_dna_content]
+  qualifiers: {gene: ND1, normalised_to: β-actin DNA}
+- field: measure
+  stated: 'ND2: β-actin DNA ratio'
+  terms: [measure:mitochondrial_dna_content]
+  qualifiers: {gene: ND2, normalised_to: β-actin DNA}
+- field: measure
+  stated: Mitotracker green intensity
+  terms: [measure:mitochondrial_mass]
+  qualifiers: {expressed_as: normalised, normalised_to: wild-type}
+- field: measure
+  stated: CellROX intensity
+  terms: [measure:reactive_oxygen_species_level]
+  qualifiers: {probe: CellROX green, compartment: whole cell, expressed_as: normalised, normalised_to: wild-type}
+- field: measure
+  stated: MitoSox intensity
+  terms: [measure:reactive_oxygen_species_level]
+  qualifiers: {probe: MitoSOX Red, compartment: mitochondria, expressed_as: normalised, normalised_to: wild-type}
+- field: measure
+  stated: mitochondrial content and ROS production
+  flag: {kind: several measures, note: 'mitochondrial content (Mitotracker) and ROS (CellROX, MitoSOX) in one item'}
+- field: measure
+  stated: DAD-like abnormal events
+  terms: [measure:abnormal_calcium_event_frequency]
+  qualifiers: {criterion: 'DAD-like: event below 75% of the median peak height, including double peaks'}
+- field: measure
+  stated: R-GECO1 signal amplitude
+  terms: [measure:calcium_transient_amplitude]
+- field: measure
+  stated: R-GECO1 signal amplitude, % of baseline
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: '% of baseline', normalised_to: before treatment}
+- field: measure
+  stated: events detected, % of baseline
+  terms: [measure:calcium_transient_frequency]
+  qualifiers: {expressed_as: '% of baseline', normalised_to: before nifedipine}
+  note: calcium transients counted by event detection in line scans after nifedipine
+- field: measure
+  stated: contraction time (T1 80%)
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: T1 80%}
+- field: measure
+  stated: relaxation time (T2 80%)
+  terms: [measure:relaxation_time]
+  qualifiers: {level: T2 80%}
+- field: measure
+  stated: contraction force, % change from baseline
+  terms: [measure:twitch_force]
+  qualifiers: {expressed_as: '% change', normalised_to: baseline before omecamtiv mecarbil}
+- field: measure
+  stated: contraction time (T1), % change from baseline
+  terms: [measure:contraction_time_to_peak]
+  qualifiers: {level: T1, expressed_as: '% change', normalised_to: baseline before omecamtiv mecarbil}
+- field: measure
+  stated: relaxation time (T2), % change from baseline
+  terms: [measure:relaxation_time]
+  qualifiers: {level: T2, expressed_as: '% change', normalised_to: baseline before omecamtiv mecarbil}
+- field: measure
+  stated: fold change of previously unidentified lncRNAs
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: previously unidentified lncRNAs, expressed_as: fold}
+- field: measure
+  stated: expression of fetal gene programme genes (NPPA/B)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: fetal gene programme (NPPA/B)}
+- field: measure
+  stated: expression of hypertrophy genes (FHL1/2)
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: hypertrophy genes (FHL1/2)}
+- field: measure
+  stated: expression of apoptosis genes (CASP3)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CASP3}
+- field: measure
+  stated: expression of fibrosis genes (FN1)
+  terms: [measure:gene_expression]
+  qualifiers: {gene: FN1}
+- field: measure
+  stated: expression of calcium handling genes
+  terms: [measure:gene_set_expression]
+  qualifiers: {gene_set: calcium handling genes}
+- field: measure
+  stated: MYH7:MYH6 expression ratio, fold change over wild-type
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7:MYH6 ratio, expressed_as: fold, normalised_to: wild-type}
+  note: each gene normalised to TNNT2 before the ratio (ΔΔCT)
+- field: measure
+  stated: mono- and bi-allelic targeting frequency
+  flag: {kind: several measures, note: 'mono-allelic (16.3–25.5%) and bi-allelic (2.6–7.1%) targeting frequencies in one item'}
+- field: measure
+  stated: MLC2v positive cardiomyocytes
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: MLC2v, population: cardiomyocytes}
+- field: measure
+  stated: APD90/APD50
+  terms: [measure:action_potential_duration_ratio]
+  qualifiers: {level: APD90/APD50}
+- field: measure
+  stated: (APD80-APD70)/(APD40-APD30)
+  terms: [measure:ap_repolarisation_phase_ratio]
+  qualifiers: {level: (APD80-APD70)/(APD40-APD30)}
+- field: measure
+  stated: cardiomyocytes of ventricular-like subtype
+  terms: [measure:cardiomyocyte_subtype_proportion]
+  qualifiers: {subtype: ventricular-like}

@@ -1,0 +1,313 @@
+record: 2016_Lind
+vocabulary_version: 51
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---- context fields
+- add_synonym:
+    id: CVCL_Y550
+    text: Cor4U
+    anchor: hiPS-CMs (Cor4U, Axiogenesis, Germany) at 220 k/cm2
+- add_synonym:
+    id: pacing:point_stimulation
+    text: electrical point stimulation
+    anchor: 2 Hz electrical point-stimulation is applied in top left corner of samples
+- add_synonym:
+    id: platform:muscular_thin_film
+    text: instrumented MTF cantilever
+    anchor: The printed instrumented MTF cantilever has a large width-to-thickness ratio
+- add_term:
+    field: cm_medium
+    id: cm_medium:medium_199
+    label: Medium 199
+    parent: null
+    definition: Medium 199 (M199) basal medium.
+    scope: M199-based medium; not DMEM, RPMI 1640, IMDM, α-MEM, BPEL, a vendor's proprietary cardiomyocyte medium or a medium named only as EHT medium.
+    synonyms:
+    - {text: media 199, anchor: in 10% FBS in media 199 (Life Technologies)}
+- add_term:
+    field: cm_medium
+    id: cm_medium:cor4u_medium
+    label: Cor.4U culture medium
+    parent: null
+    definition: The commercial culture medium Axiogenesis (Ncardia) supplies for its Cor.4U cardiomyocytes.
+    scope: The vendor's proprietary medium for Cor.4U cardiomyocytes, base not stated; not the iCell maintenance medium, Medium 199, DMEM, RPMI 1640 or another named base medium.
+    synonyms:
+    - {text: Cor4U media, anchor: in designated Commercial Cor4U media (Axiogenesis, Germany)}
+- adopt:
+    field: supplements
+    id: CHEBI:17234
+    label: glucose
+    lookup: "ChEBI 'glucose': exact label CHEBI:17234, already adopted in treatment; second field supplements (paper: 20 mM glucose added to Medium 199)"
+- adopt:
+    field: supplements
+    id: CHEBI:46756
+    label: HEPES
+    lookup: "ChEBI 'HEPES': exact label match CHEBI:46756"
+- adopt:
+    field: supplements
+    id: CHEBI:176843
+    label: vitamin B12
+    lookup: "ChEBI 'vitamin B12': exact label match CHEBI:176843 (paper prints 'vitamin B-12'; the form, e.g. cyanocobalamin, is not stated)"
+- add_qualifier: {id: substrate:pdms, name: form, dimension: text}
+- add_qualifier: {id: substrate:pdms, name: spacing, dimension: length}
+- add_qualifier: {id: purification:genetic_selection, name: agent, dimension: text}
+# ---- measures
+- add_qualifier: {id: measure:ec50, name: compound, dimension: text}
+- add_qualifier: {id: measure:conduction_velocity, name: direction, dimension: text}
+- add_qualifier: {id: measure:contraction_frequency, name: statistic, dimension: text}
+- add_term:
+    field: measure
+    id: measure:printed_layer_thickness
+    label: printed layer thickness
+    parent: null
+    dimension: length
+    definition: Thickness of one printed layer of a fabricated device (a base, a wire, a cover).
+    scope: A fabricated device layer; not the thickness of a cell or tissue layer (tissue thickness) and not a printed filament's width.
+- add_term:
+    field: measure
+    id: measure:printed_filament_width
+    label: printed filament width
+    parent: null
+    dimension: length
+    definition: Width of a printed filament or line of a fabricated device.
+    scope: In-plane width of a printed feature; not a printed layer's thickness, its z-position or a tissue's width.
+- add_term:
+    field: measure
+    id: measure:printed_layer_z_position
+    label: printed layer z-position
+    parent: null
+    dimension: length
+    qualifiers: {surface: {dimension: text}}
+    definition: Height of a printed layer's bottom or top surface above the device base, as used in a mechanical model (qualifier surface).
+    scope: A position of a layer surface in a device stack; not a layer's thickness (printed layer thickness) or a tissue thickness.
+- add_term:
+    field: measure
+    id: measure:ink_viscosity
+    label: ink viscosity
+    parent: null
+    dimension: viscosity
+    definition: Viscosity of a printable ink.
+    scope: Flow resistance of an uncured printing ink; not the elastic modulus of a cured material or a tissue.
+- add_term:
+    field: measure
+    id: measure:material_resistivity
+    label: material electrical resistivity
+    parent: null
+    dimension: resistivity
+    definition: Electrical resistivity of a cured device material such as a conductive ink.
+    scope: Resistivity of an engineered material; not the resistive component of a tissue's impedance (tissue resistivity) and not its conductivity.
+- add_term:
+    field: measure
+    id: measure:material_conductivity
+    label: material electrical conductivity
+    parent: null
+    dimension: conductivity
+    definition: Electrical conductivity of a cured device material such as a conductive ink.
+    scope: Conductivity of an engineered material (the inverse of its resistivity); not material resistivity and not tissue resistivity.
+- add_term:
+    field: measure
+    id: measure:gauge_factor
+    label: gauge factor
+    parent: null
+    dimension: dimensionless
+    definition: Relative change in a strain sensor's resistance per unit applied strain.
+    scope: Sensitivity of a strain sensor; not the sensor's resistance itself (sensor resistance) or a tissue strain.
+- add_term:
+    field: measure
+    id: measure:sensor_resistance
+    label: sensor electrical resistance
+    parent: null
+    dimension: resistance
+    definition: Electrical resistance of a sensor element embedded in a device, such as a strain gauge.
+    scope: A device sensor's resistance (relative change via expressed_as); not a material's resistivity, a tissue's resistivity or the gauge factor.
+- add_term:
+    field: measure
+    id: measure:conduction_anisotropy_ratio
+    label: conduction velocity anisotropy ratio
+    parent: measure:conduction_velocity
+    dimension: dimensionless
+    definition: Ratio of conduction velocity along the tissue's alignment axis to that across it.
+    scope: The longitudinal to transverse ratio; not a conduction velocity in one direction (conduction velocity with qualifier direction).
+- add_term:
+    field: measure
+    id: measure:max_activation_time
+    label: maximum activation time
+    parent: null
+    dimension: time
+    definition: Latest activation time observed across an activation map, measured from the stimulus or earliest activation.
+    scope: Time for activation to reach the last site of a sample; not conduction velocity, action potential duration or a beat interval.
+- add_term:
+    field: measure
+    id: measure:sarcomere_packing_density
+    label: sarcomere packing density
+    parent: null
+    dimension: dimensionless
+    definition: An image-based index of how regularly sarcomeres repeat across a tissue (strength of sarcomeric periodicity).
+    scope: Periodic sarcomere organisation; not sarcomere alignment (orientational order parameter), sarcomere length or myofibril area coverage (myofibrillar density).
+    synonyms:
+    - {text: SPD, anchor: "the sarcomere packing density (SPD, a measure of sarcomere"}
+- add_term:
+    field: measure
+    id: measure:tissue_thickness_cell_layers
+    label: tissue thickness in cell layers
+    parent: measure:tissue_thickness
+    dimension: dimensionless
+    definition: Thickness of a tissue counted as the number of cell layers.
+    scope: Thickness as a count of cell layers; a length goes to tissue thickness itself.
+# ---- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:printed_layer_thickness
+    value: {must_match: [platform, substrate], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [platform]}
+- standing_key:
+    measure: measure:printed_filament_width
+    value: {must_match: [platform, substrate], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [platform]}
+- standing_key:
+    measure: measure:printed_layer_z_position
+    value: {must_match: [platform, substrate, measure.surface], may_vary: []}
+    direction: {must_match: [contrast, measure.surface], may_vary: [platform]}
+- standing_key:
+    measure: measure:ink_viscosity
+    value: {must_match: [substrate, temperature], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [temperature]}
+- standing_key:
+    measure: measure:material_resistivity
+    value: {must_match: [substrate], may_vary: []}
+    direction: {must_match: [contrast], may_vary: []}
+- standing_key:
+    measure: measure:material_conductivity
+    value: {must_match: [substrate], may_vary: []}
+    direction: {must_match: [contrast], may_vary: []}
+- standing_key:
+    measure: measure:gauge_factor
+    value: {must_match: [platform, substrate], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [platform]}
+- standing_key:
+    measure: measure:sensor_resistance
+    value: {must_match: [platform, substrate, pacing, measure.expressed_as, measure.level], may_vary: []}
+    direction: {must_match: [contrast, measure.level], may_vary: [platform, substrate]}
+- standing_key:
+    measure: measure:conduction_anisotropy_ratio
+    value: {must_match: [platform@1, species, pacing, treatment, genotype, disease_model], may_vary: [substrate]}
+    direction: {must_match: [contrast], may_vary: [substrate, day_of_measurement]}
+- standing_key:
+    measure: measure:max_activation_time
+    value: {must_match: [platform, species, pacing, treatment, genotype, disease_model], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [substrate]}
+- standing_key:
+    measure: measure:sarcomere_packing_density
+    value: {must_match: [platform@1, species, preparation, treatment, genotype, disease_model], may_vary: [method]}
+    direction: {must_match: [contrast], may_vary: [platform, cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tissue_thickness_cell_layers
+    value: {must_match: [platform@1, day_of_measurement], may_vary: []}
+    direction: {must_match: [contrast], may_vary: [platform]}
+mappings:
+# ---- context
+- field: cell_types
+  stated: neonatal rat ventricular myocytes
+  terms: [CL:2000046]
+  split:
+  - {words: neonatal, field: donor_age}
+  - {words: rat, field: species}
+  note: CL ventricular cardiac muscle cell; age and species are already in donor_age ('day 2 neonate') and species ('rat') and agree.
+- field: dissociation_reagent
+  stated: trypsin + collagenase type II
+  terms: [dissociation_reagent:trypsin, dissociation_reagent:collagenase]
+  qualifiers: {type: type II}
+  note: type II is the collagenase's qualifier.
+- field: substrate
+  stated: soft PDMS filaments
+  terms: [substrate:pdms]
+  qualifiers: {form: soft filaments}
+- field: platform
+  stated: native ventricle
+  terms: [platform:native_tissue]
+  qualifiers: {region: ventricle}
+  note: A cited other-study benchmark (group kind 'other study'); species not stated for it.
+- field: pacing
+  stated: paced
+  terms: [pacing:electrical_pacing]
+  note: Methods say 'electrically paced samples'; no synonym added, since 'paced' alone could be optical pacing in other papers.
+- field: preparation
+  stated: laminar tissue
+  terms: [preparation:live_cells]
+  note: A live 2D laminar tissue on a cantilever, measured in culture; live cells' scope covers 2D or patterned cultures. No synonym, since 'laminar tissue' names a format.
+- field: purification
+  stated: puromycin-mediated positive selection
+  terms: [purification:genetic_selection]
+  qualifiers: {agent: puromycin}
+  note: The paper adds puromycin 'to eliminate un-differentiated stem cells'; that puromycin selects through a resistance transgene is not stated (vendor's design). The stated wording is the reader's, not printed.
+- field: measurement_medium
+  stated: regular 199 media
+  terms: [measurement_medium:culture_medium]
+  qualifiers: {medium: regular 199 media}
+  note: Supplementary Fig. S18 legend; contrasted with the serum-free media used in the other dose studies.
+# ---- measures
+- field: measure
+  stated: storage and loss moduli
+  flag: {kind: several measures, note: "Storage modulus and loss modulus are two measures in one item (Supplementary Figs. S8-S9); one item per modulus."}
+- field: measure
+  stated: layer bottom z-position
+  terms: [measure:printed_layer_z_position]
+  qualifiers: {surface: bottom}
+- field: measure
+  stated: layer top z-position
+  terms: [measure:printed_layer_z_position]
+  qualifiers: {surface: top}
+- field: measure
+  stated: electrical resistivity
+  terms: [measure:material_resistivity]
+- field: measure
+  stated: electrical conductivity
+  terms: [measure:material_conductivity]
+- field: measure
+  stated: relative resistance change
+  terms: [measure:sensor_resistance]
+  qualifiers: {expressed_as: "% change", normalised_to: baseline resistance R0}
+  note: "ΔR/R0 of the CB:TPU strain gauge ('σ~ΔR/R0'; 'comparison with local baseline')."
+- field: measure
+  stated: ratio of action potential propagation speed parallel to orthogonal to grooves
+  terms: [measure:conduction_anisotropy_ratio]
+- field: measure
+  stated: AP propagation speed parallel to grooves
+  terms: [measure:conduction_velocity]
+  qualifiers: {direction: parallel to grooves}
+- field: measure
+  stated: AP propagation speed orthogonal to grooves
+  terms: [measure:conduction_velocity]
+  qualifiers: {direction: orthogonal to grooves}
+- field: measure
+  stated: maximum observed activation time
+  terms: [measure:max_activation_time]
+- field: measure
+  stated: apparent EC50 of verapamil on twitch stress
+  terms: [measure:ec50]
+  qualifiers: {compound: verapamil, response: twitch stress}
+  note: Printed as an apparent EC50 although verapamil lowers stress; kept as EC50, as printed.
+- field: measure
+  stated: apparent EC50 of isoproterenol on twitch stress
+  terms: [measure:ec50]
+  qualifiers: {compound: isoproterenol, response: twitch stress}
+- field: measure
+  stated: apparent EC50 of verapamil on spontaneous beating frequency
+  terms: [measure:ec50]
+  qualifiers: {compound: verapamil, response: spontaneous beating frequency}
+- field: measure
+  stated: apparent EC50 of verapamil on stress
+  terms: [measure:ec50]
+  qualifiers: {compound: verapamil, response: stress normalized to initial stress}
+- field: measure
+  stated: apparent EC50 of isoproterenol on peak spontaneous beating frequency
+  terms: [measure:ec50]
+  qualifiers: {compound: isoproterenol, response: peak spontaneous beating frequency}
+- field: measure
+  stated: peak spontaneous beat rate
+  terms: [measure:contraction_frequency]
+  qualifiers: {statistic: peak}
+- field: measure
+  stated: normalized twitch stress
+  terms: [measure:twitch_stress]
+  qualifiers: {expressed_as: normalised}
+  note: What it is normalised to is not printed in the S20/S24 legends; normalised_to left out.

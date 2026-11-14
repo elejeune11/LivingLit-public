@@ -1,0 +1,206 @@
+record: 2022_Ergir
+formula_library_version: 23
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F7A_fabp3.fold_change:
+    item: F7A_fabp3
+    formula: fold = 2**lfc
+    anchor:
+      quote: the heart-type fatty acid binding protein (FABP3) and the lipoprotein lipase (LPL) displayed 4 times fold upregulation
+      where: Results, metabolic activity
+    library:
+      formula: fold_change_from_log2_fold_change
+      vars: {r: fold, l: lfc}
+    inputs:
+      lfc:
+        value: F7A_fabp3.values.fabp3_log2fc_data
+        kind: constant
+        note: DESeq2 log2 fold change 3D-d50 vs 2D-d50 (Supplementary dataset 1)
+    output: F7A_fabp3.values.fabp3_fold_text
+    alternatives:
+    - label: the printed '4 times fold' is the log2 fold change itself
+      formula: fold = lfc
+      note: the record reader's suspected error; the text's 4 matches the log2 value
+  F7A_lpl.fold_change:
+    item: F7A_lpl
+    formula: fold = 2**lfc
+    anchor:
+      quote: the heart-type fatty acid binding protein (FABP3) and the lipoprotein lipase (LPL) displayed 4 times fold upregulation
+      where: Results, metabolic activity
+    library:
+      formula: fold_change_from_log2_fold_change
+      vars: {r: fold, l: lfc}
+    inputs:
+      lfc:
+        value: F7A_lpl.values.lpl_log2fc_data
+        kind: constant
+        note: DESeq2 log2 fold change 3D-d50 vs 2D-d50 (Supplementary dataset 1)
+    output: F7A_lpl.values.lpl_fold_text
+    alternatives:
+    - label: the printed '4 times fold' is the log2 fold change itself
+      formula: fold = lfc
+      note: the record reader's suspected error; the text's 4 matches the log2 value
+  F8F_dox1_vs_untr.viability_dox1:
+    item: F8F_dox1_vs_untr
+    group: dox1
+    formula: v = L/L0
+    anchor:
+      quote: on day 6 of Doxo treatment normalized to untreated samples
+      where: Fig. 8 legend
+    library:
+      formula: ratio_def
+      vars: {r: v, a: L, b: L0}
+    inputs:
+      L: {not_stated: true, kind: per sample, note: CellTiter-Glo luminescence of each 1 µg/mL Doxo sample}
+      L0: {not_stated: true, kind: not stated, note: untreated luminescence (whether the untreated mean or a per-plate value is not stated)}
+    output: F8F_dox1_vs_untr.values.via_dox1_text
+    aggregation: not stated
+  F8F_dox1_vs_untr.viability_untr:
+    item: F8F_dox1_vs_untr
+    group: untr
+    formula: v = L/L0
+    anchor:
+      quote: on day 6 of Doxo treatment normalized to untreated samples
+      where: Fig. 8 legend
+    library:
+      formula: ratio_def
+      vars: {r: v, a: L, b: L0}
+    inputs:
+      L: {not_stated: true, kind: per sample, note: CellTiter-Glo luminescence of each untreated sample}
+      L0: {not_stated: true, kind: not stated, note: untreated luminescence (whether the untreated mean or a per-plate value is not stated)}
+    output: F8F_dox1_vs_untr.values.via_untr_text
+    aggregation: not stated
+    note: the control is normalised to its own group; its printed SD (4.1 %) is not 0, so samples were not each normalised to themselves
+  F8F_dox0p1_vs_untr.viability_dox0p1:
+    item: F8F_dox0p1_vs_untr
+    group: dox0p1
+    formula: v = L/L0
+    anchor:
+      quote: on day 6 of Doxo treatment normalized to untreated samples
+      where: Fig. 8 legend
+    library:
+      formula: ratio_def
+      vars: {r: v, a: L, b: L0}
+    inputs:
+      L: {not_stated: true, kind: per sample, note: CellTiter-Glo luminescence of each 0.1 µg/mL Doxo sample}
+      L0: {not_stated: true, kind: not stated, note: untreated luminescence (whether the untreated mean or a per-plate value is not stated)}
+    output: F8F_dox0p1_vs_untr.values.via_dox0p1_text
+    aggregation: not stated
+  F7B_ocr_baseline.dna_normalised:
+    item: F7B_ocr_baseline
+    formula: ocr = R/D
+    anchor:
+      quote: Metabolic data were normalized by measuring the DNA content of each sample
+      where: Methods, Seahorse XFp Analyzer
+    library:
+      formula: ratio_def
+      vars: {r: ocr, a: R, b: D}
+    inputs:
+      R: {not_stated: true, kind: per sample, note: raw OCR of each well (last baseline measurement before Oligomycin)}
+      D: {not_stated: true, kind: per sample, note: PicoGreen DNA content of each sample; the printed unit expresses the result per 300 ng DNA}
+    aggregation: not stated
+  F7B_ecar_baseline.dna_normalised:
+    item: F7B_ecar_baseline
+    formula: ecar = R/D
+    anchor:
+      quote: Metabolic data were normalized by measuring the DNA content of each sample
+      where: Methods, Seahorse XFp Analyzer
+    library:
+      formula: ratio_def
+      vars: {r: ecar, a: R, b: D}
+    inputs:
+      R: {not_stated: true, kind: per sample, note: raw ECAR of each well (last baseline measurement before Oligomycin)}
+      D: {not_stated: true, kind: per sample, note: PicoGreen DNA content of each sample; the printed unit expresses the result per 300 ng DNA}
+    aggregation: not stated
+  F7C_basal.mito_stress_parameter:
+    item: F7C_basal
+    formula: not stated
+    anchor:
+      quote: The Mito Stress Test was performed according to the manufacturer’s instructions
+      where: Methods, Seahorse XFp Analyzer
+    no_formula: the parameter is computed by the kit's definitions, stated only by reference to the manufacturer's instructions (no citation in the record)
+    inputs:
+      ocr: {item: F7B_ocr_baseline, kind: per sample}
+      nonmito: {not_stated: true, kind: per sample, note: OCR after Rotenone/Antimycin A; not printed}
+    alternatives:
+    - label: Agilent Seahorse XF Cell Mito Stress Test definition (not stated in the paper)
+      formula: basal = ocr - nonmito
+  F7C_atp.mito_stress_parameter:
+    item: F7C_atp
+    formula: not stated
+    anchor:
+      quote: The Mito Stress Test was performed according to the manufacturer’s instructions
+      where: Methods, Seahorse XFp Analyzer
+    no_formula: the parameter is computed by the kit's definitions, stated only by reference to the manufacturer's instructions (no citation in the record)
+    inputs:
+      ocr: {item: F7B_ocr_baseline, kind: per sample}
+      oligo: {not_stated: true, kind: per sample, note: minimum OCR after Oligomycin; not printed}
+    alternatives:
+    - label: Agilent Seahorse XF Cell Mito Stress Test definition (not stated in the paper)
+      formula: atp = ocr - oligo
+    - label: same definitions expressed through printed parameters (ATP production = basal respiration - proton leak)
+      formula: atp = basal - leak
+  F7C_leak.mito_stress_parameter:
+    item: F7C_leak
+    formula: not stated
+    anchor:
+      quote: The Mito Stress Test was performed according to the manufacturer’s instructions
+      where: Methods, Seahorse XFp Analyzer
+    no_formula: the parameter is computed by the kit's definitions, stated only by reference to the manufacturer's instructions (no citation in the record)
+    inputs:
+      oligo: {not_stated: true, kind: per sample, note: minimum OCR after Oligomycin; not printed}
+      nonmito: {not_stated: true, kind: per sample, note: OCR after Rotenone/Antimycin A; not printed}
+    alternatives:
+    - label: Agilent Seahorse XF Cell Mito Stress Test definition (not stated in the paper)
+      formula: leak = oligo - nonmito
+  F7C_spare.mito_stress_parameter:
+    item: F7C_spare
+    formula: not stated
+    anchor:
+      quote: The Mito Stress Test was performed according to the manufacturer’s instructions
+      where: Methods, Seahorse XFp Analyzer
+    no_formula: the parameter is computed by the kit's definitions, stated only by reference to the manufacturer's instructions (no citation in the record)
+    inputs:
+      maxr: {not_stated: true, kind: per sample, note: maximal OCR after FCCP minus non-mitochondrial OCR; not printed (F7B_max_resp has no values)}
+      basal: {item: F7C_basal, kind: per sample}
+    alternatives:
+    - label: Agilent Seahorse XF Cell Mito Stress Test definition, as an absolute difference (not stated in the paper)
+      formula: spare = maxr - basal
+    - label: Agilent definition as a percentage (not stated in the paper)
+      formula: spare = maxr/basal
+assumptions: {}
+bounds:
+- {item: F2B_tnnt2_d15, value: F2B_tnnt2_d15.values.tnnt2_d15_text, formula: fraction_bounds}
+- {item: F2B_cd90_d15, value: F2B_cd90_d15.values.cd90_d15_text, formula: fraction_bounds}
+- {item: F2B_tnnt2_d50, value: F2B_tnnt2_d50.values.tnnt2_3D_d50_text, formula: fraction_bounds}
+- {item: F2B_tnnt2_d50, value: F2B_tnnt2_d50.values.tnnt2_2D_d50_text, formula: fraction_bounds}
+- {item: F2B_cd90_d50, value: F2B_cd90_d50.values.cd90_2D_d50_text, formula: fraction_bounds}
+- {item: F2B_cd90_d50, value: F2B_cd90_d50.values.cd90_3D_d50_text, formula: fraction_bounds}
+- {item: F2B_cd31_d50, value: F2B_cd31_d50.values.cd31_3D_d50_text, formula: fraction_bounds}
+- {item: F2B_cd31_d50, value: F2B_cd31_d50.values.cd31_2D_d50_text, formula: fraction_bounds}
+proposals:
+- formula: fold_change_from_log2_fold_change
+  kind: derived
+  statement: A fold change given as its binary logarithm (a log2 fold change) is two to the power of that logarithm.
+  equations:
+  - r = 2**l
+  variables:
+    r: dimensionless
+    l: dimensionless
+    la: dimensionless
+    lb: dimensionless
+  assumes:
+  - l = la - lb
+  uses:
+  - formula: ratio_from_log2_values
+    subs: {r: r, la: la, lb: lb}
+  does_not_apply: a log fold change on a natural-log or log10 scale, or a shrunken/moderated estimate compared with a ratio of raw means
+  tests:
+  - given: {l: 2.0}
+    expect: {r: 4.0}
+  - given: {l: -1.0}
+    expect: {r: 0.5}
+  - given: {l: 4.0}
+    does_not_apply: 'a log2 fold change of 4 read as a fold change: 16, not 4'

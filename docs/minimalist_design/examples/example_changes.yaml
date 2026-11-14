@@ -1,0 +1,32 @@
+# SKETCH of fields/hipsc_cm/changes.yaml: the append-only event log
+# (docs/minimalist_design/03-vocabulary.md). Written by code from edits that passed
+# the checks; vocab.yaml is rebuilt from it. A made-up history for review.
+# For now events only add: add_term, add_synonym, set_scope.
+
+- version: 1
+  paper: Ewoldt_2025_review                 # the start: upper levels from the review's own groupings
+  agent: {model: llm, instructions: terms_v1, run: V1}
+  events:
+    - {event: add_term, id: platform:2d, anchor: "…two-dimensional (2D) versus three-dimensional (3D) tissue platforms"}
+    - {event: add_term, id: platform:3d, anchor: "…two-dimensional (2D) versus three-dimensional (3D) tissue platforms"}
+    - {event: add_term, id: maturation:alignment, anchor: "we grouped these cues into five categories (alignment, …"}
+    # ... one event per term
+
+- version: 2
+  paper: 2018_Ronaldson-Bouchard             # first paper of the seeded order
+  agent: {model: llm, instructions: terms_v1, run: V1}
+  events:
+    - {event: add_term, id: platform:anchored_eht, parent: platform:3d, why: "question 5: recurs in this paper's 3D items; force depends on it"}
+    - {event: add_term, id: maturation:electrical_ramp, parent: maturation:electrical, why: "question 5: the paper's point is ramp vs constant"}
+    - {event: add_synonym, id: maturation:electrical_ramp, text: intensity training, anchor: "…"}
+
+- version: 14
+  paper: 2021_Zhang
+  agent: {model: llm, instructions: terms_v1, run: V1}
+  events:
+    - {event: add_term, id: platform:micropillar_tissue, parent: platform:anchored_eht,
+       why: "question 5: force from sub-mm pillar tissues is not comparable with mm-scale EHTs"}
+    - {event: add_synonym, id: platform:micropillar_tissue, text: CMT, anchor: "evidence.E08.anchor"}
+  # Computed by code after this version, never stored here:
+  #   possible refinements: 2018_Ronaldson-Bouchard values under platform:anchored_eht (listed, not re-mapped)
+  #   re-mapped once in the refinement pass before review-v1 is frozen

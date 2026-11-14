@@ -1,0 +1,22 @@
+# Written by code from changes.yaml (version 1); never edited.
+formula: conduction_velocity_def
+kind: definition
+statement: Conduction velocity is the distance between two sites divided by the difference of their activation times.
+equations:
+- v = d/(t2 - t1)
+variables:
+  v: velocity
+  d: length
+  t1: time
+  t2: time
+does_not_apply: propagation not along the line between the two sites (curved or oblique wavefront)
+tests:
+- given:
+    d: 1.0
+    t1: 0.0
+    t2: 0.5
+  expect:
+    v: 2.0
+cites:
+  text: 'ISO 80000-3:2019 Quantities and units, Part 3: Space and time (velocity, speed = ds/dt)'
+  url: https://www.iso.org/standard/64974.html

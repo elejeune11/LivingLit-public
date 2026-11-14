@@ -1,0 +1,2441 @@
+record: 2020_Huang
+formula_library_version: 17
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  F5B_static.force:
+    item: F5B_static
+    formula: F = k*delta
+    anchor: &id001
+      quote: The CMTs' contraction forces were calculated using F = kδ
+      where: Methods 2.9
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '0.25'
+        unit: μN/μm
+        anchor: &id002
+          quote: δ is the average deflection of the two micropillars and k = 0.25 μN/μm.
+          where: Methods 2.9
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: the average deflection of the two micropillars, per CMT; no deflections are printed
+    note: no force in μN is printed; the force feeds the stress step
+  F5B_static.stress:
+    item: F5B_static
+    formula: sigma = F/A
+    anchor: not stated
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        derived: F5B_static.force
+        kind: per sample
+      A:
+        not_stated: true
+        kind: not stated
+        note: the paper prints stresses (mN/mm2) and static/dynamic stress panels but never states the area (cross-section) or how it was measured
+    note: 'a stress named, not its formula: ''stress'' is printed beside force from F = kδ, so force over an unstated area'
+  F5C_dynamic.force:
+    item: F5C_dynamic
+    formula: F = k*delta
+    anchor: *id001
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '0.25'
+        unit: μN/μm
+        anchor: *id002
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: the average deflection of the two micropillars, per CMT; no deflections are printed
+    note: no force in μN is printed; the force feeds the stress step
+  F5C_dynamic.stress:
+    item: F5C_dynamic
+    formula: sigma = F/A
+    anchor: not stated
+    library:
+      formula: stress_def
+      vars:
+        sigma: sigma
+        F: F
+        A: A
+    inputs:
+      F:
+        derived: F5C_dynamic.force
+        kind: per sample
+      A:
+        not_stated: true
+        kind: not stated
+        note: the paper prints stresses (mN/mm2) and static/dynamic stress panels but never states the area (cross-section) or how it was measured
+    note: 'a stress named, not its formula: ''stress'' is printed beside force from F = kδ, so force over an unstated area'
+  F5C_peak.force:
+    item: F5C_peak
+    formula: F = k*delta
+    anchor: *id001
+    library:
+      formula: hooke_spring
+      vars:
+        F: F
+        k: k
+        x: delta
+    inputs:
+      k:
+        printed: '0.25'
+        unit: μN/μm
+        anchor: *id002
+        kind: constant
+      delta:
+        not_stated: true
+        kind: per sample
+        note: the average deflection of the two micropillars, per CMT; no deflections are printed
+    note: no force in μN is printed; the force feeds the stress step
+  F5C_peak.stress_ctrl_lo:
+    anchor: not stated
+    formula: sigma = F/A
+    inputs:
+      A:
+        kind: not stated
+        not_stated: true
+        note: the paper prints stresses (mN/mm2) and static/dynamic stress panels but never states the area (cross-section) or how it was measured
+      F:
+        derived: F5C_peak.force
+        kind: per sample
+    item: F5C_peak
+    library:
+      formula: stress_def
+      vars:
+        A: A
+        F: F
+        sigma: sigma
+    note: printed as 'peak dynamic forces' in mN/mm2 (a stress); each end of the printed range is one CMT's or one time point's value, not stated
+      which
+    group: ctrl
+    output: F5C_peak.values.ctrl_lo
+  F5C_peak.stress_ctrl_hi:
+    anchor: not stated
+    formula: sigma = F/A
+    inputs:
+      A:
+        kind: not stated
+        not_stated: true
+        note: the paper prints stresses (mN/mm2) and static/dynamic stress panels but never states the area (cross-section) or how it was measured
+      F:
+        derived: F5C_peak.force
+        kind: per sample
+    item: F5C_peak
+    library:
+      formula: stress_def
+      vars:
+        A: A
+        F: F
+        sigma: sigma
+    note: printed as 'peak dynamic forces' in mN/mm2 (a stress); each end of the printed range is one CMT's or one time point's value, not stated
+      which
+    group: ctrl
+    output: F5C_peak.values.ctrl_hi
+  F5C_peak.stress_tdi_lo:
+    anchor: not stated
+    formula: sigma = F/A
+    inputs:
+      A:
+        kind: not stated
+        not_stated: true
+        note: the paper prints stresses (mN/mm2) and static/dynamic stress panels but never states the area (cross-section) or how it was measured
+      F:
+        derived: F5C_peak.force
+        kind: per sample
+    item: F5C_peak
+    library:
+      formula: stress_def
+      vars:
+        A: A
+        F: F
+        sigma: sigma
+    note: printed as 'peak dynamic forces' in mN/mm2 (a stress); each end of the printed range is one CMT's or one time point's value, not stated
+      which
+    group: tdi
+    output: F5C_peak.values.tdi_lo
+  F5C_peak.stress_tdi_hi:
+    anchor: not stated
+    formula: sigma = F/A
+    inputs:
+      A:
+        kind: not stated
+        not_stated: true
+        note: the paper prints stresses (mN/mm2) and static/dynamic stress panels but never states the area (cross-section) or how it was measured
+      F:
+        derived: F5C_peak.force
+        kind: per sample
+    item: F5C_peak
+    library:
+      formula: stress_def
+      vars:
+        A: A
+        F: F
+        sigma: sigma
+    note: printed as 'peak dynamic forces' in mN/mm2 (a stress); each end of the printed range is one CMT's or one time point's value, not stated
+      which
+    group: tdi
+    output: F5C_peak.values.tdi_hi
+  F4K_CV_1.cv:
+    item: F4K_CV_1
+    formula: nu = dx/(t2 - t1)
+    anchor:
+      quote: the CV was determined as ν = Δx/Δt
+      where: Methods 2.8
+    library:
+      formula: conduction_velocity_def
+      vars:
+        v: nu
+        d: dx
+        t1: t1
+        t2: t2
+    inputs:
+      dx:
+        not_stated: true
+        kind: per sample
+        note: spatial distance between the measurement points at the two ends of a CMT; not printed
+      t1:
+        not_stated: true
+        kind: per sample
+        note: AP onset at the first end
+      t2:
+        not_stated: true
+        kind: per sample
+        note: AP onset at the second end; Δt = t2 − t1
+    note: Δt is printed as the time difference between AP onsets; written as t2 − t1. No CV value is printed (Fig. 4K only)
+  F4H_CV_05.cv:
+    item: F4H_CV_05
+    formula: not stated
+    anchor:
+      quote: the distribution of local conduction velocities was fit with a Gaussian function to determine the average conduction velocity (CV)
+      where: Methods 2.8
+    no_formula: monolayer CV is the centre of a Gaussian fitted to local velocities from custom MATLAB scripts cited as [42,43]; the local-velocity
+      formula is not stated and a curve-fit centre is no closed formula
+  F4H_CV_1.cv:
+    item: F4H_CV_1
+    formula: not stated
+    anchor:
+      quote: the distribution of local conduction velocities was fit with a Gaussian function to determine the average conduction velocity (CV)
+      where: Methods 2.8
+    no_formula: monolayer CV is the centre of a Gaussian fitted to local velocities from custom MATLAB scripts cited as [42,43]; the local-velocity
+      formula is not stated and a curve-fit centre is no closed formula
+  F4F_APD30_1.ratio:
+    item: F4F_APD30_1
+    formula: r = a/b
+    anchor: &id003
+      quote: The mean values for APD30 and APD80 at 1 Hz were about 1.7 times longer for TDI-CMs and 1.4 times longer for TDI-CMTs
+      where: Results 3.3
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: mean APD of TDI at 1 Hz (Fig. 4 panel; no points or printed means)
+      b:
+        not_stated: true
+        kind: not stated
+        note: mean APD of control at 1 Hz
+    output: F4F_APD30_1.values.ratio_text
+    aggregation: of means
+    note: '''times longer'' read as a ratio of the mean values, as the sentence says (''The mean values ... were about 1.7 times longer'')'
+  F4G_APD80_1.ratio:
+    item: F4G_APD80_1
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: mean APD of TDI at 1 Hz (Fig. 4 panel; no points or printed means)
+      b:
+        not_stated: true
+        kind: not stated
+        note: mean APD of control at 1 Hz
+    output: F4G_APD80_1.values.ratio_text
+    aggregation: of means
+    note: '''times longer'' read as a ratio of the mean values, as the sentence says (''The mean values ... were about 1.7 times longer'')'
+  F4I_APD30_1.ratio:
+    item: F4I_APD30_1
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: mean APD of TDI at 1 Hz (Fig. 4 panel; no points or printed means)
+      b:
+        not_stated: true
+        kind: not stated
+        note: mean APD of control at 1 Hz
+    output: F4I_APD30_1.values.ratio_text
+    aggregation: of means
+    note: '''times longer'' read as a ratio of the mean values, as the sentence says (''The mean values ... were about 1.7 times longer'')'
+  F4J_APD80_1.ratio:
+    item: F4J_APD80_1
+    formula: r = a/b
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: not stated
+        note: mean APD of TDI at 1 Hz (Fig. 4 panel; no points or printed means)
+      b:
+        not_stated: true
+        kind: not stated
+        note: mean APD of control at 1 Hz
+    output: F4J_APD80_1.values.ratio_text
+    aggregation: of means
+    note: '''times longer'' read as a ratio of the mean values, as the sentence says (''The mean values ... were about 1.7 times longer'')'
+  ST3_amp_d21.amplitude_tdi_d21_025:
+    item: ST3_amp_d21
+    group: tdi_d21_025
+    formula: amp = peak - dia
+    anchor: &id004
+      quote: the amplitude of each signal was measured from baseline value to peak
+      where: Methods 2.7
+    library:
+      formula: sum_of_parts
+      vars:
+        t: peak
+        a: amp
+        b: dia
+    inputs:
+      peak:
+        value: ST3_peak_d21.values.tdi_d21_025_table
+        part: mean
+        kind: per sample
+      dia:
+        value: ST3_dia_d21.values.tdi_d21_025_table
+        part: mean
+        kind: per sample
+    output: ST3_amp_d21.values.tdi_d21_025_table
+    aggregation: not stated
+    note: 'amplitude from baseline (diastolic) to peak: amp = peak − dia, written with the peak as output of the sum; rebuilt amp is peak − dia.
+      A difference is linear, so mean of per-sample and of means agree'
+  ST3_amp_d21.amplitude_tdi_d21_05:
+    item: ST3_amp_d21
+    group: tdi_d21_05
+    formula: amp = peak - dia
+    anchor: *id004
+    library:
+      formula: sum_of_parts
+      vars:
+        t: peak
+        a: amp
+        b: dia
+    inputs:
+      peak:
+        value: ST3_peak_d21.values.tdi_d21_05_table
+        part: mean
+        kind: per sample
+      dia:
+        value: ST3_dia_d21.values.tdi_d21_05_table
+        part: mean
+        kind: per sample
+    output: ST3_amp_d21.values.tdi_d21_05_table
+    aggregation: not stated
+    note: 'amplitude from baseline (diastolic) to peak: amp = peak − dia, written with the peak as output of the sum; rebuilt amp is peak − dia.
+      A difference is linear, so mean of per-sample and of means agree'
+  ST3_amp_025.amplitude_ctrl_d31_025:
+    item: ST3_amp_025
+    group: ctrl_d31_025
+    formula: amp = peak - dia
+    anchor: *id004
+    library:
+      formula: sum_of_parts
+      vars:
+        t: peak
+        a: amp
+        b: dia
+    inputs:
+      peak:
+        value: ST3_peak_025.values.ctrl_d31_025_table
+        part: mean
+        kind: per sample
+      dia:
+        value: ST3_dia_025.values.ctrl_d31_025_table
+        part: mean
+        kind: per sample
+    output: ST3_amp_025.values.ctrl_d31_025_table
+    aggregation: not stated
+    note: 'amplitude from baseline (diastolic) to peak: amp = peak − dia, written with the peak as output of the sum; rebuilt amp is peak − dia.
+      A difference is linear, so mean of per-sample and of means agree'
+  ST3_amp_025.amplitude_tdi_d31_025:
+    item: ST3_amp_025
+    group: tdi_d31_025
+    formula: amp = peak - dia
+    anchor: *id004
+    library:
+      formula: sum_of_parts
+      vars:
+        t: peak
+        a: amp
+        b: dia
+    inputs:
+      peak:
+        value: ST3_peak_025.values.tdi_d31_025_table
+        part: mean
+        kind: per sample
+      dia:
+        value: ST3_dia_025.values.tdi_d31_025_table
+        part: mean
+        kind: per sample
+    output: ST3_amp_025.values.tdi_d31_025_table
+    aggregation: not stated
+    note: 'amplitude from baseline (diastolic) to peak: amp = peak − dia, written with the peak as output of the sum; rebuilt amp is peak − dia.
+      A difference is linear, so mean of per-sample and of means agree'
+  ST3_amp_05.amplitude_ctrl_d31_05:
+    item: ST3_amp_05
+    group: ctrl_d31_05
+    formula: amp = peak - dia
+    anchor: *id004
+    library:
+      formula: sum_of_parts
+      vars:
+        t: peak
+        a: amp
+        b: dia
+    inputs:
+      peak:
+        value: ST3_peak_05.values.ctrl_d31_05_table
+        part: mean
+        kind: per sample
+      dia:
+        value: ST3_dia_05.values.ctrl_d31_05_table
+        part: mean
+        kind: per sample
+    output: ST3_amp_05.values.ctrl_d31_05_table
+    aggregation: not stated
+    note: 'amplitude from baseline (diastolic) to peak: amp = peak − dia, written with the peak as output of the sum; rebuilt amp is peak − dia.
+      A difference is linear, so mean of per-sample and of means agree'
+  ST3_amp_05.amplitude_tdi_d31_05:
+    item: ST3_amp_05
+    group: tdi_d31_05
+    formula: amp = peak - dia
+    anchor: *id004
+    library:
+      formula: sum_of_parts
+      vars:
+        t: peak
+        a: amp
+        b: dia
+    inputs:
+      peak:
+        value: ST3_peak_05.values.tdi_d31_05_table
+        part: mean
+        kind: per sample
+      dia:
+        value: ST3_dia_05.values.tdi_d31_05_table
+        part: mean
+        kind: per sample
+    output: ST3_amp_05.values.tdi_d31_05_table
+    aggregation: not stated
+    note: 'amplitude from baseline (diastolic) to peak: amp = peak − dia, written with the peak as output of the sum; rebuilt amp is peak − dia.
+      A difference is linear, so mean of per-sample and of means agree'
+  ST3_dia_d21.calibration:
+    item: ST3_dia_d21
+    formula: not stated
+    anchor:
+      quote: The Ca2+ concentration was indexed by the ratio of the signal at 405 nm to that at 485 nm
+      where: Methods 2.7
+    no_formula: values printed in nM, but only the 405/485 nm ratio is stated; the conversion of the ratio to [Ca2+]i (a calibration such as Grynkiewicz's,
+      with Kd, Rmin, Rmax) is not stated
+  ST3_dia_025.calibration:
+    item: ST3_dia_025
+    formula: not stated
+    anchor:
+      quote: The Ca2+ concentration was indexed by the ratio of the signal at 405 nm to that at 485 nm
+      where: Methods 2.7
+    no_formula: values printed in nM, but only the 405/485 nm ratio is stated; the conversion of the ratio to [Ca2+]i (a calibration such as Grynkiewicz's,
+      with Kd, Rmin, Rmax) is not stated
+  ST3_dia_05.calibration:
+    item: ST3_dia_05
+    formula: not stated
+    anchor:
+      quote: The Ca2+ concentration was indexed by the ratio of the signal at 405 nm to that at 485 nm
+      where: Methods 2.7
+    no_formula: values printed in nM, but only the 405/485 nm ratio is stated; the conversion of the ratio to [Ca2+]i (a calibration such as Grynkiewicz's,
+      with Kd, Rmin, Rmax) is not stated
+  ST3_peak_d21.calibration:
+    item: ST3_peak_d21
+    formula: not stated
+    anchor:
+      quote: The Ca2+ concentration was indexed by the ratio of the signal at 405 nm to that at 485 nm
+      where: Methods 2.7
+    no_formula: values printed in nM, but only the 405/485 nm ratio is stated; the conversion of the ratio to [Ca2+]i (a calibration such as Grynkiewicz's,
+      with Kd, Rmin, Rmax) is not stated
+  ST3_peak_025.calibration:
+    item: ST3_peak_025
+    formula: not stated
+    anchor:
+      quote: The Ca2+ concentration was indexed by the ratio of the signal at 405 nm to that at 485 nm
+      where: Methods 2.7
+    no_formula: values printed in nM, but only the 405/485 nm ratio is stated; the conversion of the ratio to [Ca2+]i (a calibration such as Grynkiewicz's,
+      with Kd, Rmin, Rmax) is not stated
+  ST3_peak_05.calibration:
+    item: ST3_peak_05
+    formula: not stated
+    anchor:
+      quote: The Ca2+ concentration was indexed by the ratio of the signal at 405 nm to that at 485 nm
+      where: Methods 2.7
+    no_formula: values printed in nM, but only the 405/485 nm ratio is stated; the conversion of the ratio to [Ca2+]i (a calibration such as Grynkiewicz's,
+      with Kd, Rmin, Rmax) is not stated
+  ST4_amp_025.dff_ctrl_025:
+    item: ST4_amp_025
+    group: ctrl_025
+    formula: dff = (F - F0)/F0
+    anchor: &id005
+      quote: quantified by the intensity change ΔF/ F0 = (F-F0)/F0
+      where: Methods 2.7
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak signal averaged over the selected region
+      F0:
+        not_stated: true
+        kind: per sample
+        note: signal averaged over a 2 s interval before stimulation
+    output: ST4_amp_025.values.ctrl_025_table
+    aggregation: not stated
+  ST4_amp_025.dff_tdi_025:
+    item: ST4_amp_025
+    group: tdi_025
+    formula: dff = (F - F0)/F0
+    anchor: *id005
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak signal averaged over the selected region
+      F0:
+        not_stated: true
+        kind: per sample
+        note: signal averaged over a 2 s interval before stimulation
+    output: ST4_amp_025.values.tdi_025_table
+    aggregation: not stated
+  ST4_amp_05.dff_ctrl_05:
+    item: ST4_amp_05
+    group: ctrl_05
+    formula: dff = (F - F0)/F0
+    anchor: *id005
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak signal averaged over the selected region
+      F0:
+        not_stated: true
+        kind: per sample
+        note: signal averaged over a 2 s interval before stimulation
+    output: ST4_amp_05.values.ctrl_05_table
+    aggregation: not stated
+  ST4_amp_05.dff_tdi_05:
+    item: ST4_amp_05
+    group: tdi_05
+    formula: dff = (F - F0)/F0
+    anchor: *id005
+    library:
+      formula: relative_change
+      vars:
+        d: dff
+        x: F
+        x0: F0
+    inputs:
+      F:
+        not_stated: true
+        kind: per sample
+        note: peak signal averaged over the selected region
+      F0:
+        not_stated: true
+        kind: per sample
+        note: signal averaged over a 2 s interval before stimulation
+    output: ST4_amp_05.values.tdi_05_table
+    aggregation: not stated
+  F1C_width.narrower:
+    item: F1C_width
+    formula: s = (w0 - w)/w0
+    anchor:
+      quote: 30% ± 5% narrower in the center
+      where: Results 3.1
+    library:
+      formula: relative_decrease
+      vars:
+        s: s
+        x: w
+        x0: w0
+    inputs:
+      w:
+        not_stated: true
+        kind: per sample
+        note: TDI-CMT width at the centre
+      w0:
+        not_stated: true
+        kind: not stated
+        note: control-CMT width at the centre
+    output: F1C_width.values.narrower_text
+    aggregation: not stated
+    alternatives:
+    - label: narrower as a fraction of the TDI width
+      formula: s = (w0 - w)/w
+      note: '''narrower'' does not name its reference; the control is the usual one'
+  S3_ar_d6.ratio:
+    item: S3_ar_d6
+    group: tdi_d6
+    formula: r = l/w
+    anchor:
+      quote: with a length to width ratio of 6.4:1
+      where: Results 3.1
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: l
+        b: w
+    inputs:
+      l:
+        not_stated: true
+        kind: per sample
+        note: cell length
+      w:
+        not_stated: true
+        kind: per sample
+        note: cell width
+    output: S3_ar_d6.values.tdi_text
+    aggregation: not stated
+  F5D_ctrl_4v1.pct:
+    item: F5D_ctrl_4v1
+    formula: p = a/b
+    anchor:
+      quote: decreased to 40 ± 3% of its value at
+      where: Results 3.4
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: twitch amplitude at 4 Hz (ctrl_4); Fig. 5D means not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: twitch amplitude at 1 Hz (ctrl_1)
+    output: F5D_ctrl_4v1.values.pct_text
+    aggregation: not stated
+    note: '''% of its value at 1 Hz'' is a named operation (% of baseline): a ratio, as a percentage'
+  F5D_tdi_4v1.pct:
+    item: F5D_tdi_4v1
+    formula: p = a/b
+    anchor:
+      quote: to 88 ± 2% of that at 1 Hz
+      where: Results 3.4
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: a
+        b: b
+    inputs:
+      a:
+        not_stated: true
+        kind: per sample
+        note: twitch amplitude at 4 Hz (tdi_4); Fig. 5D means not printed
+      b:
+        not_stated: true
+        kind: per sample
+        note: twitch amplitude at 1 Hz (tdi_1)
+    output: F5D_tdi_4v1.values.pct_text
+    aggregation: not stated
+    note: '''% of its value at 1 Hz'' is a named operation (% of baseline): a ratio, as a percentage'
+  F5M_tdi_rate.pct:
+    item: F5M_tdi_rate
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: TDI treated CMTs showed increases in beating rate of 360 ± 30%
+      where: Results 3.4
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: value at the high isoproterenol dose
+      x0:
+        not_stated: true
+        kind: per sample
+        note: value at 10−10 M
+    output: F5M_tdi_rate.values.pct_text
+    aggregation: not stated
+    alternatives:
+    - label: percent of baseline (Fig. 5L/M axes start at 100%)
+      formula: d = x/x0
+      note: the record flags the printed increase as possibly a % of baseline
+  F5L_tdi_force.pct:
+    item: F5L_tdi_force
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: in generated force of 184 ± 6%
+      where: Results 3.4
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: value at the high isoproterenol dose
+      x0:
+        not_stated: true
+        kind: per sample
+        note: value at 10−10 M
+    output: F5L_tdi_force.values.pct_text
+    aggregation: not stated
+    alternatives:
+    - label: percent of baseline (Fig. 5L/M axes start at 100%)
+      formula: d = x/x0
+      note: the record flags the printed increase as possibly a % of baseline
+  F5M_ctrl_rate.pct:
+    item: F5M_ctrl_rate
+    formula: d = (x - x0)/x0
+    anchor:
+      quote: with a maximum rate increase of 60 ± 14%
+      where: Results 3.4
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: x
+        x0: x0
+    inputs:
+      x:
+        not_stated: true
+        kind: per sample
+        note: value at the high isoproterenol dose
+      x0:
+        not_stated: true
+        kind: per sample
+        note: value at 10−10 M
+    output: F5M_ctrl_rate.values.pct_text
+    aggregation: not stated
+  F5L_EC50.fit:
+    item: F5L_EC50
+    formula: not stated
+    anchor: not stated
+    no_formula: EC50 from a dose–response fit; the fitted function (e.g. Hill) is not stated, and a fit parameter is no closed formula
+    output: F5L_EC50.values.ec50_legend
+  F3A_CM_TNNT2.fold_change:
+    item: F3A_CM_TNNT2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: &id006
+      quote: qPCR-RNA gene expression analysis was performed on log-transformed data and normalized to untreated controls for each set
+      where: Methods 2.14
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of TNNT2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of TNNT2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_MYH7.fold_change:
+    item: F3A_CM_MYH7
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH7 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH7 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_MYH6.fold_change:
+    item: F3A_CM_MYH6
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH6 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH6 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_GJA1.fold_change:
+    item: F3A_CM_GJA1
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of GJA1 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of GJA1 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_ACTN2.fold_change:
+    item: F3A_CM_ACTN2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of ACTN2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of ACTN2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_MYL2.fold_change:
+    item: F3A_CM_MYL2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYL2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYL2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_JPH2.fold_change:
+    item: F3A_CM_JPH2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of JPH2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of JPH2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_BIN1.fold_change:
+    item: F3A_CM_BIN1
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of BIN1 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of BIN1 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_CAMK2D.fold_change:
+    item: F3A_CM_CAMK2D
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CAMK2D normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CAMK2D normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_PRKACA.fold_change:
+    item: F3A_CM_PRKACA
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PRKACA normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PRKACA normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_PPARGC1A.fold_change:
+    item: F3A_CM_PPARGC1A
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARGC1A normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARGC1A normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_PPARG.fold_change:
+    item: F3A_CM_PPARG
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARG normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARG normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_PPARA.fold_change:
+    item: F3A_CM_PPARA
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARA normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARA normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_ATP2A2.fold_change:
+    item: F3A_CM_ATP2A2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of ATP2A2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of ATP2A2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_RYR2.fold_change:
+    item: F3A_CM_RYR2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of RYR2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of RYR2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_SLC8A1.fold_change:
+    item: F3A_CM_SLC8A1
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of SLC8A1 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of SLC8A1 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_PLN.fold_change:
+    item: F3A_CM_PLN
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PLN normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PLN normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_CACNA1C.fold_change:
+    item: F3A_CM_CACNA1C
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1C normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1C normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_CACNA1G.fold_change:
+    item: F3A_CM_CACNA1G
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1G normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1G normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_CACNA1H.fold_change:
+    item: F3A_CM_CACNA1H
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1H normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1H normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_SCN5A.fold_change:
+    item: F3A_CM_SCN5A
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN5A normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN5A normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_SCN1B.fold_change:
+    item: F3A_CM_SCN1B
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN1B normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN1B normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CM_KCNJ2.fold_change:
+    item: F3A_CM_KCNJ2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of KCNJ2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of KCNJ2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_TNNT2.fold_change:
+    item: F3A_CMT_TNNT2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of TNNT2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of TNNT2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_MYH7.fold_change:
+    item: F3A_CMT_MYH7
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH7 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH7 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_MYH6.fold_change:
+    item: F3A_CMT_MYH6
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH6 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYH6 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_GJA1.fold_change:
+    item: F3A_CMT_GJA1
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of GJA1 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of GJA1 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_ACTN2.fold_change:
+    item: F3A_CMT_ACTN2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of ACTN2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of ACTN2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_MYL2.fold_change:
+    item: F3A_CMT_MYL2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYL2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of MYL2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_JPH2.fold_change:
+    item: F3A_CMT_JPH2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of JPH2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of JPH2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_BIN1.fold_change:
+    item: F3A_CMT_BIN1
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of BIN1 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of BIN1 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_CAMK2D.fold_change:
+    item: F3A_CMT_CAMK2D
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CAMK2D normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CAMK2D normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_PRKACA.fold_change:
+    item: F3A_CMT_PRKACA
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PRKACA normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PRKACA normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_PPARGC1A.fold_change:
+    item: F3A_CMT_PPARGC1A
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARGC1A normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARGC1A normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_PPARG.fold_change:
+    item: F3A_CMT_PPARG
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARG normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARG normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_PPARA.fold_change:
+    item: F3A_CMT_PPARA
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARA normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PPARA normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_ATP2A2.fold_change:
+    item: F3A_CMT_ATP2A2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of ATP2A2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of ATP2A2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_RYR2.fold_change:
+    item: F3A_CMT_RYR2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of RYR2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of RYR2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_SLC8A1.fold_change:
+    item: F3A_CMT_SLC8A1
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of SLC8A1 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of SLC8A1 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_PLN.fold_change:
+    item: F3A_CMT_PLN
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of PLN normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of PLN normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_CACNA1C.fold_change:
+    item: F3A_CMT_CACNA1C
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1C normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1C normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_CACNA1G.fold_change:
+    item: F3A_CMT_CACNA1G
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1G normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1G normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_CACNA1H.fold_change:
+    item: F3A_CMT_CACNA1H
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1H normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of CACNA1H normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_SCN5A.fold_change:
+    item: F3A_CMT_SCN5A
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN5A normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN5A normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_SCN1B.fold_change:
+    item: F3A_CMT_SCN1B
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN1B normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of SCN1B normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3A_CMT_KCNJ2.fold_change:
+    item: F3A_CMT_KCNJ2
+    group: tdi
+    formula: r = 2**(la - lb)
+    anchor: *id006
+    library:
+      formula: ratio_from_log2_values
+      vars:
+        r: r
+        la: la
+        lb: lb
+    inputs:
+      la:
+        not_stated: true
+        kind: per sample
+        note: log2 of KCNJ2 normalised to 18S rRNA, TDI sample of one set
+      lb:
+        not_stated: true
+        kind: per sample
+        note: log2 of KCNJ2 normalised to 18S rRNA, untreated sample of the same set
+    note: the heat maps show log2(r) per set and their average; Ct values are not printed, so nothing to rebuild. Readings of S7/S8 are the per-set
+      log2(r) themselves (outputs, not inputs)
+  F3BG_GJA1.normalised:
+    item: F3BG_GJA1
+    formula: n = band/total
+    anchor: &id007
+      quote: protein band intensities were normalized to the band intensities from a Coomassie Blue
+      where: Methods 2.6
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: GJA1 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_MYH6.normalised:
+    item: F3BG_MYH6
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: MYH6 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_MYH7.normalised:
+    item: F3BG_MYH7
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: MYH7 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_ATP2A2.normalised:
+    item: F3BG_ATP2A2
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: ATP2A2 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_SLC8A1.normalised:
+    item: F3BG_SLC8A1
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: SLC8A1 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_PLN.normalised:
+    item: F3BG_PLN
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: PLN band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_PPARGC1A.normalised:
+    item: F3BG_PPARGC1A
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: PPARGC1A band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_PPARA.normalised:
+    item: F3BG_PPARA
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: PPARA band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_PPARG.normalised:
+    item: F3BG_PPARG
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: PPARG band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_PTEN.normalised:
+    item: F3BG_PTEN
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: PTEN band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_TNNI1.normalised:
+    item: F3BG_TNNI1
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: TNNI1 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_TNNI3.normalised:
+    item: F3BG_TNNI3
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: TNNI3 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_TNNT2.normalised:
+    item: F3BG_TNNT2
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: TNNT2 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_ADRB1.normalised:
+    item: F3BG_ADRB1
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: ADRB1 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_ADRB2.normalised:
+    item: F3BG_ADRB2
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: ADRB2 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_CHRM2.normalised:
+    item: F3BG_CHRM2
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: CHRM2 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_CHRM3.normalised:
+    item: F3BG_CHRM3
+    formula: n = band/total
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: n
+        a: band
+        b: total
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+        note: CHRM3 band intensity
+      total:
+        not_stated: true
+        kind: per sample
+        note: Coomassie-stained lane intensity, identical isolate
+    note: Fig. 3B–G plot 'relative protein levels' with control at 1; the normalisation to control is shown, not stated
+  F3BG_pAKT_TAKT.ratio:
+    item: F3BG_pAKT_TAKT
+    formula: r = p/t
+    anchor:
+      quote: the ratio of phosphorylated AKT (p-AKT) to total AKT
+      where: Results 3.2
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: p-AKT band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total AKT band intensity
+    note: the measure is named as a ratio (p-X/T-X)
+  F3BG_pMTOR_TMTOR.ratio:
+    item: F3BG_pMTOR_TMTOR
+    formula: r = p/t
+    anchor: not stated
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: p
+        b: t
+    inputs:
+      p:
+        not_stated: true
+        kind: per sample
+        note: p-MTOR band intensity
+      t:
+        not_stated: true
+        kind: per sample
+        note: total MTOR band intensity
+    note: the measure is named as a ratio (p-X/T-X)
+assumptions:
+  F5B_static.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          stiffness: The effective spring constant of the pillars for small deflections
+      small deflection:
+        reported: not stated
+  F5C_dynamic.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          stiffness: The effective spring constant of the pillars for small deflections
+      small deflection:
+        reported: not stated
+  F5C_peak.force:
+    model: hooke_spring
+    assumptions:
+      linear spring:
+        reported:
+          stiffness: The effective spring constant of the pillars for small deflections
+      small deflection:
+        reported: not stated
+bounds:
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_neg_B
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_pos_B
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_neg_C
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_pos_C
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_neg_D
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_pos_D
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_neg_E
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_pos_E
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_neg_F
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_pos_F
+  formula: fraction_bounds
+- item: S2_TNNT2
+  value: S2_TNNT2.values.tnnt2_pos_text
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_neg_G
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_pos_G
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_neg_H
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_pos_H
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_neg_I
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_pos_I
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_neg_J
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_pos_J
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_neg_K
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_pos_K
+  formula: fraction_bounds
+- item: S2_CD90
+  value: S2_CD90.values.cd90_pos_text
+  formula: fraction_bounds
+- item: S2_gate
+  value: S2_gate.values.gate_fig
+  formula: fraction_bounds
+- item: S2_gate
+  value: S2_gate.values.gate_legend
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.A_ul
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.A_ur
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.A_ll
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.A_lr
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.B_ul
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.B_ur
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.B_ll
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.B_lr
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.C_ul
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.C_ur
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.C_ll
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.C_lr
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.D_ul
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.D_ur
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.D_ll
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.D_lr
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.E_ul
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.E_ur
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.E_ll
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.E_lr
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.F_ul
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.F_ur
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.F_ll
+  formula: fraction_bounds
+- item: S10_MYL7
+  value: S10_MYL7.values.F_lr
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.G_ul
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.G_ur
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.G_ll
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.G_lr
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.H_ul
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.H_ur
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.H_ll
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.H_lr
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.I_ul
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.I_ur
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.I_ll
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.I_lr
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.J_ul
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.J_ur
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.J_ll
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.J_lr
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.K_ul
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.K_ur
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.K_ll
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.K_lr
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.L_ul
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.L_ur
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.L_ll
+  formula: fraction_bounds
+- item: S10_MYL2
+  value: S10_MYL2.values.L_lr
+  formula: fraction_bounds
+- item: TXT4_organized
+  value: TXT4_organized.values.frac_text
+  formula: fraction_bounds

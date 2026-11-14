@@ -1,0 +1,406 @@
+record: 2020_Giacomelli
+vocabulary_version: 33
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- media and coatings
+- add_synonym: {id: hipsc_medium:essential_8, text: E8 medium,
+    anchor: All hiPSC lines were seeded on vitronectin recombinant human protein and cultured in E8 medium as described previously}
+- add_term:
+    field: hipsc_coating
+    id: hipsc_coating:vitronectin
+    label: vitronectin
+    parent: null
+    definition: Recombinant human vitronectin used to coat plates for undifferentiated hiPSCs.
+    scope: Vitronectin coating; not Matrigel or Geltrex, which are basement-membrane extracts.
+- add_term:
+    field: replating_coating
+    id: replating_coating:vitronectin
+    label: vitronectin
+    parent: null
+    definition: Recombinant human vitronectin used to coat plates when cells are replated.
+    scope: Vitronectin coating; not Matrigel (a basement-membrane extract), fibronectin or gelatin.
+- add_term:
+    field: cm_medium
+    id: cm_medium:bpel
+    label: BPEL medium
+    parent: null
+    definition: The defined BPEL medium (bovine serum albumin, polyvinyl alcohol and essential lipids) used for differentiation and for culturing cardiomyocytes and microtissues.
+    scope: A medium named BPEL; not RPMI 1640, DMEM, α-MEM, IMDM or a medium named only as EHT medium.
+- add_term:
+    field: cm_medium
+    id: cm_medium:fibroblast_growth_medium_3
+    label: Fibroblast Growth Medium 3
+    parent: null
+    definition: PromoCell's Fibroblast Growth Medium 3, a commercial medium for expanding fibroblasts.
+    scope: A fibroblast expansion medium, used when a unit's cells are fibroblasts rather than cardiomyocytes; not a cardiomyocyte medium such as BPEL, RPMI 1640, DMEM, α-MEM or IMDM.
+    synonyms:
+    - {text: FGM3, anchor: CFs were expanded by changing BPEL to Fibroblast Growth Medium 3 (FGM3; PromoCell)}
+- add_qualifier: {id: measurement_medium:culture_medium, name: medium, dimension: text}
+- add_synonym: {id: measurement_medium:assay_medium, text: assay medium,
+    anchor: 1 mM L-glutamine (Thermo Fisher Scientific) (assay medium)}
+# ---------------------------------------------------------------- dissociation, preparation, platform
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:collagenase
+    label: collagenase
+    parent: null
+    definition: A collagen-digesting enzyme used to dissociate tissues into single cells.
+    scope: A collagenase, its type in a qualifier; not trypsin, trypsin-EDTA, TrypLE, Accutase, Accumax or DNase.
+    qualifiers:
+      type: {dimension: text}
+      concentration: {dimension: text}
+- add_synonym: {id: preparation:dissociated_cells, text: single cells,
+    anchor: Single cells were used for either scRNaseq or seeded on 24-well Matrigel-coated plates on top of glass coverslips (10 mm diameter) for immunofluorescence and electrophysiology.}
+- add_synonym: {id: preparation:intact_tissue, text: whole MTs,
+    anchor: were confirmed by sharp electrode electrophysiology on whole MTs (Figures S4B and S4C)}
+- add_synonym: {id: platform:cell_aggregate, text: scaffold-free three-dimensional microtissue,
+    anchor: "enhance maturation in easily constructed, scaffold-free, three-dimensional microtissues (MTs)"}
+# ---------------------------------------------------------------- cell lines
+- adopt:
+    field: cell_line
+    id: CVCL_ZA25
+    label: LUMCi028-A
+    lookup: "cellosaurus 'LUMC0020iCTRL' (exact: synonyms LUMC0020iCTRL06, LUMC0020iCTRL); the paper's CTRL1"
+    synonyms:
+    - {text: LUMC0020iCTRL-06, anchor: CTRL1 hiPSC line LUMC0020iCTRL-06 (female}
+- adopt:
+    field: cell_line
+    id: CVCL_UK77
+    label: LUMCi004-A
+    lookup: "cellosaurus 'LUMC0099iCTRL' (synonym LUMC0099iCTRL04); the paper's CTRL2"
+    synonyms:
+    - {text: LUMC0099iCTRL04, anchor: CTRL2 hiPSC line LUMC0099iCTRL04 (female)}
+- adopt:
+    field: cell_line
+    id: CVCL_ZA24
+    label: LUMCi026-A
+    lookup: "cellosaurus 'LUMC0059iCTRL' (synonym LUMC0059iCTRL03); the paper's CTRL3"
+    synonyms:
+    - {text: LUMC0059iCTRL03, anchor: CTRL3 hiPSC line LUMC0059iCTRL03 (female)}
+- adopt:
+    field: cell_line
+    id: CVCL_ZA18
+    label: LUMCi027-A
+    lookup: "cellosaurus 'LUMC0153iPKP': CVCL_ZA18 (synonym LUMC0153iPKP03, the patient line) and CVCL_ZA19 (its gene-corrected isogenic derivative); the paper prints no clone number and uses the uncorrected patient line"
+    synonyms:
+    - {text: LUMC0153iPKP, anchor: ACM hiPSC line LUMC0153iPKP (female, see below for mutation)}
+# ---------------------------------------------------------------- cell types
+- add_synonym: {id: CL:0002548, text: CFs,
+    anchor: "tricellular combinations of hiPSC-derived CMs, cardiac fibroblasts (CFs), and cardiac endothelial cells also enhance maturation"}
+- add_qualifier: {id: CL:0002548, name: origin, dimension: text}
+- adopt:
+    field: cell_types
+    id: CL:0011019
+    label: mesothelial cell of epicardium
+    lookup: "cl 'epicardial cell' (no hit), 'epicardial' (only epicardial adipocytes), 'epicardium' -> CL:0011019; epicardial cells are the mesothelial cells of the epicardium"
+    synonyms:
+    - {text: epicardial cells, anchor: Epicardial cells (EPIs) contribute more than 80% of CFs in the heart}
+- adopt:
+    field: cell_types
+    id: CL:0002620
+    label: skin fibroblast
+    lookup: "cl 'skin fibroblast' (exact)"
+- adopt:
+    field: stromal_cell
+    id: CL:0002620
+    label: skin fibroblast
+    lookup: "cl 'skin fibroblast' (exact); second field for the same id"
+- add_qualifier: {id: CL:0002620, name: origin, dimension: text}
+- adopt:
+    field: endothelial_cell
+    id: CL:0010008
+    label: cardiac endothelial cell
+    lookup: "cl 'cardiac endothelial cell' (exact); CL:0002350 endocardial cell is narrower and not what the paper names"
+- add_qualifier: {id: CL:0010008, name: origin, dimension: text}
+# ---------------------------------------------------------------- supplements, treatment
+- adopt_own:
+    field: supplements
+    id: supplements:vegf
+    label: vascular endothelial growth factor (isoform not stated)
+    definition: Vascular endothelial growth factor named without its isoform, added routinely to the culture medium.
+    scope: VEGF named without an isoform; VEGF165 when the isoform is named, and not other growth factors (IGF-1, FGF-2, TGF-β1).
+    lookup: "chebi 'vascular endothelial growth factor' and 'VEGF': only receptor antagonists and activators (CHEBI:65207, CHEBI:91189, CHEBI:224893); ChEBI has no entry for the protein"
+    synonyms:
+    - {text: VEGF, anchor: per 50 mL BPEL medium supplemented with VEGF (50 ng/ml)}
+- add_qualifier: {id: CHEBI:760509, name: concentration, dimension: concentration}
+- adopt:
+    field: treatment
+    id: CHEBI:50095
+    label: bucladesine
+    lookup: "chebi 'bucladesine' (exact, N6,2'-O-dibutyryl-cAMP) and 'dibutyryl cAMP' (CHEBI:197402 dibutyryl-cAMP also exists); bucladesine is the established entry for dbcAMP"
+    synonyms:
+    - {text: dbcAMP, anchor: Dibutyryl cAMP (dbcAMP) treatment was performed on CMECFs and CMEC SFs from CTRL1 and CTRL2}
+# ---------------------------------------------------------------- transgenes
+- add_term:
+    field: transgene
+    id: transgene:gja1_overexpression
+    label: connexin-43 (GJA1) overexpression
+    parent: transgene:overexpressed_gene
+    definition: An introduced GJA1 gene that overexpresses connexin-43.
+    scope: Overexpressed connexin-43; not ΔN90 β-catenin, YAP1(S127A) or YAP1(S112A).
+- add_term:
+    field: transgene
+    id: transgene:shrna_knockdown
+    label: shRNA knockdown
+    parent: null
+    definition: A short hairpin RNA construct that silences a named gene (qualifier target).
+    scope: An shRNA that silences a named gene; not an overexpressed gene, a reporter, an indicator, a recombinase, an empty vector or a non-targeting shRNA control.
+    qualifiers:
+      target: {dimension: text}
+      vector: {dimension: text}
+- add_term:
+    field: transgene
+    id: transgene:control_shrna
+    label: non-targeting shRNA control
+    parent: null
+    definition: A construct given as the control of an shRNA knockdown, targeting no gene.
+    scope: The control arm of an shRNA experiment; not a targeting shRNA, an empty vector of an overexpression experiment or a reporter given for its own sake.
+    qualifiers:
+      vector: {dimension: text}
+    synonyms:
+    - {text: scramble shRNA, anchor: GFP expressing virus (pLV-CMV-GFP) was used as a control (scramble shRNA).}
+# ---------------------------------------------------------------- measures
+- add_synonym: {id: measure:ap_notch_fraction, text: fraction of APs with the Ito notch,
+    anchor: "Bar graph showing the fraction of APs with the Ito ‘‘notch’’ (red)."}
+- add_synonym: {id: measure:twitch_duration, text: contraction duration,
+    anchor: (O) Contraction duration (left) and IBI (right) measured in spontaneously beating MTs.}
+- add_synonym: {id: measure:tissue_width, text: MT diameter,
+    anchor: (B) Bar graphs showing MT diameter measured in MTs mounted on glass coverslips}
+- add_synonym: {id: measure:contractile_velocity, text: maximum contraction velocity,
+    anchor: as indicated by the maximum contraction velocity and acceleration measured at increasing pacing frequencies}
+- add_synonym: {id: measure:contractile_velocity, text: contraction velocity,
+    anchor: "and upstroke velocity higher, and contraction velocity and acceleration faster (Figure 6E)"}
+- add_term:
+    field: measure
+    id: measure:sarcomere_alignment_index
+    label: sarcomere alignment index
+    parent: null
+    dimension: dimensionless
+    definition: Area under the first-order peak of the Fourier power spectrum of a sarcomere (α-actinin) image divided by the total area of the spectrum profile.
+    scope: An FFT-based index of sarcomere regularity and alignment; not the sarcomere orientational order parameter, angle dispersion, or the number or length of sarcomeres.
+- add_term:
+    field: measure
+    id: measure:inter_beat_interval
+    label: inter-beat interval
+    parent: null
+    dimension: time
+    definition: Time between successive beats.
+    scope: The interval between beats, a time; not contraction frequency (a rate) and not contraction duration.
+    synonyms:
+    - {text: IBI, anchor: Inter-beat interval (IBI) (F) and normalized contraction duration (G) in spontaneously beating MTs.}
+- add_term:
+    field: measure
+    id: measure:proton_leak
+    label: proton leak
+    parent: measure:oxygen_consumption_rate
+    dimension: amount_rate
+    definition: The mitochondrial oxygen consumption that remains after ATP synthase is blocked with oligomycin.
+    scope: Oligomycin-insensitive mitochondrial respiration; not ATP-linked respiration, maximal respiration or spare respiratory capacity.
+- add_term:
+    field: measure
+    id: measure:glycolytic_reserve
+    label: glycolytic reserve
+    parent: measure:extracellular_acidification_rate
+    dimension: rate
+    definition: Glycolytic capacity minus basal glycolysis, the acidification rate cells can add above their basal rate.
+    scope: The reserve above basal acidification; not glycolytic capacity itself.
+- add_term:
+    field: measure
+    id: measure:internuclear_distance
+    label: distance between nuclei
+    parent: null
+    dimension: length
+    definition: Mean distance between neighbouring nuclei in a tissue, from segmented images.
+    scope: Spacing of nuclei, a proxy for cell packing; not cell size, cell number, tissue width or sarcomere length.
+    synonyms:
+    - {text: average distance between nuclei, anchor: Bar graph showing average distance between nuclei (F) and average volume}
+- add_term:
+    field: measure
+    id: measure:nuclear_volume
+    label: nuclear volume
+    parent: null
+    dimension: volume
+    definition: Volume of cell nuclei from segmented 3D images, for a stated population (qualifier cell_type).
+    scope: Size of nuclei; not cell volume or tissue volume.
+    qualifiers:
+      cell_type: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:contraction_acceleration
+    label: contraction acceleration
+    parent: null
+    dimension: acceleration
+    definition: Rate of change of the displacement velocity of a tissue during contraction, from image-based motion analysis.
+    scope: Acceleration during contraction; not contractile velocity and not relaxation acceleration.
+- add_term:
+    field: measure
+    id: measure:relaxation_acceleration
+    label: relaxation acceleration
+    parent: null
+    dimension: acceleration
+    definition: Rate of change of the displacement velocity of a tissue during relaxation, from image-based motion analysis.
+    scope: Acceleration during relaxation; not relaxation velocity and not contraction acceleration.
+- add_term:
+    field: measure
+    id: measure:net_metabolite_exchange
+    label: net release or uptake of a metabolite
+    parent: null
+    dimension: amount
+    definition: Net amount of a stated metabolite (qualifier metabolite) released into (positive) or taken up from (negative) the culture medium over a culture interval.
+    scope: A signed net exchange of one metabolite with the medium; not a concentration in spent medium, not intracellular metabolite abundance, and not glucose consumption or lactate production when a source names them so.
+    qualifiers:
+      metabolite: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:protein_puncta_per_cell
+    label: protein puncta per cell
+    parent: null
+    dimension: dimensionless
+    definition: Number of immunostained spots of a stated protein (qualifier protein) per cell, from image segmentation.
+    scope: A count of discrete stained spots per cell; not staining intensity, protein level by blot or a fraction of marker-positive cells.
+    qualifiers:
+      protein: {dimension: text}
+- add_term:
+    field: measure
+    id: measure:construct_cost
+    label: cost per construct
+    parent: null
+    dimension: currency
+    definition: Material cost of producing one engineered tissue or construct.
+    scope: An economic figure for making one construct; not a biological measure.
+# ---------------------------------------------------------------- standing keys
+- standing_key:
+    measure: measure:sarcomere_alignment_index
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:inter_beat_interval
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:proton_leak
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:glycolytic_reserve
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:internuclear_distance
+    value: {must_match: [platform@1, preparation, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:nuclear_volume
+    value: {must_match: [platform@1, preparation, measure.cell_type, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.cell_type], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:contraction_acceleration
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:relaxation_acceleration
+    value: {must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, pacing], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:net_metabolite_exchange
+    value: {must_match: [platform@1, measure.metabolite, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.metabolite], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:protein_puncta_per_cell
+    value: {must_match: [platform@1, preparation, measure.protein, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.protein], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:construct_cost
+    value: {must_match: [platform]}
+    direction: {must_match: [contrast]}
+mappings:
+# ---------------------------------------------------------------- context
+- {field: purity_method, stated: troponin positive cells by FACS, terms: [purity_method:flow_cytometry], qualifiers: {marker: troponin}}
+- {field: measurement_medium, stated: BPEL medium, terms: [measurement_medium:culture_medium], qualifiers: {medium: BPEL}}
+- {field: preparation, stated: lysed MTs, terms: [preparation:lysate], note: '"lysed MTs" is not printed as such, so no synonym'}
+- {field: dissociation_reagent, stated: collagenase type II, terms: [dissociation_reagent:collagenase], qualifiers: {type: II}}
+- {field: pacing, stated: 1 Hz, terms: [pacing:electrical_pacing], qualifiers: {frequency: 1 Hz}}
+- {field: pacing, stated: 1.5 Hz, terms: [pacing:electrical_pacing], qualifiers: {frequency: 1.5 Hz}}
+- {field: pacing, stated: paced MTs, terms: [pacing:electrical_pacing], split: [{words: MTs, field: platform}],
+   note: each group carries its own frequency qualifier}
+- {field: pacing, stated: 'paced at 1, 2 or 3 Hz', terms: [pacing:electrical_pacing],
+   note: 'the value lists the unit''s three frequencies, but each group carries its own frequency qualifier, so no frequency is mapped here'}
+- {field: cell_line, stated: CTRL1 + CTRL2, terms: [CVCL_ZA25, CVCL_UK77], note: 'CTRL1 = LUMC0020iCTRL-06, CTRL2 = LUMC0099iCTRL04 (STAR Methods); CTRL1/CTRL2 are not added as synonyms, since other papers use the same names for other lines'}
+- {field: cell_line, stated: CTRL1, terms: [CVCL_ZA25]}
+- {field: cell_line, stated: CTRL2, terms: [CVCL_UK77]}
+- {field: cell_line, stated: CTRL3, terms: [CVCL_ZA24]}
+- {field: cell_line, stated: ACM hiPSC line LUMC0153iPKP, terms: [CVCL_ZA18], split: [{words: ACM, field: disease_model}]}
+- {field: supplements, stated: FGF2 (10 ng/ml), terms: ['CHEBI:760509'], qualifiers: {concentration: 10 ng/ml}}
+- field: supplements
+  stated: Pluricyte medium
+  flag: {kind: two fields in one, note: "A base medium written in supplements; the same unit's (F6E) cm_medium says BPEL medium, and the Methods say the 2D control cells were cultured in Pluricyte medium, so the two fields disagree. Please re-read cm_medium and supplements for F6E."}
+- {field: cell_types, stated: human adult cardiac fibroblasts, terms: ['CL:0002548'], qualifiers: {origin: primary adult}}
+- {field: cell_types, stated: human adult skin fibroblasts, terms: ['CL:0002620'], qualifiers: {origin: primary adult}}
+- {field: cell_types, stated: CFs in MTs, terms: ['CL:0002548'], split: [{words: in MTs, field: platform}]}
+- {field: cell_types, stated: CMs in MTs, terms: ['CL:0000746'], split: [{words: in MTs, field: platform}]}
+- {field: stromal_cell, stated: hiPSC-derived cardiac fibroblasts, terms: ['CL:0002548'], qualifiers: {origin: hiPSC-derived}}
+- {field: stromal_cell, stated: human adult cardiac fibroblasts, terms: ['CL:0002548'], qualifiers: {origin: primary adult}}
+- {field: stromal_cell, stated: human adult skin fibroblasts, terms: ['CL:0002620'], qualifiers: {origin: primary adult}}
+- {field: endothelial_cell, stated: hiPSC-derived cardiac endothelial cells, terms: ['CL:0010008'], qualifiers: {origin: hiPSC-derived}}
+- {field: transgene, stated: empty lentiviral vector, terms: [transgene:empty_vector], qualifiers: {vector: lentiviral}}
+- {field: transgene, stated: CX43 lentivirus, terms: [transgene:gja1_overexpression], qualifiers: {vector: lentivirus}}
+- {field: transgene, stated: CX43-shRNA, terms: [transgene:shrna_knockdown], qualifiers: {target: CX43}}
+- {field: genotype, stated: PKP2 c.2013delC heterozygous, terms: [genotype:pkp2_variant], qualifiers: {variant: c.2013delC, zygosity: heterozygous}}
+- field: disease_model
+  stated: arrhythmogenic cardiomyopathy
+  terms: ['MONDO:0004994']
+  no_ontology_term: "arrhythmogenic cardiomyopathy as the umbrella disease; MONDO has only arrhythmogenic right ventricular cardiomyopathy (MONDO:0016587) and its numbered forms (PKP2: MONDO:0012180), which are narrower than what the paper names"
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: relative mRNA expression of fibroblast and epicardial genes
+  flag: {kind: several measures, note: "One item for a heat map of eight genes (GJA1, ITGA4, COL1A2, COL1A1, POSTN, WT1, TBX18); each gene is its own measure (gene_expression with a gene qualifier). The panel prints no values, so one item per gene may not be needed."}
+- {field: measure, stated: action potential duration at 90% of repolarization, terms: [measure:action_potential_duration], qualifiers: {level: APD90}}
+- {field: measure, stated: normalized contraction duration, terms: [measure:twitch_duration],
+   qualifiers: {expressed_as: normalised, normalised_to: square root of the inter-beat interval}}
+- {field: measure, stated: contraction amplitude, terms: [measure:contraction_motion_amplitude], qualifiers: {metric: MUSCLEMOTION},
+   note: 'image-based amplitude in arbitrary units; "contraction amplitude" is not added as a synonym, since in other papers it can be a force'}
+- {field: measure, stated: time to peak, terms: [measure:calcium_transient_rise_time], qualifiers: {level: time to peak},
+   note: Fig. 4J Ca2+ transient parameters; "time to peak" is too generic for a synonym}
+- {field: measure, stated: peak to 90% decay time, terms: [measure:calcium_transient_decay_time], qualifiers: {level: peak to 90% decay}}
+- {field: measure, stated: peak to half decay time, terms: [measure:calcium_transient_decay_time], qualifiers: {level: peak to half decay}}
+- {field: measure, stated: basal oxygen consumption, terms: [measure:oxygen_consumption_rate], note: 'basal respiration stays on the parent term (as basal acidification does for ECAR); the wording is in the figure only, so no synonym'}
+- {field: measure, stated: basal glycolysis, terms: [measure:extracellular_acidification_rate], note: basal acidification stays on the parent term (scope of glycolytic capacity)}
+- {field: measure, stated: total number of DAPI+ cells, terms: [measure:cell_number], qualifiers: {cell_type: all nuclei (DAPI+)}}
+- {field: measure, stated: percentage of COL1A1+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: COL1A1}}
+- {field: measure, stated: percentage of TNNI+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: TNNI}}
+- {field: measure, stated: percentage of CD31+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: CD31}}
+- {field: measure, stated: percentage of KI67+COL1A1- cells, terms: [measure:marker_positive_cells], qualifiers: {marker: KI67+COL1A1-}}
+- {field: measure, stated: percentage of KI67+COL1A1+ cells, terms: [measure:marker_positive_cells], qualifiers: {marker: KI67+COL1A1+}}
+- {field: measure, stated: percentage of SMA positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: SMA}}
+- {field: measure, stated: average volume of TNNI+ nuclei, terms: [measure:nuclear_volume], qualifiers: {cell_type: TNNI+}}
+- field: measure
+  stated: caffeine-induced Ca2+ transient amplitude
+  terms: [measure:caffeine_calcium_release]
+  qualifiers: {expressed_as: '% of baseline', normalised_to: mean amplitude of the four electrically evoked transients before caffeine}
+- {field: measure, stated: normalized relaxation time, terms: [measure:relaxation_time], qualifiers: {expressed_as: normalised},
+   note: 'what it is normalised to is not stated in the record (likely the inter-beat interval, as for contraction duration)'}
+- {field: measure, stated: net release or uptake of lactate, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: lactate}}
+- {field: measure, stated: net release or uptake of alanine, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: alanine}}
+- {field: measure, stated: net release or uptake of pyroglutamate, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: pyroglutamate}}
+- {field: measure, stated: net release or uptake of d-glucose, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: D-glucose}}
+- {field: measure, stated: net release or uptake of pyruvate, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: pyruvate}}
+- {field: measure, stated: net release or uptake of arginine, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: arginine}}
+- {field: measure, stated: net release or uptake of glutamine, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: glutamine}}
+- {field: measure, stated: net release or uptake of proline, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: proline}}
+- {field: measure, stated: net release or uptake of acetate, terms: [measure:net_metabolite_exchange], qualifiers: {metabolite: acetate}}
+- {field: measure, stated: cAMP concentration, terms: [measure:metabolite_abundance], qualifiers: {metabolite: cAMP}}
+- {field: measure, stated: relative mRNA expression of NOS3, terms: [measure:gene_expression], qualifiers: {gene: NOS3, normalised_to: RPL37A, expressed_as: normalised}}
+- {field: measure, stated: relative mRNA expression of EDN1, terms: [measure:gene_expression], qualifiers: {gene: EDN1, normalised_to: RPL37A, expressed_as: normalised}}
+- {field: measure, stated: relative mRNA expression of GJA1, terms: [measure:gene_expression], qualifiers: {gene: GJA1, normalised_to: HARP and RPL37A, expressed_as: normalised}}
+- {field: measure, stated: number of CX43 per cell, terms: [measure:protein_puncta_per_cell], qualifiers: {protein: CX43}}
+- {field: measure, stated: percentage of MTs that could be paced, terms: [measure:pacing_entrainment], note: 'printed as "Percentages of MTs that could be paced", so no synonym'}
+- {field: measure, stated: PKP2 protein expression normalised to GAPDH, terms: [measure:protein_level], qualifiers: {protein: PKP2, normalised_to: GAPDH, expressed_as: normalised}}
+- {field: measure, stated: PKP2 intensity at cell junctions per cell, terms: [measure:protein_fluorescence_intensity], qualifiers: {protein: PKP2, region: cell-cell junctions}}
+- {field: measure, stated: CX43 intensity at cell junctions per cell, terms: [measure:protein_fluorescence_intensity], qualifiers: {protein: CX43, region: cell-cell junctions}}
+- {field: measure, stated: log2 fold change of ADCY5, terms: [measure:gene_expression], qualifiers: {gene: ADCY5, expressed_as: fold}, note: 'log2 of the fold change (scRNA-seq, edgeR)'}
+- {field: measure, stated: log2 fold change of GJA1, terms: [measure:gene_expression], qualifiers: {gene: GJA1, expressed_as: fold}, note: 'log2 of the fold change (scRNA-seq, edgeR)'}
+- {field: measure, stated: log2 fold change of GUCY1A3, terms: [measure:gene_expression], qualifiers: {gene: GUCY1A3, expressed_as: fold}, note: 'log2 of the fold change (scRNA-seq, edgeR)'}
+- {field: measure, stated: log2 fold change of LDHA, terms: [measure:gene_expression], qualifiers: {gene: LDHA, expressed_as: fold}, note: 'log2 of the fold change (scRNA-seq, edgeR)'}
+- {field: measure, stated: log2 fold change of LDHB, terms: [measure:gene_expression], qualifiers: {gene: LDHB, expressed_as: fold}, note: 'log2 of the fold change (scRNA-seq, edgeR)'}
+- {field: measure, stated: number of upregulated differentially expressed genes, terms: [measure:differentially_expressed_gene_count], qualifiers: {gene_set: upregulated}}
+- {field: measure, stated: cost per microtissue, terms: [measure:construct_cost]}

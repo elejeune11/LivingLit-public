@@ -1,0 +1,204 @@
+# SKETCH of fields/hipsc_cm/vocab.yaml in the proposed format (docs/minimalist_design/03-vocabulary.md).
+# An excerpt for review, not a seeded vocabulary: four fields and a measure, partly filled.
+# Identifiers are readable here (field:slug); opaque ones are open decision 3.
+# Synonyms are matched by code after livinglit.text.normalize; labels count as synonyms.
+# Every synonym is anchored in a paper's text (omitted here for brevity). Nothing comes from the
+# validation study's vocabulary or the curated table.
+# Groups: named rules over terms and qualifiers, usable by comparison keys, not part of the tree.
+
+name: hipsc_cm
+version: 14                     # rebuilt by code from changes.yaml; one version per paper whose job added something
+
+fields:
+
+  # ---------------------------------------------------------------- terms
+  platform:
+    kind: terms
+    description: Culture platform or construct format.
+    exclusive: true             # one condition per evidence item: two sibling terms in one value is flagged
+    terms:
+      - id: platform:2d
+        label: 2D
+        synonyms: [two-dimensional, 2D culture]
+        definition: Cells cultured on a planar surface.
+        scope: Includes patterned and soft planar substrates; a planar sheet of 3D tissue is 3D.
+      - id: platform:monolayer
+        parent: platform:2d
+        label: monolayer
+        synonyms: [standard monolayer, confluent monolayer, sheet]
+        definition: An unpatterned, confluent layer of cells.
+        scope: Not micropatterned; if the adhesive area is patterned, use micropatterned.
+      - id: platform:micropatterned
+        parent: platform:2d
+        label: micropatterned
+        synonyms: [micropattern, micropatterned patch, patterned substrate]
+        definition: Adhesive ligand printed in defined shapes that constrain cell shape or orientation.
+        scope: Use for multicellular patterns; a single cell on an island is single-cell pattern.
+        qualifiers:
+          pattern: {dimension: length, note: "pattern dimensions as printed, e.g. '308 x 45 um'"}
+      - id: platform:single_cell_pattern
+        parent: platform:2d
+        label: single-cell pattern
+        synonyms: [single CM on island, single-cell island]
+        definition: Isolated single cells on patterned adhesive islands.
+        scope: One cell per island; for several cells per pattern use micropatterned.
+        qualifiers:
+          aspect_ratio: {dimension: dimensionless}
+          area: {dimension: area}
+      - id: platform:3d
+        label: 3D
+        synonyms: [three-dimensional, 3D tissue, engineered cardiac tissue]
+        definition: Cells assembled into a three-dimensional construct.
+        scope: Includes scaffold-free aggregates and tissues formed in a matrix.
+      - id: platform:anchored_eht
+        parent: platform:3d
+        label: anchored EHT
+        synonyms: [EHT, engineered heart tissue, tissue between pillars, tissue between posts]
+        definition: A tissue formed around or between flexible anchors (pillars, posts, wires) that apply passive tension.
+        scope: Free-floating tissues are not anchored; use spheroid or patch.
+      - id: platform:spheroid
+        parent: platform:3d
+        label: spheroid
+        synonyms: [cardiac spheroid, microtissue aggregate, scaffold-free aggregate]
+        definition: A self-assembled 3D aggregate with no anchor.
+        scope: Not self-organizing multilineage structures (organoids).
+
+  substrate:
+    kind: terms
+    description: Substrate or matrix the cells sit on or in.
+    exclusive: false            # combinations are sets ("fibrin + 10% Matrigel" -> {fibrin, Matrigel})
+    terms:
+      - id: substrate:natural
+        label: natural matrix
+        definition: A matrix or coating made of native proteins.
+      - id: substrate:fibrin
+        parent: substrate:natural
+        label: fibrin
+        synonyms: [fibrin hydrogel, fibrinogen]
+        definition: A fibrin hydrogel formed from fibrinogen and thrombin.
+        xref: []                # to be looked up, never guessed
+      - id: substrate:matrigel
+        parent: substrate:natural
+        label: Matrigel
+        synonyms: [growth factor reduced Matrigel, GFR Matrigel]   # in the real file, each synonym carries its anchor
+        definition: A basement-membrane extract from mouse tumour cells.
+        scope: Other basement-membrane extracts (e.g. Geltrex) are separate terms unless a paper equates them.
+        qualifiers:
+          fraction: {dimension: dimensionless, note: "e.g. '10%'"}
+      - id: substrate:fibronectin
+        parent: substrate:natural
+        label: fibronectin
+        synonyms: [fibronectin-coated, FN]
+        definition: A fibronectin coating.
+      - id: substrate:synthetic
+        label: synthetic material
+        definition: A synthetic polymer or elastomer.
+      - id: substrate:pdms
+        parent: substrate:synthetic
+        label: PDMS
+        synonyms: [polydimethylsiloxane, silicone elastomer]
+        definition: A silicone elastomer.
+        qualifiers:
+          stiffness: {dimension: pressure}
+      - id: substrate:polyacrylamide
+        parent: substrate:synthetic
+        label: polyacrylamide
+        synonyms: [PA gel, PA hydrogel]
+        definition: A polyacrylamide hydrogel of tunable stiffness.
+        qualifiers:
+          stiffness: {dimension: pressure}
+      - id: substrate:glass
+        parent: substrate:synthetic
+        label: glass or plastic
+        synonyms: [glass, tissue culture plastic, TCP, coverslip]
+        definition: A rigid (GPa-range) culture surface.
+
+    groups:
+      - id: substrate:group_soft
+        label: soft substrate
+        rule: "stiffness < 100 kPa"          # applied by code to qualifiers; terms without a stiffness are not in it
+
+  maturation_strategy:
+    kind: terms
+    description: Deliberate cue used to mature the cells (Ewoldt et al. 2025, Fig. 3 categories).
+    exclusive: false            # several strategies combine; conditions that differ are separate items
+    terms:
+      - id: maturation:none
+        label: none
+        synonyms: [no maturation, untreated]
+        definition: No deliberate maturation strategy.
+      - id: maturation:electrical
+        label: electrical stimulation
+        synonyms: [electrical pacing, field stimulation]
+        definition: Externally applied electrical pulses during culture.
+        scope: Pacing only during a measurement is the pacing field, not a maturation strategy.
+      - id: maturation:electrical_constant
+        parent: maturation:electrical
+        label: constant-frequency pacing
+        definition: Stimulation at a fixed frequency throughout culture.
+        qualifiers:
+          frequency: {dimension: frequency}
+      - id: maturation:electrical_ramp
+        parent: maturation:electrical
+        label: frequency ramp
+        synonyms: [intensity training, ramped pacing]
+        definition: Stimulation frequency increased over the culture period.
+        qualifiers:
+          frequency: {dimension: frequency, note: "range as printed, e.g. '2->6 Hz'"}
+      - id: maturation:metabolic
+        label: metabolic
+        synonyms: [maturation medium, metabolic maturation]
+        definition: Medium or small molecules that shift metabolism toward oxidative phosphorylation.
+      - id: maturation:oxphos_medium
+        parent: maturation:metabolic
+        label: OxPhos medium
+        synonyms: [OxPhos media, galactose fatty acid medium]
+        definition: Medium replacing glucose with galactose and fatty acids.
+
+
+  # ---------------------------------------------------------------- quantity, with named states
+  temperature:
+    kind: quantity
+    dimension: temperature
+    description: Temperature at measurement.
+    states:
+      - id: temperature:room
+        label: room temperature
+        synonyms: [RT, ambient]
+        interval: ["20 C", "25 C"]          # how a state compares with a number; a person sets it
+      - id: temperature:not_applicable_fixed
+        label: "not applicable: fixed cells"
+        synonyms: [fixed cells, fixed]
+        definition: The measurement was made on fixed cells.
+        # a stated temperature of "fixed cells" maps to this state AND is flagged 'two fields in one'
+        # (preparation); the preparation field is re-read, never filled from this text
+
+  # ---------------------------------------------------------------- identifier
+  cell_line:
+    kind: identifier
+    scheme: Cellosaurus            # values resolve through across/materials.yaml
+    description: Cell line(s), with identifiers.
+
+  # ---------------------------------------------------------------- measure
+  measure:
+    kind: measure
+    terms:
+      - id: measure:force
+        label: contractile force
+        synonyms: [twitch force, active force]
+        dimension: force
+      - id: measure:stress
+        label: contractile stress
+        synonyms: [twitch stress, active stress]
+        dimension: pressure
+        derivations:                # later phase (README, Measures); 02-audit, Derived quantities
+          - id: force_over_csa
+            steps: ["force = k x deflection", "stress = force / cross-sectional area"]
+            parameters:
+              k: {dimension: force/length, note: "how k was found: stated / calibrated / beam model"}
+              area: {dimension: area, note: "which area: tissue at rest, at peak, nominal"}
+      - id: measure:conduction_velocity
+        label: conduction velocity
+        synonyms: [CV]
+        dimension: velocity
+        scope: Say whether it is from voltage or calcium mapping (a definition, compared like a derivation).

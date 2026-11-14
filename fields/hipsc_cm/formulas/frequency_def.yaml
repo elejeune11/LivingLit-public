@@ -1,0 +1,18 @@
+# Written by code from changes.yaml (version 1); never edited.
+formula: frequency_def
+kind: definition
+statement: The frequency of a periodic event is the inverse of its period.
+equations:
+- f = 1/T
+variables:
+  f: frequency
+  T: time
+does_not_apply: irregular beating, where the mean of inverse periods differs from the inverse of the mean period
+tests:
+- given:
+    T: 0.5
+  expect:
+    f: 2.0
+cites:
+  text: 'ISO 80000-3:2019 Quantities and units, Part 3: Space and time (frequency f = 1/T)'
+  url: https://www.iso.org/standard/64974.html

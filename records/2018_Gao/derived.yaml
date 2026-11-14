@@ -1,0 +1,2375 @@
+record: 2018_Gao
+formula_library_version: 16
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  S2_mlc2a.dct:
+    item: S2_mlc2a
+    formula: dct = ct - ct_ref
+    anchor: &id001
+      quote: Measurements were calculated via the 2−∆Ct method and normalized to glyceraldehyde phosphate dehydrogenase RNA levels
+      where: Supplemental Methods, Quantitative RT-PCR Analysis
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_mlc2a.expression:
+    item: S2_mlc2a
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_mlc2a.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_mlc2v.dct:
+    item: S2_mlc2v
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_mlc2v.expression:
+    item: S2_mlc2v
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_mlc2v.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_bmhc.dct:
+    item: S2_bmhc
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_bmhc.expression:
+    item: S2_bmhc
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_bmhc.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ltcc.dct:
+    item: S2_ltcc
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ltcc.expression:
+    item: S2_ltcc
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ltcc.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_plb.dct:
+    item: S2_plb
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_plb.expression:
+    item: S2_plb
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_plb.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ncx1.dct:
+    item: S2_ncx1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ncx1.expression:
+    item: S2_ncx1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ncx1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ctnt_vs_d1.dct:
+    item: S2_ctnt_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ctnt_vs_d1.expression:
+    item: S2_ctnt_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ctnt_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ctnt_vs_mono.dct:
+    item: S2_ctnt_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ctnt_vs_mono.expression:
+    item: S2_ctnt_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ctnt_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ctni_vs_d1.dct:
+    item: S2_ctni_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ctni_vs_d1.expression:
+    item: S2_ctni_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ctni_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ctni_vs_mono.dct:
+    item: S2_ctni_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ctni_vs_mono.expression:
+    item: S2_ctni_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ctni_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_amhc_vs_d1.dct:
+    item: S2_amhc_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_amhc_vs_d1.expression:
+    item: S2_amhc_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_amhc_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_amhc_vs_mono.dct:
+    item: S2_amhc_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_amhc_vs_mono.expression:
+    item: S2_amhc_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_amhc_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_cactin1_vs_d1.dct:
+    item: S2_cactin1_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_cactin1_vs_d1.expression:
+    item: S2_cactin1_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_cactin1_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_cactin1_vs_mono.dct:
+    item: S2_cactin1_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_cactin1_vs_mono.expression:
+    item: S2_cactin1_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_cactin1_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ryr2_vs_d1.dct:
+    item: S2_ryr2_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ryr2_vs_d1.expression:
+    item: S2_ryr2_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ryr2_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_ryr2_vs_mono.dct:
+    item: S2_ryr2_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_ryr2_vs_mono.expression:
+    item: S2_ryr2_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_ryr2_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_con43_vs_d1.dct:
+    item: S2_con43_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_con43_vs_d1.expression:
+    item: S2_con43_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_con43_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_con43_vs_mono.dct:
+    item: S2_con43_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_con43_vs_mono.expression:
+    item: S2_con43_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_con43_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_serca2_vs_d1.dct:
+    item: S2_serca2_vs_d1
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_serca2_vs_d1.expression:
+    item: S2_serca2_vs_d1
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_serca2_vs_d1.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S2_serca2_vs_mono.dct:
+    item: S2_serca2_vs_mono
+    formula: dct = ct - ct_ref
+    anchor: *id001
+    library:
+      formula: sum_of_parts
+      vars:
+        t: ct
+        a: dct
+        b: ct_ref
+    inputs:
+      ct:
+        not_stated: true
+        kind: per sample
+        note: Ct of the target gene in each sample; not printed
+      ct_ref:
+        not_stated: true
+        kind: per sample
+        note: Ct of GAPDH in the same sample; not printed
+    note: ΔCt named by the method (target minus the reference GAPDH); no calibrator, so not ΔΔCt
+  S2_serca2_vs_mono.expression:
+    item: S2_serca2_vs_mono
+    formula: expr = 2^(-dct)
+    anchor: *id001
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: expr
+        ddct: dct
+    inputs:
+      dct:
+        derived: S2_serca2_vs_mono.dct
+        kind: per sample
+    aggregation: not stated
+    note: 'the 2^-ΔCt form of the comparative Ct model: r = 2^(-ddct) with the ΔCt against GAPDH in place of ΔΔCt'
+  S3_ctnt.normalised:
+    item: S3_ctnt
+    formula: r = band/band_gapdh
+    anchor: &id002
+      quote: protein levels were quantified via densitometry analysis and normalized to GAPDH levels
+      where: Supplemental Figure 3 legend
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  S3_ctni.normalised:
+    item: S3_ctni
+    formula: r = band/band_gapdh
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  S3_serca2.normalised:
+    item: S3_serca2
+    formula: r = band/band_gapdh
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  S3_ryr2.normalised:
+    item: S3_ryr2
+    formula: r = band/band_gapdh
+    anchor: *id002
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_epo_hcmp_vs_mi.normalised:
+    item: F7gi_epo_hcmp_vs_mi
+    formula: r = band/band_gapdh
+    anchor: &id003
+      quote: EPO, HGF, and Ang1 protein levels were quantified via densitometry analysis and normalized to GAPDH protein levels
+      where: Figure 7 legend
+      file: nihms936001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_epo_hcmp_vs_op.normalised:
+    item: F7gi_epo_hcmp_vs_op
+    formula: r = band/band_gapdh
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_hgf_hcmp_vs_mi.normalised:
+    item: F7gi_hgf_hcmp_vs_mi
+    formula: r = band/band_gapdh
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_hgf_hcmp_vs_op.normalised:
+    item: F7gi_hgf_hcmp_vs_op
+    formula: r = band/band_gapdh
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_ang1_hcmp_vs_mi.normalised:
+    item: F7gi_ang1_hcmp_vs_mi
+    formula: r = band/band_gapdh
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_ang1_hcmp_vs_op.normalised:
+    item: F7gi_ang1_hcmp_vs_op
+    formula: r = band/band_gapdh
+    anchor: *id003
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: band
+        b: band_gapdh
+    inputs:
+      band:
+        not_stated: true
+        kind: per sample
+      band_gapdh:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  S6_ki67.percent:
+    item: S6_ki67
+    formula: r = n_pos/n_cm
+    anchor: &id004
+      quote: the number of nuclei that stained positively for each marker were counted, normalized to the total number of hiPSC-CMs
+      where: Supplemental Methods, Proliferation
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_pos
+        b: n_cm
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+      n_cm:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    note: 'expressed as a percentage: a fraction ×100'
+  S6_ph3.percent:
+    item: S6_ph3
+    formula: r = n_pos/n_cm
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_pos
+        b: n_cm
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+      n_cm:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    note: 'expressed as a percentage: a fraction ×100'
+  S6_aurorab.percent:
+    item: S6_aurorab
+    formula: r = n_pos/n_cm
+    anchor: *id004
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_pos
+        b: n_cm
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+      n_cm:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+    note: 'expressed as a percentage: a fraction ×100'
+  F6eh_tunel_vs_pbs.fraction:
+    item: F6eh_tunel_vs_pbs
+    formula: r = n_tunel/n_nuclei
+    anchor: &id005
+      quote: apoptosis was quantified as the ratio of the number of TUNEL+ nuclei to the total number of nuclei per high-power field
+      where: Supplemental Methods, Exosome cytoprotection assays
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_tunel
+        b: n_nuclei
+    inputs:
+      n_tunel:
+        not_stated: true
+        kind: per sample
+      n_nuclei:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F6eh_tunel_gw_vs_exo.fraction:
+    item: F6eh_tunel_gw_vs_exo
+    formula: r = n_tunel/n_nuclei
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_tunel
+        b: n_nuclei
+    inputs:
+      n_tunel:
+        not_stated: true
+        kind: per sample
+      n_nuclei:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F6eh_tunel_anx_vs_exo.fraction:
+    item: F6eh_tunel_anx_vs_exo
+    formula: r = n_tunel/n_nuclei
+    anchor: *id005
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_tunel
+        b: n_nuclei
+    inputs:
+      n_tunel:
+        not_stated: true
+        kind: per sample
+      n_nuclei:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_tunel_hcmp_vs_mi.fraction:
+    item: F7gi_tunel_hcmp_vs_mi
+    formula: r = n_tunel/n_nuclei
+    anchor: &id006
+      quote: apoptosis was quantified as the ratio of the number of TUNEL+ nuclei to the total number of nuclei per HPF
+      where: Supplemental Methods, Cell apoptosis
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_tunel
+        b: n_nuclei
+    inputs:
+      n_tunel:
+        not_stated: true
+        kind: per sample
+      n_nuclei:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F7gi_tunel_hcmp_vs_op.fraction:
+    item: F7gi_tunel_hcmp_vs_op
+    formula: r = n_tunel/n_nuclei
+    anchor: *id006
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: n_tunel
+        b: n_nuclei
+    inputs:
+      n_tunel:
+        not_stated: true
+        kind: per sample
+      n_nuclei:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F6eh_ldh_vs_pbs.percent_of_pbs:
+    item: F6eh_ldh_vs_pbs
+    formula: r = ldh/ldh_pbs
+    anchor: &id007
+      quote: Measurements for cells cultured in exosome-containing DMEM were normalized to measurements for cells in exosome-free (PBS) DMEM and expressed as percentage
+      where: Supplemental Methods, Exosome cytoprotection assays
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  F6eh_ldh_gw_vs_exo.percent_of_pbs:
+    item: F6eh_ldh_gw_vs_exo
+    formula: r = ldh/ldh_pbs
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  F6eh_ldh_anx_vs_exo.percent_of_pbs:
+    item: F6eh_ldh_anx_vs_exo
+    formula: r = ldh/ldh_pbs
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  F6ij_ldh_ecsmc_vs_pbs.percent_of_pbs:
+    item: F6ij_ldh_ecsmc_vs_pbs
+    formula: r = ldh/ldh_pbs
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  F6ij_ldh_ecsmccm_vs_pbs.percent_of_pbs:
+    item: F6ij_ldh_ecsmccm_vs_pbs
+    formula: r = ldh/ldh_pbs
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  F6ij_ldh_ecsmc_vs_cm.percent_of_pbs:
+    item: F6ij_ldh_ecsmc_vs_cm
+    formula: r = ldh/ldh_pbs
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  F6ij_ldh_ecsmccm_vs_cm.percent_of_pbs:
+    item: F6ij_ldh_ecsmccm_vs_cm
+    formula: r = ldh/ldh_pbs
+    anchor: *id007
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ldh
+        b: ldh_pbs
+    inputs:
+      ldh:
+        not_stated: true
+        kind: per sample
+      ldh_pbs:
+        not_stated: true
+        kind: not stated
+    aggregation: not stated
+    note: '% of the PBS control (fraction ×100); whether each experiment is normalised to its own PBS wells is not stated'
+  S7_tube.mean_per_field:
+    item: S7_tube
+    formula: m = S/n
+    anchor:
+      quote: tube formation was quantified as the mean number of tubes per field
+      where: Supplemental Methods, Tube formation and migration
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: mean_def
+      vars:
+        m: m
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: count summed over the fields of one well
+      n:
+        not_stated: true
+        kind: not stated
+        note: number of fields not stated
+  S7_migration.mean_per_field:
+    item: S7_migration
+    formula: m = S/n
+    anchor:
+      quote: Migration was quantified as the mean number of cells per field
+      where: Supplemental Methods, Tube formation and migration
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: mean_def
+      vars:
+        m: m
+        S: S
+        n: n
+    inputs:
+      S:
+        not_stated: true
+        kind: per sample
+        note: count summed over the fields of one well
+      n:
+        not_stated: true
+        kind: not stated
+        note: number of fields not stated
+  F4_engraftment.cells_per_sample:
+    item: F4_engraftment
+    group: mi_hcmp
+    formula: n_s = mass*c
+    anchor:
+      quote: the number engrafted cells in each sample was calculated by multiplying the mass of the sample by the number of engrafted cells per gram
+      where: Supplemental Methods, Engraftment rate
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    no_formula: no library entry for a count from a mass and a count per mass; not proposed (no printed value to check it against)
+    inputs:
+      mass:
+        not_stated: true
+        kind: per sample
+        note: about 0.5 g per sample
+      c:
+        not_stated: true
+        kind: per sample
+        note: engrafted cells per gram from the qPCR standard curve
+  F4_engraftment.rate:
+    item: F4_engraftment
+    group: mi_hcmp
+    formula: rate = n_eng/n_admin
+    anchor:
+      quote: the final engraftment rate of each animal was calculated as the total number of engrafted
+      where: Supplemental Methods, Engraftment rate
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: rate
+        a: n_eng
+        b: n_admin
+    inputs:
+      n_eng:
+        not_stated: true
+        kind: per sample
+        note: sum over the samples of F4_engraftment.cells_per_sample; per-heart totals not printed
+      n_admin:
+        printed: 1.6x10 7
+        unit: cells
+        kind: constant
+        anchor:
+          quote: divided by the number of cells administered (1.6x10 7)
+          where: Supplemental Methods, Engraftment rate
+          file: NIHMS936001-supplement-Supple_manuscript.pdf
+    output: F4_engraftment.values.rate_results
+    aggregation: mean of per-sample
+    note: one rate per animal, averaged over n=6 hearts; printed in % (fraction ×100)
+  F5_infarct_hcmp_vs_mi.ratio:
+    item: F5_infarct_hcmp_vs_mi
+    formula: r = a_scar/a_lv
+    anchor: &id008
+      quote: presented as the ratio of scar surface area to the total LV surface area
+      where: Supplemental Methods, Contractile function and infarct size assessments
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a_scar
+        b: a_lv
+    inputs:
+      a_scar:
+        not_stated: true
+        kind: per sample
+      a_lv:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F5_infarct_hcmp_vs_op.ratio:
+    item: F5_infarct_hcmp_vs_op
+    formula: r = a_scar/a_lv
+    anchor: *id008
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: a_scar
+        b: a_lv
+    inputs:
+      a_scar:
+        not_stated: true
+        kind: per sample
+      a_lv:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F5_lvef_hcmp_vs_mi.ef:
+    item: F5_lvef_hcmp_vs_mi
+    formula: EF = (EDV - ESV)/EDV
+    anchor: &id009
+      quote: Left ventricular (LV) ejection fractions (EF) were calculated from short-axis cine images by using the QMASS program
+      where: Supplemental Methods, Contractile function and infarct size assessments
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: relative_decrease
+      vars:
+        s: EF
+        x0: EDV
+        x: ESV
+    inputs:
+      EDV:
+        item: F5_lvedv_hcmp_vs_mi
+        kind: per sample
+      ESV:
+        not_stated: true
+        kind: per sample
+        note: end-systolic volume not printed
+    aggregation: not stated
+    note: the named quantity "ejection fraction"; QMASS computes it and the formula is not printed
+  F5_lvef_hcmp_vs_op.ef:
+    item: F5_lvef_hcmp_vs_op
+    formula: EF = (EDV - ESV)/EDV
+    anchor: *id009
+    library:
+      formula: relative_decrease
+      vars:
+        s: EF
+        x0: EDV
+        x: ESV
+    inputs:
+      EDV:
+        item: F5_lvedv_hcmp_vs_op
+        kind: per sample
+      ESV:
+        not_stated: true
+        kind: per sample
+        note: end-systolic volume not printed
+    aggregation: not stated
+    note: the named quantity "ejection fraction"; QMASS computes it and the formula is not printed
+  F5_tf_bz_hcmp_vs_mi.thickening:
+    item: F5_tf_bz_hcmp_vs_mi
+    formula: TF = (ESWT - EDWT)/EDWT
+    anchor: &id010
+      quote: systolic thickening fractions in the infarcted zone (IZ) of the LV wall
+      where: Results, hCMP transplantation improves myocardial performance
+      file: nihms936001.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: TF
+        x: ESWT
+        x0: EDWT
+    inputs:
+      ESWT:
+        not_stated: true
+        kind: per sample
+        note: end-systolic wall thickness not printed
+      EDWT:
+        not_stated: true
+        kind: per sample
+        note: end-diastolic wall thickness not printed
+    aggregation: not stated
+    note: the named quantity "systolic thickening fraction"; its formula is not printed
+  F5_tf_bz_hcmp_vs_op.thickening:
+    item: F5_tf_bz_hcmp_vs_op
+    formula: TF = (ESWT - EDWT)/EDWT
+    anchor: *id010
+    library:
+      formula: relative_change
+      vars:
+        d: TF
+        x: ESWT
+        x0: EDWT
+    inputs:
+      ESWT:
+        not_stated: true
+        kind: per sample
+        note: end-systolic wall thickness not printed
+      EDWT:
+        not_stated: true
+        kind: per sample
+        note: end-diastolic wall thickness not printed
+    aggregation: not stated
+    note: the named quantity "systolic thickening fraction"; its formula is not printed
+  F5_tf_iz_hcmp_vs_mi.thickening:
+    item: F5_tf_iz_hcmp_vs_mi
+    formula: TF = (ESWT - EDWT)/EDWT
+    anchor: *id010
+    library:
+      formula: relative_change
+      vars:
+        d: TF
+        x: ESWT
+        x0: EDWT
+    inputs:
+      ESWT:
+        not_stated: true
+        kind: per sample
+        note: end-systolic wall thickness not printed
+      EDWT:
+        not_stated: true
+        kind: per sample
+        note: end-diastolic wall thickness not printed
+    aggregation: not stated
+    note: the named quantity "systolic thickening fraction"; its formula is not printed
+  F5_tf_iz_hcmp_vs_op.thickening:
+    item: F5_tf_iz_hcmp_vs_op
+    formula: TF = (ESWT - EDWT)/EDWT
+    anchor: *id010
+    library:
+      formula: relative_change
+      vars:
+        d: TF
+        x: ESWT
+        x0: EDWT
+    inputs:
+      ESWT:
+        not_stated: true
+        kind: per sample
+        note: end-systolic wall thickness not printed
+      EDWT:
+        not_stated: true
+        kind: per sample
+        note: end-diastolic wall thickness not printed
+    aggregation: not stated
+    note: the named quantity "systolic thickening fraction"; its formula is not printed
+  F5_tf_rz.thickening:
+    item: F5_tf_rz
+    formula: TF = (ESWT - EDWT)/EDWT
+    anchor: *id010
+    library:
+      formula: relative_change
+      vars:
+        d: TF
+        x: ESWT
+        x0: EDWT
+    inputs:
+      ESWT:
+        not_stated: true
+        kind: per sample
+        note: end-systolic wall thickness not printed
+      EDWT:
+        not_stated: true
+        kind: per sample
+        note: end-diastolic wall thickness not printed
+    aggregation: not stated
+    note: the named quantity "systolic thickening fraction"; its formula is not printed
+  F5_lvwbw_hcmp_vs_mi.ratio:
+    item: F5_lvwbw_hcmp_vs_mi
+    formula: r = lvw/bw
+    anchor: &id011
+      quote: the LV weight to body weight (LVW/BW) ratios were determined
+      where: Figure 5 legend
+      file: nihms936001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: lvw
+        b: bw
+    inputs:
+      lvw:
+        not_stated: true
+        kind: per sample
+      bw:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F5_lvwbw_hcmp_vs_op.ratio:
+    item: F5_lvwbw_hcmp_vs_op
+    formula: r = lvw/bw
+    anchor: *id011
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: lvw
+        b: bw
+    inputs:
+      lvw:
+        not_stated: true
+        kind: per sample
+      bw:
+        not_stated: true
+        kind: per sample
+    aggregation: not stated
+  F5_ws_bz_hcmp_vs_op.laplace:
+    item: F5_ws_bz_hcmp_vs_op
+    formula: sigma = P*r/(2*h)
+    anchor: &id012
+      quote: Systolic Wall stress = LV systolic pressure × LV chamber radius / (2 × LV thickness)
+      where: Supplemental Methods, Hemodynamic and wall stress assessments
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: laplace_thin_wall_sphere
+      vars:
+        sigma: sigma
+        P: P
+        r: r
+        h: h
+    inputs:
+      P:
+        item: F5_lvsp_hcmp_vs_op
+        kind: per sample
+      r:
+        not_stated: true
+        kind: per sample
+        note: LV chamber radius from MRI; not printed
+      h:
+        not_stated: true
+        kind: per sample
+        note: regional LV wall thickness from MRI; not printed
+    aggregation: not stated
+  F5_ws_iz_hcmp_vs_mi.laplace:
+    item: F5_ws_iz_hcmp_vs_mi
+    formula: sigma = P*r/(2*h)
+    anchor: *id012
+    library:
+      formula: laplace_thin_wall_sphere
+      vars:
+        sigma: sigma
+        P: P
+        r: r
+        h: h
+    inputs:
+      P:
+        item: F5_lvsp_hcmp_vs_mi
+        kind: per sample
+      r:
+        not_stated: true
+        kind: per sample
+        note: LV chamber radius from MRI; not printed
+      h:
+        not_stated: true
+        kind: per sample
+        note: regional LV wall thickness from MRI; not printed
+    aggregation: not stated
+  F5_ws_iz_hcmp_vs_op.laplace:
+    item: F5_ws_iz_hcmp_vs_op
+    formula: sigma = P*r/(2*h)
+    anchor: *id012
+    library:
+      formula: laplace_thin_wall_sphere
+      vars:
+        sigma: sigma
+        P: P
+        r: r
+        h: h
+    inputs:
+      P:
+        item: F5_lvsp_hcmp_vs_op
+        kind: per sample
+      r:
+        not_stated: true
+        kind: per sample
+        note: LV chamber radius from MRI; not printed
+      h:
+        not_stated: true
+        kind: per sample
+        note: regional LV wall thickness from MRI; not printed
+    aggregation: not stated
+  F5_ws_rz.laplace:
+    item: F5_ws_rz
+    formula: sigma = P*r/(2*h)
+    anchor: *id012
+    library:
+      formula: laplace_thin_wall_sphere
+      vars:
+        sigma: sigma
+        P: P
+        r: r
+        h: h
+    inputs:
+      P:
+        not_stated: true
+        kind: per sample
+        note: LV systolic pressure of the three MI groups; each F5_lvsp_* item covers two of them
+      r:
+        not_stated: true
+        kind: per sample
+        note: LV chamber radius from MRI; not printed
+      h:
+        not_stated: true
+        kind: per sample
+        note: regional LV wall thickness from MRI; not printed
+    aggregation: not stated
+  F8_ctnt.ptotal:
+    item: F8_ctnt
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: &id013
+      quote: Ptotal = (%Pmono + (2 × %Pbis) + (3 × %Ptris) + …)/100
+      where: Supplemental Methods, MS-based quantification of protein phosphorylation
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_mlc2v.ptotal:
+    item: F8_mlc2v
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_atpm_mi_vs_sham.ptotal:
+    item: F8_atpm_mi_vs_sham
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_btpm_mi_vs_sham.ptotal:
+    item: F8_btpm_mi_vs_sham
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_btpm_hcmp_vs_sham.ptotal:
+    item: F8_btpm_hcmp_vs_sham
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_ctni_mi_vs_sham.ptotal:
+    item: F8_ctni_mi_vs_sham
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_ctni_hcmp_vs_mi.ptotal:
+    item: F8_ctni_hcmp_vs_mi
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_enh2_mi_vs_sham.ptotal:
+    item: F8_enh2_mi_vs_sham
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  F8_enh2_hcmp_vs_mi.ptotal:
+    item: F8_enh2_hcmp_vs_mi
+    formula: Ptotal = (pmono + 2*pbis + 3*ptris)/100
+    anchor: *id013
+    library:
+      formula: ptotal_from_relative_abundance
+      vars:
+        P: Ptotal
+        p1: pmono
+        p2: pbis
+        p3: ptris
+    inputs:
+      pmono:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the mono-phosphorylated form'
+      pbis:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the bis-phosphorylated form'
+      ptris:
+        not_stated: true
+        kind: per sample
+        note: '% relative abundance of the tris-phosphorylated form'
+    alternatives:
+    - label: four or more phosphorylated forms
+      note: the printed formula continues "+ …"; terms beyond tris are not in this derivation
+    aggregation: not stated
+  S8_cv_inj.cv:
+    item: S8_cv_inj
+    formula: cv = sd/m
+    anchor: &id014
+      quote: as indicated by coefficient of variation (%) values below 8%
+      where: Supplemental Methods, Top-down LC-MS analysis
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: sd
+        m: m
+    inputs:
+      sd:
+        not_stated: true
+        kind: constant
+        note: SD of the replicate cTnI Ptotal values; not printed
+      m:
+        not_stated: true
+        kind: constant
+        note: mean of the replicate cTnI Ptotal values; not printed
+    output: S8_cv_inj.values.cv_figure
+    note: 'printed in %: a fraction ×100'
+  S8_cv_ext.cv:
+    item: S8_cv_ext
+    formula: cv = sd/m
+    anchor: *id014
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: sd
+        m: m
+    inputs:
+      sd:
+        not_stated: true
+        kind: constant
+        note: SD of the replicate cTnI Ptotal values; not printed
+      m:
+        not_stated: true
+        kind: constant
+        note: mean of the replicate cTnI Ptotal values; not printed
+    output: S8_cv_ext.values.cv_figure
+    note: 'printed in %: a fraction ×100'
+  S8_cv_inst.cv:
+    item: S8_cv_inst
+    formula: cv = sd/m
+    anchor: *id014
+    library:
+      formula: cv_def
+      vars:
+        cv: cv
+        sd: sd
+        m: m
+    inputs:
+      sd:
+        not_stated: true
+        kind: constant
+        note: SD of the replicate cTnI Ptotal values; not printed
+      m:
+        not_stated: true
+        kind: constant
+        note: mean of the replicate cTnI Ptotal values; not printed
+    output: S8_cv_inst.values.cv_figure
+    note: 'printed in %: a fraction ×100'
+  F3bd_cv.velocity:
+    item: F3bd_cv
+    group: hcmp
+    formula: not stated
+    anchor:
+      quote: Conduction velocity was calculated from the activation time at each recording site and averaged across the whole map
+      where: Supplemental Methods, Optical mapping of Vm and Ca2+
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    no_formula: how local velocity is obtained from the activation times (gradient fit or neighbour differences) is not stated; the map value is a mean of local velocities
+    inputs:
+      dx:
+        printed: '110'
+        unit: µm
+        kind: constant
+        anchor:
+          quote: at a spatial resolution of 110 µm per diode
+          where: Supplemental Methods, Optical mapping of Vm and Ca2+
+          file: NIHMS936001-supplement-Supple_manuscript.pdf
+      t_act:
+        not_stated: true
+        kind: per sample
+        note: activation time at each recording site; not printed
+    alternatives:
+    - label: neighbour difference
+      formula: v = dx/(t2 - t1)
+      note: conduction_velocity_def between adjacent diodes, then averaged over the map
+    output: F3bd_cv.values.mean_text
+    aggregation: not stated
+  F3ef_resistivity.impedance:
+    item: F3ef_resistivity
+    formula: not stated
+    anchor:
+      quote: simultaneous acquisition of the two recordings at a given frequency enables identification of a microscopic composite impedance (uCI)
+      where: Supplemental Methods, Micro-impedance measurement
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    no_formula: 'method stated only by citation (refs 11, 12): the real part of the microscopic composite impedance'
+    inputs:
+      uCI:
+        by_reference:
+          citation: pollard2013
+          anchor:
+            quote: As previously described, 11, 12 simultaneous acquisition of the two recordings
+            where: Supplemental Methods, Micro-impedance measurement
+            file: NIHMS936001-supplement-Supple_manuscript.pdf
+        kind: per sample
+  F3ef_reactivity.impedance:
+    item: F3ef_reactivity
+    formula: not stated
+    anchor:
+      quote: simultaneous acquisition of the two recordings at a given frequency enables identification of a microscopic composite impedance (uCI)
+      where: Supplemental Methods, Micro-impedance measurement
+      file: NIHMS936001-supplement-Supple_manuscript.pdf
+    no_formula: 'method stated only by citation (refs 11, 12): the imaginary part of the microscopic composite impedance'
+    inputs:
+      uCI:
+        by_reference:
+          citation: pollard2013
+          anchor:
+            quote: As previously described, 11, 12 simultaneous acquisition of the two recordings
+            where: Supplemental Methods, Micro-impedance measurement
+            file: NIHMS936001-supplement-Supple_manuscript.pdf
+        kind: per sample
+  F3mn_force_per_cm.n_cm_cmonly:
+    item: F3mn_force_per_cm
+    group: cmonly
+    formula: Nc = a + b + c
+    anchor:
+      quote: patches that contained the same total number of cells but were composed of only hiPSC-CMs
+      where: Results, Functional assessment of hCMPs in vitro
+      file: nihms936001.pdf
+    library:
+      formula: sum_of_three_parts
+      vars:
+        t: Nc
+        a: a
+        b: b
+        c: c
+    inputs:
+      a:
+        printed: 1 million
+        unit: cells
+        kind: constant
+        anchor: &id015
+          quote: 1 million hiPSC-CMs, 0.5 million hiPSC-ECs, and 0.5 million hiPSC-SMCs
+          where: Supplemental Methods, Force generation assessment
+          file: NIHMS936001-supplement-Supple_manuscript.pdf
+      b:
+        printed: 0.5 million
+        unit: cells
+        kind: constant
+        anchor: *id015
+      c:
+        printed: 0.5 million
+        unit: cells
+        kind: constant
+        anchor: *id015
+    note: CM-only force patches hold the force-test hCMP total (1 + 0.5 + 0.5 million) as CMs; "million" is a word, so these numbers are in 10^6 cells
+  F3mn_force_per_cm.per_cm_tri:
+    item: F3mn_force_per_cm
+    group: tri
+    formula: f = F/N
+    anchor: &id016
+      quote: the amount of force generated per cardiomyocyte was approximately twice as great in the hCMPs
+      where: Results, Functional assessment of hCMPs in vitro
+      file: nihms936001.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        item: F3mn_total_force
+        kind: per sample
+      N:
+        printed: 1 million
+        unit: cells
+        kind: constant
+        anchor: *id015
+        note: 'printed as "1 million": 10^6 cells'
+    output: F3mn_force_per_cm.values.per_myocyte_discussion
+    aggregation: not stated
+    note: the 1.1 nN/myocyte of the Discussion; the Figure 3M forces are not read (no readings)
+  F3mn_force_per_cm.per_cm_cmonly:
+    item: F3mn_force_per_cm
+    group: cmonly
+    formula: f = F/N
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: F
+        b: N
+    inputs:
+      F:
+        item: F3mn_total_force
+        kind: per sample
+      N:
+        derived: F3mn_force_per_cm.n_cm_cmonly
+        kind: constant
+    aggregation: not stated
+  F3mn_force_per_cm.ratio:
+    item: F3mn_force_per_cm
+    formula: r = ft/fc
+    anchor: *id016
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: ft
+        b: fc
+    inputs:
+      ft:
+        derived: F3mn_force_per_cm.per_cm_tri
+        kind: per sample
+      fc:
+        derived: F3mn_force_per_cm.per_cm_cmonly
+        kind: per sample
+    output: F3mn_force_per_cm.values.ratio_text
+    aggregation: of means
+    note: with equal total force (Figure 3M, not significant) the ratio is Nc/Nt = 2
+assumptions:
+  S2_mlc2a.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_mlc2v.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_bmhc.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ltcc.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_plb.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ncx1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ctnt_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ctnt_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ctni_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ctni_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_amhc_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_amhc_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_cactin1_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_cactin1_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ryr2_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_ryr2_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_con43_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_con43_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_serca2_vs_d1.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  S2_serca2_vs_mono.expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F5_ws_bz_hcmp_vs_op.laplace:
+    model: laplace_thin_wall_sphere
+    assumptions:
+      thin wall (thickness much smaller than radius):
+        reported: not stated
+      spherical chamber:
+        reported: not stated
+      uniform wall thickness:
+        reported: not stated
+  F5_ws_iz_hcmp_vs_mi.laplace:
+    model: laplace_thin_wall_sphere
+    assumptions:
+      thin wall (thickness much smaller than radius):
+        reported: not stated
+      spherical chamber:
+        reported: not stated
+      uniform wall thickness:
+        reported: not stated
+  F5_ws_iz_hcmp_vs_op.laplace:
+    model: laplace_thin_wall_sphere
+    assumptions:
+      thin wall (thickness much smaller than radius):
+        reported: not stated
+      spherical chamber:
+        reported: not stated
+      uniform wall thickness:
+        reported: not stated
+  F5_ws_rz.laplace:
+    model: laplace_thin_wall_sphere
+    assumptions:
+      thin wall (thickness much smaller than radius):
+        reported: not stated
+      spherical chamber:
+        reported: not stated
+      uniform wall thickness:
+        reported: not stated
+bounds:
+- item: S1_purity_cm
+  value: S1_purity_cm.values.pct_text
+  formula: fraction_bounds
+- item: S1_purity_cm
+  value: S1_purity_cm.values.pct_figure
+  formula: fraction_bounds
+- item: S1_purity_smc
+  value: S1_purity_smc.values.pct_text
+  formula: fraction_bounds
+- item: S1_purity_smc
+  value: S1_purity_smc.values.pct_figure
+  formula: fraction_bounds
+- item: S1_purity_cd31
+  value: S1_purity_cd31.values.pct_figure
+  formula: fraction_bounds
+- item: S1_purity_vecad
+  value: S1_purity_vecad.values.pct_figure
+  formula: fraction_bounds
+- item: F4_engraftment
+  value: F4_engraftment.values.rate_results
+  formula: fraction_bounds
+- item: F4_engraftment
+  value: F4_engraftment.values.rate_abstract
+  formula: fraction_bounds
+- item: F4_human_vessels
+  value: F4_human_vessels.values.pct_text
+  formula: fraction_bounds
+proposals:
+- formula: laplace_thin_wall_sphere
+  kind: model
+  statement: In a thin-walled sphere under uniform internal pressure, the wall (hoop) stress is the pressure times the radius divided by twice the wall thickness (law of Laplace).
+  equations:
+  - sigma = P*r/(2*h)
+  variables:
+    sigma: stress
+    P: pressure
+    r: length
+    h: length
+  assumes:
+  - thin wall (thickness much smaller than radius)
+  - spherical chamber
+  - uniform wall thickness
+  does_not_apply: a thick wall (h/r above about 0.1), where stress varies through the wall, or a cylindrical chamber (hoop stress P*r/h)
+  tests:
+  - given:
+      P: 16.0
+      r: 3.0
+      h: 1.0
+    expect:
+      sigma: 24.0
+  - given:
+      P: 16.0
+      r: 3.0
+      h: 1.0
+    does_not_apply: 'cylindrical vessel: hoop stress P*r/h = 48, not 24'
+  cites:
+    text: 'Young WC, Budynas RG. Roark''s Formulas for Stress and Strain, 7th ed., McGraw-Hill 2002, ch. 13 (thin-walled pressure vessels: sphere under uniform internal pressure)'
+    quote: 'thin-walled sphere: sigma1 = sigma2 = qR/(2t)'
+    url: https://en.wikipedia.org/wiki/Cylinder_stress
+- formula: ptotal_from_relative_abundance
+  kind: derived
+  statement: The mean number of phosphates per protein molecule (Ptotal, mol Pi/mol protein) is the sum of each phosphorylated form's percent relative abundance times its number of phosphates, divided by
+    100 (forms with up to three phosphates).
+  equations:
+  - P = (p1 + 2*p2 + 3*p3)/100
+  variables:
+    P: dimensionless
+    p1: dimensionless
+    p2: dimensionless
+    p3: dimensionless
+    S: count
+    n: count
+    n1: count
+    n2: count
+    n3: count
+  uses:
+  - formula: mean_def
+    subs:
+      m: P
+      S: S
+      n: n
+  assumes:
+  - S = n1 + 2*n2 + 3*n3
+  - p1 = 100*n1/n
+  - p2 = 100*n2/n
+  - p3 = 100*n3/n
+  does_not_apply: a protein with forms carrying four or more phosphates (add 4*p4/100 and so on), or abundances given as fractions rather than percentages
+  tests:
+  - given:
+      p1: 30.0
+      p2: 10.0
+      p3: 0.0
+    expect:
+      P: 0.5
+  - given:
+      p1: 20.0
+      p2: 20.0
+      p3: 20.0
+    expect:
+      P: 1.2
+  - given:
+      p1: 30.0
+      p2: 10.0
+      p3: 0.0
+    does_not_apply: 'abundances as fractions (0.3, 0.1): P is 0.005, not 0.5'

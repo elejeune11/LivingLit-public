@@ -1,0 +1,47 @@
+# Papers, supplements, source data, figures and overlays never enter git.
+papers_dont_ever_commit/
+*dont_commit*
+*dont_ever_commit*
+
+# Belt and braces: no paper-like binaries anywhere outside docs/.
+*.pdf
+*.xlsx
+*.xls
+*.docx
+!docs/**/*.pdf
+
+# Python and tooling
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# OS
+.DS_Store
+
+# Reader run state (logs are *_dont_commit)
+**/runs/*/state.db
+**/runs/*/*/schema_*.json
+**/runs/*/*/vocab.yaml
+**/runs/*/*/example_record.yaml
+**/runs/*/*/*/schema_table.json
+**/runs/*/*/*/columns.yaml
+**/runs/*/*/*/example_row.yaml
+
+# v5 generated files (rebuilt from records on every run)
+records/*/audit.yaml
+records/*/values.csv
+releases/
+*overlay*dont_commit*
+**/records/*/audit.yaml
+**/records/*/values.csv
+**/__pycache__/
+# ontology indexes and page renders live outside git
+ontologies_dont_commit/
+uv.lock.bak
+
+# the agent command line is local configuration (see agent.example.yaml)
+agent.yaml

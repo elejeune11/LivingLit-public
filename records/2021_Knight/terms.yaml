@@ -1,0 +1,384 @@
+record: 2021_Knight
+vocabulary_version: 60
+agent: {model: llm, instructions: terms_v4}
+edits:
+# ---------------------------------------------------------------- context: synonyms
+- add_synonym: {id: purification:metabolic_selection, text: lactate medium,
+    anchor: "Twenty to twenty-five days post induction, cardiomyocytes were enriched using lactate medium"}
+- add_synonym: {id: preparation:fixed, text: fixed cells,
+    anchor: "All measurements of cell area and hypertrophy were conducted on PFA-fixed cells."}
+- add_synonym: {id: preparation:lysate, text: lysates, anchor: "normalized to α-tubulin. N = 5 lysates."}
+- add_synonym: {id: preparation:rna_extract, text: RNA extraction,
+    anchor: "RNA was generated via a column-free RNA extraction method."}
+- add_synonym: {id: CHEBI:8093, field: treatment, text: PE,
+    anchor: "For phenylephrine (PE)-induced hypertrophy, hiPSC-CMs were treated with 10 µM PE or vehicle (PBS) for 48 hours."}
+- add_synonym: {id: MONDO:0005045, field: disease_model, text: HCM,
+    anchor: "Myofibril mechanics data from human donor and idiopathic hypertrophic cardiomyopathy (HCM) hearts."}
+# ---------------------------------------------------------------- context: adopted ids
+- adopt: {field: treatment, id: "CHEBI:748559", label: deferoxamine mesylate,
+    lookup: "chebi 'desferrioxamine' and 'deferoxamine'; the paper names the salt: 'deferoxamine mesylate (DFO)'",
+    synonyms: [{text: DFO, anchor: "For deferoxamine mesylate (DFO) (MilliporeSigma, Burlington, MA)-induced hypertrophy, cells were treated with 30 mM DFO in DMSO or vehicle (DMSO) for 96 hours."}]}
+- adopt: {field: disease_model, id: "MONDO:0010281", label: Danon disease, lookup: "mondo 'Danon disease' (exact label)"}
+- adopt: {field: supplements, id: "CHEBI:7896", label: hexadecanoate,
+    lookup: "second field for the id already adopted in treatment (synonym palmitic acid); chebi 'palmitic acid' gave only derivatives"}
+- adopt: {field: supplements, id: "CHEBI:16196", label: oleic acid,
+    lookup: "second field for the id already adopted in treatment; chebi 'oleic acid' (exact label)"}
+- adopt_own: {field: cell_line, id: "cell_line:cuso_1", label: CUSO-1,
+    scope: "The CUSO-1 line only; not CUSO-2, the other healthy-donor line of the same lab.",
+    definition: "hiPSC line CUSO-1 of the University of Colorado, derived from a healthy male donor.",
+    lookup: "cellosaurus 'CUSO-1', 'CUSO', 'CUSO 2': no hiPSC line (only Caco-2 CuSO4-R)"}
+- adopt_own: {field: cell_line, id: "cell_line:cuso_2", label: CUSO-2,
+    scope: "The CUSO-2 line only; not CUSO-1, the other healthy-donor line of the same lab.",
+    definition: "hiPSC line CUSO-2 of the University of Colorado, derived from a healthy male donor.",
+    lookup: "cellosaurus 'CUSO-1', 'CUSO', 'CUSO 2': no hiPSC line (only Caco-2 CuSO4-R)"}
+- adopt_own: {field: cell_line, id: "cell_line:md_111", label: MD-111,
+    scope: "Danon patient MD-111's line; not MD-186 or its corrected line MD-186C.",
+    definition: "hiPSC line from male Danon disease patient MD-111, carrying a LAMP2 mutation.",
+    lookup: "cellosaurus 'MD-111', 'MD186', 'LAMP2': no hiPSC line (only LAMP2 knockout lines of other cell types)"}
+- adopt_own: {field: cell_line, id: "cell_line:md_186", label: MD-186,
+    scope: "Danon patient MD-186's uncorrected line; not its corrected isogenic line MD-186C.",
+    definition: "hiPSC line from male Danon disease patient MD-186, carrying a LAMP2 mutation.",
+    lookup: "cellosaurus 'MD-186', 'MD186', 'LAMP2': no hiPSC line (only LAMP2 knockout lines of other cell types)"}
+- adopt_own: {field: cell_line, id: "cell_line:md_186c", label: MD-186C,
+    scope: "The corrected isogenic line of MD-186; not the uncorrected MD-186 line.",
+    definition: "Isogenic line of MD-186 in which the Danon-causing LAMP2 mutation was corrected with CRISPR-Cas9.",
+    lookup: "cellosaurus 'MD-186', 'MD186', 'LAMP2': no corrected hiPSC line"}
+# ---------------------------------------------------------------- context: own terms
+- add_term:
+    field: platform
+    id: platform:grooved_surface
+    label: grooved surface
+    parent: platform:culture_2d
+    definition: "Cells grown on a flat surface scored or embossed with parallel micro-grooves that align them."
+    scope: "Topographic grooves across the whole surface (the groove maker is a qualifier); not cells confined to printed matrix islands (micropatterned culture), not an unpatterned monolayer, and not posts, thin films, inserts or electrode arrays."
+    qualifiers: {groove_maker: {dimension: text}}
+- add_term:
+    field: preparation
+    id: preparation:isolated_myofibrils
+    label: isolated myofibrils
+    definition: "Myofibrils or myofibril bundles released from lysed cells or homogenised tissue and mounted for mechanical measurement."
+    scope: "Single myofibrils or small bundles freed from the cell; not skinned tissue strips, intact tissue, dissociated living cells, or extracts for molecular assays."
+    synonyms: [{text: isolated myofibrils, anchor: "we isolated myofibrils from hiPSC-CMs cultured under each condition"}]
+- add_term:
+    field: preparation
+    id: preparation:permeabilised_cells
+    label: permeabilised cells
+    definition: "Harvested cells whose plasma membrane is chemically permeabilised so that an assay reaches intracellular enzymes or organelles."
+    scope: "Permeabilised cell suspensions for enzyme or organelle assays; not skinned muscle tissue, not isolated myofibrils, not lysates or extracts, and not fixed cells."
+- add_term:
+    field: preparation
+    id: preparation:lipid_extract
+    label: lipid extract
+    definition: "Lipids extracted from harvested cells or tissue (e.g. by a Bligh-Dyer method) for mass spectrometry."
+    scope: "Extracted lipids; not polar metabolites (metabolite extract), not RNA or DNA extracts and not a protein lysate."
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:activating_solution
+    label: activating solution
+    definition: "A high-calcium solution (pCa about 4.5) that fully activates permeabilised myofilaments or myofibrils."
+    scope: "The calcium-activating bath of a skinned-muscle or myofibril rig; not the relaxing solution of the same rig and not a physiological bath for intact cells (Tyrode's, Krebs, culture medium)."
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:relaxing_solution
+    label: relaxing solution
+    definition: "A low-calcium solution (pCa about 9) in which permeabilised myofilaments or myofibrils are relaxed."
+    scope: "The relaxing bath of a skinned-muscle or myofibril rig; not the activating solution of the same rig and not a physiological bath for intact cells (Tyrode's, Krebs, culture medium)."
+- add_term:
+    field: genotype
+    id: genotype:lamp2_variant
+    label: LAMP2 variant
+    parent: genotype:gene_variant
+    definition: "Cells carrying a variant in LAMP2, the lysosome-associated membrane protein 2 gene whose loss causes Danon disease."
+    scope: "A LAMP2 variant; not variants in other genes (PKP2, DSP, MYBPC3, MYH7 and others)."
+- add_term:
+    field: genotype
+    id: genotype:gene_corrected
+    label: gene-corrected isogenic line
+    parent: genotype:wild_type
+    definition: "A patient line in which the disease-causing variant (gene a qualifier) was corrected by gene editing, the isogenic control of the patient line."
+    scope: "Wild type reached by editing a patient line; an unrelated healthy or unedited control is the parent wild type."
+- add_qualifier: {id: treatment:vehicle_not_stated, name: control, dimension: text}
+# ---------------------------------------------------------------- measures: synonyms and qualifiers
+- add_synonym: {id: measure:cell_circularity, text: circularity,
+    anchor: "To assess differences in cell morphology quantitatively, we measured cell area and circularity."}
+- add_qualifier: {id: measure:differentially_expressed_gene_count, name: threshold, dimension: text}
+# ---------------------------------------------------------------- measures: new terms
+- add_term:
+    field: measure
+    id: measure:sarcomere_organisation_score
+    label: sarcomere organisation score
+    definition: "Ordinal score of sarcomere organisation graded per cell from electron micrographs on a stated scale (qualifier scale)."
+    scope: "A numeric grade from electron microscopy; not the by-eye immunostaining appearance (sarcomere organisation), not an order parameter and not sarcomere length."
+    dimension: dimensionless
+    qualifiers: {scale: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:cell_to_cell_variability
+    label: cell-to-cell variability
+    definition: "Spread of a stated measure (qualifier of_measure) across the individual cells of one group."
+    scope: "Spread among cells within a group; not the spread across replicate samples (variability across samples) and not the measure's mean."
+    dimension: dimensionless
+    qualifiers: {of_measure: {dimension: text}, statistic: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:lipid_species_fraction
+    label: lipid species fraction
+    definition: "Share of one lipid species (qualifier lipid_species) in the total of its lipid class (qualifier total), by mass spectrometry."
+    scope: "The share of a lipid species within its class; not the abundance of a polar metabolite (metabolite abundance) and not a gene-product isoform fraction."
+    dimension: dimensionless
+    qualifiers: {lipid_species: {dimension: text}, total: {dimension: text}}
+- add_term:
+    field: measure
+    id: measure:myofibril_rate_constant
+    label: myofibril kinetic rate constant
+    definition: "Rate constant of a phase of tension development or relaxation in a mounted myofibril after a rapid solution switch."
+    scope: "Rate constants of isolated myofibril or skinned-muscle mechanics; not times to a level of relaxation in a twitch (relaxation time) and not rates of force change (maximal rate of force rise)."
+    dimension: frequency
+- add_term:
+    field: measure
+    id: measure:myofibril_activation_rate
+    label: myofibril activation rate constant
+    parent: measure:myofibril_rate_constant
+    definition: "Rate constant of tension development after a myofibril is switched into activating solution (kACT)."
+    scope: "Tension development from relaxation; not tension redevelopment after a release-restretch (kTR) and not relaxation rate constants."
+    dimension: frequency
+    synonyms: [{text: kAct, anchor: "activation kinetics (kAct), the rate constant of tension development following myofibril activation"}]
+- add_term:
+    field: measure
+    id: measure:tension_redevelopment_rate
+    label: tension redevelopment rate constant
+    parent: measure:myofibril_rate_constant
+    definition: "Rate constant of tension redevelopment after a rapid release and restretch breaks cross-bridges in an activated myofibril (kTR)."
+    scope: "Redevelopment during steady activation; not tension development from relaxation (kACT) and not relaxation rate constants."
+    dimension: frequency
+    synonyms: [{text: kTr, anchor: "reactivation kinetics (kTr), the rate constant of tension redevelopment following myofibril release/stretch to break cross bridges"}]
+- add_term:
+    field: measure
+    id: measure:slow_phase_relaxation_rate
+    label: slow phase relaxation rate constant
+    parent: measure:myofibril_rate_constant
+    definition: "Rate constant of the initial slow, linear phase of myofibril relaxation after the switch to relaxing solution (kREL,slow)."
+    scope: "The slow linear phase; not the fast exponential phase (fast phase relaxation rate constant) and not activation rate constants."
+    dimension: frequency
+- add_term:
+    field: measure
+    id: measure:fast_phase_relaxation_rate
+    label: fast phase relaxation rate constant
+    parent: measure:myofibril_rate_constant
+    definition: "Rate constant of the fast exponential phase of myofibril relaxation (kREL,fast)."
+    scope: "The fast exponential phase; not the slow linear phase (slow phase relaxation rate constant) and not activation rate constants."
+    dimension: frequency
+- add_term:
+    field: measure
+    id: measure:slow_phase_relaxation_duration
+    label: slow phase relaxation duration
+    definition: "Duration of the slow linear phase of myofibril relaxation, from the switch to relaxing solution to the start of the fast phase (tLIN)."
+    scope: "A myofibril relaxation phase duration; not a twitch relaxation time to a stated level and not a rate constant."
+    dimension: time
+- add_term:
+    field: measure
+    id: measure:calcium_activated_tension
+    label: maximal calcium-activated tension
+    definition: "Greatest active tension per cross-sectional area of a permeabilised myofibril or muscle at full calcium activation."
+    scope: "Steady maximal tension under saturating calcium in a skinned preparation; not the twitch stress of an intact paced tissue and not resting (diastolic) stress."
+    dimension: stress
+- add_term:
+    field: measure
+    id: measure:myofibril_diameter
+    label: myofibril diameter
+    definition: "Diameter of a mounted myofibril or myofibril bundle, measured from images."
+    scope: "A myofibril's width; not a cell, tissue, fiber, vessel or Z-disk dimension."
+    dimension: length
+- add_term:
+    field: measure
+    id: measure:sample_clustering
+    label: clustering of samples
+    definition: "Grouping of samples or groups by unsupervised clustering on a stated set of measured parameters (qualifier features)."
+    scope: "Clustering of samples on several parameters; not clustering of genes by their expression profiles (gene expression clusters)."
+    dimension: categorical
+    qualifiers: {features: {dimension: text}}
+# ---------------------------------------------------------------- standing keys for the measures this paper adds
+- standing_key:
+    measure: measure:sarcomere_organisation_score
+    value: {must_match: [platform@1, preparation, measure.scale, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:cell_to_cell_variability
+    value: {must_match: [platform@1, preparation, measure.of_measure, measure.statistic, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.of_measure], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:lipid_species_fraction
+    value: {must_match: [platform@1, preparation, measure.lipid_species, measure.total, treatment, genotype, disease_model], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.lipid_species], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:myofibril_rate_constant
+    value: {must_match: [preparation, temperature, measurement_calcium_mM, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:myofibril_activation_rate
+    value: {must_match: [preparation, temperature, measurement_calcium_mM, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:tension_redevelopment_rate
+    value: {must_match: [preparation, temperature, measurement_calcium_mM, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:slow_phase_relaxation_rate
+    value: {must_match: [preparation, temperature, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:fast_phase_relaxation_rate
+    value: {must_match: [preparation, temperature, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:slow_phase_relaxation_duration
+    value: {must_match: [preparation, temperature, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:calcium_activated_tension
+    value: {must_match: [preparation, temperature, measurement_calcium_mM, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:myofibril_diameter
+    value: {must_match: [preparation, treatment, genotype, disease_model, species], may_vary: [cell_line, platform]}
+    direction: {must_match: [contrast], may_vary: [cell_line, day_of_measurement]}
+- standing_key:
+    measure: measure:sample_clustering
+    value: {must_match: [preparation, measure.features], may_vary: [cell_line]}
+    direction: {must_match: [contrast, measure.features], may_vary: [cell_line]}
+mappings:
+# ---------------------------------------------------------------- context
+- field: insulin_day
+  stated: D7
+  flag: {kind: not a context, note: "printed as the day code 'D7', which code cannot read as a quantity; please write it as 'day 7' (the quote has 'On D7')"}
+- field: platform
+  stated: flat surfaces
+  terms: [platform:monolayer]
+  note: "replated on flat, unpatterned dishes or coverslips; the paper's contrast with grooved 'patterned surfaces'"
+- field: platform
+  stated: patterned surfaces
+  terms: [platform:grooved_surface]
+  qualifiers: {groove_maker: 20 micron lapping paper}
+  note: "coverslips micropatterned with grooves by drawing 20 micron lapping paper across them; not printed islands"
+- field: cm_medium
+  stated: glucose-free RPMI
+  terms: [cm_medium:rpmi_1640]
+  qualifiers: {glucose: glucose-free}
+- field: genotype
+  stated: corrected LAMP2 mutation
+  terms: [genotype:gene_corrected]
+  qualifiers: {gene: LAMP2}
+- field: genotype
+  stated: LAMP2 mutation
+  terms: [genotype:lamp2_variant]
+- field: cell_types
+  stated: hiPSCs
+  terms: ["CL:0002248"]
+  no_ontology_term: "induced pluripotent stem cell (the pinned CL release has no iPSC class; 'induced pluripotent' and 'iPSC' found nothing)"
+- field: preparation
+  stated: frozen cell pellets
+  terms: [preparation:metabolite_extract]
+  note: "pellets were flash frozen and their metabolites extracted with methanol/acetonitrile/water for UHPLC-MS"
+- field: preparation
+  stated: flash frozen cells
+  terms: [preparation:lipid_extract]
+  note: "cells flash frozen, then lipids extracted by a modified Bligh Dyer method for cardiolipin LC-ESI-MS"
+- field: preparation
+  stated: permeabilizing the plasma membrane
+  terms: [preparation:permeabilised_cells]
+- field: treatment
+  stated: vehicle
+  terms: [treatment:vehicle_not_stated]
+  qualifiers: {control: vehicle}
+  note: "the stated text names no solvent; the methods give PBS for PE, DMSO for JQ1 and DFO"
+# ---------------------------------------------------------------- measures
+- {field: measure, stated: contraction direction, terms: [measure:contraction_direction]}
+- field: measure
+  stated: sarcomere organization score
+  terms: [measure:sarcomere_organisation_score]
+  qualifiers: {scale: "1 (least organized) to 4 (most organized)"}
+- field: measure
+  stated: cell area variability
+  terms: [measure:cell_to_cell_variability]
+  qualifiers: {of_measure: cell area}
+- {field: measure, stated: MLC-2V positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: MLC-2V}}
+- {field: measure, stated: BNP positive cells, terms: [measure:marker_positive_cells], qualifiers: {marker: BNP/pro-NT-BNP}}
+- field: measure
+  stated: MYH6/MYH7 isoform expression
+  terms: [measure:protein_isoform_fraction]
+  qualifiers: {isoform: MYH6 and MYH7, total: MYH6 + MYH7}
+  note: "blue silver stained MYH gel, read qualitatively"
+- {field: measure, stated: α-actinin expression, terms: [measure:protein_level], qualifiers: {protein: α-actinin, normalised_to: α-tubulin}}
+- {field: measure, stated: MLC-2V expression, terms: [measure:protein_level], qualifiers: {protein: MLC-2V, normalised_to: α-tubulin}}
+- {field: measure, stated: MYBPC3 expression, terms: [measure:protein_level], qualifiers: {protein: MYBPC3, normalised_to: α-tubulin}}
+- {field: measure, stated: cTNI expression, terms: [measure:protein_level], qualifiers: {protein: cTNI, normalised_to: α-tubulin}}
+- {field: measure, stated: ssTNI expression, terms: [measure:protein_level], qualifiers: {protein: ssTNI, normalised_to: α-tubulin}}
+- {field: measure, stated: myosin-IIB expression, terms: [measure:protein_level], qualifiers: {protein: myosin-IIB, normalised_to: α-tubulin}}
+- {field: measure, stated: MLC-2A expression, terms: [measure:protein_level], qualifiers: {protein: MLC-2A, normalised_to: α-tubulin}}
+- {field: measure, stated: GAPDH expression, terms: [measure:protein_level], qualifiers: {protein: GAPDH, normalised_to: α-tubulin}}
+- {field: measure, stated: HIF-1α level, terms: [measure:protein_level], qualifiers: {protein: HIF-1α, normalised_to: α-tubulin}}
+- field: measure
+  stated: differentially expressed genes (>1.5 fold)
+  terms: [measure:differentially_expressed_gene_count]
+  qualifiers: {threshold: ">1.5 fold"}
+- field: measure
+  stated: GO term enrichment, upregulated genes
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: GO, gene_set: upregulated genes (>1.5 fold)}
+- field: measure
+  stated: KEGG pathway enrichment, upregulated genes
+  terms: [measure:enrichment_p_value]
+  qualifiers: {annotation: KEGG pathway, gene_set: upregulated genes}
+- field: measure
+  stated: GO and KEGG term enrichment, downregulated genes
+  flag: {kind: several measures, note: "GO term enrichment and KEGG pathway enrichment are two analyses in one item; please split into one item per annotation"}
+- {field: measure, stated: CPT1A expression, terms: [measure:gene_expression], qualifiers: {gene: CPT1A, normalised_to: 18S rRNA}}
+- {field: measure, stated: CPT1B expression, terms: [measure:gene_expression], qualifiers: {gene: CPT1B, normalised_to: 18S rRNA}}
+- {field: measure, stated: CPT2 expression, terms: [measure:gene_expression], qualifiers: {gene: CPT2, normalised_to: 18S rRNA}}
+- {field: measure, stated: ACADVL expression, terms: [measure:gene_expression], qualifiers: {gene: ACADVL, normalised_to: 18S rRNA}}
+- {field: measure, stated: TAZ expression, terms: [measure:gene_expression], qualifiers: {gene: TAZ, normalised_to: 18S rRNA}}
+- {field: measure, stated: NPPB expression, terms: [measure:gene_expression], qualifiers: {gene: NPPB, normalised_to: 18S rRNA}}
+- field: measure
+  stated: polar metabolites
+  terms: [measure:metabolite_abundance]
+  qualifiers: {metabolite: all polar metabolites screened}
+  note: "the item's values are counts of metabolites measured (136) and altered (51)"
+- {field: measure, stated: glucose level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: glucose}}
+- {field: measure, stated: hexose phosphate level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: hexose phosphate}}
+- {field: measure, stated: linoleic acid level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: linoleic acid}}
+- {field: measure, stated: glycerol 3-phosphate level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: glycerol 3-phosphate}}
+- {field: measure, stated: "2,3 phosphoglycerate level", terms: [measure:metabolite_abundance], qualifiers: {metabolite: "2,3 phosphoglycerate"}}
+- {field: measure, stated: lactate level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: lactate}}
+- {field: measure, stated: oleic acid level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: oleic acid}}
+- {field: measure, stated: myristoleic acid level, terms: [measure:metabolite_abundance], qualifiers: {metabolite: myristoleic acid}}
+- {field: measure, stated: CPT1 activity, terms: [measure:enzyme_activity], qualifiers: {enzyme: CPT1, normalised_to: cell counts}}
+- {field: measure, stated: CPT2 activity, terms: [measure:enzyme_activity], qualifiers: {enzyme: CPT2, normalised_to: cell counts}}
+- {field: measure, stated: 68C cardiolipin (% of total cardiolipin), terms: [measure:lipid_species_fraction], qualifiers: {lipid_species: 68C cardiolipin, total: total cardiolipin}}
+- {field: measure, stated: 70C cardiolipin (% of total cardiolipin), terms: [measure:lipid_species_fraction], qualifiers: {lipid_species: 70C cardiolipin, total: total cardiolipin}}
+- {field: measure, stated: 72C cardiolipin (% of total cardiolipin), terms: [measure:lipid_species_fraction], qualifiers: {lipid_species: 72C cardiolipin, total: total cardiolipin}}
+- {field: measure, stated: 74C cardiolipin (% of total cardiolipin), terms: [measure:lipid_species_fraction], qualifiers: {lipid_species: 74C cardiolipin, total: total cardiolipin}}
+- {field: measure, stated: 76C cardiolipin (% of total cardiolipin), terms: [measure:lipid_species_fraction], qualifiers: {lipid_species: 76C cardiolipin, total: total cardiolipin}}
+- field: measure
+  stated: cardiolipin side chain profile
+  flag: {kind: several measures, note: "a text summary across several cardiolipin species (68C/70C down, 72C/74C up); each species is already its own item"}
+- {field: measure, stated: "slow phase relaxation kinetics (kREL,SLOW)", terms: [measure:slow_phase_relaxation_rate]}
+- {field: measure, stated: slow phase relaxation time (tLIN), terms: [measure:slow_phase_relaxation_duration]}
+- {field: measure, stated: "fast phase relaxation kinetics (kREL,FAST)", terms: [measure:fast_phase_relaxation_rate]}
+- {field: measure, stated: activation kinetics (kACT), terms: [measure:myofibril_activation_rate]}
+- {field: measure, stated: reactivation kinetics (kTR), terms: [measure:tension_redevelopment_rate]}
+- {field: measure, stated: maximum tension, terms: [measure:calcium_activated_tension]}
+- field: measure
+  stated: resting tension
+  terms: [measure:diastolic_stress]
+  note: "passive myofibril tension in relaxing solution, in mN/mm2"
+- field: measure
+  stated: activation and relaxation kinetics
+  flag: {kind: several measures, note: "a text summary of kACT, kTR and the relaxation rate constants together; each is already its own item"}
+- field: measure
+  stated: hierarchical clustering of myofibril mechanics
+  terms: [measure:sample_clustering]
+  qualifiers: {features: myofibril mechanics parameters}
+- field: measure
+  stated: "sex (male:female)"
+  terms: [measure:donor_count]
+  qualifiers: {by: sex}

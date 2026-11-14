@@ -1,0 +1,29 @@
+# Written by code from changes.yaml (version 12); never edited.
+formula: linear_elastic_stress_strain
+kind: model
+statement: In uniaxial loading of a linear elastic material, normal stress is Young's modulus times normal strain (Hooke's
+  law, sigma = E*eps); E is the slope of the stress-strain line.
+equations:
+- sigma = E*eps
+variables:
+  sigma: stress
+  E: modulus
+  eps: dimensionless
+assumes:
+- linear elastic material
+- small strain
+does_not_apply: a nonlinear (strain-stiffening or viscoelastic) stress-strain response or large strains, where stress is not
+  proportional to strain; a secant or tangent modulus from a curved plot is not this E
+tests:
+- given:
+    E: 10.0
+    eps: 0.1
+  expect:
+    sigma: 1.0
+- given:
+    E: 10.0
+    eps: 0.1
+  does_not_apply: 'strain-stiffening tissue: measured stress at 10 % strain exceeds E*eps from the initial slope'
+cites:
+  text: Gere JM, Goodno BJ. Mechanics of Materials, 8th ed., Cengage 2013, section 1.5 (Linear elasticity, Hooke's law)
+  quote: σ = Eε

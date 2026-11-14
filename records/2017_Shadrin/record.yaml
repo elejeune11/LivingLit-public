@@ -1,0 +1,6089 @@
+id: 2017_Shadrin
+field_set: 3
+source:
+  not_used:  # read by the orchestrator, 2026-11-10: these files hold no values for this record
+  - file: 41467_2017_1946_MOESM2_ESM.pdf
+    why: "peer review file: no results"
+  title: Cardiopatch platform enables maturation and scale-up of human pluripotent stem cell-derived engineered heart tissues
+  doi: 10.1038/s41467-017-01946-x
+  year: '2017'
+  first_author: Ilya Y. Shadrin
+  last_author: Nenad Bursac
+  lab: Bursac lab, Department of Biomedical Engineering, Duke University
+  journal: Nature Communications
+  files:
+  - 41467_2017_Article_1946.pdf
+  - 41467_2017_1946_MOESM1_ESM.pdf
+  - 41467_2017_1946_MOESM3_ESM.pdf
+  missing:
+  - Supplementary Movies 1–11 (described in 41467_2017_1946_MOESM3_ESM.pdf; the movie files themselves are not in the folder)
+default_context:
+  number_of_lines: not stated
+  genotype: not stated
+  disease_model: none
+  culture_calcium_mM: not stated
+  incubator_atmosphere: not stated
+  mechanical_load: auxotonic
+  stromal_cell: none
+  endothelial_cell: none
+units:
+  F1a:
+    where: Fig. 1a
+    title: Representative flow cytometry histogram from hiPSC-CMs after 20 days of differentiation
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: &id001
+        value: CHIR99021
+        qualifiers:
+          inhibitor: IWP-4
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: &id002
+        value: d3
+        qualifiers:
+          until: d5
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: &id003
+        value: metabolic selection
+        qualifiers:
+          medium: no glucose medium
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: not stated
+      supplements: not stated
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: not stated
+      substrate: not stated
+      platform: monolayer
+      seeding_density: 5 × 104/cm2 or 2 × 105/cm2
+      maturation_strategy: not stated
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: dissociated cardiomyocytes
+      day_of_measurement: d15–21
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      cm:
+        label: hiPSC-CMs at d15–21
+  S2:
+    where: Supplementary Fig. 2C
+    title: Representative flow cytometry readout of CD31+ endothelial cells in population used to generate cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: not stated
+      supplements: not stated
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: not stated
+      substrate: not stated
+      platform: monolayer
+      seeding_density: 5 × 104/cm2 or 2 × 105/cm2
+      maturation_strategy: not stated
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: dissociated cardiomyocytes
+      day_of_measurement: d15–21
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      cm:
+        label: cells used to generate cardiopatches
+  F1g:
+    where: Fig. 1f, g
+    title: Representative confocal images (f) and quantification (g) of Ki67+/Nkx2.5+ CMs after 1, 2, and 3 weeks of cardiopatch
+      culture
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: &id004
+        value: cardiopatch
+        qualifiers:
+          size: 7 × 7 mm
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: fixed
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+  F1i:
+    where: Fig. 1h, i
+    title: Relative fractions of myosin light chain 2v (ventricular) and 2a + 2v (atrial/early ventricular) positive hiPSC-CMs
+      within cardiopatches cultured for 1–3 weeks
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: fixed
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+  F2a:
+    where: Fig. 2a
+    title: Representative isometric contractile (active) force traces of spontaneously beating hiPSC-CM cardiopatches at 1,
+      2, and 3 weeks of culture
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+  F2b:
+    where: Fig. 2b
+    title: Maximum active force (left) and specific force (right) of 1, 2, and 3-week-old cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+  F2c:
+    where: Fig. 2c
+    title: Active and passive force–length relationships of isometrically tested (1 Hz stimulation) cardiopatches at 1, 2,
+      and 3 weeks of culture
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: 1 Hz ﬁeld-electrode stimulation
+      preparation: cardiac tissue patch
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+  F2e:
+    where: Fig. 2d, e
+    title: Representative isochrone activation maps (d) and average conduction velocities (CV, e) of cardiopatches at 1, 2,
+      and 3 weeks of culture
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: blebbistatin
+      transgene: not stated
+      temperature: not stated
+      pacing: &id005
+        value: point stimulation
+        qualifiers:
+          rate: 1–4 Hz
+      preparation: cardiac tissue patch
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: not stated
+    groups:
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+  F2f:
+    where: Fig. 2f
+    title: Average active force, specific force, and CV in cardiopatches obtained from three additional hESC lines (Hes2,
+      H9, and RUES2) normalized to those made of hiPSC-CMs
+    context:
+      donor_age: not stated
+      purity_method: not stated
+      purity: not stated
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: not stated
+      cm_day_at_formation: not stated
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      hes2:
+        label: Hes2
+        context:
+          cell_line: Hes2 hESC
+          differentiation_factors: not stated
+          hipsc_medium: not stated
+          hipsc_coating: not stated
+          wnt_activation_days: not stated
+          wnt_inhibition_days: not stated
+          insulin_day: not stated
+          confluency: not stated
+          purification: not stated
+          dissociation_reagent: not stated
+      h9:
+        label: H9
+        context:
+          cell_line: H9 hESC
+          differentiation_factors: *id001
+          hipsc_medium: TeSR-E8 or mTeSR
+          hipsc_coating: growth factor-reduced Matrigel
+          wnt_activation_days: 24 h
+          wnt_inhibition_days: *id002
+          insulin_day: d7
+          confluency: 75–85% confluence
+          purification: *id003
+          dissociation_reagent: 0.25% trypsin/EDTA
+      rues2:
+        label: RUES2
+        context:
+          cell_line: RUES2 hESC
+          differentiation_factors: *id001
+          hipsc_medium: TeSR-E8 or mTeSR
+          hipsc_coating: growth factor-reduced Matrigel
+          wnt_activation_days: 24 h
+          wnt_inhibition_days: *id002
+          insulin_day: d7
+          confluency: 75–85% confluence
+          purification: *id003
+          dissociation_reagent: 0.25% trypsin/EDTA
+  F2gj:
+    where: Fig. 2g–j
+    title: Maximum active force (g), specific force (h), CV (i) and action potential duration at 80% repolarization (APD80,
+      j) of cardiopatches cultured for 3 weeks in 3D RB + medium or 1, 2, and 3 weeks in 5% FBS medium
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      rb:
+        label: 3D RB+ (d0-21)
+        context:
+          cm_medium: 3D RB+ (d0–21)
+      fbs14:
+        label: 5% FBS (d14-21)
+        context:
+          cm_medium: 5% FBS (d14–21)
+      fbs7:
+        label: 5% FBS (d7-21)
+        context:
+          cm_medium: 5% FBS (d7–21)
+      fbs0:
+        label: 5% FBS (d0-21)
+        context:
+          cm_medium: 5% FBS (d0–21)
+    note: force (g, h) was measured isometrically and CV and APD80 (i, j) by optical mapping; the unit keeps the measurement
+      conditions on its items
+  TXT1:
+    where: Results, Functional maturation of cardiopatches (text)
+    title: Functional output of cardiopatches made with the chosen optimal media condition
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: 1 week 3D RB+, 2 weeks 5% FBS
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      opt:
+        label: optimal media condition (1 week 3D RB+, 2 weeks 5% FBS)
+  F3bde:
+    where: Fig. 3a–e
+    title: Cells per field of view, thickness and calculated cell number of cardiopatches made from 1 million (1MM) and 0.5
+      million (0.5MM) hiPSC-CMs
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: fixed
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+  F3g:
+    where: Fig. 3g
+    title: Maximum active force, specific force, and force per input hiPSC-CM in 1MM and 0.5MM cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+  F3h:
+    where: Fig. 3h
+    title: Conduction velocity (CV) and action potential duration at 80% repolarization (APD80) of 1MM and 0.5MM cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: blebbistatin
+      transgene: not stated
+      temperature: not stated
+      pacing: *id005
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+  S8:
+    where: Supplementary Fig. 8A, B
+    title: Maximum observed electromechanical function in 0.5MM 7x7 mm patches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm05:
+        label: 0.5MM
+  S9:
+    where: Supplementary Fig. 9A–C
+    title: Kinetics of active force generation in cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+  S10b:
+    where: Supplementary Fig. 10A, B
+    title: Representative force traces (A) and average max active force (B) generated by 3wk-old 0.5MM cardiopatches cultured
+      under dynamic (rocker) or static conditions
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      dyn:
+        label: Dynamic
+        context:
+          maturation_strategy: free-ﬂoating dynamic culture
+      stat:
+        label: Static
+        context:
+          maturation_strategy: static culture
+  S10d:
+    where: Supplementary Fig. 10C, D
+    title: Representative isochrone maps (C) and average CV (D) of 3wk-old dynamically or statically cultured 0.5MM cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      treatment: blebbistatin
+      transgene: not stated
+      temperature: not stated
+      pacing: *id005
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: not stated
+    groups:
+      dyn:
+        label: Dynamic
+        context:
+          maturation_strategy: free-ﬂoating dynamic culture
+      stat:
+        label: Static
+        context:
+          maturation_strategy: static culture
+  F4a:
+    where: Fig. 4a
+    title: Relative expression levels of 10 maturation genes in d0, 1 week, 2 week, and 3 week cardiopatches compared with
+      those in adult human left ventricles (LV)
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: lysis buffer
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      d0:
+        label: d0
+        context:
+          day_of_measurement: d0
+          platform: not stated
+          maturation_strategy: not stated
+          substrate: not stated
+          seeding_density: not stated
+      w1:
+        label: 1wk
+        context:
+          day_of_measurement: 1 week
+          platform: *id004
+          maturation_strategy: free-ﬂoating dynamic culture
+          substrate: fibrinogen + Matrigel
+          seeding_density: 1 × 106 cells per patch
+      w2:
+        label: 2wk
+        context:
+          day_of_measurement: 2 weeks
+          platform: *id004
+          maturation_strategy: free-ﬂoating dynamic culture
+          substrate: fibrinogen + Matrigel
+          seeding_density: 1 × 106 cells per patch
+      w3:
+        label: 3wk
+        context:
+          day_of_measurement: 3 weeks
+          platform: *id004
+          maturation_strategy: free-ﬂoating dynamic culture
+          substrate: fibrinogen + Matrigel
+          seeding_density: 1 × 106 cells per patch
+      lv:
+        label: adult human left ventricles (LV)
+        kind: native tissue
+        context:
+          species: human
+          donor_age: adult
+          preparation: lysis buffer
+        anchor:
+          quote: adult left ventricle control samples isolated from healthy males (Duke Human Heart Repository
+          where: Methods, qRT-PCR
+  F4b:
+    where: Fig. 4b
+    title: Relative gene expression in 0.5MM vs. 1MM cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: lysis buffer
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+  F4ce:
+    where: Fig. 4c–e
+    title: Protein/DNA ratio and quantified protein levels in d0 cells, 1MM and 0.5MM cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: lysis buffer
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+          day_of_measurement: 3 weeks
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+          day_of_measurement: 3 weeks
+      d0:
+        label: d0
+        context:
+          seeding_density: not stated
+          day_of_measurement: d0
+  F4h:
+    where: Fig. 4g, h
+    title: Average number of H-zones and I-bands per sarcomere
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: fixed
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm05:
+        label: 0.5MM
+  S11:
+    where: Supplementary Fig. 11A, B
+    title: Gene expression of 3wk old cardiopatches relative to d0 hiPSC-CMs (A) and age-matched 2D monolayers (B)
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: lysis buffer
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      patch:
+        label: Patch
+        context:
+          platform: *id004
+          day_of_measurement: 3 weeks
+          maturation_strategy: free-ﬂoating dynamic culture
+          substrate: fibrinogen + Matrigel
+          seeding_density: 1 × 106 cells per patch
+          cm_medium: 3D RB+ d0–7, 5% FBS d7–21
+      d0:
+        label: d0
+        context:
+          platform: not stated
+          day_of_measurement: d0
+          maturation_strategy: not stated
+          substrate: not stated
+          seeding_density: not stated
+          cm_medium: not stated
+      mono:
+        label: Monolayer
+        context:
+          platform: 2D monolayer
+          day_of_measurement: 3 weeks
+          maturation_strategy: not stated
+          substrate: not stated
+          seeding_density: 1 × 105 cells/cm2
+          cm_medium: 3D RB+ d0–7, 5% FBS d7–21
+  S12:
+    where: Supplementary Fig. 12B
+    title: Quantification of relative phosphorylation of Akt, mTOR, and AMPK normalized to 1MM cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: lysis buffer
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      mm1:
+        label: 1MM
+        context:
+          seeding_density: 1 × 106 (1 MM) cells
+      mm05:
+        label: 0.5MM
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+  S14:
+    where: Supplementary Fig. 14A, B
+    title: Quantified JPH2 and Cav3 levels in 3wk-old cardiopatches and input cell population (d0)
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: lysis buffer
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      patch:
+        label: patch
+        context:
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+          day_of_measurement: 3 weeks
+      d0:
+        label: d0
+        context:
+          seeding_density: not stated
+          day_of_measurement: d0
+  S5b:
+    where: Supplementary Fig. 5B
+    title: Average force-frequency relationship in cardiopatches
+    context:
+      cell_line: H9, iPSC
+      donor_age: not stated
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: not stated
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: not stated
+    groups:
+      f1:
+        label: 1Hz
+        context:
+          pacing: 1 Hz ﬁeld-electrode stimulation
+      f15:
+        label: 1.5hz
+        context:
+          pacing: 1.5 Hz
+      f2:
+        label: 2Hz
+        context:
+          pacing: 2 Hz
+    other_conditions:
+    - text: hPSC lines (H9, iPSC)
+      anchor:
+        quote: hPSC lines (H9, iPSC)
+        where: Supplementary Fig. 5 legend
+        file: 41467_2017_1946_MOESM1_ESM.pdf
+  S5ce:
+    where: Supplementary Fig. 5C–E
+    title: Active force at 2Hz stimulation (normalized to 1Hz force) as a function of 1Hz twitch duration (C), relaxation
+      time (D), and rise time (E)
+    context:
+      cell_line: H9, iPSC
+      donor_age: not stated
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: not stated
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 1 × 106 cells per patch
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: 2 Hz
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: not stated
+    groups:
+      all:
+        label: cardiopatches
+  F5ef:
+    where: Fig. 5d–f
+    title: Conduction velocity (CV) and action potential duration at 80% repolarization (APD80) in 3-week-old ctrl, Mega and
+      Giga cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: blebbistatin
+      transgene: not stated
+      temperature: not stated
+      pacing: *id005
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: not stated
+    groups:
+      ctrl:
+        label: Ctrl
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 7 × 7 mm
+          seeding_density: 1 × 106 (1 MM) cells
+      mega:
+        label: Mega
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 15 × 15 mm
+          seeding_density: 2 million CMs
+      giga:
+        label: Giga
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 36 × 36 mm
+          seeding_density: 10 million CMs
+  F5b:
+    where: Fig. 5b
+    title: Confocal cross-sections of 3-week-old Giga cardiopatches stained for Cx43 and SAA
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform:
+        value: cardiopatch
+        qualifiers:
+          size: 36 × 36 mm
+      seeding_density: 10 million CMs
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: not stated
+      preparation: fixed
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      giga:
+        label: Giga
+  F5hi:
+    where: Fig. 5h, i
+    title: Maximum active forces (h) and specific forces (i) in 3-week-old ctrl, Mega, and Giga cardiopatches shown relative
+      to Ctrl cardiopatch
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      ctrl:
+        label: Ctrl
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 7 × 7 mm
+          seeding_density: 1 × 106 (1 MM) cells
+      mega:
+        label: Mega
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 15 × 15 mm
+          seeding_density: 2 million CMs
+      giga:
+        label: Giga
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 36 × 36 mm
+          seeding_density: 10 million CMs
+  TXT2:
+    where: Results, Scale-up of cardiopatch size (text)
+    title: Twitch forces and specific forces of control, Mega and Giga cardiopatches in this set of experiments
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: not stated
+      temperature: not stated
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+      time_point: not stated
+    groups:
+      ctrl:
+        label: Ctrl
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 7 × 7 mm
+          seeding_density: 1 × 106 (1 MM) cells
+      mega:
+        label: Mega
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 15 × 15 mm
+          seeding_density: 2 million CMs
+      giga:
+        label: Giga
+        context:
+          platform:
+            value: cardiopatch
+            qualifiers:
+              size: 36 × 36 mm
+          seeding_density: 10 million CMs
+  F6c:
+    where: Fig. 6b, c
+    title: Intravital raw vascularization images (b) and quantification of blood vessel density (BVD, c) of cardiopatches
+      on d7 and d14 post implantation relative to blank (Cerex® frame-only) controls
+    context: {}
+    groups:
+      patch_d7:
+        label: cardiopatch at d7
+        context:
+          cell_line: DU11 hiPSC
+          donor_age: newborn
+          differentiation_factors: *id001
+          hipsc_medium: TeSR-E8 or mTeSR
+          hipsc_coating: growth factor-reduced Matrigel
+          wnt_activation_days: 24 h
+          wnt_inhibition_days: *id002
+          insulin_day: d7
+          confluency: 75–85% confluence
+          purification: *id003
+          purity_method: flow cytometry
+          purity: 86.3 ± 0.9% cTnT+
+          cm_medium: cardiac medium
+          supplements: aminocaproic acid
+          replating_coating: Matrigel
+          composition: ~14% smooth muscle cells and ﬁbroblasts
+          cm_day_at_formation: d15–21
+          dissociation_reagent: 0.25% trypsin/EDTA
+          cell_types: CMs + non-CMs
+          substrate: fibrinogen + Matrigel
+          platform: *id004
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+          maturation_strategy: free-ﬂoating dynamic culture
+          treatment: not stated
+          transgene: not stated
+          temperature: not stated
+          pacing: not stated
+          preparation: implanted cardiopatch
+          day_of_measurement: 3 weeks
+          measurement_calcium_mM: not stated
+          measurement_medium: not stated
+          species: human
+          time_point: d7 post implantation
+      patch_d14:
+        label: cardiopatch at d14
+        context:
+          cell_line: DU11 hiPSC
+          donor_age: newborn
+          differentiation_factors: *id001
+          hipsc_medium: TeSR-E8 or mTeSR
+          hipsc_coating: growth factor-reduced Matrigel
+          wnt_activation_days: 24 h
+          wnt_inhibition_days: *id002
+          insulin_day: d7
+          confluency: 75–85% confluence
+          purification: *id003
+          purity_method: flow cytometry
+          purity: 86.3 ± 0.9% cTnT+
+          cm_medium: cardiac medium
+          supplements: aminocaproic acid
+          replating_coating: Matrigel
+          composition: ~14% smooth muscle cells and ﬁbroblasts
+          cm_day_at_formation: d15–21
+          dissociation_reagent: 0.25% trypsin/EDTA
+          cell_types: CMs + non-CMs
+          substrate: fibrinogen + Matrigel
+          platform: *id004
+          seeding_density: 0.5 × 106 (0.5 MM) cells
+          maturation_strategy: free-ﬂoating dynamic culture
+          treatment: not stated
+          transgene: not stated
+          temperature: not stated
+          pacing: not stated
+          preparation: implanted cardiopatch
+          day_of_measurement: 3 weeks
+          measurement_calcium_mM: not stated
+          measurement_medium: not stated
+          species: human
+          time_point: d14 post implantation
+      blank_d7:
+        label: blank at d7
+        context:
+          cell_line: not applicable
+          donor_age: not applicable
+          differentiation_factors: not applicable
+          hipsc_medium: not applicable
+          hipsc_coating: not applicable
+          wnt_activation_days: not applicable
+          wnt_inhibition_days: not applicable
+          insulin_day: not applicable
+          confluency: not applicable
+          purification: not applicable
+          purity_method: not applicable
+          purity: not applicable
+          cm_medium: not applicable
+          supplements: not applicable
+          replating_coating: not applicable
+          composition: not applicable
+          cm_day_at_formation: not applicable
+          dissociation_reagent: not applicable
+          cell_types: none
+          substrate: none
+          platform: Cerex frame only
+          seeding_density: none
+          maturation_strategy: not applicable
+          treatment: not applicable
+          transgene: not applicable
+          temperature: not applicable
+          pacing: not applicable
+          preparation: not applicable
+          day_of_measurement: not applicable
+          measurement_calcium_mM: not applicable
+          measurement_medium: not applicable
+          species: not applicable
+          time_point: d7 post implantation
+      blank_d14:
+        label: blank at d14
+        context:
+          cell_line: not applicable
+          donor_age: not applicable
+          differentiation_factors: not applicable
+          hipsc_medium: not applicable
+          hipsc_coating: not applicable
+          wnt_activation_days: not applicable
+          wnt_inhibition_days: not applicable
+          insulin_day: not applicable
+          confluency: not applicable
+          purification: not applicable
+          purity_method: not applicable
+          purity: not applicable
+          cm_medium: not applicable
+          supplements: not applicable
+          replating_coating: not applicable
+          composition: not applicable
+          cm_day_at_formation: not applicable
+          dissociation_reagent: not applicable
+          cell_types: none
+          substrate: none
+          platform: Cerex frame only
+          seeding_density: none
+          maturation_strategy: not applicable
+          treatment: not applicable
+          transgene: not applicable
+          temperature: not applicable
+          pacing: not applicable
+          preparation: not applicable
+          day_of_measurement: not applicable
+          measurement_calcium_mM: not applicable
+          measurement_medium: not applicable
+          species: not applicable
+          time_point: d14 post implantation
+    other_conditions:
+    - text: implanted into dorsal window chambers
+      anchor:
+        quote: The 3-week-old 0.5MM cardiopatches (7 × 7 mm) were implanted into dorsal window chambers and imaged through
+          a glass coverslip
+        where: Results, Cardiopatch vascularization and function in window chambers
+  F6h:
+    where: Fig. 6g, h
+    title: Ca2+ transient amplitude assessed as relative gCaMP6 fluorescence (dF/F) in cardiopatches at d7 and d14 following
+      implantation
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: MHCK7-gCaMP6 lentivirus
+      temperature: not stated
+      pacing: spontaneous
+      preparation: implanted cardiopatch
+      day_of_measurement: 3 weeks
+      measurement_calcium_mM: not stated
+      measurement_medium: not stated
+      species: human
+    groups:
+      d7:
+        label: d7
+        context:
+          time_point: d7 post implantation
+      d14:
+        label: d14
+        context:
+          time_point: d14 post implantation
+    other_conditions:
+    - text: dorsal skinfold window chamber of a nude mouse
+      anchor:
+        quote: dorsal skinfold window chamber of a nude mouse
+        where: Fig. 6 legend
+  F7e:
+    where: Fig. 7e
+    title: Conduction velocity of implanted cardiopatches and before implantation
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: blebbistatin
+      transgene: MHCK7-gCaMP6 lentivirus
+      pacing: 1 Hz
+      day_of_measurement: 2-week-old
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+    groups:
+      implanted:
+        label: implanted cardiopatch
+        context:
+          time_point: 3 weeks post implantation
+          preparation: implanted cardiopatch
+          temperature: 37 °C
+      pre:
+        label: pre-implantation
+        context:
+          time_point: pre-implantation
+          preparation: cardiac tissue patch
+          temperature: not stated
+    other_conditions:
+    - text: implanted onto the nude rat epicardium
+      anchor:
+        quote: cardiopatches (7 × 7 mm) were implanted onto the nude rat epicardium and assessed 3 weeks post implantation
+        where: Results, Functional analysis of epicardially implanted cardiopatches
+  TXT3:
+    where: Results, Functional analysis of epicardially implanted cardiopatches (text)
+    title: Engraftment and survival of epicardially implanted cardiopatches
+    context:
+      cell_line: DU11 hiPSC
+      donor_age: newborn
+      differentiation_factors: *id001
+      hipsc_medium: TeSR-E8 or mTeSR
+      hipsc_coating: growth factor-reduced Matrigel
+      wnt_activation_days: 24 h
+      wnt_inhibition_days: *id002
+      insulin_day: d7
+      confluency: 75–85% confluence
+      purification: *id003
+      purity_method: flow cytometry
+      purity: 86.3 ± 0.9% cTnT+
+      cm_medium: cardiac medium
+      supplements: aminocaproic acid
+      replating_coating: Matrigel
+      composition: ~14% smooth muscle cells and ﬁbroblasts
+      cm_day_at_formation: d15–21
+      dissociation_reagent: 0.25% trypsin/EDTA
+      cell_types: CMs + non-CMs
+      substrate: fibrinogen + Matrigel
+      platform: *id004
+      seeding_density: 0.5 × 106 (0.5 MM) cells
+      maturation_strategy: free-ﬂoating dynamic culture
+      treatment: not stated
+      transgene: MHCK7-gCaMP6 lentivirus
+      temperature: 37 °C
+      pacing: 1 Hz
+      preparation: implanted cardiopatch
+      day_of_measurement: 2-week-old
+      measurement_calcium_mM: 1.8 mM
+      measurement_medium: Tyrode’s solution
+      species: human
+      time_point: 3 weeks post implantation
+    groups:
+      implanted:
+        label: implanted cardiopatch
+    other_conditions:
+    - text: implanted onto the nude rat epicardium
+      anchor:
+        quote: 2-week-old 0.5 MM cardiopatches (7 × 7 mm) were implanted onto the nude rat epicardium
+        where: Results, Functional analysis of epicardially implanted cardiopatches
+  F7f:
+    where: Fig. 7f
+    title: CV and APD of host epicardium optically recorded in control conditions (no patch), under implanted cardiopatch
+      (under patch), and remote from implanted cardiopatch (away from patch)
+    context: {}
+    groups:
+      control:
+        label: Ctrl
+        kind: native tissue
+        context: &id006
+          species: rat
+          donor_age: 10–12 weeks old
+          preparation: Langendorff-perfused heart
+          temperature: 37 °C
+          measurement_medium: Tyrode’s solution
+          treatment: blebbistatin
+      under:
+        label: Under patch
+        kind: native tissue
+        context: *id006
+      away:
+        label: Away from patch
+        kind: native tissue
+        context: *id006
+  S18:
+    where: Supplementary Fig. 18A, D
+    title: Comparison of arrhythmogenicity in cardiopatch-implanted and control rat hearts
+    context: {}
+    groups:
+      implanted_heart:
+        label: Patch
+        kind: native tissue
+        context:
+          species: rat
+          donor_age: 10–12 weeks old
+          preparation: Langendorff-perfused heart
+          temperature: 37 °C
+          measurement_medium: Tyrode’s solution
+          treatment: blebbistatin
+          pacing: burst pacing at 2–20 Hz
+          time_point: 3 weeks post implantation
+      control_heart:
+        label: Ctrl
+        kind: native tissue
+        context:
+          species: rat
+          donor_age: 10–12 weeks old
+          preparation: Langendorff-perfused heart
+          temperature: 37 °C
+          measurement_medium: Tyrode’s solution
+          treatment: blebbistatin
+          pacing: burst pacing at 2–20 Hz
+          time_point: not stated
+evidence:
+  F1a_purity:
+    unit: F1a
+    measure: cTnT+ cardiomyocytes
+    method: flow cytometry for cTnT
+    software: Flowing Software
+    finding: 86.3 ± 0.9% of cells were cTnT+ across 66 differentiations (range 71–98%)
+    groups:
+    - cm
+    values:
+      purity_text:
+        printed: '86.3'
+        unit: '%'
+        kind: mean
+        group: cm
+        spread: SEM
+        spread_source: methods
+      purity_sem_text:
+        printed: '0.9'
+        unit: '%'
+        kind: sem
+        group: cm
+      range_low:
+        printed: '71'
+        unit: '%'
+        kind: value
+        group: cm
+      range_high:
+        printed: '98'
+        unit: '%'
+        kind: value
+        group: cm
+    n:
+      printed: n = 66 independent differentiations
+      counts: independent differentiations
+    anchor:
+      quote: cells at d15–21 contained 86.3 ± 0.9% cTnT+ hiPSC-CMs (n = 66 independent differentiations; range 71–98% cTnT
+        + ; Fig. 1a)
+      where: Results, Cellular makeup and structural maturation of cardiopatches
+  S2_cd31:
+    unit: S2
+    measure: CD31+ endothelial cells
+    method: flow cytometry for CD31-APC
+    software: Flowing Software
+    finding: 0.31% of cells in the input population were CD31+ (0.1% in the unstained control)
+    groups:
+    - cm
+    values:
+      cd31_stained:
+        printed: '0.31'
+        unit: '%'
+        kind: percent
+        group: cm
+        spread: none
+      cd31_unstained:
+        printed: '0.1'
+        unit: '%'
+        kind: percent
+        group: cm
+        spread: none
+    anchor:
+      quote: Supplementary Fig. 2C
+      where: Supplementary Fig. 2C
+      kind: unit
+    note: the two percentages are printed inside the flow cytometry plots (stained and unstained)
+  F1g_w1:
+    unit: F1g
+    measure: Ki67+ cardiomyocytes
+    method: immunostaining for Ki67 and Nkx2.5, confocal
+    software: ImageJ
+    finding: 17.0 ± 0.7% of CMs were Ki67+ at 1 week
+    groups:
+    - w1
+    values:
+      ki67_w1:
+        printed: '17.0'
+        unit: '%'
+        group: w1
+        spread: SEM
+        spread_source: legend
+      ki67_w1_sem:
+        printed: '0.7'
+        unit: '%'
+        kind: sem
+        group: w1
+    n: &id007
+      printed: n = 8/11/12 patches (for 1/2/3 week) from four differentiations
+      counts: patches
+      per_group:
+        w1: '8'
+        w2: '11'
+        w3: '12'
+    anchor: &id008
+      quote: demonstrated a continuous decrease in Ki67+ CMs from 17.0 ± 0.7% at 1 week to 8.1 ± 1.1% at 3 weeks of culture
+      where: Results, Cellular makeup and structural maturation of cardiopatches
+  F1g_w3:
+    unit: F1g
+    measure: Ki67+ cardiomyocytes
+    method: immunostaining for Ki67 and Nkx2.5, confocal
+    software: ImageJ
+    finding: 8.1 ± 1.1% of CMs were Ki67+ at 3 weeks
+    groups:
+    - w3
+    values:
+      ki67_w3:
+        printed: '8.1'
+        unit: '%'
+        group: w3
+        spread: SEM
+        spread_source: legend
+      ki67_w3_sem:
+        printed: '1.1'
+        unit: '%'
+        kind: sem
+        group: w3
+    n: *id007
+    anchor: *id008
+  F1g_w2_vs_w1:
+    unit: F1g
+    measure: Ki67+ cardiomyocytes
+    method: immunostaining for Ki67 and Nkx2.5, confocal
+    software: ImageJ
+    finding: Ki67+ CMs differed between w1 and w2
+    compares:
+    - w2
+    - w1
+    n: *id007
+    stats:
+      test: post hoc Tukey’s test
+      p: '**p = 0.0033'
+    anchor:
+      quote: n = 8/11/12 patches (for 1/2/3 week) from four differentiations; *p = 0.037, **p = 0.0033, ***p < 0.0001, post-hoc
+        Tukey’s test
+      where: Fig. 1 legend
+  F1g_w3_vs_w2:
+    unit: F1g
+    measure: Ki67+ cardiomyocytes
+    method: immunostaining for Ki67 and Nkx2.5, confocal
+    software: ImageJ
+    finding: Ki67+ CMs differed between w2 and w3
+    compares:
+    - w3
+    - w2
+    n: *id007
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p = 0.037'
+    anchor:
+      quote: n = 8/11/12 patches (for 1/2/3 week) from four differentiations; *p = 0.037, **p = 0.0033, ***p < 0.0001, post-hoc
+        Tukey’s test
+      where: Fig. 1 legend
+  F1g_w3_vs_w1:
+    unit: F1g
+    measure: Ki67+ cardiomyocytes
+    method: immunostaining for Ki67 and Nkx2.5, confocal
+    software: ImageJ
+    finding: Ki67+ CMs differed between w1 and w3
+    compares:
+    - w3
+    - w1
+    n: *id007
+    stats:
+      test: post hoc Tukey’s test
+      p: '***p < 0.0001'
+    anchor:
+      quote: n = 8/11/12 patches (for 1/2/3 week) from four differentiations; *p = 0.037, **p = 0.0033, ***p < 0.0001, post-hoc
+        Tukey’s test
+      where: Fig. 1 legend
+  F1i_mlc2v_w3:
+    unit: F1i
+    measure: MLC2v single-positive cardiomyocytes
+    method: immunostaining for MLC2v, MLC2a and Nkx2.5, confocal
+    software: ImageJ
+    finding: MLC2v single-positive CMs reached 94% by 3 weeks of culture
+    groups:
+    - w3
+    values:
+      mlc2v_w3:
+        printed: '94'
+        unit: '%'
+        kind: percent
+        group: w3
+        spread: not stated
+    n: &id009
+      printed: n = 7/5/4 patches (for 1/2/3 week) from four differentiations
+      counts: patches
+      per_group:
+        w1: '7'
+        w2: '5'
+        w3: '4'
+    anchor:
+      quote: with MLC2v single-positive CMs reaching 94% by 3 weeks of culture
+      where: Results, Cellular makeup and structural maturation of cardiopatches
+  F1i_mlc2v_w2_vs_w1:
+    unit: F1i
+    measure: MLC2v single-positive cardiomyocytes
+    method: immunostaining for MLC2v, MLC2a and Nkx2.5, confocal
+    software: ImageJ
+    finding: MLC2v single-positive cardiomyocytes differed at 2 weeks from 1 week
+    compares:
+    - w2
+    - w1
+    n: *id009
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p = 0.0002'
+    anchor: &id010
+      quote: n = 7/5/4 patches (for 1/2/3 week) from four differentiations; *p = 0.0002 vs. 1 week, post-hoc Tukey’s test
+      where: Fig. 1 legend
+  F1i_mlc2v_w3_vs_w1:
+    unit: F1i
+    measure: MLC2v single-positive cardiomyocytes
+    method: immunostaining for MLC2v, MLC2a and Nkx2.5, confocal
+    software: ImageJ
+    finding: MLC2v single-positive cardiomyocytes differed at 3 weeks from 1 week
+    compares:
+    - w3
+    - w1
+    n: *id009
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p = 0.0002'
+    anchor: *id010
+  F1i_mlc2a2v_w2_vs_w1:
+    unit: F1i
+    measure: MLC2a + 2v double-positive cardiomyocytes
+    method: immunostaining for MLC2v, MLC2a and Nkx2.5, confocal
+    software: ImageJ
+    finding: MLC2a + 2v double-positive cardiomyocytes differed at 2 weeks from 1 week
+    compares:
+    - w2
+    - w1
+    n: *id009
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p = 0.0002'
+    anchor: *id010
+  F1i_mlc2a2v_w3_vs_w1:
+    unit: F1i
+    measure: MLC2a + 2v double-positive cardiomyocytes
+    method: immunostaining for MLC2v, MLC2a and Nkx2.5, confocal
+    software: ImageJ
+    finding: MLC2a + 2v double-positive cardiomyocytes differed at 3 weeks from 1 week
+    compares:
+    - w3
+    - w1
+    n: *id009
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p = 0.0002'
+    anchor: *id010
+  F2a_rate:
+    unit: F2a
+    measure: spontaneous contraction rate
+    method: isometric force recording
+    software: custom MATLAB algorithms
+    finding: rate decreased from 90 to 120 bpm at 1 week to 30–60 bpm at 3 weeks
+    groups:
+    - w1
+    - w3
+    values:
+      rate_w1_low:
+        printed: '90'
+        unit: bpm
+        kind: value
+        group: w1
+        spread: none
+      rate_w1_high:
+        printed: '120'
+        unit: bpm
+        kind: value
+        group: w1
+        spread: none
+      rate_w3_low:
+        printed: '30'
+        unit: bpm
+        kind: value
+        group: w3
+        spread: none
+      rate_w3_high:
+        printed: '60'
+        unit: bpm
+        kind: value
+        group: w3
+        spread: none
+    anchor:
+      quote: exhibited spontaneous macroscopic contractions (Supplementary Movie 2) with rate that gradually decreased from
+        90 to 120 bpm at 1 week to 30–60 bpm at 3 weeks of culture
+      where: Results, Functional maturation of cardiopatches
+  F2b_force_w1:
+    unit: F2b
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: maximum active force was 1.2 ± 0.3 mN at 1 week
+    groups:
+    - w1
+    n: &id011
+      printed: n = 6 patches from two differentiations
+      counts: patches
+    anchor: &id012
+      quote: forces of contraction increased from 1.2 ± 0.3 mN (2.9 ± 0.6 mN/mm2) at 1 week to 3.9 ± 0.2 mN (13.3 ± 1.0 mN/mm2)
+        at 3 weeks of culture
+      where: Results, Functional maturation of cardiopatches
+    values:
+      force_w1:
+        printed: '1.2'
+        unit: mN
+        group: w1
+        spread: SEM
+        spread_source: legend
+      force_w1_sem:
+        printed: '0.3'
+        unit: mN
+        kind: sem
+        group: w1
+  F2b_force_w3:
+    unit: F2b
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: maximum active force was 3.9 ± 0.2 mN at 3 weeks
+    groups:
+    - w3
+    n: *id011
+    anchor: *id012
+    values:
+      force_w3:
+        printed: '3.9'
+        unit: mN
+        group: w3
+        spread: SEM
+        spread_source: legend
+      force_w3_sem:
+        printed: '0.2'
+        unit: mN
+        kind: sem
+        group: w3
+  F2b_force_w2_vs_w1:
+    unit: F2b
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: maximum active force at 2 weeks differed from 1 week
+    compares:
+    - w2
+    - w1
+    n: *id011
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p < 0.0001'
+    anchor: &id013
+      quote: n = 6 patches from two differentiations; *p < 0.0001, post hoc Tukey’s test
+      where: Fig. 2 legend
+  F2b_force_w3_vs_w1:
+    unit: F2b
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: maximum active force at 3 weeks differed from 1 week
+    compares:
+    - w3
+    - w1
+    n: *id011
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p < 0.0001'
+    anchor: *id013
+  F2b_specific_w1:
+    unit: F2b
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force was 2.9 ± 0.6 mN/mm2 at 1 week
+    groups:
+    - w1
+    n: *id011
+    anchor: *id012
+    values:
+      specific_w1:
+        printed: '2.9'
+        unit: mN/mm2
+        group: w1
+        spread: SEM
+        spread_source: legend
+      specific_w1_sem:
+        printed: '0.6'
+        unit: mN/mm2
+        kind: sem
+        group: w1
+  F2b_specific_w3:
+    unit: F2b
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force was 13.3 ± 1.0 mN/mm2 at 3 weeks
+    groups:
+    - w3
+    n: *id011
+    anchor: *id012
+    values:
+      specific_w3:
+        printed: '13.3'
+        unit: mN/mm2
+        group: w3
+        spread: SEM
+        spread_source: legend
+      specific_w3_sem:
+        printed: '1.0'
+        unit: mN/mm2
+        kind: sem
+        group: w3
+  F2b_specific_w2_vs_w1:
+    unit: F2b
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force at 2 weeks differed from 1 week
+    compares:
+    - w2
+    - w1
+    n: *id011
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p < 0.0001'
+    anchor: *id013
+  F2b_specific_w3_vs_w1:
+    unit: F2b
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force at 3 weeks differed from 1 week
+    compares:
+    - w3
+    - w1
+    n: *id011
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p < 0.0001'
+    anchor: *id013
+  F2c_passive:
+    unit: F2c
+    measure: passive tension
+    method: isometric force measurement during stepwise stretch in 2% increments of culture length
+    software: custom MATLAB algorithms
+    finding: passive tension reached 1.8 ± 0.1 mN at 20% stretch
+    groups:
+    - w3
+    values:
+      passive_w3:
+        printed: '1.8'
+        unit: mN
+        group: w3
+        x: 20% stretch
+        spread: SEM
+        spread_source: methods
+      passive_w3_sem:
+        printed: '0.1'
+        unit: mN
+        kind: sem
+        group: w3
+        x: 20% stretch
+    n:
+      printed: same patches as in b
+      counts: patches
+    anchor:
+      quote: Passive tension increased with tissue stretch and time of culture, reaching 1.8 ± 0.1 mN at 20% stretch
+      where: Results, Functional maturation of cardiopatches
+  F2c_stiffness:
+    unit: F2c
+    measure: passive stiffness
+    method: slope of the passive tension curve at the highest three strain levels (112–120%) divided by the cross-sectional
+      area
+    software: custom MATLAB algorithms
+    finding: passive stiffness of 3-week cardiopatches was 26 ± 5.6 kPa
+    groups:
+    - w3
+    values:
+      stiffness_w3:
+        printed: '26'
+        unit: kPa
+        group: w3
+        spread: SEM
+        spread_source: methods
+      stiffness_w3_sem:
+        printed: '5.6'
+        unit: kPa
+        kind: sem
+        group: w3
+    n:
+      printed: same patches as in b
+      counts: patches
+    anchor:
+      quote: At 3 weeks of culture, passive stiffness of cardiopatches (26 ± 5.6 kPa) approximated diastolic cross-ﬁber stiffness
+        of adult human ventricles
+      where: Results, Functional maturation of cardiopatches
+  F2e_cv_w3:
+    unit: F2e
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS, 504-channel photodiode array
+    software: custom MATLAB software
+    finding: CV reached 25.1 ± 1.3 cm/s at 3 weeks
+    groups:
+    - w3
+    values:
+      cv_w3:
+        printed: '25.1'
+        unit: cm/s
+        group: w3
+        spread: SEM
+        spread_source: legend
+      cv_w3_sem:
+        printed: '1.3'
+        unit: cm/s
+        kind: sem
+        group: w3
+    n: &id014
+      printed: n = 7/7/9 patches (for 1/2/3 weeks) from two differentiations
+      counts: patches
+      per_group:
+        w1: '7'
+        w2: '7'
+        w3: '9'
+    anchor:
+      quote: conduction velocity (CV) that increased over 3 weeks of culture (Fig. 2d), reaching values of 25.1 ± 1.3 cm/s
+      where: Results, Functional maturation of cardiopatches
+  F2e_cv_w2_vs_w1:
+    unit: F2e
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS, 504-channel photodiode array
+    software: custom MATLAB software
+    finding: CV at 2 weeks differed from 1 week
+    compares:
+    - w2
+    - w1
+    n: *id014
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p < 0.0001'
+    anchor:
+      quote: n = 7/7/9 patches (for 1/2/3 weeks) from two differentiations; *p < 0.0001, post hoc Tukey’s test
+      where: Fig. 2 legend
+  F2e_cv_w3_vs_w1:
+    unit: F2e
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS, 504-channel photodiode array
+    software: custom MATLAB software
+    finding: CV at 3 weeks differed from 1 week
+    compares:
+    - w3
+    - w1
+    n: *id014
+    stats:
+      test: post hoc Tukey’s test
+      p: '*p < 0.0001'
+    anchor:
+      quote: n = 7/7/9 patches (for 1/2/3 weeks) from two differentiations; *p < 0.0001, post hoc Tukey’s test
+      where: Fig. 2 legend
+  F2f_force:
+    unit: F2f
+    measure: maximum active force
+    method: isometric force measurement and optical mapping, normalized to cardiopatches made of hiPSC-CMs
+    software: custom MATLAB algorithms
+    finding: maximum active force in cardiopatches from three hESC lines was within ±20% of hiPSC-CM cardiopatches
+    groups:
+    - hes2
+    - h9
+    - rues2
+    n: &id015
+      printed: n = 18/37/22 patches (for Hes2/H9/RUES2) from ﬁve to seven independent differentiations per line
+      counts: patches
+      per_group:
+        hes2: '18'
+        h9: '37'
+        rues2: '22'
+    anchor: &id016
+      quote: similar functional properties (±20%) were obtained in cardiopatches made from three additional hESC lines (HES2,
+        H9, and RUES2)
+      where: Results, Functional maturation of cardiopatches
+    values:
+      force_band:
+        printed: ±20
+        unit: '%'
+        kind: percent
+        over:
+        - hes2
+        - h9
+        - rues2
+        spread: none
+        expressed_as: normalised
+        normalised_to: cardiopatches made of hiPSC-CMs
+  F2f_specific:
+    unit: F2f
+    measure: specific force
+    method: isometric force measurement and optical mapping, normalized to cardiopatches made of hiPSC-CMs
+    software: custom MATLAB algorithms
+    finding: specific force in cardiopatches from three hESC lines was within ±20% of hiPSC-CM cardiopatches
+    groups:
+    - hes2
+    - h9
+    - rues2
+    n: *id015
+    anchor: *id016
+    values:
+      specific_band:
+        printed: ±20
+        unit: '%'
+        kind: percent
+        over:
+        - hes2
+        - h9
+        - rues2
+        spread: none
+        expressed_as: normalised
+        normalised_to: cardiopatches made of hiPSC-CMs
+  F2f_cv:
+    unit: F2f
+    measure: conduction velocity
+    method: isometric force measurement and optical mapping, normalized to cardiopatches made of hiPSC-CMs
+    software: custom MATLAB algorithms
+    finding: conduction velocity in cardiopatches from three hESC lines was within ±20% of hiPSC-CM cardiopatches
+    groups:
+    - hes2
+    - h9
+    - rues2
+    n: *id015
+    anchor: *id016
+    values:
+      cv_band:
+        printed: ±20
+        unit: '%'
+        kind: percent
+        over:
+        - hes2
+        - h9
+        - rues2
+        spread: none
+        expressed_as: normalised
+        normalised_to: cardiopatches made of hiPSC-CMs
+  F2gj_force_omnibus:
+    unit: F2gj
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: maximum active force differed with the time of switch to 5% FBS medium
+    compares: &id017
+    - rb
+    - fbs14
+    - fbs7
+    - fbs0
+    test_of: omnibus
+    n: &id018
+      printed: n = 15/14/13/14 patches (for 3D RB+/1/2/3 weeks in 5% FBS) from ﬁve differentiations
+      counts: patches
+      per_group:
+        rb: '15'
+        fbs14: '14'
+        fbs7: '13'
+        fbs0: '14'
+    context:
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+    stats:
+      test: one-way ANOVA followed by a post-hoc Tukey’s test
+      p: not stated
+    anchor: &id019
+      quote: '*p = 0.0026, **p = 0.0005, ***p < 0.0001, #p < 0.001 vs. all other groups, post hoc Tukey’s test'
+      where: Fig. 2 legend
+    note: the legend prints *p = 0.0026, **p = 0.0005 and ***p < 0.0001 for brackets in panel g whose end points I could not
+      read from the figure; they are left to the figures reader
+  F2gj_cv_omnibus:
+    unit: F2gj
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: CV differed with the time of switch to 5% FBS medium
+    compares: *id017
+    test_of: omnibus
+    n: &id020
+      printed: n = 15/15/14/15 patches (for 3D RB+/1/2/3 weeks in 5% FBS) from ﬁve differentiations
+      counts: patches
+      per_group:
+        rb: '15'
+        fbs14: '15'
+        fbs7: '14'
+        fbs0: '15'
+    context:
+      treatment: blebbistatin
+      measurement_medium: Tyrode’s solution
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id005
+      preparation: cardiac tissue patch
+    stats:
+      test: one-way ANOVA followed by a post-hoc Tukey’s test
+      p: not stated
+    anchor: &id021
+      quote: '***p < 0.0001, #p < 0.002 vs. all other groups, post hoc Tukey’s test'
+      where: Fig. 2 legend
+    note: the legend prints ***p < 0.0001 for brackets in panel i whose end points I could not read from the figure
+  F2gj_specific_rb_vs_fbs14:
+    unit: F2gj
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force in 3D RB+ medium differed from all other groups
+    compares:
+    - rb
+    - fbs14
+    n: *id018
+    context:
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.001'
+    anchor: *id019
+  F2gj_apd_rb_vs_fbs14:
+    unit: F2gj
+    measure: action potential duration at 80% repolarization
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: APD80 in 3D RB+ medium differed from all other groups
+    compares:
+    - rb
+    - fbs14
+    n: *id020
+    context:
+      treatment: blebbistatin
+      measurement_medium: Tyrode’s solution
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id005
+      preparation: cardiac tissue patch
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.002'
+    anchor: *id021
+  F2gj_specific_rb_vs_fbs7:
+    unit: F2gj
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force in 3D RB+ medium differed from all other groups
+    compares:
+    - rb
+    - fbs7
+    n: *id018
+    context:
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.001'
+    anchor: *id019
+  F2gj_apd_rb_vs_fbs7:
+    unit: F2gj
+    measure: action potential duration at 80% repolarization
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: APD80 in 3D RB+ medium differed from all other groups
+    compares:
+    - rb
+    - fbs7
+    n: *id020
+    context:
+      treatment: blebbistatin
+      measurement_medium: Tyrode’s solution
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id005
+      preparation: cardiac tissue patch
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.002'
+    anchor: *id021
+  F2gj_specific_rb_vs_fbs0:
+    unit: F2gj
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific force in 3D RB+ medium differed from all other groups
+    compares:
+    - rb
+    - fbs0
+    n: *id018
+    context:
+      pacing: spontaneous
+      preparation: cardiac tissue patch
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.001'
+    anchor: *id019
+  F2gj_apd_rb_vs_fbs0:
+    unit: F2gj
+    measure: action potential duration at 80% repolarization
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: APD80 in 3D RB+ medium differed from all other groups
+    compares:
+    - rb
+    - fbs0
+    n: *id020
+    context:
+      treatment: blebbistatin
+      measurement_medium: Tyrode’s solution
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id005
+      preparation: cardiac tissue patch
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.002'
+    anchor: *id021
+  TXT1_force:
+    unit: TXT1
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: 4.7 ± 0.3 mN active force in the chosen media condition
+    groups:
+    - opt
+    context:
+      pacing: spontaneous
+    anchor: &id022
+      quote: cardiopatches with both high active forces (4.7 ± 0.3 mN, 15.2 ± 0.9 mN/mm2) and fast CVs (25.8 ± 0.8 cm/s)
+      where: Results, Functional maturation of cardiopatches
+    values:
+      force:
+        printed: '4.7'
+        unit: mN
+        group: opt
+        spread: SEM
+        spread_source: methods
+      force_sem:
+        printed: '0.3'
+        unit: mN
+        kind: sem
+        group: opt
+      specific:
+        printed: '15.2'
+        unit: mN/mm2
+        group: opt
+        spread: SEM
+        spread_source: methods
+      specific_sem:
+        printed: '0.9'
+        unit: mN/mm2
+        kind: sem
+        group: opt
+  TXT1_cv:
+    unit: TXT1
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: 25.8 ± 0.8 cm/s CV in the chosen media condition
+    groups:
+    - opt
+    context:
+      treatment: blebbistatin
+      measurement_medium: Tyrode’s solution
+      measurement_calcium_mM: 1.8 mM
+      pacing: *id005
+    anchor: *id022
+    values:
+      cv:
+        printed: '25.8'
+        unit: cm/s
+        group: opt
+        spread: SEM
+        spread_source: methods
+      cv_sem:
+        printed: '0.8'
+        unit: cm/s
+        kind: sem
+        group: opt
+  F3b_cells:
+    unit: F3bde
+    measure: cells per field of view
+    method: confocal imaging with a ×63 objective (2 µm slice), three to four random fields of view per patch
+    software: ImageJ
+    finding: 0.5MM patches contained 23% fewer cells per field of view than 1MM patches
+    compares:
+    - mm05
+    - mm1
+    n: &id023
+      printed: n = 13/16 patches (1/0.5MM) from seven differentiations
+      counts: patches
+      per_group:
+        mm1: '13'
+        mm05: '16'
+    stats:
+      test: unpaired t-test
+      p: '*p = 0.0083'
+    values:
+      cells_mm05:
+        printed: '176.5'
+        unit: cells
+        group: mm05
+        spread: SEM
+        spread_source: legend
+      cells_mm05_sem:
+        printed: '10.4'
+        unit: cells
+        kind: sem
+        group: mm05
+      cells_mm1:
+        printed: '229.4'
+        unit: cells
+        group: mm1
+        spread: SEM
+        spread_source: legend
+      cells_mm1_sem:
+        printed: '16.2'
+        unit: cells
+        kind: sem
+        group: mm1
+      cells_difference:
+        printed: '23'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: These tissues contained 23% fewer cells per ﬁeld of view (176.5 ± 10.4 vs. 229.4 ± 16.2 cells; Fig. 3a, b)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3d_thickness:
+    unit: F3bde
+    measure: cardiopatch thickness
+    method: optical cross-sections by confocal microscopy, average of two thickness measurements per patch
+    software: ImageJ
+    finding: 0.5MM patches were on average 29% thinner than 1MM patches
+    compares:
+    - mm05
+    - mm1
+    n:
+      printed: n = 22/25 patches (1/0.5MM) from 7/11 differentiations
+      counts: patches
+      per_group:
+        mm1: '22'
+        mm05: '25'
+    stats:
+      test: unpaired t-test
+      p: '*p < 0.0001'
+    values:
+      thick_mm05:
+        printed: '33.4'
+        unit: μm
+        group: mm05
+        spread: SEM
+        spread_source: legend
+      thick_mm05_sem:
+        printed: '1.5'
+        unit: μm
+        kind: sem
+        group: mm05
+      thick_mm1:
+        printed: '47.4'
+        unit: μm
+        group: mm1
+        spread: SEM
+        spread_source: legend
+      thick_mm1_sem:
+        printed: '2.2'
+        unit: μm
+        kind: sem
+        group: mm1
+      thick_difference:
+        printed: '29'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: were on average 29% thinner (33.4 ± 1.5 vs. 47.4 ± 2.2 μm, Fig. 3c, d) than 1MM patches
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3e_cellnumber:
+    unit: F3bde
+    measure: calculated cell number
+    method: average patch thickness multiplied by cells per field of view, normalized to 1MM patch
+    software: ImageJ
+    finding: 0.5MM patches contained 54% of the cells of 1MM patches
+    compares:
+    - mm05
+    - mm1
+    n: *id023
+    stats:
+      test: unpaired t-test
+      p: '*p < 0.001'
+    values:
+      relative_cells:
+        printed: '54'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+        expressed_as: normalised
+        normalised_to: 1MM patch
+    anchor:
+      quote: indicated that 0.5MM cardiopatches contained 54% of cells present in 1MM cardiopatches
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3e_volume:
+    unit: F3bde
+    measure: relative tissue volume
+    method: from patch thickness
+    software: ImageJ
+    finding: 0.5MM tissues held 54% of the cells in 71% of the volume
+    compares:
+    - mm05
+    - mm1
+    n: *id023
+    values:
+      relative_volume:
+        printed: '71'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+        expressed_as: normalised
+        normalised_to: 1MM patch
+    anchor:
+      quote: the relative cell numbers and volumes of 0.5 vs. 1MM tissues (54% of cells in 71% volume)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3e_cellsize:
+    unit: F3bde
+    measure: cell size
+    method: inferred from relative cell numbers and tissue volumes
+    finding: cell size in 0.5MM cardiopatches was increased by ~30%
+    compares:
+    - mm05
+    - mm1
+    n: *id023
+    values:
+      cellsize_increase:
+        printed: ~30
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: suggested that the cell size in 0.5MM cardiopatches was increased by ~30% in 0.5MM patches
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    suspected_error:
+      what: the sentence names 0.5MM twice ("increased by ~30% in 0.5MM patches")
+      why: the comparison is with 1MM patches, as the first half of the sentence states
+  F3g_force:
+    unit: F3g
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: 0.5MM patches produced 88% of the active force of 1MM patches
+    compares:
+    - mm05
+    - mm1
+    n: &id024
+      printed: n = 36/35 patches (1/0.5MM) from 13 differentiations
+      counts: patches
+      per_group:
+        mm1: '36'
+        mm05: '35'
+    stats:
+      test: unpaired t-test
+      p: '*p = 0.047'
+    anchor:
+      quote: 0.5MM cardiopatches produced 88% of the active force of 1MM patches (5.2 ± 0.2 vs. 5.8 ± 0.2 mN; Fig. 3g)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    values:
+      force_mm05:
+        printed: '5.2'
+        unit: mN
+        group: mm05
+        spread: SEM
+        spread_source: methods
+      force_mm05_sem:
+        printed: '0.2'
+        unit: mN
+        kind: sem
+        group: mm05
+      force_mm1:
+        printed: '5.8'
+        unit: mN
+        group: mm1
+        spread: SEM
+        spread_source: methods
+      force_mm1_sem:
+        printed: '0.2'
+        unit: mN
+        kind: sem
+        group: mm1
+      force_ratio:
+        printed: '88'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+  F3g_specific:
+    unit: F3g
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: 0.5MM patches yielded higher specific force (22.4 vs 17.7 mN/mm2)
+    compares:
+    - mm05
+    - mm1
+    n: *id024
+    stats:
+      test: unpaired t-test
+      p: '**p = 0.0021'
+    values:
+      spec_mm05:
+        printed: '22.4'
+        unit: mN/mm2
+        group: mm05
+        spread: SEM
+        spread_source: methods
+      spec_mm05_sem:
+        printed: '0.9'
+        unit: mN/mm2
+        kind: sem
+        group: mm05
+      spec_mm1:
+        printed: '17.7'
+        unit: mN/mm2
+        group: mm1
+        spread: SEM
+        spread_source: methods
+      spec_mm1_sem:
+        printed: '0.7'
+        unit: mN/mm2
+        kind: sem
+        group: mm1
+    anchor:
+      quote: yielded signiﬁcantly higher speciﬁc forces (22.4 ± 0.9 vs. 17.7 ± 0.7 mN/mm2; Fig. 3g)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3g_percell:
+    unit: F3g
+    measure: contractile force per input cardiomyocyte
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    definition:
+      citation: ref24
+      anchor:
+        quote: contractile force production per input CM24 was nearly two-fold higher in 0.5MM cardiopatches
+        where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    finding: force per input CM was nearly two-fold higher in 0.5MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id024
+    stats:
+      test: unpaired t-test
+      p: '***p < 0.0001'
+    values:
+      percell_mm05:
+        printed: '11.9'
+        unit: nN per cell
+        group: mm05
+        spread: SEM
+        spread_source: methods
+      percell_mm05_sem:
+        printed: '0.5'
+        unit: nN per cell
+        kind: sem
+        group: mm05
+      percell_mm1:
+        printed: '6.7'
+        unit: nN per cell
+        group: mm1
+        spread: SEM
+        spread_source: methods
+      percell_mm1_sem:
+        printed: '0.3'
+        unit: nN per cell
+        kind: sem
+        group: mm1
+    anchor:
+      quote: nearly two-fold higher in 0.5MM cardiopatches (11.9 ± 0.5 vs. 6.7 ± 0.3 nN per cell; Fig. 3g)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3h_cv:
+    unit: F3h
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: 0.5MM patches had higher CV (28.5 vs 25.2 cm/s)
+    compares:
+    - mm05
+    - mm1
+    n: &id025
+      printed: n = 42/44 patches (1/0.5MM) from 10 differentiations
+      counts: patches
+      per_group:
+        mm1: '42'
+        mm05: '44'
+    stats:
+      test: unpaired t-test
+      p: '**p = 0.0028'
+    values:
+      cv_mm05:
+        printed: '28.5'
+        unit: cm/s
+        group: mm05
+        spread: SEM
+        spread_source: methods
+      cv_mm05_sem:
+        printed: '1.0'
+        unit: cm/s
+        kind: sem
+        group: mm05
+      cv_mm1:
+        printed: '25.2'
+        unit: cm/s
+        group: mm1
+        spread: SEM
+        spread_source: methods
+      cv_mm1_sem:
+        printed: '1.1'
+        unit: cm/s
+        kind: sem
+        group: mm1
+    anchor:
+      quote: 0.5MM cardiopatches also showed increased velocity of action potential propagation (28.5 ± 1.0 vs. 25.2 ± 1.1
+        cm/s, Fig. 3h)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F3h_apd:
+    unit: F3h
+    measure: action potential duration at 80% repolarization
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: 0.5MM patches trended toward lower APD80 (423.7 vs 444.9 ms)
+    compares:
+    - mm05
+    - mm1
+    n: *id025
+    stats:
+      test: unpaired t-test
+      p: p < 0.16
+    values:
+      apd_mm05:
+        printed: '423.7'
+        unit: ms
+        group: mm05
+        spread: SEM
+        spread_source: methods
+      apd_mm05_sem:
+        printed: '10.8'
+        unit: ms
+        kind: sem
+        group: mm05
+      apd_mm1:
+        printed: '444.9'
+        unit: ms
+        group: mm1
+        spread: SEM
+        spread_source: methods
+      apd_mm1_sem:
+        printed: '10.3'
+        unit: ms
+        kind: sem
+        group: mm1
+    anchor:
+      quote: 0.5MM cardiopatches exhibited a trend toward lower APD80 than 1MM patches (423.7 ± 10.8 vs. 444.9 ± 10.3 ms,
+        p < 0.16, unpaired t-test; Fig. 3h)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  S8_max:
+    unit: S8
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: several cardiopatches exceeded 7 mN active force and 30 mN/mm2 stress; CVs over 40 cm/s were recorded
+    groups:
+    - mm05
+    values:
+      force_max:
+        printed: '>7'
+        unit: mN
+        kind: value
+        group: mm05
+        spread: none
+      stress_max:
+        printed: '>30'
+        unit: mN/mm2
+        kind: value
+        group: mm05
+        spread: none
+      cv_max:
+        printed: '40'
+        unit: cm/s
+        kind: value
+        group: mm05
+        spread: none
+    anchor:
+      quote: Several cardiopatches exhibited active forces >7 mN and stresses >30 mN/mm2 (Supplementary Fig. 8A, Fig. 3g)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    note: the CV value is from the same results paragraph ("multiple patches having CVs over 40 cm/s")
+  S9_rise:
+    unit: S9
+    measure: twitch force rise time
+    method: force rise time from 10 to 90% activation
+    software: custom MATLAB algorithms
+    finding: rise time was faster in 0.5MM patches (98.0 vs 107.6 ms)
+    compares:
+    - mm05
+    - mm1
+    n: &id026
+      printed: n=27/30 patches (1/0.5MM) from 9-10 differentiations
+      counts: patches
+      per_group:
+        mm1: '27'
+        mm05: '30'
+    stats:
+      test: unpaired t-test
+      p: '*p=0.0055'
+    values:
+      rise_mm05:
+        printed: '98.0'
+        unit: ms
+        group: mm05
+        spread: SEM
+        spread_source: methods
+      rise_mm05_sem:
+        printed: '2.2'
+        unit: ms
+        kind: sem
+        group: mm05
+      rise_mm1:
+        printed: '107.6'
+        unit: ms
+        group: mm1
+        spread: SEM
+        spread_source: methods
+      rise_mm1_sem:
+        printed: '2.4'
+        unit: ms
+        kind: sem
+        group: mm1
+    anchor:
+      quote: twitch kinetics were signiﬁcantly faster (rise time of 98.0 ± 2.2 vs. 107.6 ± 2.4 ms; Supplementary Fig. 9A–C)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  S9_relaxation:
+    unit: S9
+    measure: twitch force relaxation time
+    method: force decay time from 10 to 90% relaxation (relaxation) and 10% activation to 90% relaxation (twitch duration)
+    software: custom MATLAB algorithms
+    finding: twitch force relaxation time of 1MM and 0.5MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id026
+    stats:
+      test: unpaired t-test
+      p: not stated
+    anchor:
+      quote: n=27/30 patches (1/0.5MM) from 9-10
+      where: Supplementary Fig. 9 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+    note: no value or P is printed for this panel; only the rise time carries the asterisk
+  S9_duration:
+    unit: S9
+    measure: twitch duration
+    method: force decay time from 10 to 90% relaxation (relaxation) and 10% activation to 90% relaxation (twitch duration)
+    software: custom MATLAB algorithms
+    finding: twitch duration of 1MM and 0.5MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id026
+    stats:
+      test: unpaired t-test
+      p: not stated
+    anchor:
+      quote: n=27/30 patches (1/0.5MM) from 9-10
+      where: Supplementary Fig. 9 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+    note: no value or P is printed for this panel; only the rise time carries the asterisk
+  S10b_force:
+    unit: S10b
+    measure: maximum active force
+    method: isometric force measurement
+    software: custom MATLAB algorithms
+    finding: maximum active force was lower in statically cultured patches (1.03 vs 5.1)
+    compares:
+    - stat
+    - dyn
+    n:
+      printed: n=8 patches per group from 2 differentiations
+      counts: patches
+    stats:
+      test: unpaired t-test
+      p: '*p<0.0001'
+    values:
+      force_stat:
+        printed: '1.03'
+        unit: mN
+        group: stat
+        spread: not stated
+      force_dyn:
+        printed: '5.1'
+        unit: mN
+        group: dyn
+        spread: not stated
+      force_fold:
+        printed: '4.9'
+        unit: fold
+        kind: ratio
+        between:
+        - stat
+        - dyn
+        spread: none
+    anchor:
+      quote: cardiopatches cultured under traditional static (instead of our regular dynamic) conditions exhibited 4.9-fold
+        reduced contractile forces (1.03 vs. 5.1 mN; Supplementary Fig. 10A, B)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  S10d_cv:
+    unit: S10d
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: conduction velocity was lower in statically cultured patches (8.7 vs 27.2)
+    compares:
+    - stat
+    - dyn
+    n:
+      printed: n=8 patches per group from 2 differentiations
+      counts: patches
+    stats:
+      test: unpaired t-test
+      p: '*p<0.0001'
+    values:
+      cv_stat:
+        printed: '8.7'
+        unit: cm/s
+        group: stat
+        spread: not stated
+      cv_dyn:
+        printed: '27.2'
+        unit: cm/s
+        group: dyn
+        spread: not stated
+      cv_fold:
+        printed: ~3
+        unit: fold
+        kind: ratio
+        between:
+        - stat
+        - dyn
+        spread: none
+    anchor:
+      quote: ~3-fold lower CVs (8.7 vs. 27.2 cm/s; Supplementary Fig. 10C, D)
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+  F4a_TNNI3:
+    unit: F4a
+    measure: TNNI3 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: TNNI3 expression from d0 to 3 weeks of culture (linear regression p < 0.0001)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: &id027
+      printed: n = 6 patches from two differentiations
+      counts: patches
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.0001
+    anchor: &id028
+      quote: 'Linear regression from d0 to 3 weeks: TNNI3, MYL2, MYOM2, CASQ2, p < 0.0001; MYOM3, CKMT2, p < 0.014; S100A1,
+        COX6A2, CKM, p < 0.006; PLN, p = 0.1081'
+      where: Fig. 4 legend
+  F4a_MYL2:
+    unit: F4a
+    measure: MYL2 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: MYL2 expression from d0 to 3 weeks of culture (linear regression p < 0.0001)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.0001
+    anchor: &id029
+      quote: including a 108-fold and 163-fold increase in MYL2 and CASQ2 expression (Fig. 4a, Supplementary Fig. 11A)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    values:
+      myl2_fold:
+        printed: '108'
+        unit: fold
+        kind: ratio
+        between:
+        - w3
+        - d0
+        spread: none
+  F4a_MYOM2:
+    unit: F4a
+    measure: MYOM2 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: MYOM2 expression from d0 to 3 weeks of culture (linear regression p < 0.0001)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.0001
+    anchor: *id028
+  F4a_CASQ2:
+    unit: F4a
+    measure: CASQ2 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: CASQ2 expression from d0 to 3 weeks of culture (linear regression p < 0.0001)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.0001
+    anchor: *id029
+    values:
+      casq2_fold:
+        printed: '163'
+        unit: fold
+        kind: ratio
+        between:
+        - w3
+        - d0
+        spread: none
+  F4a_MYOM3:
+    unit: F4a
+    measure: MYOM3 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: MYOM3 expression from d0 to 3 weeks of culture (linear regression p < 0.014)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.014
+    anchor: *id028
+  F4a_CKMT2:
+    unit: F4a
+    measure: CKMT2 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: CKMT2 expression from d0 to 3 weeks of culture (linear regression p < 0.014)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.014
+    anchor: *id028
+  F4a_S100A1:
+    unit: F4a
+    measure: S100A1 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: S100A1 expression from d0 to 3 weeks of culture (linear regression p < 0.006)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.006
+    anchor: *id028
+  F4a_COX6A2:
+    unit: F4a
+    measure: COX6A2 expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: COX6A2 expression from d0 to 3 weeks of culture (linear regression p < 0.006)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.006
+    anchor: *id028
+  F4a_CKM:
+    unit: F4a
+    measure: CKM expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: CKM expression from d0 to 3 weeks of culture (linear regression p < 0.006)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p < 0.006
+    anchor: *id028
+  F4a_PLN:
+    unit: F4a
+    measure: PLN expression relative to adult human left ventricle
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed and normalized to adult left ventricle controls
+    software: not stated
+    finding: PLN expression from d0 to 3 weeks of culture (linear regression p = 0.1081)
+    compares:
+    - d0
+    - w1
+    - w2
+    - w3
+    test_of: omnibus
+    n: *id027
+    stats:
+      test: linear regression from d0 to 3 weeks
+      p: p = 0.1081
+    anchor:
+      quote: phospholamban (PLN, previously shown lacking expression in hiPSC-CMs37) remained steady at high level (55–70%
+        of adult heart levels)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    values:
+      pln_low:
+        printed: '55'
+        unit: '%'
+        kind: percent
+        over:
+        - w1
+        - w2
+        - w3
+        spread: none
+        expressed_as: normalised
+        normalised_to: adult heart levels
+      pln_high:
+        printed: '70'
+        unit: '%'
+        kind: percent
+        over:
+        - w1
+        - w2
+        - w3
+        spread: none
+        expressed_as: normalised
+        normalised_to: adult heart levels
+  F4a_fold_range:
+    unit: F4a
+    measure: maturation gene expression relative to d0
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene
+    software: not stated
+    finding: gene expression at 3 weeks was 3- to 163-fold higher than at d0 (median 23-fold)
+    compares:
+    - w3
+    - d0
+    n: *id027
+    values:
+      fold_low:
+        printed: '3'
+        unit: fold
+        kind: ratio
+        between:
+        - w3
+        - d0
+        spread: none
+      fold_high:
+        printed: '163'
+        unit: fold
+        kind: ratio
+        between:
+        - w3
+        - d0
+        spread: none
+      fold_median:
+        printed: '23'
+        unit: fold
+        kind: ratio
+        between:
+        - w3
+        - d0
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: gene expression at 3 weeks of culture was 3- to 163-fold higher (median 23-fold) compared to d0
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4b_MYOM3:
+    unit: F4b
+    measure: MYOM3 expression relative to 1MM cardiopatches
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed
+    software: not stated
+    finding: MYOM3 expression was higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id027
+    stats:
+      test: post hoc Tukey’s tests
+      p: '*p < 0.041'
+    anchor:
+      quote: Relative gene expression in 0.5MM vs. 1MM cardiopatches; *p < 0.041, **p < 0.0073, ***p < 0.0001, post hoc Tukey’s
+        tests
+      where: Fig. 4 legend
+    note: which asterisk belongs to which gene is read from the panel; the legend lists the thresholds only
+  F4b_CASQ2:
+    unit: F4b
+    measure: CASQ2 expression relative to 1MM cardiopatches
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed
+    software: not stated
+    finding: CASQ2 expression was higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id027
+    stats:
+      test: post hoc Tukey’s tests
+      p: '***p < 0.0001'
+    anchor:
+      quote: Relative gene expression in 0.5MM vs. 1MM cardiopatches; *p < 0.041, **p < 0.0073, ***p < 0.0001, post hoc Tukey’s
+        tests
+      where: Fig. 4 legend
+    note: which asterisk belongs to which gene is read from the panel; the legend lists the thresholds only
+  F4b_S100A1:
+    unit: F4b
+    measure: S100A1 expression relative to 1MM cardiopatches
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed
+    software: not stated
+    finding: S100A1 expression was higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id027
+    stats:
+      test: post hoc Tukey’s tests
+      p: '**p < 0.0073'
+    anchor:
+      quote: Relative gene expression in 0.5MM vs. 1MM cardiopatches; *p < 0.041, **p < 0.0073, ***p < 0.0001, post hoc Tukey’s
+        tests
+      where: Fig. 4 legend
+    note: which asterisk belongs to which gene is read from the panel; the legend lists the thresholds only
+  F4b_COX6A2:
+    unit: F4b
+    measure: COX6A2 expression relative to 1MM cardiopatches
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene, log-transformed
+    software: not stated
+    finding: COX6A2 expression was higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id027
+    stats:
+      test: post hoc Tukey’s tests
+      p: '*p < 0.041'
+    anchor:
+      quote: Relative gene expression in 0.5MM vs. 1MM cardiopatches; *p < 0.041, **p < 0.0073, ***p < 0.0001, post hoc Tukey’s
+        tests
+      where: Fig. 4 legend
+    note: which asterisk belongs to which gene is read from the panel; the legend lists the thresholds only
+  F4c_proteindna:
+    unit: F4ce
+    measure: protein/DNA ratio
+    method: BCA protein assay and DNA quantification on a NanoDrop from replicate patches
+    software: not stated
+    finding: protein per DNA was 13% higher in 0.5MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n:
+      printed: n = 3/4 patches (1/0.5MM)
+      counts: patches
+      per_group:
+        mm1: '3'
+        mm05: '4'
+    stats:
+      test: post hoc Tukey’s test
+      p: significant at α = 0.05 (Methods)
+    values:
+      proteindna:
+        printed: '13'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: the total protein per DNA (Fig. 4c) and the total GAPDH protein per nuclear envelope protein LamB1
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    note: panel c carries ** but the legend states no P for it; the Methods set α = 0.05 for the paper
+  F4e_gapdh:
+    unit: F4ce
+    measure: GAPDH protein relative to LamB1
+    method: western blot densitometry normalized to nuclear envelope protein LamB1
+    software: Image Lab software
+    finding: GAPDH per LamB1 was 33% higher in 0.5MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: &id030
+      printed: n = 8/10 patches (1/0.5MM) from three to four differentiations
+      counts: patches
+      per_group:
+        mm1: '8'
+        mm05: '10'
+    stats:
+      test: post hoc Tukey’s test
+      p: significant at α = 0.05 (Methods)
+    values:
+      gapdh:
+        printed: '33'
+        unit: '%'
+        kind: percent
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: the total GAPDH protein per nuclear envelope protein LamB1 (Fig. 4d, e, Supplementary Fig. 19A), were 13 and
+        33% higher in 0.5MM than 1MM cardiopatches
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4e_SAA:
+    unit: F4ce
+    measure: SAA protein relative to LamB1
+    method: western blot densitometry normalized to nuclear envelope protein LamB1
+    software: Image Lab software
+    finding: SAA was 1.7-fold higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id030
+    stats:
+      test: post hoc Tukey’s test
+      p: significant at α = 0.05 (Methods)
+    values:
+      fold:
+        printed: '1.7'
+        unit: fold
+        kind: ratio
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: 1.7, 1.4, and 1.3-fold higher expression of SAA, βMHC, and Cx43 proteins, respectively (Fig. 4d, e, Supplementary
+        Fig. 19A)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4e_bMHC:
+    unit: F4ce
+    measure: βMHC protein relative to LamB1
+    method: western blot densitometry normalized to nuclear envelope protein LamB1
+    software: Image Lab software
+    finding: βMHC was 1.4-fold higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id030
+    stats:
+      test: post hoc Tukey’s test
+      p: significant at α = 0.05 (Methods)
+    values:
+      fold:
+        printed: '1.4'
+        unit: fold
+        kind: ratio
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: 1.7, 1.4, and 1.3-fold higher expression of SAA, βMHC, and Cx43 proteins, respectively (Fig. 4d, e, Supplementary
+        Fig. 19A)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4e_Cx43:
+    unit: F4ce
+    measure: Cx43 protein relative to LamB1
+    method: western blot densitometry normalized to nuclear envelope protein LamB1
+    software: Image Lab software
+    finding: Cx43 was 1.3-fold higher in 0.5MM than 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id030
+    stats:
+      test: post hoc Tukey’s test
+      p: significant at α = 0.05 (Methods)
+    values:
+      fold:
+        printed: '1.3'
+        unit: fold
+        kind: ratio
+        between:
+        - mm05
+        - mm1
+        spread: none
+    anchor:
+      quote: 1.7, 1.4, and 1.3-fold higher expression of SAA, βMHC, and Cx43 proteins, respectively (Fig. 4d, e, Supplementary
+        Fig. 19A)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4h_hzones:
+    unit: F4h
+    measure: H-zones per sarcomere
+    method: transmission electron microscopy of 60 nm sections
+    software: not stated
+    finding: 0.88 ± 0.07 H-zones per sarcomere
+    groups:
+    - mm05
+    n: &id031
+      printed: n = 4 patches from two differentiations, data compiled from a total of 74 random ﬁelds of view
+      counts: patches
+    values:
+      hzones:
+        printed: '0.88'
+        unit: per sarcomere
+        group: mm05
+        spread: SEM
+        spread_source: legend
+      hzones_sem:
+        printed: '0.07'
+        unit: per sarcomere
+        kind: sem
+        group: mm05
+    anchor:
+      quote: prominent central H-zones and two distinct I-bands adjacent to Z-discs (0.88 ± 0.07 H-zones, 1.85 ± 0.08 I-bands
+        per sarcomere; Fig. 4g, h)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4h_ibands:
+    unit: F4h
+    measure: I-bands per sarcomere
+    method: transmission electron microscopy of 60 nm sections
+    software: not stated
+    finding: 1.85 ± 0.08 I-bands per sarcomere
+    groups:
+    - mm05
+    n: *id031
+    values:
+      ibands:
+        printed: '1.85'
+        unit: per sarcomere
+        group: mm05
+        spread: SEM
+        spread_source: legend
+      ibands_sem:
+        printed: '0.08'
+        unit: per sarcomere
+        kind: sem
+        group: mm05
+    anchor:
+      quote: (0.88 ± 0.07 H-zones, 1.85 ± 0.08 I-bands per sarcomere; Fig. 4g, h)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  F4jk_fraction:
+    unit: F4h
+    measure: cardiomyocytes with M-bands or T-tubule-like structures
+    method: transmission electron microscopy of 60 nm sections
+    software: not stated
+    finding: fewer than 5% of cells showed M-bands, and fewer than 5% T-tubule-like structures
+    groups:
+    - mm05
+    n: *id031
+    values:
+      mbands:
+        printed: <5
+        unit: '%'
+        kind: percent
+        group: mm05
+        spread: none
+      ttubules:
+        printed: <5
+        unit: '%'
+        kind: percent
+        group: mm05
+        spread: none
+    anchor:
+      quote: some cells (<5%) demonstrated clear M-bands in the center of the H-zones (Fig. 4j)
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  S11_patch_vs_d0:
+    unit: S11
+    measure: maturation gene expression relative to d0 hiPSC-CMs
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene
+    software: not stated
+    finding: all ten maturation genes were higher in 3wk cardiopatches than at d0
+    compares:
+    - patch
+    - d0
+    n: &id032
+      printed: n=6 cardiopatches/monolayers each from 2 independent differentiations
+      counts: cardiopatches/monolayers
+    stats:
+      test: post-hoc Tukey’s test following two-way ANOVA
+      p: p<0.0001
+    anchor:
+      quote: p<0.0001 for all groups in patch vs. d0 and patch vs. monolayer, post-hoc Tukey’s test following two-way ANOVA
+      where: Supplementary Fig. 11 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  S11_patch_vs_mono:
+    unit: S11
+    measure: maturation gene expression relative to age-matched 2D monolayers
+    method: qRT-PCR, ΔΔCt method with GAPDH as housekeeping gene
+    software: not stated
+    finding: an average 3-fold increase in 9 of 10 maturation genes over age-matched monolayers, with 10-fold higher MYOM2
+    compares:
+    - patch
+    - mono
+    n: *id032
+    stats:
+      test: post-hoc Tukey’s test following two-way ANOVA
+      p: p<0.0001
+    values:
+      avg_fold:
+        printed: '3'
+        unit: fold
+        kind: ratio
+        between:
+        - patch
+        - mono
+        spread: none
+      myom2_fold:
+        printed: '10'
+        unit: fold
+        kind: ratio
+        between:
+        - patch
+        - mono
+        spread: none
+    anchor:
+      quote: increase in the expression of 9 out of 10 maturation genes (with 10-fold higher MYOM2 expression) was found compared
+        to age-matched monolayers
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+  S12_Akt:
+    unit: S12
+    measure: phosphorylated Akt relative to total, normalized to 1MM cardiopatches
+    method: western blot densitometry
+    software: Image Lab software
+    finding: relative Akt phosphorylation in 0.5MM vs 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: &id033
+      printed: n=4 cardiopatches per group
+      counts: cardiopatches
+    stats:
+      test: unpaired t-test
+      p: '*p<0.05'
+    anchor:
+      quote: n=4 cardiopatches per group, *p<0.05, unpaired t-test
+      where: Supplementary Fig. 12 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  S12_mTOR:
+    unit: S12
+    measure: phosphorylated mTOR relative to total, normalized to 1MM cardiopatches
+    method: western blot densitometry
+    software: Image Lab software
+    finding: relative mTOR phosphorylation in 0.5MM vs 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id033
+    stats:
+      test: unpaired t-test
+      p: not stated
+    anchor:
+      quote: n=4 cardiopatches per group, *p<0.05, unpaired t-test
+      where: Supplementary Fig. 12 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  S12_AMPK:
+    unit: S12
+    measure: phosphorylated AMPK relative to total, normalized to 1MM cardiopatches
+    method: western blot densitometry
+    software: Image Lab software
+    finding: relative AMPK phosphorylation in 0.5MM vs 1MM cardiopatches
+    compares:
+    - mm05
+    - mm1
+    n: *id033
+    stats:
+      test: unpaired t-test
+      p: not stated
+    anchor:
+      quote: n=4 cardiopatches per group, *p<0.05, unpaired t-test
+      where: Supplementary Fig. 12 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  S14_JPH2:
+    unit: S14
+    measure: JPH2 protein relative to GAPDH
+    method: western blot densitometry
+    software: Image Lab software
+    finding: JPH2 was higher in 3wk cardiopatches than in the input cells
+    compares:
+    - patch
+    - d0
+    n: &id034
+      printed: n=2 input cell popula.ons (d0), n=5 cardiopatches from 2 independent diﬀeren.a.ons
+      counts: cardiopatches
+      per_group:
+        patch: '5'
+        d0: '2'
+    stats:
+      test: post-hoc Tukey’s test
+      p: '**p<0.01'
+    anchor:
+      quote: cardiopatches from 2 independent
+      where: Supplementary Fig. 14 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+    note: the printed n is "n=2 input cell populations (d0), n=5 cardiopatches from 2 independent differentiations"
+  S14_Cav3:
+    unit: S14
+    measure: Cav3 protein relative to GAPDH
+    method: western blot densitometry
+    software: Image Lab software
+    finding: Cav3 was higher in 3wk cardiopatches than in the input cells
+    compares:
+    - patch
+    - d0
+    n: *id034
+    stats:
+      test: post-hoc Tukey’s test
+      p: '**p<0.01'
+    anchor:
+      quote: cardiopatches from 2 independent
+      where: Supplementary Fig. 14 legend
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+    note: the printed n is "n=2 input cell populations (d0), n=5 cardiopatches from 2 independent differentiations"
+  S5b_f15:
+    unit: S5b
+    measure: active force normalized to 1 Hz force
+    method: 20 s recording at 112% of culture length with step-wise increases in field-shock stimulation at 1, 1.5, and 2
+      Hz
+    software: custom MATLAB algorithms
+    finding: 95 ± 0.8% of 1 Hz force was maintained at 1.5 Hz
+    compares:
+    - f15
+    - f1
+    n: &id035
+      printed: N=61 cardiopatches from >20 diﬀeren.a.ons
+      counts: cardiopatches
+    stats:
+      test: paired t-test
+      p: '*p<0.01'
+    values:
+      force_f15:
+        printed: '95'
+        unit: '%'
+        group: f15
+        x: 1.5 Hz
+        spread: SEM
+        spread_source: legend
+        expressed_as: normalised
+        normalised_to: 1 Hz force
+      force_f15_sem:
+        printed: '0.8'
+        unit: '%'
+        kind: sem
+        group: f15
+        x: 1.5 Hz
+    anchor: &id036
+      quote: active force–frequency relationships (FFRs) with 95 ± 0.8% and 83 ± 2.0% of 1 Hz force maintained at 1.5 and
+        2 Hz stimulation
+      where: Results, Functional maturation of cardiopatches
+  S5b_f2:
+    unit: S5b
+    measure: active force normalized to 1 Hz force
+    method: 20 s recording at 112% of culture length with step-wise increases in field-shock stimulation at 1, 1.5, and 2
+      Hz
+    software: custom MATLAB algorithms
+    finding: 83 ± 2.0% of 1 Hz force was maintained at 2 Hz
+    compares:
+    - f2
+    - f1
+    n: *id035
+    stats:
+      test: paired t-test
+      p: '*p<0.01'
+    values:
+      force_f2:
+        printed: '83'
+        unit: '%'
+        group: f2
+        x: 2 Hz
+        spread: SEM
+        spread_source: legend
+        expressed_as: normalised
+        normalised_to: 1 Hz force
+      force_f2_sem:
+        printed: '2.0'
+        unit: '%'
+        kind: sem
+        group: f2
+        x: 2 Hz
+    anchor: *id036
+  S5ce_duration:
+    unit: S5ce
+    measure: slope of 2 Hz force against 1 Hz twitch duration
+    method: linear regression of 2 Hz force (normalized to 1 Hz force) against the 1 Hz twitch property
+    software: not stated
+    finding: y = -0.0009x + 1.166, R2 = 0.47821, p<0.0001
+    groups:
+    - all
+    n: *id035
+    stats:
+      test: linear regression testing for slope = 0
+      statistic: R2 = 0.47821
+      p: p<0.0001
+    values:
+      slope:
+        printed: '-0.0009'
+        unit: per ms
+        kind: value
+        group: all
+        spread: none
+    anchor:
+      quote: y = -0.0009x + 1.166
+      where: Supplementary Fig. 5C–E
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  S5ce_relaxation:
+    unit: S5ce
+    measure: slope of 2 Hz force against 1 Hz twitch relaxation time
+    method: linear regression of 2 Hz force (normalized to 1 Hz force) against the 1 Hz twitch property
+    software: not stated
+    finding: y = -0.0015x + 1.098, R2 = 0.54366, p<0.0001
+    groups:
+    - all
+    n: *id035
+    stats:
+      test: linear regression testing for slope = 0
+      statistic: R2 = 0.54366
+      p: p<0.0001
+    values:
+      slope:
+        printed: '-0.0015'
+        unit: per ms
+        kind: value
+        group: all
+        spread: none
+    anchor:
+      quote: y = -0.0015x + 1.098
+      where: Supplementary Fig. 5C–E
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  S5ce_rise:
+    unit: S5ce
+    measure: slope of 2 Hz force against 1 Hz twitch rise time
+    method: linear regression of 2 Hz force (normalized to 1 Hz force) against the 1 Hz twitch property
+    software: not stated
+    finding: y = -0.001x + 0.9318, R2 = 0.02184, p<0.27
+    groups:
+    - all
+    n: *id035
+    stats:
+      test: linear regression testing for slope = 0
+      statistic: R2 = 0.02184
+      p: p<0.27
+    values:
+      slope:
+        printed: '-0.001'
+        unit: per ms
+        kind: value
+        group: all
+        spread: none
+    anchor:
+      quote: y = -0.001x + 0.9318
+      where: Supplementary Fig. 5C–E
+      file: 41467_2017_1946_MOESM1_ESM.pdf
+  F5e_cv:
+    unit: F5ef
+    measure: conduction velocity
+    method: optical mapping with di-4-ANEPPS (photodiode array for ctrl and Mega, EMCCD camera for Giga)
+    software: custom MATLAB software
+    finding: CV did not differ between ctrl, Mega and Giga cardiopatches
+    compares:
+    - ctrl
+    - mega
+    - giga
+    test_of: omnibus
+    n:
+      printed: n = 11/6/7 patches (ctrl/Mega/Giga) from three to four differentiations
+      counts: patches
+      per_group:
+        ctrl: '11'
+        mega: '6'
+        giga: '7'
+    stats:
+      test: one-way ANOVA
+      p: p = 0.56
+    values:
+      cv_mega:
+        printed: '27.2'
+        unit: cm/s
+        group: mega
+        spread: SEM
+        spread_source: methods
+      cv_mega_sem:
+        printed: '1.1'
+        unit: cm/s
+        kind: sem
+        group: mega
+      cv_giga:
+        printed: '28.9'
+        unit: cm/s
+        group: giga
+        spread: SEM
+        spread_source: methods
+      cv_giga_sem:
+        printed: '1.8'
+        unit: cm/s
+        kind: sem
+        group: giga
+    anchor:
+      quote: both Mega and Giga cardiopatches exhibited similar CVs (Mega 27.2 ± 1.1 cm/s, Giga 28.9 ± 1.8 cm/s)
+      where: Results, Scale-up of cardiopatch size
+  F5f_apd:
+    unit: F5ef
+    measure: action potential duration at 80% repolarization
+    method: optical mapping with di-4-ANEPPS
+    software: custom MATLAB software
+    finding: APD80 did not differ between ctrl, Mega and Giga cardiopatches
+    compares:
+    - ctrl
+    - mega
+    - giga
+    test_of: omnibus
+    n:
+      printed: n = 11/6/5 patches (ctrl/Mega/Giga) from three to four differentiations
+      counts: patches
+      per_group:
+        ctrl: '11'
+        mega: '6'
+        giga: '5'
+    stats:
+      test: one-way ANOVA
+      p: p = 0.52
+    values:
+      apd_mega:
+        printed: '447'
+        unit: ms
+        group: mega
+        spread: SEM
+        spread_source: methods
+      apd_mega_sem:
+        printed: '22'
+        unit: ms
+        kind: sem
+        group: mega
+      apd_giga:
+        printed: '471'
+        unit: ms
+        group: giga
+        spread: SEM
+        spread_source: methods
+      apd_giga_sem:
+        printed: '31'
+        unit: ms
+        kind: sem
+        group: giga
+    anchor:
+      quote: APDs (Mega 447 ± 22 ms, Giga 471 ± 31 ms) to those of control constructs (Fig. 5e, f)
+      where: Results, Scale-up of cardiopatch size
+  F5b_thickness:
+    unit: F5b
+    measure: cardiopatch thickness
+    method: confocal cross-sections
+    software: ImageJ
+    finding: Giga cardiopatches were 34.8 ± 1.8 µm thick
+    groups:
+    - giga
+    values:
+      thickness:
+        printed: '34.8'
+        unit: µm
+        group: giga
+        spread: SEM
+        spread_source: methods
+      thickness_sem:
+        printed: '1.8'
+        unit: µm
+        kind: sem
+        group: giga
+    anchor:
+      quote: Giga cardiopatches were 34.8 ± 1.8 µm thick (Fig. 5b)
+      where: Results, Scale-up of cardiopatch size
+  F5h_giga_vs_ctrl:
+    unit: F5hi
+    measure: maximum active force relative to Ctrl cardiopatch
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: normalized active force of Giga cardiopatches differed from ctrl
+    compares:
+    - giga
+    - ctrl
+    n: &id037
+      printed: n = 10/6/10 patches (ctrl/Mega/Giga) from three to four differentiations
+      counts: patches
+      per_group:
+        ctrl: '10'
+        mega: '6'
+        giga: '10'
+    stats:
+      test: post hoc Tukey’s tests
+      p: '*p < 0.0001'
+    anchor: &id038
+      quote: '*p < 0.0001 vs. ctrl, #p < 0.01 vs. Mega, post hoc Tukey’s tests; (i) p = 0.76, one-way ANOVA'
+      where: Fig. 5 legend
+  F5h_giga_vs_mega:
+    unit: F5hi
+    measure: maximum active force relative to Ctrl cardiopatch
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: normalized active force of Giga cardiopatches differed from mega
+    compares:
+    - giga
+    - mega
+    n: *id037
+    stats:
+      test: post hoc Tukey’s tests
+      p: '#p < 0.01'
+    anchor: *id038
+  F5i_specific:
+    unit: F5hi
+    measure: specific force relative to Ctrl cardiopatch
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: normalized specific force did not differ between ctrl, Mega and Giga
+    compares:
+    - ctrl
+    - mega
+    - giga
+    test_of: omnibus
+    n: *id037
+    stats:
+      test: one-way ANOVA
+      p: p = 0.76
+    anchor: *id038
+  TXT2_force:
+    unit: TXT2
+    measure: maximum active force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: 'twitch force increased with tissue size: 4.6, 9.4 and 17.5 mN for ctrl, Mega and Giga'
+    groups:
+    - ctrl
+    - mega
+    - giga
+    anchor:
+      quote: averaging for this set of experiments to 4.6 ± 0.6, 9.4 ± 1.0 to 17.5 ± 1.1 mN for control, Mega and Giga patches,
+        respectively
+      where: Results, Scale-up of cardiopatch size
+    values:
+      force_ctrl:
+        printed: '4.6'
+        unit: mN
+        group: ctrl
+        spread: SEM
+        spread_source: methods
+      force_ctrl_sem:
+        printed: '0.6'
+        unit: mN
+        kind: sem
+        group: ctrl
+      force_mega:
+        printed: '9.4'
+        unit: mN
+        group: mega
+        spread: SEM
+        spread_source: methods
+      force_mega_sem:
+        printed: '1.0'
+        unit: mN
+        kind: sem
+        group: mega
+      force_giga:
+        printed: '17.5'
+        unit: mN
+        group: giga
+        spread: SEM
+        spread_source: methods
+      force_giga_sem:
+        printed: '1.1'
+        unit: mN
+        kind: sem
+        group: giga
+      force_giga_max:
+        printed: '>20'
+        unit: mN
+        kind: value
+        group: giga
+        spread: none
+  TXT2_specific:
+    unit: TXT2
+    measure: specific force
+    method: isometric force measurement with an optical force transducer
+    software: custom MATLAB algorithms
+    finding: specific forces were similar for all groups (19.2, 19.4, 17.0 mN/mm2)
+    groups:
+    - ctrl
+    - mega
+    - giga
+    values:
+      spec_ctrl:
+        printed: '19.2'
+        unit: mN/mm2
+        group: ctrl
+        spread: SEM
+        spread_source: methods
+      spec_ctrl_sem:
+        printed: '2.2'
+        unit: mN/mm2
+        kind: sem
+        group: ctrl
+      spec_mega:
+        printed: '19.4'
+        unit: mN/mm2
+        group: mega
+        spread: SEM
+        spread_source: methods
+      spec_mega_sem:
+        printed: '2.1'
+        unit: mN/mm2
+        kind: sem
+        group: mega
+      spec_giga:
+        printed: '17.0'
+        unit: mN/mm2
+        group: giga
+        spread: SEM
+        spread_source: methods
+      spec_giga_sem:
+        printed: '0.8'
+        unit: mN/mm2
+        kind: sem
+        group: giga
+    anchor:
+      quote: with speciﬁc forces that were similar for all groups (19.2 ± 2.2, 19.4 ± 2.1, and 17.0 ± 0.8 mN/mm2
+      where: Results, Scale-up of cardiopatch size
+  F6c_time:
+    unit: F6c
+    measure: blood vessel density
+    method: hyperspectral brightfield intravital imaging, total hemoglobin maps thresholded to binary images; total area of
+      blood vessels per patch area
+    software: custom MATLAB script and ImageJ (CLAHE plugin, FIJI)
+    finding: blood vessel density increased between d7 and d14
+    compares:
+      condition:
+      - patch_d14
+      - blank_d14
+      reference:
+      - patch_d7
+      - blank_d7
+    test_of: main effect
+    n: &id039
+      printed: n = 18 mice (15 cardiopatches from 3 differentiations, 3 blank controls)
+      counts: mice
+    stats:
+      test: repeated measures ANOVA
+      statistic: F-ratio 34.8
+      p: p < 0.0001
+    anchor: &id040
+      quote: 'repeated measures ANOVA: time F-ratio 34.8 (p < 0.0001), patch×time interaction effect F-ratio 6.81 (p < 0.02)'
+      where: Fig. 6 legend
+  F6c_interaction:
+    unit: F6c
+    measure: blood vessel density
+    method: hyperspectral brightfield intravital imaging, total hemoglobin maps thresholded to binary images; total area of
+      blood vessels per patch area
+    software: custom MATLAB script and ImageJ (CLAHE plugin, FIJI)
+    finding: the increase in blood vessel density over time differed between cardiopatches and blanks
+    compares:
+    - patch_d7
+    - patch_d14
+    - blank_d7
+    - blank_d14
+    test_of: interaction
+    n: *id039
+    stats:
+      test: repeated measures ANOVA
+      statistic: F-ratio 6.81
+      p: p < 0.02
+    anchor: *id040
+  F6c_d14_vs_d7:
+    unit: F6c
+    measure: blood vessel density
+    method: hyperspectral brightfield intravital imaging, total hemoglobin maps thresholded to binary images; total area of
+      blood vessels per patch area
+    software: custom MATLAB script and ImageJ (CLAHE plugin, FIJI)
+    finding: BVD of cardiopatches rose 1.6-fold between d7 and d14
+    compares:
+    - patch_d14
+    - patch_d7
+    n: *id039
+    stats:
+      test: post hoc Tukey’s test
+      p: '**p < 0.0001'
+    values:
+      bvd_fold:
+        printed: '1.6'
+        unit: fold
+        kind: ratio
+        between:
+        - patch_d14
+        - patch_d7
+        spread: none
+    anchor:
+      quote: demonstrated progressive implant vascularization with a 1.6-fold increase in blood vessel density (BVD, Fig.
+        6c) between 7 and 14 days post implantation
+      where: Results, Cardiopatch vascularization and function in window chambers
+  F6c_patch_vs_blank:
+    unit: F6c
+    measure: blood vessel density
+    method: hyperspectral brightfield intravital imaging, total hemoglobin maps thresholded to binary images; total area of
+      blood vessels per patch area
+    software: custom MATLAB script and ImageJ (CLAHE plugin, FIJI)
+    finding: at d14 cardiopatches had higher BVD than blank controls
+    compares:
+    - patch_d14
+    - blank_d14
+    n: *id039
+    stats:
+      test: post hoc Tukey’s test
+      p: '#p < 0.027'
+    anchor:
+      quote: 'for cardiopatch at d14: **p < 0.0001 vs. cardiopatch at d7, #p < 0.027 vs. blank at d14, post hoc Tukey’s tests'
+      where: Fig. 6 legend
+  F6h_dff:
+    unit: F6h
+    measure: Ca2+ transient amplitude (dF/F)
+    method: intravital gCaMP6 fluorescence imaging; dF/F = [Fpeak− Fbase]/Fbase averaged from three ~400 × 400 μm2 regions
+      per patch
+    software: Solis software (Andor)
+    finding: Ca2+ transient amplitude was stable between d7 and d14
+    compares:
+    - d14
+    - d7
+    n:
+      printed: n = 12 patches from two differentiations
+      counts: patches
+    stats:
+      test: paired t-test
+      p: p = 0.2
+    anchor:
+      quote: n = 12 patches from two differentiations; p = 0.2, paired t-test
+      where: Fig. 6 legend
+  F7e_cv:
+    unit: F7e
+    measure: conduction velocity
+    method: dual optical mapping of gCaMP6 and di-4-ANEPPS with two CMOS cameras during point stimulation of the patch periphery
+    software: custom MATLAB software
+    finding: CV in implanted cardiopatches (18.1 cm/s) was comparable to pre-implantation (19.3 cm/s)
+    groups:
+    - implanted
+    - pre
+    values:
+      cv_implanted:
+        printed: '18.1'
+        unit: cm/s
+        group: implanted
+        spread: SEM
+        spread_source: methods
+      cv_implanted_sem:
+        printed: '1.7'
+        unit: cm/s
+        kind: sem
+        group: implanted
+      cv_pre:
+        printed: '19.3'
+        unit: cm/s
+        group: pre
+        spread: SEM
+        spread_source: methods
+      cv_pre_sem:
+        printed: '1.0'
+        unit: cm/s
+        kind: sem
+        group: pre
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: CVs in implanted cardiopatches (18.1 ± 1.7 cm/s, Fig. 7e, right) were found to be comparable to pre-implantation
+        CVs (19.3 ± 1.0 cm/s)
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+  TXT3_engraft:
+    unit: TXT3
+    measure: cardiopatches with gCaMP6-reported Ca2+ transients
+    method: EMCCD imaging of gCaMP6 in Langendorff-perfused hearts, spontaneous or during 1 Hz point stimulation
+    software: not stated
+    finding: 10 of 11 implanted cardiopatches showed spontaneous and stimulated Ca2+ transients
+    groups:
+    - implanted
+    values:
+      with_transients:
+        printed: '10'
+        unit: patches
+        kind: count
+        group: implanted
+        spread: none
+      total:
+        printed: '11'
+        unit: patches
+        kind: count
+        group: implanted
+        spread: none
+    anchor:
+      quote: 10 of 11 cardiopatches exhibited spontaneous and exogenously stimulated (1–2.5 Hz) gCaMP6-reported Ca2+ transients
+        (Fig. 7b)
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+  F7f_cv:
+    unit: F7f
+    measure: host epicardial conduction velocity
+    method: optical mapping of di-4-ANEPPS in Langendorff-perfused rat hearts
+    software: custom MATLAB software
+    finding: host epicardial conduction velocity under and away from the patch and in control hearts
+    groups:
+    - control
+    - under
+    - away
+    n: &id041
+      printed: n = 6/3/3 (control/under/away)
+      counts: hearts
+      per_group:
+        control: '6'
+        under: '3'
+        away: '3'
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: cardiopatches did not disturb the propagation pattern of underlying epicardium (Fig. 7e, left), its CV or APD
+        (Fig. 7f)
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+  F7f_apd:
+    unit: F7f
+    measure: host epicardial action potential duration
+    method: optical mapping of di-4-ANEPPS in Langendorff-perfused rat hearts
+    software: custom MATLAB software
+    finding: host epicardial action potential duration under and away from the patch and in control hearts
+    groups:
+    - control
+    - under
+    - away
+    n: *id041
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: cardiopatches did not disturb the propagation pattern of underlying epicardium (Fig. 7e, left), its CV or APD
+        (Fig. 7f)
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+  S18_no_arrhythmia:
+    unit: S18
+    measure: burst pacing attempts without arrhythmia
+    method: 1 s burst pacing at 2 Hz and 6–20 Hz in steps of 2 Hz from the base of the ventricle, with ECG and optical mapping
+    software: not stated
+    finding: burst pacing failed to produce arrhythmias in 40/54 patch-implanted and 36/48 control attempts
+    groups:
+    - implanted_heart
+    - control_heart
+    n: &id042
+      printed: n = 6 for each
+      counts: hearts
+      per_group:
+        implanted_heart: '6'
+        control_heart: '6'
+    values:
+      patch_no_arr:
+        printed: '40'
+        unit: attempts
+        kind: count
+        group: implanted_heart
+        spread: none
+      patch_attempts:
+        printed: '54'
+        unit: attempts
+        kind: count
+        group: implanted_heart
+        spread: none
+      ctrl_no_arr:
+        printed: '36'
+        unit: attempts
+        kind: count
+        group: control_heart
+        spread: none
+      ctrl_attempts:
+        printed: '48'
+        unit: attempts
+        kind: count
+        group: control_heart
+        spread: none
+      share:
+        printed: '75'
+        unit: '%'
+        kind: percent
+        over:
+        - implanted_heart
+        - control_heart
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: In 75% of attempts, burst pacing at 2–20 Hz (Supplementary Fig. 18A) failed to produce arrhythmias in both patch-implanted
+        (40/54 attempts) and control (36/48 attempts) hearts
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+  S18_sustained:
+    unit: S18
+    measure: hearts with sustained (>1 min) arrhythmias
+    method: ECG recording and optical mapping after burst pacing; arrhythmias longer than 1 min classified as sustained
+    software: not stated
+    finding: two control hearts and no patch-implanted heart showed sustained arrhythmias
+    groups:
+    - implanted_heart
+    - control_heart
+    n: *id042
+    values:
+      ctrl_sustained:
+        printed: '2'
+        unit: hearts
+        kind: count
+        group: control_heart
+        spread: none
+      patch_sustained:
+        printed: none
+        unit: hearts
+        kind: count
+        group: implanted_heart
+        spread: none
+    stats:
+      test: not stated
+      p: not stated
+    anchor:
+      quote: Two control (but none of patch-implanted) hearts also exhibited sustained (>1 min) arrhythmias caused by a more
+        complex, multi-wave activity
+      where: Results, Functional analysis of epicardially implanted cardiopatches
+claims:
+  C_abstract_maturation:
+    kind: stated
+    quote: Cardiopatch maturation markers and functional output increase during culture, approaching values of adult myocardium.
+    where: Abstract
+    scope: cardiopatches during 3 weeks of culture
+    direction: increase
+    strength: approaching values of adult myocardium
+    rests_on:
+    - F2b_force_w3_vs_w1
+    - F2b_specific_w3_vs_w1
+    - F2e_cv_w3_vs_w1
+    - F4a_TNNI3
+    - F4a_MYL2
+    - F1g_w3_vs_w1
+    opposes: []
+    cites:
+    - ref33
+    - ref35
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: overstated
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_abstract_scaleup:
+    kind: stated
+    quote: Cardiopatches can be scaled up to clinically relevant dimensions, while preserving spatially uniform properties
+      with high conduction velocities and contractile stresses.
+    where: Abstract
+    scope: ctrl, Mega and Giga cardiopatches at 3 weeks
+    direction: preserved
+    strength: preserving spatially uniform properties
+    rests_on:
+    - F5e_cv
+    - F5f_apd
+    - F5i_specific
+    - TXT2_force
+    - TXT2_specific
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: overstated
+  C_abstract_vascular:
+    kind: stated
+    quote: Within window chambers in nude mice, cardiopatches undergo vascularization by host vessels and continue to fire
+      Ca2+ transients.
+    where: Abstract
+    scope: 3-week-old 0.5MM cardiopatches in mouse dorsal window chambers
+    direction: vascularization increases
+    strength: not stated
+    rests_on:
+    - F6c_d14_vs_d7
+    - F6c_patch_vs_blank
+    - F6h_dff
+    opposes: []
+    cites: []
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_abstract_engraft:
+    kind: stated
+    quote: When implanted onto rat hearts, cardiopatches robustly engraft, maintain pre-implantation electrical function,
+      and do not increase the incidence of arrhythmias.
+    where: Abstract
+    scope: 2-week-old 0.5MM cardiopatches on nude rat epicardium, assessed 3 weeks later
+    direction: maintained
+    strength: robustly engraft
+    rests_on:
+    - TXT3_engraft
+    - F7e_cv
+    - S18_no_arrhythmia
+    - S18_sustained
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_abstract_tubules:
+    kind: stated
+    quote: show robust electromechanical coupling, consistent H-zones, I-bands, and evidence for T-tubules and M-bands
+    where: Abstract
+    scope: 3-week-old 0.5MM cardiopatches
+    direction: not stated
+    strength: consistent H-zones ... evidence for T-tubules and M-bands
+    rests_on:
+    - F4h_hzones
+    - F4h_ibands
+    - F4jk_fraction
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_results_maturation:
+    kind: stated
+    quote: Together, these data indicated progressive maturation of hiPSC-CMs within cardiopatches and their predominant ventricular
+      specification.
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+    scope: cardiopatches over 1–3 weeks
+    direction: progressive maturation
+    strength: not stated
+    rests_on:
+    - F1g_w3_vs_w1
+    - F1i_mlc2v_w3_vs_w1
+    - F1i_mlc2v_w3
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_reproducible:
+    kind: stated
+    quote: similar functional properties (±20%) were obtained in cardiopatches made from three additional hESC lines (HES2,
+      H9, and RUES2), indicating high reproducibility
+    where: Results, Functional maturation of cardiopatches
+    scope: cardiopatches from four hPSC lines
+    direction: not stated
+    strength: high reproducibility
+    rests_on:
+    - F2f_force
+    - F2f_specific
+    - F2f_cv
+    opposes: []
+    cites: []
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_results_ffr:
+    kind: stated
+    quote: cardiopatches demonstrated ﬂat to slightly negative active force–frequency relationships (FFRs) with 95 ± 0.8%
+      and 83 ± 2.0% of 1 Hz force maintained at 1.5 and 2 Hz stimulation
+    where: Results, Functional maturation of cardiopatches
+    scope: 61 cardiopatches from multiple lines and protocols
+    direction: slightly negative
+    strength: not stated
+    rests_on:
+    - S5b_f15
+    - S5b_f2
+    opposes: []
+    cites: []
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_media:
+    kind: stated
+    quote: Interestingly, cardiopatches that were switched earlier from 3D RB+ to 5% FBS media, exhibited lower active and
+      specific forces (Fig. 2g, h), but higher CVs (Fig. 2i)
+    where: Results, Functional maturation of cardiopatches
+    scope: cardiopatches cultured in four media schedules
+    direction: lower forces, higher CV
+    strength: not stated
+    rests_on:
+    - F2gj_force_omnibus
+    - F2gj_specific_rb_vs_fbs0
+    - F2gj_cv_omnibus
+    opposes: []
+    cites: []
+    judgement:
+      direction: cannot judge
+      support: cannot judge
+      comparison: cannot judge
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_density:
+    kind: stated
+    quote: Taken together, lowering hiPSC-CM density in cardiopatches significantly improved their electromechanical properties
+      to approach functional parameters of adult myocardium.
+    where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    scope: 0.5MM vs 1MM cardiopatches at 3 weeks
+    direction: improved
+    strength: significantly improved ... approach functional parameters of adult myocardium
+    rests_on:
+    - F3g_specific
+    - F3g_percell
+    - F3h_cv
+    - S9_rise
+    opposes:
+    - F3g_force
+    - F3h_apd
+    cites:
+    - ref33
+    - ref35
+    - ref36
+    asserts_direction: up
+    judgement:
+      direction: overstated
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_fig3_title:
+    kind: stated
+    quote: Lowering density of hiPSC-CMs improves cardiopatch function
+    where: Fig. 3 title
+    scope: 0.5MM vs 1MM cardiopatches
+    direction: improves
+    strength: not stated
+    rests_on:
+    - F3g_specific
+    - F3g_percell
+    - F3h_cv
+    opposes:
+    - F3g_force
+    cites: []
+    asserts_direction: up
+    restates: C_results_density
+    judgement:
+      direction: overstated
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_dynamic:
+    kind: stated
+    quote: Thus, in agreement with our recent study23, dynamic culture was essential for promoting the advanced functional
+      phenotype of cardiopatches.
+    where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    scope: 0.5MM cardiopatches cultured dynamically or statically
+    direction: dynamic culture higher
+    strength: essential
+    rests_on:
+    - S10b_force
+    - S10d_cv
+    opposes: []
+    cites:
+    - ref23
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_results_hypertrophy:
+    kind: stated
+    quote: Taken together, these data showed that lowering cell density in cardiopatches promoted hiPSC-CM hypertrophy, molecular
+      and ultrastructural maturation to approximate several features of adult myocardium.
+    where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    scope: 0.5MM vs 1MM cardiopatches at 3 weeks
+    direction: promoted
+    strength: approximate several features of adult myocardium
+    rests_on:
+    - F4b_CASQ2
+    - F4b_MYOM3
+    - F4b_S100A1
+    - F4b_COX6A2
+    - F4c_proteindna
+    - F4e_gapdh
+    - F4e_SAA
+    - F4h_hzones
+    opposes: []
+    cites: []
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_results_akt:
+    kind: stated
+    quote: higher expression of phosphorylated Akt, with minimal changes in mTOR and AMPK phosphorylation (Supplementary Figs.
+      12 and 19B), suggested Akt-mediated signaling as a mechanism
+    where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    scope: 0.5MM vs 1MM cardiopatches
+    direction: higher p-Akt
+    strength: suggested ... as a mechanism
+    rests_on:
+    - S12_Akt
+    - S12_mTOR
+    - S12_AMPK
+    - F3e_cellsize
+    opposes: []
+    cites: []
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_scaleup:
+    kind: stated
+    quote: Together, these results demonstrated the first-time engineering of large, highly functional, non-arrhythmogenic
+      human heart tissues.
+    where: Results, Scale-up of cardiopatch size
+    scope: 36 × 36 mm Giga cardiopatches in vitro
+    direction: not stated
+    strength: first-time ... non-arrhythmogenic
+    rests_on:
+    - F5e_cv
+    - F5f_apd
+    - F5i_specific
+    - TXT2_force
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: overstated
+  C_results_preserved:
+    kind: stated
+    quote: both Mega and Giga cardiopatches exhibited similar CVs (Mega 27.2 ± 1.1 cm/s, Giga 28.9 ± 1.8 cm/s) and APDs (Mega
+      447 ± 22 ms, Giga 471 ± 31 ms)
+    where: Results, Scale-up of cardiopatch size
+    scope: ctrl, Mega and Giga cardiopatches at 3 weeks
+    direction: similar
+    strength: not stated
+    rests_on:
+    - F5e_cv
+    - F5f_apd
+    opposes: []
+    cites: []
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_vascular:
+    kind: stated
+    quote: Overall, these results indicated that in vitro engineered avascular cardiopatches can undergo progressive vascularization
+      and maintain functionality in vivo.
+    where: Results, Cardiopatch vascularization and function in window chambers
+    scope: cardiopatches in mouse dorsal window chambers over 2 weeks
+    direction: progressive vascularization
+    strength: not stated
+    rests_on:
+    - F6c_d14_vs_d7
+    - F6c_patch_vs_blank
+    - F6c_time
+    - F6h_dff
+    opposes: []
+    cites: []
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_results_hostvessels:
+    kind: stated
+    quote: Considering that implanted patches contained no endothelial cells (Supplementary Fig. 3A, lower), observed vascularization
+      in vivo likely originated from the host vessel ingrowth.
+    where: Results, Cardiopatch vascularization and function in window chambers
+    scope: cardiopatches in mouse window chambers
+    direction: not stated
+    strength: likely
+    rests_on:
+    - F6c_d14_vs_d7
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  C_results_invivo:
+    kind: stated
+    quote: epicardially implanted cardiopatches exhibited robust survival and vascularization, maintained electrical function
+      at preimplantation levels, lacked electrical integration with the host rat heart
+    where: Results, Functional analysis of epicardially implanted cardiopatches
+    scope: cardiopatches on nude rat epicardium, 3 weeks after implantation
+    direction: maintained
+    strength: robust survival
+    rests_on:
+    - TXT3_engraft
+    - F7e_cv
+    - F7f_cv
+    - F7f_apd
+    - S18_no_arrhythmia
+    opposes: []
+    cites: []
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: overstated
+  C_results_nocoupling:
+    kind: stated
+    quote: Dual camera mapping (Fig. 7c) of electrical activity in the heart (Di-4-ANEPPS) and cardiopatch (gCaMP6) showed
+      no evidence of graft-host functional coupling
+    where: Results, Functional analysis of epicardially implanted cardiopatches
+    scope: patch-implanted Langendorff-perfused rat hearts
+    direction: no coupling
+    strength: not stated
+    rests_on:
+    - TXT3_engraft
+    opposes: []
+    cites: []
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: cannot judge
+  C_disc_highest:
+    kind: stated
+    quote: including the highest reported patch contractile forces (>5 mN for small and >20 mN for large patches), speciﬁc
+      forces (>22 mN/mm2), and CVs (~30 cm/s)
+    where: Discussion
+    scope: cardiopatches of this study against the literature
+    direction: not stated
+    strength: highest reported
+    rests_on:
+    - F3g_force
+    - F3g_specific
+    - TXT2_force
+    - F5e_cv
+    - S8_max
+    opposes: []
+    cites:
+    - ref6
+    - ref33
+    - ref35
+    judgement:
+      direction: cannot judge
+      support: follows
+      comparison: cannot judge
+      scope: overstated
+      replication: follows
+      strength: cannot judge
+      presence: follows
+  C_disc_percell:
+    kind: stated
+    quote: At the cellular level, the force generating capacity per input cardiomyocyte was 8–1400-fold higher for cardiopatches
+      than other engineered human heart tissues6,46.
+    where: Discussion
+    scope: cardiopatches against other engineered human heart tissues
+    direction: higher
+    strength: not stated
+    rests_on:
+    - F3g_percell
+    opposes: []
+    cites:
+    - ref6
+    - ref24
+    judgement:
+      direction: follows
+      support: follows
+      comparison: cannot judge
+      scope: cannot judge
+      replication: follows
+      strength: cannot judge
+      presence: follows
+  C_disc_conclusion:
+    kind: stated
+    quote: In conclusion, we have established a scalable methodology to generate the first highly functional human cardiac
+      tissues with clinically relevant dimensions (4 × 4 cm).
+    where: Discussion
+    scope: 36 × 36 mm Giga cardiopatches
+    direction: not stated
+    strength: the first highly functional
+    rests_on:
+    - F5e_cv
+    - F5i_specific
+    - TXT2_force
+    opposes: []
+    cites: []
+    restates: C_results_scaleup
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: overstated
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_disc_factors:
+    kind: stated
+    quote: Important factors contributing to advanced CM maturation in cardiopatches were sequential application of serum-free
+      followed by serum-containing media and reduced seeding density
+    where: Discussion
+    scope: cardiopatches in this study
+    direction: increased
+    strength: not stated
+    rests_on:
+    - F2gj_force_omnibus
+    - F4b_CASQ2
+    - F4e_SAA
+    - F3e_cellsize
+    - F4c_proteindna
+    opposes: []
+    cites: []
+    asserts_direction: up
+    judgement:
+      direction: follows
+      support: overstated
+      comparison: overstated
+      scope: follows
+      replication: follows
+      strength: overstated
+      presence: follows
+  C_disc_ffr:
+    kind: stated
+    quote: Interestingly, across different hPSC lines and culture protocols, cardiopatches with faster twitch relaxation exhibited
+      more positive FFR
+    where: Discussion
+    scope: 61 cardiopatches from multiple lines and protocols
+    direction: faster relaxation, more positive FFR
+    strength: not stated
+    rests_on:
+    - S5ce_relaxation
+    - S5ce_duration
+    opposes:
+    - S5ce_rise
+    cites: []
+    asserts_direction: down
+    judgement:
+      direction: follows
+      support: follows
+      comparison: follows
+      scope: follows
+      replication: follows
+      strength: follows
+      presence: follows
+  C_disc_arrhythmia:
+    kind: stated
+    quote: through aggressive burst pacing protocols demonstrated that cardiopatches did not increase vulnerability to arrhythmias
+      in host ventricles
+    where: Discussion
+    scope: nude rat hearts, n = 6 per group
+    direction: no increase
+    strength: demonstrated
+    rests_on:
+    - F7f_cv
+    - F7f_apd
+    - S18_no_arrhythmia
+    - S18_sustained
+    opposes: []
+    cites: []
+    asserts_direction: none
+    judgement:
+      direction: follows
+      support: cannot judge
+      comparison: follows
+      scope: follows
+      replication: overstated
+      strength: overstated
+      presence: follows
+  C_lit_first_window:
+    kind: literature
+    quote: The dorsal window chamber model allowed us to, for the first time, monitor survival, vascularization, and function
+      of implanted cardiac tissues in real time in live mice.
+    where: Discussion
+    scope: the literature
+    direction: not stated
+    strength: for the first time
+    rests_on: []
+    opposes: []
+    cites:
+    - ref43
+    judgement: null
+  C_lit_first_dual:
+    kind: literature
+    quote: Here we for the first time employed dual optical mapping to simultaneously, with high spatial and temporal resolution,
+      monitor propagation of electrical signals in cardiopatches and recipient hearts
+    where: Discussion
+    scope: the literature
+    direction: not stated
+    strength: for the first time
+    rests_on: []
+    opposes: []
+    cites: []
+    judgement: null
+  C_attr_menasche:
+    kind: attributed
+    quote: Menasche et al. recently demonstrated improved cardiac function in a 68-year-old patient with advanced heart failure
+      following epicardial implantation of a 20 cm2 fibrin-based tissue patch
+    where: Discussion
+    scope: a single patient in another study
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    opposes: []
+    cites:
+    - ref65
+    judgement: null
+  C_attr_primates:
+    kind: attributed
+    quote: As recently shown in non-human primates22,52, large heterogeneous tissue grafts with relatively immature PSC-CMs
+      greatly increased the risk of cardiac arrhythmias
+    where: Discussion
+    scope: non-human primates
+    direction: not stated
+    strength: not stated
+    rests_on: []
+    opposes: []
+    cites:
+    - ref22
+    judgement: null
+citations:
+  ref1:
+    label: '1'
+    text: Lian, X. et al. Robust cardiomyocyte differentiation from human pluripotent stem cells via temporal modulation of
+      canonical Wnt signaling. Proc. Natl Acad. Sci. USA 109, E1848–1857 (2012)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Through modiﬁcation of the WNT signaling pathway1,2, we differentiated hiPSC monolayers into hiPSC-CMs
+      where: Results, Cellular makeup and structural maturation of cardiopatches
+    year: '2012'
+  ref4:
+    label: '4'
+    text: Tohyama, S. et al. Distinct metabolic flow enables large-scale purification of mouse and human pluripotent stem
+      cell-derived cardiomyocytes. Cell Stem Cell 12, 127–137 (2013)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Differentiating CM cultures were puriﬁed via metabolic selection between d10 and d12 based on previously described
+        methods4
+      where: Methods, Metabolic selection of hPSC-CMs
+    year: '2013'
+  ref23:
+    label: '23'
+    text: Jackman, C. P., Carlson, A. L. & Bursac, N. Dynamic culture yields engineered myocardium with near-adult functional
+      output. Biomaterials 111, 66–79 (2016)
+    purpose:
+    - borrows_method
+    - attributes_finding
+    anchor:
+      quote: We have recently described use of free-ﬂoating dynamic culture conditions to generate miniature, cylindrically
+        shaped heart tissues (cardiobundles)
+      where: Introduction
+    year: '2016'
+  ref24:
+    label: '24'
+    text: Zhang, D. et al. Tissue-engineered cardiac patch for advanced functional maturation of human ESC-derived cardiomyocytes.
+      Biomaterials 34, 5813–5820 (2013)
+    purpose:
+    - borrows_method
+    - borrows_value
+    anchor:
+      quote: contractile force production per input CM24 was nearly two-fold higher in 0.5MM cardiopatches
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    year: '2013'
+  ref26:
+    label: '26'
+    text: Bian, W., Liau, B., Badie, N. & Bursac, N. Mesoscopic hydrogel molding to control the 3D geometry of bioartificial
+      muscle tissues. Nat. Protoc. 4, 1522–1534 (2009)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: 9 × 9 mm polydimethylsiloxane (PDMS, Dow Corning) square molds were microfabricated as previously described26
+      where: Methods, Cardiopatch fabrication and culture
+    year: '2009'
+  ref29:
+    label: '29'
+    text: Fan, L. et al. Infarcted left ventricles have stiffer material properties and lower stiffness variation. J. Biomech.
+      Eng. 137, 081005 (2015)
+    purpose:
+    - borrows_value
+    anchor:
+      quote: passive stiffness of cardiopatches (26 ± 5.6 kPa) approximated diastolic cross-ﬁber stiffness of adult human
+        ventricles (~20–50 kPa29,30)
+      where: Results, Functional maturation of cardiopatches
+    year: '2015'
+  ref31:
+    label: '31'
+    text: Vreeker, A. et al. Assembly of the cardiac intercalated disk during pre- and postnatal development of the human
+      heart. PLoS ONE 9, e94722 (2014)
+    purpose:
+    - borrows_value
+    - attributes_finding
+    anchor:
+      quote: most resembling gap junctional distribution seen in 1–5-year-old human hearts31
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    year: '2014'
+  ref33:
+    label: '33'
+    text: Hasenfuss, G. et al. Energetics of isometric force development in control and volume-overload human myocardium.
+      Circ. Res. 68, 836–846 (1991)
+    purpose:
+    - borrows_value
+    anchor:
+      quote: that were in the range of the 25–44 mN/mm2 values measured for adult human myocardium33,34
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    year: '1991'
+  ref35:
+    label: '35'
+    text: Durrer, D. et al. Total excitation of the isolated human heart. Circulation 41, 899–912 (1970)
+    purpose:
+    - borrows_value
+    anchor:
+      quote: comparable to an average CV of 46.4 cm/s recorded in adult human ventricles35
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    year: '1970'
+  ref36:
+    label: '36'
+    text: Glukhov, A. V. et al. Transmural dispersion of repolarization in failing and nonfailing human ventricle. Circ. Res.
+      106, 981–991 (2010)
+    purpose:
+    - borrows_value
+    anchor:
+      quote: better approximating values measured in human myocardium (350–430 ms for 1 Hz pacing)36
+      where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+    year: '2010'
+  ref38:
+    label: '38'
+    text: Kerscher, P. et al. Direct hydrogel encapsulation of pluripotent stem cells enables ontomimetic differentiation
+      and growth of engineered human heart tissues. Biomaterials 83, 383–395 (2015)
+    purpose:
+    - contrasts
+    anchor:
+      quote: a ﬁnding that contrasted previous studies reporting occurrence of H-zones in fewer than a third of the cells38
+      where: Discussion
+    year: '2015'
+  ref40:
+    label: '40'
+    text: Kamakura, T. et al. Ultrastructural maturation of human-induced pluripotent stem cell-derived cardiomyocytes in
+      a long-term culture. Circ. J. 77, 1307–1314 (2013)
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: a hallmark of mature sarcomeres that in hiPSC-CM monolayers was previously seen only after 360 days of culture40
+      where: Results, Molecular and ultrastructural maturation of hiPSC-CMs
+    year: '2013'
+  ref43:
+    label: '43'
+    text: Palmer, G. M. et al. In vivo optical molecular imaging and analysis in mice using dorsal window chamber models.
+      Nat. Protoc. 6, 1355–1366 (2011)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: using our previously described dorsal window chamber assay in nude mice43,44
+      where: Results, Cardiopatch vascularization and function in window chambers
+    year: '2011'
+  ref45:
+    label: '45'
+    text: Chen, T. W. et al. Ultrasensitive fluorescent proteins for imaging neuronal activity. Nature 499, 295–300 (2013)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: hiPSC-CMs were transduced with an MHCK7-gCaMP6 lentivirus45
+      where: Results, Cardiopatch vascularization and function in window chambers
+    year: '2013'
+  ref22:
+    label: '22'
+    text: Chong, J. J. et al. Human embryonic-stem-cell-derived cardiomyocytes regenerate non-human primate hearts. Nature
+      510, 273–277 (2014)
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: As recently shown in non-human primates22,52, large heterogeneous tissue grafts with relatively immature PSC-CMs
+        greatly increased the risk of cardiac arrhythmias
+      where: Discussion
+    year: '2014'
+  ref51:
+    label: '51'
+    text: Kadota, S. et al. Development of a reentrant arrhythmia model in human pluripotent stem cell-derived cardiac cell
+      sheets. Eur. Heart J. 34, 1147–1156
+    purpose:
+    - contrasts
+    anchor:
+      quote: contrasting previous reports in the engineered tissues with slow CVs51
+      where: Discussion
+  ref65:
+    label: '65'
+    text: Menasché, P. et al. epicardial implantation of a fibrin patch with hESC-derived SSEA-1+ progenitors
+    purpose:
+    - attributes_finding
+    anchor:
+      quote: Menasche et al. recently demonstrated improved cardiac function in a 68-year-old patient with advanced heart
+        failure following epicardial implantation
+      where: Discussion
+  ref70:
+    label: '70'
+    text: pro-survival protocol for cardiac grafts (reference 70)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: Cardiopatches were subjected to an established pro-survival protocol70
+      where: Methods, Surgical implantation of cardiopatches onto rat hearts
+  ref66:
+    label: '66'
+    text: custom MATLAB optical mapping software (reference 66)
+    purpose:
+    - borrows_method
+    anchor:
+      quote: isochrone maps and movies of action potential propagation were derived from acquired signals using our custom
+        MATLAB software66
+      where: Methods, Assessment of electrical propagation
+  ref6:
+    label: '6'
+    text: Shadrin, I. Y., Khodabukus, A. & Bursac, N. Striated muscle function, regeneration, and repair. Cell Mol. Life Sci.
+      73, 4175–4202 (2016)
+    purpose:
+    - borrows_value
+    anchor:
+      quote: the force generating capacity per input cardiomyocyte was 8–1400-fold higher for cardiopatches than other engineered
+        human heart tissues6,46
+      where: Discussion
+    year: '2016'
+cross_references:
+- cited: Figs. 1D and 3F
+  shows: Fig. 1d is a Cx43 image of a cardiopatch and Fig. 3f images of 0.5MM patches; the sentence cites them for the thickness
+    and cell density of control constructs
+  anchor:
+    quote: Similar to control 7 × 7 mm constructs (Figs. 1D and 3F), Giga cardiopatches were 34.8 ± 1.8 µm thick (Fig. 5b)
+    where: Results, Scale-up of cardiopatch size
+context_anchors:
+- field: mechanical_load
+  value: auxotonic
+  anchor:
+    quote: ﬂexible frames to support auxotonic tissue loading
+    where: Discussion
+- field: cell_line
+  value: DU11 hiPSC
+  anchor:
+    quote: With the exception of Fig. 2f, all experiments were performed using DU11 hiPSCs between passages 18 and 45.
+    where: Methods, Generation and maintenance of hPSCs
+- field: differentiation_factors.inhibitor
+  value: IWP-4
+  anchor:
+    quote: fresh RPMI/B27(−) medium containing 5μM (final concentration) IWP-4 (Tocris)
+    where: Methods, Cardiac differentiation of hPSCs
+- field: differentiation_factors
+  value: CHIR99021
+  anchor:
+    quote: cells were treated with 8–10 μM (for E8 protocol) or 10–14 μM (for mTeSR protocol) CHIR99021 (SelleckChem)
+    where: Methods, Cardiac differentiation of hPSCs
+- field: hipsc_medium
+  value: TeSR-E8 or mTeSR
+  anchor:
+    quote: hPSCs were maintained as feeder-free cultures on growth factor-reduced Matrigel (Corning, 80 µg/mL or 8.5–10 µg/cm2
+      coating) in either TeSR-E8 or mTeSR media
+    where: Methods, Generation and maintenance of hPSCs
+- field: hipsc_coating
+  value: growth factor-reduced Matrigel
+  anchor:
+    quote: feeder-free cultures on growth factor-reduced Matrigel (Corning, 80 µg/mL or 8.5–10 µg/cm2 coating)
+    where: Methods, Generation and maintenance of hPSCs
+- field: wnt_activation_days
+  value: 24 h
+  anchor:
+    quote: Exactly 24 h later, CHIR was removed and replaced with basal RPMI/B27(−) medium.
+    where: Methods, Cardiac differentiation of hPSCs
+- field: wnt_inhibition_days.until
+  value: d5
+  anchor:
+    quote: d5, IWP-4 was replaced with basal RPMI/B27(−) medium.
+    where: Methods, Cardiac differentiation of hPSCs
+- field: wnt_inhibition_days
+  value: d3
+  anchor:
+    quote: On d3, half of the old medium was collected and mixed with fresh RPMI/B27(−) medium containing 5μM (final concentration)
+      IWP-4 (Tocris).
+    where: Methods, Cardiac differentiation of hPSCs
+- field: insulin_day
+  value: d7
+  anchor:
+    quote: From d7 onward, cells were fed with RPMI/B27(+)-insulin every 2–3 days
+    where: Methods, Cardiac differentiation of hPSCs
+- field: confluency
+  value: 75–85% confluence
+  anchor:
+    quote: RUES2, H9 hESCs, and DU11 hiPSCs were grown to 75–85% conﬂuence and dissociated into single cells using Accutase
+    where: Methods, Cardiac differentiation of hPSCs
+- field: purification.medium
+  value: no glucose medium
+  anchor:
+    quote: cultures were rinsed with PBS and incubated with “no glucose” medium for 48 h
+    where: Methods, Metabolic selection of hPSC-CMs
+- field: purification
+  value: metabolic selection
+  anchor:
+    quote: Differentiating CM cultures were puriﬁed via metabolic selection between d10 and d12
+    where: Methods, Metabolic selection of hPSC-CMs
+- field: purity_method
+  value: flow cytometry
+  anchor:
+    quote: Representative ﬂow cytometry histogram from hiPSC-CMs after 20 days of differentiation.
+    where: Fig. 1 legend
+- field: purity
+  value: 86.3 ± 0.9% cTnT+
+  anchor:
+    quote: cells at d15–21 contained 86.3 ± 0.9% cTnT+ hiPSC-CMs
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: replating_coating
+  value: Matrigel
+  anchor:
+    quote: replated onto fresh Matrigel-coated dishes to remove dead cells and debris
+    where: Methods, Metabolic selection of hPSC-CMs
+- field: composition
+  value: ~14% smooth muscle cells and ﬁbroblasts
+  anchor:
+    quote: remaining ~14% made up primarily of smooth muscle cells and ﬁbroblasts and virtually no endothelial cells
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: cm_day_at_formation
+  value: d15–21
+  anchor:
+    quote: cells at d15–21 contained 86.3 ± 0.9% cTnT+ hiPSC-CMs
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: dissociation_reagent
+  value: 0.25% trypsin/EDTA
+  anchor:
+    quote: cultures were dissociated into single cells using 0.25% trypsin/EDTA followed by quenching with stop buffer
+    where: Methods, Metabolic selection of hPSC-CMs
+- field: platform
+  value: monolayer
+  anchor:
+    quote: we differentiated hiPSC monolayers into hiPSC-CMs
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: seeding_density
+  value: 5 × 104/cm2 or 2 × 105/cm2
+  anchor:
+    quote: cells were plated at either 5 × 104/cm2 (for E8 protocol) or 2 × 105/cm2 (for mTeSR protocol)
+    where: Methods, Cardiac differentiation of hPSCs
+- field: preparation
+  value: dissociated cardiomyocytes
+  anchor:
+    quote: Dissociated cardiomyocytes were ﬁxed in 1% paraformaldehyde (Electron Microscopy Sciences, EMS) for 15 min
+    where: Methods, Flow cytometry analysis of CM purity
+- field: day_of_measurement
+  value: d15–21
+  anchor:
+    quote: cells at d15–21 contained 86.3 ± 0.9% cTnT+ hiPSC-CMs
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: species
+  value: human
+  anchor:
+    quote: human induced pluripotent stem cell-derived cardiomyocytes
+    where: Abstract
+- field: cm_medium
+  value: cardiac medium
+  anchor:
+    quote: cultured in 12-well plates on a rocking platform (GeneMate Rocker, BioExpress) for 21 days in 1.5–2 mL of cardiac
+      medium
+    where: Methods, Cardiopatch fabrication and culture
+- field: supplements
+  value: aminocaproic acid
+  anchor:
+    quote: cardiac medium, which contained aminocaproic acid to prevent ﬁbrin degradation
+    where: Methods, Cardiopatch fabrication and culture
+- field: cell_types
+  value: CMs + non-CMs
+  anchor:
+    quote: mixture of cardiomyocytes (CMs) and non-CMs
+    where: Supplementary Fig. 1 legend
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+- field: substrate
+  value: fibrinogen + Matrigel
+  anchor:
+    quote: Hydrogel solution (24 μL human ﬁbrinogen (10 mg/mL, Sigma F4883), 12 μL Matrigel
+    where: Methods, Cardiopatch fabrication and culture
+- field: platform.size
+  value: 7 × 7 mm
+  anchor:
+    quote: The dissociated cells were encapsulated in hydrogel to form 7 × 7 mm cardiopatches (1 × 106 cells per patch
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: platform
+  value: cardiopatch
+  anchor:
+    quote: Photo of a 7 × 7 mm hiPSC-CM-derived tissue patch (human “cardiopatch”) surrounded by a Cerex® frame.
+    where: Fig. 1 legend
+- field: seeding_density
+  value: 1 × 106 cells per patch
+  anchor:
+    quote: form 7 × 7 mm cardiopatches (1 × 106 cells per patch
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: maturation_strategy
+  value: free-ﬂoating dynamic culture
+  anchor:
+    quote: After 3 weeks of free-ﬂoating dynamic culture
+    where: Results, Cellular makeup and structural maturation of cardiopatches
+- field: preparation
+  value: fixed
+  anchor:
+    quote: cardiopatches were washed with Ca2+-free PBS and ﬁxed with cold 4% paraformaldehyde
+    where: Methods, Structural characterization and immunoﬂuorescence in vitro
+- field: day_of_measurement
+  value: 1 week
+  anchor:
+    quote: quantiﬁcation (g) of Ki67+/Nkx2.5+ CMs after 1, 2, and 3 weeks of cardiopatch culture
+    where: Fig. 1 legend
+- field: day_of_measurement
+  value: 2 weeks
+  anchor:
+    quote: quantiﬁcation (g) of Ki67+/Nkx2.5+ CMs after 1, 2, and 3 weeks of cardiopatch culture
+    where: Fig. 1 legend
+- field: day_of_measurement
+  value: 3 weeks
+  anchor:
+    quote: quantiﬁcation (g) of Ki67+/Nkx2.5+ CMs after 1, 2, and 3 weeks of cardiopatch culture
+    where: Fig. 1 legend
+- field: pacing
+  value: spontaneous
+  anchor:
+    quote: Representative isometric contractile (active) force traces of spontaneously beating hiPSC-CM cardiopatches
+    where: Fig. 2 legend
+- field: preparation
+  value: cardiac tissue patch
+  anchor:
+    quote: Force generating capacity of cardiac tissue patches was assessed in 1- to 3-week-old patches loaded into a custom-made
+      isometric force measurement setup
+    where: Methods, Assessment of biomechanical properties
+- field: pacing
+  value: 1 Hz ﬁeld-electrode stimulation
+  anchor:
+    quote: passive tension (non-stimulated) and active (contractile) force responses were recorded during 1 Hz ﬁeld-electrode
+      stimulation (10 ms duration, 20–30 V)
+    where: Methods, Assessment of biomechanical properties
+- field: treatment
+  value: blebbistatin
+  anchor:
+    quote: Blebbistatin (5 μM, Sigma B0560) was added to inhibit contractions and eliminate motion artifacts during recordings
+    where: Methods, Assessment of electrical propagation
+- field: pacing.rate
+  value: 1–4 Hz
+  anchor:
+    quote: was used to stimulate (8–15 V) the corner of the patch at varying pacing rates (1–4 Hz)
+    where: Methods, Assessment of electrical propagation
+- field: pacing
+  value: point stimulation
+  anchor:
+    quote: average conduction velocities (CV, e) during point stimulation from bottom right corner (pulse sign)
+    where: Fig. 2 legend
+- field: measurement_calcium_mM
+  value: 1.8 mM
+  anchor:
+    quote: standard Tyrode’s solution (135 mM NaCl, 5.4 mM KCl, 1.8 mM CaCl2
+    where: Methods, Assessment of electrical propagation
+- field: measurement_medium
+  value: Tyrode’s solution
+  anchor:
+    quote: in standard Tyrode’s solution (135 mM NaCl, 5.4 mM KCl, 1.8 mM CaCl2, 1 mM MgCl2
+    where: Methods, Assessment of electrical propagation
+- field: cell_line
+  value: Hes2 hESC
+  anchor:
+    quote: Cardiomyocytes differentiated from Hes2 hESCs were obtained from VistaGen Therapeutics.
+    where: Methods, Generation and maintenance of hPSCs
+- field: cell_line
+  value: H9 hESC
+  anchor:
+    quote: RUES2 and H9 hESCs were obtained from and approved for use by Rockefeller University and WiCell Institute
+    where: Methods, Generation and maintenance of hPSCs
+- field: cell_line
+  value: RUES2 hESC
+  anchor:
+    quote: RUES2 and H9 hESCs were obtained from and approved for use by Rockefeller University and WiCell Institute
+    where: Methods, Generation and maintenance of hPSCs
+- field: cm_medium
+  value: 3D RB+ (d0–21)
+  anchor:
+    quote: 3D RB+ (d0-21)
+    where: Fig. 2g–j axis labels
+- field: cm_medium
+  value: 5% FBS (d14–21)
+  anchor:
+    quote: 5% FBS (d14-21)
+    where: Fig. 2g–j axis labels
+- field: cm_medium
+  value: 5% FBS (d7–21)
+  anchor:
+    quote: 5% FBS (d7-21)
+    where: Fig. 2g–j axis labels
+- field: cm_medium
+  value: 5% FBS (d0–21)
+  anchor:
+    quote: 5% FBS (d0-21)
+    where: Fig. 2g–j axis labels
+- field: cm_medium
+  value: 1 week 3D RB+, 2 weeks 5% FBS
+  anchor:
+    quote: we chose an optimal media condition (1 week 3D RB+, 2 weeks 5% FBS)
+    where: Results, Functional maturation of cardiopatches
+- field: seeding_density
+  value: 1 × 106 (1 MM) cells
+  anchor:
+    quote: was mixed with 1 × 106 (1 MM) or 0.5 × 106 (0.5 MM) cells in 58 μL cardiac media
+    where: Methods, Cardiopatch fabrication and culture
+- field: seeding_density
+  value: 0.5 × 106 (0.5 MM) cells
+  anchor:
+    quote: was mixed with 1 × 106 (1 MM) or 0.5 × 106 (0.5 MM) cells in 58 μL cardiac media
+    where: Methods, Cardiopatch fabrication and culture
+- field: maturation_strategy
+  value: static culture
+  anchor:
+    quote: cardiopatches cultured under traditional static (instead of our regular dynamic) conditions
+    where: Results, Enhanced hiPSC-CM properties in low-density cardiopatches
+- field: preparation
+  value: lysis buffer
+  anchor:
+    quote: 3-week-old cardiopatches were cut with scissors in 100–120 µL of ice-cold RIPA lysis buffer
+    where: Methods, Western blotting and protein/DNA ratio
+- field: day_of_measurement
+  value: d0
+  anchor:
+    quote: Protein from input cell population (d0 of cardiopatch) was isolated by pelleting dissociated cells
+    where: Methods, Western blotting and protein/DNA ratio
+- field: cm_medium
+  value: 3D RB+ d0–7, 5% FBS d7–21
+  anchor:
+    quote: cultured in the same medias as cardiopatches (3D RB + d0–7, 5% FBS d7–21)
+    where: Methods, qRT-PCR
+- field: platform
+  value: 2D monolayer
+  anchor:
+    quote: For comparison with age-matched 2D monolayers, hiPSC-CMs were plated in parallel onto Matrigel-coated (Corning)
+      24-well plates
+    where: Methods, qRT-PCR
+- field: seeding_density
+  value: 1 × 105 cells/cm2
+  anchor:
+    quote: onto Matrigel-coated (Corning) 24-well plates at a density of 1 × 105 cells/cm2
+    where: Methods, qRT-PCR
+- field: cell_line
+  value: H9, iPSC
+  anchor:
+    quote: hPSC lines (H9, iPSC)
+    where: Supplementary Fig. 5 legend
+    file: 41467_2017_1946_MOESM1_ESM.pdf
+- field: pacing
+  value: 1.5 Hz
+  anchor:
+    quote: step-wise increases in ﬁeld-shock stimulation at 1, 1.5, and 2 Hz
+    where: Methods, Assessment of biomechanical properties
+- field: pacing
+  value: 2 Hz
+  anchor:
+    quote: step-wise increases in ﬁeld-shock stimulation at 1, 1.5, and 2 Hz
+    where: Methods, Assessment of biomechanical properties
+- field: platform.size
+  value: 15 × 15 mm
+  anchor:
+    quote: Representative images of control (ctrl, 7 × 7 mm), Mega (15 × 15 mm) and Giga (36 × 36 mm) cardiopatches
+    where: Fig. 5 legend
+- field: seeding_density
+  value: 2 million CMs
+  anchor:
+    quote: generate 15 × 15 mm (Mega) and 36 × 36 mm (Giga) cardiopatches using 2 and 10 million CMs, respectively
+    where: Results, Scale-up of cardiopatch size
+- field: platform.size
+  value: 36 × 36 mm
+  anchor:
+    quote: Representative images of control (ctrl, 7 × 7 mm), Mega (15 × 15 mm) and Giga (36 × 36 mm) cardiopatches
+    where: Fig. 5 legend
+- field: seeding_density
+  value: 10 million CMs
+  anchor:
+    quote: generate 15 × 15 mm (Mega) and 36 × 36 mm (Giga) cardiopatches using 2 and 10 million CMs, respectively
+    where: Results, Scale-up of cardiopatch size
+- field: preparation
+  value: implanted cardiopatch
+  anchor:
+    quote: Representative photograph of an implanted 3-week-old cardiopatch (arrow) in a dorsal skinfold window chamber
+    where: Fig. 6 legend
+- field: time_point
+  value: d7 post implantation
+  anchor:
+    quote: quantiﬁcation of blood vessel density (BVD, c) of cardiopatches on d7 and d14 post implantation
+    where: Fig. 6 legend
+- field: time_point
+  value: d14 post implantation
+  anchor:
+    quote: quantiﬁcation of blood vessel density (BVD, c) of cardiopatches on d7 and d14 post implantation
+    where: Fig. 6 legend
+- field: platform
+  value: Cerex frame only
+  anchor:
+    quote: blank (Cerex® frame-only) controls
+    where: Fig. 6 legend
+- field: transgene
+  value: MHCK7-gCaMP6 lentivirus
+  anchor:
+    quote: hiPSC-CMs were transduced with MHCK7-gCaMP6 lentivirus following metabolic puriﬁcation and replating
+    where: Methods, Lentivirus production and transduction
+- field: pacing
+  value: 1 Hz
+  anchor:
+    quote: the implantation site was probed with a platinum point electrode applying stimuli at a rate of 1 Hz
+    where: Methods, Imaging of Ca2+ transients in implanted cardiopatches
+- field: day_of_measurement
+  value: 2-week-old
+  anchor:
+    quote: 2-week-old 0.5 MM cardiopatches (7 × 7 mm) were implanted onto the nude rat epicardium
+    where: Results, Functional analysis of epicardially implanted cardiopatches
+- field: time_point
+  value: 3 weeks post implantation
+  anchor:
+    quote: cardiopatches (7 × 7 mm) were implanted onto the nude rat epicardium and assessed 3 weeks post implantation
+    where: Results, Functional analysis of epicardially implanted cardiopatches
+- field: temperature
+  value: 37 °C
+  anchor:
+    quote: The heart was then maintained on a Langendorff perfusion system with 37 °C oxygenated Tyrode’s solution
+    where: Methods, Imaging of Ca2+ transients in implanted cardiopatches
+- field: time_point
+  value: pre-implantation
+  anchor:
+    quote: CVs in implanted cardiopatches (18.1 ± 1.7 cm/s, Fig. 7e, right) were found to be comparable to pre-implantation
+      CVs (19.3 ± 1.0 cm/s)
+    where: Results, Functional analysis of epicardially implanted cardiopatches
+- field: species
+  value: rat
+  anchor:
+    quote: 2-week-old 0.5 MM cardiopatches (7 × 7 mm) were implanted onto the nude rat epicardium
+    where: Results, Functional analysis of epicardially implanted cardiopatches
+- field: donor_age
+  value: 10–12 weeks old
+  anchor:
+    quote: Athymic (nude) rats (male, 10–12 weeks old)
+    where: Methods, Surgical implantation of cardiopatches onto rat hearts
+- field: preparation
+  value: Langendorff-perfused heart
+  anchor:
+    quote: Di-4-ANEPPS-reported transmembrane voltage in Langendorff-perfused rat hearts
+    where: Fig. 7 legend
+- field: pacing
+  value: burst pacing at 2–20 Hz
+  anchor:
+    quote: burst pacing at 2–20 Hz (Supplementary Fig. 18A) failed to produce arrhythmias
+    where: Results, Functional analysis of epicardially implanted cardiopatches

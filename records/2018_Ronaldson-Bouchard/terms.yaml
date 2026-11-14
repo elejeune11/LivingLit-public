@@ -1,0 +1,744 @@
+record: 2018_Ronaldson-Bouchard
+vocabulary_version: 6
+agent:
+  model: llm
+  instructions: terms_v3
+edits:
+- add_term:
+    field: mechanical_load
+    id: mechanical_load:auxotonic
+    label: auxotonic
+    definition: Culture in which the tissue contracts against an elastic load (such as flexible pillars), so its length and
+      force both change in each beat.
+    scope: Contraction against an elastic, spring-like load; not a static load at fixed length, not unloaded free-floating
+      culture, and not externally applied cyclic stretch.
+- add_synonym:
+    id: platform:adult_heart_tissue
+    text: adult heart
+    anchor: 'commercial tissues were used: adult heart, ages: 30–39'
+- add_term:
+    field: preparation
+    id: preparation:cdna
+    label: cDNA
+    definition: Complementary DNA reverse-transcribed from the RNA of a sample, used to measure gene expression.
+    scope: Reverse-transcribed cDNA, made in the study or bought; not purified RNA (RNA extract), a crude lysate, or living,
+      fixed or sectioned samples.
+- set_scope:
+    id: preparation:rna_extract
+    scope: Purified RNA; not cDNA reverse-transcribed from it, not a crude lysate, and not living or fixed samples.
+- set_scope:
+    id: measure:calcium_transient_amplitude
+    scope: Peak height of electrically evoked transients; (F−F0)/F0 is expressed_as % change and F/F0 is expressed_as fold;
+      not times or caffeine-evoked release.
+- standing_key:
+    measure: measure:action_potential_duration
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.level
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.level
+      may_vary: &id001
+      - cell_line
+      - day_of_measurement
+- standing_key:
+    measure: measure:relaxation_time
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.level
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.level
+      may_vary: *id001
+- standing_key:
+    measure: measure:calcium_transient_rise_time
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.level
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.level
+      may_vary: *id001
+- standing_key:
+    measure: measure:calcium_transient_decay_time
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.level
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.level
+      may_vary: *id001
+- standing_key:
+    measure: measure:calcium_transient_amplitude
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      - measure.expressed_as
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id001
+- standing_key:
+    measure: measure:fractional_area_change
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.expressed_as
+      - measure.normalised_to
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id001
+- standing_key:
+    measure: measure:gene_expression
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measure.gene
+      - measure.expressed_as
+      - measure.normalised_to
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - measure.gene
+      may_vary: *id001
+- standing_key:
+    measure: measure:twitch_force
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id001
+- standing_key:
+    measure: measure:twitch_stress
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id001
+- standing_key:
+    measure: measure:post_rest_potentiation
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id001
+- standing_key:
+    measure: measure:caffeine_calcium_release
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      - measurement_calcium_mM
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      may_vary: *id001
+- standing_key:
+    measure: measure:contraction_frequency
+    value:
+      must_match:
+      - platform@1
+      - preparation
+      - pacing
+      - temperature
+      may_vary:
+      - cell_line
+    direction:
+      must_match:
+      - contrast
+      - pacing
+      may_vary: *id001
+- standing_key:
+    measure: measure:gene_expression
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.gene, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.gene]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:action_potential
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:action_potential_amplitude
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:action_potential_duration
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:upstroke_velocity
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:resting_membrane_potential
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:current_density
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.current, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.current]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:twitch_force
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:twitch_stress
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, mechanical_load, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:post_rest_potentiation
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_transient_amplitude
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_transient_rise_time
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_transient_fwhm
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:calcium_transient_decay_time
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:caffeine_calcium_release
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measurement_calcium_mM, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:relaxation_time
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.level, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:ec50
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.response, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.response]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:conduction_velocity
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:contraction_frequency
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:cell_area
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:mitochondrial_area_fraction
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:oxygen_consumption_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:extracellular_acidification_rate
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:ultrastructure
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.feature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.feature]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:t_tubules
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:marker_positive_cells
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.marker, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.marker]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:sarcomere_containing_cells
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:marker_positive_ratio
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.markers, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.markers]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:cell_elongation_ratio
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:sarcomere_length
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:fractional_area_change
+    value:
+      must_match: [platform@1, preparation, pacing, temperature, measure.expressed_as, measure.normalised_to, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, pacing]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+- field: cm_medium
+  stated: RPMI + B27
+  terms:
+  - cm_medium:rpmi_1640
+  split:
+  - words: B27
+    field: supplements
+  note: B27 is a supplement mixture (supplements:b27); cm_medium holds the base medium, so B27 is a split request to supplements.
+- field: pacing
+  stated: voltage clamp
+  flag:
+    kind: not a context
+    note: voltage clamp is a recording mode (method), not pacing; the cells are not paced
+- field: platform
+  stated: fetal cardiac tissue strip
+  terms:
+  - platform:fetal_heart_tissue
+  note: strip format of the fetal benchmark tissue
+- field: platform
+  stated: adult left ventricle tissue
+  terms:
+  - platform:adult_heart_tissue
+  note: left-ventricular origin is not a separate term
+- field: measure
+  stated: gene expression, conduction genes (SCN5A, KCNJ2, KCND3, ITPR3, HCN2, SCN1B, HCN4, HCN1, KCNJ8, KCNH2)
+  flag:
+    kind: several measures
+    note: a panel of genes in one value; each gene is its own measure (measure.gene)
+- field: measure
+  stated: gene expression, maturation genes (NPPA, NPPB, MAPK1, PRKACA)
+  flag:
+    kind: several measures
+    note: a panel of genes in one value; each gene is its own measure (measure.gene)
+- field: measure
+  stated: gene expression, structural genes (TNNT2, GJA1, TNNI3, MYH6, MYH7, MYH7/MYH6, AKAP6, GJA5, JPH2)
+  flag:
+    kind: several measures
+    note: a panel of genes in one value; each gene is its own measure (measure.gene)
+- field: measure
+  stated: gene expression, energetics genes (PRKAA1, TFAM, PPARGC1A, PPA1, PTPA, SLC2A4)
+  flag:
+    kind: several measures
+    note: a panel of genes in one value; each gene is its own measure (measure.gene)
+- field: measure
+  stated: gene expression, calcium genes (CACNA1C, RYR2, CASQ2, PLN, CAMK2B, TRDN, CAV3, BIN1, AMPH, ATP2A2)
+  flag:
+    kind: several measures
+    note: a panel of genes in one value; each gene is its own measure (measure.gene)
+- field: measure
+  stated: gene expression (structural, calcium handling, conduction, energetics, maturation genes)
+  flag:
+    kind: several measures
+    note: a panel of genes in one value; each gene is its own measure (measure.gene)
+- field: measure
+  stated: SCN5A expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SCN5A
+- field: measure
+  stated: RYR2 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: RYR2
+- field: measure
+  stated: CACNA1C expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: CACNA1C
+- field: measure
+  stated: ATP2A2 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: ATP2A2
+- field: measure
+  stated: SLC8A1 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: SLC8A1
+- field: measure
+  stated: MYH7/MYH6 expression
+  terms:
+  - measure:gene_expression
+  qualifiers:
+    gene: MYH7/MYH6
+- field: measure
+  stated: ultrastructure (TEM)
+  terms:
+  - measure:ultrastructure
+  note: TEM is the method, not part of the measure
+- field: measure
+  stated: mitochondrial area
+  terms:
+  - measure:mitochondrial_area_fraction
+- field: measure
+  stated: IK1 current density
+  terms:
+  - measure:current_density
+  qualifiers:
+    current: IK1
+- field: measure
+  stated: T-tubules and calcium handling protein spacing
+  flag:
+    kind: several measures
+    note: T-tubule presence and the spacing of calcium handling proteins are two measures
+- field: measure
+  stated: calcium transient ((F – F0)/F0) at increasing pacing frequency
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: '% change'
+  note: pacing frequency is the x variable
+- field: measure
+  stated: caffeine response
+  terms:
+  - measure:caffeine_calcium_release
+- field: measure
+  stated: change in twitch tension after rest (post-rest potentiation)
+  terms:
+  - measure:post_rest_potentiation
+- field: measure
+  stated: change in force with isoproterenol (ionotropic response)
+  terms:
+  - measure:twitch_force
+  note: 'broader term: a dose response of force to isoproterenol (treatment); whether the value is a change or a level is
+    not in the stated text'
+- field: measure
+  stated: calcium transient ((F – F0)/F0) with isoproterenol (lusitropic response)
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: '% change'
+  note: the stated quantity is (F – F0)/F0 although the label says lusitropic
+- field: measure
+  stated: EC50 of beat frequency response to isoproterenol
+  terms:
+  - measure:ec50
+  qualifiers:
+    response: beat frequency
+- field: measure
+  stated: twitch stress vs [Ca2+]
+  terms:
+  - measure:twitch_stress
+  note: '[Ca2+] is the x variable'
+- field: measure
+  stated: action potential duration (90% from peak)
+  terms:
+  - measure:action_potential_duration
+  qualifiers:
+    level: 90% from peak
+    expressed_as: absolute
+- field: measure
+  stated: mean upstroke velocity
+  terms:
+  - measure:upstroke_velocity
+  note: '''mean'' is the statistic'
+- field: measure
+  stated: calcium transient (F−F0/F0) and tissue displacement (fold change)
+  flag:
+    kind: several measures
+    note: calcium transient and tissue displacement are two measures
+- field: measure
+  stated: MLC2v+
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: MLC2v+
+- field: measure
+  stated: MLC2a+
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: MLC2a+
+- field: measure
+  stated: cTnT+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: cTnT+
+- field: measure
+  stated: vimentin+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: vimentin+
+- field: measure
+  stated: vWF+ cells
+  terms:
+  - measure:marker_positive_cells
+  qualifiers:
+    marker: vWF+
+- field: measure
+  stated: MLC2v+/MLC2a+
+  terms:
+  - measure:marker_positive_ratio
+  qualifiers:
+    markers: MLC2v+/MLC2a+
+- field: measure
+  stated: normalized fractional change in area
+  terms:
+  - measure:fractional_area_change
+  note: normalised as stated; what it is normalised to is not in the stated text
+  qualifiers:
+    expressed_as: normalised
+- field: measure
+  stated: mitochondria and oxidative phosphorylation immunofluorescence
+  flag:
+    kind: several measures
+    note: mitochondria and oxidative phosphorylation staining are two readouts
+- field: measure
+  stated: T-tubules (WGA and di-8-ANEPPS staining)
+  terms:
+  - measure:t_tubules
+  note: the stains are the method
+- field: measure
+  stated: calcium transient full-width half-maximum (FWHM)
+  terms:
+  - measure:calcium_transient_fwhm
+- field: measure
+  stated: calcium transient with nifedipine
+  terms:
+  - measure:calcium_transient_amplitude
+  note: nifedipine is the treatment
+- field: measure
+  stated: caffeine calcium release after verapamil
+  terms:
+  - measure:caffeine_calcium_release
+  note: verapamil is in treatment
+- field: measure
+  stated: caffeine calcium release after thapsigargin
+  terms:
+  - measure:caffeine_calcium_release
+  note: thapsigargin is in treatment
+- field: measure
+  stated: calcium spikes (F/F0)
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: fold
+- field: measure
+  stated: calcium transient response to ryanodine
+  terms:
+  - measure:calcium_transient_amplitude
+  note: ryanodine is the treatment
+- field: measure
+  stated: calcium intensity (F-F0/F0)
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: '% change'
+- field: measure
+  stated: relaxation time (R90)
+  terms:
+  - measure:relaxation_time
+  qualifiers:
+    level: R90
+    expressed_as: absolute
+- field: measure
+  stated: calcium peak (Δ[Ca2+] (F/F0)) at each stimulation frequency
+  terms:
+  - measure:calcium_transient_amplitude
+  qualifiers:
+    expressed_as: fold
+  note: stimulation frequency is the x variable

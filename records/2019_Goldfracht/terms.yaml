@@ -1,0 +1,322 @@
+record: 2019_Goldfracht
+vocabulary_version: 41
+agent: {model: llm, instructions: terms_v4}
+
+edits:
+  # ---------------------------------------------------------------- context fields
+  - add_synonym:
+      id: cm_medium:imdm
+      text: "Iscove-Medium"
+      anchor: "Medium was changed every other day (Iscove-Medium with 20% fetal bovine serum, 1% non-essential amino acids"
+  - add_synonym:
+      id: CHEBI:41218
+      text: "b-mercaptoethanol"
+      anchor: "1% penicillin/streptomycin and 100 mmol/l b-mercaptoethanol)."
+  - adopt:
+      field: supplements
+      id: CHEBI:760525
+      label: "human serum albumin, recombinant rice-derived"
+      lookup: "chebi 'serum albumin' and 'albumin'; the paper's albumin is from Oryzogen (rice-derived recombinant HSA), which matches this id; no synonym added because 'recombinant human serum albumin' is broader (yeast-derived exists)"
+  - add_synonym:
+      id: platform:culture_2d
+      text: "two-dimensional cultures"
+      anchor: "to control hiPSC-CMs grown as two-dimensional cultures (right-panel)."
+  - add_term:
+      field: substrate
+      id: substrate:cardiac_ecm_hydrogel
+      label: "decellularized cardiac ECM hydrogel"
+      parent: substrate:hydrogel
+      definition: "A hydrogel made by solubilizing the extracellular matrix of decellularized heart tissue, in which cells are embedded."
+      scope: "A gel made from solubilized decellularized cardiac matrix (source species and crosslinkers are qualifiers); not fibrin, Matrigel, Geltrex or collagen gels, and not an intact decellularized myocardium slice used as a scaffold."
+      synonyms:
+        - {text: "cardiac-specific ECM hydrogel", anchor: "we combined a chitosan-enforced cardiac-specific ECM hydrogel derived"}
+        - {text: "pcECM hydrogel", anchor: "the aforementioned pcECM hydrogel"}
+      qualifiers:
+        source: {dimension: text}
+        chitosan: {dimension: text}
+        genipin: {dimension: text}
+  - add_synonym:
+      id: preparation:intact_tissue
+      text: "whole EHT"
+      anchor: "signal from the whole EHT (Fig. S2A)."
+  - add_synonym:
+      id: preparation:dissociated_cells
+      text: "dispersed single-cells"
+      anchor: "studied as dispersed single-cells when compared to"
+  - add_term:
+      field: transgene
+      id: transgene:arclight
+      label: "ArcLight"
+      parent: transgene:voltage_indicator
+      definition: "The genetically encoded voltage indicator ArcLight, whose fluorescence falls on membrane depolarisation."
+      scope: "ArcLight only; not Archon1 or other voltage indicators."
+      synonyms:
+        - {text: "ArcLight", anchor: "established transgenic hiPSC line expressing the GEVI, ArcLight"}
+  - set_scope:
+      id: transgene:archon1
+      scope: "Archon1 only; not ArcLight or other voltage indicators."
+  - add_qualifier:
+      id: measurement_medium:culture_medium
+      name: additive
+      dimension: text
+  - add_synonym:
+      id: CHEBI:3385
+      text: "carbamylcholine"
+      anchor: "application of the muscarinic agonist carbamylcholine (1 mM) led to a significant negative chronotropic"
+  - adopt:
+      field: treatment
+      id: CHEBI:41462
+      label: "CARBENOXOLONE"
+      lookup: "chebi 'carbenoxolone' (exact; the sodium salt CHEBI:31351 not chosen, salt not stated)"
+  - adopt:
+      field: disease_model
+      id: MONDO:0013367
+      label: "long QT syndrome 2"
+      lookup: "mondo 'long QT syndrome 2' (exact)"
+      synonyms:
+        - {text: "long QT syndrome type 2", anchor: "female patient diagnosed with the long QT syndrome type 2"}
+  - adopt:
+      field: disease_model
+      id: MONDO:0012762
+      label: "catecholaminergic polymorphic ventricular tachycardia 2"
+      lookup: "mondo 'catecholaminergic polymorphic ventricular tachycardia 2' (exact)"
+      synonyms:
+        - {text: "catecholaminergic polymorphic ventricular tachycardia type 2", anchor: "a patient diagnosed with catecholaminergic polymorphic ventricular tachycardia type 2 (CPVT2)"}
+  - adopt_own:
+      field: cell_line
+      id: cell_line:goldfracht_healthy_control_ipsc
+      label: "healthy-control hiPSC line of the Goldfracht 2019 study (unnamed)"
+      definition: "The healthy-control hiPSC line of the Gepstein lab, reprogrammed from dermal fibroblasts of a young healthy man (the paper's ref. 13), unnamed in the paper."
+      scope: "The healthy-control line of this study only; not its ArcLight transgenic line or its LQTS2 and CPVT2 patient lines, and not other labs' unnamed control lines."
+      lookup: "cellosaurus 'ArcLight', 'LQT2', 'LQTS2', 'CPVT', 'CPVT2', 'CASQ2', 'D307H', 'FLF'; the paper names no line and no hit is from this lab"
+  - adopt_own:
+      field: cell_line
+      id: cell_line:goldfracht_arclight_ipsc
+      label: "ArcLight-expressing transgenic hiPSC line of the Goldfracht 2019 study (unnamed)"
+      definition: "A previously established transgenic hiPSC line of the Gepstein lab that stably expresses ArcLight (the paper's ref. 13), unnamed in the paper."
+      scope: "The ArcLight transgenic line of this study only; not its healthy-control line (whose relation to it is not stated) or its patient lines."
+      lookup: "cellosaurus 'ArcLight' gave MHHi001-A-10 (Hannover) and TRDSi002-A-1, neither from this lab; the paper names no line"
+  - adopt_own:
+      field: cell_line
+      id: cell_line:goldfracht_lqts2_patient_ipsc
+      label: "LQTS2 patient hiPSC line of the Goldfracht 2019 study (unnamed)"
+      definition: "The Gepstein lab's hiPSC line from a young female patient with long QT syndrome type 2 (the paper's ref. 9), unnamed in the paper."
+      scope: "The LQTS2 patient line of this study only; not its CPVT2 patient line or its healthy-control and ArcLight lines."
+      lookup: "cellosaurus 'LQT2', 'LQTS2', 'LQT2-hiPSC': hits are UTA and other labs' lines; the paper names no line"
+  - adopt_own:
+      field: cell_line
+      id: cell_line:goldfracht_cpvt2_patient_ipsc
+      label: "CPVT2 patient hiPSC line of the Goldfracht 2019 study (unnamed)"
+      definition: "The Gepstein lab's hiPSC line from a patient with catecholaminergic polymorphic ventricular tachycardia type 2 (the paper's ref. 14), unnamed in the paper."
+      scope: "The CPVT2 patient line of this study only; not its LQTS2 patient line or its healthy-control and ArcLight lines."
+      lookup: "cellosaurus 'CPVT', 'CPVT2', 'CASQ2', 'D307H': hits are other labs' lines; the paper names no line"
+  # ---------------------------------------------------------------- measures
+  - add_synonym:
+      id: measure:twitch_stress
+      text: "maximal specific force of contraction"
+      anchor: "the maximal specific force of contraction (FOC) of"
+  - add_term:
+      field: measure
+      id: measure:calcium_transient_irregularity
+      label: "calcium transient irregularity"
+      parent: null
+      dimension: categorical
+      definition: "Whether calcium transients show irregular, multi-humped or spatially abnormal events (such as diastolic calcium release or triggered activity), judged from traces or images; the kind is the qualifier feature."
+      scope: "An abnormal shape or timing of calcium transients reported as present or absent; not the counted fraction of cells or tissues with such events (arrhythmia incidence), not whether transients occur at all (presence of calcium transients) and not synchrony between cells."
+      qualifiers:
+        feature: {dimension: text}
+  - standing_key:
+      measure: measure:calcium_transient_irregularity
+      value:
+        must_match: [platform@1, preparation, pacing, temperature, measure.feature, treatment, genotype, disease_model]
+        may_vary: [cell_line]
+      direction:
+        must_match: [contrast, measure.feature]
+        may_vary: [cell_line, day_of_measurement]
+  - add_term:
+      field: measure
+      id: measure:reentry_rotation_frequency
+      label: "reentry rotation frequency"
+      parent: null
+      dimension: frequency
+      definition: "Number of rotations per unit time of a reentrant activation wave during an arrhythmia."
+      scope: "Rotation rate of a reentrant wave during an arrhythmia; not the spontaneous or paced beat rate (contraction frequency), not the pacing capture limit (maximum capture rate) and not how often arrhythmias occur (arrhythmia incidence)."
+  - standing_key:
+      measure: measure:reentry_rotation_frequency
+      value:
+        must_match: [platform@1, preparation, pacing, temperature, treatment, genotype, disease_model]
+        may_vary: [cell_line]
+      direction:
+        must_match: [contrast, pacing]
+        may_vary: [cell_line, day_of_measurement]
+
+mappings:
+  # ---------------------------------------------------------------- context
+  - field: cell_line
+    stated: "healthy-control hiPSC line"
+    terms: [cell_line:goldfracht_healthy_control_ipsc]
+    note: "the paper's one healthy-control line (Methods 2.2, ref. 13); no synonym, the wording is generic"
+  - field: cell_line
+    stated: "ArcLight-expressing transgenic hiPSC line"
+    terms: [cell_line:goldfracht_arclight_ipsc]
+    split: [{words: "ArcLight-expressing transgenic", field: transgene}]
+    note: "whether this line derives from the healthy-control line is not stated"
+  - field: cell_line
+    stated: "LQTS2-hiPSC-CMs"
+    terms: [cell_line:goldfracht_lqts2_patient_ipsc]
+    split: [{words: "LQTS2", field: disease_model}]
+  - field: cell_line
+    stated: "CPVT2-hiPSC-CMs"
+    terms: [cell_line:goldfracht_cpvt2_patient_ipsc]
+    split: [{words: "CPVT2", field: disease_model}]
+  - field: platform
+    stated: "ECM-EHT"
+    terms: [platform:ring_tissue]
+    split: [{words: "ECM", field: substrate}]
+    note: "cast as rings in circular moulds and moved onto passive-stretcher devices (Methods 2.4, Results 3.1); no synonym, the name carries the substrate"
+  - field: platform
+    stated: "2D-cultured single-cell"
+    terms: [platform:culture_2d]
+    qualifiers: {cell_contact: "single cells"}
+  - field: cm_medium
+    stated: "CDM3"
+    terms: [cm_medium:rpmi_1640]
+    qualifiers: {formulation: "CDM3"}
+    note: "CDM3 is RPMI-1640 with recombinant albumin and ascorbic acid 2-phosphate (Methods 2.2); the additions are in supplements"
+  - field: supplements
+    stated: "recombinant human serum albumin + L-ascorbic acid 2-phosphate + penicillin/streptomycin"
+    terms: [CHEBI:760525, CHEBI:167162, CHEBI:17334, CHEBI:17076]
+  - field: mechanical_load
+    stated: "static stretch"
+    terms: [mechanical_load:isometric]
+    note: "the paper prints 'passive-stretcher devices' and 'passive stretch', not 'static'; mapped as the reader stated it (held stretched at fixed length); no synonym because the words are not in the paper"
+  - field: pacing
+    stated: "rapid pacing (2 Hz)"
+    terms: [pacing:electrical_pacing]
+    qualifiers: {frequency: "2 Hz", protocol: "rapid pacing"}
+    note: "delivery not stated for this experiment (Methods 2.8 says confocal recordings were field stimulated); left at the broader term"
+  - field: pacing
+    stated: "point stimulation at 1 Hz"
+    terms: [pacing:point_stimulation]
+    qualifiers: {frequency: "1 Hz"}
+  - field: pacing
+    stated: "rapid stimulation"
+    terms: [pacing:point_stimulation]
+    qualifiers: {protocol: "rapid stimulation: sequential increase in pacing frequency until arrhythmia or loss of capture"}
+    note: "Methods 2.9: constructs were point-stimulated with a bipolar electrode, and arrhythmias induced by rapid stimulation"
+  - field: measurement_medium
+    stated: "medium containing Blebbistatin"
+    terms: [measurement_medium:culture_medium]
+    qualifiers: {medium: "not stated", additive: "Blebbistatin"}
+    note: "which medium is not stated; blebbistatin is an uncoupler in the bath, not a varied treatment"
+  # ---------------------------------------------------------------- measures
+  - field: measure
+    stated: "MYL2 relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MYL2", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "MYH7 relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MYH7", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "CASQ2 relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "CASQ2", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "NKX2.5 relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "NKX2.5", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "TNNT2 relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "TNNT2", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "MYH6 relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MYH6", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "CACNA1C relative gene expression"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "CACNA1C", expressed_as: normalised, normalised_to: "GAPDH"}
+  - field: measure
+    stated: "MYL2/MYL7 expression ratio"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MYL2", expressed_as: normalised, normalised_to: "MYL7"}
+    note: "a ratio of two genes' expression, written as the first gene normalised to the second"
+  - field: measure
+    stated: "MYH7/MYH6 expression ratio"
+    terms: [measure:gene_expression]
+    qualifiers: {gene: "MYH7", expressed_as: normalised, normalised_to: "MYH6"}
+    note: "a ratio of two genes' expression, written as the first gene normalised to the second"
+  - field: measure
+    stated: "percentage of cardiac troponin T (cTnT) positive cells"
+    terms: [measure:marker_positive_cells]
+    qualifiers: {marker: "cTnT"}
+  - field: measure
+    stated: "optical signal decay time"
+    terms: [measure:calcium_transient_decay_time]
+    qualifiers: {level: "reduced to 20% of peak amplitude"}
+    note: "GCaMP5G signal; the record's definition: peak to 20% of peak amplitude"
+  - field: measure
+    stated: "intracellular [Ca2+]i transient decay time"
+    terms: [measure:calcium_transient_decay_time]
+    qualifiers: {level: "reduced to 20% of peak amplitude"}
+  - field: measure
+    stated: "irregularity of the [Ca2+]i transient profile"
+    terms: [measure:calcium_transient_irregularity]
+    qualifiers: {feature: "irregular transient profile"}
+  - field: measure
+    stated: "irregularity of the [Ca2+]i transients at the single-cell resolution"
+    terms: [measure:calcium_transient_irregularity]
+    qualifiers: {feature: "irregular transient profile"}
+    note: "single-cell resolution is the method (line-scan), not part of the measure"
+  - field: measure
+    stated: "spatially abnormal diastolic calcium release and triggered-activity events"
+    terms: [measure:calcium_transient_irregularity]
+    qualifiers: {feature: "spatially abnormal diastolic calcium release and triggered activity"}
+    note: "one observation in one panel (Fig. 2G) naming two kinds of event; kept as one feature, not flagged as several measures"
+  - field: measure
+    stated: "APD90"
+    terms: [measure:action_potential_duration]
+    qualifiers: {level: "APD90"}
+  - field: measure
+    stated: "force of contraction normalized to cross sectional area (FOC/CSA)"
+    terms: [measure:twitch_stress]
+  - field: measure
+    stated: "cross sectional area"
+    terms: [measure:tissue_cross_sectional_area]
+    note: "no synonym: 'cross sectional area' could be a cell's"
+  - field: measure
+    stated: "time to 90% contraction (T1-90)"
+    terms: [measure:time_to_partial_contraction]
+    qualifiers: {level: "90%"}
+  - field: measure
+    stated: "time to 50% relaxation (T2-50)"
+    terms: [measure:relaxation_time]
+    qualifiers: {level: "50%"}
+  - field: measure
+    stated: "percentage of cells displaying abnormal [Ca2+]i transients"
+    terms: [measure:arrhythmia_incidence]
+    qualifiers: {outcome: "abnormal [Ca2+]i transients", counted: "cells"}
+  - field: measure
+    stated: "conduction velocity (CV)"
+    terms: [measure:conduction_velocity]
+  - field: measure
+    stated: "spontaneous activation rate"
+    terms: [measure:contraction_frequency]
+    note: "electrical activation rate from voltage-dye optical mapping under blebbistatin; the beat rate, though contraction is blocked"
+  - field: measure
+    stated: "percentage of ECM-EHTs in which arrhythmias were triggered"
+    terms: [measure:arrhythmia_incidence]
+    qualifiers: {outcome: "arrhythmia triggered by rapid stimulation", counted: "ECM-EHTs"}
+  - field: measure
+    stated: "rotation frequency of the reentrant arrhythmias"
+    terms: [measure:reentry_rotation_frequency]
+  - field: measure
+    stated: "percentage of arrhythmic ECM-EHTs terminated by field stimulation"
+    terms: [measure:arrhythmia_incidence]
+    qualifiers: {outcome: "arrhythmia terminated by field stimulation", counted: "ECM-EHTs with reentrant arrhythmia"}
+  - field: measure
+    stated: "percentage of ECM-EHTs that developed arrhythmias"
+    terms: [measure:arrhythmia_incidence]
+    qualifiers: {outcome: "reentrant arrhythmia", counted: "ECM-EHTs"}

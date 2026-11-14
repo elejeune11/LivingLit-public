@@ -1,0 +1,342 @@
+record: 2016_Han
+vocabulary_version: 68
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# ---------------------------------------------------------------- context: own fields
+- add_term:
+    field: substrate
+    id: substrate:polycaprolactone
+    label: polycaprolactone
+    parent: null
+    definition: Poly(ε-caprolactone), a synthetic biodegradable polyester that cells sit on, here as electrospun fibers.
+    scope: The PCL polymer as the material cells sit on (its form, e.g. electrospun fibers, is the platform); not PDMS, polyacrylamide, glass, a culture plate or a protein hydrogel.
+    synonyms:
+    - text: PCL
+      anchor: we first prepared and characterized the aligned and random PCL fibrous meshes
+- add_term:
+    field: platform
+    id: platform:electrospun_fibrous_scaffold
+    label: electrospun fibrous scaffold
+    parent: null
+    definition: A mesh of polymer fibers made by electrospinning, on which cells are cultured.
+    scope: Cells on an electrospun fiber mesh, whose fiber orientation (aligned or random) is a qualifier; kept apart from flat 2D cultures and engineered 3D constructs because papers frame such meshes either way; not cells cast into a hydrogel or a decellularized matrix.
+    qualifiers:
+      orientation:
+        dimension: text
+- add_term:
+    field: preparation
+    id: preparation:replated_cells
+    label: replated cells
+    parent: preparation:dissociated_cells
+    definition: Cells dissociated from their culture platform and plated again on a new surface, where they are cultured further before measurement.
+    scope: Dissociated cells measured after re-attaching to a new surface (live, or fixed when combined with fixed); not cells measured in suspension straight after dissociation.
+    synonyms:
+    - text: replated
+      anchor: cells were dissociated with 0.25% Trypsin/EDTA and replated
+- add_term:
+    field: dissociation_reagent
+    id: dissociation_reagent:edta_solution
+    label: EDTA solution
+    parent: null
+    definition: An enzyme-free solution of EDTA in buffered saline (e.g. Versene) that detaches cells by chelating calcium.
+    scope: Enzyme-free EDTA chelation; not trypsin, trypsin-EDTA, TrypLE, Accutase, Accumax, collagenase or DNase, which digest proteins or DNA.
+    synonyms:
+    - text: Versene
+      anchor: were dissociated with Versene for 5–7 min at 37 °C
+- add_synonym:
+    id: purification:density_gradient_separation
+    text: Percoll gradient centrifugation
+    anchor: CMs were enriched using Percoll gradient centrifugation method
+- add_synonym:
+    id: measurement_medium:tyrode_solution
+    text: normal Tyrode's solution
+    anchor: perfused with normal Tyrode's solution
+- add_synonym:
+    id: purity_method:immunostaining
+    text: immunocytochemistry
+    anchor: containing at least 70% α-actinin-positive CMs (by immunocytochemistry
+# ---------------------------------------------------------------- context: adopted fields
+- add_synonym:
+    id: CL:0000746
+    field: cell_types
+    text: hPSC-CMs
+    anchor: Enriched hPSC-CMs were cultured for two weeks
+- add_synonym:
+    id: CL:0002248
+    field: cell_types
+    text: hPSCs
+    anchor: the pluripotency markers (SSEA-4 and TRA-1-60) of cultured hPSCs (IMR-90 iPSCs)
+- adopt:
+    field: treatment
+    id: CHEBI:8093
+    label: phenylephrine
+    lookup: livinglit lookup chebi phenylephrine; exact label match (salts and the cation not chosen; the paper names the drug)
+- adopt:
+    field: treatment
+    id: CHEBI:195607
+    label: heptanol
+    lookup: livinglit lookup chebi heptanol; exact label match. The paper says only 'heptanol' (gap junction uncoupler), so the unspecified heptanol class is used rather than heptan-1-ol (CHEBI:43003)
+# ---------------------------------------------------------------- measures
+- add_term:
+    field: measure
+    id: measure:fiber_diameter
+    label: fiber diameter
+    parent: null
+    dimension: length
+    definition: Diameter of the fibers of a fibrous scaffold, measured from microscopy images.
+    scope: A length of scaffold fibers (the statistic, e.g. mean or histogram peak, is a qualifier); not a cell, tissue, vessel, tubule or embryoid-body dimension.
+    qualifiers:
+      statistic:
+        dimension: text
+- add_term:
+    field: measure
+    id: measure:electrical_activity_presence
+    label: presence of electrical activity
+    parent: null
+    dimension: categorical
+    definition: Whether cells or tissues show detectable electrical activation (field potentials or action potentials).
+    scope: Electrical activation present or absent, e.g. on a multielectrode array; not presence of beating (mechanical), presence of calcium transients, or a beat or field-potential rate.
+- add_term:
+    field: measure
+    id: measure:sarcomere_organisation_level_fraction
+    label: share of cells at sarcomeric organisation levels
+    parent: measure:sarcomere_organisation
+    dimension: dimensionless
+    definition: Share of cells assigned to stated grades (qualifier level) of a sarcomeric organisation scale scored from immunostaining.
+    scope: A counted share of cells in stated organisation grades; the graded description itself stays on the parent, and a share of cells classed as disarrayed is disarrayed sarcomere cell fraction.
+- standing_key:
+    measure: measure:fiber_diameter
+    value:
+      must_match: [substrate, platform@1]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [substrate]
+- standing_key:
+    measure: measure:electrical_activity_presence
+    value:
+      must_match: [platform@1, preparation, treatment, genotype, disease_model]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast]
+      may_vary: [cell_line, day_of_measurement]
+- standing_key:
+    measure: measure:sarcomere_organisation_level_fraction
+    value:
+      must_match: [platform@1, preparation, day_of_measurement, measure.level, measure.expressed_as]
+      may_vary: [cell_line]
+    direction:
+      must_match: [contrast, measure.level]
+      may_vary: [cell_line, day_of_measurement]
+mappings:
+# ---------------------------------------------------------------- context
+- field: platform
+  stated: tissue culture polystyrene
+  terms: [platform:culture_2d]
+  split:
+  - {words: polystyrene, field: substrate}
+  note: TCP names a surface, not a format; the paper does not call the TCP culture a monolayer, so the broader 2D culture. The material is already in substrate ('polystyrene') and agrees.
+- field: substrate
+  stated: polystyrene
+  terms: [substrate:culture_plate]
+  note: the paper's 'tissue culture polystyrenes (TCPs)' control, i.e. the plastic surface of a culture plate; bare 'polystyrene' not added as a synonym (too broad).
+- field: hipsc_medium
+  stated: MEF-conditioned hPSC medium or Essential 8
+  flag:
+    kind: alternatives
+    note: two media joined by 'or' (Methods 2.2); the S1 groups say which method used which (MEF-conditioned medium for growth factors, E8 for small molecules).
+- field: differentiation_factors
+  stated: activin A + BMP4 or CHIR99021 + Wnt-C59
+  flag:
+    kind: alternatives
+    note: two differentiation protocols joined by 'or'; the paper does not say which produced the CMs of units F2–F7.
+- field: cm_medium
+  stated: RPMI/B27
+  terms: [cm_medium:rpmi_1640]
+  split:
+  - {words: B27, field: supplements}
+  note: B27 is a supplement added to RPMI.
+- field: dissociation_reagent
+  stated: 0.25% Trypsin/EDTA
+  terms: [dissociation_reagent:trypsin_edta]
+  qualifiers: {concentration: 0.25%}
+- field: cell_types
+  stated: human adult ventricular cardiomyocytes
+  terms: [CL:2000046]
+  split:
+  - {words: human, field: species}
+  - {words: adult, field: donor_age}
+  note: benchmark group li1996; species and donor_age are already filled and agree.
+- field: cell_types
+  stated: relaxed human cardiac muscle cell
+  terms: [CL:0000746]
+  split:
+  - {words: human, field: species}
+  note: benchmark group bird2003; 'relaxed' is the cell's contractile state at measurement, not a cell type; species already filled and agrees.
+# ---------------------------------------------------------------- measures
+- field: measure
+  stated: fiber orientation
+  terms: [measure:orientation_distribution]
+  qualifiers: {structure: scaffold fibers}
+- field: measure
+  stated: fiber diameter histogram peak
+  terms: [measure:fiber_diameter]
+  qualifiers: {statistic: histogram peak}
+- field: measure
+  stated: average fiber diameter
+  terms: [measure:fiber_diameter]
+  qualifiers: {statistic: mean}
+- field: measure
+  stated: cell alignment
+  terms: [measure:tissue_anisotropy]
+  note: qualitative alignment of CMs on each substrate from α-actinin images (Fig. 2B), no histogram or index; tissue_anisotropy is the qualitative-alignment term, though defined from histology.
+- field: measure
+  stated: smooth muscle actin immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: smooth muscle actin}
+- field: measure
+  stated: troponin T immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: troponin T}
+- field: measure
+  stated: myosin heavy chain immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: myosin heavy chain}
+- field: measure
+  stated: α-actinin immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: α-actinin}
+- field: measure
+  stated: troponin I immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: troponin I}
+- field: measure
+  stated: pan-cadherin immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: pan-cadherin}
+- field: measure
+  stated: NKX2.5 immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: NKX2.5}
+- field: measure
+  stated: MLC-2A immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: MLC-2A}
+- field: measure
+  stated: MLC-2V immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: MLC-2V}
+- field: measure
+  stated: Ki67 immunostaining
+  terms: [measure:protein_staining]
+  qualifiers: {protein: Ki67}
+- field: measure
+  stated: sarcomeric organization level
+  terms: [measure:sarcomere_organisation_level_fraction]
+  qualifiers: {level: levels III and IV, expressed_as: absolute}
+  note: the one item (F4B_al_tcp) prints the share of cells in levels III and IV (75% vs 63%); expressed_as absolute because the share is not relative to a baseline.
+- field: measure
+  stated: TNNT2 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNT2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: MYL7 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYL7, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: MYH6 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH6, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: TTN relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TTN, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: ATP2A2 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: ATP2A2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: CASQ2 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: CASQ2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: HCN1 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: HCN1, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: KCNJ2 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: KCNJ2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: KCNA4 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: KCNA4, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: TNNI3 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: TNNI3, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: MYL2 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYL2, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: MYH7 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: MYH7, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: SLC8A1 relative expression
+  terms: [measure:gene_expression]
+  qualifiers: {gene: SLC8A1, expressed_as: fold, normalised_to: GAPDH}
+- field: measure
+  stated: relative expression of TNNT2, MYL7, MYH6 and TTN
+  flag:
+    kind: several measures
+    note: one fold range (1.9–2.4) over four genes; each gene is a measure of its own (the per-gene items F5_<gene> already exist).
+- field: measure
+  stated: relative expression of ATP2A2, CASQ2, HCN1, KCNJ2 and KCNA4
+  flag:
+    kind: several measures
+    note: one fold range (1.8–2.8) over five genes; each gene is a measure of its own (the per-gene items F5_<gene> already exist).
+- field: measure
+  stated: normalized beating rate
+  terms: [measure:contraction_frequency]
+  qualifiers: {expressed_as: fold}
+  note: MEA beating rate after each dose relative to the rate before the compound, printed as fold (Results 3.5, Fig. 6 legend); normalised_to left out because the paper does not name the reference in so many words.
+- field: measure
+  stated: electrical activity
+  terms: [measure:electrical_activity_presence]
+- field: measure
+  stated: calcium transient peak amplitude
+  terms: [measure:calcium_transient_amplitude]
+  qualifiers: {expressed_as: '% change'}
+  note: Fig. 7C defines the amplitude as ΔF/F0 (per the record reader); the Fig. 7D axis prints mV, which the record marks as a suspected error.
+- field: measure
+  stated: half rise to peak time
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers: {level: 50% rise to peak}
+  note: the Discussion prints '50% rise to peak time'; the Fig. 7 legend's 'half rise to decay time' is a suspected error in the record.
+- field: measure
+  stated: peak to half decay time
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers: {level: peak to 50% decay}
+- field: measure
+  stated: SSEA-4+ TRA-1-60+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: SSEA-4 and TRA-1-60 (double positive), population: hPSCs}
+- field: measure
+  stated: α-actinin+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: α-actinin}
+- field: measure
+  stated: troponin T+ cells
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: troponin T}
+- field: measure
+  stated: CM fraction after Percoll enrichment
+  terms: [measure:marker_positive_cells]
+  qualifiers: {marker: α-actinin}
+  split:
+  - {words: after Percoll enrichment, field: purification}
+  note: the supplement's Percoll section counts 'α-actinin-positive CMs (by immunocytochemistry)'; the group gf_percoll already carries the Percoll purification, which agrees.

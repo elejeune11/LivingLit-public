@@ -1,0 +1,216 @@
+record: 2014_Yang
+vocabulary_version: 49
+agent:
+  model: llm
+  instructions: terms_v4
+edits:
+# --- synonyms (paper's exact words for existing terms)
+- add_synonym:
+    id: CVCL_B810
+    field: cell_line
+    text: Rockefeller University Embryonic Stem Cell Line 2
+    anchor: In the cardiomyocytes derived from human Rockefeller University Embryonic Stem Cell Line 2, T3 treatment induced similar cardiac gene expression patterns.
+- add_synonym:
+    id: platform:micropost_array
+    text: micropost arrays
+    anchor: To characterize force production on a per-cell basis we used micropost arrays [27].
+- add_synonym:
+    id: measurement_medium:culture_medium
+    text: culturing medium
+    anchor: The experiments were done at 37°C with culturing medium containing 15 mM HEPES.
+- add_synonym:
+    id: preparation:dna_extract
+    text: total DNA
+    anchor: Total DNA was extracted using phenol-chloroform extraction method.
+- add_synonym:
+    id: measure:contraction_time_to_peak
+    text: time to peak contraction
+    anchor: Contractile time analysis revealed that T3-treated hiPSC-CMs displayed shorter time to peak contraction
+- add_synonym:
+    id: measure:twitch_duration
+    text: total twitch time
+    anchor: T3 also significantly decreased the time to 90% relaxation (Fig. 3E) and total twitch time (Fig. 3F).
+- add_synonym:
+    id: measure:binucleated_cell_fraction
+    text: binucleated cells
+    anchor: No differences were found in the percentage of binucleated cells between groups, with both around 12%.
+- add_synonym:
+    id: measure:oxygen_consumption_rate
+    text: basal OCR
+    anchor: statistical analysis of the differences in basal OCR, maximal OCR, respiratory reserve capacity, and non-mitochondrial OCR.
+- add_synonym:
+    id: measure:maximal_oxygen_consumption_rate
+    text: maximal OCR
+    anchor: statistical analysis of the differences in basal OCR, maximal OCR, respiratory reserve capacity, and non-mitochondrial OCR.
+- add_synonym:
+    id: measure:spare_respiratory_capacity
+    text: respiratory reserve capacity
+    anchor: statistical analysis of the differences in basal OCR, maximal OCR, respiratory reserve capacity, and non-mitochondrial OCR.
+- add_synonym:
+    id: measure:non_mitochondrial_ocr
+    text: non-mitochondrial OCR
+    anchor: Non-mitochondrial OCR was the OCR value after rotenone and antimycin A treatment.
+# --- new terms
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:hepes_buffered_medium
+    label: HEPES-buffered medium, base not stated
+    definition: A medium stated only as containing HEPES buffer, used as the bath during the measurement, whose base medium is not named.
+    scope: A medium named only by its HEPES content; not the cells' culture medium when the source says so, not a named assay or imaging medium, not a salt solution (Tyrode's, Krebs, Hank's, PBS, extracellular solution) and not a serum-free medium.
+    qualifiers:
+      hepes:
+        dimension: concentration
+    synonyms:
+    - text: HEPES-containing medium
+      anchor: The experiments were performed in a live cell chamber at 37°C with 15 mM HEPES-containing medium.
+- add_term:
+    field: measurement_medium
+    id: measurement_medium:unbuffered_dmem
+    label: unbuffered DMEM
+    parent: measurement_medium:assay_medium
+    definition: DMEM without bicarbonate buffer, used as the base medium of an extracellular flux assay.
+    scope: Bicarbonate-free DMEM named by its base (e.g. a catalogue DMEM powder); not the Agilent Seahorse XF DMEM product, the Seahorse XF RPMI medium, an imaging medium such as FluoroBrite DMEM or a calcium kit buffer.
+    synonyms:
+    - text: unbuffered DMEM
+      anchor: Culture medium was exchanged for base media (unbuffered DMEM, Sigma D5030, supplemented with 2 mM glutamine)
+mappings:
+- field: cm_medium
+  stated: RPMI-B27
+  terms: [cm_medium:rpmi_1640]
+  split:
+  - words: B27
+    field: supplements
+  note: RPMI with B27 supplement ("serum-free RPMI-B27 plus L-glutamine"); B27 belongs in supplements (supplements:b27), which holds only L-glutamine.
+- field: cm_day_at_formation
+  stated: Twenty days
+  flag:
+    kind: not a context
+    note: The same day as '20 days' in this paper's other units, printed in words; copies of one value that differ only in wording go back to the reader, and code's number words stop at twelve, so it does not parse as a quantity. Read it as '20 days'.
+- field: replating_coating
+  stated: mouse laminin
+  terms: [replating_coating:laminin]
+  qualifiers:
+    source: mouse
+- field: platform
+  stated: glass slides
+  terms: [platform:culture_2d]
+  qualifiers:
+    format: glass slides
+  note: Cells replated onto fibronectin-coated glass slides for calcium imaging; whether they formed a monolayer is not stated.
+- field: platform
+  stated: tissue culture dishes
+  terms: [platform:culture_2d]
+  qualifiers:
+    format: tissue culture dishes
+- field: platform
+  stated: Seahorse plates
+  terms: [platform:culture_2d]
+  qualifiers:
+    format: Seahorse XF96 plates
+- field: pacing
+  stated: stimulated
+  terms: [pacing:electrical_pacing]
+  note: '"Stimulated calcium transients (0.5 Hz)" on an IonOptix system; the delivery (field or point) is not stated, so the root term. No synonym: "stimulated" is too generic.'
+- field: measure
+  stated: α-MHC expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: MYH6
+    expressed_as: fold
+  note: α-MHC is the MYH6 gene product; normalised_to left to the values (F1F against HPRT then control; TXT3 against control).
+- field: measure
+  stated: β-MHC expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: MYH7
+    expressed_as: fold
+- field: measure
+  stated: SERCA2a expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: ATP2A2
+    expressed_as: fold
+- field: measure
+  stated: cardiomyocyte percentage
+  terms: [measure:marker_positive_cells]
+  qualifiers:
+    marker: α-actinin
+    population: Hoechst-stained nuclei
+  note: Cardiomyocytes counted as α-actinin-positive against Hoechst 33342 nuclei (item's method).
+- field: measure
+  stated: titin N2BA isoform expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: TTN (N2BA)
+- field: measure
+  stated: titin N2B isoform expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: TTN (N2B)
+- field: measure
+  stated: titin isoform expression (N2BA and N2B)
+  terms: [measure:transcript_isoform_fraction]
+  qualifiers:
+    isoform: N2BA
+    total: N2BA + N2B
+  note: The item states which titin isoform dominates (N2BA), i.e. the N2BA share of N2BA + N2B mRNA; no values printed.
+- field: measure
+  stated: BrdU-positive cardiomyocyte nuclei
+  terms: [measure:marker_positive_cells]
+  qualifiers:
+    marker: BrdU
+    population: α-actinin-positive cardiomyocyte nuclei
+- field: measure
+  stated: p21 mRNA transcript expression
+  terms: [measure:gene_expression]
+  qualifiers:
+    gene: CDKN1A
+  note: p21 is the CDKN1A gene product; normalised to HPRT and expressed relative to control (values carry it).
+- field: measure
+  stated: p21 protein level
+  terms: [measure:protein_level]
+  qualifiers:
+    protein: CDKN1A
+  note: p21 (CDKN1A) by western blot against GAPDH.
+- field: measure
+  stated: time to 90% relaxation
+  terms: [measure:relaxation_time]
+  qualifiers:
+    level: 90% relaxation
+- field: measure
+  stated: maximal calcium transient upstroke velocity
+  terms: [measure:calcium_transient_rise_rate]
+  qualifiers:
+    statistic: maximal
+- field: measure
+  stated: maximal calcium transient decay velocity
+  terms: [measure:calcium_transient_decay_rate]
+  qualifiers:
+    statistic: maximal
+- field: measure
+  stated: time to 90% peak [Ca2+]i
+  terms: [measure:calcium_transient_rise_time]
+  qualifiers:
+    level: 90% peak
+- field: measure
+  stated: time to 50% decay of the calcium transient
+  terms: [measure:calcium_transient_decay_time]
+  qualifiers:
+    level: 50% decay
+- field: measure
+  stated: mtDNA to nDNA ratio
+  terms: [measure:mitochondrial_dna_content]
+  qualifiers:
+    gene: MT-ND1
+    normalised_to: nuclear LPL
+  note: qPCR of a fragment within ND1 against a region of the nuclear LPL gene.
+- field: measure
+  stated: relative mitochondrial volume
+  terms: [measure:mitochondrial_area_fraction]
+  note: TEM point counting (crosspoints over mitochondria / total points) on sections, which estimates the fraction of section area that the paper calls volume fraction; no synonym, as "relative mitochondrial volume" could also name a 3D volume per cell.
+- field: measure
+  stated: non-mitochondrial OCR as a fraction of total OCR
+  terms: [measure:non_mitochondrial_ocr]
+  qualifiers:
+    expressed_as: normalised
+    normalised_to: total OCR

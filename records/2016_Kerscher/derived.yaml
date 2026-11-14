@@ -1,0 +1,867 @@
+# Derivations of 2016_Kerscher, written by the formula agent (instructions formulas_v3).
+record: 2016_Kerscher
+formula_library_version: 31
+agent:
+  model: llm
+  instructions: formulas_v3
+derived:
+  S1B_growth_d5.growth_imr_d5:
+    item: S1B_growth_d5
+    group: imr_d5
+    measure: lateral surface area increase
+    formula: d = (A5 - A0)/A0
+    anchor:
+      quote: Tissue growth was based on normalized day 0 tissue surface area
+      where: Methods, Tissue area growth
+      file: nihms-755756.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: A5
+        x0: A0
+    inputs:
+      A5:
+        not_stated: true
+        kind: per sample
+        note: day-5 lateral surface area of each tissue; not printed
+      A0:
+        not_stated: true
+        kind: per sample
+        note: day-0 lateral surface area of the same tissue; not printed
+    output: S1B_growth_d5.values.growth_imr_d5_text
+    aggregation: not stated
+    alternatives:
+    - label: ratio to day 0, then minus 1
+      formula: d = A5/A0 - 1
+      note: '''normalized day 0 tissue surface area'' read as A5/A0; the printed 20.1 % is an expansion, so the change is
+        the ratio minus 1 (relative_change_from_ratio)'
+    note: the paper prints the day-5 value as an expansion of the area ('expanded microisland lateral surface area of 20.1
+      ± 8.0%'); per-tissue areas are not printed and Fig. S1B has no points
+  S1B_growth_d5.growth_l199_d5:
+    item: S1B_growth_d5
+    group: l199_d5
+    measure: lateral surface area increase
+    formula: d = (A5 - A0)/A0
+    anchor:
+      quote: Tissue growth was based on normalized day 0 tissue surface area
+      where: Methods, Tissue area growth
+      file: nihms-755756.pdf
+    library:
+      formula: relative_change
+      vars:
+        d: d
+        x: A5
+        x0: A0
+    inputs:
+      A5:
+        not_stated: true
+        kind: per sample
+        note: day-5 lateral surface area of each tissue; not printed
+      A0:
+        not_stated: true
+        kind: per sample
+        note: day-0 lateral surface area of the same tissue; not printed
+    output: S1B_growth_d5.values.growth_l199_d5_text
+    aggregation: not stated
+    alternatives:
+    - label: ratio to day 0, then minus 1
+      formula: d = A5/A0 - 1
+      note: '''normalized day 0 tissue surface area'' read as A5/A0; the printed 20.1 % is an expansion, so the change is
+        the ratio minus 1 (relative_change_from_ratio)'
+    note: the paper prints the day-5 value as an expansion of the area ('expanded microisland lateral surface area of 20.1
+      ± 8.0%'); per-tissue areas are not printed and Fig. S1B has no points
+  S2A_late_vs_early.frequency_early:
+    item: S2A_late_vs_early
+    group: early
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: S2A_late_vs_early.values.freq_early_text
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  S2A_late_vs_early.frequency_late:
+    item: S2A_late_vs_early
+    group: late
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: S2A_late_vs_early.values.freq_late_text
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  S2A_intermediate.frequency_intermediate:
+    item: S2A_intermediate
+    group: intermediate
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: S2A_intermediate.values.freq_intermediate_legend
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  S2A_d90_vs_d50.frequency_d50:
+    item: S2A_d90_vs_d50
+    group: d50
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: S2A_d90_vs_d50.values.freq_d50_text
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  S2A_d90_vs_d50.frequency_d90:
+    item: S2A_d90_vs_d50
+    group: d90
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: S2A_d90_vs_d50.values.freq_d90_text
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  S2A_d60.frequency_d60:
+    item: S2A_d60
+    group: d60
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: S2A_d60.values.freq_d60_legend
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  TXT3_single_vs_cluster.frequency_single:
+    item: TXT3_single_vs_cluster
+    group: single
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: TXT3_single_vs_cluster.values.freq_single
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  TXT3_single_vs_cluster.frequency_cluster:
+    item: TXT3_single_vs_cluster
+    group: cluster
+    measure: frequency of spontaneous contraction
+    formula: f = N/t
+    anchor:
+      quote: Number of contractions per minute
+      where: Methods, Frequency of contraction
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: f
+        a: N
+        b: t
+    inputs:
+      N:
+        not_stated: true
+        kind: per sample
+        note: contractions counted in the recording
+      t:
+        not_stated: true
+        kind: not stated
+        note: recording duration; 'per minute' gives the unit, not the length of the video
+    output: TXT3_single_vs_cluster.values.freq_cluster
+    output_unit: Hz
+    aggregation: not stated
+    note: counts per minute are printed in Hz (÷ 60); no counts or durations are printed
+  F3E_rate.fold:
+    item: F3E_rate
+    measure: frequency of spontaneous contraction
+    formula: r = f_post/f_pre
+    anchor:
+      quote: the frequency of spontaneous contraction increased by 1.2-fold
+      where: Results 3.4
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: f_post
+        b: f_pre
+    inputs:
+      f_post:
+        not_stated: true
+        kind: per sample
+        note: rate after 0.5 µM isoproterenol (Fig. 3E bar; not printed, not read)
+      f_pre:
+        not_stated: true
+        kind: per sample
+        note: rate before isoproterenol (Fig. 3E bar; not printed, not read)
+    output: F3E_rate.values.fold
+    output_unit: fold
+    aggregation: not stated
+    note: Fig. 3E has bars (mean ± s.d., n = 3) but no readings were taken, so the fold cannot be rebuilt
+  F3F_iso_vs_control.normalized:
+    item: F3F_iso_vs_control
+    measure: normalized frequency of contraction
+    formula: not stated
+    anchor: not stated
+    no_formula: the reference the frequency is normalised to is not stated (only the y-axis reads 'normalized frequency');
+      no values are printed
+    inputs:
+      f:
+        not_stated: true
+        kind: per sample
+        note: rate in each condition
+      f_ref:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference
+  F3F_isopro_vs_iso.normalized:
+    item: F3F_isopro_vs_iso
+    measure: normalized frequency of contraction
+    formula: not stated
+    anchor: not stated
+    no_formula: the reference the frequency is normalised to is not stated (only the y-axis reads 'normalized frequency');
+      no values are printed
+    inputs:
+      f:
+        not_stated: true
+        kind: per sample
+        note: rate in each condition
+      f_ref:
+        not_stated: true
+        kind: not stated
+        note: normalisation reference
+  F2B_ctnt_imr_vs_2d.percent_ect_imr:
+    item: F2B_ctnt_imr_vs_2d
+    group: ect_imr
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: the percentage of cells expressing cardiac troponin T (cTnT, cardiac specific marker) was evaluated by flow cytometry
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: cTnT positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: all gated cells
+    output: F2B_ctnt_imr_vs_2d.values.ctnt_ect_imr
+    output_unit: '%'
+    aggregation: not stated
+  F2B_ctnt_imr_vs_2d.percent_mono:
+    item: F2B_ctnt_imr_vs_2d
+    group: mono
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: the percentage of cells expressing cardiac troponin T (cTnT, cardiac specific marker) was evaluated by flow cytometry
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: cTnT positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: all gated cells
+    output: F2B_ctnt_imr_vs_2d.values.ctnt_mono
+    output_unit: '%'
+    aggregation: not stated
+  F2B_ctnt_199.percent_ect_199:
+    item: F2B_ctnt_199
+    group: ect_199
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: the percentage of cells expressing cardiac troponin T (cTnT, cardiac specific marker) was evaluated by flow cytometry
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: cTnT positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: all gated cells
+    output: F2B_ctnt_199.values.ctnt_ect_199
+    output_unit: '%'
+    aggregation: not stated
+  F2B_ki67_imr_vs_2d.percent_ect_imr:
+    item: F2B_ki67_imr_vs_2d
+    group: ect_imr
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: of which 8.4 ± 0.7% also expressed the proliferation marker Ki67
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: cTnT and Ki67 positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: cTnT positive events
+    output: F2B_ki67_imr_vs_2d.values.ki67_ect_imr
+    output_unit: '%'
+    aggregation: not stated
+    note: a fraction of a subpopulation ('of which'), not of all cells
+  F2B_ki67_imr_vs_2d.percent_mono:
+    item: F2B_ki67_imr_vs_2d
+    group: mono
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: 26.6 ± 0.5% of which also expressed Ki67
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: cTnT and Ki67 positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: cTnT positive events
+    output: F2B_ki67_imr_vs_2d.values.ki67_mono
+    output_unit: '%'
+    aggregation: not stated
+    note: a fraction of a subpopulation ('of which'), not of all cells
+  F2A_ki67_remaining.percent_ect_imr:
+    item: F2A_ki67_remaining
+    group: ect_imr
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: Of the remaining 3D-dhECT cells
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: cTnT negative, Ki67 positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: cTnT negative events
+    output: F2A_ki67_remaining.values.ki67_remaining
+    output_unit: '%'
+    aggregation: not stated
+  S3_p4hb.percent_ect:
+    item: S3_p4hb
+    group: ect
+    formula: p = n_pos/n_tot
+    anchor:
+      quote: Of the remaining 3D-dhECT cells, 5.24 ± 2.72% were fibroblasts
+      where: Results 3.3
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: p
+        a: n_pos
+        b: n_tot
+    inputs:
+      n_pos:
+        not_stated: true
+        kind: per sample
+        note: P4HB positive events
+      n_tot:
+        not_stated: true
+        kind: per sample
+        note: the text says 'of the remaining' (cTnT negative) cells; the Fig. S3 legend gives it beside 72.5 % CMs as if
+          of all cells
+    output: S3_p4hb.values.p4hb_text
+    output_unit: '%'
+    aggregation: not stated
+    alternatives:
+    - label: of cTnT negative cells
+      note: the text's reading ('Of the remaining 3D-dhECT cells')
+    - label: of all cells
+      note: the Fig. S3 legend's reading ('72.5 ± 3.2% CMs ... and 5.24 ± 2.72 % fibroblast positive cells')
+  F2D_oct4.relative_expression:
+    item: F2D_oct4
+    measure: Oct4 expression
+    formula: E = 2**(-dCt)
+    anchor:
+      quote: Gene expression levels were normalized to the housekeeping gene GAPDH using the 2-ΔCt method
+      where: Methods, RT-qPCR
+      file: nihms-755756.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: E
+        ddct: dCt
+    inputs:
+      dCt:
+        not_stated: true
+        kind: per sample
+        note: Ct(Oct4) - Ct(GAPDH) per sample; no Ct values printed
+    aggregation: not stated
+    note: '2^-ΔCt has no calibrator: the library''s ΔΔCt variable takes the ΔCt (target minus GAPDH). No values are printed
+      and the bars (Fig. 2D-H) were not read'
+  F2_mlc2v.relative_expression:
+    item: F2_mlc2v
+    measure: MLC2v expression
+    formula: E = 2**(-dCt)
+    anchor:
+      quote: Gene expression levels were normalized to the housekeeping gene GAPDH using the 2-ΔCt method
+      where: Methods, RT-qPCR
+      file: nihms-755756.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: E
+        ddct: dCt
+    inputs:
+      dCt:
+        not_stated: true
+        kind: per sample
+        note: Ct(MLC2v) - Ct(GAPDH) per sample; no Ct values printed
+    aggregation: not stated
+    note: '2^-ΔCt has no calibrator: the library''s ΔΔCt variable takes the ΔCt (target minus GAPDH). No values are printed
+      and the bars (Fig. 2D-H) were not read'
+  F2_bmhc.relative_expression:
+    item: F2_bmhc
+    measure: bMHC expression
+    formula: E = 2**(-dCt)
+    anchor:
+      quote: Gene expression levels were normalized to the housekeeping gene GAPDH using the 2-ΔCt method
+      where: Methods, RT-qPCR
+      file: nihms-755756.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: E
+        ddct: dCt
+    inputs:
+      dCt:
+        not_stated: true
+        kind: per sample
+        note: Ct(bMHC) - Ct(GAPDH) per sample; no Ct values printed
+    aggregation: not stated
+    note: '2^-ΔCt has no calibrator: the library''s ΔΔCt variable takes the ΔCt (target minus GAPDH). No values are printed
+      and the bars (Fig. 2D-H) were not read'
+  F2_cx43.relative_expression:
+    item: F2_cx43
+    measure: Cx43 expression
+    formula: E = 2**(-dCt)
+    anchor:
+      quote: Gene expression levels were normalized to the housekeeping gene GAPDH using the 2-ΔCt method
+      where: Methods, RT-qPCR
+      file: nihms-755756.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: E
+        ddct: dCt
+    inputs:
+      dCt:
+        not_stated: true
+        kind: per sample
+        note: Ct(Cx43) - Ct(GAPDH) per sample; no Ct values printed
+    aggregation: not stated
+    note: '2^-ΔCt has no calibrator: the library''s ΔΔCt variable takes the ΔCt (target minus GAPDH). No values are printed
+      and the bars (Fig. 2D-H) were not read'
+  F2F_amhc.relative_expression:
+    item: F2F_amhc
+    measure: aMHC expression
+    formula: E = 2**(-dCt)
+    anchor:
+      quote: Gene expression levels were normalized to the housekeeping gene GAPDH using the 2-ΔCt method
+      where: Methods, RT-qPCR
+      file: nihms-755756.pdf
+    library:
+      formula: ddct_relative_expression
+      vars:
+        r: E
+        ddct: dCt
+    inputs:
+      dCt:
+        not_stated: true
+        kind: per sample
+        note: Ct(aMHC) - Ct(GAPDH) per sample; no Ct values printed
+    aggregation: not stated
+    note: '2^-ΔCt has no calibrator: the library''s ΔΔCt variable takes the ΔCt (target minus GAPDH). No values are printed
+      and the bars (Fig. 2D-H) were not read'
+  F4B_circularity.circularity_cm:
+    item: F4B_circularity
+    group: cm
+    measure: cell circularity
+    formula: c = 4*pi*A/P**2
+    anchor:
+      quote: Cells were analyzed for their cell area and circularity using ImageJ software with standard analysis plugins
+      where: Methods, 3D-dhECT CM size, circularity
+      file: nihms-755756.pdf
+    library:
+      formula: circularity_def
+      vars:
+        c: c
+        A: A
+        P: P
+    inputs:
+      A:
+        item: F4B_area
+        kind: per sample
+        note: cell area of each CM (only range and mean printed)
+      P:
+        not_stated: true
+        kind: per sample
+        note: cell perimeter; not printed
+    output: F4B_circularity.values.circ_mean_text
+    aggregation: mean of per-sample
+    note: the formula is named ('circularity', ImageJ standard plugins), not written out; ImageJ's circularity is 4πA/P²
+  TXT5_lw.lw_cm:
+    item: TXT5_lw
+    group: cm
+    measure: length-to-width ratio
+    formula: r = Lc/Wc
+    anchor:
+      quote: Length and width of 60 cells were measured using ImageJ and the ratio was calculated
+      where: Methods, 3D-dhECT CM size, circularity
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: Lc
+        b: Wc
+    inputs:
+      Lc:
+        not_stated: true
+        kind: per sample
+        note: cell length
+      Wc:
+        not_stated: true
+        kind: per sample
+        note: cell width
+    output: TXT5_lw.values.lw
+    aggregation: not stated
+    note: an SD over n = 60 CMs suggests a mean of per-cell ratios, but the text does not say
+  S6D_hzone.ratio_d124:
+    item: S6D_hzone
+    group: d124
+    measure: H-zone to sarcomere ratio
+    formula: r = nH/nS
+    anchor:
+      quote: The numerical ratio of H-zones to sarcomeres
+      where: Methods, Quantification of sarcomere structure
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: nH
+        b: nS
+    inputs:
+      nH:
+        not_stated: true
+        kind: constant
+        note: number of sarcomeres with an H-zone; not printed
+      nS:
+        printed: '101'
+        unit: count
+        kind: constant
+        anchor:
+          quote: A total of 101 sarcomeres and 142 z-lines
+          where: Methods, Quantification of sarcomere structure
+          file: nihms-755756.pdf
+    output: S6D_hzone.values.hzone_ratio
+  S6D_iband.ratio_d124:
+    item: S6D_iband
+    group: d124
+    measure: I-band to Z-line ratio
+    formula: r = nI/nZ
+    anchor:
+      quote: the ratio of I-bands to Z-lines
+      where: Methods, Quantification of sarcomere structure
+      file: nihms-755756.pdf
+    library:
+      formula: ratio_def
+      vars:
+        r: r
+        a: nI
+        b: nZ
+    inputs:
+      nI:
+        not_stated: true
+        kind: constant
+        note: number of I-bands; not printed
+      nZ:
+        printed: '142'
+        unit: count
+        kind: constant
+        anchor:
+          quote: A total of 101 sarcomeres and 142 z-lines
+          where: Methods, Quantification of sarcomere structure
+          file: nihms-755756.pdf
+    output: S6D_iband.values.iband_ratio
+assumptions:
+  F2D_oct4.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F2_mlc2v.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F2_bmhc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F2_cx43.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+  F2F_amhc.relative_expression:
+    model: ddct_relative_expression
+    assumptions:
+      amplification efficiency near 100 %:
+        reported: not stated
+      equal amplification efficiencies of target and reference:
+        reported: not stated
+bounds:
+- item: F2B_ctnt_imr_vs_2d
+  value: F2B_ctnt_imr_vs_2d.values.ctnt_ect_imr
+  formula: fraction_bounds
+- item: F2B_ctnt_imr_vs_2d
+  value: F2B_ctnt_imr_vs_2d.values.ctnt_mono
+  formula: fraction_bounds
+- item: F2B_ctnt_199
+  value: F2B_ctnt_199.values.ctnt_ect_199
+  formula: fraction_bounds
+- item: F2B_ki67_imr_vs_2d
+  value: F2B_ki67_imr_vs_2d.values.ki67_ect_imr
+  formula: fraction_bounds
+- item: F2B_ki67_imr_vs_2d
+  value: F2B_ki67_imr_vs_2d.values.ki67_mono
+  formula: fraction_bounds
+- item: F2A_ki67_remaining
+  value: F2A_ki67_remaining.values.ki67_remaining
+  formula: fraction_bounds
+- item: S3_ctnt
+  value: S3_ctnt.values.ctnt_legend
+  formula: fraction_bounds
+- item: S3_p4hb
+  value: S3_p4hb.values.p4hb_text
+  formula: fraction_bounds
+- item: S3_p4hb
+  value: S3_p4hb.values.p4hb_legend
+  formula: fraction_bounds
+- item: F2A_quadrants
+  value: F2A_quadrants.values.q1
+  formula: fraction_bounds
+- item: F2A_quadrants
+  value: F2A_quadrants.values.q2
+  formula: fraction_bounds
+- item: F2A_quadrants
+  value: F2A_quadrants.values.q3
+  formula: fraction_bounds
+- item: F2A_quadrants
+  value: F2A_quadrants.values.q4
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.ctnt_p4hb_q1
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.ctnt_p4hb_q2
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.ctnt_p4hb_q3
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.ctnt_p4hb_q4
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.isotype_q1
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.isotype_q2
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.isotype_q3
+  formula: fraction_bounds
+- item: S3_quadrants
+  value: S3_quadrants.values.isotype_q4
+  formula: fraction_bounds
+- item: S6D_hzone
+  value: S6D_hzone.values.hzone_ratio
+  formula: fraction_bounds
+proposals: []
